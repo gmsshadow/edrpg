@@ -1,0 +1,409 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npcIndividual": "NPC (individual scale)"
+    },
+    "Item": {
+      "karma": "Karma Capability",
+      "background": "Background",
+      "enhancement": "Enhancement"
+    }
+  },
+  "EDRPG": {
+    "sheet": {
+      "name": "Name",
+      "gender": "Gender",
+      "age": "Age",
+      "height": "Height",
+      "weight": "Weight",
+      "dodge": "Dodge",
+      "initiative": "Initiative",
+      "parry": "Parry",
+      "karma": {
+        "standard": "Karma",
+        "cyber": "Karma (Cyber)"
+      },
+      "endurance": "Endurance",
+      "rank": "Rank",
+      "rankPoints": "Rank Points",
+      "tabs": {
+        "main": "Main",
+        "skills": "Skills",
+        "bgKarma": "Backgrounds & Karma",
+        "combat": "Combat",
+        "equipment": "Equipment"
+      },
+      "skills": {
+        "name": "Skills",
+        "combat": {
+          "name": "Personal Combat",
+          "dodge": {
+            "name": "Dodge",
+            "description": "Dodge is your skill at getting out of the way of bullets, energy beams, knives and punches. It is used extensively in personal combat and determines your Defence (Dodge) bonus."
+          },
+          "energyWeapons": {
+            "name": "Energy Weapons",
+            "description": "Energy Weapons cover all laser and beam weapons used in personal combat, except for those which are shoulder or tripod mounted. The higher your energy weapons Skill the more likely you are to hit and the more damage burst weapons, such as the Assault Beamer, will inflict."
+          },
+          "fighting": {
+            "name": "Fighting",
+            "description": "Fighting is the skill that governs weaponless combat, such as boxing, wrestling, kung fu, headbutting and any other noble martial art. Fighting can include improvised weapons such as chair legs and broken bottles, but any close combat weapon designed for combat falls under the Melee Weapons Skill. Fighting can be a useful skill for taking opponents alive as the damage it inflicts is (generally) non-lethal."
+          },
+          "grenade": {
+            "name": "Grenade",
+            "description": "This Skill allows you to use grenades with a semblance of accuracy and safety. It also covers the ability to use and disarm explosives of all kinds."
+          },
+          "heavyWeapons": {
+            "name": "Heavy Weapons",
+            "description": "Heavy Weapons are large tripod or shoulder mounted weapons used in Personal Combat such as chain guns, missile launchers and plasma cannons. Heavy Weapons are powerful, but difficult to use and aim in small scale, fast moving skirmishes. This Skill can also be used to fire weapons mounted on vehicles provided that you are personally operating the weapon. If you are relying on the vehicle’s targeting computer you must use the Vehicle Weapons Skill."
+          },
+          "kineticWeapons": {
+            "name": "Kinetic Weapons",
+            "description": "Kinetic Weapons cover all projectile based weapons used in personal combat such as autopistols, assault rifles and shotguns. Weapons which are shoulder or tripod mounted use the Heavy Weapons Skill instead. The higher your Kinetic Weapons Skill the more likely you are to hit and the more damage burst weapons will inflict."
+          },
+          "meleeWeapons": {
+            "name": "Melee Weapons",
+            "description": "The Melee Weapons Skill covers the use of all close combat weapons such as swords, clubs, and axes as well as more exotic close range weapons such as Cyberclaws. Melee Weapons are rarely used by common folk but are beloved of assassins and expert mercenaries who like to kill cleanly and silently."
+          },
+          "parry": {
+            "name": "Parry",
+            "description": "The Parry Skill is used to deflect close combat attacks, both from Melee Weapons and from fighting. It is very useful as it allows a chance to counter-attack against opponent that misses you. See the chapter on Personal Combat for details."
+          }
+        },
+        "intelligence": {
+          "name": "Intelligence",
+          "computer": {
+            "name": "Computer",
+            "description": "Computers are easy to use in the 34th century, but quite hard to crack. The Computer Skill allows you to hack terminals, interrogate secured databases and even to reprogram the computer’s basic functions."
+          },
+          "cultureLaw": {
+            "name": "Culture & Law",
+            "description": "Culture and Law is your knowledge of interstellar society including its rules, history, art forms, codes of conduct and its important leaders. Educated people are expected to know about these kinds of things, whilst the unwashed masses, in their ignorance, might know only their local planet’s customs and nothing else."
+          },
+          "cyber": {
+            "name": "Cyber",
+            "description": "The Cyber Skill allows you to repair and modify robots, drones and cybernetic attachments. It also covers your skill in remotely piloting any drones you might own or be currently in control of."
+          },
+          "medicine": {
+            "name": "Medicine",
+            "description": "The Medicine Skill covers everything from patching up wounds to resuscitating a dying comrade. Characters with the Trained Doctor background can even attempt surgery, but should refrain from doing anything too ambitious until they get a good Skill level. Medicine can also be used to diagnose medical problems such as disease, poisoning and chemical intoxication. Provided suitable medical facilities are available most of these problems, once diagnosed, can be cured within a day or so."
+          },
+          "planetaryKnowledge": {
+            "name": "Planetary Knowledge",
+            "description": "This Skill represents your knowledge of different planets – their general location, their systems of government, and their general economy. Although most people rely on computers to give them facts about other worlds, restrictive modern copyright law means most interstellar encyclopedias are shockingly incomplete. Well-known systems such as Sol or Achenar are easy to recall, whereas obscure outer rim worlds are more difficult. This Skill ties in nicely with Navigation. Navigation tells you how to get to a new system; Planetary Knowledge tells you what is actually there."
+          },
+          "science": {
+            "name": "Science",
+            "description": "The Science Skill includes the three great sciences, physics, chemistry and biology. Science lets you understand how things work in the universe and can be used to predict the effects of an action. On a practical level you can use Science to understand how close you can fly to a turbulent planet or star, to calculate if your ship will still be able to take off on a heavy gravity world, or to estimate when that supernova is going to go critical. A good knowledge of science makes you look very smart, which can be helpful in some situations."
+          },
+          "tactics": {
+            "name": "Tactics",
+            "description": "Tactics is your ability to assess a situation quickly and determine the best course of action. It is mostly used to determine initiative in Combat, but it can also be used to spot good ambush areas or to predict the actions of an enemy commander on the battlefield."
+          },
+          "trading": {
+            "name": "Trading",
+            "description": "Trading is the ability to understand and prosper in the complex trading environment of the Elite: Dangerous universe. This Skill is mostly used between adventures to gather extra income – a good Trading Skill and a large cargo hold can net a large amount of extra cash. You will use it in game to predict good trading routes and to judge whether the sale price of an item is fair or not."
+          }
+        },
+        "social": {
+          "name": "Social Skills",
+          "bargain": {
+            "name": "Bargain",
+            "description": "Bargain is your skill in getting what you want in some kind of exchange, usually involving money. You can use it with vendors and shop keepers to get cheaper equipment, and it can also be used to bribe people. The GM might allow you to use this Skill between adventures to get cheaper equipment."
+          },
+          "bluff": {
+            "name": "Bluff",
+            "description": "Bluff is your skill at lying, deception and disguise. Use it to convince people you are someone you are not or to play the innocent when the police turn up."
+          },
+          "charm": {
+            "name": "Charm",
+            "description": "Charm is your ability to make people feel good about themselves and to trust you based on nothing more than your raw charisma. People who like you are less inclined to be suspicious of you or to want to harm you. It works well with other abilities such as Diplomacy, Bluff and Bargain."
+          },
+          "diplomacy": {
+            "name": "Diplomacy",
+            "description": "Diplomacy is the ability to resolve disputes through respect and persuasion, treating your debating target as an equal. Use it when you wish to show common cause with a potential enemy, or to explain, rationally, what you are doing, to a suspicious guard. Diplomacy relies on openness and honesty – if you are lying to your target use Bluff instead."
+          },
+          "gambling": {
+            "name": "Gambling",
+            "description": "With Gambling you increase your skill in all games of chance, from card games to token slot machines. You can count cards and figure out the win/loss conditions programmed into casino gambling machines. "
+          },
+          "insight": {
+            "name": "Insight",
+            "description": "The Insight Skill allows you to read people’s emotional state by studying their faces and body posture. It is not telepathy but it can tell you if a person is lying, earnest, angry, in love or intoxicated, making it very helpful during interrogations and questioning."
+          },
+          "intimidate": {
+            "name": "Intimidate",
+            "description": "Intimidate lets you cajole, threaten and bully obedience into a person. It is a very aggressive form of communication but is sometimes the best way to shock an angry foe into submission."
+          },
+          "streetwise": {
+            "name": "Streetwise",
+            "description": "Surviving in rough urban areas when you are a nice, middle class spaceship owner can be tough. Many street gangs use a vernacular that is hard to understand and follow a set of cultural mores that might not be consistent with society in general. In order to find information or discover where to buy rare, possibly illegal, items, you’ll need Streetwise to navigate your way through the shocking criminal underclass of the galaxy."
+          }
+        },
+        "vehicle": {
+          "name": "Vehicle Skills",
+          "navigation": {
+            "name": "Navigation",
+            "description": "Navigation covers all forms of orienteering, map reading and astro-navigation. You can plot a route through mountain ranges or nebula, figure out where you are if you become lost, and work out the most efficient routes in all kinds of terrain. Most Navigation is done with the aid of computers in the 34th century, but you are also able to navigate using stars and by identifying major landscape locations provided you have some knowledge of the planet you are on"
+          },
+          "repair": {
+            "name": "Repair",
+            "description": "Your Repair Skill allows you to fix all kinds of machinery, including spaceships and vehicles. While most pieces of technology have readable ‘fix-it’ guides downloadable from a chip inside the device or machine, Repair shows how handy you are around machines. It measures your skill and dexterity at using tools and the common sense required not to mess up the job and make things worse"
+          },
+          "shipPiloting": {
+            "name": "Spaceship Piloting",
+            "description": "This is your skill at flying spaceships. In addition to being used when you make any dangerous manoeuvres, such as skimming asteroids or flying down narrow canyons, it is primarily used in Spaceship Combat to determine the Defence of your ship."
+          },
+          "shipWeapons": {
+            "name": "Spaceship Weapons",
+            "description": "Governs your ability to hit with weapons mounted on spaceships. This is used in Spaceship Combat."
+          },
+          "systems": {
+            "name": "Systems",
+            "description": "This Skill allows you to operate scanner and sensor systems on a spaceship or ground based vehicle. It also allows you to activate and control the internal machinery inside a spaceship or vehicle, such as the airlocks and bulkheads, or any mining equipment like refineries or drones. Normally things like adjusting the temperature don’t require a Skill check, but sucking the air out of a passenger compartment or overloading the engines to explode might."
+          },
+          "vehiclePiloting": {
+            "name": "Vehicle Piloting",
+            "description": "This is your ability to drive or pilot ground or underwater vehicles such as SRV’s or Subs. It is mostly used to determine your Defence in Vehicle Combat, but is also used when you try to pull off a very difficult manoeuvre such as performing a sharp turn or driving over a high ramp."
+          },
+          "vehicleWeapons": {
+            "name": "Vehicle Weapons",
+            "description": "Governs your ability to hit with weapons mounted on vehicles. This is used in Vehicle Combat."
+          }
+        },
+        "espionage": {
+          "name": "Espionage",
+          "athletics": {
+            "name": "Athletics",
+            "description": "Athletics represents your ability to jump, run, climb, swim and otherwise perform feats of physical prowess. It is also used to see how long you can hold your breath and how far you can run."
+          },
+          "perception": {
+            "name": "Perception",
+            "description": "Perception covers the use of all five senses, sight, sound, touch, taste and smell. It is used to spot hidden items, detect ambushes, listen through closed doors and to identify a strange taste or smell. Spies and paranoid soldiers rely on a good perception to spot potential trouble before it strikes."
+          },
+          "security": {
+            "name": "Security",
+            "description": "Security is your understanding of locks, restraints, traps, observation cameras and any other device designed to keep you out of an area you are not supposed to be in. With a good Security you can override locked doors, unlock handcuffs, and predict when the next surveillance sweep is taking place in an enemy compound."
+          },
+          "sleightOfHand": {
+            "name": "Sleight of Hand",
+            "description": "Sleight of hand is the art of making small objects ‘disappear’, often into your pocket. It allows you to grab small items, no bigger than your hand, without anyone looking and place them anywhere you can reach. Unless you plan on becoming a stage magician this Skill is most commonly used by thieves to pinch stuff that doesn’t belong to them."
+          },
+          "stealth": {
+            "name": "Stealth",
+            "description": "Stealth covers both your ability to hide and to remain quiet. Sneaking around is a very useful Skill for spies and saboteurs, and indeed anyone who’d prefer to avoid combat."
+          },
+          "survival": {
+            "name": "Survival",
+            "description": "This Skill covers the ability to survive in hostile natural environments. It is most useful on alien ‘earth-type’ worlds where it might be possible to scavenge for food and water, but at its most basic level it helps you find shelter, conserve your supplies and keep you alive long enough to be rescued. Those with a high Survival Skill might even be able to track people or animals through the wilderness."
+          }
+        }
+      },
+      "table": {
+        "skills": {
+          "skill": "Skill",
+          "base": "Base",
+          "learning": "Learn",
+          "bonus": "Bonus",
+          "score": "Score"
+        }
+      },
+      "Actions": "Actions",
+      "Backgrounds": "Backgrounds",
+      "Background": "Background",
+      "Enhancements": "Enhancements",
+      "Enhancement": "Enhancement",
+      "KarmaCapabilities": "Karma Capabilities",
+      "KarmaCapability": "Karma Capability",
+      "SocialFactor": "Social Factor",
+      "SocialFactorAbbr": "SocFac",
+      "SocialFactorInfo": "Affects Bargain, Bluff, Charm & Diplomacy. Capped at +{socialFactorCap}",
+      "SocialFactorInfoNoCap": "Affects Bargain, Bluff, Charm & Diplomacy",
+      "SocialFactorFromWornItems": "Wearables",
+      "SocialFactorFromHonoraryRanks": "Honorary Ranks",
+      "SocialFactorFromOther": "Other Sources",
+      "SocialFactorTotal": "Total (capped)",
+      "honoraryRanks": "Honorary Ranks",
+      "biography": "Biography",
+      "image": "Portrait",
+      "skillCap": "Skill Cap",
+      "rollInitiative": "Roll initiative (D10 + Tactics bonus)",
+      "cyberKarmaHint": "Maximum cyber-only Karma (2 per Cyber enhancement)",
+      "enduranceBonusHint": "Rank Endurance plus adjustments (set on the Main tab)",
+      "adjustments": "Adjustments",
+      "karmaBonus": "Karma maximum adjustment",
+      "enduranceBonus": "Endurance maximum adjustment",
+      "adjustmentsHint": "Use these for enhancements, cybernetics and other effects that change your maximums (e.g. Tough: +5 Endurance).",
+      "overCap": "Above the Skill Cap of {cap}",
+      "skillUsedHint": "Used this adventure — improves by 1 at the end of the adventure",
+      "addItem": "Add",
+      "editItem": "Edit",
+      "deleteItem": "Delete",
+      "noItems": "None",
+      "pilotTrainedHint": "Pilot Trained (Spaceship Piloting +20, Spaceship Weapons +20, Systems +10) is applied automatically and does not use a background choice.",
+      "notYetImplemented": "Not yet implemented.",
+      "labels": {
+        "actor": "EDRPG Actor Sheet",
+        "item": "EDRPG Item Sheet"
+      },
+      "equipment": {
+        "Armour": "Armour",
+        "Worn": "Worn",
+        "Used": "Used",
+        "CloseCombat": "Close Combat",
+        "Weapon": "Weapon",
+        "Equipped": "Equipped",
+        "RangedWeapons": "Ranged Weapons",
+        "AmmoClips": "Ammo Clips",
+        "Cybernetics": "Cybernetics",
+        "Wearables": "Wearables",
+        "GeneralEquipment": "General Equipment",
+        "Item": "Item",
+        "Count": "Count",
+        "KarmaCost": "Karma"
+      }
+    },
+    "rank": {
+      "none": "None",
+      "pilots": {
+        "harmless": "Harmless",
+        "mostlyHarmless": "Mostly Harmless",
+        "novice": "Novice",
+        "competent": "Competent",
+        "expert": "Expert",
+        "master": "Master",
+        "dangerous": "Dangerous",
+        "deadly": "Deadly",
+        "elite": "Elite"
+      },
+      "empire": {
+        "outsider": "Outsider",
+        "serf": "Serf",
+        "master": "Master",
+        "squire": "Squire",
+        "knight": "Knight",
+        "lord": "Lord",
+        "baron": "Baron",
+        "viscount": "Viscount",
+        "count": "Count",
+        "earl": "Earl",
+        "marquis": "Marquis",
+        "duke": "Duke",
+        "prince": "Prince",
+        "king": "King"
+      },
+      "federation": {
+        "recruit": "Recruit",
+        "cadet": "Cadet",
+        "midshipman": "Midshipman",
+        "pettyOfficer": "Petty Officer",
+        "chiefPettyOfficer": "Chief Petty Officer",
+        "warrantOfficer": "Warrant Officer",
+        "ensign": "Ensign",
+        "lieutenant": "Lieutenant",
+        "lieutenantCommander": "Lieutenant Commander",
+        "postCommander": "Post Commander",
+        "postCaptain": "Post Captain",
+        "rearAdmiral": "Rear Admiral",
+        "viceAdmiral": "Vice Admiral",
+        "admiral": "Admiral"
+      }
+    },
+    "settings": {
+      "systemMaxBackgrounds": {
+        "name": "Maximum Background choices",
+        "hint": "Specifies the maximum number of background choices. Default value is 4. 'Trained Pilot' is free and it is not included in the pool. 0 means unlimited choices"
+      },
+      "defaultDifficultyNumber": {
+        "name": "Default test difficulty number",
+        "hint": "Specifies the default difficulty number for roll checks"
+      },
+      "allowToRerollAllTests": {
+        "name": "Allow to reroll all tests",
+        "hint": "Homerule - allows to reroll all tests using Karma point. Core Book rule allows to reroll only when there is a 1 on roll dice"
+      },
+      "socialFactorCap": {
+        "name": "Social Factor cap",
+        "hint": "Max Social Factor bonus added to rolls. 0 for infinite"
+      }
+    },
+    "test": {
+      "SkillCheck": "Skill Check: {skill}",
+      "DifficultyNumber": "Difficulty Number",
+      "ChildishlySimple": "Childishly Simple",
+      "VeryEasy": "Very Easy",
+      "Easy": "Easy",
+      "Average": "Average",
+      "Hard": "Hard",
+      "VeryHard": "Very Hard",
+      "AlmostImpossible": "Almost Impossible",
+      "BonusModifier": "Bonus Modifier",
+      "RollType": "Roll Type",
+      "PublicRoll": "Public Roll",
+      "GMRoll": "Roll to GM",
+      "BlindRoll": "Hidden Roll",
+      "SelfRoll": "Self Roll",
+      "Roll": "Roll",
+      "DefaultMode": "Default (chat setting)"
+    },
+    "chat": {
+      "RollResult": "Result:",
+      "TestResult": "Test Result:",
+      "Roll": "Roll:",
+      "KarmaReroll": "Karma Reroll",
+      "SkillBonus": "Skill Bonus:",
+      "BonusModifier": "Bonus Modifier:",
+      "DifficultyNumber": "Difficulty Number:",
+      "TestSuccess": "Success",
+      "TestFailure": "Failure",
+      "TestCritSuccess": "Critical Success",
+      "TestCritFailure": "Critical Failure",
+      "ActorNotFound": "Actor not found",
+      "NoKarmaPoints": "No Karma points left",
+      "ReRollUsingKarmaTitle": "Karma Reroll",
+      "ReRollUsingKarmaMessage": "<strong>{actorName}</strong> rerolls <strong>{testName}</strong> using 1 Karma point"
+    },
+    "warning": {
+      "itemNotFound": "Item with internal ID {internalId} not found in items nor compendium. Expected type: {type}",
+      "itemCannotBeAdded": "Item '{item}' cannot be added to this character",
+      "karmaCapabilityLimit": "Karma capability limit reached for rank '{rank}'",
+      "backgroundLimit": "Background limit reached"
+    },
+    "equipment": {
+      "Armour": "Armour",
+      "Worn": "Worn",
+      "Used": "Used",
+      "CloseCombat": "Close Combat",
+      "Weapon": "Weapon",
+      "Equipped": "Equipped",
+      "RangedWeapons": "Ranged Weapons",
+      "AmmoClips": "Ammo Clips",
+      "Cybernetics": "Cybernetics",
+      "Wearables": "Wearables",
+      "GeneralEquipment": "General Equipment",
+      "Item": "Item",
+      "Count": "Count",
+      "KarmaCost": "Karma"
+    },
+    "item": {
+      "choices": "Background choices used",
+      "choicesHint": "Some backgrounds (e.g. Army Trained) take two choices.",
+      "skillBonuses": "Skill bonuses",
+      "addSkillBonus": "Add skill bonus",
+      "removeSkillBonus": "Remove",
+      "category": "Category",
+      "cost": "Karma cost",
+      "free": "Free",
+      "freeHint": "Does not count towards the character's limit.",
+      "description": "Description"
+    },
+    "karmaCategory": {
+      "general": "General",
+      "anyCombat": "Any Combat",
+      "personal": "Personal Combat",
+      "vehicle": "Vehicle Combat",
+      "spaceship": "Spaceship Combat"
+    }
+  }
+}

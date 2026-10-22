@@ -1,0 +1,67 @@
+{
+  "id": "edrpg",
+  "title": "Elite: Dangerous Role Playing Game",
+  "description": "A space RPG set in the Elite: Dangerous universe.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Bruno Marques (ElSaico)",
+      "url": "https://github.com/ElSaico",
+      "discord": "elsaico"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "esmodules": ["module/edrpg.mjs"],
+  "styles": ["styles/edrpg.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["biography"]
+      },
+      "npcIndividual": {
+        "htmlFields": ["biography"]
+      }
+    },
+    "Item": {
+      "background": {
+        "htmlFields": ["description"]
+      },
+      "enhancement": {
+        "htmlFields": ["description"]
+      },
+      "karma": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["styles", "templates", "lang"]
+    }
+  },
+  "grid": {
+    "distance": 2,
+    "units": "m"
+  },
+  "primaryTokenAttribute": "endurance",
+  "secondaryTokenAttribute": "karma.standard",
+  "socket": false,
+  "url": "https://github.com/ElSaico/edrpg-fvtt",
+  "readme": "https://github.com/ElSaico/edrpg-fvtt/blob/main/README.md",
+  "bugs": "https://github.com/ElSaico/edrpg-fvtt/issues",
+  "changelog": "https://github.com/ElSaico/edrpg-fvtt/releases/latest/",
+  "manifest": "https://github.com/ElSaico/edrpg-fvtt/releases/latest/download/system.json",
+  "download": "https://github.com/ElSaico/edrpg-fvtt/releases/download/0.1.0/system.zip",
+  "license": "LICENSE"
+}

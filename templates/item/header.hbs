@@ -1,0 +1,10 @@
+<header class="edrpg-item-header">
+   <img src="{{item.img}}" alt="{{item.name}}" title="{{item.name}}" data-action="editImage" data-edit="img">
+   <label class="name-field">
+      <input type="text" name="name" value="{{item.name}}" {{#unless editable}}disabled{{/unless}}>
+      <span class="name-strip">
+         <span class="name-tag">{{localize typeLabel}}</span>
+         <span class="name-rule"></span>
+      </span>
+   </label>
+</header>

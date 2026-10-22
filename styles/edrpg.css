@@ -1,0 +1,621 @@
+@import url("font.css");
+
+/* ============================================================
+   Elite: Dangerous RPG — sheet styles (ApplicationV2)
+   Palette ported from the original Tailwind theme.
+   ============================================================ */
+
+.edrpg {
+   --ed-black: #000000;
+   --ed-white: #ffffff;
+   --ed-section-begin: #000007;
+   --ed-section-end: #3397d9;
+   --ed-secondary: #2b3d4f;
+   --ed-notes: #e3e3e3;
+   --ed-border: #858585;
+   --ed-table-header: #759cc7;
+   --ed-table-check: #4c82ba;
+   --ed-table-name: #a8bad9;
+   --ed-table-cell: #eeeeee;
+   --ed-table-highlight: #dee8f3;
+   --ed-table-highlight-border: #5e85ab;
+   --ed-tab-active: #78a0d1;
+   --ed-damage: #fae3dc;
+   --ed-damage-border: #f04f21;
+   --ed-karma-begin: #2e0078;
+   --ed-karma-end: #8a51ff;
+   --ed-karma-notes: #c2b8ff;
+   --ed-karma-table: #9e9cd1;
+   --ed-endurance-begin: #e60000;
+   --ed-endurance-end: #ff9700;
+   --ed-endurance-notes: #f8c2b5;
+   --ed-font: "Exo 2", "Signika", sans-serif;
+}
+
+/* ---------- Window ---------- */
+
+.edrpg-sheet .window-content {
+   background: var(--ed-white);
+   color: var(--ed-black);
+   font-family: var(--ed-font);
+   padding: 0.75rem;
+   gap: 0;
+   overflow: hidden;
+}
+
+.edrpg-sheet .window-content > .tab {
+   flex: 1;
+   min-height: 0;
+   overflow-y: auto;
+   padding-right: 0.25rem;
+}
+
+.edrpg-sheet input[type="text"],
+.edrpg-sheet input[type="number"],
+.edrpg-sheet select {
+   font-family: var(--ed-font);
+   color: var(--ed-black);
+   background: transparent;
+   border: 1px solid var(--ed-border);
+   border-radius: 0;
+}
+
+.edrpg-sheet input:disabled,
+.edrpg-sheet select:disabled {
+   color: var(--ed-black);
+   opacity: 1;
+}
+
+.edrpg-sheet .hint {
+   color: var(--ed-secondary);
+   font-size: var(--font-size-12, 12px);
+   font-style: italic;
+   margin: 0.25rem 0;
+}
+
+.edrpg-sheet .derived {
+   display: inline-block;
+   min-width: 2ch;
+   text-align: center;
+   font-weight: 600;
+}
+
+/* Section headings: dark-to-blue gradient with the angled notch from the original sheet */
+.edrpg .section-title {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   margin: 0.75rem 0 0.25rem;
+   padding: 0.15rem 0.5rem 0.4rem;
+   border: none;
+   background: linear-gradient(to right, var(--ed-section-begin), var(--ed-section-end));
+   color: var(--ed-white);
+   font-family: var(--ed-font);
+   font-size: var(--font-size-14, 14px);
+   font-stretch: expanded;
+   text-transform: uppercase;
+   clip-path: polygon(0 0, 50% 0, 55% 66.7%, 97.5% 66.7%, 100% 100%, 0 100%);
+}
+
+.edrpg .section-title.karma {
+   background: linear-gradient(to right, var(--ed-karma-begin), var(--ed-karma-end));
+}
+
+.edrpg .section-title .count {
+   font-size: var(--font-size-12, 12px);
+   font-stretch: normal;
+   opacity: 0.85;
+}
+
+.edrpg .section-title .item-control {
+   color: var(--ed-white);
+}
+
+/* ---------- Header ---------- */
+
+.edrpg-header {
+   display: grid;
+   grid-template-columns: 8rem repeat(4, 1fr) 10rem;
+   grid-auto-rows: auto;
+   gap: 0.6rem 1rem;
+   flex: 0 0 auto;
+}
+
+.edrpg-header .portrait {
+   grid-row: span 2;
+}
+
+.edrpg-header .portrait img {
+   width: 8rem;
+   height: 8rem;
+   object-fit: cover;
+   border: none;
+   background: linear-gradient(to right, var(--ed-table-name), var(--ed-white));
+   cursor: pointer;
+}
+
+.edrpg .name-field {
+   grid-column: span 4;
+   display: flex;
+   flex-direction: column;
+}
+
+.edrpg .name-field input {
+   height: auto;
+   padding: 0.35rem;
+   font-size: var(--font-size-24, 24px);
+   background: linear-gradient(to right, var(--ed-table-name), var(--ed-white));
+}
+
+.edrpg .name-strip {
+   display: flex;
+   align-items: flex-start;
+}
+
+.edrpg .name-tag {
+   background: var(--ed-black);
+   color: var(--ed-white);
+   padding: 0.2rem 1.5rem;
+   font-size: var(--font-size-11, 11px);
+   font-weight: 700;
+   font-stretch: expanded;
+   text-transform: uppercase;
+   clip-path: polygon(0 0, 101% 0, 100% 4px, calc(100% - 24px) 100%, 24px 100%);
+}
+
+.edrpg .name-rule {
+   flex: 1;
+   height: 4px;
+   background: linear-gradient(to right, var(--ed-section-begin), var(--ed-section-end));
+   clip-path: polygon(-1px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+}
+
+.edrpg-header .rank-field {
+   grid-row: span 2;
+   display: flex;
+   flex-direction: column;
+   background: linear-gradient(to right, var(--ed-table-name), var(--ed-white));
+}
+
+.edrpg-header .rank-title {
+   background: linear-gradient(to right, var(--ed-section-begin), var(--ed-section-end));
+   color: var(--ed-white);
+   padding: 0.25rem 0.5rem;
+   font-size: var(--font-size-11, 11px);
+   font-weight: 700;
+   font-stretch: expanded;
+   text-transform: uppercase;
+   clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%);
+}
+
+.edrpg-header .rank-name {
+   padding: 0.4rem 0.25rem;
+   text-align: center;
+   font-weight: 600;
+}
+
+.edrpg-header .rank-points {
+   display: flex;
+   flex-direction: column;
+   padding: 0 0.4rem 0.25rem;
+}
+
+.edrpg-header .rank-points span,
+.edrpg-header .rank-meta,
+.edrpg-header .detail-field span {
+   color: var(--ed-secondary);
+   text-transform: uppercase;
+   font-stretch: condensed;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg-header .rank-points input {
+   height: auto;
+   font-size: var(--font-size-20, 20px);
+   text-align: center;
+}
+
+.edrpg-header .rank-meta {
+   padding: 0 0.4rem 0.4rem;
+   text-align: center;
+}
+
+.edrpg-header .detail-field {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   height: 3.5rem;
+   background: linear-gradient(to right, var(--ed-table-name), var(--ed-white));
+   clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+}
+
+.edrpg-header .detail-field input {
+   margin: 0.25rem 1.5rem 0;
+   width: calc(100% - 3rem);
+   text-align: center;
+}
+
+.edrpg-header .detail-field span {
+   padding-left: 1rem;
+}
+
+/* Header blocks (Dodge / Initiative / Parry / Karma / Endurance) */
+
+.edrpg-header .header-block {
+   display: flex;
+   flex-direction: column;
+   --title-a: var(--ed-section-begin);
+   --title-b: var(--ed-section-end);
+   --content-a: var(--ed-table-name);
+   --content-b: var(--ed-white);
+   --input-border: var(--ed-border);
+}
+
+.edrpg-header .header-block.reverse {
+   --title-a: var(--ed-section-end);
+   --title-b: var(--ed-section-begin);
+}
+
+.edrpg-header .header-block.karma {
+   --title-a: var(--ed-karma-begin);
+   --title-b: var(--ed-karma-end);
+   --content-a: var(--ed-karma-notes);
+   --input-border: var(--ed-karma-table);
+}
+
+.edrpg-header .header-block.endurance {
+   --title-a: var(--ed-endurance-begin);
+   --title-b: var(--ed-endurance-end);
+   --content-a: var(--ed-endurance-notes);
+}
+
+.edrpg-header .block-title {
+   padding: 0.25rem;
+   background: linear-gradient(to right, var(--title-a), var(--title-b));
+   color: var(--ed-white);
+   font-size: var(--font-size-11, 11px);
+   font-weight: 700;
+   font-stretch: expanded;
+   text-transform: uppercase;
+}
+
+.edrpg-header .block-title a {
+   color: inherit;
+}
+
+.edrpg-header .block-content {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.35rem;
+   height: 3rem;
+   background: linear-gradient(to right, var(--content-a), var(--content-b));
+   font-size: var(--font-size-18, 18px);
+}
+
+.edrpg-header .block-content input {
+   width: 2.75rem;
+   text-align: center;
+   border-color: var(--input-border);
+}
+
+.edrpg-header .header-block.left .block-title {
+   text-align: left;
+   clip-path: polygon(0 0, 50% 0, 75% 100%, 0 100%);
+}
+.edrpg-header .header-block.left .block-content {
+   clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
+}
+.edrpg-header .header-block.center .block-title {
+   text-align: center;
+   clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
+}
+.edrpg-header .header-block.center .block-content {
+   clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);
+}
+.edrpg-header .header-block.right .block-title {
+   text-align: right;
+   clip-path: polygon(50% 0, 100% 0, 100% 100%, 25% 100%);
+}
+.edrpg-header .header-block.right .block-content {
+   clip-path: polygon(25% 0, 100% 0%, 75% 100%, 0% 100%);
+}
+
+/* ---------- Tabs ---------- */
+
+.edrpg-tabs {
+   display: flex;
+   flex: 0 0 auto;
+   margin: 0.75rem 0;
+   border-top: 1px solid var(--ed-border);
+   border-bottom: 1px solid var(--ed-border);
+   background: linear-gradient(to right, var(--ed-white), var(--ed-table-name));
+   font-weight: 700;
+}
+
+.edrpg-tabs .item {
+   flex: 1;
+   padding: 0.25rem 0.6rem;
+   color: var(--ed-black);
+   text-align: center;
+   text-shadow: none;
+}
+
+.edrpg-tabs .item.active {
+   background: var(--ed-tab-active);
+   color: var(--ed-white);
+   text-shadow: none;
+}
+
+/* ---------- Skills tab ---------- */
+
+.edrpg .skill-grid {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 0 1rem;
+}
+
+.edrpg .skill-table {
+   width: 100%;
+   margin: 0;
+   background: transparent;
+   border: none;
+   border-collapse: separate;
+   border-spacing: 0.25rem;
+}
+
+.edrpg .skill-table thead th {
+   background: var(--ed-table-header);
+   color: var(--ed-white);
+   padding: 0.25rem 0;
+   text-align: center;
+   text-transform: uppercase;
+   text-shadow: none;
+   font-weight: 700;
+}
+
+.edrpg .skill-table thead th.skill-name {
+   text-align: right;
+   padding-right: 0.4rem;
+}
+
+.edrpg .skill-table thead th.check {
+   background: var(--ed-table-check);
+}
+
+.edrpg .skill-table tbody th.skill-name {
+   padding: 0 0.4rem;
+   background: linear-gradient(to right, var(--ed-white), var(--ed-table-name));
+   text-align: right;
+   font-weight: 500;
+   font-stretch: condensed;
+   white-space: nowrap;
+}
+
+.edrpg .skill-table tbody th.skill-name a:hover {
+   color: var(--ed-section-end);
+   text-shadow: none;
+}
+
+.edrpg .skill-table td {
+   width: 3.5rem;
+   padding: 0;
+   text-align: center;
+   background: var(--ed-table-cell);
+   border: none;
+}
+
+.edrpg .skill-table td input {
+   width: 100%;
+   height: 100%;
+   border: none;
+   text-align: center;
+}
+
+.edrpg .skill-table td.check {
+   width: 2rem;
+   background: var(--ed-table-highlight);
+   border: 1px solid var(--ed-table-highlight-border);
+}
+
+.edrpg .skill-table tr.over-cap td:nth-of-type(3) {
+   background: var(--ed-damage);
+   outline: 1px solid var(--ed-damage-border);
+}
+
+.edrpg .skill-table .bonus {
+   color: var(--ed-secondary);
+}
+
+/* ---------- Item lists ---------- */
+
+.edrpg .item-list {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.edrpg .item-list > li {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 0.2rem 0.25rem;
+   border-bottom: 1px solid var(--ed-notes);
+}
+
+.edrpg .item-list > li.empty {
+   color: var(--ed-secondary);
+   font-style: italic;
+}
+
+.edrpg .item-list .item-img {
+   width: 28px;
+   height: 28px;
+   border: none;
+   flex: 0 0 28px;
+}
+
+.edrpg .item-list .item-name {
+   flex: 0 1 auto;
+   font-weight: 600;
+}
+
+.edrpg .item-list .item-meta {
+   flex: 1;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.25rem;
+}
+
+.edrpg .tag {
+   padding: 0 0.35rem;
+   background: var(--ed-table-highlight);
+   border: 1px solid var(--ed-table-highlight-border);
+   font-size: var(--font-size-11, 11px);
+   white-space: nowrap;
+}
+
+.edrpg .tag.free {
+   background: var(--ed-karma-notes);
+   border-color: var(--ed-karma-table);
+}
+
+.edrpg .item-controls {
+   display: flex;
+   gap: 0.4rem;
+   margin-left: auto;
+}
+
+.edrpg .placeholder {
+   color: var(--ed-secondary);
+   font-style: italic;
+   text-align: center;
+   margin-top: 2rem;
+}
+
+/* ---------- Main tab ---------- */
+
+.edrpg .adjustments {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 0.5rem 1rem;
+}
+
+.edrpg .adjustments label {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 0.5rem;
+}
+
+.edrpg .adjustments input {
+   width: 4rem;
+   text-align: center;
+}
+
+.edrpg .adjustments .hint {
+   grid-column: 1 / -1;
+}
+
+.edrpg prose-mirror {
+   min-height: 10rem;
+   color: var(--ed-black);
+}
+
+/* ---------- Item sheet ---------- */
+
+.edrpg-sheet.item .window-content {
+   overflow-y: auto;
+}
+
+.edrpg-item-header {
+   display: flex;
+   gap: 0.75rem;
+   align-items: flex-start;
+}
+
+.edrpg-item-header img {
+   width: 64px;
+   height: 64px;
+   border: none;
+   background: linear-gradient(to right, var(--ed-table-name), var(--ed-white));
+   cursor: pointer;
+}
+
+.edrpg-item-header .name-field {
+   flex: 1;
+}
+
+.edrpg .item-details .form-group label {
+   color: var(--ed-secondary);
+}
+
+.edrpg .skill-bonus-list {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.edrpg .skill-bonus-list li {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 0.15rem 0;
+}
+
+.edrpg .skill-bonus-list select {
+   flex: 1;
+}
+
+.edrpg .skill-bonus-list input {
+   width: 4rem;
+   text-align: center;
+}
+
+.edrpg .item-description {
+   display: flex;
+   flex-direction: column;
+}
+
+/* ---------- Chat card ---------- */
+
+.edrpg-chat.skill-check .breakdown {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: 0 0.5rem;
+   margin: 0 0 0.25rem;
+}
+
+.edrpg-chat.skill-check .breakdown dt {
+   font-weight: 600;
+}
+
+.edrpg-chat.skill-check .breakdown dd {
+   margin: 0;
+   text-align: right;
+}
+
+.edrpg-chat .outcome {
+   margin: 0.35rem 0;
+   padding: 0.2rem;
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: 700;
+   font-family: var(--ed-font);
+   font-stretch: expanded;
+   color: var(--ed-white);
+   background: linear-gradient(to right, var(--ed-section-begin), var(--ed-section-end));
+}
+
+.edrpg-chat .outcome.failure {
+   background: linear-gradient(to right, var(--ed-endurance-begin), var(--ed-endurance-end));
+}
+
+.edrpg-chat .reroll-tag {
+   font-style: italic;
+   margin-bottom: 0.25rem;
+}
+
+.edrpg-chat button[data-edrpg-action] {
+   width: 100%;
+}

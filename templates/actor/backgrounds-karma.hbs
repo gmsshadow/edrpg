@@ -1,0 +1,6 @@
+<section class="tab backgrounds-karma {{tab.cssClass}}" data-group="primary" data-tab="backgroundsKarma">
+   {{#if isCharacter}}<p class="hint">{{localize "EDRPG.sheet.pilotTrainedHint"}}</p>{{/if}}
+   {{> "edrpg.itemList" title="EDRPG.sheet.Backgrounds" type="background" items=backgrounds count=backgroundCount}}
+   {{> "edrpg.itemList" title="EDRPG.sheet.KarmaCapabilities" type="karma" items=karmaCapabilities count=karmaCount style="karma"}}
+   {{> "edrpg.itemList" title="EDRPG.sheet.Enhancements" type="enhancement" items=enhancements}}
+</section>

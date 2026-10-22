@@ -1,0 +1,60 @@
+<section class="item-details">
+   {{#if isBackground}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.choices"}}</label>
+      <div class="form-fields">
+         <select name="system.choices" {{#unless editable}}disabled{{/unless}}>
+            {{selectOptions backgroundChoices selected=source.choices}}
+         </select>
+      </div>
+      <p class="hint">{{localize "EDRPG.item.choicesHint"}}</p>
+   </div>
+
+   <h2 class="section-title">
+      <span>{{localize "EDRPG.item.skillBonuses"}}</span>
+      {{#if editable}}
+      <a class="item-control" data-action="addSkillBonus" data-tooltip="EDRPG.item.addSkillBonus"><i class="fa-solid fa-plus"></i></a>
+      {{/if}}
+   </h2>
+   <ol class="skill-bonus-list">
+      {{#each source.skills as |mod idx|}}
+      <li data-index="{{idx}}">
+         <select name="system.skills.{{idx}}.skill" {{#unless @root.editable}}disabled{{/unless}}>
+            {{selectOptions @root.skillChoices selected=mod.skill blank="" localize=true sort=true}}
+         </select>
+         <input type="number" name="system.skills.{{idx}}.bonus" value="{{mod.bonus}}" step="1" {{#unless @root.editable}}disabled{{/unless}}>
+         {{#if @root.editable}}
+         <a class="item-control" data-action="removeSkillBonus" data-tooltip="EDRPG.item.removeSkillBonus"><i class="fa-solid fa-trash"></i></a>
+         {{/if}}
+      </li>
+      {{/each}}
+   </ol>
+   {{/if}}
+
+   {{#if isKarma}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.category"}}</label>
+      <div class="form-fields">
+         <select name="system.category" {{#unless editable}}disabled{{/unless}}>
+            {{selectOptions karmaCategories selected=source.category localize=true}}
+         </select>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.cost"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.cost" value="{{source.cost}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+      </div>
+   </div>
+   {{/if}}
+
+   {{#if (or isBackground isKarma)}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.free"}}</label>
+      <div class="form-fields">
+         <input type="checkbox" name="system.free" {{checked source.free}} {{#unless editable}}disabled{{/unless}}>
+      </div>
+      <p class="hint">{{localize "EDRPG.item.freeHint"}}</p>
+   </div>
+   {{/if}}
+</section>

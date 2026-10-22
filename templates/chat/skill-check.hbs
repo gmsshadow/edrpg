@@ -1,0 +1,16 @@
+<div class="edrpg edrpg-chat skill-check {{outcome}}">
+   {{#if karmaReroll}}<div class="reroll-tag"><i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.chat.KarmaReroll"}}</div>{{/if}}
+   <dl class="breakdown">
+      <dt>{{localize "EDRPG.chat.Roll"}}</dt><dd>{{natural}}</dd>
+      <dt>{{localize "EDRPG.chat.SkillBonus"}}</dt><dd>{{skillBonus}}</dd>
+      {{#if modifier}}<dt>{{localize "EDRPG.chat.BonusModifier"}}</dt><dd>{{modifier}}</dd>{{/if}}
+      <dt>{{localize "EDRPG.chat.DifficultyNumber"}}</dt><dd>{{difficulty}}</dd>
+   </dl>
+   {{{rollHTML}}}
+   <div class="outcome {{#if success}}success{{else}}failure{{/if}}">{{localize outcomeLabel}}</div>
+   {{#if canReroll}}
+   <button type="button" data-edrpg-action="karmaReroll">
+      <i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.chat.ReRollUsingKarmaTitle"}}
+   </button>
+   {{/if}}
+</div>

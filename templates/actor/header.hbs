@@ -1,0 +1,73 @@
+<header class="edrpg-header">
+   <div class="portrait">
+      <img src="{{actor.img}}" alt="{{actor.name}}" title="{{actor.name}}" data-action="editImage" data-edit="img">
+   </div>
+
+   <label class="name-field">
+      <input type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'EDRPG.sheet.name'}}" {{#unless editable}}disabled{{/unless}}>
+      <span class="name-strip">
+         <span class="name-tag">{{localize "EDRPG.sheet.name"}}</span>
+         <span class="name-rule"></span>
+      </span>
+   </label>
+
+   <div class="rank-field">
+      <div class="rank-title">{{localize "EDRPG.sheet.rank"}}</div>
+      <div class="rank-name">{{localize rank.name}}</div>
+      <label class="rank-points">
+         <span>{{localize "EDRPG.sheet.rankPoints"}}</span>
+         <input type="number" name="system.rankPoints" value="{{source.rankPoints}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+      </label>
+      <div class="rank-meta">
+         {{localize "EDRPG.sheet.skillCap"}} {{rank.skillCap}}
+      </div>
+   </div>
+
+   {{#each detailFields as |field|}}
+   <label class="detail-field">
+      <input type="{{field.type}}" name="system.{{field.key}}" value="{{field.value}}" {{#unless @root.editable}}disabled{{/unless}}>
+      <span>{{localize field.label}}</span>
+   </label>
+   {{/each}}
+
+   <div class="header-block left">
+      <div class="block-title">{{localize "EDRPG.sheet.dodge"}}</div>
+      <div class="block-content"><span class="derived">{{system.dodge}}</span></div>
+   </div>
+   <div class="header-block center">
+      <div class="block-title">
+         <a data-action="rollInitiative" data-tooltip="EDRPG.sheet.rollInitiative">
+            <i class="fa-solid fa-dice-d10"></i> {{localize "EDRPG.sheet.initiative"}}
+         </a>
+      </div>
+      <div class="block-content"><span class="derived">{{system.initiative}}</span></div>
+   </div>
+   <div class="header-block right reverse">
+      <div class="block-title">{{localize "EDRPG.sheet.parry"}}</div>
+      <div class="block-content"><span class="derived">{{system.parry}}</span></div>
+   </div>
+
+   <div class="header-block left karma">
+      <div class="block-title">{{localize "EDRPG.sheet.karma.standard"}}</div>
+      <div class="block-content">
+         <input type="number" name="system.karma.standard.value" value="{{source.karma.standard.value}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+         <span>/ {{system.karma.standard.max}}</span>
+      </div>
+   </div>
+   <div class="header-block center karma">
+      <div class="block-title">{{localize "EDRPG.sheet.karma.cyber"}}</div>
+      <div class="block-content">
+         <input type="number" name="system.karma.cyber.value" value="{{source.karma.cyber.value}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+         <span>/</span>
+         <input type="number" name="system.karma.cyber.bonus" value="{{source.karma.cyber.bonus}}" min="0" step="1"
+                data-tooltip="EDRPG.sheet.cyberKarmaHint" {{#unless editable}}disabled{{/unless}}>
+      </div>
+   </div>
+   <div class="header-block right endurance">
+      <div class="block-title">{{localize "EDRPG.sheet.endurance"}}</div>
+      <div class="block-content">
+         <input type="number" name="system.endurance.value" value="{{source.endurance.value}}" step="1" {{#unless editable}}disabled{{/unless}}>
+         <span data-tooltip="EDRPG.sheet.enduranceBonusHint">/ {{system.endurance.max}}</span>
+      </div>
+   </div>
+</header>

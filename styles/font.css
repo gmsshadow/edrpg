@@ -1,0 +1,155 @@
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 100;
+  src: url('../fonts/Exo2-Thin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 200;
+  src: url('../fonts/Exo2-ExtraLight.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 300;
+  src: url('../fonts/Exo2-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 400;
+  src: url('../fonts/Exo2-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 500;
+  src: url('../fonts/Exo2-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 600;
+  src: url('../fonts/Exo2-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 700;
+  src: url('../fonts/Exo2-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 800;
+  src: url('../fonts/Exo2-ExtraBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 900;
+  src: url('../fonts/Exo2-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 100;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-ThinCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 200;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-ExtraLightCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 300;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-LightCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 400;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-RegularCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 500;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-MediumCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 600;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-SemiBoldCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 700;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-BoldCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 800;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-ExtraBoldCondensed.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 900;
+  font-stretch: condensed;
+  src: url('../fonts/Exo2-BlackCondensed.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 100;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-ThinExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 200;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-ExtraLightExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 300;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-LightExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 400;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-RegularExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 500;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-MediumExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 600;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-SemiBoldExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 700;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-BoldExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 800;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-ExtraBoldExpanded.woff') format('woff');
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-weight: 900;
+  font-stretch: expanded;
+  src: url('../fonts/Exo2-BlackExpanded.woff') format('woff');
+}

@@ -7,6 +7,8 @@ A Foundry VTT game system for the *Elite: Dangerous Role Playing Game*.
 
 **Compatibility:** Foundry VTT v14 (ApplicationV2 sheets, `TypeDataModel` for every document type).
 
+See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patch) with every change so Foundry offers the update.
+
 ## Features
 
 - **Character / NPC (individual scale)** sheet:

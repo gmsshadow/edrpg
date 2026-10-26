@@ -6,7 +6,7 @@ export default function registerSettings() {
       systemMaxBackgrounds: { default: 4, type: Number },
       defaultDifficultyNumber: { default: 9, type: Number },
       allowToRerollAllTests: { default: false, type: Boolean },
-      socialFactorCap: { default: 4, type: Number },
+      socialFactorCap: { default: 0, type: Number },
    };
    for (const [key, { default: initial, type }] of Object.entries(settings)) {
       game.settings.register("edrpg", key, {

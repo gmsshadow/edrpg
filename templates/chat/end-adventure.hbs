@@ -1,0 +1,27 @@
+<div class="edrpg edrpg-chat end-adventure">
+   {{#if confirming}}
+   <p>{{localize "EDRPG.endAdventure.confirm" name=actorName}}</p>
+   {{else}}
+   <div class="outcome success"><i class="fa-solid fa-flag-checkered"></i> {{localize "EDRPG.endAdventure.title"}}</div>
+   {{/if}}
+
+   {{#if improved.length}}
+   <h4>{{localize "EDRPG.endAdventure.improved"}}</h4>
+   <ul class="ed-advance-list">
+      {{#each improved as |s|}}
+      <li><span>{{localize s.label}}</span><span class="num">{{s.from}} → <b>{{s.to}}</b></span></li>
+      {{/each}}
+   </ul>
+   {{/if}}
+
+   {{#if atCap.length}}
+   <h4>{{localize "EDRPG.endAdventure.atCap"}}</h4>
+   <ul class="ed-advance-list muted">
+      {{#each atCap as |s|}}
+      <li><span>{{localize s.label}}</span><span class="num">{{s.natural}} / {{s.cap}}</span></li>
+      {{/each}}
+   </ul>
+   {{/if}}
+
+   {{#if confirming}}<p class="hint">{{localize "EDRPG.endAdventure.ticksCleared"}}</p>{{/if}}
+</div>

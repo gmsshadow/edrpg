@@ -4,14 +4,16 @@ import { BackgroundData, EnhancementData, KarmaCapabilityData } from "./data/ite
 import { EDActor, EDItem } from "./documents.mjs";
 import EDActorSheet from "./sheets/actor-sheet.mjs";
 import EDItemSheet from "./sheets/item-sheet.mjs";
-import { rollSkillCheck, onRenderChatMessage } from "./dice/skill-check.mjs";
+import { rollSkillCheck, onRenderSkillCheck } from "./dice/skill-check.mjs";
+import { onRenderContest, registerContestSocket } from "./dice/contest.mjs";
 import registerSettings from "./settings.mjs";
+import { endAdventure } from "./advancement.mjs";
 
 Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, rollSkillCheck };
+   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure };
 
    registerSettings();
 
@@ -47,8 +49,13 @@ Hooks.once("init", () => {
    });
 
    foundry.applications.handlebars.loadTemplates({
-      "edrpg.itemList": "systems/edrpg/templates/actor/item-list.hbs",
+      edrpgSection: "systems/edrpg/templates/actor/section.hbs",
    });
 });
 
-Hooks.on("renderChatMessageHTML", onRenderChatMessage);
+Hooks.once("ready", registerContestSocket);
+
+Hooks.on("renderChatMessageHTML", (message, html) => {
+   onRenderSkillCheck(message, html);
+   onRenderContest(message, html);
+});

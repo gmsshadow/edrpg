@@ -1,4 +1,13 @@
-import { skills, BASE_SKILL_SCORE, pilotTrained, skillCategory, rankFor, MAX_HUMAN_ENDURANCE } from "../config.mjs";
+import {
+   skills,
+   BASE_SKILL_SCORE,
+   MAX_SKILL_SCORE,
+   pilotTrained,
+   skillCategory,
+   rankFor,
+   MAX_HUMAN_ENDURANCE,
+   CYBORG_SOCIAL_FACTOR,
+} from "../config.mjs";
 
 const fields = foundry.data.fields;
 const requiredInteger = { required: true, nullable: false, integer: true };
@@ -22,10 +31,16 @@ function meterField(initial, { min = 0 } = {}) {
    });
 }
 
-/** One skill: only player-entered data is stored; base/score/bonus are derived. */
+/**
+ * One skill. Stored: permanent improvements (`learning`), a temporary modifier (`mod`),
+ * a per-skill Skill Cap adjustment (`capBonus`, e.g. Natural Genius) and the "used" tick.
+ * Derived: base, natural, cap, score, bonus.
+ */
 function skillField() {
    return new fields.SchemaField({
       learning: new fields.NumberField({ ...requiredInteger, min: 0, initial: 0 }),
+      mod: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+      capBonus: new fields.NumberField({ ...requiredInteger, initial: 0 }),
       used: new fields.BooleanField({ initial: false }),
    });
 }
@@ -55,6 +70,22 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
                ]),
             ),
          ),
+         // Social Factor sources (Core Rules, Clothing / Cosmetics / Cybernetics). `worn` covers clothing, armour
+         // and other equipment until those item types supply it automatically.
+         socialFactor: new fields.SchemaField({
+            worn: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+            cosmetics: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+            other: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+            damaged: new fields.BooleanField({ initial: false }),
+            cyborgRevealed: new fields.BooleanField({ initial: false }),
+            confident: new fields.BooleanField({ initial: false }),
+         }),
+         // 1 cr = 100 mcr = 10,000 u (Core Rules, Currency).
+         cash: new fields.SchemaField({
+            cr: new fields.NumberField({ ...requiredInteger, min: 0, initial: 0 }),
+            mcr: new fields.NumberField({ ...requiredInteger, min: 0, initial: 0 }),
+            u: new fields.NumberField({ ...requiredInteger, min: 0, initial: 0 }),
+         }),
          biography: new fields.HTMLField({ initial: "" }),
       };
    }
@@ -90,7 +121,10 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
       for (const list of Object.values(this.skills)) {
          for (const skill of Object.values(list)) {
             skill.base = BASE_SKILL_SCORE;
-            skill.cap = rank.skillCap;
+            skill.baseSources = [{ label: "EDRPG.skillConfig.starting", value: BASE_SKILL_SCORE }];
+            skill.cap = rank.skillCap + skill.capBonus;
+            skill.equipmentMod = 0;
+            skill.equipmentSources = [];
          }
       }
    }
@@ -99,28 +133,84 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
    prepareDerivedData() {
       const rank = this.rank;
 
+      this.karma.standard.base = rank.karmaPoints;
       this.karma.standard.max = rank.karmaPoints + this.karma.standard.bonus;
+      this.karma.cyber.base = 0;
       this.karma.cyber.max = this.karma.cyber.bonus;
       this.endurance.base = Math.min(rank.endurance, MAX_HUMAN_ENDURANCE);
       this.endurance.max = this.endurance.base + this.endurance.bonus;
 
-      // Background skill bonuses.
-      const mods = this.receivesPilotTrained ? [...pilotTrained] : [];
-      for (const background of this.parent.itemTypes.background ?? []) {
-         mods.push(...(background.system.skills ?? []));
-      }
-      for (const { skill, bonus } of mods) {
-         const category = skillCategory[skill];
-         if (category && Number.isFinite(bonus)) this.skills[category][skill].base += bonus;
-      }
+      this._prepareSocialFactor();
 
-      for (const list of Object.values(this.skills)) {
-         for (const skill of Object.values(list)) {
-            skill.score = skill.base + skill.learning;
-            skill.bonus = Math.floor(skill.score / 10);
-            skill.overCap = skill.score > skill.cap;
+      // Background skill bonuses (count towards Base and are limited by the Skill Cap).
+      const sources = [];
+      if (this.receivesPilotTrained) {
+         sources.push({ label: "EDRPG.sheet.pilotTrained", mods: pilotTrained });
+      }
+      for (const background of this.parent.itemTypes.background ?? []) {
+         sources.push({ label: background.name, mods: background.system.skills ?? [] });
+      }
+      for (const { label, mods } of sources) {
+         for (const { skill, bonus } of mods) {
+            const category = skillCategory[skill];
+            if (!category || !Number.isFinite(bonus)) continue;
+            const data = this.skills[category][skill];
+            data.base += bonus;
+            data.baseSources.push({ label, value: bonus });
          }
       }
+
+      // Score: Base + Learn is the natural score, limited by the Skill Cap. Equipment and temporary
+      // modifiers apply on top and may exceed the cap, but never 100 (Core Rules, "Skill Bonuses").
+      for (const list of Object.values(this.skills)) {
+         for (const skill of Object.values(list)) {
+            skill.natural = skill.base + skill.learning;
+            skill.overCap = skill.natural > skill.cap;
+            skill.totalMod = skill.mod + skill.equipmentMod;
+            skill.score = Math.clamp(skill.natural + skill.totalMod, 0, MAX_SKILL_SCORE);
+            skill.bonus = Math.floor(skill.score / 10);
+            skill.modified = skill.totalMod !== 0;
+         }
+      }
+   }
+
+   /**
+    * Social Factor: a bonus to Bargain, Bluff, Charm and Diplomacy rolls.
+    * - Positive bonuses from worn clothing are lost once the wearer takes damage.
+    * - Only one cosmetics bonus applies at a time (a single field enforces that).
+    * - The Confident enhancement removes penalties from equipment, armour and cybernetics.
+    * - A revealed (or non-discreet) cyborg has a fixed -3 that nothing else alters.
+    * - The world setting `socialFactorCap` (0 = none) is a house rule limiting the positive total.
+    */
+   _prepareSocialFactor() {
+      const sf = this.socialFactor;
+      const sources = [];
+      let total;
+      if (sf.cyborgRevealed) {
+         const value = sf.confident ? 0 : CYBORG_SOCIAL_FACTOR;
+         sources.push({ label: "EDRPG.socialFactor.cyborg", value });
+         total = value;
+      } else {
+         let worn = sf.worn;
+         let wornNote = null;
+         if (worn > 0 && sf.damaged) {
+            worn = 0;
+            wornNote = "EDRPG.socialFactor.damagedNote";
+         } else if (worn < 0 && sf.confident) {
+            worn = 0;
+            wornNote = "EDRPG.socialFactor.confidentNote";
+         }
+         sources.push({ label: "EDRPG.socialFactor.worn", value: worn, note: wornNote });
+         sources.push({ label: "EDRPG.socialFactor.cosmetics", value: sf.cosmetics });
+         sources.push({ label: "EDRPG.socialFactor.other", value: sf.other });
+         total = worn + sf.cosmetics + sf.other;
+      }
+      const cap = game.settings.get("edrpg", "socialFactorCap");
+      sf.sources = sources;
+      sf.total = total;
+      sf.cap = cap;
+      sf.value = cap > 0 && total > cap ? cap : total;
+      sf.capped = sf.value !== total;
    }
 
    /**
@@ -138,6 +228,7 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
          dodge: this.dodge,
          parry: this.parry,
          rankPoints: this.rankPoints,
+         socialFactor: this.socialFactor.value,
          skill,
       };
    }

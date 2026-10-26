@@ -1,0 +1,14 @@
+<section class="ed-section {{style}}">
+   <h2 class="ed-section-header">
+      <span class="ed-roundel"><i class="{{icon}}"></i></span>
+      <span class="ed-section-title">{{localize title}}</span>
+      {{#if count}}<span class="ed-count">{{count}}</span>{{/if}}
+      {{#if chip}}<a class="ed-chip" data-action="{{chipAction}}" data-tooltip="{{chipTooltip}}">{{chip}}</a>{{/if}}
+      {{#if addType}}{{#if @root.editable}}
+      <a class="ed-add" data-action="createItem" data-type="{{addType}}" data-tooltip="EDRPG.sheet.addItem"><i class="fa-solid fa-plus"></i></a>
+      {{/if}}{{/if}}
+   </h2>
+   <div class="ed-section-body">
+      {{> @partial-block}}
+   </div>
+</section>

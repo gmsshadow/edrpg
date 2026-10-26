@@ -1,0 +1,72 @@
+<section class="skill-config">
+   <p class="hint">{{localize description}}</p>
+
+   <h3 class="config-heading">{{localize "EDRPG.skillConfig.base"}}</h3>
+   <table class="breakdown">
+      <tbody>
+         {{#each skill.baseSources as |src|}}
+         <tr><td>{{localize src.label}}</td><td class="num">{{#if @index}}+{{/if}}{{src.value}}</td></tr>
+         {{/each}}
+         <tr class="total"><td>{{localize "EDRPG.skillConfig.base"}}</td><td class="num">{{skill.base}}</td></tr>
+      </tbody>
+   </table>
+
+   <div class="form-group">
+      <label>{{localize "EDRPG.skillConfig.learning"}}</label>
+      <div class="form-fields">
+         <input type="number" name="{{path}}.learning" value="{{skillSource.learning}}" min="0" step="1">
+      </div>
+      <p class="hint">{{localize "EDRPG.skillConfig.learningHint"}}</p>
+   </div>
+
+   <table class="breakdown">
+      <tbody>
+         <tr class="total {{#if skill.overCap}}over-cap{{/if}}">
+            <td>{{localize "EDRPG.skillConfig.natural"}}</td>
+            <td class="num">{{skill.natural}} / {{skill.cap}}</td>
+         </tr>
+      </tbody>
+   </table>
+   {{#if skill.overCap}}<p class="warning">{{localize "EDRPG.sheet.overCap" cap=skill.cap}}</p>{{/if}}
+
+   <div class="form-group">
+      <label>{{localize "EDRPG.skillConfig.capBonus"}}</label>
+      <div class="form-fields">
+         <input type="number" name="{{path}}.capBonus" value="{{skillSource.capBonus}}" step="10">
+      </div>
+      <p class="hint">{{localize "EDRPG.skillConfig.capBonusHint" cap=rankCap}}</p>
+   </div>
+
+   <h3 class="config-heading">{{localize "EDRPG.skillConfig.modifiers"}}</h3>
+   <table class="breakdown">
+      <tbody>
+         {{#each skill.equipmentSources as |src|}}
+         <tr><td>{{src.label}}</td><td class="num">{{src.value}}</td></tr>
+         {{else}}
+         <tr><td class="muted">{{localize "EDRPG.skillConfig.noEquipment"}}</td><td></td></tr>
+         {{/each}}
+      </tbody>
+   </table>
+   <div class="form-group">
+      <label>{{localize "EDRPG.skillConfig.mod"}}</label>
+      <div class="form-fields">
+         <input type="number" name="{{path}}.mod" value="{{skillSource.mod}}" step="1">
+      </div>
+      <p class="hint">{{localize "EDRPG.skillConfig.modHint"}}</p>
+   </div>
+
+   <table class="breakdown result">
+      <tbody>
+         <tr class="total"><td>{{localize "EDRPG.sheet.table.skills.score"}}</td><td class="num">{{skill.score}}</td></tr>
+         <tr class="total"><td>{{localize "EDRPG.sheet.table.skills.bonus"}}</td><td class="num">{{skill.bonus}}</td></tr>
+      </tbody>
+   </table>
+
+   <div class="form-group">
+      <label>{{localize "EDRPG.skillConfig.used"}}</label>
+      <div class="form-fields">
+         <input type="checkbox" name="{{path}}.used" {{checked skillSource.used}}>
+      </div>
+      <p class="hint">{{localize "EDRPG.sheet.skillUsedHint"}}</p>
+   </div>
+</section>

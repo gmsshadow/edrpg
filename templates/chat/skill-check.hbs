@@ -3,6 +3,7 @@
    <dl class="breakdown">
       <dt>{{localize "EDRPG.chat.Roll"}}</dt><dd>{{natural}}</dd>
       <dt>{{localize "EDRPG.chat.SkillBonus"}}</dt><dd>{{skillBonus}}</dd>
+      {{#if socialFactor}}<dt>{{localize "EDRPG.chat.SocialFactor"}}</dt><dd>{{socialFactor}}</dd>{{/if}}
       {{#if modifier}}<dt>{{localize "EDRPG.chat.BonusModifier"}}</dt><dd>{{modifier}}</dd>{{/if}}
       <dt>{{localize "EDRPG.chat.DifficultyNumber"}}</dt><dd>{{difficulty}}</dd>
    </dl>

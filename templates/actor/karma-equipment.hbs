@@ -1,0 +1,67 @@
+<div class="tab karma-equipment {{tab.cssClass}}" data-group="primary" data-tab="karmaEquipment">
+
+   {{#> edrpgSection title="EDRPG.sheet.KarmaCapabilities" icon="fa-solid fa-yin-yang" style="karma" count=karmaCount addType="karma"}}
+   <table class="ed-table karma">
+      <thead>
+         <tr>
+            <th class="name">{{localize "EDRPG.sheet.capability"}}</th>
+            <th>{{localize "EDRPG.item.cost"}}</th>
+            <th>{{localize "EDRPG.item.category"}}</th>
+            <th class="notes">{{localize "EDRPG.item.description"}}</th>
+            <th class="controls"></th>
+         </tr>
+      </thead>
+      <tbody>
+         {{#if isCharacter}}
+         <tr class="fixed">
+            <th class="name">{{localize "EDRPG.sheet.escapeDeath.name"}}</th>
+            <td>{{localize "EDRPG.sheet.all"}}</td>
+            <td>{{localize "EDRPG.sheet.all"}}</td>
+            <td class="notes">{{localize "EDRPG.sheet.escapeDeath.description"}}</td>
+            <td class="controls"></td>
+         </tr>
+         {{/if}}
+         {{#each karmaCapabilities as |item|}}
+         <tr data-item-id="{{item.id}}" class="draggable">
+            <th class="name"><a data-action="editItem">{{item.name}}</a></th>
+            <td>{{item.system.cost}}</td>
+            <td>{{localize item.categoryLabel}}</td>
+            <td class="notes">{{item.summary}}</td>
+            <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+   {{/edrpgSection}}
+
+   <div class="ed-two-col">
+      {{#> edrpgSection title="EDRPG.sheet.carriedWeapons" icon="fa-solid fa-gun"}}
+      <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+      {{/edrpgSection}}
+      {{#> edrpgSection title="EDRPG.sheet.clothing" icon="fa-solid fa-shirt"}}
+      <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+      {{/edrpgSection}}
+   </div>
+
+   <div class="ed-equipment-grid">
+      <div class="ed-stack">
+         {{#> edrpgSection title="EDRPG.sheet.pack" icon="fa-solid fa-suitcase"}}
+         <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+         {{/edrpgSection}}
+         {{#> edrpgSection title="EDRPG.sheet.shipStorage" icon="fa-solid fa-shuttle-space"}}
+         <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+         {{/edrpgSection}}
+      </div>
+      {{#> edrpgSection title="EDRPG.sheet.cash" icon="fa-solid fa-coins" style="cash"}}
+      <div class="ed-cash">
+         <label><span class="ed-cash-tag">{{localize "EDRPG.sheet.credits"}}</span>
+            <input type="number" name="system.cash.cr" value="{{source.cash.cr}}" min="0" step="1"></label>
+         <label><span class="ed-cash-tag">{{localize "EDRPG.sheet.microCredits"}}</span>
+            <input type="number" name="system.cash.mcr" value="{{source.cash.mcr}}" min="0" step="1"></label>
+         <label><span class="ed-cash-tag">{{localize "EDRPG.sheet.units"}}</span>
+            <input type="number" name="system.cash.u" value="{{source.cash.u}}" min="0" step="1"></label>
+         <p class="hint">{{localize "EDRPG.sheet.cashHint"}}</p>
+      </div>
+      {{/edrpgSection}}
+   </div>
+</div>

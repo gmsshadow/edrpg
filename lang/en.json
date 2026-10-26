@@ -32,7 +32,10 @@
         "skills": "Skills",
         "bgKarma": "Backgrounds & Karma",
         "combat": "Combat",
-        "equipment": "Equipment"
+        "equipment": "Equipment",
+        "datasheet": "Data Sheet",
+        "karmaEquipment": "Karma & Equipment",
+        "notes": "Notes"
       },
       "skills": {
         "name": "Skills",
@@ -262,7 +265,44 @@
         "Item": "Item",
         "Count": "Count",
         "KarmaCost": "Karma"
-      }
+      },
+      "character": "Character",
+      "dataSheet": "Data Sheet",
+      "defence": "Defence",
+      "cyber": "Cyber",
+      "pilotTrained": "Pilot Trained",
+      "descriptionEffect": "Description / Effect",
+      "rangedWeapons": "Ranged Weapons",
+      "closeCombat": "Close Combat",
+      "toHit": "To Hit",
+      "range": {
+        "short": "Short",
+        "medium": "Medium",
+        "long": "Long"
+      },
+      "damage": "Damage",
+      "ammo": "Ammo",
+      "notes": "Notes",
+      "finesse": "Finesse",
+      "fightingDamage": "D10 Halved",
+      "rollAttack": "Attack: Fighting check vs Finesse 5 + target's Defence",
+      "rollDamage": "Roll damage",
+      "equipmentComing": "Arrives with the equipment item types.",
+      "capability": "Capability",
+      "all": "All",
+      "escapeDeath": {
+        "name": "Escape Death",
+        "description": "Survive an attack that would have killed you or dropped your Endurance below 1. Your Karma points drop to zero."
+      },
+      "carriedWeapons": "Carried Weapons",
+      "clothing": "Clothing",
+      "pack": "Equipment Stored in Pack",
+      "shipStorage": "Equipment Stored in Ship",
+      "cash": "Cash",
+      "credits": "Credits (cr)",
+      "microCredits": "Micro Credits (mcr)",
+      "units": "Units (u)",
+      "cashHint": "1 cr = 100 mcr = 10,000 u"
     },
     "rank": {
       "none": "None",
@@ -324,20 +364,13 @@
         "hint": "Homerule - allows to reroll all tests using Karma point. Core Book rule allows to reroll only when there is a 1 on roll dice"
       },
       "socialFactorCap": {
-        "name": "Social Factor cap",
-        "hint": "Max Social Factor bonus added to rolls. 0 for infinite"
+        "name": "Social Factor cap (house rule)",
+        "hint": "Maximum positive Social Factor added to rolls. 0 = no cap, as in the Core Rules."
       }
     },
     "test": {
       "SkillCheck": "Skill Check: {skill}",
       "DifficultyNumber": "Difficulty Number",
-      "ChildishlySimple": "Childishly Simple",
-      "VeryEasy": "Very Easy",
-      "Easy": "Easy",
-      "Average": "Average",
-      "Hard": "Hard",
-      "VeryHard": "Very Hard",
-      "AlmostImpossible": "Almost Impossible",
       "BonusModifier": "Bonus Modifier",
       "RollType": "Roll Type",
       "PublicRoll": "Public Roll",
@@ -345,7 +378,8 @@
       "BlindRoll": "Hidden Roll",
       "SelfRoll": "Self Roll",
       "Roll": "Roll",
-      "DefaultMode": "Default (chat setting)"
+      "DefaultMode": "Default (chat setting)",
+      "ApplySocialFactor": "Apply Social Factor ({value})"
     },
     "chat": {
       "RollResult": "Result:",
@@ -362,7 +396,8 @@
       "ActorNotFound": "Actor not found",
       "NoKarmaPoints": "No Karma points left",
       "ReRollUsingKarmaTitle": "Karma Reroll",
-      "ReRollUsingKarmaMessage": "<strong>{actorName}</strong> rerolls <strong>{testName}</strong> using 1 Karma point"
+      "ReRollUsingKarmaMessage": "<strong>{actorName}</strong> rerolls <strong>{testName}</strong> using 1 Karma point",
+      "SocialFactor": "Social Factor:"
     },
     "warning": {
       "itemNotFound": "Item with internal ID {internalId} not found in items nor compendium. Expected type: {type}",
@@ -404,6 +439,104 @@
       "personal": "Personal Combat",
       "vehicle": "Vehicle Combat",
       "spaceship": "Spaceship Combat"
+    },
+    "skillConfig": {
+      "title": "Skill",
+      "open": "Edit Learn and modifiers",
+      "starting": "Starting score",
+      "base": "Base",
+      "learning": "Learn",
+      "learningHint": "Permanent improvements: independent learning at creation, rank-up D10s and +1 from each ticked adventure.",
+      "natural": "Base + Learn / Skill Cap",
+      "capBonus": "Skill Cap adjustment",
+      "capBonusHint": "Rank Skill Cap is {cap}. Natural Genius raises one skill's cap by 10.",
+      "modifiers": "Modifiers",
+      "noEquipment": "No equipment modifiers",
+      "mod": "Temporary modifier",
+      "modHint": "Added to the score after the Skill Cap; the score can never exceed 100.",
+      "used": "Used this adventure"
+    },
+    "resourceConfig": {
+      "title": "Karma & Endurance",
+      "fromRank": "From rank",
+      "maximum": "Maximum"
+    },
+    "socialFactor": {
+      "title": "Social Factor",
+      "hint": "Added to Bargain, Bluff, Charm and Diplomacy rolls (not to the Skill score). The GM can rule it doesn't apply to a particular roll.",
+      "worn": "Clothing, armour & equipment",
+      "wornHint": "Total Social Factor of what you're wearing and carrying (e.g. Tailored Business Suit +1, Riot Armour −2, wrist com −2). Will be calculated from worn items once they exist.",
+      "damaged": "Clothes damaged",
+      "damagedHint": "You lose any positive Social Factor from clothing once you take damage. Ticked automatically when Endurance drops; untick after changing clothes.",
+      "cosmetics": "Cosmetics",
+      "cosmeticsHint": "Only one cosmetics bonus applies at a time. Refusing to use cosmetics is −1.",
+      "other": "Other",
+      "otherHint": "Any other adjustment the GM allows.",
+      "cyborgRevealed": "Revealed cyborg",
+      "cyborgHint": "Non-discreet or revealed cybernetics: Social Factor is −3 and nothing else alters it.",
+      "confident": "Confident (enhancement)",
+      "confidentHint": "No Social Factor penalties from equipment, armour or cybernetics.",
+      "cyborg": "Revealed cyborg",
+      "damagedNote": "lost: clothes damaged",
+      "confidentNote": "ignored: Confident",
+      "breakdown": "Breakdown",
+      "total": "Total",
+      "applied": "Added to rolls",
+      "cappedAt": "house-rule cap {cap}"
+    },
+    "endAdventure": {
+      "title": "End of Adventure",
+      "button": "End of Adventure",
+      "buttonHint": "Each ticked skill gains +1 (unless it would exceed the Skill Cap), then all ticks are cleared.",
+      "confirm": "End the adventure for {name}?",
+      "apply": "Apply",
+      "improved": "Skills improved (+1 Learn)",
+      "atCap": "At Skill Cap — tick cleared, no improvement",
+      "ticksCleared": "All skill ticks will be cleared.",
+      "nothing": "{name} has no ticked skills.",
+      "ticked": "{count} ticked"
+    },
+    "contest": {
+      "against": "Against",
+      "target": "Targeted: {name}",
+      "other": "Other opponent",
+      "opponent": "Opponent",
+      "opponentName": "Opponent name",
+      "opponentBonus": "Opponent's bonus",
+      "opponentBonusHint": "For opponents without the skill listed, e.g. their Perception or To Hit from the stat block.",
+      "opposingSkill": "Opposing skill",
+      "tiesLabel": "Ties go to",
+      "ties": {
+        "initiator": "Ties: the acting character (opponent's roll sets the difficulty)",
+        "defender": "Ties: the opponent (must beat them)"
+      },
+      "hidden": "Hide opponent's roll from players",
+      "hiddenNote": "opponent's roll hidden",
+      "pairs": {
+        "stealth": "Core Rules p.267: the searcher's Perception check is the number your Stealth must pass.",
+        "charm": "Core Rules p.33 (Seduce): Charm against the target's Insight check.",
+        "athletics": "Core Rules p.61 (Grab/Escape): you must beat the opponent's Athletics; ties go to them."
+      },
+      "vs": "vs",
+      "flatBonus": "Bonus {bonus}",
+      "rolledHidden": "Rolled",
+      "d10": "D10",
+      "bonus": "Bonus",
+      "sf": "SF",
+      "mod": "Mod",
+      "wins": "{name} wins",
+      "waiting": "Waiting for {name} to roll…",
+      "reason": {
+        "natural1": "A natural 1 always loses.",
+        "natural10": "A natural 10 always wins.",
+        "total": "Higher total.",
+        "tie": "Tied totals."
+      },
+      "needsGM": "A GM must be logged in to update this contest.",
+      "tiesShort": {
+        "initiator": "Ties go to the acting character",
+        "defender": "Ties go to the opponent"
+      }
     }
   }
 }

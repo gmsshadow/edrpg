@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "authors": [
     {
       "name": "gmsshadow",
@@ -55,7 +55,7 @@
   },
   "primaryTokenAttribute": "endurance",
   "secondaryTokenAttribute": "karma.standard",
-  "socket": false,
+  "socket": true,
   "url": "https://github.com/gmsshadow/edrpg",
   "readme": "https://github.com/gmsshadow/edrpg/blob/main/README.md",
   "bugs": "https://github.com/gmsshadow/edrpg/issues",

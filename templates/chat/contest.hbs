@@ -1,0 +1,44 @@
+{{#*inline "contestSide"}}
+<div class="contest-side {{side.key}}">
+   <div class="side-name">{{side.name}}</div>
+   <div class="side-what">{{side.what}}</div>
+   {{#if side.rolled}}
+      {{#if side.masked}}
+      <div class="side-total masked"><i class="fa-solid fa-eye-slash"></i> {{localize "EDRPG.contest.rolledHidden"}}</div>
+      {{else}}
+      <div class="side-total">{{side.total}}</div>
+      <div class="side-breakdown">
+         {{localize "EDRPG.contest.d10"}} {{side.natural}} · {{localize "EDRPG.contest.bonus"}} {{side.bonus}}
+         {{#if side.socialFactor}} · {{localize "EDRPG.contest.sf"}} {{side.socialFactor}}{{/if}}
+         {{#if side.modifier}} · {{localize "EDRPG.contest.mod"}} {{side.modifier}}{{/if}}
+      </div>
+      {{#if side.karma}}<div class="side-karma"><i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.chat.KarmaReroll"}}</div>{{/if}}
+      {{/if}}
+      <button type="button" data-contest-action="karma" data-side="{{side.key}}">
+         <i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.chat.ReRollUsingKarmaTitle"}}
+      </button>
+   {{else}}
+      <div class="side-total pending">—</div>
+      <button type="button" data-contest-action="roll" data-side="{{side.key}}">
+         <i class="fa-solid fa-dice-d10"></i> {{localize "EDRPG.test.Roll"}}
+      </button>
+   {{/if}}
+</div>
+{{/inline}}
+<div class="edrpg edrpg-chat edrpg-contest">
+   <div class="contest-title">{{title}}</div>
+   <div class="contest-sides">
+      {{> contestSide side=initiator}}
+      <div class="contest-vs">{{localize "EDRPG.contest.vs"}}</div>
+      {{> contestSide side=defender}}
+   </div>
+   {{#if outcome}}
+   <div class="outcome {{#if outcome.initiatorWins}}success{{else}}failure{{/if}}">
+      {{localize "EDRPG.contest.wins" name=outcome.winnerName}}
+   </div>
+   <div class="contest-reason">{{localize outcome.reason}}</div>
+   {{else}}
+   <div class="contest-waiting">{{localize "EDRPG.contest.waiting" name=defender.name}}</div>
+   {{/if}}
+   <div class="contest-rule">{{localize tiesLabel}}{{#if hiddenNote}} · {{localize "EDRPG.contest.hiddenNote"}}{{/if}}</div>
+</div>

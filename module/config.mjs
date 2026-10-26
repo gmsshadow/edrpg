@@ -27,6 +27,21 @@ export const skills = {
 /** Every skill starts at 10 before backgrounds (Core Rules p.14). */
 export const BASE_SKILL_SCORE = 10;
 
+/** No Skill score can exceed 100, whatever the item bonus (Core Rules p.128). */
+export const MAX_SKILL_SCORE = 100;
+
+/** Fighting — the unarmed attack every character has (Core Rules, Basic Melee Weapons). */
+export const fighting = { finesse: 5, damage: "floor(1d10 / 2)" };
+
+/**
+ * Skills whose rolls receive the Social Factor (Core Rules p.128, Clothing).
+ * Social Factor is a bonus to the roll, not to the Skill score.
+ */
+export const socialFactorSkills = ["bargain", "bluff", "charm", "diplomacy"];
+
+/** Cyborgs without Discreet cybernetics, or revealed, have a fixed Social Factor of -3 (Core Rules, Cybernetics). */
+export const CYBORG_SOCIAL_FACTOR = -3;
+
 /** Pilot Trained — free background for every player character (Core Rules, Backgrounds). */
 export const pilotTrained = [
    { skill: "shipPiloting", bonus: 20 },
@@ -37,16 +52,20 @@ export const pilotTrained = [
 /** Maximum natural human Endurance (Core Rules p.49). */
 export const MAX_HUMAN_ENDURANCE = 80;
 
-/** Difficulty ladder used in the skill check dialog. */
-export const difficulties = {
-   3: "EDRPG.test.ChildishlySimple",
-   5: "EDRPG.test.VeryEasy",
-   7: "EDRPG.test.Easy",
-   9: "EDRPG.test.Average",
-   11: "EDRPG.test.Hard",
-   13: "EDRPG.test.VeryHard",
-   15: "EDRPG.test.AlmostImpossible",
+/**
+ * Contested checks. The book has no general rule; it handles opposition case by case in two patterns:
+ * - the opponent's roll sets the difficulty, so equal-or-exceed succeeds (ties go to the initiator);
+ * - a roll-off where the initiator must beat the opponent (ties go to the defender).
+ * These are the pairings the Core Rules spell out. Any other skill defaults to a roll-off against itself.
+ */
+export const contestPairs = {
+   stealth: { opposing: "perception", ties: "initiator", hidden: true, hint: "EDRPG.contest.pairs.stealth" },
+   charm: { opposing: "insight", ties: "initiator", hidden: false, hint: "EDRPG.contest.pairs.charm" },
+   athletics: { opposing: "athletics", ties: "defender", hidden: false, hint: "EDRPG.contest.pairs.athletics" },
 };
+
+/** Ties in a roll-off go to the defender ("If you equal or lose the check your opponent slips from your grasp"). */
+export const DEFAULT_CONTEST_TIES = "defender";
 
 /** Karma Capability groupings as printed in the Core Rules. */
 export const karmaCategories = {

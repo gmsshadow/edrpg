@@ -1,0 +1,52 @@
+<section class="social-factor-config">
+   <p class="hint">{{localize "EDRPG.socialFactor.hint"}}</p>
+
+   <div class="form-group">
+      <label>{{localize "EDRPG.socialFactor.worn"}}</label>
+      <div class="form-fields"><input type="number" name="system.socialFactor.worn" value="{{systemSource.socialFactor.worn}}" step="1"></div>
+      <p class="hint">{{localize "EDRPG.socialFactor.wornHint"}}</p>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.socialFactor.damaged"}}</label>
+      <div class="form-fields"><input type="checkbox" name="system.socialFactor.damaged" {{checked systemSource.socialFactor.damaged}}></div>
+      <p class="hint">{{localize "EDRPG.socialFactor.damagedHint"}}</p>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.socialFactor.cosmetics"}}</label>
+      <div class="form-fields"><input type="number" name="system.socialFactor.cosmetics" value="{{systemSource.socialFactor.cosmetics}}" step="1"></div>
+      <p class="hint">{{localize "EDRPG.socialFactor.cosmeticsHint"}}</p>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.socialFactor.other"}}</label>
+      <div class="form-fields"><input type="number" name="system.socialFactor.other" value="{{systemSource.socialFactor.other}}" step="1"></div>
+      <p class="hint">{{localize "EDRPG.socialFactor.otherHint"}}</p>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.socialFactor.cyborgRevealed"}}</label>
+      <div class="form-fields"><input type="checkbox" name="system.socialFactor.cyborgRevealed" {{checked systemSource.socialFactor.cyborgRevealed}}></div>
+      <p class="hint">{{localize "EDRPG.socialFactor.cyborgHint"}}</p>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.socialFactor.confident"}}</label>
+      <div class="form-fields"><input type="checkbox" name="system.socialFactor.confident" {{checked systemSource.socialFactor.confident}}></div>
+      <p class="hint">{{localize "EDRPG.socialFactor.confidentHint"}}</p>
+   </div>
+
+   <h3 class="config-heading">{{localize "EDRPG.socialFactor.breakdown"}}</h3>
+   <table class="breakdown">
+      <tbody>
+         {{#each system.socialFactor.sources as |src|}}
+         <tr><td>{{localize src.label}}{{#if src.note}} <span class="muted">({{localize src.note}})</span>{{/if}}</td><td class="num">{{src.value}}</td></tr>
+         {{/each}}
+         <tr class="total"><td>{{localize "EDRPG.socialFactor.total"}}</td><td class="num">{{system.socialFactor.total}}</td></tr>
+      </tbody>
+   </table>
+   <table class="breakdown result">
+      <tbody>
+         <tr class="total">
+            <td>{{localize "EDRPG.socialFactor.applied"}}{{#if system.socialFactor.capped}} <span class="muted">({{localize "EDRPG.socialFactor.cappedAt" cap=system.socialFactor.cap}})</span>{{/if}}</td>
+            <td class="num">{{system.socialFactor.value}}</td>
+         </tr>
+      </tbody>
+   </table>
+</section>

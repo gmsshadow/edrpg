@@ -1,0 +1,124 @@
+<div class="tab datasheet {{tab.cssClass}}" data-group="primary" data-tab="datasheet">
+
+   {{#> edrpgSection title="EDRPG.sheet.Backgrounds" icon="fa-solid fa-book-open" count=backgroundCount addType="background"}}
+   <div class="ed-backgrounds">
+      {{#each backgroundCards as |card|}}
+      <div class="ed-card {{#if card.empty}}empty{{/if}} {{#if card.fixed}}fixed{{/if}}" {{#if card.id}}data-item-id="{{card.id}}"{{/if}}>
+         {{#if card.empty}}
+            {{#if @root.editable}}<a class="ed-card-add" data-action="createItem" data-type="background"><i class="fa-solid fa-plus"></i></a>{{/if}}
+         {{else}}
+            <div class="ed-card-name">
+               {{#if card.id}}<a data-action="editItem">{{card.name}}</a>{{else}}{{localize card.name}}{{/if}}
+               {{#if card.choices}}<span class="ed-choices" data-tooltip="EDRPG.item.choices">×{{card.choices}}</span>{{/if}}
+            </div>
+            <ul class="ed-card-mods">
+               {{#each card.mods as |mod|}}<li>{{localize mod.label}} <b>+{{mod.bonus}}</b></li>{{/each}}
+            </ul>
+            {{#if card.id}}{{#if @root.editable}}
+            <a class="ed-card-delete" data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>
+            {{/if}}{{/if}}
+         {{/if}}
+      </div>
+      {{/each}}
+   </div>
+   {{/edrpgSection}}
+
+   {{#if editable}}
+   <div class="ed-skill-toolbar">
+      <button type="button" class="ed-button" data-action="endAdventure" data-tooltip="EDRPG.endAdventure.buttonHint"
+              {{#unless tickedCount}}disabled{{/unless}}>
+         <i class="fa-solid fa-flag-checkered"></i> {{localize "EDRPG.endAdventure.button"}}
+         <span class="ed-button-count">{{localize "EDRPG.endAdventure.ticked" count=tickedCount}}</span>
+      </button>
+   </div>
+   {{/if}}
+
+   <div class="ed-skill-grid">
+      {{#each skillCategories as |cat|}}
+      {{#> edrpgSection title=cat.label icon=cat.icon chip=cat.chip chipAction=cat.chipAction chipTooltip=cat.chipTooltip}}
+      <table class="ed-skill-table">
+         <thead>
+            <tr>
+               <th class="name">{{localize "EDRPG.sheet.table.skills.skill"}}</th>
+               <th>{{localize "EDRPG.sheet.table.skills.score"}}</th>
+               <th>{{localize "EDRPG.sheet.table.skills.bonus"}}</th>
+               <th class="check"><i class="fa-solid fa-check"></i></th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each cat.skills as |skill|}}
+            <tr data-skill="{{skill.key}}" data-category="{{skill.category}}">
+               <th class="name"><a data-action="rollSkill" data-tooltip="{{localize skill.description}}">{{localize skill.label}}</a></th>
+               <td class="score {{#if skill.overCap}}over-cap{{/if}} {{#if skill.modified}}modified{{/if}}">
+                  <a data-action="configureSkill" data-tooltip="EDRPG.skillConfig.open">{{skill.score}}</a>
+               </td>
+               <td class="bonus">{{skill.bonus}}{{#if skill.rollBonus}}<sup class="ed-roll-bonus" data-tooltip="EDRPG.socialFactor.title">{{skill.rollBonus}}</sup>{{/if}}</td>
+               <td class="check">
+                  <a data-action="toggleSkillUsed" data-tooltip="EDRPG.sheet.skillUsedHint">
+                     {{#if skill.used}}<i class="fa-solid fa-check"></i>{{/if}}
+                  </a>
+               </td>
+            </tr>
+            {{/each}}
+         </tbody>
+      </table>
+      {{/edrpgSection}}
+      {{/each}}
+
+      {{#> edrpgSection title="EDRPG.sheet.Enhancements" icon="fa-solid fa-person-running" addType="enhancement"}}
+      <div class="ed-subheader">{{localize "EDRPG.sheet.descriptionEffect"}}</div>
+      <ol class="ed-enhancements">
+         {{#each enhancements as |item|}}
+         <li data-item-id="{{item.id}}" class="draggable">
+            <a class="ed-item-name" data-action="editItem">{{item.name}}</a>
+            <span class="ed-item-text">{{item.summary}}</span>
+            {{#if @root.editable}}<a class="ed-row-delete" data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+         </li>
+         {{/each}}
+      </ol>
+      {{/edrpgSection}}
+   </div>
+
+   {{#> edrpgSection title="EDRPG.sheet.rangedWeapons" icon="fa-solid fa-crosshairs"}}
+   <table class="ed-table">
+      <thead>
+         <tr>
+            <th class="name">{{localize "EDRPG.equipment.Weapon"}}</th>
+            <th>{{localize "EDRPG.sheet.toHit"}}</th>
+            <th>{{localize "EDRPG.sheet.range.short"}}</th>
+            <th>{{localize "EDRPG.sheet.range.medium"}}</th>
+            <th>{{localize "EDRPG.sheet.range.long"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.damage"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.ammo"}}</th>
+            <th class="notes">{{localize "EDRPG.sheet.notes"}}</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr class="empty"><td colspan="8">{{localize "EDRPG.sheet.equipmentComing"}}</td></tr>
+      </tbody>
+   </table>
+   {{/edrpgSection}}
+
+   {{#> edrpgSection title="EDRPG.sheet.closeCombat" icon="fa-solid fa-hand-fist"}}
+   <table class="ed-table">
+      <thead>
+         <tr>
+            <th class="name">{{localize "EDRPG.equipment.Weapon"}}</th>
+            <th>{{localize "EDRPG.sheet.toHit"}}</th>
+            <th>{{localize "EDRPG.sheet.finesse"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.damage"}}</th>
+            <th class="notes">{{localize "EDRPG.sheet.notes"}}</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <th class="name"><a data-action="rollFighting" data-tooltip="EDRPG.sheet.rollAttack">{{localize "EDRPG.sheet.skills.combat.fighting.name"}}</a></th>
+            <td>+{{fightingBonus}}</td>
+            <td>{{fighting.finesse}}</td>
+            <td class="damage"><a data-action="rollFightingDamage" data-tooltip="EDRPG.sheet.rollDamage">{{localize "EDRPG.sheet.fightingDamage"}}</a></td>
+            <td class="notes"></td>
+         </tr>
+      </tbody>
+   </table>
+   {{/edrpgSection}}
+</div>

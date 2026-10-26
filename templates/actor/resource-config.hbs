@@ -1,0 +1,43 @@
+<section class="resource-config">
+   <h3 class="config-heading karma">{{localize "EDRPG.sheet.karma.standard"}}</h3>
+   <table class="breakdown">
+      <tbody>
+         <tr><td>{{localize "EDRPG.resourceConfig.fromRank"}}</td><td class="num">{{system.karma.standard.base}}</td></tr>
+      </tbody>
+   </table>
+   <div class="form-group">
+      <label>{{localize "EDRPG.sheet.karmaBonus"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.karma.standard.bonus" value="{{systemSource.karma.standard.bonus}}" step="1">
+      </div>
+   </div>
+   <table class="breakdown"><tbody>
+      <tr class="total"><td>{{localize "EDRPG.resourceConfig.maximum"}}</td><td class="num">{{system.karma.standard.max}}</td></tr>
+   </tbody></table>
+
+   <h3 class="config-heading karma">{{localize "EDRPG.sheet.karma.cyber"}}</h3>
+   <div class="form-group">
+      <label>{{localize "EDRPG.resourceConfig.maximum"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.karma.cyber.bonus" value="{{systemSource.karma.cyber.bonus}}" min="0" step="1">
+      </div>
+      <p class="hint">{{localize "EDRPG.sheet.cyberKarmaHint"}}</p>
+   </div>
+
+   <h3 class="config-heading endurance">{{localize "EDRPG.sheet.endurance"}}</h3>
+   <table class="breakdown">
+      <tbody>
+         <tr><td>{{localize "EDRPG.resourceConfig.fromRank"}}</td><td class="num">{{system.endurance.base}}</td></tr>
+      </tbody>
+   </table>
+   <div class="form-group">
+      <label>{{localize "EDRPG.sheet.enduranceBonus"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.endurance.bonus" value="{{systemSource.endurance.bonus}}" step="1">
+      </div>
+   </div>
+   <table class="breakdown"><tbody>
+      <tr class="total"><td>{{localize "EDRPG.resourceConfig.maximum"}}</td><td class="num">{{system.endurance.max}}</td></tr>
+   </tbody></table>
+   <p class="hint">{{localize "EDRPG.sheet.adjustmentsHint"}}</p>
+</section>

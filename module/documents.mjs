@@ -1,6 +1,20 @@
 import { rollSkillCheck } from "./dice/skill-check.mjs";
 
 export class EDActor extends foundry.documents.Actor {
+   /**
+    * Taking damage spoils clothing: positive Social Factor from worn items is lost (Core Rules p.128).
+    *
+    * @override
+    */
+   async _preUpdate(changes, options, user) {
+      if ((await super._preUpdate(changes, options, user)) === false) return false;
+      const newEndurance = foundry.utils.getProperty(changes, "system.endurance.value");
+      const sf = this.system.socialFactor;
+      if (sf && Number.isFinite(newEndurance) && newEndurance < this.system.endurance.value && sf.worn > 0 && !sf.damaged) {
+         foundry.utils.setProperty(changes, "system.socialFactor.damaged", true);
+      }
+   }
+
    /** @override */
    getRollData() {
       const data = super.getRollData();

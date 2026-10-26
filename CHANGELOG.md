@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.5
+- Fix: Dice So Nice now animates contested checks — the opening roll is attached to the card, and the opponent's roll
+  and Karma rerolls are shown through Dice So Nice before the card updates (a hidden opponent's dice show to GMs only).
+- Cleanup: removed 22 unused Exo 2 font files (only weights 400–800 are used), the empty FUNDING.yml, unused
+  language keys (old tab names, Empire/Federation honorary ranks, which aren't in the Core Rules, etc.) and dead
+  code; replaced the inherited .editorconfig (CRLF/JetBrains settings) with a short LF one; LevelDB LOG/LOCK files
+  are no longer committed.
+
 ## 0.1.4
 - Karma Capabilities compendium: all 40 capabilities from the Core Rules (pp.31–36) with name, cost, list
   (Defensive / Offensive / Skill-based & Other), where they're used, and prerequisite/effect mechanics in our own

@@ -1,7 +1,7 @@
 Elite: Dangerous Role Playing Game for FoundryVTT
 =================================================
 
-[![License](https://img.shields.io/github/license/ElSaico/edrpg-fvtt)](https://github.com/ElSaico/edrpg-fvtt/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/gmsshadow/edrpg)](https://github.com/gmsshadow/edrpg/blob/main/LICENSE)
 
 A Foundry VTT game system for the *Elite: Dangerous Role Playing Game*.
 

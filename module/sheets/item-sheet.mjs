@@ -44,7 +44,6 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          karmaRoles,
          onActor: !!item.parent,
          backgroundChoices: { 1: "1", 2: "2" },
-         onCharacter: item.parent?.type === "character",
       });
       context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
          item.system.description,

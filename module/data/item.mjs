@@ -63,9 +63,4 @@ export class KarmaCapabilityData extends foundry.abstract.TypeDataModel {
          usedThisTurn: new fields.BooleanField({ initial: false }),
       };
    }
-
-   /** Karma this capability costs right now ("All points" spends the whole pool). */
-   get currentCost() {
-      return this.costAll ? (this.parent.actor?.system.karma.standard.value ?? 0) : this.cost;
-   }
 }

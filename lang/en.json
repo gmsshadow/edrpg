@@ -28,11 +28,6 @@
       "rank": "Rank",
       "rankPoints": "Rank Points",
       "tabs": {
-        "main": "Main",
-        "skills": "Skills",
-        "bgKarma": "Backgrounds & Karma",
-        "combat": "Combat",
-        "equipment": "Equipment",
         "datasheet": "Data Sheet",
         "karmaEquipment": "Karma & Equipment",
         "notes": "Notes"
@@ -206,34 +201,22 @@
       "table": {
         "skills": {
           "skill": "Skill",
-          "base": "Base",
-          "learning": "Learn",
           "bonus": "Bonus",
           "score": "Score"
         }
       },
-      "Actions": "Actions",
       "Backgrounds": "Backgrounds",
       "Background": "Background",
       "Enhancements": "Enhancements",
       "Enhancement": "Enhancement",
       "KarmaCapabilities": "Karma Capabilities",
-      "KarmaCapability": "Karma Capability",
       "SocialFactor": "Social Factor",
       "SocialFactorAbbr": "SocFac",
-      "SocialFactorInfo": "Affects Bargain, Bluff, Charm & Diplomacy. Capped at +{socialFactorCap}",
       "SocialFactorInfoNoCap": "Affects Bargain, Bluff, Charm & Diplomacy",
-      "SocialFactorFromWornItems": "Wearables",
-      "SocialFactorFromHonoraryRanks": "Honorary Ranks",
-      "SocialFactorFromOther": "Other Sources",
-      "SocialFactorTotal": "Total (capped)",
-      "honoraryRanks": "Honorary Ranks",
       "biography": "Biography",
-      "image": "Portrait",
       "skillCap": "Skill Cap",
       "rollInitiative": "Roll initiative (D10 + Tactics bonus)",
       "cyberKarmaHint": "Maximum cyber-only Karma (2 per Cyber enhancement)",
-      "enduranceBonusHint": "Rank Endurance plus adjustments (set on the Main tab)",
       "adjustments": "Adjustments",
       "karmaBonus": "Karma maximum adjustment",
       "enduranceBonus": "Endurance maximum adjustment",
@@ -241,30 +224,10 @@
       "overCap": "Above the Skill Cap of {cap}",
       "skillUsedHint": "Used this adventure — improves by 1 at the end of the adventure",
       "addItem": "Add",
-      "editItem": "Edit",
       "deleteItem": "Delete",
-      "noItems": "None",
-      "pilotTrainedHint": "Pilot Trained (Spaceship Piloting +20, Spaceship Weapons +20, Systems +10) is applied automatically and does not use a background choice.",
-      "notYetImplemented": "Not yet implemented.",
       "labels": {
         "actor": "EDRPG Actor Sheet",
         "item": "EDRPG Item Sheet"
-      },
-      "equipment": {
-        "Armour": "Armour",
-        "Worn": "Worn",
-        "Used": "Used",
-        "CloseCombat": "Close Combat",
-        "Weapon": "Weapon",
-        "Equipped": "Equipped",
-        "RangedWeapons": "Ranged Weapons",
-        "AmmoClips": "Ammo Clips",
-        "Cybernetics": "Cybernetics",
-        "Wearables": "Wearables",
-        "GeneralEquipment": "General Equipment",
-        "Item": "Item",
-        "Count": "Count",
-        "KarmaCost": "Karma"
       },
       "character": "Character",
       "dataSheet": "Data Sheet",
@@ -305,7 +268,6 @@
       "cashHint": "1 cr = 100 mcr = 10,000 u"
     },
     "rank": {
-      "none": "None",
       "pilots": {
         "harmless": "Harmless",
         "mostlyHarmless": "Mostly Harmless",
@@ -316,38 +278,6 @@
         "dangerous": "Dangerous",
         "deadly": "Deadly",
         "elite": "Elite"
-      },
-      "empire": {
-        "outsider": "Outsider",
-        "serf": "Serf",
-        "master": "Master",
-        "squire": "Squire",
-        "knight": "Knight",
-        "lord": "Lord",
-        "baron": "Baron",
-        "viscount": "Viscount",
-        "count": "Count",
-        "earl": "Earl",
-        "marquis": "Marquis",
-        "duke": "Duke",
-        "prince": "Prince",
-        "king": "King"
-      },
-      "federation": {
-        "recruit": "Recruit",
-        "cadet": "Cadet",
-        "midshipman": "Midshipman",
-        "pettyOfficer": "Petty Officer",
-        "chiefPettyOfficer": "Chief Petty Officer",
-        "warrantOfficer": "Warrant Officer",
-        "ensign": "Ensign",
-        "lieutenant": "Lieutenant",
-        "lieutenantCommander": "Lieutenant Commander",
-        "postCommander": "Post Commander",
-        "postCaptain": "Post Captain",
-        "rearAdmiral": "Rear Admiral",
-        "viceAdmiral": "Vice Admiral",
-        "admiral": "Admiral"
       }
     },
     "settings": {
@@ -373,17 +303,11 @@
       "DifficultyNumber": "Difficulty Number",
       "BonusModifier": "Bonus Modifier",
       "RollType": "Roll Type",
-      "PublicRoll": "Public Roll",
-      "GMRoll": "Roll to GM",
-      "BlindRoll": "Hidden Roll",
-      "SelfRoll": "Self Roll",
       "Roll": "Roll",
       "DefaultMode": "Default (chat setting)",
       "ApplySocialFactor": "Apply Social Factor ({value})"
     },
     "chat": {
-      "RollResult": "Result:",
-      "TestResult": "Test Result:",
       "Roll": "Roll:",
       "KarmaReroll": "Karma Reroll",
       "SkillBonus": "Skill Bonus:",
@@ -400,8 +324,6 @@
       "SocialFactor": "Social Factor:"
     },
     "warning": {
-      "itemNotFound": "Item with internal ID {internalId} not found in items nor compendium. Expected type: {type}",
-      "itemCannotBeAdded": "Item '{item}' cannot be added to this character",
       "karmaCapabilityLimit": "Karma capability limit reached for rank '{rank}'",
       "backgroundLimit": "Background limit reached"
     },
@@ -524,7 +446,6 @@
         "athletics": "Core Rules p.61 (Grab/Escape): you must beat the opponent's Athletics; ties go to them."
       },
       "vs": "vs",
-      "flatBonus": "Bonus {bonus}",
       "rolledHidden": "Rolled",
       "d10": "D10",
       "bonus": "Bonus",

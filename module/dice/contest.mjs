@@ -77,10 +77,12 @@ export async function startContest(actor, skill, opts) {
       outcome: null,
    };
 
+   // Attaching the roll lets Dice So Nice animate it when the card is posted.
    return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor }),
       content: await renderContestCard(contest, { reveal: false }),
-      sound: CONFIG.sounds.dice,
+      rolls: [result.roll],
+      sound: game.dice3d ? null : CONFIG.sounds.dice,
       flags: { edrpg: { contest } },
    });
 }
@@ -229,7 +231,7 @@ async function rollDefender(message, prompt) {
       if (!actor) return ui.notifications.warn("EDRPG.chat.ActorNotFound", { localize: true });
       result = await rollSkillDice(actor, side.skill, { modifier });
    }
-   playDice();
+   await showDice(result.roll, { hidden: contest.hidden });
    return submitContestUpdate(message, "defender", storeResult(result));
 }
 
@@ -253,7 +255,7 @@ async function karmaRerollSide(message, sideKey) {
       modifier: side.result.modifier,
       socialFactor: side.socialFactor ?? true,
    });
-   playDice();
+   await showDice(result.roll, { hidden: sideKey === "defender" && contest.hidden });
    return submitContestUpdate(message, sideKey, { ...storeResult(result), karma: true });
 }
 
@@ -272,9 +274,24 @@ function canKarmaReroll(side) {
    return (r.natural === 1 || allowAll) && (actor?.system.karma.standard.value ?? 0) > 0;
 }
 
-/** Play the dice sound locally. */
-function playDice() {
-   foundry.audio?.AudioHelper?.play({ src: CONFIG.sounds.dice, volume: 0.8 });
+/**
+ * Show a roll made after the card was posted. Updating a chat message doesn't trigger Dice So Nice, so call its
+ * API directly and wait for the dice to land before the card reveals the result. A hidden opponent's dice are shown
+ * to GMs only. Without Dice So Nice, just play the dice sound.
+ *
+ * @param {Roll} roll
+ *
+ * @param {object} [options]
+ *
+ * @param {boolean} [options.hidden=false]
+ */
+async function showDice(roll, { hidden = false } = {}) {
+   if (game.dice3d) {
+      const whisper = hidden ? game.users.filter((u) => u.isGM).map((u) => u.id) : null;
+      await game.dice3d.showForRoll(roll, game.user, true, whisper, false);
+   } else {
+      foundry.audio?.AudioHelper?.play({ src: CONFIG.sounds.dice, volume: 0.8 });
+   }
 }
 
 /**

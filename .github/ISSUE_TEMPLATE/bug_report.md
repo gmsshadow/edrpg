@@ -3,11 +3,11 @@ name: Bug report
 about: Create a report to help us improve
 title: "[BUG]"
 labels: bug
-assignees: 'ElSaico'
+assignees: ''
 
 ---
 
-**System Version:** v0.0.0
+**System Version:** (see system.json)
 
 **Describe the bug**
 A clear and concise description of what the bug is.

@@ -1,4 +1,4 @@
-import { skillCategory, karmaCategories } from "../config.mjs";
+import { skillCategory, karmaCategories, karmaRoles } from "../config.mjs";
 
 const fields = foundry.data.fields;
 
@@ -46,14 +46,26 @@ export class EnhancementData extends foundry.abstract.TypeDataModel {
    }
 }
 
-/** Karma Capability — a trick paid for with Karma points. */
+/**
+ * Karma Capability — a trick paid for with Karma points (Core Rules pp.31–36).
+ * A capability can't be used twice in the same turn (or between your turns); `usedThisTurn` tracks that in
+ * combat and is cleared when the owner's turn starts.
+ */
 export class KarmaCapabilityData extends foundry.abstract.TypeDataModel {
    static defineSchema() {
       return {
          description: new fields.HTMLField({ initial: "" }),
+         role: new fields.StringField({ required: true, choices: karmaRoles, initial: "other" }),
          category: new fields.StringField({ required: true, choices: karmaCategories, initial: "general" }),
          cost: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 1 }),
+         costAll: new fields.BooleanField({ initial: false }),
          free: new fields.BooleanField({ initial: false }),
+         usedThisTurn: new fields.BooleanField({ initial: false }),
       };
+   }
+
+   /** Karma this capability costs right now ("All points" spends the whole pool). */
+   get currentCost() {
+      return this.costAll ? (this.parent.actor?.system.karma.standard.value ?? 0) : this.cost;
    }
 }

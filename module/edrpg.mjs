@@ -8,12 +8,14 @@ import { rollSkillCheck, onRenderSkillCheck } from "./dice/skill-check.mjs";
 import { onRenderContest, registerContestSocket } from "./dice/contest.mjs";
 import registerSettings from "./settings.mjs";
 import { endAdventure } from "./advancement.mjs";
+import { useKarmaCapability, restKarma, registerKarmaHooks } from "./karma.mjs";
 
 Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure };
+   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure, useKarmaCapability, restKarma };
+   registerKarmaHooks();
 
    registerSettings();
 

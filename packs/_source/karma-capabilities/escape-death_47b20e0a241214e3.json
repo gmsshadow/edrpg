@@ -1,0 +1,23 @@
+{
+  "_id": "47b20e0a241214e3",
+  "_key": "!items!47b20e0a241214e3",
+  "name": "Escape Death",
+  "type": "karma",
+  "img": "icons/svg/skull.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You have at least 1 Karma point.</p><p><strong>Effect:</strong> You escape or avoid an attack that just killed you or reduced your Endurance below 1. Your Karma points drop to 0.</p>",
+    "role": "defensive",
+    "category": "anyCombat",
+    "cost": 0,
+    "costAll": true,
+    "free": true,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 4000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

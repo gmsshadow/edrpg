@@ -1,0 +1,23 @@
+{
+  "_id": "88e2b9fd5e49b0db",
+  "_key": "!items!88e2b9fd5e49b0db",
+  "name": "Worse Than It Looks",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> No To Hit penalties when targeting a ship's components.</p>",
+    "role": "offensive",
+    "category": "spaceship",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

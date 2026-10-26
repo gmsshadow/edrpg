@@ -1,0 +1,23 @@
+{
+  "_id": "77f8aa5d80373345",
+  "_key": "!items!77f8aa5d80373345",
+  "name": "Resuscitate",
+  "type": "karma",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> A party member was killed within the last minute.</p><p><strong>Effect:</strong> Make a Difficulty 13 Medicine check. On a success they do not die, but stay unconscious for 24 hours at 0 Endurance. You may try again while you have the Karma.</p>",
+    "role": "other",
+    "category": "general",
+    "cost": 8,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

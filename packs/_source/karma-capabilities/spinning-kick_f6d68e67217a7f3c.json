@@ -1,0 +1,23 @@
+{
+  "_id": "f6d68e67217a7f3c",
+  "_key": "!items!f6d68e67217a7f3c",
+  "name": "Spinning Kick",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You have just Parried and the enemy missed you.</p><p><strong>Effect:</strong> Make a Fighting attack against that enemy; they add no Parry or Dodge bonus against it. You may then make a counter-attack.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "41c408febb68d3c3",
+  "_key": "!items!41c408febb68d3c3",
+  "name": "Eat Lead Sucker!",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> If you hit with a Burst weapon, inflict maximum Burst damage.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 5,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

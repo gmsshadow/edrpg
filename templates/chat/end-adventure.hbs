@@ -23,5 +23,6 @@
    </ul>
    {{/if}}
 
-   {{#if confirming}}<p class="hint">{{localize "EDRPG.endAdventure.ticksCleared"}}</p>{{/if}}
+   {{#if karmaRestored}}<p><i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.endAdventure.karmaRestored" max=karmaMax}}</p>{{/if}}
+   {{#if confirming}}{{#if improved.length}}<p class="hint">{{localize "EDRPG.endAdventure.ticksCleared"}}</p>{{else if atCap.length}}<p class="hint">{{localize "EDRPG.endAdventure.ticksCleared"}}</p>{{/if}}{{/if}}
 </div>

@@ -1,4 +1,5 @@
-import { skills, skillChoices, pilotTrained, fighting, karmaCategories, socialFactorSkills } from "../config.mjs";
+import { skills, skillChoices, pilotTrained, fighting, karmaCategories, karmaRoles, socialFactorSkills } from "../config.mjs";
+import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs";
 import { endAdventure } from "../advancement.mjs";
 import { EDSkillConfig, EDResourceConfig, EDSocialFactorConfig } from "./actor-config.mjs";
 
@@ -48,6 +49,8 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          configureSocialFactor: EDActorSheet.#onConfigureSocialFactor,
          toggleSkillUsed: EDActorSheet.#onToggleSkillUsed,
          endAdventure: EDActorSheet.#onEndAdventure,
+         useKarma: EDActorSheet.#onUseKarma,
+         restKarma: EDActorSheet.#onRestKarma,
          rollInitiative: EDActorSheet.#onRollInitiative,
          rollFighting: EDActorSheet.#onRollFighting,
          rollFightingDamage: EDActorSheet.#onRollFightingDamage,
@@ -162,14 +165,33 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          summary: summarise(item.system.description),
       }));
 
+      // Karma Capabilities, grouped as in the book (Defensive / Offensive / Other).
       const karma = sorted(actor.itemTypes.karma);
-      context.karmaCapabilities = karma.map((item) => ({
-         id: item.id,
-         name: item.name,
-         system: item.system,
-         categoryLabel: karmaCategories[item.system.category] ?? "",
-         summary: summarise(item.system.description),
-      }));
+      const pool = system.karma.standard.value;
+      const inCombat = game.combats.some((c) => c.started && c.combatants.some((cb) => cb.actor === actor));
+      const capabilityView = (item) => {
+         const s = item.system;
+         const used = inCombat && s.usedThisTurn;
+         const affordable = s.costAll ? pool > 0 : pool >= s.cost;
+         return {
+            id: item.id,
+            name: item.name,
+            role: s.role,
+            costLabel: s.costAll ? game.i18n.localize("EDRPG.sheet.all") : s.cost,
+            categoryLabel: karmaCategories[s.category] ?? "",
+            summary: summarise(s.description, 400),
+            used,
+            usable: !used && affordable,
+            useTooltip: used ? "EDRPG.karma.usedHint" : affordable ? "EDRPG.karma.useHint" : "EDRPG.karma.cantAfford",
+         };
+      };
+      const views = karma.map(capabilityView);
+      const hasEscapeDeath = karma.some((i) => i.system.costAll);
+      if (isCharacter && !hasEscapeDeath) views.unshift(capabilityView(builtInEscapeDeath()));
+      context.karmaGroups = Object.entries(karmaRoles)
+         .map(([role, label]) => ({ label, items: views.filter((v) => v.role === role) }))
+         .filter((g) => g.items.length);
+      context.restChip = game.i18n.localize("EDRPG.karma.rest");
       context.karmaCount = `${karma.filter((i) => !i.system.free).length} / ${system.rank.karmaCap}`;
 
       context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.biography, {
@@ -221,6 +243,24 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
    /** @this {EDActorSheet} */
    static #onConfigureResources() {
       new EDResourceConfig({ document: this.document }).render({ force: true });
+   }
+
+   /**
+    * @this {EDActorSheet}
+    *
+    * @param {PointerEvent} event
+    *
+    * @param {HTMLElement} target
+    */
+   static async #onUseKarma(event, target) {
+      const row = target.closest("tr");
+      const capability = row.dataset.builtin === "escapeDeath" ? builtInEscapeDeath() : this.document.items.get(row.dataset.itemId);
+      if (capability) return useKarmaCapability(this.document, capability);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onRestKarma() {
+      if (this.isEditable) return restKarma(this.document);
    }
 
    /** @this {EDActorSheet} */

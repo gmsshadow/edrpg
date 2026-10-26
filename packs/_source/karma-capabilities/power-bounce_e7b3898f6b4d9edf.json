@@ -1,0 +1,23 @@
+{
+  "_id": "e7b3898f6b4d9edf",
+  "_key": "!items!e7b3898f6b4d9edf",
+  "name": "Power Bounce",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You start up-close in vehicle combat, moving at Speed 3 or more.</p><p><strong>Effect:</strong> Use your action to bound away: fire your turret (if you have one) at any target up-close, then move to at-distance. Enemies cannot pursue you.</p>",
+    "role": "offensive",
+    "category": "vehicle",
+    "cost": 5,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

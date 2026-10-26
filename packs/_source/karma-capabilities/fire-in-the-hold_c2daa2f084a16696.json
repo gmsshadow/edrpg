@@ -1,0 +1,23 @@
+{
+  "_id": "c2daa2f084a16696",
+  "_key": "!items!c2daa2f084a16696",
+  "name": "Fire in the Hold!",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> Re-roll the scatter when you miss with a grenade.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

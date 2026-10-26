@@ -1,0 +1,23 @@
+{
+  "_id": "5f963d18556c6fec",
+  "_key": "!items!5f963d18556c6fec",
+  "name": "Duck!",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +2 to your Defence (Dodge) against an attack that would hit you.</p>",
+    "role": "defensive",
+    "category": "personal",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

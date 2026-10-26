@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.4
+- Karma Capabilities compendium: all 40 capabilities from the Core Rules (pp.31–36) with name, cost, list
+  (Defensive / Offensive / Skill-based & Other), where they're used, and prerequisite/effect mechanics in our own
+  words. No flavour text. Escape Death is included (free, costs all Karma).
+- Use button on each capability: spends the cost from current Karma and posts the effect to chat. Escape Death spends
+  all Karma and can't be used at 0. Disabled when you can't afford it.
+- Once per turn: in a started combat a used capability is marked "Used" until the start of that character's next turn
+  (cleared automatically by the GM's client), and all marks clear when the combat is deleted.
+- Rest +1 (Karma Capabilities header): a main rest regains 1 Karma.
+- End of Adventure also offers to restore all Karma for the next adventure, and is always available.
+- Karma Capability items have a List field (Defensive/Offensive/Other), a "costs all Karma" option and a new
+  "Vehicle or Spaceship Combat" category; the sheet groups capabilities by list.
+- Fix: contested checks allow repeated Karma rerolls of a natural 1, as the rules permit.
+- Build tooling: `npm run packs` compiles `packs/_source` into the LevelDB packs (`tools/karma-capabilities.py`
+  regenerates the capability source).
+
 ## 0.1.3
 - Skill check dialog: the difficulty presets are gone. The GM types the difficulty; the box is pre-filled with the
   world default (9) and selected, so typing replaces it.

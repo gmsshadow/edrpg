@@ -1,0 +1,23 @@
+{
+  "_id": "77786b57b7f70bd3",
+  "_key": "!items!77786b57b7f70bd3",
+  "name": "Point Blank Shot",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> Attacking at point-blank range does not provoke a free attack.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

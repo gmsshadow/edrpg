@@ -67,13 +67,21 @@ export const contestPairs = {
 /** Ties in a roll-off go to the defender ("If you equal or lose the check your opponent slips from your grasp"). */
 export const DEFAULT_CONTEST_TIES = "defender";
 
-/** Karma Capability groupings as printed in the Core Rules. */
+/** Where a Karma Capability is used, as printed after its name in the Core Rules (pp.31–36). */
 export const karmaCategories = {
    general: "EDRPG.karmaCategory.general",
    anyCombat: "EDRPG.karmaCategory.anyCombat",
    personal: "EDRPG.karmaCategory.personal",
    vehicle: "EDRPG.karmaCategory.vehicle",
    spaceship: "EDRPG.karmaCategory.spaceship",
+   vehicleSpaceship: "EDRPG.karmaCategory.vehicleSpaceship",
+};
+
+/** The book's three lists of Karma Capabilities (Core Rules p.31). */
+export const karmaRoles = {
+   defensive: "EDRPG.karmaRole.defensive",
+   offensive: "EDRPG.karmaRole.offensive",
+   other: "EDRPG.karmaRole.other",
 };
 
 /** Flat lookup: skill key -> category key. */

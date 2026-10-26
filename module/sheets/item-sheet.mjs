@@ -1,4 +1,4 @@
-import { skillChoices, karmaCategories } from "../config.mjs";
+import { skillChoices, karmaCategories, karmaRoles } from "../config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -41,6 +41,8 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          isKarma: item.type === "karma",
          skillChoices: skillChoices(),
          karmaCategories,
+         karmaRoles,
+         onActor: !!item.parent,
          backgroundChoices: { 1: "1", 2: "2" },
          onCharacter: item.parent?.type === "character",
       });

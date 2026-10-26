@@ -1,0 +1,23 @@
+{
+  "_id": "ca0a915c2858a31d",
+  "_key": "!items!ca0a915c2858a31d",
+  "name": "Karmic Missile",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> ECM and Point Defence countermeasures have no effect against this missile attack.</p>",
+    "role": "offensive",
+    "category": "spaceship",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

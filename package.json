@@ -1,0 +1,13 @@
+{
+  "name": "edrpg",
+  "private": true,
+  "type": "module",
+  "description": "Build tooling only; the system itself has no build step.",
+  "scripts": {
+    "packs": "node tools/build-packs.mjs",
+    "packs:extract": "node tools/build-packs.mjs --extract"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.5"
+  }
+}

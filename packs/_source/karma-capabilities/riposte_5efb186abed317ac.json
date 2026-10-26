@@ -1,0 +1,23 @@
+{
+  "_id": "5efb186abed317ac",
+  "_key": "!items!5efb186abed317ac",
+  "name": "Riposte",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> An enemy's counter-attack against you missed while you were using your Parry defence.</p><p><strong>Effect:</strong> Counter-attack the enemy's counter-attack.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 1,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1300,3 +1300,63 @@ li:hover > .ed-row-delete {
 .edrpg-contest button {
    font-size: var(--font-size-12, 12px);
 }
+
+/* ---------- Karma capabilities ---------- */
+
+.edrpg .ed-table.karma tr.group td {
+   padding: 0.15rem 0.4rem;
+   background: transparent;
+   border: none;
+   border-bottom: 2px solid var(--ed-karma-2);
+   color: var(--ed-karma-1);
+   font-weight: 700;
+   text-align: left;
+   text-transform: uppercase;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg .ed-table.karma td.use,
+.edrpg .ed-table.karma th.use {
+   width: 3.6rem;
+   background: transparent;
+   border: none;
+}
+
+.edrpg .ed-use {
+   width: 100%;
+   height: auto;
+   padding: 0.1rem 0.3rem;
+   border: none;
+   border-radius: 0;
+   background: linear-gradient(to right, var(--ed-karma-1), var(--ed-karma-2));
+   color: var(--ed-white);
+   font-family: var(--ed-font);
+   font-size: var(--font-size-11, 11px);
+   font-weight: 700;
+   text-transform: uppercase;
+   cursor: pointer;
+}
+
+.edrpg .ed-use:disabled {
+   background: var(--ed-cell-border);
+   cursor: default;
+}
+
+.edrpg .ed-use.used {
+   background: var(--ed-karma-soft);
+   color: var(--ed-karma-1);
+}
+
+.edrpg-chat .outcome.karma {
+   background: linear-gradient(to right, var(--ed-karma-1), var(--ed-karma-2));
+}
+
+.edrpg-chat.karma-use .karma-meta {
+   text-align: center;
+   font-size: var(--font-size-11, 11px);
+   opacity: 0.85;
+}
+
+.edrpg-chat.karma-use .karma-effect p {
+   margin: 0.2rem 0;
+}

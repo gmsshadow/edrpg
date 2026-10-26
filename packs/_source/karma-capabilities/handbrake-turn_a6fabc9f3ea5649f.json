@@ -1,0 +1,23 @@
+{
+  "_id": "a6fabc9f3ea5649f",
+  "_key": "!items!a6fabc9f3ea5649f",
+  "name": "Handbrake Turn",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +5 to your Vehicle Defence against an attack that would hit you.</p>",
+    "role": "defensive",
+    "category": "vehicle",
+    "cost": 5,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

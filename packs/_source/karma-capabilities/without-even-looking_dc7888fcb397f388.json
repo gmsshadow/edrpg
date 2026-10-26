@@ -1,0 +1,23 @@
+{
+  "_id": "dc7888fcb397f388",
+  "_key": "!items!dc7888fcb397f388",
+  "name": "Without Even Looking…",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> A one-handed Energy or Kinetic weapon in hand, and you have just attacked and hit an opponent in front of you.</p><p><strong>Effect:</strong> Make a ranged attack with that weapon against a different enemy behind or beside you, with no To Hit penalty.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 4,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

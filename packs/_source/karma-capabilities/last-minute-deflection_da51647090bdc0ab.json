@@ -1,0 +1,23 @@
+{
+  "_id": "da51647090bdc0ab",
+  "_key": "!items!da51647090bdc0ab",
+  "name": "Last Minute Deflection",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +3 to your Parry against an attack that would hit you.</p>",
+    "role": "defensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

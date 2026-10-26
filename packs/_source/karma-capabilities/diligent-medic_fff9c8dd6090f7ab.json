@@ -1,0 +1,23 @@
+{
+  "_id": "fff9c8dd6090f7ab",
+  "_key": "!items!fff9c8dd6090f7ab",
+  "name": "Diligent Medic",
+  "type": "karma",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> Use a Medpack on someone again, even if they have been treated within the last six hours.</p>",
+    "role": "other",
+    "category": "general",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

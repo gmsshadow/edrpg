@@ -1,0 +1,23 @@
+{
+  "_id": "6229255951beea7d",
+  "_key": "!items!6229255951beea7d",
+  "name": "Get Me Outta Here!",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +4 to your Pursuit check when disengaging.</p>",
+    "role": "defensive",
+    "category": "vehicleSpaceship",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

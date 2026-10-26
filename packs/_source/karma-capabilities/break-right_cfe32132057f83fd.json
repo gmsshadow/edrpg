@@ -1,0 +1,23 @@
+{
+  "_id": "cfe32132057f83fd",
+  "_key": "!items!cfe32132057f83fd",
+  "name": "Break Right!",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +2 to your Vehicle Defence against an attack that would hit you.</p>",
+    "role": "defensive",
+    "category": "vehicle",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

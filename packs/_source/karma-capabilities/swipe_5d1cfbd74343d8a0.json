@@ -1,0 +1,23 @@
+{
+  "_id": "5d1cfbd74343d8a0",
+  "_key": "!items!5d1cfbd74343d8a0",
+  "name": "Swipe",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> Instead of firing your weapons, make a Ram attack at +2 To Hit. On a hit you take half the normal damage and do not go out of control; the enemy takes full damage and must make two Obstacle checks in their next turn.</p>",
+    "role": "offensive",
+    "category": "vehicle",
+    "cost": 4,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

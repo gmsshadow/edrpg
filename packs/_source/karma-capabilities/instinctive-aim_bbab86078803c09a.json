@@ -1,0 +1,23 @@
+{
+  "_id": "bbab86078803c09a",
+  "_key": "!items!bbab86078803c09a",
+  "name": "Instinctive Aim",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +2 to the Spaceship or Vehicle attack you just made.</p>",
+    "role": "offensive",
+    "category": "spaceship",
+    "cost": 4,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

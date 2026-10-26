@@ -1,0 +1,23 @@
+{
+  "_id": "0b45a8b5e8c597a8",
+  "_key": "!items!0b45a8b5e8c597a8",
+  "name": "Get Some Grip",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +5 to your Vehicle Piloting check to avoid Obstacles.</p>",
+    "role": "defensive",
+    "category": "vehicle",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

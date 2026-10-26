@@ -1,0 +1,23 @@
+{
+  "_id": "45d93eab4231968f",
+  "_key": "!items!45d93eab4231968f",
+  "name": "Jink",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +2 to your Spaceship Defence against an attack that would hit you.</p>",
+    "role": "defensive",
+    "category": "spaceship",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

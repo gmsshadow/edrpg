@@ -1,0 +1,23 @@
+{
+  "_id": "8dfe70416a3ffa81",
+  "_key": "!items!8dfe70416a3ffa81",
+  "name": "Liar, Liar!",
+  "type": "karma",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +4 to an Insight check made to tell whether someone is lying to you.</p>",
+    "role": "other",
+    "category": "general",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

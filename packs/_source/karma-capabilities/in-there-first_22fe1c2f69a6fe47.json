@@ -1,0 +1,23 @@
+{
+  "_id": "22fe1c2f69a6fe47",
+  "_key": "!items!22fe1c2f69a6fe47",
+  "name": "In There First",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +5 to your Initiative check.</p>",
+    "role": "offensive",
+    "category": "anyCombat",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

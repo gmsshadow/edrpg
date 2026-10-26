@@ -1,0 +1,23 @@
+{
+  "_id": "9015136146a9eca4",
+  "_key": "!items!9015136146a9eca4",
+  "name": "I Have You Now…",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +2 to your current Dogfighting check.</p>",
+    "role": "offensive",
+    "category": "spaceship",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

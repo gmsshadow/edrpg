@@ -1,0 +1,23 @@
+{
+  "_id": "81315aff009a3cd5",
+  "_key": "!items!81315aff009a3cd5",
+  "name": "Slam",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You have just hit an opponent with a Melee or Fighting attack.</p><p><strong>Effect:</strong> The enemy is knocked over, whatever the damage result.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

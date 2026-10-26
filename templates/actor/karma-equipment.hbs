@@ -1,34 +1,37 @@
 <div class="tab karma-equipment {{tab.cssClass}}" data-group="primary" data-tab="karmaEquipment">
 
-   {{#> edrpgSection title="EDRPG.sheet.KarmaCapabilities" icon="fa-solid fa-yin-yang" style="karma" count=karmaCount addType="karma"}}
+   {{#> edrpgSection title="EDRPG.sheet.KarmaCapabilities" icon="fa-solid fa-yin-yang" style="karma" count=karmaCount addType="karma" chip=restChip chipAction="restKarma" chipTooltip="EDRPG.karma.restHint"}}
    <table class="ed-table karma">
       <thead>
          <tr>
             <th class="name">{{localize "EDRPG.sheet.capability"}}</th>
             <th>{{localize "EDRPG.item.cost"}}</th>
             <th>{{localize "EDRPG.item.category"}}</th>
-            <th class="notes">{{localize "EDRPG.item.description"}}</th>
+            <th class="notes">{{localize "EDRPG.karma.effect"}}</th>
+            <th class="use"></th>
             <th class="controls"></th>
          </tr>
       </thead>
       <tbody>
-         {{#if isCharacter}}
-         <tr class="fixed">
-            <th class="name">{{localize "EDRPG.sheet.escapeDeath.name"}}</th>
-            <td>{{localize "EDRPG.sheet.all"}}</td>
-            <td>{{localize "EDRPG.sheet.all"}}</td>
-            <td class="notes">{{localize "EDRPG.sheet.escapeDeath.description"}}</td>
-            <td class="controls"></td>
-         </tr>
-         {{/if}}
-         {{#each karmaCapabilities as |item|}}
-         <tr data-item-id="{{item.id}}" class="draggable">
-            <th class="name"><a data-action="editItem">{{item.name}}</a></th>
-            <td>{{item.system.cost}}</td>
+         {{#each karmaGroups as |group|}}
+         <tr class="group"><td colspan="6">{{localize group.label}}</td></tr>
+         {{#each group.items as |item|}}
+         <tr {{#if item.id}}data-item-id="{{item.id}}" class="draggable"{{else}}class="fixed" data-builtin="escapeDeath"{{/if}}>
+            <th class="name">{{#if item.id}}<a data-action="editItem">{{item.name}}</a>{{else}}{{item.name}}{{/if}}</th>
+            <td>{{item.costLabel}}</td>
             <td>{{localize item.categoryLabel}}</td>
             <td class="notes">{{item.summary}}</td>
-            <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            <td class="use">
+               {{#if @root.owner}}
+               <button type="button" class="ed-use {{#if item.used}}used{{/if}}" data-action="useKarma"
+                       {{#unless item.usable}}disabled{{/unless}} data-tooltip="{{item.useTooltip}}">
+                  {{#if item.used}}{{localize "EDRPG.karma.used"}}{{else}}{{localize "EDRPG.karma.use"}}{{/if}}
+               </button>
+               {{/if}}
+            </td>
+            <td class="controls">{{#if item.id}}{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}{{/if}}</td>
          </tr>
+         {{/each}}
          {{/each}}
       </tbody>
    </table>

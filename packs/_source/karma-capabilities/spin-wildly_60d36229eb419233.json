@@ -1,0 +1,23 @@
+{
+  "_id": "60d36229eb419233",
+  "_key": "!items!60d36229eb419233",
+  "name": "Spin Wildly",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +5 to your Spaceship Defence against an attack that would hit you.</p>",
+    "role": "defensive",
+    "category": "spaceship",
+    "cost": 5,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

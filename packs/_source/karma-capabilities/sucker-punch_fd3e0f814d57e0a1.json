@@ -1,0 +1,23 @@
+{
+  "_id": "fd3e0f814d57e0a1",
+  "_key": "!items!fd3e0f814d57e0a1",
+  "name": "Sucker Punch",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You have just made a Fighting attack, hit or miss.</p><p><strong>Effect:</strong> Make another Fighting attack immediately, ignoring the enemy's Dodge or Parry bonus.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

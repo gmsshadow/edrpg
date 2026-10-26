@@ -264,8 +264,10 @@ async function karmaRerollSide(message, sideKey) {
  */
 function canKarmaReroll(side) {
    const r = side.result;
-   if (!r || r.karma || side.kind !== "actor" || !canControl(side)) return false;
-   const allowAll = game.settings.get("edrpg", "allowToRerollAllTests");
+   if (!r || side.kind !== "actor" || !canControl(side)) return false;
+   // A natural 1 can be rerolled again and again while Karma lasts ("You are not restricted to a single
+   // re-roll", Core Rules p.31). The house rule allowing any reroll permits one per side.
+   const allowAll = game.settings.get("edrpg", "allowToRerollAllTests") && !r.karma;
    const actor = fromUuidSync(side.actorUuid);
    return (r.natural === 1 || allowAll) && (actor?.system.karma.standard.value ?? 0) > 0;
 }

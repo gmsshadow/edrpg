@@ -1,0 +1,23 @@
+{
+  "_id": "f3ca2543021da8d5",
+  "_key": "!items!f3ca2543021da8d5",
+  "name": "Line 'em Up!",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> When firing broadsides, you may keep firing turrets at the same target even after a turret misses.</p>",
+    "role": "offensive",
+    "category": "spaceship",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

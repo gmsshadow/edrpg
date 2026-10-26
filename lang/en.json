@@ -431,14 +431,18 @@
       "cost": "Karma cost",
       "free": "Free",
       "freeHint": "Does not count towards the character's limit.",
-      "description": "Description"
+      "description": "Description",
+      "role": "List",
+      "costAll": "Costs all Karma",
+      "costAllHint": "Spends the whole Karma pool and can't be used at 0 (Escape Death)."
     },
     "karmaCategory": {
-      "general": "General",
+      "general": "Non-combat",
       "anyCombat": "Any Combat",
       "personal": "Personal Combat",
       "vehicle": "Vehicle Combat",
-      "spaceship": "Spaceship Combat"
+      "spaceship": "Spaceship Combat",
+      "vehicleSpaceship": "Vehicle or Spaceship Combat"
     },
     "skillConfig": {
       "title": "Skill",
@@ -487,14 +491,16 @@
     "endAdventure": {
       "title": "End of Adventure",
       "button": "End of Adventure",
-      "buttonHint": "Each ticked skill gains +1 (unless it would exceed the Skill Cap), then all ticks are cleared.",
+      "buttonHint": "Ticked skills gain +1 (unless that would exceed the Skill Cap) and all ticks are cleared. Optionally restores Karma for the next adventure.",
       "confirm": "End the adventure for {name}?",
       "apply": "Apply",
       "improved": "Skills improved (+1 Learn)",
       "atCap": "At Skill Cap — tick cleared, no improvement",
       "ticksCleared": "All skill ticks will be cleared.",
       "nothing": "{name} has no ticked skills.",
-      "ticked": "{count} ticked"
+      "ticked": "{count} ticked",
+      "restoreKarma": "Restore all Karma for the next adventure ({value} / {max})",
+      "karmaRestored": "Karma restored to {max}."
     },
     "contest": {
       "against": "Against",
@@ -537,6 +543,28 @@
         "initiator": "Ties go to the acting character",
         "defender": "Ties go to the opponent"
       }
+    },
+    "karmaRole": {
+      "defensive": "Defensive",
+      "offensive": "Offensive",
+      "other": "Skill-based & Other"
+    },
+    "karma": {
+      "use": "Use",
+      "used": "Used",
+      "useHint": "Spend the Karma and post the effect to chat.",
+      "usedHint": "Already used this turn; you get it back at the start of your next turn.",
+      "cantAfford": "Not enough Karma.",
+      "usedThisTurn": "{name} has already been used this turn.",
+      "notEnough": "{name} costs {cost} Karma; you have {karma}.",
+      "spent": "Karma spent:",
+      "remaining": "Karma left:",
+      "effect": "Effect",
+      "rest": "Rest +1",
+      "restHint": "Main rest (a full night's sleep): regain 1 Karma point.",
+      "rested": "{name} rests and regains 1 Karma ({value} / {max}).",
+      "alreadyFull": "{name}'s Karma is already full.",
+      "usedThisTurnLabel": "Used this turn"
     }
   }
 }

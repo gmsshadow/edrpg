@@ -1,0 +1,23 @@
+{
+  "_id": "eafbbe975afbed97",
+  "_key": "!items!eafbbe975afbed97",
+  "name": "Get Down!",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> Choose an ally who can see and hear you: they gain +2 to their Defence (Dodge or Parry) against an attack that just hit them.</p>",
+    "role": "defensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "eab1978b49247b7c",
+  "_key": "!items!eab1978b49247b7c",
+  "name": "Incoming!",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> If you are in an explosive's fatal radius, move into its injury radius; if you are in the injury radius, move out of it. Anyone adjacent to you may do the same.</p>",
+    "role": "defensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

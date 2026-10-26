@@ -1,0 +1,23 @@
+{
+  "_id": "c86af03ebf1a654c",
+  "_key": "!items!c86af03ebf1a654c",
+  "name": "Hard Boiled",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> A one-handed Energy or Kinetic weapon in each hand, and you are not knocked over.</p><p><strong>Effect:</strong> Make two ranged attacks, one with each weapon, with no penalty for using two weapons. Your Defence (Dodge) is 10 until your next turn, whatever your Dodge skill.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 8,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

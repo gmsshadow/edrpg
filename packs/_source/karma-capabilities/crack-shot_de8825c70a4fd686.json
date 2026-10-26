@@ -1,0 +1,23 @@
+{
+  "_id": "de8825c70a4fd686",
+  "_key": "!items!de8825c70a4fd686",
+  "name": "Crack Shot",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> +2 to the Kinetic, Energy or Heavy Weapons attack you just made.</p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 4,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

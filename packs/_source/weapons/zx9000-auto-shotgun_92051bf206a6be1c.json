@@ -1,0 +1,68 @@
+{
+  "_id": "92051bf206a6be1c",
+  "_key": "!items!92051bf206a6be1c",
+  "name": "ZX9000 Auto-Shotgun",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Base damage drops at medium and long range; Burst still applies.</p>",
+    "cost": "19,400,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "6m",
+        "dn": 3
+      },
+      "medium": {
+        "distance": "12m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "50m",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "2d10",
+      "long": "1d10"
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "4d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 3,
+      "max": 3
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Base damage drops at medium and long range; Burst still applies.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Shotguns"
+    }
+  },
+  "sort": 3700,
+  "effects": [],
+  "folder": "c2400c5605f5f7d0",
+  "ownership": {
+    "default": 0
+  }
+}

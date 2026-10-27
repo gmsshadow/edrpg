@@ -1,0 +1,36 @@
+{
+  "_id": "fb4c9794887cf4ae",
+  "_key": "!items!fb4c9794887cf4ae",
+  "name": "Reflec Vest",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "60cr",
+    "rarity": "common",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 0,
+      "energy": 3,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "discreet": true,
+    "wornOpenly": false,
+    "socialFactor": 0,
+    "skillMods": [],
+    "enhancement": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 300,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

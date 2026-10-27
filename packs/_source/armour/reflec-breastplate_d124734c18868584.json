@@ -1,0 +1,41 @@
+{
+  "_id": "d124734c18868584",
+  "_key": "!items!d124734c18868584",
+  "name": "Reflec Breastplate",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "90,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 5,
+      "energy": 5,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 3,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": 7,
+    "discreet": false,
+    "wornOpenly": false,
+    "socialFactor": -1,
+    "skillMods": [
+      {
+        "skill": "athletics",
+        "value": -10
+      }
+    ],
+    "enhancement": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 700,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "66e9ec54630e6e24",
+  "_key": "!items!66e9ec54630e6e24",
+  "name": "Underslung Grenade Launcher",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Direct-fire explosive. Uses the Grenade skill.</p>",
+    "cost": "40cr fitted to an SMG, 90cr to an assault rifle",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "grenade",
+    "damageType": "explosive",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "Min. 18m",
+        "dn": null
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 9
+      },
+      "long": {
+        "distance": "150m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 25,
+      "injury": 10,
+      "fatalRadius": 6,
+      "injuryRadius": 16
+    },
+    "ammo": {
+      "value": 2,
+      "max": 2
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Direct-fire explosive. Uses the Grenade skill.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Sub Machineguns"
+    }
+  },
+  "sort": 2100,
+  "effects": [],
+  "folder": "a78be228d142bdda",
+  "ownership": {
+    "default": 0
+  }
+}

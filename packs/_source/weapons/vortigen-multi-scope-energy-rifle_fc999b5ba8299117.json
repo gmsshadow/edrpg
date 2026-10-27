@@ -1,0 +1,68 @@
+{
+  "_id": "fc999b5ba8299117",
+  "_key": "!items!fc999b5ba8299117",
+  "name": "Vortigen Multi-Scope Energy Rifle",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "1,450,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "20m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "150m",
+        "dn": 6
+      },
+      "long": {
+        "distance": "500m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "20",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 10,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Rifles"
+    }
+  },
+  "sort": 4800,
+  "effects": [],
+  "folder": "070114d4efc5e23c",
+  "ownership": {
+    "default": 0
+  }
+}

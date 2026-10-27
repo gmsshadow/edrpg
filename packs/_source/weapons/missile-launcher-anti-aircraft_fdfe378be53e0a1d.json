@@ -1,0 +1,68 @@
+{
+  "_id": "fdfe378be53e0a1d",
+  "_key": "!items!fdfe378be53e0a1d",
+  "name": "Missile Launcher (Anti-Aircraft)",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Half damage against shields. Ignores the Range difficulty when attacking spacecraft.</p>",
+    "cost": "2000cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "explosive",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "Min. 26m",
+        "dn": null
+      },
+      "medium": {
+        "distance": "2km",
+        "dn": 10
+      },
+      "long": {
+        "distance": "6km",
+        "dn": 13
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 120,
+      "injury": 20,
+      "fatalRadius": 2,
+      "injuryRadius": 40
+    },
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Half damage against shields. Ignores the Range difficulty when attacking spacecraft.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Missile Launchers"
+    }
+  },
+  "sort": 6400,
+  "effects": [],
+  "folder": "098b9a7c882bbaa5",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "044913cdec2b281e",
+  "_key": "!items!044913cdec2b281e",
+  "name": "Skollanga 'Slammer' SMG",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Knocks the target over on a natural 9 or 10 To Hit.</p>",
+    "cost": "985,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Knocks the target over on a natural 9 or 10 To Hit.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Sub Machineguns"
+    }
+  },
+  "sort": 2500,
+  "effects": [],
+  "folder": "a78be228d142bdda",
+  "ownership": {
+    "default": 0
+  }
+}

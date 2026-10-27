@@ -1,0 +1,68 @@
+{
+  "_id": "b43523ec2e3d903f",
+  "_key": "!items!b43523ec2e3d903f",
+  "name": "Laser Pistol",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "3cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "80m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 11
+      }
+    },
+    "finesse": null,
+    "damage": "8",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Pistols"
+    }
+  },
+  "sort": 1100,
+  "effects": [],
+  "folder": "7cbeb5ca778ea4f2",
+  "ownership": {
+    "default": 0
+  }
+}

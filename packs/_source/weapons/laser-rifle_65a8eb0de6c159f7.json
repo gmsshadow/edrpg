@@ -1,0 +1,68 @@
+{
+  "_id": "65a8eb0de6c159f7",
+  "_key": "!items!65a8eb0de6c159f7",
+  "name": "Laser Rifle",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "40cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "20m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "150m",
+        "dn": 6
+      },
+      "long": {
+        "distance": "500m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "15",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Rifles"
+    }
+  },
+  "sort": 4400,
+  "effects": [],
+  "folder": "070114d4efc5e23c",
+  "ownership": {
+    "default": 0
+  }
+}

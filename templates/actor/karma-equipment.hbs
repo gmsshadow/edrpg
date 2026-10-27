@@ -38,21 +38,46 @@
    {{/edrpgSection}}
 
    <div class="ed-two-col">
-      {{#> edrpgSection title="EDRPG.sheet.carriedWeapons" icon="fa-solid fa-gun"}}
-      <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+      {{#> edrpgSection title="EDRPG.sheet.carriedWeapons" icon="fa-solid fa-gun" addType="weapon"}}
+      <table class="ed-table gear">
+         <thead><tr><th class="name">{{localize "EDRPG.equipment.Weapon"}}</th><th>{{localize "EDRPG.sheet.ammo"}}</th><th class="toggle">{{localize "EDRPG.equipment.Equipped"}}</th><th class="controls"></th></tr></thead>
+         <tbody>
+            {{#each carriedWeapons as |w|}}
+            <tr data-item-id="{{w.id}}" class="draggable">
+               <th class="name"><a data-action="editItem">{{w.name}}</a></th>
+               <td class="ammo">{{#if w.usesAmmo}}<input type="number" data-item-field="system.ammo.value" value="{{w.ammo.value}}" min="0" step="1">/{{w.ammo.max}}{{else}}—{{/if}}</td>
+               <td class="toggle"><a data-action="toggleItem" data-field="system.equipped" data-tooltip="EDRPG.weapon.equippedHint">{{#if w.equipped}}<i class="fa-solid fa-hand-fist"></i>{{else}}<i class="fa-regular fa-circle"></i>{{/if}}</a></td>
+               <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            </tr>
+            {{else}}<tr class="empty"><td colspan="4">{{localize "EDRPG.weapon.noneCarried"}}</td></tr>{{/each}}
+         </tbody>
+      </table>
       {{/edrpgSection}}
-      {{#> edrpgSection title="EDRPG.sheet.clothing" icon="fa-solid fa-shirt"}}
-      <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+      {{#> edrpgSection title="EDRPG.sheet.clothing" icon="fa-solid fa-shirt" addType="armour"}}
+      <table class="ed-table gear">
+         <thead><tr><th class="name">{{localize "EDRPG.equipment.Item"}}</th><th class="notes">{{localize "EDRPG.sheet.notes"}}</th><th class="toggle">{{localize "EDRPG.equipment.Worn"}}</th><th class="controls"></th></tr></thead>
+         <tbody>
+            {{#each clothing as |a|}}
+            <tr data-item-id="{{a.id}}" class="draggable">
+               <th class="name"><a data-action="editItem">{{a.name}}</a></th>
+               <td class="notes">{{a.notes}}</td>
+               <td class="toggle"><a data-action="toggleItem" data-field="system.worn">{{#if a.worn}}<i class="fa-solid fa-shirt"></i>{{else}}<i class="fa-regular fa-circle"></i>{{/if}}</a></td>
+               <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            </tr>
+            {{else}}<tr class="empty"><td colspan="4">{{localize "EDRPG.armour.noneCarried"}}</td></tr>{{/each}}
+         </tbody>
+      </table>
+      <p class="hint">{{localize "EDRPG.sheet.clothingHint"}}</p>
       {{/edrpgSection}}
    </div>
 
    <div class="ed-equipment-grid">
       <div class="ed-stack">
          {{#> edrpgSection title="EDRPG.sheet.pack" icon="fa-solid fa-suitcase"}}
-         <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+         {{> edrpgStoredList items=packItems}}
          {{/edrpgSection}}
          {{#> edrpgSection title="EDRPG.sheet.shipStorage" icon="fa-solid fa-shuttle-space"}}
-         <p class="ed-empty">{{localize "EDRPG.sheet.equipmentComing"}}</p>
+         {{> edrpgStoredList items=shipItems}}
          {{/edrpgSection}}
       </div>
       {{#> edrpgSection title="EDRPG.sheet.cash" icon="fa-solid fa-coins" style="cash"}}

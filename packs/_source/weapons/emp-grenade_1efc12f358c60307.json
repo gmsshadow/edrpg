@@ -1,0 +1,68 @@
+{
+  "_id": "1efc12f358c60307",
+  "_key": "!items!1efc12f358c60307",
+  "name": "EMP Grenade",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Damages robotic targets only. Energy weapons in the Fatal radius are disabled until repaired. Harmless to people, except those with cybernetic organs.</p>",
+    "cost": "1000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "grenade",
+    "damageType": "explosive",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 60,
+      "injury": 20,
+      "fatalRadius": 6,
+      "injuryRadius": 16
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Damages robotic targets only. Energy weapons in the Fatal radius are disabled until repaired. Harmless to people, except those with cybernetic organs.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Grenades"
+    }
+  },
+  "sort": 5600,
+  "effects": [],
+  "folder": "7a868b62f375bef5",
+  "ownership": {
+    "default": 0
+  }
+}

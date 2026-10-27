@@ -1,0 +1,68 @@
+{
+  "_id": "d72dab031dbd1535",
+  "_key": "!items!d72dab031dbd1535",
+  "name": "Shotgun",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "5cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "6m",
+        "dn": 3
+      },
+      "medium": {
+        "distance": "12m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "50m",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "2d10",
+      "long": "1d10"
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Shotguns"
+    }
+  },
+  "sort": 3200,
+  "effects": [],
+  "folder": "c2400c5605f5f7d0",
+  "ownership": {
+    "default": 0
+  }
+}

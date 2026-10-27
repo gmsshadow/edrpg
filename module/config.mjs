@@ -84,6 +84,50 @@ export const karmaRoles = {
    other: "EDRPG.karmaRole.other",
 };
 
+/** Common items are printed in green, rare in blue (Core Rules p.99). */
+export const rarities = {
+   common: "EDRPG.rarity.common",
+   rare: "EDRPG.rarity.rare",
+};
+
+/** Where an item is kept, matching the character sheet's equipment sections. */
+export const equipmentLocations = {
+   carried: "EDRPG.location.carried",
+   pack: "EDRPG.location.pack",
+   ship: "EDRPG.location.ship",
+};
+
+/** Skills a weapon can attack with. */
+export const weaponSkills = {
+   kineticWeapons: "EDRPG.sheet.skills.combat.kineticWeapons.name",
+   energyWeapons: "EDRPG.sheet.skills.combat.energyWeapons.name",
+   heavyWeapons: "EDRPG.sheet.skills.combat.heavyWeapons.name",
+   grenade: "EDRPG.sheet.skills.combat.grenade.name",
+   meleeWeapons: "EDRPG.sheet.skills.combat.meleeWeapons.name",
+   fighting: "EDRPG.sheet.skills.combat.fighting.name",
+};
+
+/** The six types of Damage armour can absorb (Core Rules p.121). */
+export const damageTypes = {
+   kinetic: "EDRPG.damage.kinetic",
+   energy: "EDRPG.damage.energy",
+   explosive: "EDRPG.damage.explosive",
+   fighting: "EDRPG.damage.fighting",
+   melee: "EDRPG.damage.melee",
+   toxic: "EDRPG.damage.toxic",
+};
+
+/**
+ * Burst: extra Damage for each point an attack beats the difficulty To Hit, up to the weapon's maximum.
+ * Burst +1D10 per point; Heavy Burst +2D10 per point; energy weapons +5 per point (Core Rules p.57).
+ */
+export const burstKinds = {
+   none: "EDRPG.burst.none",
+   burst: "EDRPG.burst.burst",
+   heavy: "EDRPG.burst.heavy",
+   energy: "EDRPG.burst.energy",
+};
+
 /** Flat lookup: skill key -> category key. */
 export const skillCategory = Object.fromEntries(
    Object.entries(skills).flatMap(([category, list]) => list.map((skill) => [skill, category])),

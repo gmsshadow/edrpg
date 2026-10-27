@@ -1,0 +1,68 @@
+{
+  "_id": "8d0b5d8d688f4071",
+  "_key": "!items!8d0b5d8d688f4071",
+  "name": "NG75 Autopistol",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "42,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "6m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "50m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "100m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "1d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 2,
+      "max": 2
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Autopistols"
+    }
+  },
+  "sort": 200,
+  "effects": [],
+  "folder": "cf655da17f163ab4",
+  "ownership": {
+    "default": 0
+  }
+}

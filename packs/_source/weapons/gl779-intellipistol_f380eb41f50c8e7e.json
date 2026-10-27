@@ -1,0 +1,68 @@
+{
+  "_id": "f380eb41f50c8e7e",
+  "_key": "!items!f380eb41f50c8e7e",
+  "name": "GL779 Intellipistol",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Fires with an Energy Weapons bonus of 9, ignoring the firer's skill.</p>",
+    "cost": "8,200,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "12m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "90m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "130m",
+        "dn": 11
+      }
+    },
+    "finesse": null,
+    "damage": "12",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Fires with an Energy Weapons bonus of 9, ignoring the firer's skill.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Pistols"
+    }
+  },
+  "sort": 1900,
+  "effects": [],
+  "folder": "7cbeb5ca778ea4f2",
+  "ownership": {
+    "default": 0
+  }
+}

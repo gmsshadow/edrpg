@@ -1,0 +1,68 @@
+{
+  "_id": "6b81b61922899dc0",
+  "_key": "!items!6b81b61922899dc0",
+  "name": "LX10 Energised Autopistol",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Damage counts as an Energy weapon (can be switched to normal rounds).</p>",
+    "cost": "1,400,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "2d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 5,
+    "skillMods": [],
+    "notes": "Damage counts as an Energy weapon (can be switched to normal rounds).",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Autopistols"
+    }
+  },
+  "sort": 800,
+  "effects": [],
+  "folder": "cf655da17f163ab4",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "0b55f539b3e354d7",
+  "_key": "!items!0b55f539b3e354d7",
+  "name": "Chainsaw",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>After using it you cannot use the Dodge defence until the start of your next turn.</p>",
+    "cost": "2cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "meleeWeapons",
+    "damageType": "melee",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": 9,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "After using it you cannot use the Dodge defence until the start of your next turn.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Melee Weapons"
+    }
+  },
+  "sort": 7500,
+  "effects": [],
+  "folder": "d182e39f2af5d0e6",
+  "ownership": {
+    "default": 0
+  }
+}

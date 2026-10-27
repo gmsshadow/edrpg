@@ -1,0 +1,73 @@
+{
+  "_id": "a119b40d60256cd7",
+  "_key": "!items!a119b40d60256cd7",
+  "name": "Imperial Sabre",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "",
+    "cost": "31,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "meleeWeapons",
+    "damageType": "melee",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": 4,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 20,
+    "skillMods": [
+      {
+        "skill": "parry",
+        "value": 15
+      }
+    ],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Melee Weapons"
+    }
+  },
+  "sort": 7800,
+  "effects": [],
+  "folder": "d182e39f2af5d0e6",
+  "ownership": {
+    "default": 0
+  }
+}

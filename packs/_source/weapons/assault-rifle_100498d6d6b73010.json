@@ -1,0 +1,68 @@
+{
+  "_id": "100498d6d6b73010",
+  "_key": "!items!100498d6d6b73010",
+  "name": "Assault Rifle",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "15cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "16m",
+        "dn": 6
+      },
+      "medium": {
+        "distance": "100m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "400m",
+        "dn": 10
+      }
+    },
+    "finesse": null,
+    "damage": "1d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Assault Rifles"
+    }
+  },
+  "sort": 3800,
+  "effects": [],
+  "folder": "ea8cecd480f43212",
+  "ownership": {
+    "default": 0
+  }
+}

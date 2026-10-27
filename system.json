@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "authors": [
     {
       "name": "gmsshadow",
@@ -13,8 +13,12 @@
     "minimum": "14",
     "verified": "14"
   },
-  "esmodules": ["module/edrpg.mjs"],
-  "styles": ["styles/edrpg.css"],
+  "esmodules": [
+    "module/edrpg.mjs"
+  ],
+  "styles": [
+    "styles/edrpg.css"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -25,21 +29,41 @@
   "documentTypes": {
     "Actor": {
       "character": {
-        "htmlFields": ["biography"]
+        "htmlFields": [
+          "biography"
+        ]
       },
       "npcIndividual": {
-        "htmlFields": ["biography"]
+        "htmlFields": [
+          "biography"
+        ]
       }
     },
     "Item": {
       "background": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "enhancement": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "karma": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "weapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "armour": {
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   },
@@ -50,16 +74,58 @@
       "path": "packs/karma-capabilities",
       "type": "Item",
       "system": "edrpg",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "armour",
+      "label": "Armour",
+      "path": "packs/armour",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "packFolders": [
-    { "name": "Elite: Dangerous RPG", "sorting": "a", "color": "#0b2238", "packs": ["karma-capabilities"] }
+    {
+      "name": "Elite: Dangerous RPG",
+      "sorting": "a",
+      "color": "#0b2238",
+      "packs": [
+        "karma-capabilities",
+        "weapons",
+        "armour"
+      ]
+    }
   ],
   "flags": {
     "hotReload": {
-      "extensions": ["css", "hbs", "json"],
-      "paths": ["styles", "templates", "lang"]
+      "extensions": [
+        "css",
+        "hbs",
+        "json"
+      ],
+      "paths": [
+        "styles",
+        "templates",
+        "lang"
+      ]
     }
   },
   "grid": {

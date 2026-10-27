@@ -1,0 +1,68 @@
+{
+  "_id": "004e93f10499839b",
+  "_key": "!items!004e93f10499839b",
+  "name": "Cauldus Nerve-blocker Laser Pistol",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Knocks the target over on a natural 9 or 10 To Hit; a target knocked over is disarmed.</p>",
+    "cost": "196,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "80m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 11
+      }
+    },
+    "finesse": null,
+    "damage": "8",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Knocks the target over on a natural 9 or 10 To Hit; a target knocked over is disarmed.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Pistols"
+    }
+  },
+  "sort": 1400,
+  "effects": [],
+  "folder": "7cbeb5ca778ea4f2",
+  "ownership": {
+    "default": 0
+  }
+}

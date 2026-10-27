@@ -78,7 +78,7 @@
       {{/edrpgSection}}
    </div>
 
-   {{#> edrpgSection title="EDRPG.sheet.rangedWeapons" icon="fa-solid fa-crosshairs"}}
+   {{#> edrpgSection title="EDRPG.sheet.rangedWeapons" icon="fa-solid fa-crosshairs" addType="weapon"}}
    <table class="ed-table">
       <thead>
          <tr>
@@ -93,12 +93,28 @@
          </tr>
       </thead>
       <tbody>
-         <tr class="empty"><td colspan="8">{{localize "EDRPG.sheet.equipmentComing"}}</td></tr>
+         {{#each rangedWeapons as |w|}}
+         <tr data-item-id="{{w.id}}" class="draggable {{#unless w.equipped}}unequipped{{/unless}}">
+            <th class="name"><a data-action="editItem" data-tooltip="{{localize w.skillLabel}}">{{w.name}}</a></th>
+            <td>+{{w.toHit}}</td>
+            {{#each w.ranges as |r|}}<td class="range">{{r}}</td>{{/each}}
+            <td class="damage">{{w.damage}}</td>
+            <td class="damage ammo">
+               {{#if w.usesAmmo}}
+               <input type="number" data-item-field="system.ammo.value" value="{{w.ammo.value}}" min="0" step="1">/{{w.ammo.max}}
+               <a data-action="reloadWeapon" data-tooltip="EDRPG.weapon.reload"><i class="fa-solid fa-rotate"></i></a>
+               {{else}}—{{/if}}
+            </td>
+            <td class="notes">{{w.notes}}</td>
+         </tr>
+         {{else}}
+         <tr class="empty"><td colspan="8">{{localize "EDRPG.weapon.noneCarried"}}</td></tr>
+         {{/each}}
       </tbody>
    </table>
    {{/edrpgSection}}
 
-   {{#> edrpgSection title="EDRPG.sheet.closeCombat" icon="fa-solid fa-hand-fist"}}
+   {{#> edrpgSection title="EDRPG.sheet.closeCombat" icon="fa-solid fa-hand-fist" addType="weapon"}}
    <table class="ed-table">
       <thead>
          <tr>
@@ -117,6 +133,15 @@
             <td class="damage"><a data-action="rollFightingDamage" data-tooltip="EDRPG.sheet.rollDamage">{{localize "EDRPG.sheet.fightingDamage"}}</a></td>
             <td class="notes"></td>
          </tr>
+         {{#each meleeWeapons as |w|}}
+         <tr data-item-id="{{w.id}}" class="draggable {{#unless w.equipped}}unequipped{{/unless}}">
+            <th class="name"><a data-action="editItem">{{w.name}}</a></th>
+            <td>+{{w.toHit}}</td>
+            <td>{{w.finesse}}</td>
+            <td class="damage">{{w.damage}}</td>
+            <td class="notes">{{w.notes}}</td>
+         </tr>
+         {{/each}}
       </tbody>
    </table>
    {{/edrpgSection}}

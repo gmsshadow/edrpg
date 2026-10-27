@@ -1,0 +1,68 @@
+{
+  "_id": "2bbf1d801439f081",
+  "_key": "!items!2bbf1d801439f081",
+  "name": "Jupiter 'Lockon' Short Barrelled Rifle",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "867,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "8m",
+        "dn": 3
+      },
+      "medium": {
+        "distance": "16m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "70m",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "4d10",
+    "rangeDamage": {
+      "medium": "2d10",
+      "long": "1d10"
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 10,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Shotguns"
+    }
+  },
+  "sort": 3600,
+  "effects": [],
+  "folder": "c2400c5605f5f7d0",
+  "ownership": {
+    "default": 0
+  }
+}

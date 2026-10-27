@@ -1,0 +1,68 @@
+{
+  "_id": "6d6354d82b048f6c",
+  "_key": "!items!6d6354d82b048f6c",
+  "name": "Lance & Ferman 'Deadeye' Rifle",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "5,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "24m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "200m",
+        "dn": 6
+      },
+      "long": {
+        "distance": "700m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "15",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 20,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Rifles"
+    }
+  },
+  "sort": 5100,
+  "effects": [],
+  "folder": "070114d4efc5e23c",
+  "ownership": {
+    "default": 0
+  }
+}

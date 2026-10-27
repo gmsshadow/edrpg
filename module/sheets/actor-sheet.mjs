@@ -1,4 +1,15 @@
-import { skills, skillChoices, pilotTrained, fighting, karmaCategories, karmaRoles, socialFactorSkills } from "../config.mjs";
+import {
+   skills,
+   skillChoices,
+   skillCategory,
+   pilotTrained,
+   fighting,
+   karmaCategories,
+   karmaRoles,
+   socialFactorSkills,
+   equipmentLocations,
+   MAX_SKILL_SCORE,
+} from "../config.mjs";
 import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs";
 import { endAdventure } from "../advancement.mjs";
 import { EDSkillConfig, EDResourceConfig, EDSocialFactorConfig } from "./actor-config.mjs";
@@ -51,6 +62,8 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          endAdventure: EDActorSheet.#onEndAdventure,
          useKarma: EDActorSheet.#onUseKarma,
          restKarma: EDActorSheet.#onRestKarma,
+         toggleItem: EDActorSheet.#onToggleItem,
+         reloadWeapon: EDActorSheet.#onReloadWeapon,
          rollInitiative: EDActorSheet.#onRollInitiative,
          rollFighting: EDActorSheet.#onRollFighting,
          rollFightingDamage: EDActorSheet.#onRollFightingDamage,
@@ -192,6 +205,8 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          .map(([role, label]) => ({ label, items: views.filter((v) => v.role === role) }))
          .filter((g) => g.items.length);
       context.restChip = game.i18n.localize("EDRPG.karma.rest");
+
+      this._prepareEquipment(context);
       context.karmaCount = `${karma.filter((i) => !i.system.free).length} / ${system.rank.karmaCap}`;
 
       context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.biography, {
@@ -201,6 +216,99 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       });
       context.biographyField = system.schema.getField("biography");
       return context;
+   }
+
+   /**
+    * Weapons and armour for the Data Sheet and Karma & Equipment tabs.
+    *
+    * @param {object} context
+    */
+   _prepareEquipment(context) {
+      const actor = this.document;
+      const skillsData = actor.system.skills;
+      const loc = (i) => i.system.location;
+
+      const weaponView = (item) => {
+         const s = item.system;
+         const skill = skillsData[skillCategory[s.skill]][s.skill];
+         // A rare weapon's bonus adds to the Skill score only when attacking with it (Core Rules p.100).
+         const score = Math.min(skill.score + s.attackBonus, MAX_SKILL_SCORE);
+         const props = [
+            s.burstLabel,
+            s.oneHanded ? game.i18n.localize("EDRPG.weapon.oneHanded") : "",
+            s.destroyCover ? game.i18n.localize("EDRPG.weapon.destroyCover") : "",
+            s.divideFire ? game.i18n.localize("EDRPG.weapon.divideFire") : "",
+            s.attackBonus ? game.i18n.format("EDRPG.weapon.attackBonusShort", { value: s.attackBonus }) : "",
+            s.blast.fatalRadius ? game.i18n.format("EDRPG.weapon.blastShort", { fatal: s.blast.fatalRadius, injury: s.blast.injuryRadius }) : "",
+            s.notes,
+         ].filter(Boolean);
+         return {
+            id: item.id,
+            name: item.name,
+            img: item.img,
+            skillLabel: `EDRPG.sheet.skills.${skillCategory[s.skill]}.${s.skill}.name`,
+            toHit: Math.floor(score / 10),
+            ranges: ["short", "medium", "long"].map((k) => {
+               const band = s.ranges[k];
+               return band.distance ? `${band.distance}${band.dn !== null ? ` (${band.dn})` : ""}` : "—";
+            }),
+            finesse: s.finesse ?? "—",
+            damage: s.damageLabel,
+            usesAmmo: s.usesAmmo,
+            ammo: s.ammo,
+            notes: props.join(". "),
+            equipped: s.equipped,
+            isMelee: s.isMelee,
+            location: s.location,
+         };
+      };
+      const armourView = (item) => ({
+         id: item.id,
+         name: item.name,
+         img: item.img,
+         notes: [
+            item.system.absorbLabel,
+            item.system.hardened ? game.i18n.format("EDRPG.armour.hardenedShort", { value: item.system.hardened }) : "",
+            item.system.discreet ? game.i18n.localize("EDRPG.armour.discreet") : "",
+            item.system.effectiveSocialFactor
+               ? game.i18n.format("EDRPG.armour.sfShort", { value: item.system.effectiveSocialFactor })
+               : "",
+         ]
+            .filter(Boolean)
+            .join(". "),
+         worn: item.system.worn,
+         location: item.system.location,
+      });
+
+      const weapons = [...actor.itemTypes.weapon].sort((a, b) => (a.sort || 0) - (b.sort || 0));
+      const armour = [...actor.itemTypes.armour].sort((a, b) => (a.sort || 0) - (b.sort || 0));
+      const carried = weapons.filter((w) => loc(w) === "carried").map(weaponView);
+      context.rangedWeapons = carried.filter((w) => !w.isMelee);
+      context.meleeWeapons = carried.filter((w) => w.isMelee);
+      context.carriedWeapons = carried;
+      context.clothing = armour.filter((a) => loc(a) === "carried").map(armourView);
+
+      const stored = (where) => [
+         ...weapons.filter((w) => loc(w) === where).map((w) => ({ ...weaponView(w), kind: "weapon" })),
+         ...armour.filter((a) => loc(a) === where).map((a) => ({ ...armourView(a), kind: "armour" })),
+      ];
+      context.packItems = stored("pack");
+      context.shipItems = stored("ship");
+      context.equipmentLocations = equipmentLocations;
+   }
+
+   /** @override */
+   async _onRender(context, options) {
+      await super._onRender(context, options);
+      // Inline item fields (ammo, storage location) update the embedded item directly.
+      for (const input of this.element.querySelectorAll("[data-item-field]")) {
+         input.addEventListener("change", (event) => {
+            event.stopPropagation();
+            const item = this.document.items.get(input.closest("[data-item-id]").dataset.itemId);
+            const value = input.type === "number" ? Number(input.value) : input.value;
+            item?.update({ [input.dataset.itemField]: value });
+         });
+      }
    }
 
    /** @override */
@@ -256,6 +364,36 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       const row = target.closest("tr");
       const capability = row.dataset.builtin === "escapeDeath" ? builtInEscapeDeath() : this.document.items.get(row.dataset.itemId);
       if (capability) return useKarmaCapability(this.document, capability);
+   }
+
+   /**
+    * Toggle a boolean on an embedded item (weapon equipped, armour worn).
+    *
+    * @this {EDActorSheet}
+    *
+    * @param {PointerEvent} event
+    *
+    * @param {HTMLElement} target
+    */
+   static async #onToggleItem(event, target) {
+      if (!this.isEditable) return;
+      const item = this.#getItem(target);
+      const field = target.dataset.field;
+      if (item) return item.update({ [field]: !foundry.utils.getProperty(item, field) });
+   }
+
+   /**
+    * Reload: a fresh magazine. Any rounds left in the old one are lost (Core Rules p.100).
+    *
+    * @this {EDActorSheet}
+    *
+    * @param {PointerEvent} event
+    *
+    * @param {HTMLElement} target
+    */
+   static async #onReloadWeapon(event, target) {
+      const item = this.#getItem(target);
+      if (item?.system.usesAmmo) return item.update({ "system.ammo.value": item.system.ammo.max });
    }
 
    /** @this {EDActorSheet} */

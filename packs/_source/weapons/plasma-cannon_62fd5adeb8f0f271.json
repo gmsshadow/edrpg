@@ -1,0 +1,68 @@
+{
+  "_id": "62fd5adeb8f0f271",
+  "_key": "!items!62fd5adeb8f0f271",
+  "name": "Plasma Cannon",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>The firer is knocked over unless the weapon is tripod mounted.</p>",
+    "cost": "4000cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "energy",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "Min. 36m",
+        "dn": null
+      },
+      "medium": {
+        "distance": "500m",
+        "dn": 9
+      },
+      "long": {
+        "distance": "3km",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 100,
+      "injury": 40,
+      "fatalRadius": 12,
+      "injuryRadius": 34
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "The firer is knocked over unless the weapon is tripod mounted.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Plasma Cannons"
+    }
+  },
+  "sort": 6800,
+  "effects": [],
+  "folder": "82e38fcd1f7eb04c",
+  "ownership": {
+    "default": 0
+  }
+}

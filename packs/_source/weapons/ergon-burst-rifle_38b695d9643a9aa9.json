@@ -1,0 +1,68 @@
+{
+  "_id": "38b695d9643a9aa9",
+  "_key": "!items!38b695d9643a9aa9",
+  "name": "Ergon Burst Rifle",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "2,100,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "20m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "150m",
+        "dn": 6
+      },
+      "long": {
+        "distance": "500m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "energy",
+      "max": "20"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Rifles"
+    }
+  },
+  "sort": 4900,
+  "effects": [],
+  "folder": "070114d4efc5e23c",
+  "ownership": {
+    "default": 0
+  }
+}

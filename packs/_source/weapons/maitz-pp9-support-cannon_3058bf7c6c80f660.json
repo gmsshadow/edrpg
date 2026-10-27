@@ -1,0 +1,68 @@
+{
+  "_id": "3058bf7c6c80f660",
+  "_key": "!items!3058bf7c6c80f660",
+  "name": "Maitz PP9 Support Cannon",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "",
+    "cost": "42,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "kinetic",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "40m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "80m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "200m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "heavy",
+      "max": "10d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "oneHanded": false,
+    "destroyCover": true,
+    "divideFire": true,
+    "attackBonus": 5,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Chain Guns"
+    }
+  },
+  "sort": 6100,
+  "effects": [],
+  "folder": "5e22996c5f028257",
+  "ownership": {
+    "default": 0
+  }
+}

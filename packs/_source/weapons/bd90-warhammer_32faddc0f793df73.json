@@ -1,0 +1,68 @@
+{
+  "_id": "32faddc0f793df73",
+  "_key": "!items!32faddc0f793df73",
+  "name": "BD90 Warhammer",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>At short range, knocks the target over on a natural 8, 9 or 10 To Hit. On a natural 1 To Hit it malfunctions and needs three hours' servicing.</p>",
+    "cost": "209,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "6m",
+        "dn": 3
+      },
+      "medium": {
+        "distance": "12m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "50m",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "5d10",
+    "rangeDamage": {
+      "medium": "3d10",
+      "long": "1d10"
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "At short range, knocks the target over on a natural 8, 9 or 10 To Hit. On a natural 1 To Hit it malfunctions and needs three hours' servicing.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Shotguns"
+    }
+  },
+  "sort": 3500,
+  "effects": [],
+  "folder": "c2400c5605f5f7d0",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "976645076003b52d",
+  "_key": "!items!976645076003b52d",
+  "name": "Krakoff Demolisher Rifle",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Includes an underslung grenade launcher.</p>",
+    "cost": "3,050,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "4d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Includes an underslung grenade launcher.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Sub Machineguns"
+    }
+  },
+  "sort": 2700,
+  "effects": [],
+  "folder": "a78be228d142bdda",
+  "ownership": {
+    "default": 0
+  }
+}

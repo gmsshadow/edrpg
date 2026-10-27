@@ -1,0 +1,68 @@
+{
+  "_id": "912eb49bd66f854f",
+  "_key": "!items!912eb49bd66f854f",
+  "name": "XLS Omega Recoilless Rifle",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Half damage against shields. Requires the Strong enhancement or cybernetic strength.</p>",
+    "cost": "23,300,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "explosive",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "Min. 26m",
+        "dn": null
+      },
+      "medium": {
+        "distance": "200m",
+        "dn": 9
+      },
+      "long": {
+        "distance": "2km",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 60,
+      "injury": 30,
+      "fatalRadius": 10,
+      "injuryRadius": 24
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 15,
+    "skillMods": [],
+    "notes": "Half damage against shields. Requires the Strong enhancement or cybernetic strength.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Missile Launchers"
+    }
+  },
+  "sort": 6700,
+  "effects": [],
+  "folder": "098b9a7c882bbaa5",
+  "ownership": {
+    "default": 0
+  }
+}

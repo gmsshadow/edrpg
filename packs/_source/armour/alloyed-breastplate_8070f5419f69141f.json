@@ -1,0 +1,41 @@
+{
+  "_id": "8070f5419f69141f",
+  "_key": "!items!8070f5419f69141f",
+  "name": "Alloyed Breastplate",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "40,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 8,
+      "energy": 3,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 3,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": 7,
+    "discreet": false,
+    "wornOpenly": false,
+    "socialFactor": -1,
+    "skillMods": [
+      {
+        "skill": "athletics",
+        "value": -10
+      }
+    ],
+    "enhancement": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 600,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

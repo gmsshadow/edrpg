@@ -1,21 +1,32 @@
-import { skillChoices, karmaCategories, karmaRoles } from "../config.mjs";
+import {
+   skillChoices,
+   karmaCategories,
+   karmaRoles,
+   weaponSkills,
+   damageTypes,
+   burstKinds,
+   rarities,
+   equipmentLocations,
+} from "../config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 
 /**
- * ApplicationV2 sheet for Backgrounds, Enhancements and Karma Capabilities.
+ * ApplicationV2 sheet for Backgrounds, Enhancements, Karma Capabilities, Weapons and Armour.
  */
 export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
    /** @override */
    static DEFAULT_OPTIONS = {
       classes: ["edrpg", "edrpg-sheet", "item"],
-      position: { width: 560, height: 520 },
+      position: { width: 600, height: 680 },
       window: { resizable: true },
       form: { submitOnChange: true },
       actions: {
          addSkillBonus: EDItemSheet.#onAddSkillBonus,
          removeSkillBonus: EDItemSheet.#onRemoveSkillBonus,
+         addSkillMod: EDItemSheet.#onAddSkillMod,
+         removeSkillMod: EDItemSheet.#onRemoveSkillMod,
       },
    };
 
@@ -44,7 +55,30 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          karmaRoles,
          onActor: !!item.parent,
          backgroundChoices: { 1: "1", 2: "2" },
+         isWeapon: item.type === "weapon",
+         isMelee: item.type === "weapon" && item.system.isMelee,
+         isArmour: item.type === "armour",
+         isEquipment: ["weapon", "armour"].includes(item.type),
+         weaponSkills,
+         damageTypes,
+         burstKinds,
+         rarities,
+         equipmentLocations,
       });
+      if (item.type === "weapon") {
+         context.rangeBands = ["short", "medium", "long"].map((key) => ({
+            key,
+            label: `EDRPG.sheet.range.${key}`,
+            ...item.system._source.ranges[key],
+         }));
+      }
+      if (item.type === "armour") {
+         context.absorbRows = Object.entries(damageTypes).map(([key, label]) => ({
+            key,
+            label,
+            value: item.system._source.absorb[key],
+         }));
+      }
       context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
          item.system.description,
          { secrets: item.isOwner, relativeTo: item, rollData: item.getRollData?.() },
@@ -53,17 +87,19 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
    }
 
    /**
-    * Form fields named `system.skills.<n>.<key>` arrive as an object; store them as an array.
+    * Form fields named `system.skills.<n>.<key>` / `system.skillMods.<n>.<key>` arrive as objects; store arrays.
     *
     * @override
     */
    _processFormData(event, form, formData) {
       const data = super._processFormData(event, form, formData);
-      const mods = data.system?.skills;
-      if (mods && !Array.isArray(mods)) {
-         data.system.skills = Object.keys(mods)
-            .sort((a, b) => Number(a) - Number(b))
-            .map((k) => mods[k]);
+      for (const key of ["skills", "skillMods"]) {
+         const list = data.system?.[key];
+         if (list && !Array.isArray(list)) {
+            data.system[key] = Object.keys(list)
+               .sort((a, b) => Number(a) - Number(b))
+               .map((k) => list[k]);
+         }
       }
       return data;
    }
@@ -85,5 +121,24 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
       const index = Number(target.closest("[data-index]").dataset.index);
       const skills = this.document.system.toObject().skills.filter((_, i) => i !== index);
       return this.document.update({ "system.skills": skills });
+   }
+
+   /** @this {EDItemSheet} */
+   static async #onAddSkillMod() {
+      const mods = [...this.document.system.toObject().skillMods, { skill: "", value: 0 }];
+      return this.document.update({ "system.skillMods": mods });
+   }
+
+   /**
+    * @this {EDItemSheet}
+    *
+    * @param {PointerEvent} event
+    *
+    * @param {HTMLElement} target
+    */
+   static async #onRemoveSkillMod(event, target) {
+      const index = Number(target.closest("[data-index]").dataset.index);
+      const mods = this.document.system.toObject().skillMods.filter((_, i) => i !== index);
+      return this.document.update({ "system.skillMods": mods });
    }
 }

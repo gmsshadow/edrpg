@@ -1,0 +1,73 @@
+{
+  "_id": "fe99185396f73b40",
+  "_key": "!items!fe99185396f73b40",
+  "name": "Neo-Samurai Sword",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "",
+    "cost": "425,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "meleeWeapons",
+    "damageType": "melee",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": 4,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 15,
+    "skillMods": [
+      {
+        "skill": "parry",
+        "value": 10
+      }
+    ],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Melee Weapons"
+    }
+  },
+  "sort": 7700,
+  "effects": [],
+  "folder": "d182e39f2af5d0e6",
+  "ownership": {
+    "default": 0
+  }
+}

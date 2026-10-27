@@ -1,0 +1,36 @@
+{
+  "_id": "775cfee899db95c7",
+  "_key": "!items!775cfee899db95c7",
+  "name": "Reactive Armour",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "50cr",
+    "rarity": "common",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 4,
+      "energy": 2,
+      "explosive": 8,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "discreet": false,
+    "wornOpenly": false,
+    "socialFactor": -2,
+    "skillMods": [],
+    "enhancement": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 500,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

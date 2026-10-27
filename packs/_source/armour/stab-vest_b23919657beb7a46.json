@@ -1,0 +1,36 @@
+{
+  "_id": "b23919657beb7a46",
+  "_key": "!items!b23919657beb7a46",
+  "name": "Stab Vest",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "2cr",
+    "rarity": "common",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 3,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "discreet": true,
+    "wornOpenly": false,
+    "socialFactor": 0,
+    "skillMods": [],
+    "enhancement": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 100,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

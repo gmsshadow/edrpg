@@ -7,7 +7,9 @@
     "Item": {
       "karma": "Karma Capability",
       "background": "Background",
-      "enhancement": "Enhancement"
+      "enhancement": "Enhancement",
+      "weapon": "Weapon",
+      "armour": "Armour"
     }
   },
   "EDRPG": {
@@ -265,7 +267,9 @@
       "credits": "Credits (cr)",
       "microCredits": "Micro Credits (mcr)",
       "units": "Units (u)",
-      "cashHint": "1 cr = 100 mcr = 10,000 u"
+      "cashHint": "1 cr = 100 mcr = 10,000 u",
+      "clothingHint": "Clothing items arrive in a later release; armour is listed here.",
+      "storedEmpty": "Nothing stored."
     },
     "rank": {
       "pilots": {
@@ -356,7 +360,13 @@
       "description": "Description",
       "role": "List",
       "costAll": "Costs all Karma",
-      "costAllHint": "Spends the whole Karma pool and can't be used at 0 (Escape Death)."
+      "costAllHint": "Spends the whole Karma pool and can't be used at 0 (Escape Death).",
+      "rarity": "Rarity",
+      "location": "Kept in",
+      "skillMods": "Skill score modifiers",
+      "skillModsWeaponHint": "Applied while the weapon is equipped (e.g. +10 Parry for a Neo-Samurai Sword).",
+      "skillModsArmourHint": "Applied while the armour is worn (e.g. Riot Armour −20 Athletics).",
+      "price": "Cost"
     },
     "karmaCategory": {
       "general": "Non-combat",
@@ -390,8 +400,8 @@
     "socialFactor": {
       "title": "Social Factor",
       "hint": "Added to Bargain, Bluff, Charm and Diplomacy rolls (not to the Skill score). The GM can rule it doesn't apply to a particular roll.",
-      "worn": "Clothing, armour & equipment",
-      "wornHint": "Total Social Factor of what you're wearing and carrying (e.g. Tailored Business Suit +1, Riot Armour −2, wrist com −2). Will be calculated from worn items once they exist.",
+      "worn": "Clothing & other items",
+      "wornHint": "Social Factor of clothing and other items (e.g. Tailored Business Suit +1, wrist com −2). Worn armour is added automatically.",
       "damaged": "Clothes damaged",
       "damagedHint": "You lose any positive Social Factor from clothing once you take damage. Ticked automatically when Endurance drops; untick after changing clothes.",
       "cosmetics": "Cosmetics",
@@ -486,6 +496,70 @@
       "rested": "{name} rests and regains 1 Karma ({value} / {max}).",
       "alreadyFull": "{name}'s Karma is already full.",
       "usedThisTurnLabel": "Used this turn"
+    },
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare"
+    },
+    "location": {
+      "carried": "Carried",
+      "pack": "Pack",
+      "ship": "Ship"
+    },
+    "damage": {
+      "kinetic": "Kinetic",
+      "energy": "Energy",
+      "explosive": "Explosive",
+      "fighting": "Fighting",
+      "melee": "Melee",
+      "toxic": "Toxic"
+    },
+    "burst": {
+      "none": "None",
+      "burst": "Burst (+1D10 per point)",
+      "heavy": "Heavy Burst (+2D10 per point)",
+      "energy": "Energy Burst (+5 per point)"
+    },
+    "weapon": {
+      "attack": "Attack",
+      "skill": "Attack skill",
+      "damageType": "Damage type",
+      "attackBonus": "Skill score bonus",
+      "attackBonusHint": "A rare weapon's bonus to the attacker's Skill score, used only when attacking with this weapon (never above 100).",
+      "distance": "Distance",
+      "dn": "Difficulty",
+      "baseDamage": "Base damage",
+      "sameDamage": "Same as base",
+      "burst": "Burst",
+      "burstMax": "Max",
+      "damageHint": "Damage is a roll formula (1d10, 3d10, 8). Burst adds damage for each point the attack beats the difficulty, up to the maximum.",
+      "blast": "Explosive blast",
+      "fatal": "Fatal damage",
+      "fatalRadius": "Fatal radius (m)",
+      "injury": "Injury damage",
+      "injuryRadius": "Injury radius (m)",
+      "properties": "Properties",
+      "oneHanded": "One Handed",
+      "heavy": "Heavy weapon",
+      "destroyCover": "Destroy Cover",
+      "divideFire": "Divide Fire",
+      "attackBonusShort": "+{value} skill score",
+      "blastShort": "Blast {fatal}m / {injury}m",
+      "reload": "Reload (a fresh magazine; leftover rounds are lost)",
+      "noneCarried": "No weapons carried.",
+      "equippedHint": "In hand: its skill modifiers apply"
+    },
+    "armour": {
+      "absorb": "Absorbs",
+      "toxicAll": "Absorbs all Toxic damage",
+      "hardened": "Hardened",
+      "enhancement": "Grants enhancement",
+      "discreet": "Discreet",
+      "wornOpenly": "Worn openly (Social Factor −1)",
+      "hint": "Absorbs damage of the listed types; every hit still does at least 1 damage, except Toxic. Hardened N: roll a D10, and on N or more the protection is doubled. Discreet armour worn under clothes has no Social Factor penalty.",
+      "hardenedShort": "Hardened {value}",
+      "sfShort": "Social Factor {value}",
+      "noneCarried": "No clothing or armour."
     }
   }
 }

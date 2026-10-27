@@ -1,0 +1,68 @@
+{
+  "_id": "da76a0b641ff7739",
+  "_key": "!items!da76a0b641ff7739",
+  "name": "Concussion Grenade",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "",
+    "cost": "100cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "grenade",
+    "damageType": "explosive",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 40,
+      "injury": 5,
+      "fatalRadius": 2,
+      "injuryRadius": 6
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Grenades"
+    }
+  },
+  "sort": 5500,
+  "effects": [],
+  "folder": "7a868b62f375bef5",
+  "ownership": {
+    "default": 0
+  }
+}

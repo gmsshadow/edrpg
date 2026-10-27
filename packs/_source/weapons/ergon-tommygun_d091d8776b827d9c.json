@@ -1,0 +1,68 @@
+{
+  "_id": "d091d8776b827d9c",
+  "_key": "!items!d091d8776b827d9c",
+  "name": "Ergon Tommygun",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "74,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "12m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "64m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "128m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "1d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 8,
+      "max": 8
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Sub Machineguns"
+    }
+  },
+  "sort": 2200,
+  "effects": [],
+  "folder": "a78be228d142bdda",
+  "ownership": {
+    "default": 0
+  }
+}

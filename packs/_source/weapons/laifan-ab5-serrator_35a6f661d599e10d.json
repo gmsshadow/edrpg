@@ -1,0 +1,68 @@
+{
+  "_id": "35a6f661d599e10d",
+  "_key": "!items!35a6f661d599e10d",
+  "name": "Laifan AB5 Serrator",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>On a natural 1 To Hit the weapon deals 10 Energy damage to its user.</p>",
+    "cost": "2,134,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "12m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "70m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "200m",
+        "dn": 10
+      }
+    },
+    "finesse": null,
+    "damage": "5",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "energy",
+      "max": "30"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": true,
+    "divideFire": true,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "On a natural 1 To Hit the weapon deals 10 Energy damage to its user.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Assault Beamers"
+    }
+  },
+  "sort": 3000,
+  "effects": [],
+  "folder": "d099f0c53b70a5e0",
+  "ownership": {
+    "default": 0
+  }
+}

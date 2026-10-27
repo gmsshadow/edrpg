@@ -1,0 +1,41 @@
+{
+  "_id": "ee9aca8d387a0447",
+  "_key": "!items!ee9aca8d387a0447",
+  "name": "Riot Armour",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "90cr",
+    "rarity": "common",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 3,
+      "melee": 5,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "discreet": false,
+    "wornOpenly": false,
+    "socialFactor": -2,
+    "skillMods": [
+      {
+        "skill": "athletics",
+        "value": -20
+      }
+    ],
+    "enhancement": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 400,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

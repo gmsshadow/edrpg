@@ -1,0 +1,68 @@
+{
+  "_id": "f5c4070b30ee3ea6",
+  "_key": "!items!f5c4070b30ee3ea6",
+  "name": "Missile Launcher (Anti-Personnel)",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Half damage against shields.</p>",
+    "cost": "200cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "explosive",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "Min. 26m",
+        "dn": null
+      },
+      "medium": {
+        "distance": "200m",
+        "dn": 9
+      },
+      "long": {
+        "distance": "2km",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 50,
+      "injury": 20,
+      "fatalRadius": 10,
+      "injuryRadius": 24
+    },
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Half damage against shields.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Missile Launchers"
+    }
+  },
+  "sort": 6200,
+  "effects": [],
+  "folder": "098b9a7c882bbaa5",
+  "ownership": {
+    "default": 0
+  }
+}

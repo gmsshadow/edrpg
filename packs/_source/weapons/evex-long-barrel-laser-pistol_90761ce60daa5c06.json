@@ -1,0 +1,68 @@
+{
+  "_id": "90761ce60daa5c06",
+  "_key": "!items!90761ce60daa5c06",
+  "name": "Evex Long-barrel Laser Pistol",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "98,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "16m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "100m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "150m",
+        "dn": 11
+      }
+    },
+    "finesse": null,
+    "damage": "8",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Pistols"
+    }
+  },
+  "sort": 1300,
+  "effects": [],
+  "folder": "7cbeb5ca778ea4f2",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "62fefbe8b45fb374",
+  "_key": "!items!62fefbe8b45fb374",
+  "name": "Axe/Hammer",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "",
+    "cost": "150mcr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "meleeWeapons",
+    "damageType": "melee",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": 8,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Melee Weapons"
+    }
+  },
+  "sort": 7300,
+  "effects": [],
+  "folder": "d182e39f2af5d0e6",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "4ff6a763d3539a9a",
+  "_key": "!items!4ff6a763d3539a9a",
+  "name": "G910 Heavy Repeater",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "",
+    "cost": "7,600,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "kinetic",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "30m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "180m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "heavy",
+      "max": "8d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": true,
+    "divideFire": true,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Chain Guns"
+    }
+  },
+  "sort": 5900,
+  "effects": [],
+  "folder": "5e22996c5f028257",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.6
+- Weapon and Armour item types (Core Rules ch.5).
+  - Weapons: attack skill, damage type, short/medium/long range with difficulty To Hit (or Finesse for melee),
+    damage formula with per-range damage (shotguns), Burst / Heavy Burst / energy Burst with maximum, explosive blast
+    (Fatal/Injury damage and radii), ammo, One Handed, Destroy Cover, Divide Fire, a rare weapon's Skill score bonus
+    (applied only when attacking with it) and skill modifiers while equipped (e.g. Neo-Samurai Sword +10 Parry).
+  - Armour: absorb per damage type (incl. "all Toxic"), Hardened, Discreet / worn openly, Social Factor, skill
+    modifiers while worn, granted enhancement.
+- Worn armour and equipped weapons now feed the character: their skill modifiers appear under Modifiers in the
+  skill edit window and change the score; worn armour's Social Factor is added to the Social Factor automatically
+  (Confident still ignores the penalties).
+- Character sheet: Ranged Weapons and Close Combat tables list carried weapons with To Hit (including a rare weapon's
+  bonus), ranges, damage and ammo (edit inline, reload button). Karma & Equipment: Carried Weapons (equipped toggle),
+  Clothing (armour, worn toggle), and Pack / Ship storage with a location selector.
+- Compendia: Weapons (78, in folders by type) and Armour (10), with stats, costs, rarity (common/rare as in the
+  book's green/blue) and mechanics only. Fighting stays built into the sheet.
+
 ## 0.1.5
 - Fix: Dice So Nice now animates contested checks — the opening roll is attached to the card, and the opponent's roll
   and Karma rerolls are shown through Dice So Nice before the card updates (a hidden opponent's dice show to GMs only).

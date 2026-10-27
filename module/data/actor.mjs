@@ -90,6 +90,14 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
       };
    }
 
+   /** Weapons in hand and armour being worn: the items whose modifiers apply. */
+   get equippedItems() {
+      const items = this.parent.items ?? [];
+      return items.filter(
+         (i) => (i.type === "weapon" && i.system.equipped) || (i.type === "armour" && i.system.worn),
+      );
+   }
+
    /** Whether this actor receives the free Pilot Trained background. */
    get receivesPilotTrained() {
       return false;
@@ -160,6 +168,18 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
          }
       }
 
+      // Equipment Skill score modifiers: worn armour (e.g. Riot Armour -20 Athletics) and equipped weapons
+      // (e.g. the Neo-Samurai Sword's +10 Parry). A rare weapon's attack bonus is applied only when attacking with it.
+      for (const item of this.equippedItems) {
+         for (const { skill, value } of item.system.skillMods ?? []) {
+            const category = skillCategory[skill];
+            if (!category || !value) continue;
+            const data = this.skills[category][skill];
+            data.equipmentMod += value;
+            data.equipmentSources.push({ label: item.name, value });
+         }
+      }
+
       // Score: Base + Learn is the natural score, limited by the Skill Cap. Equipment and temporary
       // modifiers apply on top and may exceed the cap, but never 100 (Core Rules, "Skill Bonuses").
       for (const list of Object.values(this.skills)) {
@@ -201,6 +221,19 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
             wornNote = "EDRPG.socialFactor.confidentNote";
          }
          sources.push({ label: "EDRPG.socialFactor.worn", value: worn, note: wornNote });
+         // Worn armour (Discreet armour only counts when worn openly).
+         for (const armour of (this.parent.itemTypes?.armour ?? []).filter((a) => a.system.worn)) {
+            let value = armour.system.effectiveSocialFactor;
+            let note = null;
+            if (value < 0 && sf.confident) {
+               value = 0;
+               note = "EDRPG.socialFactor.confidentNote";
+            }
+            if (value || note) {
+               sources.push({ label: armour.name, value, note });
+               worn += value;
+            }
+         }
          sources.push({ label: "EDRPG.socialFactor.cosmetics", value: sf.cosmetics });
          sources.push({ label: "EDRPG.socialFactor.other", value: sf.other });
          total = worn + sf.cosmetics + sf.other;

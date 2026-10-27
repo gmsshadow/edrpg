@@ -1,0 +1,68 @@
+{
+  "_id": "165b67e178c56363",
+  "_key": "!items!165b67e178c56363",
+  "name": "GTN 195 Autopistol",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "225,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "8m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "56m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "110m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "2d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 3,
+      "max": 3
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Autopistols"
+    }
+  },
+  "sort": 500,
+  "effects": [],
+  "folder": "cf655da17f163ab4",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_id": "713dcfd5da0953d8",
+  "_key": "!items!713dcfd5da0953d8",
+  "name": "Assault Combat Armour",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "2,700,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 10,
+      "energy": 4,
+      "explosive": 6,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": 6,
+    "discreet": false,
+    "wornOpenly": false,
+    "socialFactor": -2,
+    "skillMods": [
+      {
+        "skill": "intimidate",
+        "value": 10
+      },
+      {
+        "skill": "athletics",
+        "value": -20
+      }
+    ],
+    "enhancement": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 800,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "7a79f970bab991a6",
+  "_key": "!items!7a79f970bab991a6",
+  "name": "Magnotan Searching Beamer",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "13,599,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "12m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "70m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "200m",
+        "dn": 10
+      }
+    },
+    "finesse": null,
+    "damage": "10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "energy",
+      "max": "20"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": true,
+    "divideFire": true,
+    "attackBonus": 20,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Assault Beamers"
+    }
+  },
+  "sort": 3100,
+  "effects": [],
+  "folder": "d099f0c53b70a5e0",
+  "ownership": {
+    "default": 0
+  }
+}

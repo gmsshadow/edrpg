@@ -1,0 +1,68 @@
+{
+  "_id": "1b417e6dbdafd0d9",
+  "_key": "!items!1b417e6dbdafd0d9",
+  "name": "Paris Eleganté Laser Pistol",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "1,809,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "80m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 11
+      }
+    },
+    "finesse": null,
+    "damage": "10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 15,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Laser Pistols"
+    }
+  },
+  "sort": 1700,
+  "effects": [],
+  "folder": "7cbeb5ca778ea4f2",
+  "ownership": {
+    "default": 0
+  }
+}

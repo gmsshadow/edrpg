@@ -1,6 +1,6 @@
 import * as EDRPG from "./config.mjs";
 import { CharacterData, NPCIndividualData } from "./data/actor.mjs";
-import { BackgroundData, EnhancementData, KarmaCapabilityData } from "./data/item.mjs";
+import { BackgroundData, EnhancementData, KarmaCapabilityData, WeaponData, ArmourData } from "./data/item.mjs";
 import { EDActor, EDItem } from "./documents.mjs";
 import EDActorSheet from "./sheets/actor-sheet.mjs";
 import EDItemSheet from "./sheets/item-sheet.mjs";
@@ -29,6 +29,8 @@ Hooks.once("init", () => {
       background: BackgroundData,
       enhancement: EnhancementData,
       karma: KarmaCapabilityData,
+      weapon: WeaponData,
+      armour: ArmourData,
    });
 
    // Token bars: max values are derived, so declare them explicitly.
@@ -45,13 +47,15 @@ Hooks.once("init", () => {
       label: "EDRPG.sheet.labels.actor",
    });
    DocumentSheetConfig.registerSheet(foundry.documents.Item, "edrpg", EDItemSheet, {
-      types: ["background", "enhancement", "karma"],
+      types: ["background", "enhancement", "karma", "weapon", "armour"],
       makeDefault: true,
       label: "EDRPG.sheet.labels.item",
    });
 
    foundry.applications.handlebars.loadTemplates({
       edrpgSection: "systems/edrpg/templates/actor/section.hbs",
+      edrpgStoredList: "systems/edrpg/templates/actor/stored-list.hbs",
+      edrpgEquipmentDetails: "systems/edrpg/templates/item/equipment-details.hbs",
    });
 });
 

@@ -1,0 +1,45 @@
+{
+  "_id": "21eba05601721379",
+  "_key": "!items!21eba05601721379",
+  "name": "Powered Armour",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Grants the Strong enhancement while worn; it stacks with other physical or cybernetic enhancements.</p>",
+    "cost": "38,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 10,
+      "energy": 6,
+      "explosive": 10,
+      "fighting": 0,
+      "melee": 6,
+      "toxic": 0
+    },
+    "toxicAll": true,
+    "hardened": 5,
+    "discreet": false,
+    "wornOpenly": false,
+    "socialFactor": -3,
+    "skillMods": [
+      {
+        "skill": "intimidate",
+        "value": 20
+      },
+      {
+        "skill": "athletics",
+        "value": -10
+      }
+    ],
+    "enhancement": "Strong",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1000,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

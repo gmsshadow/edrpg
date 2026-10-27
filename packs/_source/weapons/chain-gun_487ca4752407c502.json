@@ -1,0 +1,68 @@
+{
+  "_id": "487ca4752407c502",
+  "_key": "!items!487ca4752407c502",
+  "name": "Chain Gun",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "",
+    "cost": "1000cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "kinetic",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "30m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "180m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "heavy",
+      "max": "6d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "oneHanded": false,
+    "destroyCover": true,
+    "divideFire": true,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Chain Guns"
+    }
+  },
+  "sort": 5800,
+  "effects": [],
+  "folder": "5e22996c5f028257",
+  "ownership": {
+    "default": 0
+  }
+}

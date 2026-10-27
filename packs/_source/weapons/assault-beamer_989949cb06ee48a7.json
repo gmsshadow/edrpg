@@ -1,0 +1,68 @@
+{
+  "_id": "989949cb06ee48a7",
+  "_key": "!items!989949cb06ee48a7",
+  "name": "Assault Beamer",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "",
+    "cost": "50cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "12m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "70m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "200m",
+        "dn": 10
+      }
+    },
+    "finesse": null,
+    "damage": "5",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "energy",
+      "max": "20"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": true,
+    "divideFire": true,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Assault Beamers"
+    }
+  },
+  "sort": 2800,
+  "effects": [],
+  "folder": "d099f0c53b70a5e0",
+  "ownership": {
+    "default": 0
+  }
+}

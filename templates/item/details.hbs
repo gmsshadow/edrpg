@@ -1,4 +1,5 @@
 <section class="item-details">
+   {{#if isEquipment}}{{> edrpgEquipmentDetails}}{{/if}}
    {{#if isBackground}}
    <div class="form-group">
       <label>{{localize "EDRPG.item.choices"}}</label>

@@ -1360,3 +1360,143 @@ li:hover > .ed-row-delete {
 .edrpg-chat.karma-use .karma-effect p {
    margin: 0.2rem 0;
 }
+
+/* ---------- Weapons & equipment on the actor sheet ---------- */
+
+.edrpg .ed-table td.range {
+   white-space: nowrap;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-table td.ammo {
+   white-space: nowrap;
+}
+
+.edrpg .ed-table td.ammo input {
+   width: 2.4rem;
+   height: 1.3rem;
+   padding: 0;
+   text-align: center;
+   border: 1px solid var(--ed-cell-border);
+   background: var(--ed-white);
+}
+
+.edrpg .ed-table td.ammo a {
+   margin-left: 0.2rem;
+   font-size: 0.8em;
+}
+
+.edrpg .ed-table tr.unequipped th.name a {
+   opacity: 0.65;
+}
+
+.edrpg .ed-table.gear td.toggle,
+.edrpg .ed-table.gear th.toggle {
+   width: 3.6rem;
+   text-align: center;
+}
+
+.edrpg .ed-table.gear td.controls,
+.edrpg .ed-table.gear th.controls {
+   width: 1.4rem;
+   background: transparent;
+   border: none;
+}
+
+.edrpg .ed-table.gear td.location {
+   width: 6.5rem;
+   padding: 0;
+}
+
+.edrpg .ed-table.gear td.location select {
+   width: 100%;
+   height: 1.4rem;
+   border: none;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-table.gear td.notes {
+   font-size: var(--font-size-12, 12px);
+}
+
+/* ---------- Weapon / armour item sheet ---------- */
+
+.edrpg .ed-item-grid {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 0.2rem 1rem;
+   align-items: center;
+}
+
+.edrpg .ed-item-grid.three {
+   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.edrpg .ed-item-grid.four {
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.edrpg .ed-item-grid .form-group {
+   margin: 0.15rem 0;
+}
+
+.edrpg .ed-item-grid .form-group input[type="number"] {
+   width: 4rem;
+   flex: 0 0 4rem;
+   text-align: center;
+}
+
+.edrpg .ed-item-grid.four .form-group {
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.edrpg .ed-check {
+   display: flex;
+   align-items: center;
+   gap: 0.3rem;
+   white-space: nowrap;
+}
+
+.edrpg .ed-item-table {
+   width: 100%;
+   margin: 0.3rem 0;
+   border-collapse: separate;
+   border-spacing: 2px;
+   background: transparent;
+   border: none;
+}
+
+.edrpg .ed-item-table thead th {
+   background: var(--ed-header);
+   color: var(--ed-white);
+   font-size: var(--font-size-11, 11px);
+   text-transform: uppercase;
+   text-shadow: none;
+}
+
+.edrpg .ed-item-table tbody th {
+   text-align: right;
+   padding-right: 0.4rem;
+   background: linear-gradient(to right, var(--ed-white), var(--ed-name));
+}
+
+.edrpg .ed-item-table td input {
+   width: 100%;
+   border: 1px solid var(--ed-cell-border);
+}
+
+.edrpg .ed-item-table .muted {
+   color: var(--ed-text-soft);
+   font-style: italic;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg-sheet.item .item-details input[type="text"] {
+   border: 1px solid var(--ed-cell-border);
+}
+
+.edrpg-sheet.item .item-details input.short {
+   flex: 0 0 5rem;
+   width: 5rem;
+}

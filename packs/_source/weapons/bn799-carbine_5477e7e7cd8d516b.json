@@ -1,0 +1,68 @@
+{
+  "_id": "5477e7e7cd8d516b",
+  "_key": "!items!5477e7e7cd8d516b",
+  "name": "BN799 Carbine",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Includes an underslung grenade launcher.</p>",
+    "cost": "3,600,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "20m",
+        "dn": 6
+      },
+      "medium": {
+        "distance": "160m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "650m",
+        "dn": 10
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 10,
+    "skillMods": [],
+    "notes": "Includes an underslung grenade launcher.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Assault Rifles"
+    }
+  },
+  "sort": 4300,
+  "effects": [],
+  "folder": "ea8cecd480f43212",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "503f609eab7153e0",
+  "_key": "!items!503f609eab7153e0",
+  "name": "K33 Multifire SMG",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "175,500cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "1d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "4d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 3,
+      "max": 3
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Sub Machineguns"
+    }
+  },
+  "sort": 2300,
+  "effects": [],
+  "folder": "a78be228d142bdda",
+  "ownership": {
+    "default": 0
+  }
+}

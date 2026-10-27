@@ -1,0 +1,68 @@
+{
+  "_id": "3ef7af6a2c031a0d",
+  "_key": "!items!3ef7af6a2c031a0d",
+  "name": "Flashbang Grenade",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>No damage. Targets in the Fatal radius must pass a Perception check (difficulty 10), and those in the Injury radius a difficulty 7 check, or be stunned: they miss their next turn and have a Defence of 0 until it starts.</p>",
+    "cost": "4cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "grenade",
+    "damageType": "explosive",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": 4,
+      "injuryRadius": 12
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "No damage. Targets in the Fatal radius must pass a Perception check (difficulty 10), and those in the Injury radius a difficulty 7 check, or be stunned: they miss their next turn and have a Defence of 0 until it starts.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Grenades"
+    }
+  },
+  "sort": 5400,
+  "effects": [],
+  "folder": "7a868b62f375bef5",
+  "ownership": {
+    "default": 0
+  }
+}

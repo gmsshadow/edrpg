@@ -1,0 +1,68 @@
+{
+  "_id": "c07251cceff4ac78",
+  "_key": "!items!c07251cceff4ac78",
+  "name": "Acane Model 5 Bazooka",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Half damage against shields.</p>",
+    "cost": "97,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "explosive",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "Min. 26m",
+        "dn": null
+      },
+      "medium": {
+        "distance": "200m",
+        "dn": 9
+      },
+      "long": {
+        "distance": "2km",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 60,
+      "injury": 20,
+      "fatalRadius": 10,
+      "injuryRadius": 24
+    },
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 5,
+    "skillMods": [],
+    "notes": "Half damage against shields.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Missile Launchers"
+    }
+  },
+  "sort": 6500,
+  "effects": [],
+  "folder": "098b9a7c882bbaa5",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "da3203941ae0706d",
+  "_key": "!items!da3203941ae0706d",
+  "name": "Frag Grenade",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "",
+    "cost": "5cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "grenade",
+    "damageType": "explosive",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 25,
+      "injury": 10,
+      "fatalRadius": 6,
+      "injuryRadius": 16
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Grenades"
+    }
+  },
+  "sort": 5300,
+  "effects": [],
+  "folder": "7a868b62f375bef5",
+  "ownership": {
+    "default": 0
+  }
+}

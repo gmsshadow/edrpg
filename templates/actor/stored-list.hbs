@@ -1,0 +1,18 @@
+<table class="ed-table gear">
+   <tbody>
+      {{#each items as |i|}}
+      <tr data-item-id="{{i.id}}" class="draggable">
+         <th class="name"><a data-action="editItem">{{i.name}}</a></th>
+         <td class="notes">{{i.notes}}</td>
+         <td class="location">
+            <select data-item-field="system.location" {{#unless @root.editable}}disabled{{/unless}}>
+               {{selectOptions @root.equipmentLocations selected=i.location localize=true}}
+            </select>
+         </td>
+         <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+      </tr>
+      {{else}}
+      <tr class="empty"><td colspan="4">{{localize "EDRPG.sheet.storedEmpty"}}</td></tr>
+      {{/each}}
+   </tbody>
+</table>

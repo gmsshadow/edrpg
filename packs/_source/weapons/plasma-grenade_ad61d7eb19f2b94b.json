@@ -1,0 +1,68 @@
+{
+  "_id": "ad61d7eb19f2b94b",
+  "_key": "!items!ad61d7eb19f2b94b",
+  "name": "Plasma Grenade",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "",
+    "cost": "10,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "grenade",
+    "damageType": "explosive",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 80,
+      "injury": 30,
+      "fatalRadius": 8,
+      "injuryRadius": 20
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Grenades"
+    }
+  },
+  "sort": 5700,
+  "effects": [],
+  "folder": "7a868b62f375bef5",
+  "ownership": {
+    "default": 0
+  }
+}

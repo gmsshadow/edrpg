@@ -1,0 +1,68 @@
+{
+  "_id": "08c9808fec788122",
+  "_key": "!items!08c9808fec788122",
+  "name": "Micro-Shotgun",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "",
+    "cost": "190,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "6m",
+        "dn": 3
+      },
+      "medium": {
+        "distance": "10m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "30m",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "2d10",
+      "long": "1d10"
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 3,
+      "max": 3
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Shotguns"
+    }
+  },
+  "sort": 3400,
+  "effects": [],
+  "folder": "c2400c5605f5f7d0",
+  "ownership": {
+    "default": 0
+  }
+}

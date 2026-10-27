@@ -1,0 +1,68 @@
+{
+  "_id": "8ebf2b9d9425c633",
+  "_key": "!items!8ebf2b9d9425c633",
+  "name": "Exalt Widescatter Shotgun",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Must always divide fire, but every target in the area takes full damage instead of half.</p>",
+    "cost": "78,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "8m",
+        "dn": 3
+      },
+      "medium": {
+        "distance": "12m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "30m",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "2d10",
+      "long": "1d10"
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": true,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Must always divide fire, but every target in the area takes full damage instead of half.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Shotguns"
+    }
+  },
+  "sort": 3300,
+  "effects": [],
+  "folder": "c2400c5605f5f7d0",
+  "ownership": {
+    "default": 0
+  }
+}

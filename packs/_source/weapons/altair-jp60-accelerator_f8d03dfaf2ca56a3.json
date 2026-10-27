@@ -1,0 +1,68 @@
+{
+  "_id": "f8d03dfaf2ca56a3",
+  "_key": "!items!f8d03dfaf2ca56a3",
+  "name": "Altair JP60 Accelerator",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>The firer is knocked over unless the weapon is tripod mounted.</p>",
+    "cost": "13,500,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "energy",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "Min. 36m",
+        "dn": null
+      },
+      "medium": {
+        "distance": "500m",
+        "dn": 9
+      },
+      "long": {
+        "distance": "3km",
+        "dn": 12
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": 140,
+      "injury": 50,
+      "fatalRadius": 12,
+      "injuryRadius": 34
+    },
+    "ammo": {
+      "value": 2,
+      "max": 2
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "The firer is knocked over unless the weapon is tripod mounted.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Plasma Cannons"
+    }
+  },
+  "sort": 6900,
+  "effects": [],
+  "folder": "82e38fcd1f7eb04c",
+  "ownership": {
+    "default": 0
+  }
+}

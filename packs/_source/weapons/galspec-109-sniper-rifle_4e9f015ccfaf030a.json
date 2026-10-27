@@ -1,0 +1,68 @@
+{
+  "_id": "4e9f015ccfaf030a",
+  "_key": "!items!4e9f015ccfaf030a",
+  "name": "GalSpec 109 Sniper Rifle",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Two modes. Assault mode: 1D10 + Burst. Sniper mode: +15 Kinetic Weapons score, a fixed 15 Damage, no Burst, and it only uses an ammo point after twelve shots in a row.</p>",
+    "cost": "101,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "16m",
+        "dn": 6
+      },
+      "medium": {
+        "distance": "100m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "800m",
+        "dn": 8
+      }
+    },
+    "finesse": null,
+    "damage": "1d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 5,
+      "max": 5
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Two modes. Assault mode: 1D10 + Burst. Sniper mode: +15 Kinetic Weapons score, a fixed 15 Damage, no Burst, and it only uses an ammo point after twelve shots in a row.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Assault Rifles"
+    }
+  },
+  "sort": 4000,
+  "effects": [],
+  "folder": "ea8cecd480f43212",
+  "ownership": {
+    "default": 0
+  }
+}

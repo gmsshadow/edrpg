@@ -78,8 +78,11 @@
             <td>
                {{#each attacks as |w|}}
                <div class="ed-op-entry attack" data-item-id="{{w.id}}">
-                  <a class="entry-name" data-action="editItem">{{w.name}}</a>
-                  {{#if @root.editable}}<span class="entry-controls"><a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a></span>{{/if}}
+                  <a class="entry-name" data-action="rollWeapon" data-tooltip="EDRPG.weapon.rollOpponent">{{w.name}}</a>
+                  <span class="entry-controls">
+                     <a data-action="editItem" data-tooltip="EDRPG.sheet.editItem"><i class="fa-solid fa-pen"></i></a>
+                     {{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+                  </span>
                   <div class="entry-line">{{w.line}}</div>
                </div>
                {{/each}}

@@ -272,7 +272,8 @@
       "units": "Units (u)",
       "cashHint": "1 cr = 100 mcr = 10,000 u",
       "clothingHint": "Clothing items arrive in a later release; armour is listed here.",
-      "storedEmpty": "Nothing stored."
+      "storedEmpty": "Nothing stored.",
+      "editItem": "Edit"
     },
     "rank": {
       "pilots": {
@@ -554,7 +555,10 @@
       "noneCarried": "No weapons carried.",
       "equippedHint": "In hand: its skill modifiers apply",
       "range": "Range",
-      "toHitOverride": "To Hit (this weapon)"
+      "toHitOverride": "To Hit (this weapon)",
+      "attackTitle": "Attack: {weapon} ({skill})",
+      "rollHint": "Roll an attack ({skill}). Shift-click to skip the dialog.",
+      "rollOpponent": "Roll an attack with this weapon"
     },
     "armour": {
       "absorb": "Absorbs",

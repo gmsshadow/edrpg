@@ -1821,3 +1821,14 @@ li:hover > .ed-row-delete {
 .edrpg .ed-table.karma.compact th.name {
    width: auto;
 }
+
+.edrpg .ed-table th.name .ed-edit {
+   float: left;
+   font-size: 0.7rem;
+   opacity: 0;
+   color: var(--ed-text-soft);
+}
+
+.edrpg .ed-table tr:hover th.name .ed-edit {
+   opacity: 1;
+}

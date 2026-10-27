@@ -39,10 +39,10 @@ export function signed(n) {
  *
  * @returns {Promise<object>}  { roll, natural, total, bonus, socialFactor, modifier }
  */
-export async function rollSkillDice(actor, skill, { modifier = 0, socialFactor = true } = {}) {
+export async function rollSkillDice(actor, skill, { modifier = 0, socialFactor = true, bonus } = {}) {
    const category = skillCategory[skill];
-   // Characters have full skills; opponents give a bonus from their stat block.
-   const bonus = actor.system.skillBonus?.(skill) ?? 0;
+   // Characters have full skills; opponents give a bonus from their stat block. A weapon attack may override it.
+   bonus ??= actor.system.skillBonus?.(skill) ?? 0;
    const sfBonus = socialFactor && socialFactorSkills.includes(skill) ? (actor.system.socialFactor?.value ?? 0) : 0;
    const formula = sfBonus ? "1d10 + @bonus + @socialFactor + @modifier" : "1d10 + @bonus + @modifier";
    const roll = await new Roll(formula, { bonus, socialFactor: sfBonus, modifier }).evaluate();
@@ -101,6 +101,9 @@ export async function rollSkillCheck(actor, skill, options = {}) {
    const sfEligible = socialFactorSkills.includes(skill);
    const sfValue = actor.system.socialFactor?.value ?? 0;
    let { difficulty, modifier = 0, mode, prompt = true, karmaReroll = false, socialFactor = sfEligible } = options;
+   // Weapon attacks pass their own bonus (rare weapon Skill score bonus / opponent To Hit) and title.
+   const { bonus: bonusOverride, label, allowContest = true } = options;
+   const title = label ?? game.i18n.format("EDRPG.test.SkillCheck", { skill: skillName });
    difficulty ??= game.settings.get("edrpg", "defaultDifficultyNumber");
    socialFactor &&= sfEligible;
 
@@ -109,6 +112,8 @@ export async function rollSkillCheck(actor, skill, options = {}) {
          difficulty,
          modifier,
          mode,
+         title,
+         allowContest,
          socialFactor: sfEligible ? { apply: socialFactor, value: sfValue } : null,
       });
       if (!result) return null;
@@ -117,7 +122,11 @@ export async function rollSkillCheck(actor, skill, options = {}) {
       socialFactor = sfEligible && result.socialFactor;
    }
 
-   const { roll, natural, bonus, socialFactor: sfBonus } = await rollSkillDice(actor, skill, { modifier, socialFactor });
+   const { roll, natural, bonus, socialFactor: sfBonus } = await rollSkillDice(actor, skill, {
+      modifier,
+      socialFactor,
+      bonus: bonusOverride,
+   });
 
    let outcome;
    if (natural === 1) outcome = "critFailure";
@@ -151,12 +160,23 @@ export async function rollSkillCheck(actor, skill, options = {}) {
 
    const messageData = {
       speaker: ChatMessage.getSpeaker({ actor }),
-      flavor: game.i18n.format("EDRPG.test.SkillCheck", { skill: skillName }),
+      flavor: title,
       content,
       rolls: [roll],
       sound: CONFIG.sounds.dice,
       flags: {
-         edrpg: { skillCheck: { actorUuid: actor.uuid, skill, difficulty, modifier, socialFactor, mode: mode ?? null } },
+         edrpg: {
+            skillCheck: {
+               actorUuid: actor.uuid,
+               skill,
+               difficulty,
+               modifier,
+               socialFactor,
+               mode: mode ?? null,
+               bonus: bonusOverride ?? null,
+               label: label ?? null,
+            },
+         },
       },
    };
    ChatMessage.applyMode(messageData, mode || undefined);
@@ -175,7 +195,7 @@ export async function rollSkillCheck(actor, skill, options = {}) {
  *
  * @returns {Promise<object|null>}
  */
-async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, socialFactor }) {
+async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, socialFactor, title, allowContest = true }) {
    const i18n = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
    const esc = foundry.utils.escapeHTML;
    const modeOptions = Object.entries(CONFIG.ChatMessage.modes ?? {})
@@ -196,13 +216,13 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
       .join("");
 
    const content = `
-      <div class="form-group">
+      <div class="form-group" ${allowContest ? "" : "hidden"}>
          <label>${i18n("EDRPG.contest.against")}</label>
          <div class="form-fields">
             <select name="against">
                <option value="dn" selected>${i18n("EDRPG.test.DifficultyNumber")}</option>
-               ${target ? `<option value="target">${i18n("EDRPG.contest.target", { name: esc(target.name) })}</option>` : ""}
-               <option value="other">${i18n("EDRPG.contest.other")}</option>
+               ${allowContest && target ? `<option value="target">${i18n("EDRPG.contest.target", { name: esc(target.name) })}</option>` : ""}
+               ${allowContest ? `<option value="other">${i18n("EDRPG.contest.other")}</option>` : ""}
             </select>
          </div>
       </div>
@@ -252,7 +272,7 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
       </div>`;
 
    const result = await foundry.applications.api.DialogV2.input({
-      window: { title: i18n("EDRPG.test.SkillCheck", { skill: skillLabel(skill) }), icon: "fa-solid fa-dice-d10" },
+      window: { title: title ?? i18n("EDRPG.test.SkillCheck", { skill: skillLabel(skill) }), icon: "fa-solid fa-dice-d10" },
       classes: ["edrpg", "edrpg-dialog"],
       content,
       ok: { label: "EDRPG.test.Roll", icon: "fa-solid fa-dice-d10" },
@@ -320,6 +340,8 @@ export async function karmaReroll(message) {
       modifier: data.modifier,
       socialFactor: data.socialFactor ?? undefined,
       mode: data.mode ?? undefined,
+      bonus: data.bonus ?? undefined,
+      label: data.label ?? undefined,
       prompt: false,
       karmaReroll: true,
    });

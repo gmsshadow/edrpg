@@ -1,4 +1,5 @@
-import { rollSkillCheck } from "./dice/skill-check.mjs";
+import { rollSkillCheck, skillLabel } from "./dice/skill-check.mjs";
+import { skillCategory, MAX_SKILL_SCORE } from "./config.mjs";
 
 export class EDActor extends foundry.documents.Actor {
    /**
@@ -32,6 +33,49 @@ export class EDActor extends foundry.documents.Actor {
     */
    rollSkill(skill, options = {}) {
       return rollSkillCheck(this, skill, options);
+   }
+
+   /**
+    * The bonus this actor attacks with using a weapon.
+    * - Characters: the weapon's skill, with a rare weapon's Skill score bonus added for this attack only (never above
+    *   100), then the tens digit (Core Rules p.100).
+    * - Opponents: the weapon's own To Hit if set, otherwise the stat block's To Hit (Fighting: To Hit −1 unless listed).
+    *
+    * @param {Item} weapon
+    *
+    * @returns {number}
+    */
+   weaponBonus(weapon) {
+      const s = weapon.system;
+      if (this.type === "opponent") {
+         return s.toHit ?? (s.skill === "fighting" ? this.system.fighting : this.system.toHit);
+      }
+      const skill = this.system.skills[skillCategory[s.skill]][s.skill];
+      return Math.floor(Math.min(skill.score + s.attackBonus, MAX_SKILL_SCORE) / 10);
+   }
+
+   /**
+    * Roll an attack with a weapon: a check with the weapon's skill. The difficulty starts at the Finesse (melee) or
+    * the closest usable range band; the target's Defence and cover are added by the GM for now.
+    *
+    * @param {Item} weapon
+    *
+    * @param {object} [options]  Passed to {@link rollSkillCheck}.
+    *
+    * @returns {Promise<ChatMessage|null>}
+    */
+   rollWeaponAttack(weapon, options = {}) {
+      const s = weapon.system;
+      const band = ["short", "medium", "long"].map((k) => s.ranges[k]).find((b) => b.dn !== null);
+      const difficulty = s.isMelee ? (s.finesse ?? undefined) : (band?.dn ?? undefined);
+      const label = game.i18n.format("EDRPG.weapon.attackTitle", { weapon: weapon.name, skill: skillLabel(s.skill) });
+      return rollSkillCheck(this, s.skill, {
+         difficulty,
+         bonus: this.weaponBonus(weapon),
+         label,
+         allowContest: false,
+         ...options,
+      });
    }
 }
 

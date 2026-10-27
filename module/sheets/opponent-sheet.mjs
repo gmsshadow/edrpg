@@ -18,6 +18,7 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
       actions: {
          rollSkill: EDOpponentSheet.#onRollSkill,
          rollInitiative: EDOpponentSheet.#onRollInitiative,
+         rollWeapon: EDOpponentSheet.#onRollWeapon,
          createItem: EDOpponentSheet.#onCreateItem,
          editItem: EDOpponentSheet.#onEditItem,
          deleteItem: EDOpponentSheet.#onDeleteItem,
@@ -129,6 +130,12 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
    static async #onRollSkill(event, target) {
       const skill = target.closest("[data-skill]").dataset.skill;
       if (skill in skillCategory) return this.document.rollSkill(skill, { prompt: !event.shiftKey });
+   }
+
+   /** @this {EDOpponentSheet} */
+   static async #onRollWeapon(event, target) {
+      const item = this.#getItem(target);
+      if (item) return this.document.rollWeaponAttack(item, { prompt: !event.shiftKey });
    }
 
    /** @this {EDOpponentSheet} */

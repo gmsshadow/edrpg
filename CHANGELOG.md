@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.8
+- Fix: clicking a weapon's name on the Combat tab (and an opponent's attack) now rolls the attack instead of opening
+  the item. The roll uses the weapon's skill — with a rare weapon's Skill score bonus for characters, or the
+  weapon's / stat block's To Hit for opponents — and the difficulty starts at the Finesse or the first usable range
+  band. Shift-click skips the dialog. A pencil icon (on hover) still opens the weapon.
+
 ## 0.1.7
 - New **Opponent (stat block)** actor type with a sheet laid out like the Core Rules' opponent boxes (e.g. p.285):
   name and rank/role header; Defence (Dodge/Parry; blank = can't use it), Initiative, Perception, Endurance, Speed,

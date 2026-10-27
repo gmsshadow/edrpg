@@ -64,6 +64,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          useKarma: EDActorSheet.#onUseKarma,
          restKarma: EDActorSheet.#onRestKarma,
          toggleItem: EDActorSheet.#onToggleItem,
+         rollWeapon: EDActorSheet.#onRollWeapon,
          reloadWeapon: EDActorSheet.#onReloadWeapon,
          rollInitiative: EDActorSheet.#onRollInitiative,
          rollFighting: EDActorSheet.#onRollFighting,
@@ -384,6 +385,20 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       const row = target.closest("tr");
       const capability = row.dataset.builtin === "escapeDeath" ? builtInEscapeDeath() : this.document.items.get(row.dataset.itemId);
       if (capability) return useKarmaCapability(this.document, capability);
+   }
+
+   /**
+    * Attack with a weapon: a check with its skill (and a rare weapon's bonus).
+    *
+    * @this {EDActorSheet}
+    *
+    * @param {PointerEvent} event
+    *
+    * @param {HTMLElement} target
+    */
+   static async #onRollWeapon(event, target) {
+      const item = this.#getItem(target);
+      if (item) return this.document.rollWeaponAttack(item, { prompt: !event.shiftKey });
    }
 
    /**

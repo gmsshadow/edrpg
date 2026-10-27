@@ -21,7 +21,10 @@
       <tbody>
          {{#each rangedWeapons as |w|}}
          <tr data-item-id="{{w.id}}" class="draggable {{#unless w.equipped}}unequipped{{/unless}}">
-            <th class="name"><a data-action="editItem" data-tooltip="{{localize w.skillLabel}}">{{w.name}}</a></th>
+            <th class="name">
+               <a data-action="editItem" class="ed-edit" data-tooltip="EDRPG.sheet.editItem"><i class="fa-solid fa-pen"></i></a>
+               <a data-action="rollWeapon" data-tooltip="{{localize 'EDRPG.weapon.rollHint' skill=(localize w.skillLabel)}}">{{w.name}}</a>
+            </th>
             <td>+{{w.toHit}}</td>
             {{#each w.ranges as |r|}}<td class="range">{{r}}</td>{{/each}}
             <td class="damage">{{w.damage}}</td>
@@ -61,7 +64,10 @@
          </tr>
          {{#each meleeWeapons as |w|}}
          <tr data-item-id="{{w.id}}" class="draggable {{#unless w.equipped}}unequipped{{/unless}}">
-            <th class="name"><a data-action="editItem">{{w.name}}</a></th>
+            <th class="name">
+               <a data-action="editItem" class="ed-edit" data-tooltip="EDRPG.sheet.editItem"><i class="fa-solid fa-pen"></i></a>
+               <a data-action="rollWeapon" data-tooltip="{{localize 'EDRPG.weapon.rollHint' skill=(localize w.skillLabel)}}">{{w.name}}</a>
+            </th>
             <td>+{{w.toHit}}</td>
             <td>{{w.finesse}}</td>
             <td class="damage">{{w.damage}}</td>

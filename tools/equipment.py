@@ -192,6 +192,7 @@ ICONS = {
     "heavyWeapons": "icons/svg/explosion.svg",
     "grenade": "icons/svg/explosion.svg",
     "meleeWeapons": "icons/svg/sword.svg",
+    "fighting": "icons/svg/combat.svg",
     "armour": "icons/svg/shield.svg",
 }
 

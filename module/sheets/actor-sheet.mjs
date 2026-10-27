@@ -13,6 +13,8 @@ import {
 } from "../config.mjs";
 import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs";
 import { endAdventure } from "../advancement.mjs";
+import { fightingWeapon } from "../dice/attack.mjs";
+import { conditionView, conditionAction } from "../dice/damage.mjs";
 import { EDSkillConfig, EDResourceConfig, EDSocialFactorConfig } from "./actor-config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -68,6 +70,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          reloadWeapon: EDActorSheet.#onReloadWeapon,
          rollInitiative: EDActorSheet.#onRollInitiative,
          rollFighting: EDActorSheet.#onRollFighting,
+         condition: EDActorSheet.#onCondition,
          rollFightingDamage: EDActorSheet.#onRollFightingDamage,
          createItem: EDActorSheet.#onCreateItem,
          editItem: EDActorSheet.#onEditItem,
@@ -111,6 +114,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          source: actor.system._source,
          editable: this.isEditable,
          owner: actor.isOwner,
+         condition: conditionView(actor),
          rank: system.rank,
          tabs: this._prepareTabs("primary"),
          isCharacter,
@@ -448,14 +452,14 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
    }
 
    /**
-    * Fighting attack: a Fighting skill check against Finesse 5 (+ the target's Defence, entered in the dialog).
+    * Fighting attack: Finesse 5 + the target's Dodge or Parry, through the attack card.
     *
     * @this {EDActorSheet}
     *
     * @param {PointerEvent} event
     */
    static async #onRollFighting(event) {
-      return this.document.rollSkill("fighting", { difficulty: fighting.finesse, prompt: !event.shiftKey });
+      return this.document.rollWeaponAttack(fightingWeapon(), { prompt: !event.shiftKey });
    }
 
    /** @this {EDActorSheet} */
@@ -479,6 +483,11 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       const { skill, category } = target.closest("[data-skill]").dataset;
       const path = `system.skills.${category}.${skill}.used`;
       return this.document.update({ [path]: !foundry.utils.getProperty(this.document, path) });
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onCondition(event, target) {
+      return conditionAction(this.document, target.dataset.which);
    }
 
    /** @this {EDActorSheet} */

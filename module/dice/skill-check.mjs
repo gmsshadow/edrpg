@@ -102,7 +102,7 @@ export async function rollSkillCheck(actor, skill, options = {}) {
    const sfValue = actor.system.socialFactor?.value ?? 0;
    let { difficulty, modifier = 0, mode, prompt = true, karmaReroll = false, socialFactor = sfEligible } = options;
    // Weapon attacks pass their own bonus (rare weapon Skill score bonus / opponent To Hit) and title.
-   const { bonus: bonusOverride, label, allowContest = true } = options;
+   const { bonus: bonusOverride, label, allowContest = true, followUp = null } = options;
    const title = label ?? game.i18n.format("EDRPG.test.SkillCheck", { skill: skillName });
    difficulty ??= game.settings.get("edrpg", "defaultDifficultyNumber");
    socialFactor &&= sfEligible;
@@ -175,12 +175,18 @@ export async function rollSkillCheck(actor, skill, options = {}) {
                mode: mode ?? null,
                bonus: bonusOverride ?? null,
                label: label ?? null,
+               followUp,
+               outcome,
+               total: roll.total,
             },
          },
       },
    };
    ChatMessage.applyMode(messageData, mode || undefined);
-   return ChatMessage.create(messageData);
+   const message = await ChatMessage.create(messageData);
+   // Lets other parts of the system act on the result, e.g. a Medicine check to stabilise someone.
+   if (message) Hooks.callAll("edrpg.skillCheck", message, { actor, skill, outcome, natural, total: roll.total, followUp });
+   return message;
 }
 
 /**
@@ -342,6 +348,7 @@ export async function karmaReroll(message) {
       mode: data.mode ?? undefined,
       bonus: data.bonus ?? undefined,
       label: data.label ?? undefined,
+      followUp: data.followUp ?? undefined,
       prompt: false,
       karmaReroll: true,
    });

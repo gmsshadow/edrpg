@@ -1,5 +1,7 @@
 import { ranks, skillChoices, skillCategory, karmaCategories } from "../config.mjs";
 import { useKarmaCapability } from "../karma.mjs";
+import { fightingWeapon } from "../dice/attack.mjs";
+import { conditionView, conditionAction } from "../dice/damage.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -19,6 +21,8 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
          rollSkill: EDOpponentSheet.#onRollSkill,
          rollInitiative: EDOpponentSheet.#onRollInitiative,
          rollWeapon: EDOpponentSheet.#onRollWeapon,
+         rollFighting: EDOpponentSheet.#onRollFighting,
+         condition: EDOpponentSheet.#onCondition,
          createItem: EDOpponentSheet.#onCreateItem,
          editItem: EDOpponentSheet.#onEditItem,
          deleteItem: EDOpponentSheet.#onDeleteItem,
@@ -48,6 +52,7 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
          source,
          editable: this.isEditable,
          owner: actor.isOwner,
+         condition: conditionView(actor),
          rankChoices: Object.fromEntries(ranks.map((r) => [r.key, r.name])),
          skillChoices: labels,
          fighting: system.fighting,
@@ -73,7 +78,8 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
          id: k.id,
          name: k.name,
          category: karmaCategories[k.system.category] ?? "",
-         used: k.system.usedThisTurn,
+         used: (k.system.timesUsed ?? 0) >= (k.system.usesPerBattle ?? 1),
+         uses: (k.system.usesPerBattle ?? 1) > 1 ? `${k.system.usesPerBattle - (k.system.timesUsed ?? 0)}/${k.system.usesPerBattle}` : "",
       }));
 
       context.enrichedNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.notes, {
@@ -136,6 +142,16 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
    static async #onRollWeapon(event, target) {
       const item = this.#getItem(target);
       if (item) return this.document.rollWeaponAttack(item, { prompt: !event.shiftKey });
+   }
+
+   /** @this {EDOpponentSheet} */
+   static async #onRollFighting(event) {
+      return this.document.rollWeaponAttack(fightingWeapon(), { prompt: !event.shiftKey });
+   }
+
+   /** @this {EDOpponentSheet} */
+   static async #onCondition(event, target) {
+      return conditionAction(this.document, target.dataset.which);
    }
 
    /** @this {EDOpponentSheet} */

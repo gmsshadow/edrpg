@@ -11,7 +11,14 @@
     "cost": 5,
     "costAll": false,
     "free": false,
-    "usedThisTurn": false
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 5,
+    "defenceApplies": "dodge",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
   },
   "effects": [],
   "folder": null,

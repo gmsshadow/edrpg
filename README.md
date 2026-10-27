@@ -22,6 +22,10 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   - Karma reroll button on chat cards (on a natural 1, or on any roll with the *Allow to reroll all tests* setting).
   - Backgrounds, Karma Capabilities and Enhancements lists with limits enforced for player characters.
 - **Opponent** stat-block sheet matching the book's opponent boxes.
+- **Combat:** a Combat tab with weapons, protection and combat Karma; an attack dialog and chat card (range/Finesse +
+  Defence + cover vs. To Hit, ammo, Burst margin, Karma boosts and rerolls); damage cards with armour, Hardened,
+  knockdown and dying/bleeding-out conditions, plus stabilising and treating wounds.
+- **Compendia:** Karma Capabilities, Weapons, Armour and Opponents (sample).
 - **Item sheets** for Backgrounds (choices used, skill bonuses), Karma Capabilities (category, cost) and Enhancements.
 - Initiative: `1d10 + Tactics bonus`.
 

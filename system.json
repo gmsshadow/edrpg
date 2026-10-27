@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "authors": [
     {
       "name": "gmsshadow",
@@ -105,6 +105,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "opponents",
+      "label": "Opponents (sample)",
+      "path": "packs/opponents",
+      "type": "Actor",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "packFolders": [
@@ -115,7 +126,8 @@
       "packs": [
         "karma-capabilities",
         "weapons",
-        "armour"
+        "armour",
+        "opponents"
       ]
     }
   ],

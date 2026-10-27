@@ -1832,3 +1832,312 @@ li:hover > .ed-row-delete {
 .edrpg .ed-table tr:hover th.name .ed-edit {
    opacity: 1;
 }
+
+/* ---------- Attack card ---------- */
+
+.edrpg-attack .attack-head {
+   display: flex;
+   gap: 0.3rem;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.edrpg-attack .attack-who {
+   min-width: 0;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.edrpg-attack .attack-weapon {
+   margin-bottom: 0.3rem;
+   text-align: center;
+}
+
+.edrpg-attack .attack-columns {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.5rem;
+}
+
+.edrpg-attack .breakdown {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: 0.05rem 0.3rem;
+   margin: 0;
+   font-size: var(--font-size-11, 11px);
+   align-content: start;
+}
+
+.edrpg-attack .breakdown dt,
+.edrpg-attack .breakdown dd {
+   margin: 0;
+}
+
+.edrpg-attack .breakdown dd {
+   text-align: right;
+}
+
+.edrpg-attack .breakdown .head {
+   border-bottom: 1px solid var(--ed-cell-border);
+   font-size: var(--font-size-13, 13px);
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.edrpg-attack .breakdown .head + dd.head,
+.edrpg-attack .breakdown dd.head {
+   font-size: 1.3rem;
+   line-height: 1.1;
+}
+
+.edrpg-attack .breakdown .karma {
+   color: var(--ed-karma-1);
+   font-weight: 700;
+}
+
+.edrpg-attack .muted {
+   opacity: 0.7;
+}
+
+.edrpg-attack .attack-note {
+   margin-top: 0.2rem;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg-attack .attack-controls {
+   display: flex;
+   flex-direction: column;
+   gap: 0.2rem;
+   margin-top: 0.3rem;
+}
+
+.edrpg-attack .attack-controls button {
+   width: 100%;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg-attack .attack-controls button.karma {
+   border-color: var(--ed-karma-2);
+   background: linear-gradient(to right, var(--ed-karma-1), var(--ed-karma-2));
+   color: #fff;
+}
+
+.edrpg-attack .attack-controls button.karma.defence {
+   background: linear-gradient(to right, #0b2238, var(--ed-karma-2));
+}
+
+/* Attack dialog */
+.edrpg-attack-dialog .hint {
+   margin: 0 0 0.3rem;
+   font-size: var(--font-size-11, 11px);
+   opacity: 0.8;
+}
+
+/* ---------- Damage card ---------- */
+
+.edrpg-attack .attack-controls button.damage {
+   order: 99;
+   font-weight: 700;
+}
+
+.edrpg-damage .attack-head {
+   display: flex;
+   gap: 0.3rem;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.edrpg-damage .attack-who {
+   min-width: 0;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.edrpg-damage .attack-weapon {
+   margin-bottom: 0.3rem;
+   text-align: center;
+}
+
+.edrpg-damage .breakdown {
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: 0.05rem 0.3rem;
+   margin: 0;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg-damage .breakdown dt,
+.edrpg-damage .breakdown dd {
+   margin: 0;
+}
+
+.edrpg-damage .breakdown dd {
+   text-align: right;
+}
+
+.edrpg-damage .breakdown .head {
+   border-bottom: 1px solid var(--ed-cell-border);
+   font-size: var(--font-size-13, 13px);
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.edrpg-damage .breakdown dd.head,
+.edrpg-damage .breakdown dd.big {
+   font-size: 1.3rem;
+   font-weight: 700;
+   line-height: 1.1;
+}
+
+.edrpg-damage .damage-dice {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.15rem;
+   margin-top: 0.2rem;
+}
+
+.edrpg-damage .damage-dice .die {
+   min-width: 1.3rem;
+   padding: 0 0.15rem;
+   border: 1px solid var(--ed-cell-border);
+   font-size: var(--font-size-11, 11px);
+   text-align: center;
+}
+
+.edrpg-damage .damage-dice .die.ten {
+   border-color: #b8001f;
+   color: #b8001f;
+   font-weight: 700;
+}
+
+.edrpg-damage .muted,
+.edrpg-condition .muted {
+   opacity: 0.7;
+}
+
+.edrpg-damage .attack-note {
+   margin-top: 0.2rem;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg-damage .attack-note.knock {
+   font-weight: 700;
+}
+
+.edrpg-damage .damage-applied {
+   margin: 0.3rem 0 0;
+   padding: 0;
+   list-style: none;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg-damage .damage-applied li {
+   padding: 0.2rem 0;
+   border-top: 1px solid var(--ed-cell-border);
+}
+
+.edrpg-damage .damage-applied li.escaped {
+   text-decoration: line-through;
+   text-decoration-color: rgba(0, 0, 0, 0.4);
+}
+
+.edrpg-damage .ed-chip,
+.edrpg .ed-condition .ed-chip {
+   display: inline-block;
+   margin-left: 0.2rem;
+   padding: 0 0.3rem;
+   border-radius: 2px;
+   background: #5a1a1a;
+   color: #fff;
+   font-size: var(--font-size-10, 10px);
+   text-transform: uppercase;
+}
+
+.edrpg-damage .damage-controls {
+   display: flex;
+   flex-direction: column;
+   gap: 0.2rem;
+   margin-top: 0.3rem;
+}
+
+.edrpg-damage .damage-controls button {
+   width: 100%;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg-damage .damage-controls button.karma {
+   border-color: var(--ed-karma-2);
+   background: linear-gradient(to right, var(--ed-karma-1), var(--ed-karma-2));
+   color: #fff;
+}
+
+/* ---------- Condition panel ---------- */
+
+.edrpg .ed-condition {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.3rem;
+   align-items: center;
+   justify-content: space-between;
+   margin: 0.3rem 0;
+   padding: 0.25rem 0.4rem;
+   border: 1px solid var(--ed-cell-border);
+}
+
+.edrpg .ed-condition.dead {
+   background: rgba(90, 26, 26, 0.12);
+}
+
+.edrpg .ed-condition-state {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.2rem;
+   align-items: center;
+}
+
+.edrpg .ed-condition-label {
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.edrpg .ed-condition .ed-chip.ok {
+   background: #2c6e49;
+}
+
+.edrpg .ed-condition .ed-chip.status-knockedOver {
+   background: #8a5a00;
+}
+
+.edrpg .ed-condition .ed-chip.status-stabilised {
+   background: #2c5f8a;
+}
+
+.edrpg .ed-condition .ed-chip.status-dead {
+   background: #111;
+}
+
+.edrpg .ed-condition-death {
+   margin-left: 0.4rem;
+   font-size: var(--font-size-11, 11px);
+   opacity: 0.7;
+}
+
+.edrpg .ed-condition-actions {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.2rem;
+}
+
+.edrpg .ed-condition-actions button {
+   width: auto;
+   height: auto;
+   padding: 0.1rem 0.4rem;
+   font-size: var(--font-size-11, 11px);
+   line-height: 1.4;
+}

@@ -1,5 +1,49 @@
 # Changelog
 
+## 0.1.10
+- **Damage.** A hit's attack card gets a *Roll damage* button (attacker or GM). The damage card shows the weapon's
+  damage (at the range band rolled for, so shotguns drop to 2D10/1D10), Burst (an extra D10 per point over the
+  difficulty, 2D10 for Heavy Burst, 5 points for Energy Burst, up to the weapon's maximum), and halves it for divided
+  fire. Every d10 is shown; a 10 knocks the target over — except Energy weapons. Explosives offer their Fatal and
+  Injury damage separately and knock everyone over.
+- **Applying damage** to the target, or to all selected tokens (blast radius, divided fire). The best worn armour for
+  the damage type absorbs; Hardened rolls a D10 and doubles the protection on its number or more; every hit does at
+  least 1, except Toxic. The card lists what each target took and their Endurance before and after. Players' clicks
+  are carried out by the GM.
+- **Conditions** as token status effects: Knocked Over, Unconscious, Bleeding Out, Stabilised, Dead.
+  - 0 Endurance (or knocked out by Fighting): unconscious, in no danger. Below 0: bleeding out. Dead at a negative
+    score of half maximum Endurance (the combatant is marked defeated).
+  - Bleeding out is rolled automatically at the start of the bleeding combatant's turn: lose a D10, odd stabilises,
+    even keeps bleeding. Dropped by an Energy weapon: cauterised, so they stabilise unless that roll is a 10.
+  - Karma on the damage card: *Stay Standing* cancels the knockdown; *Escape Death* (all Karma) undoes a hit that
+    dropped you below 1 Endurance.
+  - Starting a turn knocked over pre-ticks the attack dialog's "knocked over" box (no skill bonus).
+- **Condition panel** on the Combat tab and the opponent sheet: status chips, the Endurance at which they die, and
+  Stand up, Bleeding roll, Stabilise (an ally's Medicine check, difficulty 8 for Energy wounds or 10, with their token
+  selected), Treat wounds (Medicine check; heals its total) and Day's rest (+5).
+- Karma Capabilities have a "Stops a knockdown" option (set on Stay Standing in the compendium and sample opponents).
+
+## 0.1.9
+- **Attack card.** Clicking a weapon (or Fighting) opens an attack dialog and posts a card comparing To Hit with the
+  Difficulty, both broken down line by line:
+  - Difficulty = range band (or Finesse for melee/Fighting) + the targeted token's Dodge or Parry, +2 if the target is
+    in cover (ranged only), plus any GM adjustment. Without a target, type the target's Defence instead. A target
+    with no Defence listed (e.g. a drone) can't evade.
+  - Grenades: 7 or the number of squares, whichever is greater, +2 per interposing cover, +2 in zero gravity.
+    Explosives can be aimed at the ground (3 + range).
+  - To Hit options: Aim +5, two weapons −2, knocked over (no skill bonus), a free modifier.
+  - Natural 1 always misses, natural 10 always hits. The card shows how far a hit beat the difficulty and the Burst
+    damage that earns; Divide Fire, Destroy Cover and explosive notes appear where they apply.
+  - One ammo point is spent per ranged attack; an empty weapon refuses to fire.
+  - Karma: reroll a natural 1; the attacker's "+N to the attack you just made" capabilities appear while it misses;
+    the target's owner gets "+N Defence" capabilities (Duck!, Dive Aside, Last Minute Deflection) while it hits.
+    The card updates for everyone (relayed through the GM).
+- Karma Capabilities have attack/defence bonus fields (filled in on the compendium entries that grant one) and, on
+  opponents, uses per battle (e.g. Dive Aside ×3).
+- New compendium **Opponents (sample)**: Army Soldier, Heavy Weapons Support, Borchuck, Junga Pattern Walker Drone and
+  Unstoppable Assassin, with their weapons, armour and Karma as items — for testing combat. The full opponent
+  list will follow as a content release.
+
 ## 0.1.8
 - Fix: clicking a weapon's name on the Combat tab (and an opponent's attack) now rolls the attack instead of opening
   the item. The roll uses the weapon's skill — with a rare weapon's Skill score bonus for characters, or the

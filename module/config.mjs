@@ -84,6 +84,33 @@ export const karmaRoles = {
    other: "EDRPG.karmaRole.other",
 };
 
+/** Which attacks a capability's attack bonus applies to. */
+export const karmaAttackKinds = {
+   melee: "EDRPG.karmaAttack.melee",
+   ranged: "EDRPG.karmaAttack.ranged",
+   any: "EDRPG.karmaAttack.any",
+};
+
+/** Which defence a capability's defence bonus applies to. */
+export const karmaDefenceKinds = {
+   dodge: "EDRPG.attack.part.dodge",
+   parry: "EDRPG.attack.part.parry",
+   any: "EDRPG.karmaAttack.any",
+};
+
+/** Skills used for ranged personal-combat attacks (Crack Shot: "Kinetic, Energy or Heavy Weapon attack"). */
+export const rangedAttackSkills = ["kineticWeapons", "energyWeapons", "heavyWeapons"];
+
+/** Attack modifiers (Core Rules pp.57–61). */
+export const attackRules = {
+   cover: 2, // Target in cover: +2 Defence against ranged weapons.
+   aim: 5, // Aimed for a full turn: +5 To Hit.
+   twoWeapons: -2, // Two one-handed weapons: -2 To Hit with each.
+   groundTarget: 3, // Missiles/launchers aimed at the ground: 3 + range difficulty.
+   grenadeMinimum: 7, // Thrown grenade: 7 or the number of squares, whichever is greater.
+   zeroGravity: 2, // Grenades in zero gravity: +2 difficulty.
+};
+
 /** Common items are printed in green, rare in blue (Core Rules p.99). */
 export const rarities = {
    common: "EDRPG.rarity.common",

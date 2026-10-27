@@ -1,0 +1,214 @@
+{
+  "_id": "69d9a5fc507cb198",
+  "_key": "!actors!69d9a5fc507cb198",
+  "name": "Heavy Weapons Support",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "competent",
+    "role": "Mercenary",
+    "dodge": 4,
+    "parry": 2,
+    "initiative": 2,
+    "perception": 3,
+    "toHit": 4,
+    "speed": "10m",
+    "endurance": {
+      "value": 30,
+      "max": 30
+    },
+    "otherSkills": [],
+    "equipment": "Two spare missiles",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Heavy Weapons Support",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "5326f4f383ed554e",
+      "_key": "!actors.items!69d9a5fc507cb198.5326f4f383ed554e",
+      "name": "Reflec Breastplate",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "90,000cr",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 5,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 3,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 7,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": -1,
+        "skillMods": [
+          {
+            "skill": "athletics",
+            "value": -10
+          }
+        ],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "ec82d42476797ecf",
+      "_key": "!actors.items!69d9a5fc507cb198.ec82d42476797ecf",
+      "name": "Missile Launcher (Anti-Personnel)",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "<p>Half damage against shields.</p>",
+        "cost": "200cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "explosive",
+        "heavy": true,
+        "ranges": {
+          "short": {
+            "distance": "Min. 26m",
+            "dn": null
+          },
+          "medium": {
+            "distance": "200m",
+            "dn": 9
+          },
+          "long": {
+            "distance": "2km",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 50,
+          "injury": 20,
+          "fatalRadius": 10,
+          "injuryRadius": 24
+        },
+        "ammo": {
+          "value": 1,
+          "max": 1
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "Half damage against shields.",
+        "equipped": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "462ccf4ac2b477ac",
+      "_key": "!actors.items!69d9a5fc507cb198.462ccf4ac2b477ac",
+      "name": "Laser Pistol",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "3cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "80m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "120m",
+            "dn": 11
+          }
+        },
+        "finesse": null,
+        "damage": "8",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,173 @@
+{
+  "_id": "d01ba113b5cf01fb",
+  "_key": "!actors!d01ba113b5cf01fb",
+  "name": "Army Soldier",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Soldier",
+    "dodge": 3,
+    "parry": 2,
+    "initiative": 1,
+    "perception": 2,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 25,
+      "max": 25
+    },
+    "otherSkills": [],
+    "equipment": "Med Pac",
+    "notes": "<p>Variants: a Medic adds Medicine +3; a Sniper swaps the Laser Rifle for a sniper rifle; a Sergeant adds Leadership +3.</p>"
+  },
+  "prototypeToken": {
+    "name": "Army Soldier",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "484c852968da1374",
+      "_key": "!actors.items!d01ba113b5cf01fb.484c852968da1374",
+      "name": "Laser Rifle",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "40cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "20m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "150m",
+            "dn": 6
+          },
+          "long": {
+            "distance": "500m",
+            "dn": 9
+          }
+        },
+        "finesse": null,
+        "damage": "15",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "5fcdb70d19ac5771",
+      "_key": "!actors.items!d01ba113b5cf01fb.5fcdb70d19ac5771",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "1cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 7,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

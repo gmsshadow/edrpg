@@ -1,0 +1,20 @@
+<div class="ed-condition {{#if condition.dead}}dead{{/if}}">
+   <div class="ed-condition-state">
+      <span class="ed-condition-label">{{localize "EDRPG.sheet.condition"}}</span>
+      {{#each condition.statuses as |s|}}<span class="ed-chip status-{{s.key}}">{{localize s.label}}</span>{{else}}<span class="ed-chip ok">{{localize "EDRPG.status.ok"}}</span>{{/each}}
+      <span class="ed-condition-death" data-tooltip="EDRPG.damage.deathAtHint">{{localize "EDRPG.damage.deathAt" value=condition.deathAt}}</span>
+   </div>
+   {{#if owner}}
+   <div class="ed-condition-actions">
+      {{#if condition.knockedOver}}<button type="button" data-action="condition" data-which="standUp"><i class="fa-solid fa-person-arrow-up-from-line"></i> {{localize "EDRPG.damage.standUp"}}</button>{{/if}}
+      {{#if condition.bleeding}}
+      <button type="button" data-action="condition" data-which="bleedOut" data-tooltip="EDRPG.damage.bleedOutHint"><i class="fa-solid fa-droplet"></i> {{localize "EDRPG.damage.bleedOut"}}</button>
+      <button type="button" data-action="condition" data-which="stabilise" data-tooltip="EDRPG.damage.stabiliseHint"><i class="fa-solid fa-kit-medical"></i> {{localize "EDRPG.damage.stabilise"}}{{#if condition.cauterised}} (8){{else}} (10){{/if}}</button>
+      {{/if}}
+      {{#if condition.wounded}}
+      <button type="button" data-action="condition" data-which="treatWounds" data-tooltip="EDRPG.damage.treatHint"><i class="fa-solid fa-briefcase-medical"></i> {{localize "EDRPG.damage.treat"}}</button>
+      <button type="button" data-action="condition" data-which="restDay" data-tooltip="EDRPG.damage.restHint"><i class="fa-solid fa-bed"></i> {{localize "EDRPG.damage.rest"}}</button>
+      {{/if}}
+   </div>
+   {{/if}}
+</div>

@@ -73,6 +73,16 @@ CAPABILITIES = [
 ICONS = {D: "icons/svg/shield.svg", O: "icons/svg/sword.svg", X: "icons/svg/book.svg"}
 
 
+# Bonuses the attack card can apply: name -> (attackBonus, attackApplies, defenceBonus, defenceApplies)
+BOOSTS = {
+    "Blur of Steel": (2, "melee", 0, ""),
+    "Crack Shot": (2, "ranged", 0, ""),
+    "Duck!": (0, "", 2, "dodge"),
+    "Dive Aside": (0, "", 5, "dodge"),
+    "Last Minute Deflection": (0, "", 3, "parry"),
+}
+
+
 def doc_id(name):
     return hashlib.sha1(f"edrpg-karma-{name}".encode()).hexdigest()[:16]
 
@@ -103,6 +113,13 @@ def main():
                 "costAll": cost == "all",
                 "free": escape,
                 "usedThisTurn": False,
+                "attackBonus": BOOSTS.get(name, (0, "", 0, ""))[0],
+                "attackApplies": BOOSTS.get(name, (0, "", 0, ""))[1],
+                "defenceBonus": BOOSTS.get(name, (0, "", 0, ""))[2],
+                "defenceApplies": BOOSTS.get(name, (0, "", 0, ""))[3],
+                "preventsKnockdown": name == "Stay Standing",
+                "usesPerBattle": 1,
+                "timesUsed": 0,
             },
             "effects": [],
             "folder": None,

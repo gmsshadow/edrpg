@@ -1,0 +1,35 @@
+<div class="edrpg edrpg-chat edrpg-attack {{outcome}}">
+   <div class="attack-head">
+      <span class="attack-who">{{actorName}}</span>
+      {{#if targetName}}<i class="fa-solid fa-angles-right"></i> <span class="attack-who">{{targetName}}</span>{{/if}}
+   </div>
+   <div class="attack-weapon">{{weaponName}} <span class="muted">({{skillName}})</span></div>
+
+   <div class="attack-columns">
+      <dl class="breakdown">
+         <dt class="head">{{localize "EDRPG.attack.toHit"}}</dt><dd class="head">{{total}}</dd>
+         <dt>{{localize "EDRPG.contest.d10"}}</dt><dd>{{roll.natural}}</dd>
+         <dt>{{localize "EDRPG.chat.SkillBonus"}}</dt><dd>{{#if roll.knockedOver}}0 <span class="muted">({{localize "EDRPG.attack.knockedOver"}})</span>{{else}}{{roll.bonus}}{{/if}}</dd>
+         {{#each mods as |m|}}<dt>{{localize m.label}}</dt><dd>{{m.signed}}</dd>{{/each}}
+         {{#each attackBoosts as |b|}}<dt class="karma">{{b.name}}</dt><dd class="karma">+{{b.value}}</dd>{{/each}}
+      </dl>
+      <dl class="breakdown">
+         <dt class="head">{{localize "EDRPG.attack.difficulty"}}</dt><dd class="head">{{dn}}</dd>
+         {{#each parts as |p|}}<dt>{{localize p.label}}{{#if p.note}} <span class="muted">{{p.note}}</span>{{/if}}</dt><dd>{{p.value}}</dd>{{/each}}
+         {{#each defenceBoosts as |b|}}<dt class="karma">{{b.name}}</dt><dd class="karma">+{{b.value}}</dd>{{/each}}
+         {{#if cantEvade}}<dt class="muted" colspan="2">{{localize "EDRPG.attack.cantEvade"}}</dt><dd></dd>{{/if}}
+      </dl>
+   </div>
+
+   <div class="outcome {{#if hit}}success{{else}}failure{{/if}}">
+      {{#if hit}}{{localize "EDRPG.attack.hit"}}{{#if margin}} — {{localize "EDRPG.attack.beatBy" points=margin}}{{/if}}{{else}}{{localize "EDRPG.attack.miss"}}{{/if}}
+   </div>
+   {{#if reason}}<div class="attack-note">{{localize (concat "EDRPG.contest.reason." reason)}}</div>{{/if}}
+   {{#if rerolls}}<div class="attack-note"><i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.attack.rerolled" count=rerolls}}</div>{{/if}}
+   {{#if burstNote}}<div class="attack-note">{{burstNote}}</div>{{/if}}
+   {{#if divideFire}}<div class="attack-note">{{localize "EDRPG.attack.divideFireNote"}}</div>{{/if}}
+   {{#if destroyCover}}{{#unless hit}}<div class="attack-note">{{localize "EDRPG.attack.destroyCoverNote"}}</div>{{/unless}}{{/if}}
+   {{#if isExplosive}}{{#if hit}}<div class="attack-note">{{localize "EDRPG.attack.explosiveNote"}}</div>{{/if}}{{/if}}
+   {{#if ammo}}<div class="attack-note muted">{{localize "EDRPG.attack.ammoLeft" left=ammo.left max=ammo.max}}</div>{{/if}}
+   <div class="attack-controls"></div>
+</div>

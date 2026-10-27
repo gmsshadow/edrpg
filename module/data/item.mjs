@@ -7,6 +7,8 @@ import {
    weaponSkills,
    damageTypes,
    burstKinds,
+   karmaAttackKinds,
+   karmaDefenceKinds,
 } from "../config.mjs";
 
 const fields = foundry.data.fields;
@@ -70,6 +72,16 @@ export class KarmaCapabilityData extends foundry.abstract.TypeDataModel {
          costAll: new fields.BooleanField({ initial: false }),
          free: new fields.BooleanField({ initial: false }),
          usedThisTurn: new fields.BooleanField({ initial: false }),
+         // Bonuses the attack card can apply: "+2 to the attack you just made" / "+2 to your Defence (Dodge)".
+         attackBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+         attackApplies: new fields.StringField({ required: true, blank: true, choices: karmaAttackKinds, initial: "" }),
+         defenceBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+         defenceApplies: new fields.StringField({ required: true, blank: true, choices: karmaDefenceKinds, initial: "" }),
+         // Stay Standing: cancels a knockdown from a hit (offered on the damage card).
+         preventsKnockdown: new fields.BooleanField({ initial: false }),
+         // Opponents: uses per battle (e.g. "Dive Aside x3") and how many have been used.
+         usesPerBattle: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, initial: 1 }),
+         timesUsed: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
       };
    }
 }

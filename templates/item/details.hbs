@@ -62,6 +62,35 @@
       </div>
       <p class="hint">{{localize "EDRPG.item.costAllHint"}}</p>
    </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.attackBonus"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.attackBonus" value="{{source.attackBonus}}" step="1" {{#unless editable}}disabled{{/unless}}>
+         <select name="system.attackApplies" {{#unless editable}}disabled{{/unless}}>{{selectOptions karmaAttackKinds selected=source.attackApplies blank="" localize=true}}</select>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.defenceBonus"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.defenceBonus" value="{{source.defenceBonus}}" step="1" {{#unless editable}}disabled{{/unless}}>
+         <select name="system.defenceApplies" {{#unless editable}}disabled{{/unless}}>{{selectOptions karmaDefenceKinds selected=source.defenceApplies blank="" localize=true}}</select>
+      </div>
+      <p class="hint">{{localize "EDRPG.item.boostHint"}}</p>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.preventsKnockdown"}}</label>
+      <div class="form-fields"><input type="checkbox" name="system.preventsKnockdown" {{checked source.preventsKnockdown}} {{#unless editable}}disabled{{/unless}}></div>
+   </div>
+   {{#if onOpponent}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.usesPerBattle"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.usesPerBattle" value="{{source.usesPerBattle}}" min="1" step="1" {{#unless editable}}disabled{{/unless}}>
+         <span>{{localize "EDRPG.item.timesUsed"}}</span>
+         <input type="number" name="system.timesUsed" value="{{source.timesUsed}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+      </div>
+   </div>
+   {{/if}}
    {{#if onActor}}
    <div class="form-group">
       <label>{{localize "EDRPG.karma.usedThisTurnLabel"}}</label>

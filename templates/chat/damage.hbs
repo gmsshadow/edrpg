@@ -1,0 +1,40 @@
+<div class="edrpg edrpg-chat edrpg-damage">
+   <div class="attack-head">
+      <span class="attack-who">{{actorName}}</span>
+      {{#if targetName}}<i class="fa-solid fa-angles-right"></i> <span class="attack-who">{{targetName}}</span>{{/if}}
+   </div>
+   <div class="attack-weapon">{{weaponName}} <span class="muted">({{localize damageTypeLabel}})</span></div>
+
+   {{#if main}}
+   <dl class="breakdown">
+      <dt class="head">{{localize "EDRPG.damage.title"}}</dt><dd class="head">{{main.value}}</dd>
+      {{#if base}}<dt>{{localize "EDRPG.damage.weapon"}} <span class="muted">{{base.formula}}</span></dt><dd>{{base.total}}</dd>{{/if}}
+      {{#if burst}}<dt>{{localize "EDRPG.damage.burst"}} <span class="muted">{{burst.formula}}</span></dt><dd>+{{burst.total}}</dd>{{/if}}
+      {{#if divided}}<dt>{{localize "EDRPG.damage.divided"}}</dt><dd>½</dd>{{/if}}
+   </dl>
+   {{else}}
+   <dl class="breakdown">
+      {{#each amounts as |a|}}<dt>{{a.label}}</dt><dd class="big">{{a.value}}</dd>{{/each}}
+   </dl>
+   {{/if}}
+   {{#if dice.length}}<div class="damage-dice">{{#each dice as |d|}}<span class="die {{#if (eq d 10)}}ten{{/if}}">{{d}}</span>{{/each}}</div>{{/if}}
+   {{#if explosive}}<div class="attack-note">{{localize "EDRPG.damage.explosiveKnock"}}</div>
+   {{else if knock}}<div class="attack-note knock"><i class="fa-solid fa-person-falling"></i> {{localize "EDRPG.damage.knock"}}</div>{{/if}}
+   {{#if noKnockEnergy}}<div class="attack-note muted">{{localize "EDRPG.damage.noKnockEnergy"}}</div>{{/if}}
+
+   {{#if applied.length}}
+   <ul class="damage-applied">
+      {{#each applied as |a|}}
+      <li class="{{#if a.escaped}}escaped{{/if}}">
+         <div><strong>{{a.name}}</strong>: {{localize "EDRPG.damage.took" taken=a.taken}}
+            <span class="muted">({{a.amount}}{{#if a.armour}} − {{a.absorbed}} {{a.armour.name}}{{#if a.hardened}}, {{localize "EDRPG.damage.hardenedRoll" roll=a.hardened.roll target=a.hardened.target}}{{#if a.hardened.doubled}} {{localize "EDRPG.damage.doubled"}}{{/if}}{{/if}}{{/if}})</span>
+         </div>
+         <div>{{#if a.escaped}}{{localize "EDRPG.damage.enduranceBack" value=a.before max=a.max}}{{else}}{{localize "EDRPG.damage.enduranceFromTo" before=a.before after=a.after max=a.max}}{{/if}}
+            {{#each a.flags as |f|}}<span class="ed-chip">{{localize f}}</span>{{/each}}
+         </div>
+      </li>
+      {{/each}}
+   </ul>
+   {{/if}}
+   <div class="damage-controls"></div>
+</div>

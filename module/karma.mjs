@@ -86,7 +86,8 @@ export async function useKarmaCapability(actor, capability) {
 }
 
 /**
- * Opponents have no Karma points: each capability can be used once per battle (Core Rules p.281).
+ * Opponents have no Karma points: each capability can be used once per battle, or as many times as listed
+ * (e.g. "Dive Aside x3") (Core Rules p.281).
  * The mark clears when the combat ends.
  *
  * @param {Actor} actor
@@ -97,14 +98,18 @@ export async function useKarmaCapability(actor, capability) {
  */
 async function useOpponentCapability(actor, capability) {
    const sys = capability.system;
-   if (sys.usedThisTurn) {
+   const max = sys.usesPerBattle ?? 1;
+   const used = sys.timesUsed ?? 0;
+   if (used >= max) {
       ui.notifications.warn(game.i18n.format("EDRPG.karma.usedThisBattle", { name: capability.name }));
       return null;
    }
-   await capability.update({ "system.usedThisTurn": true });
+   await capability.update({ "system.timesUsed": used + 1, "system.usedThisTurn": used + 1 >= max });
    const content = await foundry.applications.handlebars.renderTemplate(CARD_TEMPLATE, {
       name: capability.name,
       oncePerBattle: true,
+      usesLeft: max - used - 1,
+      usesMax: max,
       role: karmaRoles[sys.role],
       category: karmaCategories[sys.category],
       description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description ?? "", {
@@ -139,8 +144,8 @@ export async function restKarma(actor) {
  */
 async function resetCapabilities(actor) {
    const updates = actor.itemTypes.karma
-      .filter((i) => i.system.usedThisTurn)
-      .map((i) => ({ _id: i.id, "system.usedThisTurn": false }));
+      .filter((i) => i.system.usedThisTurn || i.system.timesUsed)
+      .map((i) => ({ _id: i.id, "system.usedThisTurn": false, "system.timesUsed": 0 }));
    if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }
 

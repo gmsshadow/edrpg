@@ -7,6 +7,8 @@ import EDOpponentSheet from "./sheets/opponent-sheet.mjs";
 import EDItemSheet from "./sheets/item-sheet.mjs";
 import { rollSkillCheck, onRenderSkillCheck } from "./dice/skill-check.mjs";
 import { onRenderContest, registerContestSocket } from "./dice/contest.mjs";
+import { onRenderAttack, registerAttackSocket } from "./dice/attack.mjs";
+import { onRenderDamage, registerDamageHooks, registerStatusEffects, bleedOut, heal } from "./dice/damage.mjs";
 import registerSettings from "./settings.mjs";
 import { endAdventure } from "./advancement.mjs";
 import { useKarmaCapability, restKarma, registerKarmaHooks } from "./karma.mjs";
@@ -15,10 +17,11 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure, useKarmaCapability, restKarma };
+   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal };
    registerKarmaHooks();
 
    registerSettings();
+   registerStatusEffects();
 
    CONFIG.Actor.documentClass = EDActor;
    CONFIG.Item.documentClass = EDItem;
@@ -67,12 +70,19 @@ Hooks.once("init", () => {
       edrpgSection: "systems/edrpg/templates/actor/section.hbs",
       edrpgStoredList: "systems/edrpg/templates/actor/stored-list.hbs",
       edrpgEquipmentDetails: "systems/edrpg/templates/item/equipment-details.hbs",
+      edrpgCondition: "systems/edrpg/templates/actor/condition.hbs",
    });
 });
 
-Hooks.once("ready", registerContestSocket);
+Hooks.once("ready", () => {
+   registerContestSocket();
+   registerAttackSocket();
+   registerDamageHooks();
+});
 
 Hooks.on("renderChatMessageHTML", (message, html) => {
    onRenderSkillCheck(message, html);
    onRenderContest(message, html);
+   onRenderAttack(message, html);
+   onRenderDamage(message, html);
 });

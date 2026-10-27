@@ -7,6 +7,8 @@ import {
    burstKinds,
    rarities,
    equipmentLocations,
+   karmaAttackKinds,
+   karmaDefenceKinds,
 } from "../config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -65,6 +67,8 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          burstKinds,
          rarities,
          equipmentLocations,
+         karmaAttackKinds,
+         karmaDefenceKinds,
       });
       if (item.type === "weapon") {
          context.rangeBands = ["short", "medium", "long"].map((key) => ({

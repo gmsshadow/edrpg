@@ -2,7 +2,7 @@
    <div class="outcome karma"><i class="fa-solid fa-yin-yang"></i> {{name}}</div>
    <div class="karma-meta">{{localize role}} · {{localize category}}</div>
    {{#if oncePerBattle}}
-   <div class="karma-meta">{{localize "EDRPG.karma.oncePerBattle"}}</div>
+   <div class="karma-meta">{{localize "EDRPG.karma.usesLeft" left=usesLeft max=usesMax}}</div>
    {{else}}
    <dl class="breakdown">
       <dt>{{localize "EDRPG.karma.spent"}}</dt><dd>{{cost}}</dd>

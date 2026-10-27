@@ -285,7 +285,7 @@ function canKarmaReroll(side) {
  *
  * @param {boolean} [options.hidden=false]
  */
-async function showDice(roll, { hidden = false } = {}) {
+export async function showDice(roll, { hidden = false } = {}) {
    if (game.dice3d) {
       const whisper = hidden ? game.users.filter((u) => u.isGM).map((u) => u.id) : null;
       await game.dice3d.showForRoll(roll, game.user, true, whisper, false);

@@ -50,6 +50,8 @@
       </tbody>
    </table>
 
+   {{> edrpgCondition}}
+
    <table class="ed-op-table ed-op-rows">
       <colgroup><col class="label"><col></colgroup>
       <tbody>
@@ -86,8 +88,8 @@
                   <div class="entry-line">{{w.line}}</div>
                </div>
                {{/each}}
-               <div class="ed-op-entry attack fighting" data-skill="fighting">
-                  <a class="entry-name" data-action="rollSkill">{{localize "EDRPG.sheet.skills.combat.fighting.name"}}</a>
+               <div class="ed-op-entry attack fighting">
+                  <a class="entry-name" data-action="rollFighting">{{localize "EDRPG.sheet.skills.combat.fighting.name"}}</a>
                   <div class="entry-line">{{localize "EDRPG.opponent.fightingLine" toHit=fighting}}</div>
                </div>
             </td>
@@ -118,7 +120,7 @@
             <td>
                {{#each karma as |k|}}
                <div class="ed-op-entry" data-item-id="{{k.id}}">
-                  <a class="entry-name" data-action="editItem">{{k.name}}</a> <span class="muted">({{localize k.category}})</span>
+                  <a class="entry-name" data-action="editItem">{{k.name}}</a>{{#if k.uses}} ×{{k.uses}}{{/if}} <span class="muted">({{localize k.category}})</span>
                   <span class="entry-controls">
                      {{#if @root.owner}}<button type="button" class="ed-use {{#if k.used}}used{{/if}}" data-action="useKarma" {{#if k.used}}disabled{{/if}}>{{#if k.used}}{{localize "EDRPG.karma.used"}}{{else}}{{localize "EDRPG.karma.use"}}{{/if}}</button>{{/if}}
                      {{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}

@@ -1,0 +1,209 @@
+{
+  "_id": "fdc1774924f0251c",
+  "_key": "!actors!fdc1774924f0251c",
+  "name": "Unstoppable Assassin",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "elite",
+    "role": "High Threat Assassin",
+    "dodge": 10,
+    "parry": 10,
+    "initiative": 10,
+    "perception": 10,
+    "toHit": 10,
+    "speed": "16m",
+    "endurance": {
+      "value": 80,
+      "max": 80
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 10
+      },
+      {
+        "skill": "stealth",
+        "bonus": 10
+      }
+    ],
+    "equipment": "",
+    "notes": "<p>Fighting damage: 1D10/2+8.</p><p>Continuous Driving Attack: each turn it hits, it pushes its target back and follows.</p>"
+  },
+  "prototypeToken": {
+    "name": "Unstoppable Assassin",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "be1eb75930b8aefd",
+      "_key": "!actors.items!fdc1774924f0251c.be1eb75930b8aefd",
+      "name": "Imperial Sabre",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "31,000,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 4,
+        "damage": "3d10+8",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 10
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "0d6e5e9d6cec6d7f",
+      "_key": "!actors.items!fdc1774924f0251c.0d6e5e9d6cec6d7f",
+      "name": "Dive Aside",
+      "type": "karma",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "role": "defensive",
+        "category": "personal",
+        "cost": 5,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 5,
+        "defenceApplies": "dodge",
+        "preventsKnockdown": false,
+        "usesPerBattle": 3,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9e553c96364d2f44",
+      "_key": "!actors.items!fdc1774924f0251c.9e553c96364d2f44",
+      "name": "Riposte",
+      "type": "karma",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "role": "offensive",
+        "category": "personal",
+        "cost": 1,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": false,
+        "usesPerBattle": 2,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "5ba051a041934f8b",
+      "_key": "!actors.items!fdc1774924f0251c.5ba051a041934f8b",
+      "name": "Stay Standing",
+      "type": "karma",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "role": "defensive",
+        "category": "personal",
+        "cost": 1,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": true,
+        "usesPerBattle": 3,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

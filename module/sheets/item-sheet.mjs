@@ -54,6 +54,7 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          karmaCategories,
          karmaRoles,
          onActor: !!item.parent,
+         onOpponent: item.parent?.type === "opponent",
          backgroundChoices: { 1: "1", 2: "2" },
          isWeapon: item.type === "weapon",
          isMelee: item.type === "weapon" && item.system.isMelee,

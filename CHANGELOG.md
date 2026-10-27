@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.7
+- New **Opponent (stat block)** actor type with a sheet laid out like the Core Rules' opponent boxes (e.g. p.285):
+  name and rank/role header; Defence (Dodge/Parry; blank = can't use it), Initiative, Perception, Endurance, Speed,
+  To Hit; Armour (worn armour items with absorb and Hardened); Attacks (weapon items written as the book does:
+  ranges, To Hit, damage, blast, ammo); Fighting at To Hit −1 unless listed; Other Skills (clickable to roll);
+  Karma Capabilities (once per battle, no points); Equipment; Abilities & Notes.
+  - Opponents roll skill checks and contests from their stat block (listed skills, Perception, Initiative for
+    Tactics, To Hit for weapon skills). Initiative uses their Initiative score. Endurance is a token bar.
+  - A weapon on an opponent can override the general To Hit.
+  - "NPC (individual scale)" is now labelled "NPC (full character)" for NPCs built like player characters.
+- Character sheet: new **Combat** tab holding the Ranged Weapons and Close Combat tables (styled after the printed
+  sheet, with the RANGE header), a Protection table of worn armour by damage type, and Combat Karma (personal and
+  any-combat capabilities with Use buttons). The Data Sheet tab now holds backgrounds, skills and enhancements.
+
 ## 0.1.6
 - Weapon and Armour item types (Core Rules ch.5).
   - Weapons: attack skill, damage type, short/medium/long range with difficulty To Hit (or Finesse for melee),

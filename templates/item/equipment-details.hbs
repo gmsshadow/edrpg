@@ -33,6 +33,12 @@
       <label>{{localize "EDRPG.weapon.attackBonus"}}</label>
       <div class="form-fields">{{> num name="system.attackBonus" value=source.attackBonus}}</div>
    </div>
+   {{#if onOpponent}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.weapon.toHitOverride"}}</label>
+      <div class="form-fields">{{> num name="system.toHit" value=source.toHit}}</div>
+   </div>
+   {{/if}}
    <div class="form-group">
       <label>{{localize "EDRPG.sheet.finesse"}}</label>
       <div class="form-fields">{{> num name="system.finesse" value=source.finesse}}</div>

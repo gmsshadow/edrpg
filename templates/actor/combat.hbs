@@ -1,0 +1,123 @@
+<div class="tab combat {{tab.cssClass}}" data-group="primary" data-tab="combat">
+   {{#> edrpgSection title="EDRPG.sheet.rangedWeapons" icon="fa-solid fa-crosshairs" addType="weapon"}}
+   <table class="ed-table weapons">
+      <thead>
+         <tr class="group">
+            <th class="blank" colspan="2"></th>
+            <th class="range-group" colspan="3"><span>{{localize "EDRPG.weapon.range"}}</span></th>
+            <th class="blank" colspan="3"></th>
+         </tr>
+         <tr>
+            <th class="name">{{localize "EDRPG.equipment.Weapon"}}</th>
+            <th>{{localize "EDRPG.sheet.toHit"}}</th>
+            <th>{{localize "EDRPG.sheet.range.short"}}</th>
+            <th>{{localize "EDRPG.sheet.range.medium"}}</th>
+            <th>{{localize "EDRPG.sheet.range.long"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.damage"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.ammo"}}</th>
+            <th class="notes">{{localize "EDRPG.sheet.notes"}}</th>
+         </tr>
+      </thead>
+      <tbody>
+         {{#each rangedWeapons as |w|}}
+         <tr data-item-id="{{w.id}}" class="draggable {{#unless w.equipped}}unequipped{{/unless}}">
+            <th class="name"><a data-action="editItem" data-tooltip="{{localize w.skillLabel}}">{{w.name}}</a></th>
+            <td>+{{w.toHit}}</td>
+            {{#each w.ranges as |r|}}<td class="range">{{r}}</td>{{/each}}
+            <td class="damage">{{w.damage}}</td>
+            <td class="damage ammo">
+               {{#if w.usesAmmo}}
+               <input type="number" data-item-field="system.ammo.value" value="{{w.ammo.value}}" min="0" step="1">/{{w.ammo.max}}
+               <a data-action="reloadWeapon" data-tooltip="EDRPG.weapon.reload"><i class="fa-solid fa-rotate"></i></a>
+               {{else}}—{{/if}}
+            </td>
+            <td class="notes">{{w.notes}}</td>
+         </tr>
+         {{else}}
+         <tr class="empty"><td colspan="8">{{localize "EDRPG.weapon.noneCarried"}}</td></tr>
+         {{/each}}
+      </tbody>
+   </table>
+   {{/edrpgSection}}
+
+   {{#> edrpgSection title="EDRPG.sheet.closeCombat" icon="fa-solid fa-hand-fist" addType="weapon"}}
+   <table class="ed-table weapons close">
+      <thead>
+         <tr>
+            <th class="name">{{localize "EDRPG.equipment.Weapon"}}</th>
+            <th>{{localize "EDRPG.sheet.toHit"}}</th>
+            <th>{{localize "EDRPG.sheet.finesse"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.damage"}}</th>
+            <th class="notes">{{localize "EDRPG.sheet.notes"}}</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <th class="name"><a data-action="rollFighting" data-tooltip="EDRPG.sheet.rollAttack">{{localize "EDRPG.sheet.skills.combat.fighting.name"}}</a></th>
+            <td>+{{fightingBonus}}</td>
+            <td>{{fighting.finesse}}</td>
+            <td class="damage"><a data-action="rollFightingDamage" data-tooltip="EDRPG.sheet.rollDamage">{{localize "EDRPG.sheet.fightingDamage"}}</a></td>
+            <td class="notes"></td>
+         </tr>
+         {{#each meleeWeapons as |w|}}
+         <tr data-item-id="{{w.id}}" class="draggable {{#unless w.equipped}}unequipped{{/unless}}">
+            <th class="name"><a data-action="editItem">{{w.name}}</a></th>
+            <td>+{{w.toHit}}</td>
+            <td>{{w.finesse}}</td>
+            <td class="damage">{{w.damage}}</td>
+            <td class="notes">{{w.notes}}</td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+   {{/edrpgSection}}
+
+   <div class="ed-combat-lower">
+      {{#> edrpgSection title="EDRPG.combat.protection" icon="fa-solid fa-shield-halved"}}
+      <table class="ed-table weapons protection">
+         <thead>
+            <tr>
+               <th class="name">{{localize "EDRPG.equipment.Armour"}}</th>
+               {{#each damageTypeLabels as |label|}}<th data-tooltip="{{localize label}}">{{localize label}}</th>{{/each}}
+               <th data-tooltip="EDRPG.armour.hardened">{{localize "EDRPG.armour.hardenedAbbr"}}</th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each wornArmour as |a|}}
+            <tr data-item-id="{{a.id}}">
+               <th class="name"><a data-action="editItem">{{a.name}}</a></th>
+               {{#each a.absorb as |v|}}<td>{{v}}</td>{{/each}}
+               <td>{{a.hardened}}</td>
+            </tr>
+            {{else}}
+            <tr class="empty"><td colspan="8">{{localize "EDRPG.combat.noArmour"}}</td></tr>
+            {{/each}}
+         </tbody>
+      </table>
+      <p class="hint">{{localize "EDRPG.combat.protectionHint"}}</p>
+      {{/edrpgSection}}
+
+      {{#> edrpgSection title="EDRPG.combat.karma" icon="fa-solid fa-yin-yang" style="karma"}}
+      <table class="ed-table karma compact">
+         <tbody>
+            {{#each combatKarma as |item|}}
+            <tr {{#if item.id}}data-item-id="{{item.id}}"{{else}}data-builtin="escapeDeath"{{/if}}>
+               <th class="name" data-tooltip="{{item.summary}}">{{item.name}}</th>
+               <td>{{item.costLabel}}</td>
+               <td class="use">
+                  {{#if @root.owner}}
+                  <button type="button" class="ed-use {{#if item.used}}used{{/if}}" data-action="useKarma" {{#unless item.usable}}disabled{{/unless}}>
+                     {{#if item.used}}{{localize "EDRPG.karma.used"}}{{else}}{{localize "EDRPG.karma.use"}}{{/if}}
+                  </button>
+                  {{/if}}
+               </td>
+            </tr>
+            {{else}}
+            <tr class="empty"><td colspan="3">{{localize "EDRPG.combat.noKarma"}}</td></tr>
+            {{/each}}
+         </tbody>
+      </table>
+      <p class="hint">{{localize "EDRPG.combat.karmaHint"}}</p>
+      {{/edrpgSection}}
+   </div>
+</div>

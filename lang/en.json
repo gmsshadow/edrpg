@@ -2,7 +2,8 @@
   "TYPES": {
     "Actor": {
       "character": "Character",
-      "npcIndividual": "NPC (individual scale)"
+      "npcIndividual": "NPC (full character)",
+      "opponent": "Opponent (stat block)"
     },
     "Item": {
       "karma": "Karma Capability",
@@ -32,7 +33,8 @@
       "tabs": {
         "datasheet": "Data Sheet",
         "karmaEquipment": "Karma & Equipment",
-        "notes": "Notes"
+        "notes": "Notes",
+        "combat": "Combat"
       },
       "skills": {
         "name": "Skills",
@@ -229,7 +231,8 @@
       "deleteItem": "Delete",
       "labels": {
         "actor": "EDRPG Actor Sheet",
-        "item": "EDRPG Item Sheet"
+        "item": "EDRPG Item Sheet",
+        "opponent": "EDRPG Opponent Sheet"
       },
       "character": "Character",
       "dataSheet": "Data Sheet",
@@ -495,7 +498,9 @@
       "restHint": "Main rest (a full night's sleep): regain 1 Karma point.",
       "rested": "{name} rests and regains 1 Karma ({value} / {max}).",
       "alreadyFull": "{name}'s Karma is already full.",
-      "usedThisTurnLabel": "Used this turn"
+      "usedThisTurnLabel": "Used this turn",
+      "usedThisBattle": "{name} has already been used this battle.",
+      "oncePerBattle": "Opponent capability — once per battle"
     },
     "rarity": {
       "common": "Common",
@@ -547,7 +552,9 @@
       "blastShort": "Blast {fatal}m / {injury}m",
       "reload": "Reload (a fresh magazine; leftover rounds are lost)",
       "noneCarried": "No weapons carried.",
-      "equippedHint": "In hand: its skill modifiers apply"
+      "equippedHint": "In hand: its skill modifiers apply",
+      "range": "Range",
+      "toHitOverride": "To Hit (this weapon)"
     },
     "armour": {
       "absorb": "Absorbs",
@@ -559,7 +566,45 @@
       "hint": "Absorbs damage of the listed types; every hit still does at least 1 damage, except Toxic. Hardened N: roll a D10, and on N or more the protection is doubled. Discreet armour worn under clothes has no Social Factor penalty.",
       "hardenedShort": "Hardened {value}",
       "sfShort": "Social Factor {value}",
-      "noneCarried": "No clothing or armour."
+      "noneCarried": "No clothing or armour.",
+      "hardenedAbbr": "Hard."
+    },
+    "combat": {
+      "protection": "Protection",
+      "noArmour": "No armour worn.",
+      "protectionHint": "Armour absorbs damage of its types; every hit still does at least 1 damage, except Toxic. Hardened: on a D10 of that number or more the protection is doubled.",
+      "karma": "Combat Karma",
+      "noKarma": "No personal-combat capabilities.",
+      "karmaHint": "Personal and Any Combat capabilities, for quick use in a fight."
+    },
+    "opponent": {
+      "role": "Role, e.g. Mercenary",
+      "dodge": "Defence (Dodge):",
+      "parry": "Defence (Parry):",
+      "speed": "Speed:",
+      "toHitLabel": "To Hit:",
+      "armour": "Armour:",
+      "attacks": "Attacks:",
+      "otherSkills": "Other Skills:",
+      "equipment": "Equipment",
+      "notes": "Abilities & Notes",
+      "none": "None",
+      "absorb": "Absorb",
+      "finesse": "Finesse {value}",
+      "toHit": "+{value} To Hit",
+      "damage": "Damage {value}",
+      "blast": "{fatalRadius}m Fatal, {injuryRadius}m Injury, Damage Fatal {fatal}, Injury {injury}",
+      "ammo": "Ammo {value}/{max}",
+      "fightingLine": "Finesse 5, +{toHit} To Hit, Damage 1D10 halved (Fighting is To Hit −1 unless listed)",
+      "karmaHint": "Opponents have no Karma points: each capability can be used once per battle."
+    },
+    "damageShort": {
+      "kinetic": "Kin",
+      "energy": "Ene",
+      "explosive": "Exp",
+      "fighting": "Fig",
+      "melee": "Mel",
+      "toxic": "Tox"
     }
   }
 }

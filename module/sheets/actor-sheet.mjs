@@ -8,6 +8,7 @@ import {
    karmaRoles,
    socialFactorSkills,
    equipmentLocations,
+   damageTypes,
    MAX_SKILL_SCORE,
 } from "../config.mjs";
 import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs";
@@ -78,6 +79,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       header: { template: "systems/edrpg/templates/actor/header.hbs" },
       tabs: { template: "systems/edrpg/templates/actor/tabs.hbs" },
       datasheet: { template: "systems/edrpg/templates/actor/datasheet.hbs", scrollable: [""] },
+      combat: { template: "systems/edrpg/templates/actor/combat.hbs", scrollable: [""] },
       karmaEquipment: { template: "systems/edrpg/templates/actor/karma-equipment.hbs", scrollable: [""] },
       notes: { template: "systems/edrpg/templates/actor/notes.hbs", scrollable: [""] },
    };
@@ -87,6 +89,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       primary: {
          tabs: [
             { id: "datasheet", label: "EDRPG.sheet.tabs.datasheet" },
+            { id: "combat", label: "EDRPG.sheet.tabs.combat" },
             { id: "karmaEquipment", label: "EDRPG.sheet.tabs.karmaEquipment" },
             { id: "notes", label: "EDRPG.sheet.tabs.notes" },
          ],
@@ -191,6 +194,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
             name: item.name,
             role: s.role,
             costLabel: s.costAll ? game.i18n.localize("EDRPG.sheet.all") : s.cost,
+            category: s.category,
             categoryLabel: karmaCategories[s.category] ?? "",
             summary: summarise(s.description, 400),
             used,
@@ -205,6 +209,9 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          .map(([role, label]) => ({ label, items: views.filter((v) => v.role === role) }))
          .filter((g) => g.items.length);
       context.restChip = game.i18n.localize("EDRPG.karma.rest");
+      // Combat tab: the capabilities usable in personal combat, for quick use mid-fight.
+      const combatCategories = new Set(["personal", "anyCombat"]);
+      context.combatKarma = views.filter((v) => combatCategories.has(v.category));
 
       this._prepareEquipment(context);
       context.karmaCount = `${karma.filter((i) => !i.system.free).length} / ${system.rank.karmaCap}`;
@@ -287,6 +294,19 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       context.meleeWeapons = carried.filter((w) => w.isMelee);
       context.carriedWeapons = carried;
       context.clothing = armour.filter((a) => loc(a) === "carried").map(armourView);
+
+      // Combat tab: what worn armour absorbs, by damage type.
+      context.damageTypeLabels = Object.keys(damageTypes).map((t) => `EDRPG.damageShort.${t}`);
+      context.wornArmour = armour
+         .filter((a) => a.system.worn)
+         .map((a) => ({
+            id: a.id,
+            name: a.name,
+            absorb: Object.keys(damageTypes).map((t) =>
+               t === "toxic" && a.system.toxicAll ? game.i18n.localize("EDRPG.sheet.all") : a.system.absorb[t] || "—",
+            ),
+            hardened: a.system.hardened ?? "—",
+         }));
 
       const stored = (where) => [
          ...weapons.filter((w) => loc(w) === where).map((w) => ({ ...weaponView(w), kind: "weapon" })),

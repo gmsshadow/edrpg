@@ -41,15 +41,17 @@ export function signed(n) {
  */
 export async function rollSkillDice(actor, skill, { modifier = 0, socialFactor = true } = {}) {
    const category = skillCategory[skill];
-   const skillData = actor.system.skills[category][skill];
+   // Characters have full skills; opponents give a bonus from their stat block.
+   const bonus = actor.system.skillBonus?.(skill) ?? 0;
    const sfBonus = socialFactor && socialFactorSkills.includes(skill) ? (actor.system.socialFactor?.value ?? 0) : 0;
    const formula = sfBonus ? "1d10 + @bonus + @socialFactor + @modifier" : "1d10 + @bonus + @modifier";
-   const roll = await new Roll(formula, { bonus: skillData.bonus, socialFactor: sfBonus, modifier }).evaluate();
+   const roll = await new Roll(formula, { bonus, socialFactor: sfBonus, modifier }).evaluate();
 
-   if (!skillData.used && actor.isOwner) {
+   const skillData = actor.system.skills?.[category]?.[skill];
+   if (skillData && !skillData.used && actor.isOwner) {
       await actor.update({ [`system.skills.${category}.${skill}.used`]: true });
    }
-   return { roll, natural: roll.dice[0].total, total: roll.total, bonus: skillData.bonus, socialFactor: sfBonus, modifier };
+   return { roll, natural: roll.dice[0].total, total: roll.total, bonus, socialFactor: sfBonus, modifier };
 }
 
 /**
@@ -123,7 +125,8 @@ export async function rollSkillCheck(actor, skill, options = {}) {
    else outcome = roll.total >= difficulty ? "success" : "failure";
 
    const canReroll =
-      (natural === 1 || game.settings.get("edrpg", "allowToRerollAllTests")) && actor.system.karma.standard.value > 0;
+      (natural === 1 || game.settings.get("edrpg", "allowToRerollAllTests")) &&
+      (actor.system.karma?.standard.value ?? 0) > 0;
 
    const content = await foundry.applications.handlebars.renderTemplate(CHAT_TEMPLATE, {
       skillName,

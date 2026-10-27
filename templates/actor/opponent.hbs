@@ -1,0 +1,140 @@
+<section class="ed-opponent">
+   <header class="ed-op-head">
+      <img class="ed-op-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-action="editImage" data-edit="img">
+      <div class="ed-op-name">
+         <textarea name="name" rows="2" placeholder="{{localize 'EDRPG.sheet.name'}}">{{actor.name}}</textarea>
+      </div>
+      <div class="ed-op-rank">
+         <div class="subtitle">{{subtitle}}</div>
+         {{#if editable}}
+         <div class="ed-op-rank-edit">
+            <select name="system.rank">
+               <option value=""></option>
+               {{selectOptions rankChoices selected=source.rank localize=true}}
+            </select>
+            <input type="text" name="system.role" value="{{source.role}}" placeholder="{{localize 'EDRPG.opponent.role'}}">
+         </div>
+         {{/if}}
+      </div>
+   </header>
+
+   <table class="ed-op-table">
+      <colgroup><col class="label"><col class="value"><col class="label"><col class="value"></colgroup>
+      <tbody>
+         <tr>
+            <th>{{localize "EDRPG.opponent.dodge"}}</th>
+            <td><input type="number" name="system.dodge" value="{{source.dodge}}" step="1" placeholder="—"></td>
+            <th><a data-action="rollInitiative" data-tooltip="EDRPG.sheet.rollInitiative">{{localize "EDRPG.sheet.initiative"}}:</a></th>
+            <td><input type="number" name="system.initiative" value="{{source.initiative}}" step="1"></td>
+         </tr>
+         <tr>
+            <th>{{localize "EDRPG.opponent.parry"}}</th>
+            <td><input type="number" name="system.parry" value="{{source.parry}}" step="1" placeholder="—"></td>
+            <th data-skill="perception"><a data-action="rollSkill">{{localize "EDRPG.sheet.skills.espionage.perception.name"}}:</a></th>
+            <td><input type="number" name="system.perception" value="{{source.perception}}" step="1"></td>
+         </tr>
+         <tr>
+            <td class="endurance" colspan="2" rowspan="2">
+               <span>{{localize "EDRPG.sheet.endurance"}}:</span>
+               <input type="number" name="system.endurance.value" value="{{source.endurance.value}}" step="1">
+               <span>/</span>
+               <input type="number" name="system.endurance.max" value="{{source.endurance.max}}" min="0" step="1">
+            </td>
+            <th>{{localize "EDRPG.opponent.speed"}}</th>
+            <td><input type="text" name="system.speed" value="{{source.speed}}"></td>
+         </tr>
+         <tr>
+            <th>{{localize "EDRPG.opponent.toHitLabel"}}</th>
+            <td><input type="number" name="system.toHit" value="{{source.toHit}}" step="1"></td>
+         </tr>
+      </tbody>
+   </table>
+
+   <table class="ed-op-table ed-op-rows">
+      <colgroup><col class="label"><col></colgroup>
+      <tbody>
+         <tr>
+            <th>
+               {{localize "EDRPG.opponent.armour"}}
+               {{#if editable}}<a class="ed-op-add" data-action="createItem" data-type="armour" data-tooltip="EDRPG.sheet.addItem"><i class="fa-solid fa-plus"></i></a>{{/if}}
+            </th>
+            <td>
+               {{#each armour as |a|}}
+               <div class="ed-op-entry {{#unless a.worn}}inactive{{/unless}}" data-item-id="{{a.id}}">
+                  <a class="entry-name" data-action="editItem">{{a.name}}</a>{{#if a.details}} – {{a.details}}{{/if}}
+                  <span class="entry-controls">
+                     <a data-action="toggleItem" data-field="system.worn" data-tooltip="EDRPG.equipment.Worn"><i class="fa-solid {{#if a.worn}}fa-shirt{{else}}fa-circle{{/if}}"></i></a>
+                     {{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+                  </span>
+               </div>
+               {{else}}<span class="muted">{{localize "EDRPG.opponent.none"}}</span>{{/each}}
+            </td>
+         </tr>
+         <tr>
+            <th>
+               {{localize "EDRPG.opponent.attacks"}}
+               {{#if editable}}<a class="ed-op-add" data-action="createItem" data-type="weapon" data-tooltip="EDRPG.sheet.addItem"><i class="fa-solid fa-plus"></i></a>{{/if}}
+            </th>
+            <td>
+               {{#each attacks as |w|}}
+               <div class="ed-op-entry attack" data-item-id="{{w.id}}">
+                  <a class="entry-name" data-action="editItem">{{w.name}}</a>
+                  {{#if @root.editable}}<span class="entry-controls"><a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a></span>{{/if}}
+                  <div class="entry-line">{{w.line}}</div>
+               </div>
+               {{/each}}
+               <div class="ed-op-entry attack fighting" data-skill="fighting">
+                  <a class="entry-name" data-action="rollSkill">{{localize "EDRPG.sheet.skills.combat.fighting.name"}}</a>
+                  <div class="entry-line">{{localize "EDRPG.opponent.fightingLine" toHit=fighting}}</div>
+               </div>
+            </td>
+         </tr>
+         <tr>
+            <th>
+               {{localize "EDRPG.opponent.otherSkills"}}
+               {{#if editable}}<a class="ed-op-add" data-action="addSkill" data-tooltip="EDRPG.item.addSkillBonus"><i class="fa-solid fa-plus"></i></a>{{/if}}
+            </th>
+            <td><div class="ed-op-skills">
+               {{#each otherSkills as |s|}}
+               <div class="ed-op-skill" data-index="{{s.index}}" data-skill="{{s.skill}}">
+                  {{#if @root.editable}}
+                  <select name="system.otherSkills.{{s.index}}.skill">{{selectOptions @root.skillChoices selected=s.skill blank="" localize=true sort=true}}</select>
+                  <input type="number" name="system.otherSkills.{{s.index}}.bonus" value="{{s.bonus}}" step="1">
+                  <a data-action="rollSkill" data-tooltip="EDRPG.test.Roll"><i class="fa-solid fa-dice-d10"></i></a>
+                  <a data-action="removeSkill" data-tooltip="EDRPG.item.removeSkillBonus"><i class="fa-solid fa-xmark"></i></a>
+                  {{else}}
+                  <a data-action="rollSkill">{{localize s.label}} +{{s.bonus}}</a>
+                  {{/if}}
+               </div>
+               {{else}}<span class="muted">{{localize "EDRPG.opponent.none"}}</span>{{/each}}
+            </div></td>
+         </tr>
+         {{#if karma.length}}
+         <tr>
+            <th>{{localize "EDRPG.sheet.KarmaCapabilities"}}</th>
+            <td>
+               {{#each karma as |k|}}
+               <div class="ed-op-entry" data-item-id="{{k.id}}">
+                  <a class="entry-name" data-action="editItem">{{k.name}}</a> <span class="muted">({{localize k.category}})</span>
+                  <span class="entry-controls">
+                     {{#if @root.owner}}<button type="button" class="ed-use {{#if k.used}}used{{/if}}" data-action="useKarma" {{#if k.used}}disabled{{/if}}>{{#if k.used}}{{localize "EDRPG.karma.used"}}{{else}}{{localize "EDRPG.karma.use"}}{{/if}}</button>{{/if}}
+                     {{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+                  </span>
+               </div>
+               {{/each}}
+               <p class="hint">{{localize "EDRPG.opponent.karmaHint"}}</p>
+            </td>
+         </tr>
+         {{/if}}
+         <tr>
+            <th>{{localize "EDRPG.opponent.equipment"}}</th>
+            <td><input type="text" name="system.equipment" value="{{source.equipment}}"></td>
+         </tr>
+      </tbody>
+   </table>
+
+   <div class="ed-op-notes">
+      <h3>{{localize "EDRPG.opponent.notes"}}</h3>
+      {{formInput notesField value=source.notes enriched=enrichedNotes toggled=true name="system.notes"}}
+   </div>
+</section>

@@ -1,4 +1,5 @@
 import {
+   ranks,
    skills,
    BASE_SKILL_SCORE,
    MAX_SKILL_SCORE,
@@ -106,6 +107,17 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
    /** @returns {object} The current rank entry from the rank table. */
    get rank() {
       return rankFor(this.rankPoints);
+   }
+
+   /**
+    * Skill bonus for a check.
+    *
+    * @param {string} skill
+    *
+    * @returns {number}
+    */
+   skillBonus(skill) {
+      return this.skills[skillCategory[skill]]?.[skill]?.bonus ?? 0;
    }
 
    /** Initiative score = Tactics bonus (Core Rules, "Determine Defence & Initiative"). */
@@ -276,3 +288,94 @@ export class CharacterData extends IndividualData {
 
 /** Individual-scale NPCs: same statistics, no free background. */
 export class NPCIndividualData extends IndividualData {}
+
+/**
+ * Opponent — the book's abbreviated stat block (Core Rules pp.280–283).
+ * - Defence (Dodge/Parry): blank means the opponent can't use that defence (Walker Drones use neither).
+ * - To Hit is the bonus for any weapon; a weapon can override it.
+ * - Fighting is To Hit −1 unless listed under Other Skills; unarmed damage is 1D10 halved.
+ * - Karma Capabilities have no points: each can be used once per battle.
+ * - Weapons, worn armour and capabilities are ordinary items on the actor.
+ */
+export class OpponentData extends foundry.abstract.TypeDataModel {
+   static defineSchema() {
+      const int = (initial = 0) => new fields.NumberField({ ...requiredInteger, initial });
+      const nullableInt = () => new fields.NumberField({ required: true, nullable: true, integer: true, initial: null });
+      return {
+         rank: new fields.StringField({ required: true, blank: true, initial: "" }),
+         role: new fields.StringField({ initial: "" }),
+         dodge: nullableInt(),
+         parry: nullableInt(),
+         initiative: int(1),
+         perception: int(1),
+         toHit: int(1),
+         speed: new fields.StringField({ initial: "10m" }),
+         endurance: new fields.SchemaField({
+            value: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 20 }),
+            max: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 20 }),
+         }),
+         otherSkills: new fields.ArrayField(
+            new fields.SchemaField({
+               skill: new fields.StringField({ required: true, blank: true, initial: "" }),
+               bonus: new fields.NumberField({ ...requiredInteger, initial: 1 }),
+            }),
+         ),
+         equipment: new fields.StringField({ initial: "" }),
+         notes: new fields.HTMLField({ initial: "" }),
+      };
+   }
+
+   /** Rank table entry, if a rank is chosen. */
+   get rankData() {
+      return ranks.find((r) => r.key === this.rank) ?? null;
+   }
+
+   /** Fighting bonus: as listed, otherwise To Hit −1 (Core Rules p.281). */
+   get fighting() {
+      return this.otherSkills.find((s) => s.skill === "fighting")?.bonus ?? Math.max(this.toHit - 1, 0);
+   }
+
+   /**
+    * Bonus for a skill check. Listed skills first; then the stat block's own numbers; weapon skills use To Hit.
+    * Anything else isn't listed, so it is 0 and the GM adds a modifier as they see fit.
+    *
+    * @param {string} skill
+    *
+    * @returns {number}
+    */
+   skillBonus(skill) {
+      const listed = this.otherSkills.find((s) => s.skill === skill);
+      if (listed) return listed.bonus;
+      switch (skill) {
+         case "perception":
+            return this.perception;
+         case "tactics":
+            return this.initiative;
+         case "dodge":
+            return this.dodge ?? 0;
+         case "parry":
+            return this.parry ?? 0;
+         case "fighting":
+            return this.fighting;
+         case "kineticWeapons":
+         case "energyWeapons":
+         case "heavyWeapons":
+         case "meleeWeapons":
+         case "grenade":
+            return this.toHit;
+         default:
+            return 0;
+      }
+   }
+
+   /** @override */
+   getRollData() {
+      return {
+         initiative: this.initiative,
+         perception: this.perception,
+         toHit: this.toHit,
+         dodge: this.dodge ?? 0,
+         parry: this.parry ?? 0,
+      };
+   }
+}

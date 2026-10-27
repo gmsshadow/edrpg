@@ -1,8 +1,9 @@
 import * as EDRPG from "./config.mjs";
-import { CharacterData, NPCIndividualData } from "./data/actor.mjs";
+import { CharacterData, NPCIndividualData, OpponentData } from "./data/actor.mjs";
 import { BackgroundData, EnhancementData, KarmaCapabilityData, WeaponData, ArmourData } from "./data/item.mjs";
 import { EDActor, EDItem } from "./documents.mjs";
 import EDActorSheet from "./sheets/actor-sheet.mjs";
+import EDOpponentSheet from "./sheets/opponent-sheet.mjs";
 import EDItemSheet from "./sheets/item-sheet.mjs";
 import { rollSkillCheck, onRenderSkillCheck } from "./dice/skill-check.mjs";
 import { onRenderContest, registerContestSocket } from "./dice/contest.mjs";
@@ -24,6 +25,7 @@ Hooks.once("init", () => {
    Object.assign(CONFIG.Actor.dataModels, {
       character: CharacterData,
       npcIndividual: NPCIndividualData,
+      opponent: OpponentData,
    });
    Object.assign(CONFIG.Item.dataModels, {
       background: BackgroundData,
@@ -35,7 +37,11 @@ Hooks.once("init", () => {
 
    // Token bars: max values are derived, so declare them explicitly.
    const trackable = { bar: ["endurance", "karma.standard", "karma.cyber"], value: ["rankPoints"] };
-   CONFIG.Actor.trackableAttributes = { character: trackable, npcIndividual: trackable };
+   CONFIG.Actor.trackableAttributes = {
+      character: trackable,
+      npcIndividual: trackable,
+      opponent: { bar: ["endurance"], value: ["toHit", "perception"] },
+   };
 
    // Initiative: D10 + Tactics bonus (Core Rules, Personal Combat).
    CONFIG.Combat.initiative = { formula: "1d10 + @initiative", decimals: 0 };
@@ -45,6 +51,11 @@ Hooks.once("init", () => {
       types: ["character", "npcIndividual"],
       makeDefault: true,
       label: "EDRPG.sheet.labels.actor",
+   });
+   DocumentSheetConfig.registerSheet(foundry.documents.Actor, "edrpg", EDOpponentSheet, {
+      types: ["opponent"],
+      makeDefault: true,
+      label: "EDRPG.sheet.labels.opponent",
    });
    DocumentSheetConfig.registerSheet(foundry.documents.Item, "edrpg", EDItemSheet, {
       types: ["background", "enhancement", "karma", "weapon", "armour"],

@@ -53,6 +53,7 @@ export function builtInEscapeDeath() {
  */
 export async function useKarmaCapability(actor, capability) {
    if (!actor.isOwner) return null;
+   if (actor.type === "opponent") return useOpponentCapability(actor, capability);
    const sys = capability.system;
    const karma = actor.system.karma.standard.value;
    const fighting = inCombat(actor);
@@ -79,6 +80,35 @@ export async function useKarmaCapability(actor, capability) {
       category: karmaCategories[sys.category],
       description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description ?? "", {
          relativeTo: capability.id ? capability : actor,
+      }),
+   });
+   return ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content });
+}
+
+/**
+ * Opponents have no Karma points: each capability can be used once per battle (Core Rules p.281).
+ * The mark clears when the combat ends.
+ *
+ * @param {Actor} actor
+ *
+ * @param {Item} capability
+ *
+ * @returns {Promise<ChatMessage|null>}
+ */
+async function useOpponentCapability(actor, capability) {
+   const sys = capability.system;
+   if (sys.usedThisTurn) {
+      ui.notifications.warn(game.i18n.format("EDRPG.karma.usedThisBattle", { name: capability.name }));
+      return null;
+   }
+   await capability.update({ "system.usedThisTurn": true });
+   const content = await foundry.applications.handlebars.renderTemplate(CARD_TEMPLATE, {
+      name: capability.name,
+      oncePerBattle: true,
+      role: karmaRoles[sys.role],
+      category: karmaCategories[sys.category],
+      description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description ?? "", {
+         relativeTo: capability,
       }),
    });
    return ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content });
@@ -118,8 +148,9 @@ async function resetCapabilities(actor) {
 export function registerKarmaHooks() {
    Hooks.on("combatTurnChange", (combat) => {
       if (!game.user.isActiveGM) return;
+      // Opponents' capabilities are once per battle, so only characters get them back each turn.
       const actor = combat.combatant?.actor;
-      if (actor) resetCapabilities(actor);
+      if (actor && actor.type !== "opponent") resetCapabilities(actor);
    });
    Hooks.on("deleteCombat", (combat) => {
       if (!game.user.isActiveGM) return;

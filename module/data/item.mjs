@@ -149,6 +149,8 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
          destroyCover: new fields.BooleanField({ initial: false }),
          divideFire: new fields.BooleanField({ initial: false }),
          attackBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+         // Opponents only: a To Hit for this weapon that replaces the stat block's general To Hit.
+         toHit: new fields.NumberField(nullableInt),
          skillMods: skillModsField(),
          notes: new fields.StringField({ initial: "" }),
          equipped: new fields.BooleanField({ initial: false }),

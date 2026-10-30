@@ -3,7 +3,7 @@
   "_key": "!scenes!535564b2e1864be8",
   "name": "Vehicle Combat Map",
   "active": false,
-  "navigation": false,
+  "navigation": true,
   "navOrder": 0,
   "navName": "",
   "thumb": "systems/edrpg/assets/maps/vehicle-combat-map-thumb.webp",

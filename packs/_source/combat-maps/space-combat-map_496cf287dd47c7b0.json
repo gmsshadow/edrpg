@@ -3,7 +3,7 @@
   "_key": "!scenes!496cf287dd47c7b0",
   "name": "Space Combat Map",
   "active": false,
-  "navigation": false,
+  "navigation": true,
   "navOrder": 0,
   "navName": "",
   "thumb": "systems/edrpg/assets/maps/space-combat-map-thumb.webp",

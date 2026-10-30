@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.22
+
+- The **Vehicle Combat Map** and **Space Combat Map** scenes are now added to every world automatically (new or
+  existing) the first time the GM loads it with this version, in an "Elite: Dangerous RPG" scene folder, and appear in
+  the scene navigation bar. Skipped if the world already has them; runs once, so deleted scenes don't come back.
+
 ## 0.1.21
 
 - Swapped the artwork: the wide banner is now the system background and setup image, and the square cover art is the Landing scene (resized to 2481×2475).

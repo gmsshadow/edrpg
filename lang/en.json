@@ -1210,6 +1210,9 @@
       "hullHit": "Hull −{damage} ({before} → {after}).",
       "destroyed": "Destroyed",
       "selectVehicles": "Select the vehicle tokens to damage first."
+    },
+    "scenes": {
+      "imported": "The Vehicle and Space Combat Map scenes have been added to the \"{folder}\" scene folder."
     }
   }
 }

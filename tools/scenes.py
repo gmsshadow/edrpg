@@ -24,7 +24,7 @@ def scene(name, kind, file, sort):
     _id = doc_id(name)
     return {
         "_id": _id, "_key": f"!scenes!{_id}", "name": name,
-        "active": False, "navigation": False, "navOrder": 0, "navName": "",
+        "active": False, "navigation": True, "navOrder": 0, "navName": "",
         "thumb": f"systems/edrpg/assets/maps/{file}-thumb.webp",
         "width": W, "height": H, "padding": 0,
         "initial": {"x": W // 2, "y": H // 2, "scale": 0.25},

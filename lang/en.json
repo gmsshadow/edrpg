@@ -1387,7 +1387,8 @@
       "ram": {
         "hit": "<strong>{name}</strong> rams <strong>{target}</strong> for {damage} Damage and takes {self} itself.",
         "sideswipe": "A sideswipe: both vehicles take {damage} Damage.",
-        "miss": "<strong>{target}</strong> avoids the ram."
+        "miss": "<strong>{target}</strong> avoids the ram.",
+        "bomb": "<strong>{name}</strong> rams <strong>{target}</strong> for {damage} Damage and explodes, destroying itself."
       },
       "forwardRam": "Forward Ram: the rammer takes no Damage.",
       "rammedNote": "A vehicle damaged by a Ram can't add its Agility to Defence until its next turn starts.",

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.26
+
+- Ram card: a flying bomb (Stinger-2) that rams successfully now reads "rams … for X Damage and explodes, destroying
+  itself" instead of "takes 0 itself".
+
 ## 0.1.25
 
 Vehicle destruction, rescue and vehicle-scale drones (Core Rules pp.75, 318–319).

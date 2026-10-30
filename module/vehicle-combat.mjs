@@ -871,7 +871,8 @@ const ACTIONS = {
       if (a.total > b.total) {
          toTarget = 10 * speed;
          toSelf = actor.system.forwardRam || bomb ? 0 : Math.floor(toTarget / 2);
-         outcome = L("EDRPG.vcombat.ram.hit", { ...names, damage: toTarget, self: toSelf });
+         // A flying bomb doesn't share the Damage: it explodes and is destroyed.
+         outcome = L(bomb ? "EDRPG.vcombat.ram.bomb" : "EDRPG.vcombat.ram.hit", { ...names, damage: toTarget, self: toSelf });
       } else if (a.total === b.total) {
          toTarget = toSelf = 5 * speed;
          outcome = L("EDRPG.vcombat.ram.sideswipe", { ...names, damage: toTarget });

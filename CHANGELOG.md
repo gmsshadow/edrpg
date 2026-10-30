@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.20
+
+- System artwork: the square cover is now the system's background image (world tiles on the setup screen and the join screen) and its cover media; the wide banner is the setup-screen media.
+- New **Landing** scene in the "Scenes & Combat Maps" compendium (renamed from "Combat Maps"), using the banner art.
+- On a brand-new world with no scenes, the GM's first load imports the Landing scene and activates it, so it's what players see when they join. This happens once per world; delete or replace it freely.
+
 ## 0.1.19
 - **Assets**: the EDRPG combat maps (`assets/maps`) and 178 top-down ship and vehicle tokens (`assets/tokens/<group>`:
   Combat, Explorer, Fighter, Pirate, Empire, Federation, Police, Transport, Passenger, Skimmer, Thargoid, Vehicles),

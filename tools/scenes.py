@@ -44,6 +44,25 @@ def scene(name, kind, file, sort):
     }
 
 
+LANDING = ("Landing", "landing", 2481, 1396)
+
+
+def landing_scene(sort):
+    """The title scene: imported and activated automatically on a new world."""
+    name, file, w, h = LANDING
+    doc = scene(name, None, file, sort)
+    doc.update({
+        "navigation": True, "navName": "Elite: Dangerous RPG",
+        "thumb": f"systems/edrpg/assets/art/{file}-thumb.webp",
+        "width": w, "height": h,
+        "initial": {"x": w // 2, "y": h // 2, "scale": 0.5},
+        "background": {"src": f"systems/edrpg/assets/art/{file}.webp", "tint": "#ffffff", "alphaThreshold": 0},
+        "grid": {**doc["grid"], "alpha": 0},
+        "flags": {"edrpg": {"landing": True}},
+    })
+    return doc
+
+
 if __name__ == "__main__":
     root = os.path.join(HERE, "..", "packs", "_source", "combat-maps")
     os.makedirs(root, exist_ok=True)
@@ -54,4 +73,8 @@ if __name__ == "__main__":
         with open(os.path.join(root, f"{file}_{doc['_id']}.json"), "w") as fh:
             json.dump(doc, fh, indent=2)
             fh.write("\n")
-    print(f"{len(SCENES)} scenes written to {os.path.normpath(root)}")
+    doc = landing_scene(0)
+    with open(os.path.join(root, f"landing_{doc['_id']}.json"), "w") as fh:
+        json.dump(doc, fh, indent=2)
+        fh.write("\n")
+    print(f"{len(SCENES) + 1} scenes written to {os.path.normpath(root)}")

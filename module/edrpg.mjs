@@ -23,6 +23,7 @@ import { registerGrabSocket } from "./dice/grab.mjs";
 import { rollCraftAttack, registerCraftSocket, onRenderCraftAttack } from "./dice/craft-attack.mjs";
 import { onRenderDamage, registerDamageHooks, registerStatusEffects, bleedOut, heal } from "./dice/damage.mjs";
 import registerSettings from "./settings.mjs";
+import { registerLandingSetting, ensureLandingScene } from "./landing.mjs";
 import { endAdventure } from "./advancement.mjs";
 import { useKarmaCapability, restKarma, registerKarmaHooks } from "./karma.mjs";
 
@@ -34,6 +35,7 @@ Hooks.once("init", () => {
    registerKarmaHooks();
 
    registerSettings();
+   registerLandingSetting();
    registerStatusEffects();
 
    CONFIG.Actor.documentClass = EDActor;
@@ -107,6 +109,7 @@ Hooks.once("ready", () => {
    registerDamageHooks();
    registerGrabSocket();
    registerCraftSocket();
+   ensureLandingScene();
 });
 
 Hooks.on("renderChatMessageHTML", (message, html) => {

@@ -1,0 +1,68 @@
+{
+  "_id": "0c88abd3effd80d1",
+  "_key": "!scenes!0c88abd3effd80d1",
+  "name": "Landing",
+  "active": false,
+  "navigation": true,
+  "navOrder": 0,
+  "navName": "Elite: Dangerous RPG",
+  "thumb": "systems/edrpg/assets/art/landing-thumb.webp",
+  "width": 2481,
+  "height": 1396,
+  "padding": 0,
+  "initial": {
+    "x": 1240,
+    "y": 698,
+    "scale": 0.5
+  },
+  "backgroundColor": "#000000",
+  "background": {
+    "src": "systems/edrpg/assets/art/landing.webp",
+    "tint": "#ffffff",
+    "alphaThreshold": 0
+  },
+  "foreground": null,
+  "grid": {
+    "type": 0,
+    "size": 150,
+    "style": "solidLines",
+    "thickness": 1,
+    "color": "#000000",
+    "alpha": 0,
+    "distance": 1,
+    "units": ""
+  },
+  "tokenVision": false,
+  "fog": {
+    "exploration": false,
+    "overlay": null,
+    "colors": {
+      "explored": null,
+      "unexplored": null
+    }
+  },
+  "drawings": [],
+  "tokens": [],
+  "lights": [],
+  "notes": [],
+  "sounds": [],
+  "regions": [],
+  "templates": [],
+  "tiles": [],
+  "walls": [],
+  "playlist": null,
+  "playlistSound": null,
+  "journal": null,
+  "journalEntryPage": null,
+  "weather": "",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "edrpg": {
+      "landing": true
+    }
+  }
+}

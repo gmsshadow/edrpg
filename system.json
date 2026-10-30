@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "authors": [
     {
       "name": "gmsshadow",
@@ -215,7 +215,7 @@
     },
     {
       "name": "combat-maps",
-      "label": "Combat Maps",
+      "label": "Scenes & Combat Maps",
       "path": "packs/combat-maps",
       "type": "Scene",
       "system": "edrpg",
@@ -271,5 +271,17 @@
   "bugs": "https://github.com/gmsshadow/edrpg/issues",
   "manifest": "https://raw.githubusercontent.com/gmsshadow/edrpg/refs/heads/main/system.json",
   "download": "https://github.com/gmsshadow/edrpg/archive/refs/heads/main.zip",
-  "license": "LICENSE"
+  "license": "LICENSE",
+  "background": "systems/edrpg/assets/art/cover.webp",
+  "media": [
+    {
+      "type": "cover",
+      "url": "systems/edrpg/assets/art/cover.webp"
+    },
+    {
+      "type": "setup",
+      "url": "systems/edrpg/assets/art/landing.webp",
+      "thumbnail": "systems/edrpg/assets/art/landing-thumb.webp"
+    }
+  ]
 }

@@ -8,11 +8,11 @@
   "navName": "Elite: Dangerous RPG",
   "thumb": "systems/edrpg/assets/art/landing-thumb.webp",
   "width": 2481,
-  "height": 1396,
+  "height": 2475,
   "padding": 0,
   "initial": {
     "x": 1240,
-    "y": 698,
+    "y": 1237,
     "scale": 0.5
   },
   "backgroundColor": "#000000",

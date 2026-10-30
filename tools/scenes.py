@@ -44,7 +44,7 @@ def scene(name, kind, file, sort):
     }
 
 
-LANDING = ("Landing", "landing", 2481, 1396)
+LANDING = ("Landing", "landing", 2481, 2475)
 
 
 def landing_scene(sort):

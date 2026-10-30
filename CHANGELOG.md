@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.21
+
+- Swapped the artwork: the wide banner is now the system background and setup image, and the square cover art is the Landing scene (resized to 2481×2475).
+
 ## 0.1.20
 
 - System artwork: the square cover is now the system's background image (world tiles on the setup screen and the join screen) and its cover media; the wide banner is the setup-screen media.

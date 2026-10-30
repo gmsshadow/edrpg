@@ -22,6 +22,9 @@ export default function registerSettings() {
          mapless: "EDRPG.settings.explosiveMode.mapless",
       },
    });
+   // Remembered choices for the GM's vehicle obstacle checks (Core Rules pp.73–74).
+   game.settings.register("edrpg", "vehicleObstacleTable", { scope: "world", config: false, type: String, default: "light" });
+   game.settings.register("edrpg", "vehicleGravity", { scope: "world", config: false, type: String, default: "g1" });
    for (const [key, { default: initial, type }] of Object.entries(settings)) {
       game.settings.register("edrpg", key, {
          name: `EDRPG.settings.${key}.name`,

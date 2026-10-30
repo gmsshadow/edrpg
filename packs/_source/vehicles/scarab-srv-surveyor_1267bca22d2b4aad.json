@@ -3,7 +3,7 @@
   "_key": "!actors!1267bca22d2b4aad",
   "name": "Scarab SRV – Surveyor",
   "type": "vehicle",
-  "img": "systems/edrpg/assets/tokens/vehicles/scarab-blue.webp",
+  "img": "systems/edrpg/assets/tokens/vehicles/scarab-yellow.webp",
   "system": {
     "category": "small",
     "manufacturer": "Vodel",
@@ -15,6 +15,7 @@
     "cargo": "2T",
     "cost": "5,270cr",
     "special": "",
+    "forwardRam": false,
     "agility": 5,
     "maxSpeed": 10,
     "accelerate": 4,
@@ -84,7 +85,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "systems/edrpg/assets/tokens/vehicles/scarab-blue.webp"
+      "src": "systems/edrpg/assets/tokens/vehicles/scarab-yellow.webp"
     },
     "bar1": {
       "attribute": "hull"

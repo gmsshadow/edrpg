@@ -15,6 +15,7 @@
     "cargo": "None",
     "cost": "243,140cr",
     "special": "",
+    "forwardRam": false,
     "agility": 2,
     "maxSpeed": 6,
     "accelerate": 3,

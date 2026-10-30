@@ -22,16 +22,24 @@ const SOCKET = "system.edrpg";
  *
  * @param {boolean} [options.prompt=true]
  *
+ * @param {Actor} [options.target]     Fire at this vehicle (combat actions); otherwise the user's target.
+ *
+ * @param {number} [options.modifier]  Extra To Hit (e.g. +1 when Sniping).
+ *
+ * @param {string} [options.note]      Localisation key labelling the modifier.
+ *
+ * @param {string} [options.action]    Localisation key of the combat action, shown on the card.
+ *
  * @returns {Promise<ChatMessage|null>}
  */
-export async function rollCraftAttack(vehicle, weapon, { prompt = true } = {}) {
+export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: forced = null, modifier: extra = 0, note = null, action = null } = {}) {
    const s = weapon.system;
    const sys = vehicle.system;
    if (s.usesAmmo && s.ammo.value < 1) {
       ui.notifications.warn(game.i18n.format("EDRPG.attack.noAmmo", { weapon: weapon.name }));
       return null;
    }
-   const target = [...game.user.targets].map((t) => t.actor).find((a) => a && a !== vehicle && a.type === "vehicle") ?? null;
+   const target = forced ?? [...game.user.targets].map((t) => t.actor).find((a) => a && a !== vehicle && a.type === "vehicle") ?? null;
    const gun = sys.gunnery(weapon);
    let opts = { defence: target?.system.defence ?? 0, modifier: 0, mode: undefined };
    if (prompt) {
@@ -59,11 +67,14 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true } = {}) {
       { label: "EDRPG.craft.accuracy", value: s.accuracy ?? 0 },
    ];
    if (sys.speedRow.attack) parts.push({ label: "EDRPG.vehicle.part.speed", value: sys.speedRow.attack, note: game.i18n.format("EDRPG.vehicle.speedNow", { speed: sys.speed }) });
+   if (extra) parts.push({ label: note ?? "EDRPG.attack.part.modifier", value: extra });
    if (opts.modifier) parts.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier });
    const bonus = parts.reduce((n, p) => n + p.value, 0);
    const roll = await new Roll("1d10 + @bonus", { bonus }).evaluate();
    const natural = roll.dice[0].total;
-   const hit = natural === 10 || (natural !== 1 && roll.total >= opts.defence);
+   // A Sniping target is hit automatically (Core Rules p.67).
+   const sniping = !!target?.system.combat?.sniping;
+   const hit = sniping || natural === 10 || (natural !== 1 && roll.total >= opts.defence);
    const margin = hit ? Math.max(0, roll.total - opts.defence) : 0;
    const burst = s.burst.max ? Math.min(margin * (s.burst.perPoint || 5), s.burst.max) : 0;
 
@@ -85,7 +96,9 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true } = {}) {
       defence: opts.defence,
       hit,
       margin,
-      reason: natural === 1 ? "natural1" : natural === 10 && roll.total < opts.defence ? "natural10" : null,
+      action,
+      sniping,
+      reason: sniping ? null : natural === 1 ? "natural1" : natural === 10 && roll.total < opts.defence ? "natural10" : null,
       damage: hit ? { base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields } : null,
       critical: natural === 10,
       ammo,

@@ -15,6 +15,7 @@
     "cargo": "None",
     "cost": "1,040,310cr",
     "special": "Defences: ECM, Point Defence Turret (Ammo 10).",
+    "forwardRam": false,
     "agility": 1,
     "maxSpeed": 6,
     "accelerate": 2,

@@ -3,7 +3,7 @@
   "_key": "!actors!97d95fb9dd39438e",
   "name": "Scarab SRV – Prowler",
   "type": "vehicle",
-  "img": "systems/edrpg/assets/tokens/vehicles/scarab-blue.webp",
+  "img": "systems/edrpg/assets/tokens/vehicles/scarab-purple.webp",
   "system": {
     "category": "small",
     "manufacturer": "Vodel",
@@ -15,6 +15,7 @@
     "cargo": "2T",
     "cost": "53,400cr",
     "special": "",
+    "forwardRam": false,
     "agility": 4,
     "maxSpeed": 9,
     "accelerate": 4,
@@ -84,7 +85,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "systems/edrpg/assets/tokens/vehicles/scarab-blue.webp"
+      "src": "systems/edrpg/assets/tokens/vehicles/scarab-purple.webp"
     },
     "bar1": {
       "attribute": "hull"

@@ -15,6 +15,7 @@
     "cargo": "None",
     "cost": "3,200cr",
     "special": "Enhanced Performance (its own Speed Table)",
+    "forwardRam": false,
     "agility": 7,
     "maxSpeed": 9,
     "accelerate": 4,

@@ -1202,7 +1202,8 @@
       "part": {
         "gunnery": "Vehicle Weapons",
         "autoTurret": "Automatic turret",
-        "speed": "Speed"
+        "speed": "Speed",
+        "piloting": "Vehicle Piloting"
       },
       "naturalTen": "Natural 10: against a spaceship this would also hit a component (vehicles take no critical hits).",
       "shieldsHit": "Shields {before} → {after}.",
@@ -1213,6 +1214,199 @@
     },
     "scenes": {
       "imported": "The Vehicle and Space Combat Map scenes have been added to the \"{folder}\" scene folder."
+    },
+    "vcombat": {
+      "turn": "Combat turn",
+      "turnStart": "{name}: turn starts",
+      "turnOrder": "Adjust speed → equipment → shields → obstacles → action",
+      "speedRange": "Speed {speed}; this turn it can be set from {min} to {max}.",
+      "adjustSpeed": "Speed {min}–{max}",
+      "speedRangeHint": "Your Accelerate and Decelerate ratings limit how far your speed can change this turn. Once chosen, you keep it for the whole round.",
+      "speedLimit": "This turn your speed can only be set from {min} to {max}.",
+      "speedLocked": "Your speed is fixed until your next turn.",
+      "speedLockedShort": "Speed locked",
+      "speedLockedHint": "In combat you can only change speed at the start of your own turn.",
+      "startTurnHint": "Start this vehicle's turn now (normally automatic when the combat tracker reaches it).",
+      "clearHint": "Clear combat states (fleeing, sniping, rammed, speed lock…).",
+      "escaped": "<strong>{name}</strong> has fled and escapes the battlefield.",
+      "escapedShort": "Escaped",
+      "hasEscaped": "{name} has escaped the battle.",
+      "disengaged": "<strong>{name}</strong> disengages and moves at-distance.",
+      "noOneUpClose": "No enemies are up-close, so <strong>{name}</strong> moves at-distance.",
+      "shieldsBack": "Shields charged to {value} and back online.",
+      "shieldsCharging": "Shields charging: {value} (they reactivate at {need}).",
+      "shieldsRecharge": "Shields recharge {before} → {value}.",
+      "stationary": "{name} is stationary: no obstacle check needed.",
+      "checkObstacles": "Check for obstacles",
+      "check": "Check",
+      "obstacleIntro": "Obstacles in the path of <strong>{name}</strong> (Speed {speed}).",
+      "obstacleTable": "Obstacle table",
+      "gravityLabel": "Gravity",
+      "result": "Result",
+      "resultHint": "Roll on the table, or pick the result yourself.",
+      "rollTable": "Roll a D10",
+      "rolled": "rolled {roll}",
+      "obstacleTitle": "{name}: obstacle check",
+      "table": {
+        "light": "Light obstacles",
+        "medium": "Medium obstacles",
+        "heavy": "Heavy obstacles"
+      },
+      "gravity": {
+        "lt05": "Less than 0.5G",
+        "g05": "0.5G",
+        "g1": "1G (Earth-like)",
+        "g2": "2G",
+        "g3": "3G",
+        "g4": "4G or more"
+      },
+      "obstacle": {
+        "none": "No obstacles",
+        "rough": "Rough terrain",
+        "large": "Large obstruction",
+        "slope": "Sudden slope"
+      },
+      "obstacleText": {
+        "none": "The way ahead is clear.",
+        "rough": "Rocks, crowds or boulders ahead. Vehicle Piloting check (+ Agility) at twice the speed, or take 5 Damage per speed point and lose the action.",
+        "large": "A huge immovable obstacle ahead. Vehicle Piloting check (+ Agility) at twice the speed, or take 10 Damage per speed point, stop dead and lose the action.",
+        "slope": "A steep slope the vehicle is forced to drive over."
+      },
+      "slope": {
+        "safe": "Speed {speed} is safe at this gravity (up to {safe}): no check needed.",
+        "risky": "Speed {speed} is risky (up to {risky}): Difficulty 8 Vehicle Piloting check, or lose the action sailing through the air.",
+        "auto": "Speed {speed} is too fast: the vehicle is launched into the air. Difficulty 12 check to control the descent or take {damage} Damage; the action is lost either way."
+      },
+      "pilotCheck": "Vehicle Piloting",
+      "pilotCheckTitle": "{name}: piloting check",
+      "rollPilot": "Roll Vehicle Piloting (DN {dn})",
+      "dn": "Difficulty",
+      "success": "Success",
+      "failure": "Failure",
+      "noAction": "No combat action this turn.",
+      "fail": {
+        "roughOk": "The pilot swerves aside and can still act.",
+        "rough": "The vehicle smashes through at Speed {speed}: {damage} Damage.",
+        "large": "The vehicle smashes into the obstruction at Speed {speed}: {damage} Damage, and it stops dead.",
+        "slopeOk": "The vehicle bounces back to earth with no problems.",
+        "slope": "The vehicle sails through the air and lands safely.",
+        "slopeAutoOk": "The thrusters slow the descent: a safe landing.",
+        "slopeAuto": "A hard landing: {damage} Damage."
+      },
+      "target": "Target",
+      "choose": "Choose",
+      "pickTarget": "{action}: choose a target",
+      "noTarget": "No vehicle on this scene can be targeted.",
+      "noTargetUpClose": "No vehicle up-close can be targeted.",
+      "noWeapons": "This vehicle has no weapons.",
+      "noTurrets": "{name} has no turrets to fire broadsides.",
+      "versus": "{name} vs {target}",
+      "wrongZone": "{action} isn't possible from {zone}.",
+      "lostActionConfirm": "<strong>{name}</strong> lost its action this turn (obstacle or slope). Take an action anyway?",
+      "snipeBonus": "Sniping",
+      "snipingTarget": "The target is Sniping: an automatic hit.",
+      "chickenBonus": "Chicken",
+      "singleTurret": "Single turret",
+      "action": {
+        "joust": "Joust",
+        "snipe": "Snipe",
+        "strafe": "Strafe",
+        "chicken": "Chicken",
+        "flee": "Flee",
+        "pass": "Pass",
+        "tail": "Tail",
+        "broadsides": "Broadsides",
+        "ram": "Ram",
+        "disengage": "Disengage"
+      },
+      "actionHint": {
+        "joust": "Fire all weapons at a target in either zone, then move up-close (a Sniping target comes too). Jousting a Fleeing vehicle starts a Pursuit.",
+        "snipe": "Stop and fire all weapons at +1 To Hit. Your Defence is 0 until your next turn.",
+        "strafe": "Fire weapons one at a time until one misses, then move up-close and Disengage. Not against a Fleeing or Disengaging target.",
+        "chicken": "Charge a target with lower Pursuit; you both secretly choose impact or evade.",
+        "flee": "Escape at the start of your next turn, unless an enemy Jousts you and wins a Pursuit.",
+        "pass": "Hold position: one re-roll available until the end of your next turn.",
+        "tail": "D10 + Defence against the target's: the winner fires everything, the loser one turret. Tailing a Disengaging vehicle starts a Pursuit.",
+        "broadsides": "Fire your turrets at an up-close target until one misses.",
+        "ram": "D10 + Defence against the target's Defence or Pursuit. A hit deals 10 Damage per speed point (half to you); a tie sideswipes for 5 per speed point each.",
+        "disengage": "Move at-distance at the start of your next turn unless an enemy Tails you and wins a Pursuit. No attack."
+      },
+      "actionText": {
+        "joust": "<strong>{name}</strong> jousts <strong>{target}</strong>, weapons blazing.",
+        "snipe": "<strong>{name}</strong> stops dead and snipes at <strong>{target}</strong>. Its Defence is 0 until its next turn.",
+        "strafe": "<strong>{name}</strong> strafes <strong>{target}</strong>, then boosts away (Disengaging).",
+        "chicken": "<strong>{name}</strong> charges <strong>{target}</strong>.",
+        "flee": "<strong>{name}</strong> turns to flee. It escapes at the start of its next turn unless Jousted and caught.",
+        "pass": "<strong>{name}</strong> holds position and assesses. One re-roll is available until the end of its next turn.",
+        "tail": "<strong>{name}</strong> tries to get on <strong>{target}</strong>'s tail.",
+        "broadsides": "<strong>{name}</strong> steadies to fire its turrets at <strong>{target}</strong>.",
+        "ram": "<strong>{name}</strong> rams <strong>{target}</strong>.",
+        "disengage": "<strong>{name}</strong> pulls away to disengage. It reaches at-distance at the start of its next turn unless Tailed and caught."
+      },
+      "broadsidesLeft": "Missed. The remaining turrets ({weapons}) must pick a different up-close target; fire them from the sheet.",
+      "pursuitTitle": "Pursuit",
+      "pursuitKind": {
+        "flee": "{chaser} chases the fleeing {runner}",
+        "disengage": "{chaser} tails the disengaging {runner}"
+      },
+      "pursuit": {
+        "flee": {
+          "chaser": "<strong>{chaser}</strong> catches up: it attacks, both move up-close and <strong>{runner}</strong> stops fleeing.",
+          "runner": "<strong>{runner}</strong> outpaces its pursuer.",
+          "tie": "Neither gains: both stay at-distance and nobody fires."
+        },
+        "disengage": {
+          "chaser": "<strong>{chaser}</strong> stays on its tail: <strong>{runner}</strong> stops disengaging and is attacked.",
+          "runner": "<strong>{runner}</strong> outpaces its pursuer.",
+          "tie": "Neither gains: both move at-distance and nobody fires."
+        }
+      },
+      "tailWin": "<strong>{name}</strong> gets behind <strong>{target}</strong> and opens fire.",
+      "tailDraw": "<strong>{name}</strong> and <strong>{target}</strong> circle each other. Each may fire a single turret.",
+      "tailReturn": "{name} can fire back with a single turret.",
+      "fireAll": "{name}: fire all weapons at {target}",
+      "returnFire": "{name}: fire one turret at {target}",
+      "chickenPursuit": "Chicken needs a higher Pursuit than the target ({mine} vs {theirs} for {target}).",
+      "chickenChoose": "<strong>{name}</strong> charges <strong>{target}</strong>. Impact or evade? Your choice stays secret until they choose.",
+      "chickenWaiting": "<strong>{name}</strong> charges <strong>{target}</strong>! {target}'s controller must choose: impact or evade.",
+      "chickenSecret": "The attacker's choice is hidden until the target chooses.",
+      "chickenAs": "{name}: {choice}",
+      "chickenChose": "<strong>{name}</strong> chose to {choice}.",
+      "chickenEven": "Both evade. The die shows {roll} (even): head-on collision!",
+      "chickenOdd": "Both evade. The die shows {roll} (odd): <strong>{name}</strong> swoops around behind.",
+      "chickenTail": "<strong>{name}</strong> forces <strong>{target}</strong> to spin out and tries to get on its tail (+2).",
+      "impact": "impact",
+      "evade": "evade",
+      "collision": "Head-on collision",
+      "collisionText": "Each vehicle takes {damage} Damage (5 × their combined speed) and both stop dead.",
+      "forwardRamChicken": "<strong>{name}</strong>'s Forward Ram halves the Damage it takes.",
+      "ram": {
+        "hit": "<strong>{name}</strong> rams <strong>{target}</strong> for {damage} Damage and takes {self} itself.",
+        "sideswipe": "A sideswipe: both vehicles take {damage} Damage.",
+        "miss": "<strong>{target}</strong> avoids the ram."
+      },
+      "forwardRam": "Forward Ram: the rammer takes no Damage.",
+      "rammedNote": "A vehicle damaged by a Ram can't add its Agility to Defence until its next turn starts.",
+      "forwardRamLabel": "Forward Ram",
+      "forwardRamHint": "Takes no Damage when its Ram hits, and half Damage from a Chicken collision.",
+      "state": {
+        "escaped": "Escaped",
+        "fleeing": "Fleeing",
+        "disengaging": "Disengaging",
+        "sniping": "Sniping",
+        "rammed": "Rammed",
+        "lostAction": "No action",
+        "pass": "Re-roll"
+      },
+      "stateHint": {
+        "escaped": "Fled the battlefield. The GM decides what happens next.",
+        "fleeing": "Escapes at the start of its next turn unless Jousted and caught.",
+        "disengaging": "Reaches at-distance at the start of its next turn unless Tailed and caught.",
+        "sniping": "Defence 0 until its next turn: anyone firing at it hits automatically.",
+        "rammed": "Damaged by a Ram: no Agility in Defence until its next turn.",
+        "lostAction": "Lost this turn's action to an obstacle or slope.",
+        "pass": "Passed: one re-roll available until the end of its next turn."
+      }
     }
   }
 }

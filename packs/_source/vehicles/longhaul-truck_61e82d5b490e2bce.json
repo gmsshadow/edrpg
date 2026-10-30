@@ -15,6 +15,7 @@
     "cargo": "12T",
     "cost": "10,300cr",
     "special": "",
+    "forwardRam": false,
     "agility": 2,
     "maxSpeed": 7,
     "accelerate": 2,

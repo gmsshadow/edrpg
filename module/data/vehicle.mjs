@@ -80,6 +80,25 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
          // In combat
          speed: int(0, { min: 0 }),
          zone: new fields.StringField({ required: true, choices: combatZones, initial: "atDistance" }),
+         // Combat-turn state (Core Rules pp.65–68, 72–75).
+         combat: new fields.SchemaField({
+            // Speed at the start of this vehicle's turn; null outside its turn (speed is then locked during combat).
+            turnSpeed: new fields.NumberField({ required: true, nullable: true, integer: true, min: 0, initial: null }),
+            // The combat action taken this turn (or "").
+            action: new fields.StringField({ required: true, blank: true, initial: "" }),
+            sniping: new fields.BooleanField({ initial: false }),
+            fleeing: new fields.BooleanField({ initial: false }),
+            disengaging: new fields.BooleanField({ initial: false }),
+            // Damaged by a Ram: no Agility in Defence until its next turn starts.
+            rammed: new fields.BooleanField({ initial: false }),
+            // Lost this turn's action to an obstacle or slope.
+            lostAction: new fields.BooleanField({ initial: false }),
+            // Pass: turn starts left during which a re-roll is available (2 = until the end of the next turn).
+            pass: int(0, { min: 0 }),
+            escaped: new fields.BooleanField({ initial: false }),
+         }),
+         // Ram Raider "Forward Ram": no Damage from its own successful Ram; half from a Chicken collision.
+         forwardRam: new fields.BooleanField({ initial: false }),
          // Crew: the pilot's UUID (any individual actor or opponent).
          pilot: new fields.StringField({ required: true, blank: true, initial: "" }),
          description: new fields.HTMLField({ initial: "" }),
@@ -118,10 +137,25 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
       return VehicleData.crewBonus(this.pilotActor, "vehiclePiloting");
    }
 
-   /** Defence: Agility + Vehicle Piloting + speed bonus; 0 when stationary. */
+   /**
+    * Defence: Agility + Vehicle Piloting + speed bonus; 0 when stationary or Sniping. A vehicle damaged by a Ram can't
+    * add its Agility until its next turn.
+    */
    get defence() {
-      if (this.speed <= 0) return 0;
-      return this.agility + this.piloting + this.speedRow.defence;
+      if (this.speed <= 0 || this.combat?.sniping) return 0;
+      return (this.combat?.rammed ? 0 : this.agility) + this.piloting + this.speedRow.defence;
+   }
+
+   /**
+    * The speeds this vehicle may choose right now: within Accelerate/Decelerate of its turn-start speed during its
+    * turn; null when unrestricted (outside a turn).
+    *
+    * @returns {{min: number, max: number}|null}
+    */
+   get speedRange() {
+      const start = this.combat?.turnSpeed ?? null;
+      if (start === null) return null;
+      return { min: Math.max(0, start - this.decelerate), max: Math.min(this.topSpeed, start + this.accelerate) };
    }
 
    /** Pursuit: half the Vehicle Piloting bonus (rounded down) + current Speed. */

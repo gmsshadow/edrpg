@@ -63,10 +63,10 @@ FX, GB, TU = "fixed", "gimballed", "turret"
 
 # (family, name, agility, max speed, accelerate, decelerate, hull, shields, weapons, cost, extras)
 VEHICLES = [
-    ("Scarab SRV", "Scarab SRV – Surveyor", 5, 10, 4, 2, 40, 30, [plasma_repeater(S, TU)], "5,270cr", {"notes": "Two small forward fixed mounts, empty."}),
-    ("Scarab SRV", "Scarab SRV – Interceptor", 4, 10, 4, 2, 40, 30, [plasma_repeater(S, TU), multicannon(S, FX), multicannon(S, FX)], "10,600cr", {}),
-    ("Scarab SRV", "Scarab SRV – Ranger", 5, 9, 4, 2, 40, 40, [plasma_repeater(S, TU)], "32,510cr", {"sensors": "4km; can detect surface minerals", "notes": "Two small forward fixed mounts, empty."}),
-    ("Scarab SRV", "Scarab SRV – Prowler", 4, 9, 4, 2, 50, 40, [W("Seeker Missile System", S, TU, 4, 25, vs_shields=10, ammo=6), cannon(S, GB, 10, acc=3), cannon(S, GB, 10, acc=3)], "53,400cr", {}),
+    ("Scarab SRV", "Scarab SRV – Surveyor", 5, 10, 4, 2, 40, 30, [plasma_repeater(S, TU)], "5,270cr", {"token": "scarab-yellow", "notes": "Two small forward fixed mounts, empty."}),
+    ("Scarab SRV", "Scarab SRV – Interceptor", 4, 10, 4, 2, 40, 30, [plasma_repeater(S, TU), multicannon(S, FX), multicannon(S, FX)], "10,600cr", {"token": "scarab-red"}),
+    ("Scarab SRV", "Scarab SRV – Ranger", 5, 9, 4, 2, 40, 40, [plasma_repeater(S, TU)], "32,510cr", {"token": "scarab-green", "sensors": "4km; can detect surface minerals", "notes": "Two small forward fixed mounts, empty."}),
+    ("Scarab SRV", "Scarab SRV – Prowler", 4, 9, 4, 2, 50, 40, [W("Seeker Missile System", S, TU, 4, 25, vs_shields=10, ammo=6), cannon(S, GB, 10, acc=3), cannon(S, GB, 10, acc=3)], "53,400cr", {"token": "scarab-purple"}),
     ("Garriot Quadbike SRV", "Quadbike SRV – Reorte Type 1", 6, 8, 4, 3, 25, 25, [multicannon(S, FX), multicannon(S, FX)], "4,500cr", {}),
     ("Garriot Quadbike SRV", "Quadbike SRV – Lancer", 5, 7, 4, 3, 25, 30, [beam(S, FX), cannon(S, FX, 10)], "22,000cr", {"token": "garriot-shielded-recon-quadbike-red"}),
     ("Garriot Quadbike SRV", "Quadbike SRV – Wanderer", 7, 9, 4, 3, 25, 25, [], "3,200cr", {"table": WANDERER, "special": "Enhanced Performance (its own Speed Table)", "notes": "Two small forward fixed mounts, empty.", "token": "garriot-shielded-recon-quadbike-green"}),
@@ -75,7 +75,7 @@ VEHICLES = [
     ("Borderworld APC", "Borderworld APC", 2, 7, 2, 2, 130, 80, [cannon(M, TU, 20), multicannon(S, TU)], "65,730cr", {"notes": "Pressurised. Seats 2 in front and 12 in the back."}),
     ("Longhaul Truck", "Longhaul Truck", 2, 7, 2, 2, 70, 0, [pulse(S, TU), multicannon(S, FX), multicannon(S, FX)], "10,300cr", {"notes": "Pressurised."}),
     ("Federal Ram Raider", "Federal Ram Raider", 4, 8, 3, 2, 190, 100, [beam(M, TU, base=15), pulse(S, GB, acc=3), pulse(S, GB, acc=3)], "86,560cr",
-     {"special": "Forward Ram: takes no Damage when its Ram hits a vehicle; half Damage when it collides in a Chicken action."}),
+     {"special": "Forward Ram: takes no Damage when its Ram hits a vehicle; half Damage when it collides in a Chicken action.", "forwardRam": True}),
     ("Light Tank", "Light Tank – Enforcer GU9", 3, 6, 3, 2, 250, 130, [cannon(L, TU, 30, ammo=24), burst_laser(M, TU, base=15)], "198,460cr", {}),
     ("Light Tank", "Light Tank – Augustus III", 2, 6, 3, 2, 260, 140, [beam(L, TU, base=25), multicannon(M, TU, base=15)], "243,140cr", {"token": "light-tank-red"}),
     ("Light Tank", "Light Tank – Mongoose Missile Tank", 3, 6, 3, 2, 250, 130, [seeker(L, TU, 50, 25, 6), multicannon(M, TU, base=15)], "204,990cr", {}),
@@ -132,7 +132,7 @@ def main():
             "system": {
                 "category": cat, "manufacturer": maker, "dimensions": dims, "bays": bays, "crewSize": crew,
                 "passengers": pax, "sensors": extra.get("sensors", sensors), "cargo": cargo, "cost": cost,
-                "special": extra.get("special", ""),
+                "special": extra.get("special", ""), "forwardRam": extra.get("forwardRam", False),
                 "agility": ag, "maxSpeed": sp, "accelerate": acc, "decelerate": dec,
                 "speedTable": extra.get("table", speed_table),
                 "hull": {"value": hull, "max": hull},

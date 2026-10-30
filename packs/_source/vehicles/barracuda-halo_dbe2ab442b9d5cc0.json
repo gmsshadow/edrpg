@@ -15,6 +15,7 @@
     "cargo": "2T",
     "cost": "62,000cr",
     "special": "",
+    "forwardRam": false,
     "agility": 7,
     "maxSpeed": 4,
     "accelerate": 2,

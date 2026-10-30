@@ -1,5 +1,6 @@
 import { craftSizes, mountKinds, mountSizes, combatZones } from "../data/vehicle.mjs";
 import { zoneOfToken } from "../zones.mjs";
+import { VEHICLE_ACTIONS, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -29,6 +30,10 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          deleteItem: EDVehicleSheet.#onDeleteItem,
          rollInitiative: EDVehicleSheet.#onRollInitiative,
          setZone: EDVehicleSheet.#onSetZone,
+         vehicleAction: EDVehicleSheet.#onVehicleAction,
+         checkObstacles: EDVehicleSheet.#onCheckObstacles,
+         startTurn: EDVehicleSheet.#onStartTurn,
+         clearCombat: EDVehicleSheet.#onClearCombat,
       },
    };
 
@@ -83,9 +88,37 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          zoneFromMap: !!mapZone,
       });
 
+      // Combat turn: speed limits, state, and the actions open in this zone.
+      const range = system.speedRange;
+      const c = system.combat ?? {};
+      const zone = context.zone;
+      context.isGM = game.user.isGM;
+      context.speedRange = range;
+      context.speedLocked = !range && inCombat(actor);
+      context.combatChips = [
+         ["escaped", c.escaped],
+         ["fleeing", c.fleeing],
+         ["disengaging", c.disengaging],
+         ["sniping", c.sniping],
+         ["rammed", c.rammed],
+         ["lostAction", c.lostAction],
+         ["pass", c.pass > 0],
+      ]
+         .filter(([, on]) => on)
+         .map(([key]) => ({ key, label: game.i18n.localize(`EDRPG.vcombat.state.${key}`), hint: game.i18n.localize(`EDRPG.vcombat.stateHint.${key}`) }));
+      context.vactions = VEHICLE_ACTIONS[zone].map((key) => ({
+         key,
+         icon: ACTION_ICONS[key],
+         label: game.i18n.localize(`EDRPG.vcombat.action.${key}`),
+         hint: game.i18n.localize(`EDRPG.vcombat.actionHint.${key}`),
+         taken: c.action === key,
+      }));
+      context.lastAction = c.action ? game.i18n.localize(`EDRPG.vcombat.action.${c.action}`) : "";
+
       context.speedCells = Array.from({ length: 10 }, (_, i) => {
          const row = system.speedTable[i] ?? { defence: 0, attack: 0 };
          return {
+            locked: !!range && (i + 1 < range.min || i + 1 > range.max),
             speed: i + 1,
             defence: row.defence ? `+${row.defence}` : "",
             attack: row.attack ? `${row.attack}` : "",
@@ -197,7 +230,30 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
       if (!this.isEditable) return;
       const speed = Number(target.dataset.speed);
       const sys = this.document.system;
-      return this.document.update({ "system.speed": speed === sys.speed ? 0 : Math.min(speed, sys.maxSpeed) });
+      return setVehicleSpeed(this.document, speed === sys.speed ? 0 : speed);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onVehicleAction(event, target) {
+      if (this.isEditable) return vehicleAction(this.document, target.dataset.vaction);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onCheckObstacles() {
+      return checkObstacles(this.document);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onStartTurn() {
+      if (game.user.isGM) return startVehicleTurn(this.document, game.combat?.started ? game.combat : null);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onClearCombat() {
+      if (!game.user.isGM) return;
+      return this.document.update({
+         "system.combat": { turnSpeed: null, action: "", sniping: false, fleeing: false, disengaging: false, rammed: false, lostAction: false, pass: 0, escaped: false },
+      });
    }
 
    /** @this {EDVehicleSheet} */

@@ -1,0 +1,29 @@
+<div class="edrpg edrpg-chat edrpg-attack edrpg-vevent {{kind}}">
+   <div class="attack-head"><span class="attack-who">{{title}}</span></div>
+   {{#if subtitle}}<div class="attack-weapon">{{subtitle}}</div>{{/if}}
+   {{#if rolls.length}}
+   <div class="attack-columns">
+      {{#each rolls as |r|}}
+      <dl class="breakdown">
+         <dt class="head">{{r.name}}</dt><dd class="head">{{r.total}}</dd>
+         {{#each r.parts as |p|}}<dt>{{p.label}}</dt><dd>{{p.value}}</dd>{{/each}}
+      </dl>
+      {{/each}}
+   </div>
+   {{/if}}
+   {{#if outcome}}<div class="outcome {{outcomeClass}}">{{{outcome}}}</div>{{/if}}
+   {{#each notes as |n|}}<div class="attack-note">{{{n}}}</div>{{/each}}
+   {{#if (and chicken chicken.resolved)}}{{else}}{{#if chicken}}<div class="attack-note muted">{{localize "EDRPG.vcombat.chickenSecret"}}</div>{{/if}}{{/if}}
+   {{#if applied.length}}
+   <ul class="damage-applied">
+      {{#each applied as |a|}}
+      <li><strong>{{a.name}}</strong>:
+         {{#if a.toShields}}{{localize "EDRPG.vehicle.shieldsHit" before=a.shieldsBefore after=a.shieldsAfter}}{{#if a.collapsed}} <span class="ed-chip">{{localize "EDRPG.vehicle.shieldsCollapse"}}</span>{{/if}}{{/if}}
+         {{#if a.toHull}} {{localize "EDRPG.vehicle.hullHit" damage=a.toHull before=a.hullBefore after=a.hullAfter}}{{/if}}
+         {{#if a.destroyed}} <span class="ed-chip">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}
+      </li>
+      {{/each}}
+   </ul>
+   {{/if}}
+   <div class="attack-controls vevent-controls"></div>
+</div>

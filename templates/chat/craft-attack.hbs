@@ -3,7 +3,7 @@
       <span class="attack-who">{{vehicleName}}</span>
       {{#if targetName}}<i class="fa-solid fa-angles-right"></i> <span class="attack-who">{{targetName}}</span>{{/if}}
    </div>
-   <div class="attack-weapon">{{weaponName}}</div>
+   <div class="attack-weapon">{{weaponName}}{{#if action}} <span class="ed-chip">{{localize action}}</span>{{/if}}</div>
    <div class="attack-columns">
       <dl class="breakdown">
          <dt class="head">{{localize "EDRPG.attack.toHit"}}</dt><dd class="head">{{total}}</dd>
@@ -24,6 +24,7 @@
    <div class="outcome {{#if hit}}success{{else}}failure{{/if}}">
       {{#if hit}}{{localize "EDRPG.attack.hit"}}{{#if margin}} — {{localize "EDRPG.attack.beatBy" points=margin}}{{/if}}{{else}}{{localize "EDRPG.attack.miss"}}{{/if}}
    </div>
+   {{#if sniping}}<div class="attack-note">{{localize "EDRPG.vcombat.snipingTarget"}}</div>{{/if}}
    {{#if reason}}<div class="attack-note">{{localize (concat "EDRPG.contest.reason." reason)}}</div>{{/if}}
    {{#if (and critical hit)}}<div class="attack-note">{{localize "EDRPG.vehicle.naturalTen"}}</div>{{/if}}
    {{#if ammo}}<div class="attack-note muted">{{localize "EDRPG.attack.ammoLeft" left=ammo.left max=ammo.max}}</div>{{/if}}

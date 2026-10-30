@@ -2740,3 +2740,106 @@ li:hover > .ed-row-delete {
    width: 100%;
    text-align: center;
 }
+
+/* -------------------------------------------- */
+/*  Vehicle combat turn                         */
+/* -------------------------------------------- */
+
+.edrpg .ed-vturn {
+   border: 1px solid var(--ed-highlight-border);
+   background: var(--ed-highlight);
+   padding: 0.35rem 0.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 0.35rem;
+}
+
+.edrpg .ed-vturn-head {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 0.4rem;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-vturn-title {
+   font-weight: 700;
+   text-transform: uppercase;
+   color: var(--ed-navy);
+}
+
+.edrpg .ed-vturn-range {
+   padding: 0.05rem 0.45rem;
+   background: var(--ed-navy);
+   color: var(--ed-white);
+   font-weight: 700;
+}
+
+.edrpg .ed-vturn-range.locked {
+   background: var(--ed-text-soft);
+}
+
+.edrpg .ed-vstate {
+   margin-left: 0;
+   text-transform: uppercase;
+}
+
+.edrpg .ed-vstate.escaped,
+.edrpg .ed-vstate.fleeing,
+.edrpg .ed-vstate.disengaging {
+   background: var(--ed-check);
+   color: var(--ed-white);
+}
+
+.edrpg .ed-vstate.sniping,
+.edrpg .ed-vstate.rammed,
+.edrpg .ed-vstate.lostAction {
+   background: var(--ed-damage);
+   border-color: var(--ed-damage-border);
+   color: var(--ed-black);
+}
+
+.edrpg .ed-vturn-gm {
+   margin-left: auto;
+   display: flex;
+   gap: 0.6rem;
+}
+
+.edrpg .ed-vactions {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.3rem;
+}
+
+.edrpg .ed-vactions button {
+   flex: 1 1 auto;
+   width: auto;
+   min-width: 6.5rem;
+   height: auto;
+   padding: 0.2rem 0.5rem;
+   font-size: var(--font-size-12, 12px);
+   text-transform: uppercase;
+   border: 1px solid var(--ed-navy);
+   background: var(--ed-white);
+   color: var(--ed-navy);
+}
+
+.edrpg .ed-vactions button:hover {
+   background: var(--ed-navy);
+   color: var(--ed-white);
+}
+
+.edrpg .ed-vactions button.taken {
+   background: var(--ed-blue-mid);
+   color: var(--ed-white);
+}
+
+.edrpg .ed-vspeedtable td.locked a {
+   opacity: 0.35;
+   pointer-events: none;
+}
+
+.edrpg-vevent .attack-note strong,
+.edrpg-vevent .outcome strong {
+   font-weight: 700;
+}

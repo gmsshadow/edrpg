@@ -1,5 +1,53 @@
 # Changelog
 
+## 0.1.24
+
+Vehicle combat turn (Core Rules pp.65–68, 72–75).
+
+- **Combat panel** on the vehicle sheet: speed range for the turn, state chips (Fleeing, Disengaging, Sniping, Rammed,
+  No action, Re-roll, Escaped) and the combat actions open in the vehicle's zone. GM tools: start turn, check
+  obstacles, reset combat state. Forward Ram checkbox on the Specifications tab (set on the Federal Ram Raider).
+- **Battle start**: vehicles begin at-distance at Speed 5 (or their maximum, if lower) unless already moving.
+- **Turn start** (automatic when the combat tracker reaches a vehicle):
+  - Fleeing vehicles escape; Disengaging ones move at-distance.
+  - A vehicle up-close with no enemies up-close moves at-distance.
+  - Sniping, Ram and lost-action effects end.
+  - Shields recharge, or charge up while down and come back online at half.
+  - A card offers the GM an obstacle check.
+- **Speed**: during its turn a vehicle's speed can only change within Accelerate/Decelerate of its starting speed
+  (out-of-range cells are greyed). In combat it is locked outside the vehicle's turn (the GM can still change it).
+- **Obstacles**: the GM picks the Light/Medium/Heavy table and the planet's gravity (both remembered), then rolls or
+  picks the result.
+  - Rough terrain and large obstructions call for a Vehicle Piloting + Agility check at twice the speed. Failure
+    means 5 or 10 Damage per speed point (an obstruction also stops the vehicle dead) and no action.
+  - Sudden slopes follow the gravity table: safe, risky (DN 8), or launched (DN 12, Damage on a failed landing, the
+    action lost either way).
+- **Actions**:
+  - **Joust**: fires everything. It moves up-close and drags a Sniping target with it. Against a Fleeing vehicle it
+    starts a Pursuit first.
+  - **Snipe**: +1 To Hit, but Defence 0 until the next turn; anyone firing at a Sniping vehicle hits automatically.
+  - **Strafe**: fires weapons until one misses, then moves up-close and Disengages.
+  - **Chicken**: needs higher Pursuit. Both sides choose impact or evade, and the target's controller answers on the
+    chat card. A collision deals 5 × the combined speed to each vehicle and stops both; the winner of a swerve Tails
+    at +2.
+  - **Tail**: D10 + Defence each. The winner fires everything and the loser can return one turret's fire; a draw
+    gives each a single turret. Against a Disengaging vehicle it starts a Pursuit first.
+  - **Broadsides**: fires turrets until one misses.
+  - **Ram**: rolled against the better of the target's Defence and Pursuit. A hit deals 10 per speed point, half to
+    the rammer (none with Forward Ram); a draw sideswipes both for 5 per speed point. Any vehicle damaged loses its
+    Agility from Defence until its next turn.
+  - **Flee**, **Disengage**, **Pass** (re-roll tracked until the end of the next turn).
+- **Pursuits**: D10 + Pursuit each, with the book's win, lose and tie outcomes for fleeing and disengaging vehicles.
+- **Zones**: on the combat maps, actions move tokens into or out of the up-close circle; elsewhere the sheet's zone is
+  updated.
+- Actions on vehicles you don't own (damage, zone moves, chat updates) go through the GM.
+
+## 0.1.23
+
+- Vehicles compendium: each Scarab SRV variant now has its own token colour (Surveyor yellow, Interceptor red, Ranger
+  green, Prowler purple). The Barracuda variants, Eranin Missile Tank, Federal Ram Raider, Imperial Avenger and
+  Longhaul Truck still have no matching token art.
+
 ## 0.1.22
 
 - The **Vehicle Combat Map** and **Space Combat Map** scenes are now added to every world automatically (new or

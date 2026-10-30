@@ -15,6 +15,7 @@
     "cargo": "8T with no passengers",
     "cost": "65,730cr",
     "special": "",
+    "forwardRam": false,
     "agility": 2,
     "maxSpeed": 7,
     "accelerate": 2,

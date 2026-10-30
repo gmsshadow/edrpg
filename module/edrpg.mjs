@@ -24,6 +24,7 @@ import { rollCraftAttack, registerCraftSocket, onRenderCraftAttack } from "./dic
 import { onRenderDamage, registerDamageHooks, registerStatusEffects, bleedOut, heal } from "./dice/damage.mjs";
 import registerSettings from "./settings.mjs";
 import { registerLandingSetting, ensureLandingScene } from "./landing.mjs";
+import { registerVehicleCombat, onRenderVehicleEvent, vehicleAction, checkObstacles, startVehicleTurn } from "./vehicle-combat.mjs";
 import { endAdventure } from "./advancement.mjs";
 import { useKarmaCapability, restKarma, registerKarmaHooks } from "./karma.mjs";
 
@@ -31,7 +32,7 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack };
+   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
    registerKarmaHooks();
 
    registerSettings();
@@ -109,6 +110,7 @@ Hooks.once("ready", () => {
    registerDamageHooks();
    registerGrabSocket();
    registerCraftSocket();
+   registerVehicleCombat();
    ensureLandingScene();
 });
 
@@ -118,4 +120,5 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
    onRenderAttack(message, html);
    onRenderDamage(message, html);
    onRenderCraftAttack(message, html);
+   onRenderVehicleEvent(message, html);
 });

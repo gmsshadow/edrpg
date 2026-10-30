@@ -1,0 +1,192 @@
+{
+  "_id": "c68d335dc946cf70",
+  "_key": "!actors!c68d335dc946cf70",
+  "name": "S9 Goliath Skimmer",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/skimmer/skimmer-goliath-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "",
+    "dimensions": "",
+    "bays": 1,
+    "crewSize": 0,
+    "passengers": 0,
+    "sensors": "500m",
+    "cargo": "None",
+    "cost": "",
+    "special": "Competent Drone. Flies: no obstacle checks; fixed-mount vehicle weapons can't target it.",
+    "agility": 0,
+    "maxSpeed": 5,
+    "accelerate": 4,
+    "decelerate": 3,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 50,
+      "max": 50
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "",
+    "drone": {
+      "enabled": true,
+      "defence": 4,
+      "initiative": 3,
+      "pursuit": 2,
+      "perception": 4
+    },
+    "flying": true,
+    "bomb": {
+      "damage": 0,
+      "vsShields": 0
+    },
+    "forwardRam": false
+  },
+  "prototypeToken": {
+    "name": "S9 Goliath Skimmer",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/skimmer/skimmer-goliath-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "dbd7d120a0331480",
+      "_key": "!actors.items!c68d335dc946cf70.dbd7d120a0331480",
+      "name": "Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 10,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "e7f3ea2a26802cf7",
+      "_key": "!actors.items!c68d335dc946cf70.e7f3ea2a26802cf7",
+      "name": "Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 10,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "135ce673aaa80905",
+  "sort": 400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

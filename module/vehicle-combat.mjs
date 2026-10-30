@@ -1,4 +1,5 @@
 import { rollCraftAttack, applyCraftDamage } from "./dice/craft-attack.mjs";
+import { rollCrashDamage } from "./dice/damage.mjs";
 import { zoneOf, moveToZone } from "./zones.mjs";
 
 /**
@@ -18,8 +19,8 @@ const TEMPLATE = "systems/edrpg/templates/chat/vehicle-event.hbs";
 
 /** Combat actions by zone (Core Rules p.74). */
 export const VEHICLE_ACTIONS = {
-   atDistance: ["joust", "snipe", "strafe", "chicken", "flee", "pass"],
-   upClose: ["tail", "broadsides", "ram", "disengage", "pass"],
+   atDistance: ["joust", "snipe", "strafe", "chicken", "flee", "pass", "rescue"],
+   upClose: ["tail", "broadsides", "ram", "disengage", "pass", "rescue"],
 };
 
 /** Action icons for the sheet. */
@@ -34,6 +35,7 @@ export const ACTION_ICONS = {
    broadsides: "fa-solid fa-arrows-left-right",
    ram: "fa-solid fa-truck-monster",
    disengage: "fa-solid fa-arrow-right-from-bracket",
+   rescue: "fa-solid fa-hand-holding-medical",
 };
 
 /** Obstacle tables: [highest roll, result] (Core Rules p.73). */
@@ -91,6 +93,28 @@ const OPS = {
       if (extra) await actor.update(extra);
       if (messageId) await editEvent(game.messages.get(messageId), (s) => s.applied.push(applied));
    },
+   /**
+    * A flying bomb connects: extra Damage to the target (less if its shields are still up after the impact), then the
+    * bomb is destroyed.
+    */
+   async bomb({ uuid, bomberUuid, messageId }) {
+      const target = await fromUuid(uuid);
+      const bomber = await fromUuid(bomberUuid);
+      if (!bomber) return;
+      const b = bomber.system.bomb;
+      if (target) {
+         const sh = target.system.shields;
+         const up = sh.max > 0 && !sh.down && sh.value > 0;
+         const applied = await applyCraftDamage(target, { total: up ? b.vsShields : b.damage });
+         if (messageId) {
+            await editEvent(game.messages.get(messageId), (s) => {
+               s.applied.push(applied);
+               s.notes.push(L(up ? "EDRPG.drone.bombShields" : "EDRPG.drone.bombHull", { name: esc(bomber.name), damage: up ? b.vsShields : b.damage }));
+            });
+         }
+      }
+      if (bomber.system.hull.value > 0) await bomber.update({ "system.hull.value": 0, "system.speed": 0 });
+   },
    /** Change a chat card's state. */
    async event({ messageId, patch }) {
       await editEvent(game.messages.get(messageId), (s) => foundry.utils.mergeObject(s, patch));
@@ -117,6 +141,7 @@ function canRunLocally(name, payload) {
    if (name === "update" || name === "zone") return owns(payload.uuid);
    if (name === "damage") return owns(payload.uuid) && ownsMessage(payload.messageId);
    if (name === "event") return ownsMessage(payload.messageId);
+   if (name === "bomb") return owns(payload.uuid) && owns(payload.bomberUuid) && ownsMessage(payload.messageId);
    return false;
 }
 
@@ -169,6 +194,9 @@ export function registerVehicleCombat() {
       const actor = combat.combatant?.actor;
       if (actor?.type === "vehicle") enqueue(() => startVehicleTurn(actor, combat));
    });
+
+   // Destruction: runs on the client that dropped the Hull to 0.
+   Hooks.on("edrpg.vehicleDestroyed", (actor) => enqueue(() => onVehicleDestroyed(actor)));
 
    Hooks.on("deleteCombat", (combat) => {
       if (!game.user.isActiveGM) return;
@@ -301,7 +329,7 @@ export async function startVehicleTurn(actor, combat = null) {
       "system.combat.pass": Math.max(0, c.pass - 1),
    };
    const notes = [];
-   if (c.escaped) return actor.update(data);
+   if (c.escaped || sys.destroyed) return actor.update(data);
    if (c.fleeing) {
       data["system.combat.fleeing"] = false;
       data["system.combat.escaped"] = true;
@@ -342,8 +370,8 @@ export async function startVehicleTurn(actor, combat = null) {
       kind: "turn",
       title: L("EDRPG.vcombat.turnStart", { name: actor.name }),
       subtitle: L("EDRPG.vcombat.turnOrder"),
-      notes,
-      obstacle: { vehicleUuid: actor.uuid, done: false },
+      notes: sys.flying ? [...notes, L("EDRPG.drone.flyingNoObstacles", { name: esc(actor.name) })] : notes,
+      obstacle: sys.flying ? null : { vehicleUuid: actor.uuid, done: false },
    });
 }
 
@@ -405,6 +433,7 @@ export async function setVehicleSpeed(actor, speed) {
 export async function checkObstacles(actor, fromMessage = null) {
    if (!game.user.isGM) return;
    const sys = actor.system;
+   if (sys.flying) return void ui.notifications.info(L("EDRPG.drone.flyingNoObstaclesPlain", { name: actor.name }));
    if (sys.speed < 1) return void ui.notifications.info(L("EDRPG.vcombat.stationary", { name: actor.name }));
    const tables = Object.fromEntries(Object.keys(OBSTACLE_TABLES).map((k) => [k, `EDRPG.vcombat.table.${k}`]));
    const gravities = Object.fromEntries(Object.keys(SLOPE_TABLE).map((k) => [k, `EDRPG.vcombat.gravity.${k}`]));
@@ -546,16 +575,16 @@ async function rollPilotCheck(message) {
  *
  * @returns {Promise<Actor|null>}
  */
-async function pickTarget(actor, { zone = null, filter = () => true, title }) {
+async function pickTarget(actor, { zone = null, filter = () => true, title, wrecks = false }) {
    const seen = new Set();
    const candidates = (canvas?.scene?.tokens ?? [])
       .map((t) => t.actor)
       .filter((a) => a?.type === "vehicle" && a !== actor && a.uuid !== actor.uuid && !seen.has(a.uuid) && seen.add(a.uuid))
-      .filter((a) => !a.system.combat.escaped && a.system.hull.value > 0)
+      .filter((a) => (wrecks ? a.system.destroyed : !a.system.combat.escaped && !a.system.destroyed))
       .filter((a) => !zone || zoneOf(a) === zone)
       .filter(filter);
    if (!candidates.length) {
-      ui.notifications.warn(L(zone === "upClose" ? "EDRPG.vcombat.noTargetUpClose" : "EDRPG.vcombat.noTarget"));
+      ui.notifications.warn(L(wrecks ? "EDRPG.vdestroy.noStranded" : zone === "upClose" ? "EDRPG.vcombat.noTargetUpClose" : "EDRPG.vcombat.noTarget"));
       return null;
    }
    const targeted = [...game.user.targets].map((t) => t.actor).filter((a) => candidates.some((c) => c.uuid === a?.uuid));
@@ -678,6 +707,7 @@ export async function vehicleAction(actor, action) {
    const sys = actor.system;
    const zone = zoneOf(actor);
    if (sys.combat.escaped) return void ui.notifications.warn(L("EDRPG.vcombat.hasEscaped", { name: actor.name }));
+   if (sys.destroyed) return void ui.notifications.warn(L("EDRPG.vdestroy.isDestroyed", { name: actor.name }));
    if (!VEHICLE_ACTIONS[zone].includes(action)) {
       return void ui.notifications.warn(L("EDRPG.vcombat.wrongZone", { action: L(`EDRPG.vcombat.action.${action}`), zone: L(`EDRPG.craft.zone.${zone}`) }));
    }
@@ -837,9 +867,10 @@ const ACTIONS = {
       let outcome;
       let toTarget = 0;
       let toSelf = 0;
+      const bomb = actor.system.bomb?.damage > 0;
       if (a.total > b.total) {
          toTarget = 10 * speed;
-         toSelf = actor.system.forwardRam ? 0 : Math.floor(toTarget / 2);
+         toSelf = actor.system.forwardRam || bomb ? 0 : Math.floor(toTarget / 2);
          outcome = L("EDRPG.vcombat.ram.hit", { ...names, damage: toTarget, self: toSelf });
       } else if (a.total === b.total) {
          toTarget = toSelf = 5 * speed;
@@ -863,6 +894,41 @@ const ACTIONS = {
       );
       if (toTarget) await damage(target, toTarget, card, { "system.combat.rammed": true });
       if (toSelf) await damage(actor, toSelf, card, { "system.combat.rammed": true });
+      if (bomb && a.total > b.total) await op("bomb", { uuid: target.uuid, bomberUuid: actor.uuid, messageId: card.id });
+   },
+
+   /** Rescue: stop (speed 0) and pick up crew stranded by a destroyed vehicle (Core Rules p.75). */
+   async rescue(actor) {
+      if (actor.system.speed !== 0) {
+         ui.notifications.warn(L("EDRPG.vdestroy.mustStop", { name: actor.name }));
+         return false;
+      }
+      const wreck = await pickTarget(actor, { title: pickTitle("rescue"), wrecks: true, filter: (a) => a.system.stranded.length > 0 });
+      if (!wreck) return false;
+      const stranded = wreck.system.stranded.map((u) => fromUuidSync(u)).filter(Boolean);
+      let picked = stranded;
+      if (stranded.length > 1) {
+         const boxes = stranded.map((c) => `<label class="checkbox"><input type="checkbox" name="${c.uuid}" checked> ${esc(c.name)}</label>`).join("");
+         const input = await foundry.applications.api.DialogV2.input({
+            window: { title: L("EDRPG.vcombat.action.rescue"), icon: ACTION_ICONS.rescue },
+            classes: ["edrpg", "edrpg-dialog"],
+            content: `<p>${L("EDRPG.vdestroy.whoToRescue", { wreck: esc(wreck.name) })}</p><div class="form-group stacked">${boxes}</div>`,
+            rejectClose: false,
+         });
+         if (!input) return false;
+         picked = stranded.filter((c) => input[c.uuid]);
+      }
+      if (!picked.length) return false;
+      const left = wreck.system.stranded.filter((u) => !picked.some((c) => c.uuid === u));
+      await update(wreck, { "system.stranded": left });
+      await postEvent(actor, {
+         kind: "rescue",
+         title: L("EDRPG.vcombat.action.rescue"),
+         subtitle: actor.name,
+         outcome: L("EDRPG.vdestroy.rescued", { name: esc(actor.name), crew: picked.map((c) => esc(c.name)).join(", "), wreck: esc(wreck.name) }),
+         outcomeClass: "success",
+         notes: left.length ? [L("EDRPG.vdestroy.stillStranded", { count: left.length })] : [],
+      });
    },
 };
 
@@ -977,6 +1043,9 @@ async function resolveChicken(message, targetChoice) {
    if (collision) {
       const total = 5 * (actor.system.speed + target.system.speed);
       const hit = (v) => (v.system.forwardRam ? Math.floor(total / 2) : total);
+      const isBomb = (v) => v.system.bomb?.damage > 0;
+      // A flying bomb breaks apart: its victim isn't stopped dead.
+      const stop = (v, other) => (isBomb(other) ? null : { "system.speed": 0 });
       const card = await postEvent(
          actor,
          {
@@ -989,13 +1058,63 @@ async function resolveChicken(message, targetChoice) {
          },
          rolls,
       );
-      await OPS.damage({ uuid: actor.uuid, amount: hit(actor), messageId: card.id, extra: { "system.speed": 0 } });
-      await OPS.damage({ uuid: target.uuid, amount: hit(target), messageId: card.id, extra: { "system.speed": 0 } });
+      await OPS.damage({ uuid: actor.uuid, amount: hit(actor), messageId: card.id, extra: stop(actor, target) });
+      await OPS.damage({ uuid: target.uuid, amount: hit(target), messageId: card.id, extra: stop(target, actor) });
+      if (isBomb(actor)) await OPS.bomb({ uuid: target.uuid, bomberUuid: actor.uuid, messageId: card.id });
+      if (isBomb(target)) await OPS.bomb({ uuid: actor.uuid, bomberUuid: target.uuid, messageId: card.id });
       return;
    }
    const other = tailer === actor ? target : actor;
    await postEvent(tailer, { kind: "chicken", title: L("EDRPG.vcombat.action.chicken"), subtitle: tailer.name, outcome: L("EDRPG.vcombat.chickenTail", { name: esc(tailer.name), target: esc(other.name) }), outcomeClass: "success" }, rolls);
    await dogfight(tailer, other, 2);
+}
+
+/* -------------------------------------------- */
+/*  Destruction                                 */
+/* -------------------------------------------- */
+
+/**
+ * A vehicle is destroyed (Hull 0 or less): it stops, its token is marked dead, and its crew are caught in the wreck.
+ * Player characters take 4D10 Endurance Damage and are stranded until someone stops to pick them up; other crew
+ * generally go down with the vehicle (Core Rules p.75).
+ *
+ * @param {Actor} actor
+ */
+async function onVehicleDestroyed(actor) {
+   const crew = actor.system.crewActors;
+   await actor.update({
+      "system.speed": 0,
+      "system.stranded": crew.map((c) => c.uuid),
+      "system.combat.fleeing": false,
+      "system.combat.disengaging": false,
+      "system.combat.sniping": false,
+   });
+   try {
+      await actor.toggleStatusEffect("dead", { active: true, overlay: true });
+   } catch (err) {
+      console.warn("edrpg | couldn't mark the wreck", err);
+   }
+   if (game.user.isGM) {
+      for (const combat of game.combats ?? []) {
+         for (const c of combat.combatants) if (c.actor?.uuid === actor.uuid && !c.defeated) await c.update({ defeated: true });
+      }
+   }
+   const notes = [];
+   if (actor.system.drone?.enabled) notes.push(L("EDRPG.vdestroy.drone"));
+   else if (!crew.length) notes.push(L("EDRPG.vdestroy.noCrew"));
+   else {
+      notes.push(L("EDRPG.vdestroy.crew", { crew: crew.map((c) => esc(c.name)).join(", ") }));
+      notes.push(L("EDRPG.vdestroy.rescueHint"));
+   }
+   return postEvent(actor, {
+      kind: "destroyed",
+      title: L("EDRPG.vdestroy.title", { name: actor.name }),
+      outcome: L("EDRPG.vdestroy.outcome"),
+      outcomeClass: "failure",
+      notes,
+      vehicleUuid: actor.uuid,
+      crewDamage: crew.map((c) => ({ uuid: c.uuid, name: c.name, npc: c.type === "opponent", rolled: false })),
+   });
 }
 
 /* -------------------------------------------- */
@@ -1042,6 +1161,18 @@ export function onRenderVehicleEvent(message, html) {
       const pick = (choice) => () => (game.user.isGM ? enqueue(() => resolveChicken(message, choice)) : op("chicken", { messageId: message.id, choice }));
       add("fa-solid fa-car-burst", L("EDRPG.vcombat.chickenAs", { name: esc(state.chicken.target), choice: L("EDRPG.vcombat.impact") }), pick("impact"));
       add("fa-solid fa-person-walking-arrow-right", L("EDRPG.vcombat.chickenAs", { name: esc(state.chicken.target), choice: L("EDRPG.vcombat.evade") }), pick("evade"));
+   }
+   for (const [i, cd] of (state.crewDamage ?? []).entries()) {
+      if (cd.rolled || !owns(cd.uuid)) continue;
+      add("fa-solid fa-dice-d10", L(cd.npc ? "EDRPG.vdestroy.rollNpc" : "EDRPG.vdestroy.rollCrew", { name: esc(cd.name) }), async () => {
+         const crew = await fromUuid(cd.uuid);
+         const vehicle = await fromUuid(state.vehicleUuid);
+         if (!crew || !vehicle) return;
+         await rollCrashDamage(crew, vehicle);
+         const crewDamage = foundry.utils.deepClone(state.crewDamage);
+         crewDamage[i].rolled = true;
+         await op("event", { messageId: message.id, patch: { crewDamage } });
+      });
    }
    const ff = state.fullFire;
    if (ff && !ff.used && owns(ff.vehicleUuid)) {

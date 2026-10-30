@@ -624,7 +624,8 @@
       "freeKnock": "It was a free attack: their turn ends.",
       "aim": "Aim",
       "stopAiming": "Stop aiming",
-      "aimHint": "Spend your turn aiming at one enemy for +5 To Hit next turn. Lost if you take damage, are attacked in close combat, or lose sight of them."
+      "aimHint": "Spend your turn aiming at one enemy for +5 To Hit next turn. Lost if you take damage, are attacked in close combat, or lose sight of them.",
+      "crash": "Crash"
     },
     "burst": {
       "none": "None",
@@ -1317,7 +1318,8 @@
         "tail": "Tail",
         "broadsides": "Broadsides",
         "ram": "Ram",
-        "disengage": "Disengage"
+        "disengage": "Disengage",
+        "rescue": "Rescue"
       },
       "actionHint": {
         "joust": "Fire all weapons at a target in either zone, then move up-close (a Sniping target comes too). Jousting a Fleeing vehicle starts a Pursuit.",
@@ -1329,7 +1331,8 @@
         "tail": "D10 + Defence against the target's: the winner fires everything, the loser one turret. Tailing a Disengaging vehicle starts a Pursuit.",
         "broadsides": "Fire your turrets at an up-close target until one misses.",
         "ram": "D10 + Defence against the target's Defence or Pursuit. A hit deals 10 Damage per speed point (half to you); a tie sideswipes for 5 per speed point each.",
-        "disengage": "Move at-distance at the start of your next turn unless an enemy Tails you and wins a Pursuit. No attack."
+        "disengage": "Move at-distance at the start of your next turn unless an enemy Tails you and wins a Pursuit. No attack.",
+        "rescue": "Stop (Speed 0) beside a wreck and pick up its stranded crew."
       },
       "actionText": {
         "joust": "<strong>{name}</strong> jousts <strong>{target}</strong>, weapons blazing.",
@@ -1341,7 +1344,8 @@
         "tail": "<strong>{name}</strong> tries to get on <strong>{target}</strong>'s tail.",
         "broadsides": "<strong>{name}</strong> steadies to fire its turrets at <strong>{target}</strong>.",
         "ram": "<strong>{name}</strong> rams <strong>{target}</strong>.",
-        "disengage": "<strong>{name}</strong> pulls away to disengage. It reaches at-distance at the start of its next turn unless Tailed and caught."
+        "disengage": "<strong>{name}</strong> pulls away to disengage. It reaches at-distance at the start of its next turn unless Tailed and caught.",
+        "rescue": "<strong>{name}</strong> stops to pick up stranded crew."
       },
       "broadsidesLeft": "Missed. The remaining turrets ({weapons}) must pick a different up-close target; fire them from the sheet.",
       "pursuitTitle": "Pursuit",
@@ -1407,6 +1411,47 @@
         "lostAction": "Lost this turn's action to an obstacle or slope.",
         "pass": "Passed: one re-roll available until the end of its next turn."
       }
+    },
+    "drone": {
+      "title": "Drone",
+      "enabled": "Drone",
+      "enabledHint": "No crew: uses the fixed Defence, Initiative and Pursuit below; each weapon's Accuracy holds its listed To Hit.",
+      "noCrew": "Drone (no crew)",
+      "flying": "Flying",
+      "flyingHint": "Flies: makes no obstacle checks, and fixed-mount vehicle weapons can't target it.",
+      "defenceHint": "Plus the Speed Table's Defence bonus; 0 when stationary.",
+      "pursuitBonus": "Pursuit bonus",
+      "pursuitHint": "Pursuit = Speed + this.",
+      "perception": "Perception",
+      "bomb": "Flying bomb",
+      "bombHint": "Extra Damage when its Ram or Chicken connects (the second figure if the target's shields are still up). It is destroyed doing so. 0 = not a bomb.",
+      "bombHull": "<strong>{name}</strong> explodes for {damage} extra Damage.",
+      "bombShields": "<strong>{name}</strong> explodes against the shields for {damage} extra Damage.",
+      "toHit": "Drone To Hit",
+      "fixedVsFlying": "{weapon} is a fixed mount and can't target {target}, which is flying.",
+      "flyingNoObstacles": "<strong>{name}</strong> is flying: no obstacle check.",
+      "flyingNoObstaclesPlain": "{name} is flying and makes no obstacle checks."
+    },
+    "vdestroy": {
+      "title": "{name} is destroyed",
+      "outcome": "Destroyed",
+      "isDestroyed": "{name} has been destroyed.",
+      "drone": "The drone is wrecked.",
+      "noCrew": "Nobody was aboard.",
+      "crew": "Caught in the wreck: {crew}. Player characters take 4D10 Endurance Damage; other crew generally go down with the vehicle (GM's call).",
+      "rescueHint": "Survivors are stranded until another vehicle stops (Speed 0) and takes the Rescue action.",
+      "rollCrew": "{name}: roll 4D10 Endurance Damage",
+      "rollNpc": "{name}: roll 4D10 (if they survive)",
+      "wreckOf": "Wreck of {name}",
+      "crashFlavor": "{name} is caught in the wreck",
+      "chipHint": "Hull 0 or less. Raise the Hull to repair it.",
+      "strandedChip": "Stranded: {names}",
+      "strandedHint": "Crew waiting at the wreck to be picked up.",
+      "noStranded": "Nobody on this scene is waiting to be rescued.",
+      "mustStop": "{name} must slow to Speed 0 to pick anyone up.",
+      "whoToRescue": "Who do you pick up from the wreck of <strong>{wreck}</strong>?",
+      "rescued": "<strong>{name}</strong> stops and picks up {crew} from the wreck of <strong>{wreck}</strong>.",
+      "stillStranded": "{count} still waiting at the wreck."
     }
   }
 }

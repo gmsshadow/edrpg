@@ -13,7 +13,9 @@
       </label>
       <div class="ed-vfield pilot" data-tooltip="EDRPG.vehicle.pilotHint">
          <span class="ed-tag">{{localize "EDRPG.vehicle.pilot"}}</span>
-         {{#if pilot}}
+         {{#if system.drone.enabled}}
+         <span class="ed-vpilot drone"><i class="fa-solid fa-robot"></i> {{localize "EDRPG.drone.noCrew"}}</span>
+         {{else if pilot}}
          <a class="ed-vpilot" data-action="openActor" data-uuid="{{pilot.uuid}}"><img src="{{pilot.img}}" alt=""> {{pilot.name}}</a>
          {{#if editable}}<a class="ed-vclear" data-action="clearPilot" data-tooltip="EDRPG.vehicle.clearPilot"><i class="fa-solid fa-xmark"></i></a>{{/if}}
          {{else}}

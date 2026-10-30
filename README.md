@@ -33,6 +33,9 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
 - **Vehicle combat turn**: speed changes limited by Accelerate/Decelerate, shield recharge and charge-up, GM obstacle
   checks (light/medium/heavy tables, sudden slopes by gravity), and the Joust, Snipe, Strafe, Chicken, Flee, Pass,
   Tail, Broadsides, Ram and Disengage actions with Pursuits. Zones follow tokens on the combat maps.
+- **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until
+  another vehicle stops to Rescue them. Vehicle-scale drones (the four skimmers) in the Opponents compendium, with
+  flying and flying-bomb rules.
 - **Assets**: combat map scenes (Scenes & Combat Maps compendium) and ship/vehicle tokens under `systems/edrpg/assets/tokens/`.
 - **Item sheets** for Backgrounds (choices used, skill bonuses), Karma Capabilities (category, cost) and Enhancements.
 - Initiative: `1d10 + Tactics bonus`.

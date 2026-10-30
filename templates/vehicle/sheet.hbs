@@ -55,6 +55,9 @@
          <span class="ed-vturn-title"><i class="fa-solid fa-flag-checkered"></i> {{localize "EDRPG.vcombat.turn"}}</span>
          {{#if speedRange}}<span class="ed-vturn-range" data-tooltip="EDRPG.vcombat.speedRangeHint">{{localize "EDRPG.vcombat.adjustSpeed" min=speedRange.min max=speedRange.max}}</span>
          {{else if speedLocked}}<span class="ed-vturn-range locked" data-tooltip="EDRPG.vcombat.speedLockedHint"><i class="fa-solid fa-lock"></i> {{localize "EDRPG.vcombat.speedLockedShort"}}</span>{{/if}}
+         {{#if destroyed}}<span class="ed-chip ed-vstate destroyed" data-tooltip="EDRPG.vdestroy.chipHint">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}
+         {{#if strandedNames}}<span class="ed-chip ed-vstate stranded" data-tooltip="EDRPG.vdestroy.strandedHint">{{localize "EDRPG.vdestroy.strandedChip" names=strandedNames}}</span>{{/if}}
+         {{#if system.flying}}<span class="ed-chip ed-vstate flying" data-tooltip="EDRPG.drone.flyingHint">{{localize "EDRPG.drone.flying"}}</span>{{/if}}
          {{#each combatChips as |chip|}}<span class="ed-chip ed-vstate {{chip.key}}" data-tooltip="{{chip.hint}}">{{chip.label}}</span>{{/each}}
          {{#if isGM}}
          <span class="ed-vturn-gm">
@@ -64,7 +67,7 @@
          </span>
          {{/if}}
       </div>
-      {{#if owner}}
+      {{#if (and owner (not destroyed))}}
       <div class="ed-vactions">
          {{#each vactions as |a|}}<button type="button" data-action="vehicleAction" data-vaction="{{a.key}}" class="{{#if a.taken}}taken{{/if}}" data-tooltip="{{a.hint}}"><i class="{{a.icon}}"></i> {{a.label}}</button>{{/each}}
       </div>

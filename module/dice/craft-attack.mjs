@@ -40,6 +40,11 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       return null;
    }
    const target = forced ?? [...game.user.targets].map((t) => t.actor).find((a) => a && a !== vehicle && a.type === "vehicle") ?? null;
+   // Fixed-mount vehicle weapons can't target a flying vehicle (skimmers, Core Rules p.318).
+   if (target?.system.flying && s.mount?.kind === "fixed") {
+      ui.notifications.warn(game.i18n.format("EDRPG.drone.fixedVsFlying", { weapon: weapon.name, target: target.name }));
+      return null;
+   }
    const gun = sys.gunnery(weapon);
    let opts = { defence: target?.system.defence ?? 0, modifier: 0, mode: undefined };
    if (prompt) {
@@ -62,10 +67,12 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       opts = { defence: Number(result.defence) || 0, modifier: Number(result.modifier) || 0 };
    }
 
-   const parts = [
-      { label: gun.auto ? "EDRPG.vehicle.part.autoTurret" : "EDRPG.vehicle.part.gunnery", value: gun.bonus, note: gun.gunner?.name ?? "" },
-      { label: "EDRPG.craft.accuracy", value: s.accuracy ?? 0 },
-   ];
+   const parts = gun.drone
+      ? [{ label: "EDRPG.drone.toHit", value: s.accuracy ?? 0 }]
+      : [
+           { label: gun.auto ? "EDRPG.vehicle.part.autoTurret" : "EDRPG.vehicle.part.gunnery", value: gun.bonus, note: gun.gunner?.name ?? "" },
+           { label: "EDRPG.craft.accuracy", value: s.accuracy ?? 0 },
+        ];
    if (sys.speedRow.attack) parts.push({ label: "EDRPG.vehicle.part.speed", value: sys.speedRow.attack, note: game.i18n.format("EDRPG.vehicle.speedNow", { speed: sys.speed }) });
    if (extra) parts.push({ label: note ?? "EDRPG.attack.part.modifier", value: extra });
    if (opts.modifier) parts.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier });

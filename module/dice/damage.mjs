@@ -1075,3 +1075,44 @@ export async function rollExtraDamage(damage, attacker, item) {
       flags: { edrpg: { damage: state } },
    });
 }
+
+/**
+ * Crew caught in their vehicle's destruction take 4D10 Endurance Damage (Core Rules p.75), posted as an ordinary
+ * damage card aimed at them so it can be applied (and Escape Death used) as usual. Armour doesn't help.
+ *
+ * @param {Actor} crew
+ *
+ * @param {Actor} vehicle
+ *
+ * @returns {Promise<ChatMessage>}
+ */
+export async function rollCrashDamage(crew, vehicle) {
+   const roll = await new Roll("4d10").evaluate();
+   const state = {
+      actorUuid: vehicle.uuid,
+      actorName: vehicle.name,
+      weaponName: game.i18n.format("EDRPG.vdestroy.wreckOf", { name: vehicle.name }),
+      damageType: "crash",
+      isFighting: false,
+      targetUuid: crew.uuid,
+      targetName: crew.name,
+      divided: false,
+      explosive: false,
+      free: false,
+      base: { formula: "4D10", total: roll.total },
+      dice: d10Results(roll),
+      tens: false,
+      tenCount: 0,
+      knock: false,
+      amounts: [{ key: "hit", value: roll.total, label: game.i18n.localize("EDRPG.damage.title") }],
+      applied: [],
+   };
+   return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: vehicle }),
+      flavor: game.i18n.format("EDRPG.vdestroy.crashFlavor", { name: crew.name }),
+      content: await renderDamageCard(state),
+      rolls: [roll],
+      sound: game.dice3d ? null : CONFIG.sounds.dice,
+      flags: { edrpg: { damage: state } },
+   });
+}

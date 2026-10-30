@@ -37,6 +37,11 @@ export class EDActor extends foundry.documents.Actor {
       if (this.system.advancement && !this.system.advancement.rank && Number.isFinite(newPoints) && newPoints > this.system.rankPoints) {
          foundry.utils.setProperty(changes, "system.advancement.rank", this.system.rank.key);
       }
+      // A vehicle's Hull dropping to 0 or less: destroyed (Core Rules p.75). Handled after the update.
+      const newHull = foundry.utils.getProperty(changes, "system.hull.value");
+      if (this.type === "vehicle" && Number.isFinite(newHull) && newHull <= 0 && this.system.hull.value > 0) {
+         options.edrpgDestroyed = true;
+      }
    }
 
    /**
@@ -49,6 +54,7 @@ export class EDActor extends foundry.documents.Actor {
       if (userId === game.user.id && foundry.utils.hasProperty(changed, "system.rankPoints")) {
          import("./partner.mjs").then(({ syncPartnerRank }) => syncPartnerRank(this));
       }
+      if (userId === game.user.id && options.edrpgDestroyed) Hooks.callAll("edrpg.vehicleDestroyed", this);
    }
 
    /** @override */

@@ -106,7 +106,11 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
       ]
          .filter(([, on]) => on)
          .map(([key]) => ({ key, label: game.i18n.localize(`EDRPG.vcombat.state.${key}`), hint: game.i18n.localize(`EDRPG.vcombat.stateHint.${key}`) }));
-      context.vactions = VEHICLE_ACTIONS[zone].map((key) => ({
+      context.destroyed = system.destroyed;
+      context.strandedNames = (system.stranded ?? []).map((u) => fromUuidSync(u)?.name).filter(Boolean).join(", ");
+      // Rescue only shows while someone on the scene is waiting to be picked up.
+      const strandedNearby = (globalThis.canvas?.scene?.tokens ?? []).some((t) => t.actor?.type === "vehicle" && t.actor.system.destroyed && t.actor.system.stranded?.length);
+      context.vactions = VEHICLE_ACTIONS[zone].filter((key) => key !== "rescue" || strandedNearby).map((key) => ({
          key,
          icon: ACTION_ICONS[key],
          label: game.i18n.localize(`EDRPG.vcombat.action.${key}`),

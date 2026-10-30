@@ -13,6 +13,19 @@
       <div class="form-group wide"><label>{{localize "EDRPG.vehicle.specialRules"}}</label><div class="form-fields"><input type="text" name="system.special" value="{{source.special}}"></div></div>
    </div>
 
+   <h3 class="ed-vsub">{{localize "EDRPG.drone.title"}}</h3>
+   <div class="ed-vspecs">
+      <div class="form-group"><label>{{localize "EDRPG.drone.enabled"}}</label><div class="form-fields"><input type="checkbox" name="system.drone.enabled" {{checked source.drone.enabled}}></div><p class="hint">{{localize "EDRPG.drone.enabledHint"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.drone.flying"}}</label><div class="form-fields"><input type="checkbox" name="system.flying" {{checked source.flying}}></div><p class="hint">{{localize "EDRPG.drone.flyingHint"}}</p></div>
+      {{#if source.drone.enabled}}
+      <div class="form-group"><label>{{localize "EDRPG.vehicle.defence"}}</label><div class="form-fields"><input type="number" name="system.drone.defence" value="{{source.drone.defence}}" step="1"></div><p class="hint">{{localize "EDRPG.drone.defenceHint"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.sheet.initiative"}}</label><div class="form-fields"><input type="number" name="system.drone.initiative" value="{{source.drone.initiative}}" step="1"></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.drone.pursuitBonus"}}</label><div class="form-fields"><input type="number" name="system.drone.pursuit" value="{{source.drone.pursuit}}" step="1"></div><p class="hint">{{localize "EDRPG.drone.pursuitHint"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.drone.perception"}}</label><div class="form-fields"><input type="number" name="system.drone.perception" value="{{source.drone.perception}}" step="1"></div></div>
+      {{/if}}
+      <div class="form-group"><label>{{localize "EDRPG.drone.bomb"}}</label><div class="form-fields"><input type="number" name="system.bomb.damage" value="{{source.bomb.damage}}" min="0" step="1"> / <input type="number" name="system.bomb.vsShields" value="{{source.bomb.vsShields}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.drone.bombHint"}}</p></div>
+   </div>
+
    <h3 class="ed-vsub">{{localize "EDRPG.vehicle.speedTable"}}</h3>
    <table class="ed-vspeededit">
       <tr><th>{{localize "EDRPG.vehicle.speed"}}</th>{{#each speedRows as |r|}}<th>{{r.speed}}</th>{{/each}}</tr>

@@ -154,7 +154,8 @@ def main():
         with open(os.path.join(root, f"{slug}_{_id}.json"), "w") as fh:
             json.dump(doc, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
-    print(f"{len(OPPONENTS)} opponents written to {os.path.normpath(root)}")
+    drones = load("drones").write(root)
+    print(f"{len(OPPONENTS)} opponents and {drones} vehicle-scale drones written to {os.path.normpath(root)}")
 
 
 if __name__ == "__main__":

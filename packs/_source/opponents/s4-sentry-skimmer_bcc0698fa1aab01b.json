@@ -1,0 +1,155 @@
+{
+  "_id": "bcc0698fa1aab01b",
+  "_key": "!actors!bcc0698fa1aab01b",
+  "name": "S4 Sentry Skimmer",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/skimmer/skimmer-sentry-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "",
+    "dimensions": "",
+    "bays": 1,
+    "crewSize": 0,
+    "passengers": 0,
+    "sensors": "500m",
+    "cargo": "None",
+    "cost": "",
+    "special": "Harmless Drone. Flies: no obstacle checks; fixed-mount vehicle weapons can't target it.",
+    "agility": 0,
+    "maxSpeed": 5,
+    "accelerate": 4,
+    "decelerate": 3,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 25,
+      "max": 25
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "",
+    "drone": {
+      "enabled": true,
+      "defence": 2,
+      "initiative": 1,
+      "pursuit": 1,
+      "perception": 2
+    },
+    "flying": true,
+    "bomb": {
+      "damage": 0,
+      "vsShields": 0
+    },
+    "forwardRam": false
+  },
+  "prototypeToken": {
+    "name": "S4 Sentry Skimmer",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/skimmer/skimmer-sentry-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "9bb6ae5a500a4c1d",
+      "_key": "!actors.items!bcc0698fa1aab01b.9bb6ae5a500a4c1d",
+      "name": "Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "135ce673aaa80905",
+  "sort": 100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

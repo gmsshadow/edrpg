@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.25
+
+Vehicle destruction, rescue and vehicle-scale drones (Core Rules pp.75, 318–319).
+
+- **Destruction**: when a vehicle's Hull drops to 0 or less (by any route, including editing the sheet), it stops, its
+  token gets the dead overlay, its combatants are marked defeated, and a card lists the crew caught in the wreck (pilot
+  and turret gunners).
+  - Each crew member gets a button to roll **4D10 Endurance Damage**. This posts an ordinary damage card aimed at them,
+    so it is applied (and Escape Death used) as normal; armour doesn't help.
+  - NPC crew are flagged as generally going down with the vehicle (GM's call).
+  - Destroyed vehicles can't act and are skipped at turn start; raising the Hull repairs them.
+- **Rescue**: a new action, shown while someone on the scene is stranded. The vehicle must be at Speed 0; choose the
+  wreck and who to pick up. The wreck's stranded list shows on its sheet.
+- **Drones**: a Drone section on the Specifications tab.
+  - A drone has no crew: fixed Defence (+ speed bonus), Initiative and Pursuit (speed + bonus). Each weapon's
+    Accuracy holds the listed To Hit.
+  - **Flying**: no obstacle checks, and fixed-mount vehicle weapons refuse to target it.
+  - **Flying bomb**: extra Damage when its Ram or Chicken connects (the lower figure if the target's shields are still
+    up after the impact). The bomb is destroyed, and a Chicken victim isn't stopped dead.
+- **Opponents compendium**: a new *Vehicle-Scale Drones* folder with the S4 Sentry, S5LM Guardian, Stinger-2 Attack
+  and S9 Goliath skimmers, using the red skimmer tokens.
+
 ## 0.1.24
 
 Vehicle combat turn (Core Rules pp.65–68, 72–75).

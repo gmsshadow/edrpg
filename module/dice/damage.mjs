@@ -1,4 +1,5 @@
 import { useKarmaCapability, builtInEscapeDeath } from "../karma.mjs";
+import { karmaPayer } from "../partner.mjs";
 import { rollSkillCheck } from "./skill-check.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/damage.hbs";
@@ -658,6 +659,9 @@ export function registerDamageHooks() {
  * @returns {Item[]}
  */
 function stayStandingOptions(actor) {
+   // A partner offers the host's capabilities (paid from the host's Karma).
+   if (actor.type === "partner") actor = karmaPayer(actor);
+   if (!actor) return [];
    const pool = actor.system.karma?.standard.value ?? 0;
    return actor.itemTypes.karma.filter((k) => {
       if (!k.system.preventsKnockdown) return false;
@@ -674,6 +678,8 @@ function stayStandingOptions(actor) {
  * @returns {Item|object|null}
  */
 function escapeDeathFor(actor) {
+   if (actor.type === "partner") actor = karmaPayer(actor);
+   if (!actor) return null;
    const item = actor.itemTypes.karma.find((k) => k.system.costAll);
    if (item) {
       if (actor.type === "opponent") return (item.system.timesUsed ?? 0) < (item.system.usesPerBattle ?? 1) ? item : null;

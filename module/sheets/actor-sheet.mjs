@@ -16,6 +16,7 @@ import { endAdventure } from "../advancement.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
 import { conditionView, conditionAction } from "../dice/damage.mjs";
 import { rankUpView, promptRankUp } from "../rankup.mjs";
+import { partnerHost, karmaHost, partnersOf, partnerKarmaStatus, isPartnerBackground, createPartner, usePartnerKarma, PARTNER_MAX_DEPTH } from "../partner.mjs";
 import { creationView, promptIndependentLearning, promptStartingEquipment, finishCreation } from "../creation.mjs";
 import { EDSkillConfig, EDResourceConfig, EDSocialFactorConfig } from "./actor-config.mjs";
 
@@ -69,6 +70,8 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          creationEquipment: EDActorSheet.#onCreationEquipment,
          creationFinish: EDActorSheet.#onCreationFinish,
          rankUp: EDActorSheet.#onRankUp,
+         createPartner: EDActorSheet.#onCreatePartner,
+         openActor: EDActorSheet.#onOpenActor,
          useKarma: EDActorSheet.#onUseKarma,
          restKarma: EDActorSheet.#onRestKarma,
          toggleItem: EDActorSheet.#onToggleItem,
@@ -113,6 +116,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       const actor = this.document;
       const system = actor.system;
       const isCharacter = actor.type === "character";
+      const isPartner = actor.type === "partner";
 
       Object.assign(context, {
          actor,
@@ -126,6 +130,9 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          rank: system.rank,
          tabs: this._prepareTabs("primary"),
          isCharacter,
+         isPartner,
+         partnerInfo: isPartner ? this.#partnerInfo() : null,
+         partners: partnersOf(actor).map((p) => ({ uuid: p.uuid, name: p.name })),
          fighting,
          fightingBonus: system.skills.combat.fighting.bonus,
       });
@@ -170,8 +177,12 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
 
       // Backgrounds as cards: Pilot Trained first, then owned backgrounds, then empty slots for the remaining choices.
       const backgrounds = sorted(actor.itemTypes.background);
-      const maxBackgrounds = game.settings.get("edrpg", "systemMaxBackgrounds");
-      const usedBackgrounds = backgrounds.filter((i) => !i.system.free).reduce((n, i) => n + i.system.choices, 0);
+      // Partners have one choice fewer, and Pilot Trained costs them a choice.
+      const settingMax = game.settings.get("edrpg", "systemMaxBackgrounds");
+      const maxBackgrounds = isPartner ? Math.max(settingMax - 1, 0) : settingMax;
+      const costs = (i) => (i.system.free && !(isPartner && i.getFlag("edrpg", "pilotTrained")) ? 0 : i.system.choices);
+      const usedBackgrounds = backgrounds.reduce((n, i) => n + costs(i), 0);
+      const partnerDepth = isPartner ? system.depth : 0;
       const cards = [];
       if (isCharacter) cards.push({ fixed: true, name: "EDRPG.sheet.pilotTrained", mods: modsView(pilotTrained) });
       for (const item of backgrounds) {
@@ -180,9 +191,11 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
             name: item.name,
             choices: item.system.choices > 1 ? item.system.choices : null,
             mods: modsView(item.system.skills),
+            // The Partner background: create (or open) the partner it gives.
+            partner: isPartnerBackground(item) && partnerDepth < PARTNER_MAX_DEPTH ? { exists: partnersOf(actor).length > 0 } : null,
          });
       }
-      const emptySlots = isCharacter && maxBackgrounds > 0 ? Math.max(0, maxBackgrounds - usedBackgrounds) : 0;
+      const emptySlots = (isCharacter || isPartner) && maxBackgrounds > 0 ? Math.max(0, maxBackgrounds - usedBackgrounds) : 0;
       for (let i = 0; i < emptySlots; i++) cards.push({ empty: true });
       if (!cards.length) cards.push({ empty: true });
       context.backgroundCards = cards;
@@ -195,8 +208,11 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       }));
 
       // Karma Capabilities, grouped as in the book (Defensive / Offensive / Other).
-      const karma = sorted(actor.itemTypes.karma);
-      const pool = system.karma.standard.value;
+      // A partner shows (and uses) the host's capabilities, paid from the host's Karma.
+      const payer = isPartner ? karmaHost(actor) : actor;
+      const karmaStatus = isPartner ? partnerKarmaStatus(actor) : null;
+      const karma = payer ? sorted(payer.itemTypes.karma) : [];
+      const pool = payer?.system.karma.standard.value ?? 0;
       const inCombat = game.combats.some((c) => c.started && c.combatants.some((cb) => cb.actor === actor));
       const capabilityView = (item) => {
          const s = item.system;
@@ -211,13 +227,13 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
             categoryLabel: karmaCategories[s.category] ?? "",
             summary: summarise(s.description, 400),
             used,
-            usable: !used && affordable,
+            usable: !used && affordable && !karmaStatus?.blocked,
             useTooltip: used ? "EDRPG.karma.usedHint" : affordable ? "EDRPG.karma.useHint" : "EDRPG.karma.cantAfford",
          };
       };
       const views = karma.map(capabilityView);
       const hasEscapeDeath = karma.some((i) => i.system.costAll);
-      if (isCharacter && !hasEscapeDeath) views.unshift(capabilityView(builtInEscapeDeath()));
+      if ((isCharacter || payer?.type === "character") && payer && !hasEscapeDeath) views.unshift(capabilityView(builtInEscapeDeath()));
       context.karmaGroups = Object.entries(karmaRoles)
          .map(([role, label]) => ({ label, items: views.filter((v) => v.role === role) }))
          .filter((g) => g.items.length);
@@ -227,7 +243,9 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       context.combatKarma = views.filter((v) => combatCategories.has(v.category));
 
       this._prepareEquipment(context);
-      context.karmaCount = `${karma.filter((i) => !i.system.free).length} / ${system.karmaCapabilityLimit ?? system.rank.karmaCap}`;
+      context.karmaCount = isPartner
+         ? game.i18n.format("EDRPG.partner.hostKarmaCount", { host: payer?.name ?? "—" })
+         : `${karma.filter((i) => !i.system.free).length} / ${system.karmaCapabilityLimit ?? system.rank.karmaCap}`;
 
       context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.biography, {
          secrets: actor.isOwner,
@@ -459,8 +477,12 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     */
    static async #onUseKarma(event, target) {
       const row = target.closest("tr");
-      const capability = row.dataset.builtin === "escapeDeath" ? builtInEscapeDeath() : this.document.items.get(row.dataset.itemId);
-      if (capability) return useKarmaCapability(this.document, capability);
+      // A partner's rows are the host's capabilities.
+      const owner = this.document.type === "partner" ? karmaHost(this.document) : this.document;
+      const capability = row.dataset.builtin === "escapeDeath" ? builtInEscapeDeath() : owner?.items.get(row.dataset.itemId);
+      if (!capability) return;
+      if (this.document.type === "partner") return usePartnerKarma(this.document, capability);
+      return useKarmaCapability(this.document, capability);
    }
 
    /**
@@ -531,6 +553,41 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
    /** @this {EDActorSheet} */
    static async #onCreationEquipment() {
       return promptStartingEquipment(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onCreatePartner() {
+      const existing = partnersOf(this.document)[0];
+      if (existing) return existing.sheet.render({ force: true });
+      return createPartner(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onOpenActor(event, target) {
+      const actor = await fromUuid(target.dataset.uuid);
+      actor?.sheet.render({ force: true });
+   }
+
+   /**
+    * Partner header details: host, chain position, whose Karma, and whether it can be used now.
+    *
+    * @returns {object}
+    */
+   #partnerInfo() {
+      const actor = this.document;
+      const host = partnerHost(actor);
+      const payer = karmaHost(actor);
+      const status = partnerKarmaStatus(actor);
+      const cyberCost = actor.system.cybernetics?.karmaCost ?? 0;
+      const virtual = payer?.system.karma.standard.max ?? 0;
+      return {
+         host: host ? { uuid: host.uuid, name: host.name } : null,
+         depth: actor.system.depth,
+         payer: payer ? { uuid: payer.uuid, name: payer.name, value: payer.system.karma.standard.value, max: payer.system.karma.standard.max } : null,
+         blocked: status.blocked ? game.i18n.format(status.blocked, { name: actor.name, host: payer?.name ?? "" }) : null,
+         distance: status.distance,
+         cyber: cyberCost ? { cost: cyberCost, virtual, over: cyberCost > virtual } : null,
+      };
    }
 
    /** @this {EDActorSheet} */

@@ -27,7 +27,8 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   knockdown and dying/bleeding-out conditions, plus stabilising and treating wounds.
 - **Compendia:** Backgrounds, Enhancements (automated), Karma Capabilities, Weapons, Armour, Cybernetics (automated),
   Clothing, Equipment and Opponents (sample).
-- **Character creation** checklist with independent learning and the starting equipment kit.
+- **Character creation** checklist with independent learning and the starting equipment kit; **rank-ups**.
+- **Partners**: linked companion characters using their host's Karma.
 - **Item sheets** for Backgrounds (choices used, skill bonuses), Karma Capabilities (category, cost) and Enhancements.
 - Initiative: `1d10 + Tactics bonus`.
 

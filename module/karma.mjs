@@ -52,6 +52,8 @@ export function builtInEscapeDeath() {
  * @returns {Promise<ChatMessage|null>}
  */
 export async function useKarmaCapability(actor, capability) {
+   // Partners use their host's capabilities and Karma (Core Rules p.27).
+   if (actor.type === "partner") return (await import("./partner.mjs")).usePartnerKarma(actor, capability);
    if (!actor.isOwner) return null;
    if (actor.type === "opponent") return useOpponentCapability(actor, capability);
    const sys = capability.system;

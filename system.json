@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "authors": [
     {
       "name": "gmsshadow",
@@ -41,6 +41,11 @@
       "opponent": {
         "htmlFields": [
           "notes"
+        ]
+      },
+      "partner": {
+        "htmlFields": [
+          "biography"
         ]
       }
     },

@@ -1,5 +1,5 @@
 import * as EDRPG from "./config.mjs";
-import { CharacterData, NPCIndividualData, OpponentData } from "./data/actor.mjs";
+import { CharacterData, NPCIndividualData, OpponentData, PartnerData } from "./data/actor.mjs";
 import {
    BackgroundData,
    EnhancementData,
@@ -38,6 +38,7 @@ Hooks.once("init", () => {
    Object.assign(CONFIG.Actor.dataModels, {
       character: CharacterData,
       npcIndividual: NPCIndividualData,
+      partner: PartnerData,
       opponent: OpponentData,
    });
    Object.assign(CONFIG.Item.dataModels, {
@@ -56,6 +57,7 @@ Hooks.once("init", () => {
    CONFIG.Actor.trackableAttributes = {
       character: trackable,
       npcIndividual: trackable,
+      partner: { bar: ["endurance"], value: ["rankPoints"] },
       opponent: { bar: ["endurance"], value: ["toHit", "perception"] },
    };
 
@@ -64,7 +66,7 @@ Hooks.once("init", () => {
 
    const { DocumentSheetConfig } = foundry.applications.apps;
    DocumentSheetConfig.registerSheet(foundry.documents.Actor, "edrpg", EDActorSheet, {
-      types: ["character", "npcIndividual"],
+      types: ["character", "npcIndividual", "partner"],
       makeDefault: true,
       label: "EDRPG.sheet.labels.actor",
    });

@@ -2,7 +2,7 @@
    <div class="ed-ident">
       <img class="ed-portrait" src="{{actor.img}}" alt="{{actor.name}}" title="{{actor.name}}" data-action="editImage" data-edit="img">
       <div class="ed-datasheet-tag">
-         <span class="big">{{localize "EDRPG.sheet.character"}}</span>
+         <span class="big">{{#if isPartner}}{{localize "TYPES.Actor.partner"}}{{else}}{{localize "EDRPG.sheet.character"}}{{/if}}</span>
          <span class="small">{{localize "EDRPG.sheet.dataSheet"}}</span>
       </div>
    </div>
@@ -37,7 +37,8 @@
    </div>
    <label class="ed-rank-points">
       <span>{{localize "EDRPG.sheet.rankPoints"}}</span>
-      <input type="number" name="system.rankPoints" value="{{source.rankPoints}}" min="0" step="1">
+      {{#if isPartner}}<span class="ed-readonly" data-tooltip="EDRPG.partner.rankHint">{{source.rankPoints}}</span>
+      {{else}}<input type="number" name="system.rankPoints" value="{{source.rankPoints}}" min="0" step="1">{{/if}}
    </label>
 
    <div class="ed-details">
@@ -55,6 +56,22 @@
          <span>{{localize "EDRPG.sheet.karma.standard"}}</span>
          <a class="ed-config" data-action="configureResources" data-tooltip="EDRPG.resourceConfig.title"><i class="fa-solid fa-gear"></i></a>
       </div>
+      {{#if isPartner}}
+      <div class="ed-pool-body ed-partner-karma">
+         {{#if partnerInfo.payer}}
+         <div class="ed-pool-value">
+            <span class="ed-readonly">{{partnerInfo.payer.value}}</span>
+            <span class="max">/ {{partnerInfo.payer.max}}</span>
+         </div>
+         <div class="ed-partner-note">
+            {{localize "EDRPG.partner.karmaOf"}} <a data-action="openActor" data-uuid="{{partnerInfo.payer.uuid}}">{{partnerInfo.payer.name}}</a>
+            {{#if partnerInfo.blocked}}<span class="warn">{{partnerInfo.blocked}}</span>
+            {{else if (eq partnerInfo.distance null)}}<span class="muted">{{localize "EDRPG.partner.distanceUnknown"}}</span>
+            {{else}}<span class="muted">{{localize "EDRPG.partner.distance" distance=partnerInfo.distance}}</span>{{/if}}
+         </div>
+         {{else}}<div class="ed-partner-note warn">{{localize "EDRPG.partner.noHostShort"}}</div>{{/if}}
+      </div>
+      {{else}}
       <div class="ed-pool-body">
          <div class="ed-pool-value">
             <input type="number" name="system.karma.standard.value" value="{{source.karma.standard.value}}" min="0" step="1">
@@ -68,6 +85,7 @@
          </div>
          {{/if}}
       </div>
+      {{/if}}
    </div>
 
    <div class="ed-pool endurance">

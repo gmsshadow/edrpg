@@ -2,7 +2,7 @@
    <div class="rankup-head"><i class="fa-solid fa-ranking-star"></i> {{localize "EDRPG.rankUp.cardHead" name=name rank=rank}}</div>
    <ul class="rankup-gains">
       <li>{{localize "EDRPG.rankUp.gainCap" cap=cap}}</li>
-      <li>{{localize "EDRPG.rankUp.gainKarma"}}</li>
+      {{#unless partner}}<li>{{localize "EDRPG.rankUp.gainKarma"}}</li>{{/unless}}
       <li>{{localize "EDRPG.rankUp.gainEndurance"}}</li>
       <li>{{localize choice}}</li>
    </ul>

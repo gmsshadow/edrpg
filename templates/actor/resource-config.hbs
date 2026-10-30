@@ -16,6 +16,14 @@
       <tr class="total"><td>{{localize "EDRPG.resourceConfig.maximum"}}</td><td class="num">{{system.karma.standard.max}}</td></tr>
    </tbody></table>
 
+   {{#unless system.depth}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.partner.allowKarma"}}</label>
+      <div class="form-fields"><input type="checkbox" name="system.partnerKarma" {{checked systemSource.partnerKarma}}></div>
+      <p class="hint">{{localize "EDRPG.partner.allowKarmaHint"}}</p>
+   </div>
+   {{/unless}}
+
    <h3 class="config-heading karma">{{localize "EDRPG.sheet.karma.cyber"}}</h3>
    {{#if system.karma.cyber.enhancement}}
    <table class="breakdown"><tbody>

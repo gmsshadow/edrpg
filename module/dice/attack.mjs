@@ -4,6 +4,7 @@ import { showDice } from "./contest.mjs";
 import { useKarmaCapability } from "../karma.mjs";
 import { rollDamage, STATUS } from "./damage.mjs";
 import { rollGrabCheck, performGrab } from "./grab.mjs";
+import { karmaPayer } from "../partner.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/attack.hbs";
 const SOCKET = "system.edrpg";
@@ -534,6 +535,8 @@ export function registerAttackSocket() {
  * @returns {Item[]}
  */
 function boostOptions(actor, state, side) {
+   // A partner offers the host's capabilities, paid from the host's Karma.
+   if (actor?.type === "partner") actor = karmaPayer(actor);
    if (!actor) return [];
    const applied = new Set(state.boosts.filter((b) => b.side === side).map((b) => b.itemId));
    const pool = actor.system.karma?.standard.value ?? 0;
@@ -619,7 +622,7 @@ export function onRenderAttack(message, html) {
          );
       } else {
          // A counter-attack can't be countered — except with the Riposte Karma Capability.
-         const riposte = target.itemTypes.karma?.find((k) => /riposte/i.test(k.name));
+         const riposte = (target.type === "partner" ? karmaPayer(target) : target)?.itemTypes.karma?.find((k) => /riposte/i.test(k.name));
          if (riposte) {
             add(`<i class="fa-solid fa-yin-yang"></i> ${game.i18n.format("EDRPG.attack.riposte", { name: riposte.name })}`, game.i18n.localize("EDRPG.attack.riposteHint"), async () => {
                const { useKarmaCapability: use } = await import("../karma.mjs");

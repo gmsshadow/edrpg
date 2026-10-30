@@ -3,7 +3,8 @@
     "Actor": {
       "character": "Character",
       "npcIndividual": "NPC (full character)",
-      "opponent": "Opponent (stat block)"
+      "opponent": "Opponent (stat block)",
+      "partner": "Partner"
     },
     "Item": {
       "karma": "Karma Capability",
@@ -884,7 +885,9 @@
         "learning": "Ten Skills at +10, +9 … +1.",
         "equipment": "One or two Autopistols or Laser Pistols (two spare clips for Autopistols), Flight Suit, Magboots, Remlok, a hand-held or wrist com, 1000 credits; a knife, sword or sledgehammer with Melee Weapons 20+, a Fragmentation grenade with Grenade 20+. On the ship: a Spacesuit, a Medpack and a basic Spaceship Repair Kit.",
         "ship": "Choose one of the eight starting ships, or build one with up to 100,000 credits (unspent credits are lost).",
-        "finish": "Finishing fills Endurance and Karma to their maximums and hides this checklist."
+        "finish": "Finishing fills Endurance and Karma to their maximums and hides this checklist.",
+        "partnerBackgrounds": "Three choices for a partner; Pilot Trained isn't free but can be one of them.",
+        "partnerEquipment": "The same personal equipment as a character (pistol, Flight Suit, Magnetic Boots, Remlok, com, a melee weapon or grenade at 20+), but no ship."
       },
       "addEquipment": "Add starting equipment",
       "equipmentIntro": "Adds the starting kit from the compendia and 1000 credits. You can't spend money until the game starts unless the GM says otherwise.",
@@ -897,7 +900,8 @@
         "discovery": "Sidewinder Discovery (Vehicle Repair Kit)"
       },
       "equipmentMissing": "Not found in the compendia: {items}.",
-      "equipmentAdded": "Added {count} starting items and 1000 credits."
+      "equipmentAdded": "Added {count} starting items and 1000 credits.",
+      "partnerEquipmentIntro": "Adds the personal starting kit from the compendia. Partners don't get a ship or its equipment."
     },
     "bonusWhen": {
       "always": "Always",
@@ -1072,7 +1076,38 @@
       "cardHead": "{name} is now {rank}!",
       "skill": "Skill",
       "score": "Score",
-      "capped": "capped"
+      "capped": "capped",
+      "partnerNote": "A partner rolls ten Skills and gains 5 Endurance, but no Karma point, Karma Capability or Enhancement.",
+      "partnerChoice": "No new Karma Capability or Enhancement (partner)"
+    },
+    "partner": {
+      "create": "Create partner",
+      "open": "Open partner",
+      "defaultName": "{host}'s Partner",
+      "of": "Partner of",
+      "depth1": "(a character's partner: Endurance −5)",
+      "depth2": "(a partner's partner: Endurance −10; can't have a partner)",
+      "tooDeep": "A partner's partner can't have a partner of their own.",
+      "noKarmaItems": "Partners have no Karma Capabilities of their own: they use their host's.",
+      "backgroundLimit": "Partners have {limit} background choices (Pilot Trained uses one).",
+      "karmaOf": "Uses the Karma of",
+      "hostKarmaCount": "Host: {host}",
+      "noHost": "{name} has no host character to draw Karma from.",
+      "noHostShort": "No host linked",
+      "hostRefuses": "{host} doesn't let their partner spend their Karma.",
+      "visibleCybernetics": "{name} has visible cybernetics and can no longer use {host}'s Karma.",
+      "notHostOwner": "You need permission on {host} to spend their Karma.",
+      "karmaTitle": "Partner using Karma",
+      "confirmUnknown": "Can {name} see {host}, within {range}m? (Their tokens aren't both on this scene.)",
+      "confirmFar": "{name} is {distance}m from {host} — more than {range}m. Use the Karma anyway (e.g. the GM allows it)?",
+      "usedKarma": "{name} uses {host}'s {capability}.",
+      "distance": "{distance}m away",
+      "distanceUnknown": "distance unknown",
+      "virtualKarma": "Cybernetics: {cost} of {total} virtual Karma (the host's total)",
+      "rankHint": "A partner's rank follows the host's Rank Points.",
+      "ranksUp": "{name} (a partner) has a rank-up to apply.",
+      "allowKarma": "My partner may spend my Karma",
+      "allowKarmaHint": "A partner who can see you within 30m can use your Karma Capabilities, paid from your Karma (Core Rules p.27)."
     }
   }
 }

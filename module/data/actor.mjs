@@ -90,6 +90,8 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
             u: new fields.NumberField({ ...requiredInteger, min: 0, initial: 0 }),
          }),
          biography: new fields.HTMLField({ initial: "" }),
+         // Whether this character's partner may spend their Karma (Core Rules p.27).
+         partnerKarma: new fields.BooleanField({ initial: true }),
          // Rank advancement (Core Rules pp.49–50): the highest rank whose benefits have been applied, and a record of
          // each rank-up. Blank means "the current rank" (characters from before this was tracked).
          advancement: new fields.SchemaField({
@@ -584,5 +586,56 @@ export class OpponentData extends foundry.abstract.TypeDataModel {
          dodge: this.dodge ?? 0,
          parry: this.parry ?? 0,
       };
+   }
+}
+
+/**
+ * A partner (Core Rules pp.27–30): a companion created through the Partner background, on a character sheet of their
+ * own but linked to their host.
+ * - Three background choices; Pilot Trained isn't free (it uses a choice); no independent learning.
+ * - Endurance 5 less than the host's for each step down the chain (the host's Enhancements and cybernetics don't
+ *   count): a partner's partner has 10 less. A partner's partner can't have a partner of their own.
+ * - No Karma points or Karma Capabilities: while they can see the host and are within 30m they use the host's,
+ *   paid from the host's Karma, if the host allows. A partner with visible (non-Discreet) cybernetics can't.
+ * - Rank follows the host. On each rank-up: ten Skills +D10 and +5 Endurance, nothing else.
+ * - Cybernetics are fitted against a virtual Karma pool equal to the host's total.
+ */
+export class PartnerData extends IndividualData {
+   static defineSchema() {
+      return {
+         ...super.defineSchema(),
+         // The host's UUID: a player character, an NPC (full character) or another partner.
+         host: new fields.StringField({ required: true, blank: true, initial: "" }),
+         // 1 = a character's partner, 2 = a partner's partner.
+         depth: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, max: 2, initial: 1 }),
+         creation: new fields.SchemaField({
+            complete: new fields.BooleanField({ initial: true }),
+            equipment: new fields.BooleanField({ initial: false }),
+         }),
+      };
+   }
+
+   /** Partners don't get Pilot Trained for free (they may pick it as a choice). */
+   get receivesPilotTrained() {
+      return false;
+   }
+
+   /** No Karma Capabilities of their own. */
+   get karmaCapabilityLimit() {
+      return 0;
+   }
+
+   /** @override */
+   prepareDerivedData() {
+      super.prepareDerivedData();
+      const rank = this.rank;
+      // Endurance: the host's rank Endurance less 5 per step, plus the partner's own Enhancements and cybernetics.
+      this.endurance.rank = rank.endurance - 5 * this.depth;
+      this.endurance.base = Math.min(this.endurance.rank + this.endurance.enhancement, MAX_HUMAN_ENDURANCE);
+      this.endurance.max = this.endurance.base + this.endurance.cybernetics + this.endurance.bonus;
+      // No Karma points of their own.
+      this.karma.standard.base = 0;
+      this.karma.standard.max = 0;
+      this.karma.cyber.max = 0;
    }
 }

@@ -68,7 +68,7 @@ BACKGROUNDS = [
     ("Monk/Nun", 1, "55", "Fighting +10, Insight +20, Medicine +10, Stealth +10", []),
     ("Navy Trained", 2, "56-58", "Dodge +10, Energy Weapons +10, Fighting +10, Repair +20, Security +10, Spaceship Piloting +10, Spaceship Weapons +10, Systems +20", []),
     ("Officer", 1, "59-60", "Diplomacy +10, Intimidate +10, Perception +10, Tactics +20", [], {"requires": "Army Trained, Navy Trained"}),
-    ("Partner", 1, "61-62", "", [], {"notes": "Instead of a background, create a partner (see the chapter on Partners)."}),
+    ("Partner", 1, "61-62", "", [], {"partner": True, "notes": "You gain a partner: use Create partner on this background's card. A partner's partner can't take this background."}),
     ("Petty Criminal", 1, "63-64", "Fighting +10, Kinetic Weapons +10, Parry +10, Sleight of Hand +10, Streetwise +10", []),
     ("Pilot Trained", 1, "", "Spaceship Piloting +20, Spaceship Weapons +20, Systems +10", [],
      {"free": True, "pilot": True, "notes": "Every player character has this for free (the sheet adds it automatically). Add it only to NPCs or partners who should have it."}),
@@ -165,7 +165,7 @@ def background_doc(entry, sort):
             "enhancementChoices": opts.get("enhancementChoices", 0), "requires": opts.get("requires", ""),
         },
         "effects": [], "folder": None, "sort": sort, "ownership": {"default": 0},
-        "flags": {"edrpg": {"pilotTrained": True}} if opts.get("pilot") else {},
+        "flags": {"edrpg": {"pilotTrained": True}} if opts.get("pilot") else {"edrpg": {"partner": True}} if opts.get("partner") else {},
     }
 
 

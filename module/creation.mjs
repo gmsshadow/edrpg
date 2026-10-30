@@ -22,13 +22,18 @@ export const INDEPENDENT_LEARNING = 10;
  * @returns {object|null}  Null once creation is complete (or for other actor types).
  */
 export function creationView(actor) {
-   if (actor.type !== "character" || actor.system.creation?.complete !== false) return null;
+   if (!["character", "partner"].includes(actor.type) || actor.system.creation?.complete !== false) return null;
    const sys = actor.system;
    const i18n = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
+   // Partners (p.27): three background choices (Pilot Trained costs one), no independent learning, no Karma
+   // Capabilities, the same personal equipment and no ship.
+   const partner = actor.type === "partner";
 
-   const limit = game.settings.get("edrpg", "systemMaxBackgrounds") || 4;
+   const setting = game.settings.get("edrpg", "systemMaxBackgrounds") || 4;
+   const limit = partner ? Math.max(setting - 1, 0) : setting;
    const backgrounds = actor.itemTypes.background;
-   const used = backgrounds.filter((b) => !b.system.free).reduce((n, b) => n + b.system.choices, 0);
+   const cost = (b) => (b.system.free && !(partner && b.getFlag("edrpg", "pilotTrained")) ? 0 : b.system.choices);
+   const used = backgrounds.reduce((n, b) => n + cost(b), 0);
    const openSkills = backgrounds.flatMap((b) => b.system.skills.filter((m) => !(m.skill in skillCategory)).map(() => b.name));
    const enhancementsNeeded = backgrounds.reduce((n, b) => n + (b.system.enhancementChoices ?? 0), 0);
    const enhancementsChosen = actor.itemTypes.enhancement.filter((e) => !e.getFlag("edrpg", "grantedBy")).length;
@@ -45,14 +50,15 @@ export function creationView(actor) {
          key: "rank",
          label: i18n("EDRPG.creation.step.rank"),
          detail: i18n(sys.rank.name),
-         done: sys.rank.key === "harmless",
+         // A partner's rank follows the host's.
+         done: partner || sys.rank.key === "harmless",
       },
       {
          key: "backgrounds",
          label: i18n("EDRPG.creation.step.backgrounds"),
          detail: i18n("EDRPG.creation.ofCount", { value: used, max: limit }),
          done: used === limit,
-         hint: i18n("EDRPG.creation.hint.backgrounds"),
+         hint: i18n(partner ? "EDRPG.creation.hint.partnerBackgrounds" : "EDRPG.creation.hint.backgrounds"),
       },
    ];
    if (openSkills.length) {
@@ -73,7 +79,7 @@ export function creationView(actor) {
          hint: i18n("EDRPG.creation.hint.enhancements"),
       });
    }
-   steps.push(
+   if (!partner) steps.push(
       {
          key: "karma",
          label: i18n("EDRPG.creation.step.karma"),
@@ -90,6 +96,8 @@ export function creationView(actor) {
          actionLabel: i18n("EDRPG.creation.chooseSkills"),
          hint: i18n("EDRPG.creation.hint.learning"),
       },
+   );
+   steps.push(
       {
          key: "cap",
          label: i18n("EDRPG.creation.step.cap", { cap: sys.rank.skillCap }),
@@ -104,8 +112,10 @@ export function creationView(actor) {
          toggle: "system.creation.equipment",
          action: sys.creation.equipment ? null : "creationEquipment",
          actionLabel: i18n("EDRPG.creation.addEquipment"),
-         hint: i18n("EDRPG.creation.hint.equipment"),
+         hint: i18n(partner ? "EDRPG.creation.hint.partnerEquipment" : "EDRPG.creation.hint.equipment"),
       },
+   );
+   if (!partner) steps.push(
       {
          key: "ship",
          label: i18n("EDRPG.creation.step.ship"),
@@ -178,12 +188,12 @@ export async function finishCreation(actor) {
       if (!proceed) return;
    }
    const sys = actor.system;
-   await actor.update({
-      "system.creation.complete": true,
-      "system.endurance.value": sys.endurance.max,
-      "system.karma.standard.value": sys.karma.standard.max,
-      "system.karma.cyber.value": sys.karma.cyber.max,
-   });
+   const update = { "system.creation.complete": true, "system.endurance.value": sys.endurance.max };
+   if (actor.type !== "partner") {
+      update["system.karma.standard.value"] = sys.karma.standard.max;
+      update["system.karma.cyber.value"] = sys.karma.cyber.max;
+   }
+   await actor.update(update);
    ui.notifications.info(game.i18n.format("EDRPG.creation.finished", { name: actor.name }));
 }
 
@@ -219,7 +229,7 @@ export async function promptStartingEquipment(actor) {
    const melee = skills.combat.meleeWeapons.score >= 20;
    const grenade = skills.combat.grenade.score >= 20;
    const row = (label, field) => `<div class="form-group"><label>${label}</label><div class="form-fields">${field}</div></div>`;
-   let content = `<p class="hint">${i18n("EDRPG.creation.equipmentIntro")}</p>`;
+   let content = `<p class="hint">${i18n(actor.type === "partner" ? "EDRPG.creation.partnerEquipmentIntro" : "EDRPG.creation.equipmentIntro")}</p>`;
    content += row(
       i18n("EDRPG.creation.equipment.pistol"),
       `<select name="pistol"><option value="Laser Pistol">Laser Pistol</option><option value="Autopistol">Autopistol</option></select>
@@ -236,8 +246,12 @@ export async function promptStartingEquipment(actor) {
       );
    }
    if (grenade) content += row(i18n("EDRPG.creation.equipment.grenade"), `<input type="checkbox" name="grenade" checked>`);
-   content += row(i18n("EDRPG.creation.equipment.partner"), `<input type="checkbox" name="partner">`);
-   content += row(i18n("EDRPG.creation.equipment.discovery"), `<input type="checkbox" name="discovery">`);
+   // A partner has the same personal equipment but no ship (p.27).
+   const partner = actor.type === "partner";
+   if (!partner) {
+      content += row(i18n("EDRPG.creation.equipment.partner"), `<input type="checkbox" name="partner">`);
+      content += row(i18n("EDRPG.creation.equipment.discovery"), `<input type="checkbox" name="discovery">`);
+   }
 
    const result = await foundry.applications.api.DialogV2.input({
       window: { title: i18n("EDRPG.creation.step.equipment"), icon: "fa-solid fa-box-open" },
@@ -260,10 +274,12 @@ export async function promptStartingEquipment(actor) {
    add("gear", result.com);
    if (melee && result.melee) add("weapons", result.melee, { equipped: true });
    if (grenade && result.grenade) add("weapons", "Frag Grenade");
-   add("clothing", "Space Suit", { location: "ship" }, result.partner ? 2 : 1);
-   add("gear", "Medpack, Standard", { location: "ship" });
-   add("gear", "Spaceship Repair Kit, Basic", { location: "ship" });
-   if (result.discovery) add("gear", "Vehicle Repair Kit, Basic", { location: "ship" });
+   if (!partner) {
+      add("clothing", "Space Suit", { location: "ship" }, result.partner ? 2 : 1);
+      add("gear", "Medpack, Standard", { location: "ship" });
+      add("gear", "Spaceship Repair Kit, Basic", { location: "ship" });
+      if (result.discovery) add("gear", "Vehicle Repair Kit, Basic", { location: "ship" });
+   }
 
    const docs = [];
    const missing = [];
@@ -273,10 +289,9 @@ export async function promptStartingEquipment(actor) {
       else missing.push(name);
    }
    if (docs.length) await actor.createEmbeddedDocuments("Item", docs);
-   await actor.update({
-      "system.cash.cr": (actor.system.cash.cr ?? 0) + 1000,
-      "system.creation.equipment": true,
-   });
+   const update = { "system.creation.equipment": true };
+   if (!partner) update["system.cash.cr"] = (actor.system.cash.cr ?? 0) + 1000;
+   await actor.update(update);
    if (missing.length) ui.notifications.warn(i18n("EDRPG.creation.equipmentMissing", { items: missing.join(", ") }));
    else ui.notifications.info(i18n("EDRPG.creation.equipmentAdded", { count: docs.length }));
 }

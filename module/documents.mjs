@@ -39,6 +39,18 @@ export class EDActor extends foundry.documents.Actor {
       }
    }
 
+   /**
+    * Rank follows the host: pass Rank Point changes on to partners.
+    *
+    * @override
+    */
+   _onUpdate(changed, options, userId) {
+      super._onUpdate(changed, options, userId);
+      if (userId === game.user.id && foundry.utils.hasProperty(changed, "system.rankPoints")) {
+         import("./partner.mjs").then(({ syncPartnerRank }) => syncPartnerRank(this));
+      }
+   }
+
    /** @override */
    getRollData() {
       const data = super.getRollData();
@@ -106,6 +118,28 @@ export class EDItem extends foundry.documents.Item {
       if (this.getFlag("edrpg", "pilotTrained") && actor.system.receivesPilotTrained) {
          ui.notifications.warn("EDRPG.warning.pilotTrainedBuiltIn", { localize: true });
          return false;
+      }
+
+      // Partners: no Karma Capabilities of their own; a partner's partner can't take the Partner background.
+      if (actor.type === "partner") {
+         if (this.type === "karma") {
+            ui.notifications.warn("EDRPG.partner.noKarmaItems", { localize: true });
+            return false;
+         }
+         if (this.type === "background" && actor.system.depth >= 2 && (this.getFlag("edrpg", "partner") || this.name.trim().toLowerCase() === "partner")) {
+            ui.notifications.warn("EDRPG.partner.tooDeep", { localize: true });
+            return false;
+         }
+         if (this.type === "background") {
+            // Three background choices; Pilot Trained isn't free for partners.
+            const limit = Math.max((game.settings.get("edrpg", "systemMaxBackgrounds") || 4) - 1, 0);
+            const cost = (b) => (b.system.free && !b.getFlag("edrpg", "pilotTrained") ? 0 : b.system.choices);
+            const used = actor.itemTypes.background.reduce((n, b) => n + cost(b), 0);
+            if (used + cost(this) > limit) {
+               ui.notifications.warn(game.i18n.format("EDRPG.partner.backgroundLimit", { limit }));
+               return false;
+            }
+         }
       }
 
       // Prerequisites, e.g. Officer requires Army Trained or Navy Trained.

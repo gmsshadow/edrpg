@@ -1,4 +1,12 @@
 <div class="tab datasheet {{tab.cssClass}}" data-group="primary" data-tab="datasheet">
+   {{#if isPartner}}
+   <div class="ed-partner-strip">
+      <i class="fa-solid fa-user-group"></i>
+      {{#if partnerInfo.host}}{{localize "EDRPG.partner.of"}} <a data-action="openActor" data-uuid="{{partnerInfo.host.uuid}}">{{partnerInfo.host.name}}</a>{{else}}<span class="warn">{{localize "EDRPG.partner.noHostShort"}}</span>{{/if}}
+      <span class="muted">{{#if (eq partnerInfo.depth 2)}}{{localize "EDRPG.partner.depth2"}}{{else}}{{localize "EDRPG.partner.depth1"}}{{/if}}</span>
+      {{#if partnerInfo.cyber}}<span class="{{#if partnerInfo.cyber.over}}warn{{else}}muted{{/if}}">{{localize "EDRPG.partner.virtualKarma" cost=partnerInfo.cyber.cost total=partnerInfo.cyber.virtual}}</span>{{/if}}
+   </div>
+   {{/if}}
    {{#if creation}}{{> edrpgCreation}}{{/if}}
    {{#if rankUp}}
    <div class="ed-rankup-banner">
@@ -22,6 +30,11 @@
             <ul class="ed-card-mods">
                {{#each card.mods as |mod|}}<li>{{localize mod.label}} <b>+{{mod.bonus}}</b></li>{{/each}}
             </ul>
+            {{#if card.partner}}
+            <button type="button" class="ed-card-action" data-action="createPartner">
+               <i class="fa-solid fa-user-group"></i> {{#if card.partner.exists}}{{localize "EDRPG.partner.open"}}{{else}}{{localize "EDRPG.partner.create"}}{{/if}}
+            </button>
+            {{/if}}
             {{#if card.id}}{{#if @root.editable}}
             <a class="ed-card-delete" data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>
             {{/if}}{{/if}}

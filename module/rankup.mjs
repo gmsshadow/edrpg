@@ -40,6 +40,8 @@ export async function promptRankUp(actor) {
    if (!rank) return ui.notifications.info(game.i18n.format("EDRPG.rankUp.none", { name: actor.name }));
    const i18n = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
    const esc = foundry.utils.escapeHTML;
+   // Partners get the Skills and Endurance only (p.27).
+   const partner = actor.type === "partner";
    const cap = (key) => {
       const data = actor.system.skills[skillCategory[key]][key];
       // The rank's cap plus any per-skill increase (Natural Genius, manual), never above 100.
@@ -60,10 +62,10 @@ export async function promptRankUp(actor) {
       <p>${i18n("EDRPG.rankUp.intro", { name: esc(actor.name), rank: i18n(rank.name), cap: rank.skillCap })}</p>
       <ul class="ed-rankup-gains">
          <li>${i18n("EDRPG.rankUp.gainCap", { cap: rank.skillCap })}</li>
-         <li>${i18n("EDRPG.rankUp.gainKarma")}</li>
+         ${partner ? "" : `<li>${i18n("EDRPG.rankUp.gainKarma")}</li>`}
          <li>${i18n("EDRPG.rankUp.gainEndurance")}</li>
       </ul>
-      <div class="form-group">
+      ${partner ? `<p class="hint">${i18n("EDRPG.rankUp.partnerNote")}</p>` : `<div class="form-group">
          <label>${i18n("EDRPG.rankUp.choice")}</label>
          <div class="form-fields">
             <select name="choice">
@@ -71,7 +73,7 @@ export async function promptRankUp(actor) {
                <option value="enhancement">${i18n("EDRPG.rankUp.choiceEnhancement")}</option>
             </select>
          </div>
-      </div>
+      </div>`}
       <h4>${i18n("EDRPG.rankUp.skillsHeading")}</h4>
       <p class="hint">${i18n("EDRPG.rankUp.skillsHint", { cap: rank.skillCap })}</p>
       ${rows}`;
@@ -91,7 +93,7 @@ export async function promptRankUp(actor) {
       const roomLeft = options.filter((o) => o.room > 0 && !picks.includes(o.key)).length;
       if (roomLeft > 0) return ui.notifications.warn(game.i18n.format("EDRPG.rankUp.pickTen", { count: RANK_UP_SKILLS }));
    }
-   return applyRankUp(actor, rank, { choice: result.choice, skills: picks, cap });
+   return applyRankUp(actor, rank, { choice: partner ? "" : result.choice, skills: picks, cap });
 }
 
 /**
@@ -124,17 +126,18 @@ export async function applyRankUp(actor, rank, { choice, skills, cap }) {
    Object.assign(update, {
       "system.advancement.rank": rank.key,
       "system.advancement.history": [...(sys.advancement.history ?? []), { rank: rank.key, choice, skills: lines.map(({ skill, roll, added }) => ({ skill, roll, added })) }],
-      // One more Karma point and 5 Endurance now; the maximums follow the rank table.
-      "system.karma.standard.value": sys.karma.standard.value + 1,
+      // 5 Endurance now (and a Karma point, except for partners); the maximums follow the rank table.
       "system.endurance.value": sys.endurance.value + 5,
    });
+   if (actor.type !== "partner") update["system.karma.standard.value"] = sys.karma.standard.value + 1;
    await actor.update(update);
 
    const content = await foundry.applications.handlebars.renderTemplate("systems/edrpg/templates/chat/rank-up.hbs", {
       name: actor.name,
       rank: game.i18n.localize(rank.name),
       cap: rank.skillCap,
-      choice: choice === "enhancement" ? "EDRPG.rankUp.choiceEnhancement" : "EDRPG.rankUp.choiceKarma",
+      choice: !choice ? "EDRPG.rankUp.partnerChoice" : choice === "enhancement" ? "EDRPG.rankUp.choiceEnhancement" : "EDRPG.rankUp.choiceKarma",
+      partner: actor.type === "partner",
       lines,
    });
    await ChatMessage.create({
@@ -145,6 +148,7 @@ export async function applyRankUp(actor, rank, { choice, skills, cap }) {
       sound: roll && !game.dice3d ? CONFIG.sounds.dice : null,
    });
 
+   if (!choice) return;
    // Open the compendium to pick the new capability or Enhancement from.
    const pack = game.packs.get(choice === "enhancement" ? "edrpg.enhancements" : "edrpg.karma-capabilities");
    pack?.render(true);

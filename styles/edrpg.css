@@ -2377,3 +2377,58 @@ li:hover > .ed-row-delete {
 .edrpg-rankup-card .rankup-skills tr.capped td {
    opacity: 0.75;
 }
+
+/* ---------- Partners ---------- */
+
+.edrpg .ed-partner-strip {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+   align-items: center;
+   margin: 0.3rem 0 0.5rem;
+   padding: 0.3rem 0.6rem;
+   border: 1px solid var(--ed-cell-border);
+   border-left: 4px solid #2c5f8a;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-partner-strip .muted,
+.edrpg .ed-partner-note .muted {
+   opacity: 0.7;
+}
+
+.edrpg .ed-partner-strip .warn,
+.edrpg .ed-partner-note .warn,
+.edrpg .ed-partner-note.warn {
+   color: #b8001f;
+   font-weight: 700;
+}
+
+.edrpg .ed-partner-karma {
+   flex-direction: column;
+   align-items: center;
+}
+
+.edrpg .ed-partner-note {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-size: var(--font-size-11, 11px);
+   text-align: center;
+}
+
+.edrpg .ed-readonly {
+   display: inline-block;
+   min-width: 2rem;
+   font-weight: 700;
+   text-align: center;
+}
+
+.edrpg .ed-card .ed-card-action {
+   width: 100%;
+   height: auto;
+   margin-top: 0.3rem;
+   padding: 0.1rem 0.3rem;
+   font-size: var(--font-size-11, 11px);
+   line-height: 1.4;
+}

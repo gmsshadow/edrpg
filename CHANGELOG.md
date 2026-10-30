@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.1.17
+- **Partners** (Core Rules pp.27–30): a new *Partner* actor type on the character sheet, linked to its host.
+  - *Create partner* on the host's Partner background card makes the partner (same folder and permissions as the
+    host) and opens it; afterwards the button opens it. A partner's partner is allowed; a partner's partner can't
+    have one (the Partner background is refused and gets no button).
+  - Three background choices; Pilot Trained isn't free for partners (it uses a choice). No independent learning,
+    no Karma points and no Karma Capabilities of their own.
+  - Endurance: the host's rank Endurance −5 (−10 for a partner's partner), plus the partner's own Enhancements and
+    cybernetics. The host's Enhancements and cybernetics don't count.
+  - Karma: the partner's sheet lists the host's capabilities (the original player character's, for a partner's
+    partner) with Use buttons that spend the host's Karma, and offers them on attack and damage cards (Duck!, Crack
+    Shot, Stay Standing, Escape Death, Riposte). Blocked if the host turns off *My partner may spend my Karma* (in the
+    Karma & Endurance window) or the partner has visible cybernetics. If their tokens are more than 30m apart (or
+    not both on the scene), the player is asked to confirm the partner can see the host.
+  - Rank follows the host: the host's Rank Points are copied to partners, and partners get their own *Rank up*:
+    ten Skills +D10 and +5 Endurance, without a Karma point, capability or Enhancement.
+  - Cybernetics are fitted against a virtual Karma pool equal to the host's total (shown on the partner's sheet,
+    in red if exceeded).
+  - Creation checklist for partners: backgrounds (3), open background skills, Enhancements to choose, Skill Cap and
+    the personal starting kit (no ship, no ship equipment, no credits).
+
 ## 0.1.16
 - **Ranking up** (Core Rules pp.49–50). When Rank Points reach a new rank, the Data Sheet shows a *Rank up* banner
   (and End of Adventure opens it straight after improving ticked skills). Ranks are applied one at a time, in order:

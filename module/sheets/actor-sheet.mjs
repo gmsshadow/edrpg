@@ -15,6 +15,7 @@ import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs"
 import { endAdventure } from "../advancement.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
 import { conditionView, conditionAction } from "../dice/damage.mjs";
+import { rankUpView, promptRankUp } from "../rankup.mjs";
 import { creationView, promptIndependentLearning, promptStartingEquipment, finishCreation } from "../creation.mjs";
 import { EDSkillConfig, EDResourceConfig, EDSocialFactorConfig } from "./actor-config.mjs";
 
@@ -67,6 +68,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          creationLearning: EDActorSheet.#onCreationLearning,
          creationEquipment: EDActorSheet.#onCreationEquipment,
          creationFinish: EDActorSheet.#onCreationFinish,
+         rankUp: EDActorSheet.#onRankUp,
          useKarma: EDActorSheet.#onUseKarma,
          restKarma: EDActorSheet.#onRestKarma,
          toggleItem: EDActorSheet.#onToggleItem,
@@ -120,6 +122,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          owner: actor.isOwner,
          condition: conditionView(actor),
          creation: creationView(actor),
+         rankUp: rankUpView(actor),
          rank: system.rank,
          tabs: this._prepareTabs("primary"),
          isCharacter,
@@ -224,7 +227,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       context.combatKarma = views.filter((v) => combatCategories.has(v.category));
 
       this._prepareEquipment(context);
-      context.karmaCount = `${karma.filter((i) => !i.system.free).length} / ${system.rank.karmaCap}`;
+      context.karmaCount = `${karma.filter((i) => !i.system.free).length} / ${system.karmaCapabilityLimit ?? system.rank.karmaCap}`;
 
       context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.biography, {
          secrets: actor.isOwner,
@@ -531,6 +534,11 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
    }
 
    /** @this {EDActorSheet} */
+   static async #onRankUp() {
+      return promptRankUp(this.document);
+   }
+
+   /** @this {EDActorSheet} */
    static async #onCreationFinish() {
       return finishCreation(this.document);
    }
@@ -538,7 +546,9 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
    /** @this {EDActorSheet} */
    static async #onEndAdventure() {
       if (!this.isEditable) return;
-      return endAdventure(this.document);
+      await endAdventure(this.document);
+      // Rank up straight after the adventure, before any Between Adventures checks (Core Rules p.49).
+      if (this.document.system.pendingRanks?.length) return promptRankUp(this.document);
    }
 
    /** @this {EDActorSheet} */

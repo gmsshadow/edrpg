@@ -1047,6 +1047,32 @@
       "manual": "{name} injects {drug}.",
       "noUses": "{name} has no uses left today.",
       "usesLeft": "{left} left"
+    },
+    "rankUp": {
+      "title": "Rank up: {rank}",
+      "button": "Rank up",
+      "banner": "New rank reached: {rank} (Skill Cap {cap}). Apply the rank-up to improve ten Skills and choose a Karma Capability or Enhancement.",
+      "more": "({count} ranks to apply, one at a time.)",
+      "none": "{name} has no rank-up waiting.",
+      "intro": "{name} reaches {rank}.",
+      "gainCap": "Skill Cap rises to {cap}.",
+      "gainKarma": "+1 Karma point.",
+      "gainEndurance": "+5 Endurance (natural maximum 80).",
+      "choice": "New ability",
+      "choiceKarma": "A new Karma Capability",
+      "choiceEnhancement": "A new Enhancement (instead of a Karma Capability)",
+      "skillsHeading": "Ten Skills to improve",
+      "skillsHint": "Choose ten different Skills; each gains a D10, but none can go above the new Skill Cap ({cap}). The number shown is the current score.",
+      "room": "room for {room}",
+      "roll": "Roll and apply",
+      "duplicate": "Choose ten different Skills.",
+      "pickTen": "Choose {count} Skills (fewer only if no other Skill has room under the cap).",
+      "pickKarma": "{name}: drag a new Karma Capability from the compendium onto the sheet.",
+      "pickEnhancement": "{name}: drag a new Enhancement from the compendium onto the sheet.",
+      "cardHead": "{name} is now {rank}!",
+      "skill": "Skill",
+      "score": "Score",
+      "capped": "capped"
     }
   }
 }

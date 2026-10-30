@@ -1,5 +1,12 @@
 <div class="tab datasheet {{tab.cssClass}}" data-group="primary" data-tab="datasheet">
    {{#if creation}}{{> edrpgCreation}}{{/if}}
+   {{#if rankUp}}
+   <div class="ed-rankup-banner">
+      <i class="fa-solid fa-ranking-star"></i>
+      <span>{{localize "EDRPG.rankUp.banner" rank=rankUp.next cap=rankUp.cap}}{{#if (gt rankUp.count 1)}} {{localize "EDRPG.rankUp.more" count=rankUp.count}}{{/if}}</span>
+      {{#if editable}}<button type="button" class="ed-button" data-action="rankUp"><i class="fa-solid fa-arrow-up"></i> {{localize "EDRPG.rankUp.button"}}</button>{{/if}}
+   </div>
+   {{/if}}
 
    {{#> edrpgSection title="EDRPG.sheet.Backgrounds" icon="fa-solid fa-book-open" count=backgroundCount addType="background"}}
    <div class="ed-backgrounds">

@@ -1,0 +1,17 @@
+<div class="edrpg edrpg-chat edrpg-rankup-card">
+   <div class="rankup-head"><i class="fa-solid fa-ranking-star"></i> {{localize "EDRPG.rankUp.cardHead" name=name rank=rank}}</div>
+   <ul class="rankup-gains">
+      <li>{{localize "EDRPG.rankUp.gainCap" cap=cap}}</li>
+      <li>{{localize "EDRPG.rankUp.gainKarma"}}</li>
+      <li>{{localize "EDRPG.rankUp.gainEndurance"}}</li>
+      <li>{{localize choice}}</li>
+   </ul>
+   <table class="rankup-skills">
+      <thead><tr><th>{{localize "EDRPG.rankUp.skill"}}</th><th>D10</th><th>{{localize "EDRPG.rankUp.score"}}</th></tr></thead>
+      <tbody>
+         {{#each lines as |l|}}
+         <tr class="{{#if l.capped}}capped{{/if}}"><td>{{l.label}}</td><td>{{l.roll}}</td><td>{{l.from}} → <b>{{l.to}}</b>{{#if l.capped}} <span class="muted">({{localize "EDRPG.rankUp.capped"}})</span>{{/if}}</td></tr>
+         {{/each}}
+      </tbody>
+   </table>
+</div>

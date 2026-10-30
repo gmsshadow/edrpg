@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.16
+- **Ranking up** (Core Rules pp.49–50). When Rank Points reach a new rank, the Data Sheet shows a *Rank up* banner
+  (and End of Adventure opens it straight after improving ticked skills). Ranks are applied one at a time, in order:
+  - the Skill Cap, Karma and Endurance maximums follow the rank table as before; the current Karma goes up by 1 and
+    Endurance by 5;
+  - choose a new **Karma Capability or an Enhancement** — the compendium opens to drag one from;
+  - choose **ten different Skills** and roll a D10 for each; nothing goes above the new Skill Cap (Natural Genius and
+    per-skill cap changes count). The dialog shows each Skill's score and how much room it has; Skills already at the
+    cap can't be picked.
+  - A chat card lists the rolls and the new scores.
+- The Karma Capability limit now drops by one for every rank-up where an Enhancement was chosen instead.
+- Rank-ups are recorded on the character. Existing characters start tracking from their current rank the first
+  time their Rank Points go up.
+- Fix: positive Social Factor from worn clothing items is now lost when the wearer takes damage (it only checked the
+  manual "worn" value).
+
 ## 0.1.15
 - **Fighting** (Core Rules pp.60–61):
   - Fix: damage is 1D10 halved *rounding up* (it rounded down). A 10 still knocks the target over.

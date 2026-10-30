@@ -90,7 +90,46 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
             u: new fields.NumberField({ ...requiredInteger, min: 0, initial: 0 }),
          }),
          biography: new fields.HTMLField({ initial: "" }),
+         // Rank advancement (Core Rules pp.49–50): the highest rank whose benefits have been applied, and a record of
+         // each rank-up. Blank means "the current rank" (characters from before this was tracked).
+         advancement: new fields.SchemaField({
+            rank: new fields.StringField({ required: true, blank: true, initial: "" }),
+            history: new fields.ArrayField(
+               new fields.SchemaField({
+                  rank: new fields.StringField({ required: true, blank: false, initial: "harmless" }),
+                  choice: new fields.StringField({ required: true, blank: true, initial: "" }),
+                  skills: new fields.ArrayField(
+                     new fields.SchemaField({
+                        skill: new fields.StringField({ required: true, blank: false, initial: "athletics" }),
+                        roll: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+                        added: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+                     }),
+                  ),
+               }),
+            ),
+         }),
       };
+   }
+
+   /**
+    * Ranks reached but not yet applied (in order).
+    *
+    * @returns {object[]}  Rank table entries.
+    */
+   get pendingRanks() {
+      const current = ranks.indexOf(this.rank);
+      const applied = this.advancement.rank ? ranks.findIndex((r) => r.key === this.advancement.rank) : current;
+      return applied < 0 || applied >= current ? [] : ranks.slice(applied + 1, current + 1);
+   }
+
+   /**
+    * Karma Capabilities allowed: the rank table assumes a new capability at every rank, so one less for each rank-up
+    * where an Enhancement was chosen instead.
+    *
+    * @returns {number}
+    */
+   get karmaCapabilityLimit() {
+      return this.rank.karmaCap - (this.advancement.history ?? []).filter((h) => h.choice === "enhancement").length;
    }
 
    /** Weapons in hand and armour being worn: the items whose modifiers apply. */

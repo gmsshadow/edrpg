@@ -13,6 +13,10 @@ export class EDActor extends foundry.documents.Actor {
       if (this.type === "character" && foundry.utils.getProperty(data, "system.creation.complete") === undefined) {
          this.updateSource({ "system.creation.complete": false });
       }
+      // Start rank tracking at the rank the actor is created with.
+      if (this.system.advancement && !this.system.advancement.rank) {
+         this.updateSource({ "system.advancement.rank": this.system.rank.key });
+      }
    }
 
    /**
@@ -24,8 +28,14 @@ export class EDActor extends foundry.documents.Actor {
       if ((await super._preUpdate(changes, options, user)) === false) return false;
       const newEndurance = foundry.utils.getProperty(changes, "system.endurance.value");
       const sf = this.system.socialFactor;
-      if (sf && Number.isFinite(newEndurance) && newEndurance < this.system.endurance.value && sf.worn > 0 && !sf.damaged) {
+      const smartClothes = sf && (sf.worn > 0 || this.itemTypes.clothing?.some((c) => c.system.worn && c.system.socialFactor > 0));
+      if (smartClothes && Number.isFinite(newEndurance) && newEndurance < this.system.endurance.value && !sf.damaged) {
          foundry.utils.setProperty(changes, "system.socialFactor.damaged", true);
+      }
+      // Rank Points rising: remember the rank already earned so the new one waits to be applied (Core Rules p.49).
+      const newPoints = foundry.utils.getProperty(changes, "system.rankPoints");
+      if (this.system.advancement && !this.system.advancement.rank && Number.isFinite(newPoints) && newPoints > this.system.rankPoints) {
+         foundry.utils.setProperty(changes, "system.advancement.rank", this.system.rank.key);
       }
    }
 
@@ -140,7 +150,7 @@ export class EDItem extends foundry.documents.Item {
       if (this.type === "karma") {
          const rank = actor.system.rank;
          const used = actor.itemTypes.karma.filter((i) => !i.system.free).length;
-         if (used >= rank.karmaCap) {
+         if (used >= (actor.system.karmaCapabilityLimit ?? rank.karmaCap)) {
             ui.notifications.warn(
                game.i18n.format("EDRPG.warning.karmaCapabilityLimit", { rank: game.i18n.localize(rank.name) }),
             );

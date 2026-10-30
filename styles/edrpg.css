@@ -2323,3 +2323,57 @@ li:hover > .ed-row-delete {
 .edrpg .ed-condition .ed-chip.status-stimmed {
    background: #5a2c8a;
 }
+
+/* ---------- Rank up ---------- */
+
+.edrpg .ed-rankup-banner {
+   display: flex;
+   gap: 0.5rem;
+   align-items: center;
+   margin: 0.3rem 0 0.6rem;
+   padding: 0.4rem 0.6rem;
+   border: 1px solid var(--ed-cell-border);
+   border-left: 4px solid var(--ed-karma-1);
+   background: rgba(46, 0, 120, 0.06);
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-rankup-banner span {
+   flex: 1;
+}
+
+.edrpg .ed-rankup-banner .ed-button {
+   width: auto;
+}
+
+.edrpg-rankup .ed-rankup-gains {
+   margin: 0 0 0.4rem;
+   padding-left: 1.2rem;
+}
+
+.edrpg-rankup-card .rankup-head {
+   margin-bottom: 0.2rem;
+   font-weight: 700;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.edrpg-rankup-card .rankup-gains {
+   margin: 0 0 0.3rem;
+   padding-left: 1.1rem;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg-rankup-card .rankup-skills {
+   width: 100%;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg-rankup-card .rankup-skills td:nth-child(2),
+.edrpg-rankup-card .rankup-skills th:nth-child(2) {
+   text-align: center;
+}
+
+.edrpg-rankup-card .rankup-skills tr.capped td {
+   opacity: 0.75;
+}

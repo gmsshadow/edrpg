@@ -593,10 +593,10 @@ export class OpponentData extends foundry.abstract.TypeDataModel {
  * A partner (Core Rules pp.27–30): a companion created through the Partner background, on a character sheet of their
  * own but linked to their host.
  * - Three background choices; Pilot Trained isn't free (it uses a choice); no independent learning.
- * - Endurance 5 less than the host's for each step down the chain (the host's Enhancements and cybernetics don't
- *   count): a partner's partner has 10 less. A partner's partner can't have a partner of their own.
- * - No Karma points or Karma Capabilities: while they can see the host and are within 30m they use the host's,
- *   paid from the host's Karma, if the host allows. A partner with visible (non-Discreet) cybernetics can't.
+ * - Endurance 5 less than the owning character's for each step down the chain (their Enhancements and cybernetics
+ *   don't count): −5, −10, −15. The chain stops at three: the third partner can't have a partner.
+ * - No Karma points or Karma Capabilities: every partner in the chain uses the owning character's, paid from that
+ *   character's Karma while they can see them within 30m, if allowed. Visible (non-Discreet) cybernetics stop it.
  * - Rank follows the host. On each rank-up: ten Skills +D10 and +5 Endurance, nothing else.
  * - Cybernetics are fitted against a virtual Karma pool equal to the host's total.
  */
@@ -606,8 +606,8 @@ export class PartnerData extends IndividualData {
          ...super.defineSchema(),
          // The host's UUID: a player character, an NPC (full character) or another partner.
          host: new fields.StringField({ required: true, blank: true, initial: "" }),
-         // 1 = a character's partner, 2 = a partner's partner.
-         depth: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, max: 2, initial: 1 }),
+         // 1 = a character's partner, 2 = a partner's partner, 3 = their partner (the last allowed).
+         depth: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, max: 3, initial: 1 }),
          creation: new fields.SchemaField({
             complete: new fields.BooleanField({ initial: true }),
             equipment: new fields.BooleanField({ initial: false }),

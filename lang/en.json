@@ -1086,8 +1086,8 @@
       "defaultName": "{host}'s Partner",
       "of": "Partner of",
       "depth1": "(a character's partner: Endurance −5)",
-      "depth2": "(a partner's partner: Endurance −10; can't have a partner)",
-      "tooDeep": "A partner's partner can't have a partner of their own.",
+      "depth2": "(a partner's partner: Endurance −10)",
+      "tooDeep": "The third partner in a chain can't have a partner of their own (they would start off dead).",
       "noKarmaItems": "Partners have no Karma Capabilities of their own: they use their host's.",
       "backgroundLimit": "Partners have {limit} background choices (Pilot Trained uses one).",
       "karmaOf": "Uses the Karma of",
@@ -1107,7 +1107,8 @@
       "rankHint": "A partner's rank follows the host's Rank Points.",
       "ranksUp": "{name} (a partner) has a rank-up to apply.",
       "allowKarma": "My partner may spend my Karma",
-      "allowKarmaHint": "A partner who can see you within 30m can use your Karma Capabilities, paid from your Karma (Core Rules p.27)."
+      "allowKarmaHint": "A partner who can see you within 30m can use your Karma Capabilities, paid from your Karma (Core Rules p.27).",
+      "depth3": "(third in the chain: Endurance −15; can't have a partner)"
     }
   }
 }

@@ -3,7 +3,7 @@
    <div class="ed-partner-strip">
       <i class="fa-solid fa-user-group"></i>
       {{#if partnerInfo.host}}{{localize "EDRPG.partner.of"}} <a data-action="openActor" data-uuid="{{partnerInfo.host.uuid}}">{{partnerInfo.host.name}}</a>{{else}}<span class="warn">{{localize "EDRPG.partner.noHostShort"}}</span>{{/if}}
-      <span class="muted">{{#if (eq partnerInfo.depth 2)}}{{localize "EDRPG.partner.depth2"}}{{else}}{{localize "EDRPG.partner.depth1"}}{{/if}}</span>
+      <span class="muted">{{localize (concat "EDRPG.partner.depth" partnerInfo.depth)}}</span>
       {{#if partnerInfo.cyber}}<span class="{{#if partnerInfo.cyber.over}}warn{{else}}muted{{/if}}">{{localize "EDRPG.partner.virtualKarma" cost=partnerInfo.cyber.cost total=partnerInfo.cyber.virtual}}</span>{{/if}}
    </div>
    {{/if}}

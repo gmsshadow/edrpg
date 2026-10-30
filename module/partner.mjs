@@ -4,8 +4,11 @@ import { useKarmaCapability } from "./karma.mjs";
  * Partners (Core Rules pp.27–30). See {@link PartnerData} for the rules.
  */
 
-/** A character's partner (1) may have a partner (2); that one can't have another. */
-export const PARTNER_MAX_DEPTH = 2;
+/**
+ * Partners can chain three deep — a partner (Endurance −5), their partner (−10) and theirs (−15); any further
+ * partner "starts off dead" (Core Rules p.27).
+ */
+export const PARTNER_MAX_DEPTH = 3;
 
 /** Distance (metres) within which a partner can use the host's Karma, if they can see them. */
 export const PARTNER_KARMA_RANGE = 30;
@@ -34,7 +37,8 @@ export function partnerHost(actor) {
 }
 
 /**
- * Whose Karma a partner uses: up the chain to the first actor that isn't a partner.
+ * Whose Karma a partner uses: every partner in the chain uses the owning character's — up the chain to the first actor
+ * that isn't a partner.
  *
  * @param {Actor} actor
  *

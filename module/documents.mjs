@@ -120,13 +120,14 @@ export class EDItem extends foundry.documents.Item {
          return false;
       }
 
-      // Partners: no Karma Capabilities of their own; a partner's partner can't take the Partner background.
+      // Partners: no Karma Capabilities of their own; the last partner in a chain (the third) can't take the Partner
+      // background.
       if (actor.type === "partner") {
          if (this.type === "karma") {
             ui.notifications.warn("EDRPG.partner.noKarmaItems", { localize: true });
             return false;
          }
-         if (this.type === "background" && actor.system.depth >= 2 && (this.getFlag("edrpg", "partner") || this.name.trim().toLowerCase() === "partner")) {
+         if (this.type === "background" && actor.system.depth >= 3 && (this.getFlag("edrpg", "partner") || this.name.trim().toLowerCase() === "partner")) {
             ui.notifications.warn("EDRPG.partner.tooDeep", { localize: true });
             return false;
          }

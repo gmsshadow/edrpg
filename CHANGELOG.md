@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.18
+- Partners can chain **three** deep, as in the book: a partner (Endurance −5), their partner (−10) and their partner
+  (−15). Only the third is refused the Partner background. Every partner in the chain uses the owning character's
+  Karma (and the 30m check is against that character).
+
 ## 0.1.17
 - **Partners** (Core Rules pp.27–30): a new *Partner* actor type on the character sheet, linked to its host.
   - *Create partner* on the host's Partner background card makes the partner (same folder and permissions as the

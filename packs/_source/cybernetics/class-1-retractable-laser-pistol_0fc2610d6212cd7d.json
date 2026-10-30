@@ -1,0 +1,53 @@
+{
+  "_id": "0fc2610d6212cd7d",
+  "_key": "!items!0fc2610d6212cd7d",
+  "name": "Class 1 Retractable Laser Pistol",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Hidden Laser Pistol in the arm.</p>",
+    "cost": "20,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "karmaCost": 2,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "Arm Upgrade",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "Laser Pistol",
+    "notes": "Hidden Laser Pistol in the arm.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Arm Add-ons"
+    }
+  },
+  "sort": 3800,
+  "effects": [],
+  "folder": "da74c949b7f29053",
+  "ownership": {
+    "default": 0
+  }
+}

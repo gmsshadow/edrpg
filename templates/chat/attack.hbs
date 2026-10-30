@@ -4,6 +4,11 @@
       {{#if targetName}}<i class="fa-solid fa-angles-right"></i> <span class="attack-who">{{targetName}}</span>{{/if}}
    </div>
    <div class="attack-weapon">{{weaponName}} <span class="muted">({{skillName}})</span></div>
+   {{#if (or counter free grab)}}<div class="attack-tags">
+      {{#if counter}}<span class="ed-chip">{{localize "EDRPG.attack.tag.counter"}}</span>{{/if}}
+      {{#if free}}<span class="ed-chip">{{localize "EDRPG.attack.tag.free"}}</span>{{/if}}
+      {{#if grab}}<span class="ed-chip">{{localize "EDRPG.attack.tag.grab"}}</span>{{/if}}
+   </div>{{/if}}
 
    <div class="attack-columns">
       <dl class="breakdown">
@@ -30,6 +35,28 @@
    {{#if divideFire}}<div class="attack-note">{{localize "EDRPG.attack.divideFireNote"}}</div>{{/if}}
    {{#if destroyCover}}{{#unless hit}}<div class="attack-note">{{localize "EDRPG.attack.destroyCoverNote"}}</div>{{/unless}}{{/if}}
    {{#if isExplosive}}{{#if hit}}<div class="attack-note">{{localize "EDRPG.attack.explosiveNote"}}</div>{{/if}}{{/if}}
+   {{#if grabResult}}
+   <div class="attack-note scatter">
+      <i class="fa-solid fa-hands"></i> {{localize "EDRPG.grab.check"}}:
+      {{grabResult.grabber.name}} {{grabResult.grabber.natural}}+{{grabResult.grabber.bonus}} = <b>{{grabResult.grabber.total}}</b>,
+      {{grabResult.target.name}} {{grabResult.target.natural}}+{{grabResult.target.bonus}} = <b>{{grabResult.target.total}}</b> —
+      <b>{{#if grabResult.success}}{{localize "EDRPG.grab.success"}}{{else}}{{localize "EDRPG.grab.slips"}}{{/if}}</b>
+   </div>
+   {{/if}}
+   {{#if counter}}{{#unless hit}}<div class="attack-note muted">{{localize "EDRPG.attack.counterMissNote"}}</div>{{/unless}}{{/if}}
+   {{#if scatter}}
+   <div class="attack-note scatter">
+      <i class="fa-solid fa-burst"></i>
+      {{#if (eq scatter.mode "mapped")}}
+         {{#if scatter.overshoot}}{{localize "EDRPG.scatter.mappedOvershoot" roll=scatter.direction squares=scatter.squares metres=scatter.metres}}
+         {{else}}{{localize "EDRPG.scatter.mappedResult" roll=scatter.direction direction=(localize scatter.label) squares=scatter.squares metres=scatter.metres}}{{/if}}
+      {{else}}
+         <b>{{localize (concat "EDRPG.scatter.tableName." scatter.kind)}} ({{scatter.roll}}):</b> {{localize scatter.key metres=scatter.metres}}
+      {{/if}}
+   </div>
+   {{/if}}
+   {{#if caught}}<div class="attack-note"><i class="fa-solid fa-users"></i> {{localize "EDRPG.scatter.caughtResult" roll=caught.roll people=caught.people}}</div>{{/if}}
+   {{#if (and isExplosive explosiveMode)}}<div class="attack-note muted">{{localize (concat "EDRPG.scatter.modeNote." explosiveMode)}}</div>{{/if}}
    {{#if ammo}}<div class="attack-note muted">{{localize "EDRPG.attack.ammoLeft" left=ammo.left max=ammo.max}}</div>{{/if}}
    <div class="attack-controls"></div>
 </div>

@@ -1,0 +1,37 @@
+{
+  "_id": "ee2d8a84d0c1b847",
+  "_key": "!items!ee2d8a84d0c1b847",
+  "name": "Vehicle Repair Kit, Basic",
+  "type": "gear",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p>Allows emergency and field repairs on vehicles.</p>",
+    "cost": "50cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "repair",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Allows emergency and field repairs on vehicles.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Repair Kits"
+    }
+  },
+  "sort": 2300,
+  "effects": [],
+  "folder": "3a5a8bb396aa4a7d",
+  "ownership": {
+    "default": 0
+  }
+}

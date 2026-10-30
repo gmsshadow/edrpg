@@ -1,0 +1,44 @@
+{
+  "_id": "3aec663b66592b05",
+  "_key": "!items!3aec663b66592b05",
+  "name": "Medpack, Advanced",
+  "type": "gear",
+  "img": "icons/svg/heal.svg",
+  "system": {
+    "description": "<p>+2 to Medicine when stabilising or healing. About five uses.</p>",
+    "cost": "4,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "medical",
+    "quantity": 1,
+    "uses": {
+      "value": 5,
+      "max": 5
+    },
+    "socialFactor": 0,
+    "rollBonuses": [
+      {
+        "skill": "medicine",
+        "value": 2,
+        "kind": "roll",
+        "when": "medical"
+      }
+    ],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "+2 to Medicine when stabilising or healing. About five uses.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medpacks"
+    }
+  },
+  "sort": 1800,
+  "effects": [],
+  "folder": "ca9684b6158c9a77",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_id": "0483870c2c2d555b",
+  "_key": "!items!0483870c2c2d555b",
+  "name": "Second Hand Spaceship Dealer",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 75-76</p><p><strong>Skills:</strong> Bargain +20, Planetary Knowledge +10, Repair +10, Trading +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bargain",
+        "bonus": 20
+      },
+      {
+        "skill": "planetaryKnowledge",
+        "bonus": 10
+      },
+      {
+        "skill": "repair",
+        "bonus": 10
+      },
+      {
+        "skill": "trading",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 4100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

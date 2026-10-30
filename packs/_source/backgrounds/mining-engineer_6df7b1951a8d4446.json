@@ -1,0 +1,40 @@
+{
+  "_id": "6df7b1951a8d4446",
+  "_key": "!items!6df7b1951a8d4446",
+  "name": "Mining Engineer",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 52-53</p><p><strong>Skills:</strong> Grenade +10, Heavy Weapons +20, Repair +10, Systems +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "grenade",
+        "bonus": 10
+      },
+      {
+        "skill": "heavyWeapons",
+        "bonus": 20
+      },
+      {
+        "skill": "repair",
+        "bonus": 10
+      },
+      {
+        "skill": "systems",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

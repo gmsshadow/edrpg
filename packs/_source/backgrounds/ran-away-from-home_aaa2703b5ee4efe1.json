@@ -1,0 +1,44 @@
+{
+  "_id": "aaa2703b5ee4efe1",
+  "_key": "!items!aaa2703b5ee4efe1",
+  "name": "Ran Away from Home",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 69-70</p><p><strong>Skills:</strong> Dodge +10, Perception +10, Sleight of Hand +10, Streetwise +10, Survival +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "dodge",
+        "bonus": 10
+      },
+      {
+        "skill": "perception",
+        "bonus": 10
+      },
+      {
+        "skill": "sleightOfHand",
+        "bonus": 10
+      },
+      {
+        "skill": "streetwise",
+        "bonus": 10
+      },
+      {
+        "skill": "survival",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

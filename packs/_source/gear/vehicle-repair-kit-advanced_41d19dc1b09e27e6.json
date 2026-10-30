@@ -1,0 +1,44 @@
+{
+  "_id": "41d19dc1b09e27e6",
+  "_key": "!items!41d19dc1b09e27e6",
+  "name": "Vehicle Repair Kit, Advanced",
+  "type": "gear",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p>+2 to Repair for emergency and field repairs on your vehicle.</p>",
+    "cost": "100,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "repair",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [
+      {
+        "skill": "repair",
+        "value": 2,
+        "kind": "roll",
+        "when": "repair"
+      }
+    ],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "+2 to Repair for emergency and field repairs on your vehicle.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Repair Kits"
+    }
+  },
+  "sort": 2400,
+  "effects": [],
+  "folder": "3a5a8bb396aa4a7d",
+  "ownership": {
+    "default": 0
+  }
+}

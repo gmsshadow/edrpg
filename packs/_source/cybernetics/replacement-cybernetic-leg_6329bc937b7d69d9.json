@@ -1,0 +1,53 @@
+{
+  "_id": "6329bc937b7d69d9",
+  "_key": "!items!6329bc937b7d69d9",
+  "name": "Replacement Cybernetic Leg",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces your existing leg.</p>",
+    "cost": "7,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "karmaCost": 2,
+    "discreet": true,
+    "maxInstalled": 2,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces your existing leg.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Replacements"
+    }
+  },
+  "sort": 300,
+  "effects": [],
+  "folder": "a0785ddebbd81982",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "_id": "0efc6b81bebbcb1f",
+  "_key": "!items!0efc6b81bebbcb1f",
+  "name": "Hand Com, Hacker Model",
+  "type": "gear",
+  "img": "icons/svg/sound.svg",
+  "system": {
+    "description": "<p>+10 to Computer when hacking.</p>",
+    "cost": "300,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "com",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [
+      {
+        "skill": "computer",
+        "value": 10,
+        "kind": "score",
+        "when": "hacking"
+      }
+    ],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "+10 to Computer when hacking.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Coms"
+    }
+  },
+  "sort": 3100,
+  "effects": [],
+  "folder": "7f9e4aae3771afc1",
+  "ownership": {
+    "default": 0
+  }
+}

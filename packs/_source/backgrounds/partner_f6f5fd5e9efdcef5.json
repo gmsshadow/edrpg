@@ -1,0 +1,23 @@
+{
+  "_id": "f6f5fd5e9efdcef5",
+  "_key": "!items!f6f5fd5e9efdcef5",
+  "name": "Partner",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 61-62</p><p>Instead of a background, create a partner (see the chapter on Partners).</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

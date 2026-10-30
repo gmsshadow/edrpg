@@ -1,0 +1,27 @@
+{
+  "_id": "f661b942f50db84c",
+  "_key": "!items!f661b942f50db84c",
+  "name": "Original GalCop Flight Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "425,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "socialFactor": 3,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 2000,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

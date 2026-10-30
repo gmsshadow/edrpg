@@ -1,0 +1,37 @@
+{
+  "_id": "34f63dc462fcfa81",
+  "_key": "!items!34f63dc462fcfa81",
+  "name": "Motion Sensor",
+  "type": "gear",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Detects movement within 30 metres, through up to half a metre of dense material.</p>",
+    "cost": "70cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "general",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Detects movement within 30 metres, through up to half a metre of dense material.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "General"
+    }
+  },
+  "sort": 700,
+  "effects": [],
+  "folder": "5a873ca27a32ef8e",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "8b69bef843348582",
+  "_key": "!items!8b69bef843348582",
+  "name": "Magnetic Boots",
+  "type": "gear",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Keep you on the deck in zero gravity. Included with Flight and Space Suits.</p>",
+    "cost": "",
+    "rarity": "common",
+    "location": "carried",
+    "category": "general",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Keep you on the deck in zero gravity. Included with Flight and Space Suits.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "General"
+    }
+  },
+  "sort": 600,
+  "effects": [],
+  "folder": "5a873ca27a32ef8e",
+  "ownership": {
+    "default": 0
+  }
+}

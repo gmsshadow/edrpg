@@ -1,0 +1,40 @@
+{
+  "_id": "5eaa89467f61bfb5",
+  "_key": "!items!5eaa89467f61bfb5",
+  "name": "Explorer Corp",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 28-29</p><p><strong>Skills:</strong> Navigation +20, Planetary Knowledge +10, Survival +10, Vehicle Piloting +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "navigation",
+        "bonus": 20
+      },
+      {
+        "skill": "planetaryKnowledge",
+        "bonus": 10
+      },
+      {
+        "skill": "survival",
+        "bonus": 10
+      },
+      {
+        "skill": "vehiclePiloting",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

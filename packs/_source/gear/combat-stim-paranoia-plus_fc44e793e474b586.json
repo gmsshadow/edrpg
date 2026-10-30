@@ -1,0 +1,37 @@
+{
+  "_id": "fc44e793e474b586",
+  "_key": "!items!fc44e793e474b586",
+  "name": "Combat Stim: Paranoia Plus",
+  "type": "gear",
+  "img": "icons/svg/pill.svg",
+  "system": {
+    "description": "<p>As Combat Stim; +10 to Dodge Skill score while in effect.</p>",
+    "cost": "5,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "stim",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "paranoia",
+    "ammoFor": "",
+    "notes": "As Combat Stim; +10 to Dodge Skill score while in effect.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Combat Stims"
+    }
+  },
+  "sort": 3900,
+  "effects": [],
+  "folder": "048a8292f6dd6779",
+  "ownership": {
+    "default": 0
+  }
+}

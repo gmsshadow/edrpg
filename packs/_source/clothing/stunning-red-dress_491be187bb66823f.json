@@ -1,0 +1,27 @@
+{
+  "_id": "491be187bb66823f",
+  "_key": "!items!491be187bb66823f",
+  "name": "Stunning Red Dress",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "1,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 2,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1600,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

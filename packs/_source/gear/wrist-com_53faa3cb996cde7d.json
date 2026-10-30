@@ -1,0 +1,37 @@
+{
+  "_id": "53faa3cb996cde7d",
+  "_key": "!items!53faa3cb996cde7d",
+  "name": "Wrist Com",
+  "type": "gear",
+  "img": "icons/svg/sound.svg",
+  "system": {
+    "description": "<p>Hands free.</p>",
+    "cost": "2cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "com",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": -2,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Hands free.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Coms"
+    }
+  },
+  "sort": 2600,
+  "effects": [],
+  "folder": "7f9e4aae3771afc1",
+  "ownership": {
+    "default": 0
+  }
+}

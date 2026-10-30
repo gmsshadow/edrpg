@@ -1,0 +1,37 @@
+{
+  "_id": "78cc65fc959ec001",
+  "_key": "!items!78cc65fc959ec001",
+  "name": "Binoculars",
+  "type": "gear",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>20x magnification.</p>",
+    "cost": "1cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "general",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "20x magnification.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "General"
+    }
+  },
+  "sort": 100,
+  "effects": [],
+  "folder": "5a873ca27a32ef8e",
+  "ownership": {
+    "default": 0
+  }
+}

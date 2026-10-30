@@ -1,0 +1,44 @@
+{
+  "_id": "c1bac52cfed5ae58",
+  "_key": "!items!c1bac52cfed5ae58",
+  "name": "Borderland Homeworld",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 07-08</p><p><strong>Skills:</strong> Dodge +10, Fighting +10, Kinetic Weapons +10, Repair +10, Survival +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "dodge",
+        "bonus": 10
+      },
+      {
+        "skill": "fighting",
+        "bonus": 10
+      },
+      {
+        "skill": "kineticWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "repair",
+        "bonus": 10
+      },
+      {
+        "skill": "survival",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

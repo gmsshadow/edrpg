@@ -1,0 +1,23 @@
+{
+  "_id": "e5707fce0578c78a",
+  "_key": "!items!e5707fce0578c78a",
+  "name": "Cyborg",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 22-23</p><p>Start with 100,000 credits' worth of Cybernetics.</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

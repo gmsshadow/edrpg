@@ -1,0 +1,37 @@
+{
+  "_id": "85e041c1343e1cf8",
+  "_key": "!items!85e041c1343e1cf8",
+  "name": "Pack",
+  "type": "gear",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>15kg capacity.</p>",
+    "cost": "70mcr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "general",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "15kg capacity.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "General"
+    }
+  },
+  "sort": 1000,
+  "effects": [],
+  "folder": "5a873ca27a32ef8e",
+  "ownership": {
+    "default": 0
+  }
+}

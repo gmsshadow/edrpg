@@ -9,6 +9,10 @@ import {
    equipmentLocations,
    karmaAttackKinds,
    karmaDefenceKinds,
+   enhancementEffects,
+   bonusConditions,
+   bonusKinds,
+   gearCategories,
 } from "../config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -29,6 +33,10 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          removeSkillBonus: EDItemSheet.#onRemoveSkillBonus,
          addSkillMod: EDItemSheet.#onAddSkillMod,
          removeSkillMod: EDItemSheet.#onRemoveSkillMod,
+         addGrant: EDItemSheet.#onAddGrant,
+         addRollBonus: EDItemSheet.#onAddRollBonus,
+         removeRollBonus: EDItemSheet.#onRemoveRollBonus,
+         removeGrant: EDItemSheet.#onRemoveGrant,
       },
    };
 
@@ -52,6 +60,8 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          typeLabel: CONFIG.Item.typeLabels[item.type],
          isBackground: item.type === "background",
          isKarma: item.type === "karma",
+         isEnhancement: item.type === "enhancement",
+         enhancementEffects,
          skillChoices: skillChoices(),
          karmaCategories,
          karmaRoles,
@@ -61,7 +71,15 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          isWeapon: item.type === "weapon",
          isMelee: item.type === "weapon" && item.system.isMelee,
          isArmour: item.type === "armour",
-         isEquipment: ["weapon", "armour"].includes(item.type),
+         isEquipment: ["weapon", "armour", "cybernetic", "clothing", "gear"].includes(item.type),
+         isCybernetic: item.type === "cybernetic",
+         isClothing: item.type === "clothing",
+         isGear: item.type === "gear",
+         hasRollBonuses: ["clothing", "gear"].includes(item.type),
+         stimEffects: { paranoia: "EDRPG.stim.paranoia", brutal: "EDRPG.stim.brutal" },
+         bonusConditions,
+         bonusKinds,
+         gearCategories,
          weaponSkills,
          damageTypes,
          burstKinds,
@@ -77,7 +95,7 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
             ...item.system._source.ranges[key],
          }));
       }
-      if (item.type === "armour") {
+      if (item.type === "armour" || item.type === "cybernetic") {
          context.absorbRows = Object.entries(damageTypes).map(([key, label]) => ({
             key,
             label,
@@ -98,7 +116,7 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
     */
    _processFormData(event, form, formData) {
       const data = super._processFormData(event, form, formData);
-      for (const key of ["skills", "skillMods"]) {
+      for (const key of ["skills", "skillMods", "enhancements", "rollBonuses"]) {
          const list = data.system?.[key];
          if (list && !Array.isArray(list)) {
             data.system[key] = Object.keys(list)
@@ -126,6 +144,32 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
       const index = Number(target.closest("[data-index]").dataset.index);
       const skills = this.document.system.toObject().skills.filter((_, i) => i !== index);
       return this.document.update({ "system.skills": skills });
+   }
+
+   /** @this {EDItemSheet} */
+   static async #onAddRollBonus() {
+      const list = [...this.document.system.toObject().rollBonuses, { skill: "", value: 1, kind: "roll", when: "always" }];
+      return this.document.update({ "system.rollBonuses": list });
+   }
+
+   /** @this {EDItemSheet} */
+   static async #onRemoveRollBonus(event, target) {
+      const index = Number(target.closest("[data-index]").dataset.index);
+      const list = this.document.system.toObject().rollBonuses.filter((_, i) => i !== index);
+      return this.document.update({ "system.rollBonuses": list });
+   }
+
+   /** @this {EDItemSheet} */
+   static async #onAddGrant() {
+      const list = [...this.document.system.toObject().enhancements, { name: "", skill: "" }];
+      return this.document.update({ "system.enhancements": list });
+   }
+
+   /** @this {EDItemSheet} */
+   static async #onRemoveGrant(event, target) {
+      const index = Number(target.closest("[data-index]").dataset.index);
+      const list = this.document.system.toObject().enhancements.filter((_, i) => i !== index);
+      return this.document.update({ "system.enhancements": list });
    }
 
    /** @this {EDItemSheet} */

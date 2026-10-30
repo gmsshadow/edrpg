@@ -10,7 +10,10 @@
       "background": "Background",
       "enhancement": "Enhancement",
       "weapon": "Weapon",
-      "armour": "Armour"
+      "armour": "Armour",
+      "cybernetic": "Cybernetic",
+      "clothing": "Clothing",
+      "gear": "Equipment"
     }
   },
   "EDRPG": {
@@ -271,10 +274,14 @@
       "microCredits": "Micro Credits (mcr)",
       "units": "Units (u)",
       "cashHint": "1 cr = 100 mcr = 10,000 u",
-      "clothingHint": "Clothing items arrive in a later release; armour is listed here.",
+      "clothingHint": "Clothing and armour you have with you. Tick what you are wearing: worn clothing gives its Social Factor.",
       "storedEmpty": "Nothing stored.",
       "editItem": "Edit",
-      "condition": "Condition"
+      "condition": "Condition",
+      "speed": "Speed {value}m",
+      "speedHint": "Movement per turn: 10m, +2m per Quick Runner.",
+      "gear": "Equipment",
+      "cybernetics": "Cybernetics"
     },
     "rank": {
       "pilots": {
@@ -305,6 +312,13 @@
       "socialFactorCap": {
         "name": "Social Factor cap (house rule)",
         "hint": "Maximum positive Social Factor added to rolls. 0 = no cap, as in the Core Rules."
+      },
+      "explosiveMode": {
+        "name": "Explosives: battle map",
+        "hint": "Grenades and missiles work differently with and without a map (Core Rules pp.58–60): the grenade difficulty, where a miss lands, and who is caught. \"Ask\" lets the attacker choose each time; cards without a choice offer both.",
+        "ask": "Ask each time",
+        "mapped": "On a battle map",
+        "mapless": "Without a map"
       }
     },
     "test": {
@@ -334,7 +348,12 @@
     },
     "warning": {
       "karmaCapabilityLimit": "Karma capability limit reached for rank '{rank}'",
-      "backgroundLimit": "Background limit reached"
+      "backgroundLimit": "Background limit reached",
+      "backgroundRequires": "{name} requires the {required} background first.",
+      "pilotTrainedBuiltIn": "Player characters already have Pilot Trained for free.",
+      "cyberneticMax": "{name}: at most {max} can be installed.",
+      "cyberneticRequires": "{name} needs a {required} installed first.",
+      "weaponNotFound": "Weapon \"{name}\" isn't in the Weapons compendium; add it by hand."
     },
     "equipment": {
       "Armour": "Armour",
@@ -377,7 +396,19 @@
       "boostHint": "Offered on the attack card: an attack bonus while your attack misses, a defence bonus while an attack against you hits.",
       "usesPerBattle": "Uses per battle",
       "timesUsed": "used",
-      "preventsKnockdown": "Stops a knockdown (Stay Standing)"
+      "preventsKnockdown": "Stops a knockdown (Stay Standing)",
+      "grants": "Enhancements granted",
+      "addGrant": "Add an Enhancement",
+      "removeGrant": "Remove",
+      "grantName": "Enhancement name (as in the compendium)",
+      "grantSkill": "Skill (Natural Genius only)",
+      "grantsHint": "Added from the Enhancements compendium when this background is added to a character, and removed with it.",
+      "enhancementChoices": "Enhancements to choose",
+      "requires": "Requires background",
+      "requiresHint": "Any one of these backgrounds, separated by commas.",
+      "rollBonuses": "Bonuses to Skill checks",
+      "rollBonusesHint": "\"Always\" bonuses are added to every check with that Skill; the others are offered as tick boxes in the check dialog (Medpacks are ticked for Stabilise and Treat wounds). A Skill score bonus counts only if it lifts your Skill bonus.",
+      "skillModsWornHint": "Applied while worn (clothing) or installed (cybernetics), e.g. Cybernetic Eyes +5 Perception."
     },
     "karmaCategory": {
       "general": "Non-combat",
@@ -401,12 +432,15 @@
       "noEquipment": "No equipment modifiers",
       "mod": "Temporary modifier",
       "modHint": "Added to the score after the Skill Cap; the score can never exceed 100.",
-      "used": "Used this adventure"
+      "used": "Used this adventure",
+      "geniusCap": "Includes +{value} from Natural Genius."
     },
     "resourceConfig": {
       "title": "Karma & Endurance",
       "fromRank": "From rank",
-      "maximum": "Maximum"
+      "maximum": "Maximum",
+      "other": "Other (cybernetics etc.)",
+      "cybernetics": "Cybernetics"
     },
     "socialFactor": {
       "title": "Social Factor",
@@ -578,7 +612,15 @@
       "treat": "Treat wounds",
       "treatHint": "Medicine check with a Medpack or proper kit, at most every six hours: heals the check's total. Select the medic's token to have someone else treat.",
       "rest": "Day's rest (+5)",
-      "restHint": "Natural healing: 5 Endurance a day."
+      "restHint": "Natural healing: 5 Endurance a day.",
+      "strengthBonus": "Strength (Strong, arm upgrades)",
+      "resistedKnockdown": "Resisted knockdown",
+      "halved": "{formula} ÷ 2, rounded up",
+      "disarm": "Even number on the Fighting die: a weapon or item is knocked out of the target's hands (the GM picks where).",
+      "freeKnock": "It was a free attack: their turn ends.",
+      "aim": "Aim",
+      "stopAiming": "Stop aiming",
+      "aimHint": "Spend your turn aiming at one enemy for +5 To Hit next turn. Lost if you take damage, are attacked in close combat, or lose sight of them."
     },
     "burst": {
       "none": "None",
@@ -618,7 +660,9 @@
       "toHitOverride": "To Hit (this weapon)",
       "attackTitle": "Attack: {weapon} ({skill})",
       "rollHint": "Roll an attack ({skill}). Shift-click to skip the dialog.",
-      "rollOpponent": "Roll an attack with this weapon"
+      "rollOpponent": "Roll an attack with this weapon",
+      "reloadedFrom": "{weapon} reloaded with a {ammo} ({left} left).",
+      "reloadedNoSpare": "{weapon} reloaded (no spare ammunition carried for it)."
     },
     "armour": {
       "absorb": "Absorbs",
@@ -737,7 +781,30 @@
         "medium": "Medium range",
         "long": "Long range",
         "finesse": "Finesse",
-        "modifier": "Modifier"
+        "modifier": "Modifier",
+        "withAdvantage": "Grenade, with advantage",
+        "withDisadvantage": "Grenade, with disadvantage"
+      },
+      "explosiveMode": "Combat",
+      "throwWith": "Throwing the grenade",
+      "withAdvantage": "With advantage (7)",
+      "withDisadvantage": "With disadvantage (12)",
+      "throwWithHint": "With advantage: round a corner, down stairs, somewhere you can duck into cover. With disadvantage: bowled in an open fire-fight.",
+      "free": "Free attack (point blank / running away)",
+      "freeHint": "An adjacent enemy moved away or shot at point blank range. If this knocks them over, their turn ends.",
+      "grab": "Grab instead of hitting",
+      "grabHint": "Only someone roughly your size or smaller. On a hit, an opposed Athletics check (plus Strength damage bonuses) decides it.",
+      "counter": "Counter-attack {name}",
+      "counterHint": "You Parried and the attack missed: make an immediate Melee or Fighting attack (it doesn't use your next action).",
+      "counterWith": "Counter-attack with",
+      "counterIntro": "Counter-attack: the enemy can't counter this if it misses.",
+      "counterMissNote": "A missed counter-attack can't be countered (except with Riposte).",
+      "riposte": "{name}: counter the counter-attack",
+      "riposteHint": "Spend the Karma to counter-attack the counter-attack that just missed you.",
+      "tag": {
+        "counter": "Counter-attack",
+        "free": "Free attack",
+        "grab": "Grab"
       }
     },
     "status": {
@@ -746,7 +813,240 @@
       "bleeding": "Bleeding Out",
       "stabilised": "Stabilised",
       "dead": "Dead",
-      "ok": "Fine"
+      "ok": "Fine",
+      "aiming": "Aiming",
+      "grabbed": "Grabbed",
+      "grabbing": "Grabbing",
+      "stimmed": "Stimmed"
+    },
+    "background": {
+      "chooseEnhancements": "{name}: choose {count} Enhancement(s) from the Enhancements compendium."
+    },
+    "enhancement": {
+      "effectLabel": "Effect",
+      "skill": "Skill",
+      "effect": {
+        "none": "None (description only)",
+        "ambidextrous": "Ambidextrous",
+        "awareness": "Awareness",
+        "confident": "Confident",
+        "cyberneticAffinity": "Cybernetic Affinity",
+        "dynamicKarma": "Dynamic Karma",
+        "hardToKill": "Hard to Kill",
+        "naturalGenius": "Natural Genius",
+        "quickRunner": "Quick Runner",
+        "strong": "Strong",
+        "tough": "Tough"
+      },
+      "hint": {
+        "none": "Not automated.",
+        "ambidextrous": "Automated: the two-weapon penalty on attacks becomes −1, then 0.",
+        "awareness": "Automated: Initiative uses the better of your Tactics and Perception bonuses.",
+        "confident": "Automated: Social Factor ignores penalties from equipment, armour and cybernetics.",
+        "cyberneticAffinity": "Automated: +2 cybernetic Karma each time.",
+        "dynamicKarma": "Not automated: remember to pay only for the most expensive capability.",
+        "hardToKill": "Automated: death at minus maximum Endurance; twice, Escape Death costs at most 4 Karma.",
+        "naturalGenius": "Automated: +10 to the chosen Skill's Skill Cap (max 100).",
+        "quickRunner": "Automated: +2m Speed each time (up to three times).",
+        "strong": "Automated: +2 Fighting and Melee damage each time (max +10).",
+        "tough": "Automated: +5 maximum Endurance each time (up to 80)."
+      }
+    },
+    "creation": {
+      "title": "Character creation",
+      "ofCount": "{value} / {max}",
+      "none": "none",
+      "independentLearning": "Independent learning",
+      "chooseSkills": "Choose skills…",
+      "save": "Save",
+      "finish": "Finish creation",
+      "finishIncomplete": "Only {done} of {total} steps are done. Finish creation anyway? (Endurance and Karma will be filled to their maximums and this checklist hidden.)",
+      "finished": "{name} is ready to play.",
+      "duplicateSkills": "Pick ten different Skills.",
+      "overCap": "Above the Skill Cap of {cap}: {skills}. Lower a background bonus or pick a different Skill.",
+      "learningHint": "Pick ten Skills to improve: +10 to the first, +9 to the second … +1 to the tenth. The number after each Skill is its score before these points; no Skill may go above {cap}.",
+      "step": {
+        "rank": "Rank",
+        "backgrounds": "Background choices",
+        "openSkills": "Fill in open background skills",
+        "enhancements": "Enhancements chosen",
+        "karma": "Karma Capabilities (plus Escape Death)",
+        "learning": "Independent learning",
+        "cap": "No Skill above {cap}",
+        "equipment": "Starting equipment",
+        "ship": "Starting ship"
+      },
+      "hint": {
+        "backgrounds": "Four choices; two-choice backgrounds such as Army Trained use two. Pilot Trained is free and already on the sheet.",
+        "openSkills": "Self-Taught and University Graduate have skill lines for you to choose: open the background and pick the Skills.",
+        "enhancements": "Gene Mod Baby and Self-Taught let you choose Enhancements: drag them from the Enhancements compendium.",
+        "karma": "Pick three from the Karma Capabilities compendium. Escape Death is free and doesn't count.",
+        "learning": "Ten Skills at +10, +9 … +1.",
+        "equipment": "One or two Autopistols or Laser Pistols (two spare clips for Autopistols), Flight Suit, Magboots, Remlok, a hand-held or wrist com, 1000 credits; a knife, sword or sledgehammer with Melee Weapons 20+, a Fragmentation grenade with Grenade 20+. On the ship: a Spacesuit, a Medpack and a basic Spaceship Repair Kit.",
+        "ship": "Choose one of the eight starting ships, or build one with up to 100,000 credits (unspent credits are lost).",
+        "finish": "Finishing fills Endurance and Karma to their maximums and hides this checklist."
+      },
+      "addEquipment": "Add starting equipment",
+      "equipmentIntro": "Adds the starting kit from the compendia and 1000 credits. You can't spend money until the game starts unless the GM says otherwise.",
+      "equipment": {
+        "pistol": "Pistol",
+        "com": "Com",
+        "melee": "Melee weapon (Melee Weapons 20+)",
+        "grenade": "Fragmentation grenade (Grenade 20+)",
+        "partner": "Partner (second Space Suit)",
+        "discovery": "Sidewinder Discovery (Vehicle Repair Kit)"
+      },
+      "equipmentMissing": "Not found in the compendia: {items}.",
+      "equipmentAdded": "Added {count} starting items and 1000 credits."
+    },
+    "bonusWhen": {
+      "always": "Always",
+      "medical": "Stabilising or healing",
+      "repair": "Field repairs",
+      "hacking": "Hacking",
+      "drones": "Controlling drones",
+      "other": "When the GM allows"
+    },
+    "bonusKind": {
+      "roll": "Roll bonus",
+      "score": "Skill score bonus",
+      "scoreShort": "{value} Skill score"
+    },
+    "gear": {
+      "category": {
+        "general": "General",
+        "medical": "Medical",
+        "repair": "Repair kit",
+        "com": "Com",
+        "cosmetic": "Cosmetic",
+        "stim": "Combat Stim",
+        "injector": "Stim injector",
+        "ammo": "Ammunition"
+      },
+      "categoryLabel": "Kind",
+      "quantity": "Quantity",
+      "uses": "Uses left",
+      "injectionSuccess": "Injection success %",
+      "ammoFor": "Reloads weapons named",
+      "active": "In use",
+      "activeHint": "In use: its Social Factor counts (a com on show, cosmetics applied, a gas mask on).",
+      "hint": "Bonuses apply while carried. Ammunition is used up when you reload a weapon whose name (or compendium group) contains the text above.",
+      "qtyShort": "Qty",
+      "inUse": "In use",
+      "none": "No equipment carried."
+    },
+    "cybernetic": {
+      "installation": "Installation",
+      "karmaCost": "Karma cost",
+      "maxInstalled": "Maximum installed",
+      "requires": "Requires (cybernetic name contains)",
+      "karmaHint": "Cybernetics drain Karma permanently, from cybernetic Karma (Cybernetic Affinity) first. Upgrading a device you already have costs no Karma: set the new one's cost to 0.",
+      "effects": "Effects",
+      "damageBonus": "Fighting & Melee damage",
+      "speedBonus": "Extra movement (m)",
+      "resistKnockdown": "Resist knockdown",
+      "enduranceBonus": "Endurance",
+      "initiativeBonus": "Initiative",
+      "grantsWeapon": "Built-in weapon (from the Weapons compendium)",
+      "carapace": "Armoured carapace",
+      "short": {
+        "damage": "+{value} Fighting/Melee damage",
+        "speed": "+{value}m movement",
+        "resist": "Resist knockdown ({value})",
+        "endurance": "+{value} Endurance",
+        "initiative": "+{value} Initiative"
+      },
+      "karmaShort": "Karma",
+      "none": "No cybernetics.",
+      "karmaSummary": "Karma drained: {spent} from your Karma maximum, {fromCyber} from cybernetic Karma.",
+      "cyborgNote": "Cybernetics show (or are revealed): Social Factor is fixed at −3.",
+      "builtIn": "Built into {name}",
+      "fightingDamage": "Extra Fighting damage",
+      "usesPerDay": "Uses per day (left / max)"
+    },
+    "clothing": {
+      "toxicResistance": "Toxic resistance",
+      "spaceSuit": "Counts as a space suit",
+      "hint": "Worn clothing gives its Social Factor (positive values are lost once you take damage) and its Skill modifiers."
+    },
+    "scatter": {
+      "button": {
+        "mapped": "Scatter (map)",
+        "mapless": "Miss table (no map)",
+        "caught": "How many are caught? (D10 ÷ 2)"
+      },
+      "hint": {
+        "mapped": "D10 for the direction from the target square (1–8 clockwise from the square above it; 9–10 overshoots along the line of fire), then D10 squares.",
+        "mapless": "Roll on the Grenade or Missile Miss Table.",
+        "caught": "If the GM is unsure how many people are in the blast: roll a D10 and halve it."
+      },
+      "dir": {
+        "1": "↑ the square above the target",
+        "2": "↗ above-right",
+        "3": "→ right",
+        "4": "↘ below-right",
+        "5": "↓ below",
+        "6": "↙ below-left",
+        "7": "← left",
+        "8": "↖ above-left"
+      },
+      "overshoot": "overshoots",
+      "mappedResult": "Scatter {roll}: {direction}, {squares} squares ({metres}m) from the target square. It stops at a wall or solid obstacle, then explodes.",
+      "mappedOvershoot": "Scatter {roll}: overshoots — it carries on {squares} squares ({metres}m) past the target square along the line from you, stopping at a wall or solid obstacle, then explodes.",
+      "tableName": {
+        "grenade": "Grenade Miss Table",
+        "missile": "Missile Miss Table"
+      },
+      "table": {
+        "grenade": {
+          "short": "Rubbish throw! It slips from your grasp and rolls only {metres} metres forward before exploding.",
+          "whoosh": "Whoosh! Complete miss: it explodes where it injures no one (the GM may rule it damages equipment).",
+          "long": "Too long! It lands {metres} metres beyond the target point, or against the back wall.",
+          "random": "What the…? It bounces off walls and ceilings and lands at the feet of a random person, chosen by the GM."
+        },
+        "missile": {
+          "whoosh": "Whoosh! Complete miss: it explodes where it injures no one (the GM may rule it damages equipment).",
+          "long": "Too long! It lands {metres} metres beyond the target point, or against the back wall.",
+          "short": "Ooops! It lands {metres} metres short of the target point, possibly with you in the blast."
+        }
+      },
+      "caughtResult": "Caught in the blast: D10 {roll}, halved — {people} (the GM decides who is in the fatal or injury radius).",
+      "modeNote": {
+        "mapped": "Explosives on a battle map.",
+        "mapless": "Explosives without a map: the GM decides who is in each radius."
+      }
+    },
+    "grab": {
+      "resolve": "Resolve the grab (Athletics)",
+      "resolveHint": "Both roll Athletics plus Strength damage bonuses (opponents may use To Hit); you must beat the target.",
+      "check": "Grab",
+      "success": "grabbed! Both have Dodge 0 and can't Parry; the target can only try to escape.",
+      "slips": "they slip from your grasp.",
+      "escape": "Escape grab",
+      "escapeHint": "Your action: Athletics (+ Strength) against the grabber's; you must exceed it.",
+      "escapeTitle": "Escaping a grab",
+      "escaped": "Escaped! You can still move, and the grabber gets no free attack.",
+      "stillHeld": "Still held.",
+      "release": "Release grab"
+    },
+    "stim": {
+      "title": "Stim injector",
+      "paranoia": "Paranoia Plus (+10 Dodge)",
+      "brutal": "Brutal Plus (Strong, Quick Runner)",
+      "effectLabel": "Extra effect",
+      "inject": "Use Combat Stim",
+      "dose": "Dose",
+      "injectHint": "Inject a carried Combat Stim (needs a syringe or injector). Unconscious characters wake, knocked over.",
+      "ends": "Stim wears off",
+      "endsHint": "After about an hour. At 0 Endurance or less you fall unconscious.",
+      "noDose": "No Combat Stim doses carried.",
+      "noInjector": "You need a syringe or Stim injector to apply it.",
+      "injected": "{injector}: rolled {roll} (needed {chance} or less) — {drug} injected; {name} stays conscious.",
+      "failed": "{injector}: rolled {roll} (needed {chance} or less) — no injection; it tries again at the end of each of {name}'s turns.",
+      "overload": "{injector}: rolled 100 — the stimulant overloads {name}'s heart. Dead.",
+      "manual": "{name} injects {drug}.",
+      "noUses": "{name} has no uses left today.",
+      "usesLeft": "{left} left"
     }
   }
 }

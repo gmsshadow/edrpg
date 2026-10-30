@@ -1,0 +1,40 @@
+{
+  "_id": "65bb5759a7e49936",
+  "_key": "!items!65bb5759a7e49936",
+  "name": "Computer Game Designer",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 18-19</p><p><strong>Skills:</strong> Computer +20, Spaceship Piloting +10, Tactics +10, Vehicle Piloting +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "computer",
+        "bonus": 20
+      },
+      {
+        "skill": "shipPiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "tactics",
+        "bonus": 10
+      },
+      {
+        "skill": "vehiclePiloting",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

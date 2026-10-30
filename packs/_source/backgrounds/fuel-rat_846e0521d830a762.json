@@ -1,0 +1,40 @@
+{
+  "_id": "846e0521d830a762",
+  "_key": "!items!846e0521d830a762",
+  "name": "Fuel Rat",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 36</p><p><strong>Skills:</strong> Navigation +20, Planetary Knowledge +10, Spaceship Piloting +10, Trading +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "navigation",
+        "bonus": 20
+      },
+      {
+        "skill": "planetaryKnowledge",
+        "bonus": 10
+      },
+      {
+        "skill": "shipPiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "trading",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "380d38ac26b01872",
+  "_key": "!items!380d38ac26b01872",
+  "name": "Shotgun Shells",
+  "type": "gear",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "description": "",
+    "cost": "50mcr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "ammo",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "Shotgun",
+    "notes": "",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Ammunition"
+    }
+  },
+  "sort": 4800,
+  "effects": [],
+  "folder": "c7a9c61c7906dea4",
+  "ownership": {
+    "default": 0
+  }
+}

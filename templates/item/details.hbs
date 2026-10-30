@@ -30,6 +30,58 @@
       </li>
       {{/each}}
    </ol>
+
+   <h2 class="section-title">
+      <span>{{localize "EDRPG.item.grants"}}</span>
+      {{#if editable}}
+      <a class="item-control" data-action="addGrant" data-tooltip="EDRPG.item.addGrant"><i class="fa-solid fa-plus"></i></a>
+      {{/if}}
+   </h2>
+   <ol class="skill-bonus-list grants">
+      {{#each source.enhancements as |g idx|}}
+      <li data-index="{{idx}}">
+         <input type="text" name="system.enhancements.{{idx}}.name" value="{{g.name}}" placeholder="{{localize 'EDRPG.item.grantName'}}" {{#unless @root.editable}}disabled{{/unless}}>
+         <select name="system.enhancements.{{idx}}.skill" data-tooltip="EDRPG.item.grantSkill" {{#unless @root.editable}}disabled{{/unless}}>
+            {{selectOptions @root.skillChoices selected=g.skill blank="" localize=true sort=true}}
+         </select>
+         {{#if @root.editable}}
+         <a class="item-control" data-action="removeGrant" data-tooltip="EDRPG.item.removeGrant"><i class="fa-solid fa-trash"></i></a>
+         {{/if}}
+      </li>
+      {{/each}}
+   </ol>
+   <p class="hint">{{localize "EDRPG.item.grantsHint"}}</p>
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.enhancementChoices"}}</label>
+      <div class="form-fields">
+         <input type="number" name="system.enhancementChoices" value="{{source.enhancementChoices}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.item.requires"}}</label>
+      <div class="form-fields">
+         <input type="text" name="system.requires" value="{{source.requires}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+      <p class="hint">{{localize "EDRPG.item.requiresHint"}}</p>
+   </div>
+   {{/if}}
+
+   {{#if isEnhancement}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.enhancement.effectLabel"}}</label>
+      <div class="form-fields">
+         <select name="system.effect" {{#unless editable}}disabled{{/unless}}>{{selectOptions enhancementEffects selected=source.effect localize=true}}</select>
+      </div>
+      <p class="hint">{{localize (concat "EDRPG.enhancement.hint." source.effect)}}</p>
+   </div>
+   {{#if (eq source.effect "naturalGenius")}}
+   <div class="form-group">
+      <label>{{localize "EDRPG.enhancement.skill"}}</label>
+      <div class="form-fields">
+         <select name="system.skill" {{#unless editable}}disabled{{/unless}}>{{selectOptions skillChoices selected=source.skill blank="" localize=true sort=true}}</select>
+      </div>
+   </div>
+   {{/if}}
    {{/if}}
 
    {{#if isKarma}}

@@ -1,0 +1,53 @@
+{
+  "_id": "cd9fe111485c4fd5",
+  "_key": "!items!cd9fe111485c4fd5",
+  "name": "Type 2 Replacement Internals",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces ribcage and essential torso organs with armoured components.</p>",
+    "cost": "720,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "karmaCost": 5,
+    "discreet": true,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 20,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces ribcage and essential torso organs with armoured components.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Replacement Internals"
+    }
+  },
+  "sort": 1500,
+  "effects": [],
+  "folder": "8d6e5bf5f69b1c11",
+  "ownership": {
+    "default": 0
+  }
+}

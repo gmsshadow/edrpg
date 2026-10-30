@@ -161,6 +161,14 @@ WEAPONS = [
     W("Nanofibre Sword", MW, "melee", NONE, "3d10", None, "53,000cr", R, one=True, finesse=4, group="Melee Weapons"),
     W("Neo-Samurai Sword", MW, "melee", NONE, "2d10", None, "425,000cr", R, one=True, finesse=4, bonus=15, mods=[("parry", 10)], group="Melee Weapons"),
     W("Imperial Sabre", MW, "melee", NONE, "3d10", None, "31,000,000cr", R, one=True, finesse=4, bonus=20, mods=[("parry", 15)], group="Melee Weapons"),
+    # Striking with the butt of a rifle or SMG counts as a club (p.61); pistol whipping is a Fighting attack.
+    W("Weapon Butt (rifle or SMG)", MW, "melee", NONE, "1d10", None, "", C, finesse=6,
+      notes="Improvised: the butt of a sub-machine gun or rifle.", group="Melee Weapons"),
+    # Built-in cybernetic weapons, added by the Cyberclaws cybernetics (Core Rules p.127).
+    W("Cyberclaws (Class 1)", MW, "melee", NONE, "2d10", None, "", C, one=True, finesse=6,
+      notes="Cybernetic: retracts when not in use.", group="Cybernetic Weapons"),
+    W("Cyberclaws (Class 2)", MW, "melee", NONE, "3d10", None, "", R, one=True, finesse=6,
+      notes="Cybernetic: retracts when not in use.", group="Cybernetic Weapons"),
 ]
 
 

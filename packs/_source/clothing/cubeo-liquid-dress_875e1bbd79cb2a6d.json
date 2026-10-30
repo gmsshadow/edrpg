@@ -1,0 +1,27 @@
+{
+  "_id": "875e1bbd79cb2a6d",
+  "_key": "!items!875e1bbd79cb2a6d",
+  "name": "Cubeo Liquid Dress",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>One use only; surgical knives needed to remove it.</p>",
+    "cost": "80,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "socialFactor": 3,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "One use only; surgical knives needed to remove it.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1900,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

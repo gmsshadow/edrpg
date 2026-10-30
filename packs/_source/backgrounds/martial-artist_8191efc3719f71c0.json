@@ -1,0 +1,44 @@
+{
+  "_id": "8191efc3719f71c0",
+  "_key": "!items!8191efc3719f71c0",
+  "name": "Martial Artist",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 48-49</p><p><strong>Skills:</strong> Athletics +20, Dodge +20, Fighting +20, Melee Weapons +20, Parry +20</p>",
+    "choices": 2,
+    "free": false,
+    "skills": [
+      {
+        "skill": "athletics",
+        "bonus": 20
+      },
+      {
+        "skill": "dodge",
+        "bonus": 20
+      },
+      {
+        "skill": "fighting",
+        "bonus": 20
+      },
+      {
+        "skill": "meleeWeapons",
+        "bonus": 20
+      },
+      {
+        "skill": "parry",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

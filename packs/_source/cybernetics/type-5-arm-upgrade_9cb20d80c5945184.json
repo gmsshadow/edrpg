@@ -1,0 +1,53 @@
+{
+  "_id": "9cb20d80c5945184",
+  "_key": "!items!9cb20d80c5945184",
+  "name": "Type 5 Arm Upgrade",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces your existing arm. Carrying capacity +100kg.</p>",
+    "cost": "12,050,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 3,
+    "discreet": false,
+    "maxInstalled": 2,
+    "requires": "",
+    "damageBonus": 10,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces your existing arm. Carrying capacity +100kg.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Arm Upgrades"
+    }
+  },
+  "sort": 800,
+  "effects": [],
+  "folder": "2a1f9809bf41937a",
+  "ownership": {
+    "default": 0
+  }
+}

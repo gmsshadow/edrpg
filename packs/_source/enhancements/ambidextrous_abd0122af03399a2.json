@@ -1,0 +1,19 @@
+{
+  "_id": "abd0122af03399a2",
+  "_key": "!items!abd0122af03399a2",
+  "name": "Ambidextrous",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>No main hand. Attacking with a weapon in each hand: -1 To Hit instead of -2. Taken again: no penalty at all.</p>",
+    "effect": "ambidextrous",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

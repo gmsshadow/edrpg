@@ -1,0 +1,32 @@
+{
+  "_id": "b15f6250eecf07c1",
+  "_key": "!items!b15f6250eecf07c1",
+  "name": "Smart Business Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>+5 to Computer Skill score.</p>",
+    "cost": "10,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "socialFactor": 1,
+    "skillMods": [
+      {
+        "skill": "computer",
+        "value": 5
+      }
+    ],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "+5 to Computer Skill score.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1800,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

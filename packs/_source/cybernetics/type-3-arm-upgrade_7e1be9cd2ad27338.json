@@ -1,0 +1,53 @@
+{
+  "_id": "7e1be9cd2ad27338",
+  "_key": "!items!7e1be9cd2ad27338",
+  "name": "Type 3 Arm Upgrade",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces your existing arm. Carrying capacity +60kg.</p>",
+    "cost": "1,042,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "karmaCost": 3,
+    "discreet": false,
+    "maxInstalled": 2,
+    "requires": "",
+    "damageBonus": 6,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces your existing arm. Carrying capacity +60kg.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Arm Upgrades"
+    }
+  },
+  "sort": 600,
+  "effects": [],
+  "folder": "2a1f9809bf41937a",
+  "ownership": {
+    "default": 0
+  }
+}

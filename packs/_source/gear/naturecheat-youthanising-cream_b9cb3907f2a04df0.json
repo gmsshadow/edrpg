@@ -1,0 +1,37 @@
+{
+  "_id": "b9cb3907f2a04df0",
+  "_key": "!items!b9cb3907f2a04df0",
+  "name": "NatureCheat Youthanising Cream",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>One month supply.</p>",
+    "cost": "400,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "cosmetic",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 2,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "One month supply.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Cosmetics"
+    }
+  },
+  "sort": 3700,
+  "effects": [],
+  "folder": "42cdf7205c146532",
+  "ownership": {
+    "default": 0
+  }
+}

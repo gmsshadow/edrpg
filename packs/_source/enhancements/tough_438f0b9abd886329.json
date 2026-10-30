@@ -1,0 +1,19 @@
+{
+  "_id": "438f0b9abd886329",
+  "_key": "!items!438f0b9abd886329",
+  "name": "Tough",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Endurance +5. Stacks, up to the natural human maximum of 80 Endurance (without cybernetics).</p>",
+    "effect": "tough",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

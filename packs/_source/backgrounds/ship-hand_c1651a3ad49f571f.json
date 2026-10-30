@@ -1,0 +1,40 @@
+{
+  "_id": "c1651a3ad49f571f",
+  "_key": "!items!c1651a3ad49f571f",
+  "name": "Ship Hand",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 80-81</p><p><strong>Skills:</strong> Kinetic Weapons +10, Repair +10, Spaceship Weapons +10, Systems +20</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "kineticWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "repair",
+        "bonus": 10
+      },
+      {
+        "skill": "shipWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "systems",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 4400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

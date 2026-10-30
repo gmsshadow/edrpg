@@ -39,19 +39,38 @@ export function signed(n) {
  *
  * @returns {Promise<object>}  { roll, natural, total, bonus, socialFactor, modifier }
  */
-export async function rollSkillDice(actor, skill, { modifier = 0, socialFactor = true, bonus } = {}) {
+export async function rollSkillDice(actor, skill, { modifier = 0, socialFactor = true, bonus, equipment = 0 } = {}) {
    const category = skillCategory[skill];
    // Characters have full skills; opponents give a bonus from their stat block. A weapon attack may override it.
    bonus ??= actor.system.skillBonus?.(skill) ?? 0;
    const sfBonus = socialFactor && socialFactorSkills.includes(skill) ? (actor.system.socialFactor?.value ?? 0) : 0;
-   const formula = sfBonus ? "1d10 + @bonus + @socialFactor + @modifier" : "1d10 + @bonus + @modifier";
-   const roll = await new Roll(formula, { bonus, socialFactor: sfBonus, modifier }).evaluate();
+   let formula = sfBonus ? "1d10 + @bonus + @socialFactor + @modifier" : "1d10 + @bonus + @modifier";
+   if (equipment) formula += " + @equipment";
+   const roll = await new Roll(formula, { bonus, socialFactor: sfBonus, modifier, equipment }).evaluate();
 
    const skillData = actor.system.skills?.[category]?.[skill];
    if (skillData && !skillData.used && actor.isOwner) {
       await actor.update({ [`system.skills.${category}.${skill}.used`]: true });
    }
-   return { roll, natural: roll.dice[0].total, total: roll.total, bonus, socialFactor: sfBonus, modifier };
+   return { roll, natural: roll.dice[0].total, total: roll.total, bonus, socialFactor: sfBonus, modifier, equipment };
+}
+
+/**
+ * Equipment bonuses that apply by default: "always" ones, and the best Medpack for stabilising or treating.
+ *
+ * @param {object[]} bonuses  From IndividualData#itemSkillBonuses.
+ *
+ * @param {object|null} followUp
+ *
+ * @returns {string[]}  Bonus keys.
+ */
+function defaultItemBonuses(bonuses, followUp) {
+   const keys = bonuses.filter((b) => b.when === "always").map((b) => b.key);
+   if (["stabilise", "treat"].includes(followUp?.kind)) {
+      const best = bonuses.filter((b) => b.when === "medical").sort((a, b) => b.value - a.value)[0];
+      if (best) keys.push(best.key);
+   }
+   return keys;
 }
 
 /**
@@ -103,6 +122,8 @@ export async function rollSkillCheck(actor, skill, options = {}) {
    let { difficulty, modifier = 0, mode, prompt = true, karmaReroll = false, socialFactor = sfEligible } = options;
    // Weapon attacks pass their own bonus (rare weapon Skill score bonus / opponent To Hit) and title.
    const { bonus: bonusOverride, label, allowContest = true, followUp = null } = options;
+   const itemBonuses = actor.system.itemSkillBonuses?.(skill) ?? [];
+   let itemBonusKeys = options.itemBonusKeys ?? defaultItemBonuses(itemBonuses, followUp);
    const title = label ?? game.i18n.format("EDRPG.test.SkillCheck", { skill: skillName });
    difficulty ??= game.settings.get("edrpg", "defaultDifficultyNumber");
    socialFactor &&= sfEligible;
@@ -115,17 +136,23 @@ export async function rollSkillCheck(actor, skill, options = {}) {
          title,
          allowContest,
          socialFactor: sfEligible ? { apply: socialFactor, value: sfValue } : null,
+         itemBonuses,
+         itemBonusKeys,
       });
       if (!result) return null;
       if (result.against !== "dn") return startContest(actor, skill, result);
       ({ difficulty, modifier, mode } = result);
+      itemBonusKeys = result.itemBonusKeys;
       socialFactor = sfEligible && result.socialFactor;
    }
 
+   const chosen = itemBonuses.filter((b) => itemBonusKeys.includes(b.key));
+   const equipment = chosen.reduce((n, b) => n + b.value, 0);
    const { roll, natural, bonus, socialFactor: sfBonus } = await rollSkillDice(actor, skill, {
       modifier,
       socialFactor,
       bonus: bonusOverride,
+      equipment,
    });
 
    let outcome;
@@ -143,6 +170,7 @@ export async function rollSkillCheck(actor, skill, options = {}) {
       skillBonus: bonus,
       socialFactor: sfBonus,
       modifier,
+      equipment: chosen.map((b) => ({ label: b.label, value: b.value > 0 ? `+${b.value}` : `${b.value}` })),
       difficulty,
       total: roll.total,
       outcome,
@@ -176,6 +204,7 @@ export async function rollSkillCheck(actor, skill, options = {}) {
                bonus: bonusOverride ?? null,
                label: label ?? null,
                followUp,
+               itemBonusKeys,
                outcome,
                total: roll.total,
             },
@@ -201,7 +230,7 @@ export async function rollSkillCheck(actor, skill, options = {}) {
  *
  * @returns {Promise<object|null>}
  */
-async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, socialFactor, title, allowContest = true }) {
+async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, socialFactor, title, allowContest = true, itemBonuses = [], itemBonusKeys = [] }) {
    const i18n = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
    const esc = foundry.utils.escapeHTML;
    const modeOptions = Object.entries(CONFIG.ChatMessage.modes ?? {})
@@ -270,6 +299,16 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
       </div>`
             : ""
       }
+      ${itemBonuses
+         .map(
+            (b) => `<div class="form-group">
+         <label>${esc(b.label)}: ${signed(b.value)}${b.kind === "score" ? ` <span class="hint">(${i18n("EDRPG.bonusKind.scoreShort", { value: signed(b.raw) })})</span>` : ""}${
+            b.when !== "always" ? ` <span class="hint">— ${i18n(`EDRPG.bonusWhen.${b.when}`)}</span>` : ""
+         }</label>
+         <div class="form-fields"><input type="checkbox" name="item.${b.key}" ${itemBonusKeys.includes(b.key) ? "checked" : ""}></div>
+      </div>`,
+         )
+         .join("")}
       <div class="form-group" data-against="dn">
          <label>${i18n("EDRPG.test.RollType")}</label>
          <div class="form-fields">
@@ -314,6 +353,7 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
       opponentBonus: Number(result.opponentBonus) || 0,
       ties: result.ties ?? DEFAULT_CONTEST_TIES,
       hidden: !!result.hidden,
+      itemBonusKeys: itemBonuses.filter((b) => result[`item.${b.key}`] || result.item?.[b.key.split(".")[0]]?.[b.key.split(".")[1]]).map((b) => b.key),
    };
 }
 
@@ -349,6 +389,7 @@ export async function karmaReroll(message) {
       bonus: data.bonus ?? undefined,
       label: data.label ?? undefined,
       followUp: data.followUp ?? undefined,
+      itemBonusKeys: data.itemBonusKeys ?? undefined,
       prompt: false,
       karmaReroll: true,
    });

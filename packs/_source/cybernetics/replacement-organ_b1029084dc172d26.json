@@ -1,0 +1,53 @@
+{
+  "_id": "b1029084dc172d26",
+  "_key": "!items!b1029084dc172d26",
+  "name": "Replacement Organ",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces a damaged or missing heart, lungs, eyes, kidneys, etc.</p>",
+    "cost": "3,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "karmaCost": 1,
+    "discreet": true,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces a damaged or missing heart, lungs, eyes, kidneys, etc.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Replacements"
+    }
+  },
+  "sort": 100,
+  "effects": [],
+  "folder": "a0785ddebbd81982",
+  "ownership": {
+    "default": 0
+  }
+}

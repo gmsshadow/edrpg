@@ -1,0 +1,27 @@
+{
+  "_id": "7693b4c177862fae",
+  "_key": "!items!7693b4c177862fae",
+  "name": "Skin Tight Flight Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "200cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 1,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 900,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

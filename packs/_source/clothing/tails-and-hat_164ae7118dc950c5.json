@@ -1,0 +1,27 @@
+{
+  "_id": "164ae7118dc950c5",
+  "_key": "!items!164ae7118dc950c5",
+  "name": "Tails and Hat",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "1,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 2,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1700,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

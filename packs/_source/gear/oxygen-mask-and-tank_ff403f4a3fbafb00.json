@@ -1,0 +1,37 @@
+{
+  "_id": "ff403f4a3fbafb00",
+  "_key": "!items!ff403f4a3fbafb00",
+  "name": "Oxygen Mask and Tank",
+  "type": "gear",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>12 hours of oxygen.</p>",
+    "cost": "2cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "general",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "12 hours of oxygen.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "General"
+    }
+  },
+  "sort": 900,
+  "effects": [],
+  "folder": "5a873ca27a32ef8e",
+  "ownership": {
+    "default": 0
+  }
+}

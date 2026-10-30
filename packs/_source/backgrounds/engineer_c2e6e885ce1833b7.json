@@ -1,0 +1,40 @@
+{
+  "_id": "c2e6e885ce1833b7",
+  "_key": "!items!c2e6e885ce1833b7",
+  "name": "Engineer",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 26-27</p><p><strong>Skills:</strong> Computer +10, Cyber +10, Energy Weapons +10, Repair +20</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "computer",
+        "bonus": 10
+      },
+      {
+        "skill": "cyber",
+        "bonus": 10
+      },
+      {
+        "skill": "energyWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "repair",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

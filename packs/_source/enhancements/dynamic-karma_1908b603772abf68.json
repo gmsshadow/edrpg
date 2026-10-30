@@ -1,0 +1,19 @@
+{
+  "_id": "1908b603772abf68",
+  "_key": "!items!1908b603772abf68",
+  "name": "Dynamic Karma",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>When you use two Karma Capabilities during your turn, pay only for the most expensive. Taken again: three capabilities, paying only for the most expensive. Only during your own turn (not when Dodging, Parrying or counter-attacking).</p>",
+    "effect": "dynamicKarma",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -25,7 +25,9 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
 - **Combat:** a Combat tab with weapons, protection and combat Karma; an attack dialog and chat card (range/Finesse +
   Defence + cover vs. To Hit, ammo, Burst margin, Karma boosts and rerolls); damage cards with armour, Hardened,
   knockdown and dying/bleeding-out conditions, plus stabilising and treating wounds.
-- **Compendia:** Karma Capabilities, Weapons, Armour and Opponents (sample).
+- **Compendia:** Backgrounds, Enhancements (automated), Karma Capabilities, Weapons, Armour, Cybernetics (automated),
+  Clothing, Equipment and Opponents (sample).
+- **Character creation** checklist with independent learning and the starting equipment kit.
 - **Item sheets** for Backgrounds (choices used, skill bonuses), Karma Capabilities (category, cost) and Enhancements.
 - Initiative: `1d10 + Tactics bonus`.
 

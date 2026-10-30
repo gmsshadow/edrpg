@@ -1,0 +1,27 @@
+{
+  "_id": "8ce9093de5e0422e",
+  "_key": "!items!8ce9093de5e0422e",
+  "name": "Flight Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Temporary protection in a vacuum. Includes Magnetic Boots.</p>",
+    "cost": "5cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 0,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "Temporary protection in a vacuum. Includes Magnetic Boots.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 800,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "_id": "40652e2f5909ad19",
+  "_key": "!items!40652e2f5909ad19",
+  "name": "Punky Anarchist Garb",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>+2 to Intimidate checks.</p>",
+    "cost": "3cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": -2,
+    "skillMods": [],
+    "rollBonuses": [
+      {
+        "skill": "intimidate",
+        "value": 2,
+        "kind": "roll",
+        "when": "always"
+      }
+    ],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "+2 to Intimidate checks.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1300,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

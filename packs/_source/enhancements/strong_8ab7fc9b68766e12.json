@@ -1,0 +1,19 @@
+{
+  "_id": "8ab7fc9b68766e12",
+  "_key": "!items!8ab7fc9b68766e12",
+  "name": "Strong",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>+2 damage in Fighting and Melee combat; lift an extra 20kg (a normal person lifts 80kg). Stacks, but the damage bonus cannot exceed +10.</p>",
+    "effect": "strong",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

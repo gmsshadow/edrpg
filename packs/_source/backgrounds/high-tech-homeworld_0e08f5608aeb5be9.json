@@ -1,0 +1,44 @@
+{
+  "_id": "0e08f5608aeb5be9",
+  "_key": "!items!0e08f5608aeb5be9",
+  "name": "High Tech Homeworld",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 43-44</p><p><strong>Skills:</strong> Computer +10, Cyber +10, Energy Weapons +10, Science +10, Systems +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "computer",
+        "bonus": 10
+      },
+      {
+        "skill": "cyber",
+        "bonus": 10
+      },
+      {
+        "skill": "energyWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "science",
+        "bonus": 10
+      },
+      {
+        "skill": "systems",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

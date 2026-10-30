@@ -1154,6 +1154,12 @@ li:hover > .ed-row-delete {
    text-align: center;
 }
 
+.edrpg .skill-bonus-list.grants input[type="text"] {
+   flex: 2;
+   width: auto;
+   text-align: left;
+}
+
 .edrpg .item-description {
    display: flex;
    flex-direction: column;
@@ -1417,6 +1423,26 @@ li:hover > .ed-row-delete {
 
 .edrpg .ed-table.gear td.notes {
    font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-table.gear td.qty,
+.edrpg .ed-table.gear th.qty {
+   width: 3.4rem;
+   text-align: center;
+   white-space: nowrap;
+}
+
+.edrpg .ed-table.gear td.qty input {
+   width: 2.2rem;
+   height: 1.3rem;
+   padding: 0;
+   text-align: center;
+   border: 1px solid var(--ed-cell-border);
+   background: var(--ed-white);
+}
+
+.edrpg .skill-bonus-list.roll-bonuses select.narrow {
+   flex: 0 0 7rem;
 }
 
 /* ---------- Weapon / armour item sheet ---------- */
@@ -2140,4 +2166,160 @@ li:hover > .ed-row-delete {
    padding: 0.1rem 0.4rem;
    font-size: var(--font-size-11, 11px);
    line-height: 1.4;
+}
+
+/* ---------- Character creation checklist ---------- */
+
+.edrpg .ed-creation {
+   margin: 0.3rem 0 0.6rem;
+   padding: 0.4rem 0.6rem;
+   border: 1px solid var(--ed-cell-border);
+   border-left: 4px solid #e07b00;
+   background: rgba(224, 123, 0, 0.06);
+}
+
+.edrpg .ed-creation-head {
+   display: flex;
+   gap: 0.6rem;
+   align-items: center;
+}
+
+.edrpg .ed-creation-head h3 {
+   flex: 1;
+   margin: 0;
+   border: none;
+   font-size: var(--font-size-14, 14px);
+   text-transform: uppercase;
+}
+
+.edrpg .ed-creation-progress {
+   font-weight: 700;
+}
+
+.edrpg .ed-creation-head .ed-button {
+   width: auto;
+}
+
+.edrpg .ed-creation-steps {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.15rem 1rem;
+   margin: 0.4rem 0 0.2rem;
+   padding: 0;
+   list-style: none;
+}
+
+.edrpg .ed-creation-steps li {
+   display: flex;
+   gap: 0.35rem;
+   align-items: center;
+   min-height: 1.6rem;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-creation-steps li input[type="checkbox"] {
+   flex: 0 0 auto;
+   width: 1rem;
+   height: 1rem;
+   margin: 0;
+}
+
+.edrpg .ed-creation-steps li i {
+   width: 1rem;
+   text-align: center;
+   opacity: 0.6;
+}
+
+.edrpg .ed-creation-steps li.done i {
+   color: #2c6e49;
+   opacity: 1;
+}
+
+.edrpg .ed-creation-steps li.warn {
+   color: #b8001f;
+}
+
+.edrpg .ed-creation-steps li.warn i {
+   opacity: 1;
+}
+
+.edrpg .ed-creation-steps .step-label {
+   flex: 0 0 auto;
+   font-weight: 700;
+   white-space: nowrap;
+}
+
+.edrpg .ed-creation-steps .step-detail {
+   flex: 1;
+   overflow: hidden;
+   opacity: 0.8;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.edrpg .ed-creation-steps .ed-step-action {
+   flex: 0 0 auto;
+   width: auto;
+   height: auto;
+   padding: 0.05rem 0.4rem;
+   font-size: var(--font-size-11, 11px);
+   line-height: 1.4;
+}
+
+.edrpg .ed-creation .hint {
+   margin: 0.2rem 0 0;
+   font-size: var(--font-size-11, 11px);
+   font-style: italic;
+   opacity: 0.8;
+}
+
+.edrpg-attack .attack-note.scatter {
+   padding: 0.2rem 0.3rem;
+   border-left: 3px solid #b8001f;
+   background: rgba(184, 0, 31, 0.06);
+}
+
+.edrpg-attack .attack-tags {
+   display: flex;
+   gap: 0.2rem;
+   justify-content: center;
+   margin-bottom: 0.2rem;
+}
+
+.edrpg-attack .attack-tags .ed-chip {
+   padding: 0 0.3rem;
+   border-radius: 2px;
+   background: #0b2238;
+   color: #fff;
+   font-size: var(--font-size-10, 10px);
+   text-transform: uppercase;
+}
+
+.edrpg-attack .attack-controls button.counter {
+   border-color: #0b2238;
+   background: linear-gradient(to right, #0b2238, #2c5f8a);
+   color: #fff;
+}
+
+.edrpg-dialog .ed-attack-counter {
+   margin: 0 0 0.3rem;
+   font-weight: 700;
+}
+
+.edrpg .ed-condition-actions button.active {
+   background: #0b2238;
+   color: #fff;
+}
+
+.edrpg .ed-condition .ed-chip.status-aiming,
+.edrpg .ed-condition .ed-chip.status-grabbing {
+   background: #2c5f8a;
+}
+
+.edrpg .ed-condition .ed-chip.status-grabbed {
+   background: #8a5a00;
+}
+
+.edrpg .ed-condition .ed-chip.status-stimmed {
+   background: #5a2c8a;
 }

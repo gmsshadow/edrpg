@@ -1,0 +1,37 @@
+{
+  "_id": "46eefd719e624faf",
+  "_key": "!items!46eefd719e624faf",
+  "name": "Dahan Gold No. 5",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>One month supply.</p>",
+    "cost": "60,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "cosmetic",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 1,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "One month supply.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Cosmetics"
+    }
+  },
+  "sort": 3500,
+  "effects": [],
+  "folder": "42cdf7205c146532",
+  "ownership": {
+    "default": 0
+  }
+}

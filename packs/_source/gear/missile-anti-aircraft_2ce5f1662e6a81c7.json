@@ -1,0 +1,37 @@
+{
+  "_id": "2ce5f1662e6a81c7",
+  "_key": "!items!2ce5f1662e6a81c7",
+  "name": "Missile (Anti-Aircraft)",
+  "type": "gear",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "description": "",
+    "cost": "500cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "ammo",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "Anti-Aircraft",
+    "notes": "",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Ammunition"
+    }
+  },
+  "sort": 5300,
+  "effects": [],
+  "folder": "c7a9c61c7906dea4",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "45c94f12d8b20510",
+  "_key": "!items!45c94f12d8b20510",
+  "name": "Combat Stim: Brutal Plus",
+  "type": "gear",
+  "img": "icons/svg/pill.svg",
+  "system": {
+    "description": "<p>As Combat Stim; you gain Strong and Quick Runner while in effect.</p>",
+    "cost": "10,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "stim",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "brutal",
+    "ammoFor": "",
+    "notes": "As Combat Stim; you gain Strong and Quick Runner while in effect.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Combat Stims"
+    }
+  },
+  "sort": 4000,
+  "effects": [],
+  "folder": "048a8292f6dd6779",
+  "ownership": {
+    "default": 0
+  }
+}

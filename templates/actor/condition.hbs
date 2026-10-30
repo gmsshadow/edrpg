@@ -2,10 +2,16 @@
    <div class="ed-condition-state">
       <span class="ed-condition-label">{{localize "EDRPG.sheet.condition"}}</span>
       {{#each condition.statuses as |s|}}<span class="ed-chip status-{{s.key}}">{{localize s.label}}</span>{{else}}<span class="ed-chip ok">{{localize "EDRPG.status.ok"}}</span>{{/each}}
+      {{#if condition.speed}}<span class="ed-condition-death" data-tooltip="EDRPG.sheet.speedHint">{{localize "EDRPG.sheet.speed" value=condition.speed}}</span>{{/if}}
       <span class="ed-condition-death" data-tooltip="EDRPG.damage.deathAtHint">{{localize "EDRPG.damage.deathAt" value=condition.deathAt}}</span>
    </div>
    {{#if owner}}
    <div class="ed-condition-actions">
+      {{#if condition.alive}}<button type="button" data-action="condition" data-which="aim" class="{{#if condition.aiming}}active{{/if}}" data-tooltip="EDRPG.damage.aimHint"><i class="fa-solid fa-crosshairs"></i> {{#if condition.aiming}}{{localize "EDRPG.damage.stopAiming"}}{{else}}{{localize "EDRPG.damage.aim"}}{{/if}}</button>{{/if}}
+      {{#if condition.grabbed}}<button type="button" data-action="condition" data-which="escapeGrab" data-tooltip="EDRPG.grab.escapeHint"><i class="fa-solid fa-person-running"></i> {{localize "EDRPG.grab.escape"}}</button>{{/if}}
+      {{#if condition.grabbing}}<button type="button" data-action="condition" data-which="releaseGrab"><i class="fa-solid fa-hand"></i> {{localize "EDRPG.grab.release"}}</button>{{/if}}
+      {{#if condition.canStim}}<button type="button" data-action="condition" data-which="injectStim" data-tooltip="EDRPG.stim.injectHint"><i class="fa-solid fa-syringe"></i> {{localize "EDRPG.stim.inject"}}</button>{{/if}}
+      {{#if condition.stimmed}}<button type="button" data-action="condition" data-which="stimEnds" data-tooltip="EDRPG.stim.endsHint"><i class="fa-solid fa-hourglass-end"></i> {{localize "EDRPG.stim.ends"}}</button>{{/if}}
       {{#if condition.knockedOver}}<button type="button" data-action="condition" data-which="standUp"><i class="fa-solid fa-person-arrow-up-from-line"></i> {{localize "EDRPG.damage.standUp"}}</button>{{/if}}
       {{#if condition.bleeding}}
       <button type="button" data-action="condition" data-which="bleedOut" data-tooltip="EDRPG.damage.bleedOutHint"><i class="fa-solid fa-droplet"></i> {{localize "EDRPG.damage.bleedOut"}}</button>

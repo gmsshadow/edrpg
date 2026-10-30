@@ -1,0 +1,37 @@
+{
+  "_id": "f203fda96c34ed4e",
+  "_key": "!items!f203fda96c34ed4e",
+  "name": "Hand Com, Ubifex",
+  "type": "gear",
+  "img": "icons/svg/sound.svg",
+  "system": {
+    "description": "<p>Becomes a regular hand com after a month.</p>",
+    "cost": "60cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "com",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 1,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Becomes a regular hand com after a month.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Coms"
+    }
+  },
+  "sort": 2900,
+  "effects": [],
+  "folder": "7f9e4aae3771afc1",
+  "ownership": {
+    "default": 0
+  }
+}

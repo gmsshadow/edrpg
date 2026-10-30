@@ -1,0 +1,37 @@
+{
+  "_id": "562bcc94ed05dae6",
+  "_key": "!items!562bcc94ed05dae6",
+  "name": "Spaceship Repair Kit, Basic",
+  "type": "gear",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p>Allows emergency and field repairs on your ship.</p>",
+    "cost": "100cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "repair",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Allows emergency and field repairs on your ship.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Repair Kits"
+    }
+  },
+  "sort": 2000,
+  "effects": [],
+  "folder": "3a5a8bb396aa4a7d",
+  "ownership": {
+    "default": 0
+  }
+}

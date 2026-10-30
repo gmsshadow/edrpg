@@ -1,0 +1,19 @@
+{
+  "_id": "6c99110e960a61ec",
+  "_key": "!items!6c99110e960a61ec",
+  "name": "Quick Runner",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Move 2 metres further per turn. Stacks up to three times.</p>",
+    "effect": "quickRunner",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

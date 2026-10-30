@@ -1,0 +1,37 @@
+{
+  "_id": "15f357689f4dcc1a",
+  "_key": "!items!15f357689f4dcc1a",
+  "name": "Sub Machinegun Magazine",
+  "type": "gear",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "description": "",
+    "cost": "1cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "ammo",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "Sub Machinegun",
+    "notes": "",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Ammunition"
+    }
+  },
+  "sort": 4700,
+  "effects": [],
+  "folder": "c7a9c61c7906dea4",
+  "ownership": {
+    "default": 0
+  }
+}

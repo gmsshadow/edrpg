@@ -1,0 +1,37 @@
+{
+  "_id": "7d5d8ce1ba2354b0",
+  "_key": "!items!7d5d8ce1ba2354b0",
+  "name": "Medpack, Standard",
+  "type": "gear",
+  "img": "icons/svg/heal.svg",
+  "system": {
+    "description": "<p>Allows the Medicine Skill to treat injuries. About five uses.</p>",
+    "cost": "3cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "medical",
+    "quantity": 1,
+    "uses": {
+      "value": 5,
+      "max": 5
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Allows the Medicine Skill to treat injuries. About five uses.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medpacks"
+    }
+  },
+  "sort": 1700,
+  "effects": [],
+  "folder": "ca9684b6158c9a77",
+  "ownership": {
+    "default": 0
+  }
+}

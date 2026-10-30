@@ -1,0 +1,19 @@
+{
+  "_id": "4707d4c279feb9c0",
+  "_key": "!items!4707d4c279feb9c0",
+  "name": "Awareness",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Roll Initiative with your Perception bonus instead of your Tactics bonus.</p>",
+    "effect": "awareness",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

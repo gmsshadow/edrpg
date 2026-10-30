@@ -1,0 +1,40 @@
+{
+  "_id": "1810ecc2444b77be",
+  "_key": "!items!1810ecc2444b77be",
+  "name": "Fighter Pilot",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 30-31</p><p><strong>Skills:</strong> Spaceship Piloting +10, Spaceship Weapons +10, Systems +20, Tactics +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "shipPiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "shipWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "systems",
+        "bonus": 20
+      },
+      {
+        "skill": "tactics",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

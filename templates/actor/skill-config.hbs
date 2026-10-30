@@ -35,6 +35,7 @@
          <input type="number" name="{{path}}.capBonus" value="{{skillSource.capBonus}}" step="10">
       </div>
       <p class="hint">{{localize "EDRPG.skillConfig.capBonusHint" cap=rankCap}}</p>
+      {{#if skill.geniusCap}}<p class="hint">{{localize "EDRPG.skillConfig.geniusCap" value=skill.geniusCap}}</p>{{/if}}
    </div>
 
    <h3 class="config-heading">{{localize "EDRPG.skillConfig.modifiers"}}</h3>

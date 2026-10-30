@@ -1,0 +1,27 @@
+{
+  "_id": "85dc594853427089",
+  "_key": "!items!85dc594853427089",
+  "name": "Branded Casual Clothes",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "150cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 1,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1400,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

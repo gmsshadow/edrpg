@@ -1,0 +1,53 @@
+{
+  "_id": "d8ab25476aea20c9",
+  "_key": "!items!d8ab25476aea20c9",
+  "name": "Class 1 Leg Jets",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Fly 20 metres instead of moving. Once per hour.</p>",
+    "cost": "20,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "karmaCost": 2,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "Leg Upgrade",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Fly 20 metres instead of moving. Once per hour.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Leg Add-ons"
+    }
+  },
+  "sort": 4100,
+  "effects": [],
+  "folder": "0a0610245d7054d9",
+  "ownership": {
+    "default": 0
+  }
+}

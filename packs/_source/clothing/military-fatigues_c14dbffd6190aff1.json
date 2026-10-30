@@ -1,0 +1,27 @@
+{
+  "_id": "c14dbffd6190aff1",
+  "_key": "!items!c14dbffd6190aff1",
+  "name": "Military Fatigues",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Lots of pockets for ammunition.</p>",
+    "cost": "5cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 0,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "Lots of pockets for ammunition.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 300,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

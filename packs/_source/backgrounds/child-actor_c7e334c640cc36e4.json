@@ -1,0 +1,36 @@
+{
+  "_id": "c7e334c640cc36e4",
+  "_key": "!items!c7e334c640cc36e4",
+  "name": "Child Actor",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 15</p><p><strong>Skills:</strong> Bluff +20, Diplomacy +20, Melee Weapons +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bluff",
+        "bonus": 20
+      },
+      {
+        "skill": "diplomacy",
+        "bonus": 20
+      },
+      {
+        "skill": "meleeWeapons",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

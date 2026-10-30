@@ -1,0 +1,27 @@
+{
+  "_id": "2750332a5aa9e54f",
+  "_key": "!items!2750332a5aa9e54f",
+  "name": "Arctic Clothes",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Keeps you warm below zero.</p>",
+    "cost": "20cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": -2,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "Keeps you warm below zero.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 400,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

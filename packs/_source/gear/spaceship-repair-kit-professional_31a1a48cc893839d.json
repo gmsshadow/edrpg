@@ -1,0 +1,44 @@
+{
+  "_id": "31a1a48cc893839d",
+  "_key": "!items!31a1a48cc893839d",
+  "name": "Spaceship Repair Kit, Professional",
+  "type": "gear",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p>+4 to Repair for emergency and field repairs on your ship.</p>",
+    "cost": "3,000,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "repair",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [
+      {
+        "skill": "repair",
+        "value": 4,
+        "kind": "roll",
+        "when": "repair"
+      }
+    ],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "+4 to Repair for emergency and field repairs on your ship.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Repair Kits"
+    }
+  },
+  "sort": 2200,
+  "effects": [],
+  "folder": "3a5a8bb396aa4a7d",
+  "ownership": {
+    "default": 0
+  }
+}

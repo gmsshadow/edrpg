@@ -1,0 +1,32 @@
+{
+  "_id": "129bf34376fbb4ee",
+  "_key": "!items!129bf34376fbb4ee",
+  "name": "Self-Taught",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 79-80</p><p>Any two Skills +10 (choose them in the skill list), and gain an Enhancement of your choice.</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "",
+        "bonus": 10
+      },
+      {
+        "skill": "",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 1,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 4300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

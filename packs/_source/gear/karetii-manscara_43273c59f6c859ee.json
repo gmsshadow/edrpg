@@ -1,0 +1,37 @@
+{
+  "_id": "43273c59f6c859ee",
+  "_key": "!items!43273c59f6c859ee",
+  "name": "Karetii Manscara",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>Five uses.</p>",
+    "cost": "2,200cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "cosmetic",
+    "quantity": 1,
+    "uses": {
+      "value": 5,
+      "max": 5
+    },
+    "socialFactor": 1,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Five uses.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Cosmetics"
+    }
+  },
+  "sort": 3300,
+  "effects": [],
+  "folder": "42cdf7205c146532",
+  "ownership": {
+    "default": 0
+  }
+}

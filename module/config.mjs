@@ -31,7 +31,7 @@ export const BASE_SKILL_SCORE = 10;
 export const MAX_SKILL_SCORE = 100;
 
 /** Fighting — the unarmed attack every character has (Core Rules, Basic Melee Weapons). */
-export const fighting = { finesse: 5, damage: "floor(1d10 / 2)" };
+export const fighting = { finesse: 5, damage: "1d10", halve: true };
 
 /**
  * Skills whose rolls receive the Social Factor (Core Rules p.128, Clothing).
@@ -85,6 +85,67 @@ export const karmaRoles = {
 };
 
 /** Which attacks a capability's attack bonus applies to. */
+/**
+ * Enhancements (Core Rules p.25). The key selects what the system automates; taking one again stacks.
+ * - ambidextrous: two-weapon penalty -1 (none the second time)
+ * - awareness: Initiative may use the Perception bonus instead of Tactics
+ * - confident: no Social Factor penalties from equipment, armour or cybernetics
+ * - cyberneticAffinity: +2 Karma for cybernetic upgrades each time
+ * - dynamicKarma: (reminder only) pay for the most expensive of two (three) capabilities used in your turn
+ * - hardToKill: die at minus your maximum Endurance; the second time, Escape Death costs at most 4 Karma
+ * - naturalGenius: +10 to one Skill's Skill Cap (max 100)
+ * - quickRunner: +2m movement each time (max three times)
+ * - strong: +2 Fighting and Melee damage each time (max +10), +20kg lifting
+ * - tough: +5 Endurance each time (natural maximum 80)
+ */
+export const enhancementEffects = {
+   none: "EDRPG.enhancement.effect.none",
+   ambidextrous: "EDRPG.enhancement.effect.ambidextrous",
+   awareness: "EDRPG.enhancement.effect.awareness",
+   confident: "EDRPG.enhancement.effect.confident",
+   cyberneticAffinity: "EDRPG.enhancement.effect.cyberneticAffinity",
+   dynamicKarma: "EDRPG.enhancement.effect.dynamicKarma",
+   hardToKill: "EDRPG.enhancement.effect.hardToKill",
+   naturalGenius: "EDRPG.enhancement.effect.naturalGenius",
+   quickRunner: "EDRPG.enhancement.effect.quickRunner",
+   strong: "EDRPG.enhancement.effect.strong",
+   tough: "EDRPG.enhancement.effect.tough",
+};
+
+/**
+ * When an item's bonus to a Skill check applies. "always" bonuses are added automatically; the others are offered
+ * as tick boxes in the skill check dialog (Medpacks are ticked for Stabilise and Treat wounds).
+ */
+export const bonusConditions = {
+   always: "EDRPG.bonusWhen.always",
+   medical: "EDRPG.bonusWhen.medical",
+   repair: "EDRPG.bonusWhen.repair",
+   hacking: "EDRPG.bonusWhen.hacking",
+   drones: "EDRPG.bonusWhen.drones",
+   other: "EDRPG.bonusWhen.other",
+};
+
+/** Whether a bonus adds to the roll, or to the Skill score (and so maybe the Skill bonus). */
+export const bonusKinds = {
+   roll: "EDRPG.bonusKind.roll",
+   score: "EDRPG.bonusKind.score",
+};
+
+/** Kinds of general equipment (Core Rules pp.128–133). */
+export const gearCategories = {
+   general: "EDRPG.gear.category.general",
+   medical: "EDRPG.gear.category.medical",
+   repair: "EDRPG.gear.category.repair",
+   com: "EDRPG.gear.category.com",
+   cosmetic: "EDRPG.gear.category.cosmetic",
+   stim: "EDRPG.gear.category.stim",
+   injector: "EDRPG.gear.category.injector",
+   ammo: "EDRPG.gear.category.ammo",
+};
+
+/** Base movement per turn for a person (Core Rules, Personal Combat). */
+export const BASE_SPEED = 10;
+
 export const karmaAttackKinds = {
    melee: "EDRPG.karmaAttack.melee",
    ranged: "EDRPG.karmaAttack.ranged",
@@ -102,6 +163,37 @@ export const karmaDefenceKinds = {
 export const rangedAttackSkills = ["kineticWeapons", "energyWeapons", "heavyWeapons"];
 
 /** Attack modifiers (Core Rules pp.57–61). */
+/**
+ * Missed explosives (Core Rules pp.59–60).
+ * Mapped: D10 for direction (1–8 clockwise from the square "above" the target; 9–10 overshoot along the line of fire),
+ * then D10 squares. Mapless: the Grenade or Missile Miss Table.
+ */
+export const scatterDirections = {
+   1: "EDRPG.scatter.dir.1",
+   2: "EDRPG.scatter.dir.2",
+   3: "EDRPG.scatter.dir.3",
+   4: "EDRPG.scatter.dir.4",
+   5: "EDRPG.scatter.dir.5",
+   6: "EDRPG.scatter.dir.6",
+   7: "EDRPG.scatter.dir.7",
+   8: "EDRPG.scatter.dir.8",
+};
+
+/** Mapless miss tables: [highest D10, result key, extra dice formula or null, harmless]. */
+export const missTables = {
+   grenade: [
+      [2, "grenade.short", "1d10", false],
+      [5, "grenade.whoosh", null, true],
+      [9, "grenade.long", "1d10", false],
+      [10, "grenade.random", null, false],
+   ],
+   missile: [
+      [5, "missile.whoosh", null, true],
+      [9, "missile.long", "2d10", false],
+      [10, "missile.short", "2d10", false],
+   ],
+};
+
 export const attackRules = {
    cover: 2, // Target in cover: +2 Defence against ranged weapons.
    aim: 5, // Aimed for a full turn: +5 To Hit.
@@ -109,6 +201,8 @@ export const attackRules = {
    groundTarget: 3, // Missiles/launchers aimed at the ground: 3 + range difficulty.
    grenadeMinimum: 7, // Thrown grenade: 7 or the number of squares, whichever is greater.
    zeroGravity: 2, // Grenades in zero gravity: +2 difficulty.
+   grenadeAdvantage: 7, // Mapless grenade thrown with advantage (round a corner, down stairs).
+   grenadeDisadvantage: 12, // Mapless grenade bowled in the open.
 };
 
 /** Common items are printed in green, rare in blue (Core Rules p.99). */

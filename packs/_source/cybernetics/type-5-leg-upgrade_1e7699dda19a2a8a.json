@@ -1,0 +1,53 @@
+{
+  "_id": "1e7699dda19a2a8a",
+  "_key": "!items!1e7699dda19a2a8a",
+  "name": "Type 5 Leg Upgrade",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces both legs.</p>",
+    "cost": "8,750,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 4,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 10,
+    "resistKnockdown": 3,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces both legs.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Leg Upgrades"
+    }
+  },
+  "sort": 1300,
+  "effects": [],
+  "folder": "641f10f8828ebbea",
+  "ownership": {
+    "default": 0
+  }
+}

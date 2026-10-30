@@ -1,0 +1,27 @@
+{
+  "_id": "e2f05ed82eafc6e1",
+  "_key": "!items!e2f05ed82eafc6e1",
+  "name": "Imperial Noble Dress Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "500,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "socialFactor": 3,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 2100,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "_id": "df977f5c4460800e",
+  "_key": "!items!df977f5c4460800e",
+  "name": "Type 4 Armoured Carapace",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Can no longer wear clothes or other armour. Counts as a space suit: 8 hours of air.</p>",
+    "cost": "8,200,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 4,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 8,
+      "energy": 6,
+      "explosive": 12,
+      "fighting": 5,
+      "melee": 5,
+      "toxic": 0
+    },
+    "toxicAll": true,
+    "hardened": 6,
+    "spaceSuit": true,
+    "grantsWeapon": "",
+    "notes": "Can no longer wear clothes or other armour. Counts as a space suit: 8 hours of air.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Armoured Carapaces"
+    }
+  },
+  "sort": 2700,
+  "effects": [],
+  "folder": "5dfbf9d24f5bd7f1",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "_id": "b2721cb33d9f881d",
+  "_key": "!items!b2721cb33d9f881d",
+  "name": "Class 2 Toxin Injector",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>When Fighting, inflict an extra 2D10 Toxic damage. Twice per day.</p>",
+    "cost": "189,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 1,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "Arm Upgrade",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "When Fighting, inflict an extra 2D10 Toxic damage. Twice per day.",
+    "fightingDamage": "2d10",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": 2,
+      "max": 2
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Arm Add-ons"
+    }
+  },
+  "sort": 3500,
+  "effects": [],
+  "folder": "da74c949b7f29053",
+  "ownership": {
+    "default": 0
+  }
+}

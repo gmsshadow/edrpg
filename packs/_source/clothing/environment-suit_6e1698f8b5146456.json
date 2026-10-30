@@ -1,0 +1,27 @@
+{
+  "_id": "6e1698f8b5146456",
+  "_key": "!items!6e1698f8b5146456",
+  "name": "Environment Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Toxic resistance 20. Includes breathing equipment.</p>",
+    "cost": "30cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": -3,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 20,
+    "spaceSuit": false,
+    "notes": "Toxic resistance 20. Includes breathing equipment.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 500,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

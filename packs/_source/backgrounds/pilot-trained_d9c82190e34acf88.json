@@ -1,0 +1,40 @@
+{
+  "_id": "d9c82190e34acf88",
+  "_key": "!items!d9c82190e34acf88",
+  "name": "Pilot Trained",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Spaceship Piloting +20, Spaceship Weapons +20, Systems +10</p><p>Every player character has this for free (the sheet adds it automatically). Add it only to NPCs or partners who should have it.</p>",
+    "choices": 1,
+    "free": true,
+    "skills": [
+      {
+        "skill": "shipPiloting",
+        "bonus": 20
+      },
+      {
+        "skill": "shipWeapons",
+        "bonus": 20
+      },
+      {
+        "skill": "systems",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "edrpg": {
+      "pilotTrained": true
+    }
+  }
+}

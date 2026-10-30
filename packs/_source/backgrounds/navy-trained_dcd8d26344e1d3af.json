@@ -1,0 +1,56 @@
+{
+  "_id": "dcd8d26344e1d3af",
+  "_key": "!items!dcd8d26344e1d3af",
+  "name": "Navy Trained",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 56-58</p><p><strong>Skills:</strong> Dodge +10, Energy Weapons +10, Fighting +10, Repair +20, Security +10, Spaceship Piloting +10, Spaceship Weapons +10, Systems +20</p>",
+    "choices": 2,
+    "free": false,
+    "skills": [
+      {
+        "skill": "dodge",
+        "bonus": 10
+      },
+      {
+        "skill": "energyWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "fighting",
+        "bonus": 10
+      },
+      {
+        "skill": "repair",
+        "bonus": 20
+      },
+      {
+        "skill": "security",
+        "bonus": 10
+      },
+      {
+        "skill": "shipPiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "shipWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "systems",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "23964629998c3cce",
+  "_key": "!items!23964629998c3cce",
+  "name": "Tailored Business Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "100cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 1,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 700,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

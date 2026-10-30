@@ -1,0 +1,40 @@
+{
+  "_id": "324707943f76ad1f",
+  "_key": "!items!324707943f76ad1f",
+  "name": "Cheerleader",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 13-14</p><p><strong>Skills:</strong> Athletics +20, Charm +10, Sleight of Hand +10, Stealth +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "athletics",
+        "bonus": 20
+      },
+      {
+        "skill": "charm",
+        "bonus": 10
+      },
+      {
+        "skill": "sleightOfHand",
+        "bonus": 10
+      },
+      {
+        "skill": "stealth",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

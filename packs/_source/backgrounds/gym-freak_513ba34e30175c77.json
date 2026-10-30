@@ -1,0 +1,37 @@
+{
+  "_id": "513ba34e30175c77",
+  "_key": "!items!513ba34e30175c77",
+  "name": "Gym Freak",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 39-40</p><p><strong>Skills:</strong> Athletics +10</p><p><strong>Enhancements:</strong> Quick Runner &amp; Strong</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "athletics",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [
+      {
+        "name": "Quick Runner",
+        "skill": ""
+      },
+      {
+        "name": "Strong",
+        "skill": ""
+      }
+    ],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

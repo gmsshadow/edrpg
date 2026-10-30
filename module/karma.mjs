@@ -62,7 +62,8 @@ export async function useKarmaCapability(actor, capability) {
       ui.notifications.warn(game.i18n.format("EDRPG.karma.usedThisTurn", { name: capability.name }));
       return null;
    }
-   const cost = sys.costAll ? karma : sys.cost;
+   // Escape Death costs all Karma — at most 4 with Hard to Kill taken twice.
+   const cost = sys.costAll ? (actor.system.hardToKill >= 2 ? Math.min(karma, 4) : karma) : sys.cost;
    if (sys.costAll ? karma < 1 : karma < cost) {
       ui.notifications.warn(game.i18n.format("EDRPG.karma.notEnough", { name: capability.name, cost, karma }));
       return null;

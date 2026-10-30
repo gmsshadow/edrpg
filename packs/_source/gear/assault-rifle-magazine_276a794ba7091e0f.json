@@ -1,0 +1,37 @@
+{
+  "_id": "276a794ba7091e0f",
+  "_key": "!items!276a794ba7091e0f",
+  "name": "Assault Rifle Magazine",
+  "type": "gear",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "description": "",
+    "cost": "1cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "ammo",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "Assault Rifle",
+    "notes": "",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Ammunition"
+    }
+  },
+  "sort": 4900,
+  "effects": [],
+  "folder": "c7a9c61c7906dea4",
+  "ownership": {
+    "default": 0
+  }
+}

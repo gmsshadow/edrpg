@@ -1,0 +1,19 @@
+{
+  "_id": "c42aded4a6580ecd",
+  "_key": "!items!c42aded4a6580ecd",
+  "name": "Natural Genius",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>One Skill (named by your background, or your choice) has its Skill Cap raised by 10, to a maximum of 100. Remains 10 higher at every Rank.</p>",
+    "effect": "naturalGenius",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

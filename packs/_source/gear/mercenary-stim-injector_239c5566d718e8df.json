@@ -1,0 +1,37 @@
+{
+  "_id": "239c5566d718e8df",
+  "_key": "!items!239c5566d718e8df",
+  "name": "Mercenary Stim Injector",
+  "type": "gear",
+  "img": "icons/svg/pill.svg",
+  "system": {
+    "description": "<p>Automatic: roll percentile at 0 Endurance or below; 100 overloads your heart.</p>",
+    "cost": "9,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "injector",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": 70,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Automatic: roll percentile at 0 Endurance or below; 100 overloads your heart.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Combat Stims"
+    }
+  },
+  "sort": 4300,
+  "effects": [],
+  "folder": "048a8292f6dd6779",
+  "ownership": {
+    "default": 0
+  }
+}

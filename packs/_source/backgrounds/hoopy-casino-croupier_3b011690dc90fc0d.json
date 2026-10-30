@@ -1,0 +1,36 @@
+{
+  "_id": "3b011690dc90fc0d",
+  "_key": "!items!3b011690dc90fc0d",
+  "name": "Hoopy Casino Croupier",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 45-46</p><p><strong>Skills:</strong> Gambling +20, Perception +10, Sleight of Hand +20</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "gambling",
+        "bonus": 20
+      },
+      {
+        "skill": "perception",
+        "bonus": 10
+      },
+      {
+        "skill": "sleightOfHand",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

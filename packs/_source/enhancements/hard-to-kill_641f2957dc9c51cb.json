@@ -1,0 +1,19 @@
+{
+  "_id": "641f2957dc9c51cb",
+  "_key": "!items!641f2957dc9c51cb",
+  "name": "Hard to Kill",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You die only when your Endurance reaches a negative number equal to your maximum Endurance (instead of half). Taken again: Escape Death costs at most 4 Karma points.</p>",
+    "effect": "hardToKill",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

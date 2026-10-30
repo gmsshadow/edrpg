@@ -28,6 +28,10 @@ export const STATUS = {
    bleeding: "bleeding",
    stabilised: "edrpgStabilised",
    dead: "dead",
+   aiming: "edrpgAiming",
+   grabbed: "edrpgGrabbed",
+   grabbing: "edrpgGrabbing",
+   stimmed: "edrpgStimmed",
 };
 
 /** Rename/add the status effects at init, listing the system's conditions first. */
@@ -38,6 +42,10 @@ export function registerStatusEffects() {
       { id: STATUS.bleeding, name: "EDRPG.status.bleeding", img: "icons/svg/blood.svg" },
       { id: STATUS.stabilised, name: "EDRPG.status.stabilised", img: "icons/svg/regen.svg" },
       { id: STATUS.dead, name: "EDRPG.status.dead", img: "icons/svg/skull.svg" },
+      { id: STATUS.aiming, name: "EDRPG.status.aiming", img: "icons/svg/target.svg" },
+      { id: STATUS.grabbed, name: "EDRPG.status.grabbed", img: "icons/svg/net.svg" },
+      { id: STATUS.grabbing, name: "EDRPG.status.grabbing", img: "icons/svg/combat.svg" },
+      { id: STATUS.stimmed, name: "EDRPG.status.stimmed", img: "icons/svg/pill.svg" },
    ];
    const rest = CONFIG.statusEffects.filter((e) => !ours.some((o) => o.id === e.id));
    CONFIG.statusEffects = [...ours.map((o) => ({ ...CONFIG.statusEffects.find((e) => e.id === o.id), ...o })), ...rest];
@@ -77,9 +85,20 @@ export function burstExtra(burst, margin) {
  */
 export function bestArmour(actor, type) {
    let best = null;
-   for (const item of actor.itemTypes?.armour ?? []) {
+   // Worn armour, Armoured Carapace cybernetics, and the Environment Suit's Toxic resistance.
+   const protective = [
+      ...(actor.itemTypes?.armour ?? []).filter((a) => a.system.worn),
+      ...(actor.itemTypes?.cybernetic ?? []).filter((c) => c.system.isArmour),
+   ];
+   if (type === "toxic") {
+      for (const item of (actor.itemTypes?.clothing ?? []).filter((c) => c.system.worn && c.system.toxicResistance)) {
+         if (!best || item.system.toxicResistance > best.absorb) {
+            best = { name: item.name, absorb: item.system.toxicResistance, hardened: null, all: false };
+         }
+      }
+   }
+   for (const item of protective) {
       const s = item.system;
-      if (!s.worn) continue;
       const all = type === "toxic" && s.toxicAll;
       const absorb = all ? Infinity : (s.absorb?.[type] ?? 0);
       if (absorb <= 0) continue;
@@ -99,7 +118,9 @@ function d10Results(...rolls) {
 
 /** Endurance at which the actor dies: a negative score equal to half its maximum. */
 function deathAt(actor) {
-   return -(actor.system.endurance.max ?? 0) / 2;
+   const max = actor.system.endurance.max ?? 0;
+   // Hard to Kill: die only at a negative score equal to maximum Endurance.
+   return actor.system.hardToKill ? -max : -max / 2;
 }
 
 /* -------------------------------------------- */
@@ -126,6 +147,8 @@ export async function rollDamage(attack, attacker) {
       targetName: attack.targetName,
       divided: !!attack.divideFire,
       explosive: !!attack.isExplosive,
+      // A free attack (point blank / running away) that knocks the target over ends their turn (p.60).
+      free: !!attack.free,
       amounts: [],
       applied: [],
    };
@@ -146,6 +169,11 @@ export async function rollDamage(attack, attacker) {
       const roll = await new Roll(formula).evaluate();
       rolls.push(roll);
       state.base = { formula, total: roll.total };
+      // Fighting: 1D10 halved, rounding up; an even die disarms the target (Core Rules p.60).
+      if (attack.halveDamage) {
+         state.base = { formula: game.i18n.format("EDRPG.damage.halved", { formula }), total: Math.ceil(roll.total / 2) };
+         state.disarm = d10Results(roll).some((r) => r % 2 === 0);
+      }
       const extra = burstExtra(attack.burst, attack.margin);
       let burstTotal = 0;
       if (extra?.dice) {
@@ -157,10 +185,15 @@ export async function rollDamage(attack, attacker) {
          burstTotal = extra.flat;
          state.burst = { formula: game.i18n.format("EDRPG.damage.energyBurst", { points: attack.margin }), total: burstTotal };
       }
-      let total = roll.total + burstTotal;
+      // Strong: +2 Fighting and Melee damage per Enhancement (max +10).
+      const strong = attack.isMelee ? (attacker.system.damageBonus ?? 0) : 0;
+      if (strong) state.strong = strong;
+      let total = state.base.total + burstTotal + strong;
       if (state.divided) total = Math.floor(total / 2);
-      const tens = d10Results(...rolls).includes(10);
+      const tenCount = d10Results(...rolls).filter((r) => r === 10).length;
+      const tens = tenCount > 0;
       state.tens = tens;
+      state.tenCount = tenCount;
       state.knock = tens && attack.damageType !== "energy";
       state.noKnockEnergy = tens && attack.damageType === "energy";
       state.dice = d10Results(...rolls);
@@ -190,9 +223,11 @@ export async function renderDamageCard(state) {
       main: state.amounts.length === 1 ? state.amounts[0] : null,
       applied: state.applied.map((a) => ({
          ...a,
+         stimText: a.stim ? stimText(a.name, a.stim) : null,
          flags: [
             a.knocked && !a.stayedStanding && !a.conditions.includes("dead") ? "EDRPG.status.knockedOver" : null,
             a.stayedStanding ? "EDRPG.damage.stayedStanding" : null,
+            a.resisted ? "EDRPG.damage.resistedKnockdown" : null,
             ...(a.escaped ? ["EDRPG.damage.escapedDeath"] : a.conditions.map((c) => `EDRPG.status.${c}`)),
          ].filter(Boolean),
       })),
@@ -241,8 +276,17 @@ export async function applyDamage(actor, { amount, damageType, knock = false, is
    const dyingBefore = actor.getFlag("edrpg", "dying") ?? null;
 
    await actor.update({ "system.endurance.value": after });
+   // Taking damage spoils an aim (Core Rules p.61).
+   if (taken > 0 && has(actor, STATUS.aiming)) await actor.toggleStatusEffect(STATUS.aiming, { active: false });
    const conditions = await updateCondition(actor, after, { knock, isFighting, cauterised: damageType === "energy", wounded: taken > 0 });
    if (rolls.length && game.dice3d) for (const r of rolls) game.dice3d.showForRoll(r, game.user, true);
+   // Dropped: an automatic Stim injector may fire (p.130).
+   let stim = null;
+   if (conditions.includes("unconscious")) {
+      stim = await tryAutoInjector(actor);
+      if (stim?.injected) conditions.splice(conditions.indexOf("unconscious"), 1, "stimmed");
+      if (stim?.died) conditions.splice(0, conditions.length, "dead");
+   }
 
    return {
       uuid: actor.uuid,
@@ -257,6 +301,7 @@ export async function applyDamage(actor, { amount, damageType, knock = false, is
       max: actor.system.endurance.max,
       knocked: knock,
       conditions,
+      stim,
       statusesBefore,
       dyingBefore,
    };
@@ -289,8 +334,11 @@ async function updateCondition(actor, endurance, { knock = false, isFighting = f
       await markDefeated(actor);
       result.push("dead");
    } else if (endurance <= 0) {
-      await set("unconscious", true);
-      result.push("unconscious");
+      // Combat Stims keep you conscious at 0 Endurance or below (you still bleed and can still die).
+      if (!has(actor, STATUS.stimmed)) {
+         await set("unconscious", true);
+         result.push("unconscious");
+      }
       if (endurance < 0 && wounded && !isFighting) {
          await set("stabilised", false);
          await set("bleeding", true);
@@ -547,12 +595,16 @@ async function execute(action) {
       for (const uuid of action.targetUuids) {
          const actor = await fromUuid(uuid);
          if (!actor?.system?.endurance) continue;
+         // Resist Knockdown (N): ignore the first N tens on the damage dice (Core Rules p.125).
+         const resist = actor.system.resistKnockdown ?? 0;
+         const knock = state.explosive ? state.knock : state.knock && (state.tenCount ?? 1) > resist;
          const record = await applyDamage(actor, {
             amount: amount.value,
             damageType: state.damageType,
-            knock: state.knock,
+            knock,
             isFighting: state.isFighting,
          });
+         if (state.knock && !knock) record.resisted = true;
          record.amountKey = amount.key;
          state.applied.push(record);
       }
@@ -581,8 +633,14 @@ export function registerDamageHooks() {
    });
    Hooks.on("edrpg.skillCheck", (message, result) => onSkillCheckResult(message, result));
    // Bleeding out: roll at the start of the bleeding combatant's turn.
-   Hooks.on("combatTurnChange", (combat) => {
+   Hooks.on("combatTurnChange", async (combat, prior) => {
       if (!game.user.isActiveGM) return;
+      // A failed automatic Stim injector tries again at the end of each of the wearer's turns.
+      const previous = prior?.combatantId ? combat.combatants.get(prior.combatantId)?.actor : null;
+      if (previous?.getFlag("edrpg", "injectorPending") && has(previous, STATUS.unconscious) && !has(previous, STATUS.dead)) {
+         const result = await tryAutoInjector(previous);
+         if (result) await postStimMessage(previous, result);
+      }
       const actor = combat.combatant?.actor;
       if (actor && has(actor, STATUS.bleeding)) bleedOut(actor);
    });
@@ -682,6 +740,25 @@ export function onRenderDamage(message, html) {
       }
    }
 
+   // Attacker: a Toxin Injector (or similar) adds its extra damage to a Fighting hit, once per hit.
+   if (attacker?.isOwner && state.isFighting && !state.explosive) {
+      const used = new Set(state.extraRolled ?? []);
+      for (const item of attacker.itemTypes?.cybernetic ?? []) {
+         const s = item.system;
+         if (!s.fightingDamage || used.has(item.id)) continue;
+         const left = s.uses?.max !== null ? (s.uses.value ?? 0) : null;
+         if (left === 0) continue;
+         add(
+            `<i class="fa-solid fa-syringe"></i> ${foundry.utils.escapeHTML(item.name)} (+${s.fightingDamage.toUpperCase()}${left !== null ? `, ${i18n("EDRPG.stim.usesLeft", { left })}` : ""})`,
+            async () => {
+               await rollExtraDamage(state, attacker, item);
+               if (message.isOwner) await message.setFlag("edrpg", "damage.extraRolled", [...used, item.id]);
+            },
+            "karma",
+         );
+      }
+   }
+
    // Targets' owners: Stay Standing after a knockdown, Escape Death after a hit that dropped them below 1.
    state.applied.forEach((record, index) => {
       if (record.escaped) return;
@@ -735,12 +812,19 @@ export function conditionView(actor) {
       statuses,
       value,
       max,
-      deathAt: -Math.ceil(max / 2),
+      deathAt: actor.system.hardToKill ? -max : -Math.ceil(max / 2),
       knockedOver: has(actor, STATUS.knockedOver),
       bleeding: has(actor, STATUS.bleeding),
       dead: has(actor, STATUS.dead),
       wounded: value < max && !has(actor, STATUS.dead),
+      aiming: has(actor, STATUS.aiming),
+      grabbed: has(actor, STATUS.grabbed),
+      grabbing: has(actor, STATUS.grabbing),
+      stimmed: has(actor, STATUS.stimmed),
+      canStim: !has(actor, STATUS.stimmed) && !has(actor, STATUS.dead) && stimDrugs(actor).length > 0,
+      alive: !has(actor, STATUS.dead),
       cauterised: !!actor.getFlag("edrpg", "dying")?.cauterised,
+      speed: typeof actor.system.speed === "number" ? actor.system.speed : null,
    };
 }
 
@@ -762,7 +846,226 @@ export async function conditionAction(actor, which) {
          return promptStabilise(actor);
       case "treatWounds":
          return promptTreatWounds(actor);
-      case "restDay":
+      case "restDay": {
+         // A day's rest: natural healing, and per-day cybernetics (Toxin Injectors) recharge.
+         const recharge = actor.itemTypes?.cybernetic?.filter((c) => c.system.uses?.max !== null && c.system.uses.value < c.system.uses.max) ?? [];
+         if (recharge.length) await actor.updateEmbeddedDocuments("Item", recharge.map((c) => ({ _id: c.id, "system.uses.value": c.system.uses.max })));
          return heal(actor, 5, game.i18n.localize("EDRPG.damage.naturalHealing"));
+      }
+      case "aim":
+         return actor.toggleStatusEffect(STATUS.aiming, { active: !has(actor, STATUS.aiming) });
+      case "escapeGrab":
+         return (await import("./grab.mjs")).escapeGrab(actor);
+      case "releaseGrab":
+         return (await import("./grab.mjs")).releaseGrab(actor);
+      case "injectStim":
+         return promptInjectStim(actor);
+      case "stimEnds":
+         return endStim(actor);
    }
+}
+
+/* -------------------------------------------- */
+/*  Combat Stims                                */
+/* -------------------------------------------- */
+
+/**
+ * Carried Combat Stim doses.
+ *
+ * @param {Actor} actor
+ *
+ * @returns {Item[]}
+ */
+function stimDrugs(actor) {
+   return (actor.itemTypes?.gear ?? []).filter((g) => g.system.category === "stim" && g.system.quantity > 0 && g.system.location === "carried");
+}
+
+/**
+ * Carried Stim injectors, best first.
+ *
+ * @param {Actor} actor
+ *
+ * @param {boolean} [automatic]  Only automatic dispensers (below 100%: the manual syringe needs an action).
+ *
+ * @returns {Item[]}
+ */
+function stimInjectors(actor, automatic = false) {
+   return (actor.itemTypes?.gear ?? [])
+      .filter((g) => g.system.category === "injector" && g.system.location === "carried" && g.system.injectionSuccess !== null)
+      .filter((g) => !automatic || g.system.injectionSuccess < 100)
+      .sort((a, b) => b.system.injectionSuccess - a.system.injectionSuccess);
+}
+
+/**
+ * Inject a dose: use it up, set the Stimmed status, and wake an unconscious character (who starts their next turn
+ * knocked over). An automatic dispenser fires as you black out, so you never fall unconscious or over.
+ *
+ * @param {Actor} actor
+ *
+ * @param {Item} drug
+ *
+ * @param {object} [options]
+ *
+ * @param {boolean} [options.automatic]
+ */
+async function injectStim(actor, drug, { automatic = false } = {}) {
+   await drug.update({ "system.quantity": drug.system.quantity - 1 });
+   await actor.setFlag("edrpg", "stim", { name: drug.name, effect: drug.system.stimEffect ?? "" });
+   await actor.unsetFlag("edrpg", "injectorPending");
+   if (!has(actor, STATUS.stimmed)) await actor.toggleStatusEffect(STATUS.stimmed, { active: true });
+   if (has(actor, STATUS.unconscious)) {
+      await actor.toggleStatusEffect(STATUS.unconscious, { active: false });
+      if (!automatic && !has(actor, STATUS.knockedOver)) await actor.toggleStatusEffect(STATUS.knockedOver, { active: true });
+   }
+}
+
+/**
+ * An automatic dispenser fires when its wearer drops to 0 Endurance or less: roll percentile against its Injection
+ * Success score; a roll of 100 overloads the heart (Core Rules p.130).
+ *
+ * @param {Actor} actor
+ *
+ * @returns {Promise<object|null>}  { roll, chance, injector, drug, injected, died } or null if no dispenser and dose.
+ */
+async function tryAutoInjector(actor) {
+   const injector = stimInjectors(actor, true)[0];
+   const drug = stimDrugs(actor)[0];
+   if (!injector || !drug || has(actor, STATUS.stimmed)) return null;
+   const roll = await new Roll("1d100").evaluate();
+   if (game.dice3d) game.dice3d.showForRoll(roll, game.user, true);
+   const chance = injector.system.injectionSuccess;
+   const result = { roll: roll.total, chance, injector: injector.name, drug: drug.name, injected: false, died: false };
+   if (roll.total === 100) {
+      result.died = true;
+      await actor.unsetFlag("edrpg", "injectorPending");
+      for (const key of ["unconscious", "bleeding", "stabilised"]) {
+         if (has(actor, STATUS[key])) await actor.toggleStatusEffect(STATUS[key], { active: false });
+      }
+      await actor.toggleStatusEffect(STATUS.dead, { active: true, overlay: true });
+      await markDefeated(actor);
+   } else if (roll.total <= chance) {
+      result.injected = true;
+      // On the first try the dispenser fires before you black out; a later retry wakes you, knocked over.
+      await injectStim(actor, drug, { automatic: !actor.getFlag("edrpg", "injectorPending") });
+   } else {
+      await actor.setFlag("edrpg", "injectorPending", true);
+   }
+   return result;
+}
+
+/**
+ * Chat line for an automatic injector roll made outside a damage card.
+ *
+ * @param {Actor} actor
+ *
+ * @param {object} result
+ */
+async function postStimMessage(actor, result) {
+   return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      flavor: game.i18n.localize("EDRPG.stim.title"),
+      content: `<div class="edrpg edrpg-chat edrpg-condition"><p>${stimText(actor.name, result)}</p></div>`,
+   });
+}
+
+/**
+ * @param {string} name
+ *
+ * @param {object} result
+ *
+ * @returns {string}
+ */
+export function stimText(name, result) {
+   const key = result.died ? "EDRPG.stim.overload" : result.injected ? "EDRPG.stim.injected" : "EDRPG.stim.failed";
+   return game.i18n.format(key, { name: foundry.utils.escapeHTML(name), ...result });
+}
+
+/**
+ * Inject a Combat Stim by hand (or with a dispenser), choosing the dose.
+ *
+ * @param {Actor} actor
+ */
+async function promptInjectStim(actor) {
+   const drugs = stimDrugs(actor);
+   if (!drugs.length) return ui.notifications.warn("EDRPG.stim.noDose", { localize: true });
+   if (!stimInjectors(actor).length) return ui.notifications.warn("EDRPG.stim.noInjector", { localize: true });
+   let drug = drugs[0];
+   if (drugs.length > 1) {
+      const result = await foundry.applications.api.DialogV2.input({
+         window: { title: game.i18n.localize("EDRPG.stim.inject"), icon: "fa-solid fa-syringe" },
+         classes: ["edrpg", "edrpg-dialog"],
+         content: `<div class="form-group"><label>${game.i18n.localize("EDRPG.stim.dose")}</label><div class="form-fields"><select name="drug">${drugs
+            .map((d) => `<option value="${d.id}">${foundry.utils.escapeHTML(d.name)} (${d.system.quantity})</option>`)
+            .join("")}</select></div></div>`,
+         ok: { label: "EDRPG.stim.inject", icon: "fa-solid fa-syringe" },
+         rejectClose: false,
+      });
+      if (!result) return;
+      drug = actor.items.get(result.drug) ?? drug;
+   }
+   await injectStim(actor, drug);
+   return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: `<div class="edrpg edrpg-chat edrpg-condition"><p>${game.i18n.format("EDRPG.stim.manual", { name: foundry.utils.escapeHTML(actor.name), drug: foundry.utils.escapeHTML(drug.name) })}</p></div>`,
+   });
+}
+
+/**
+ * The stim wears off (about an hour): at 0 Endurance or less you fall unconscious.
+ *
+ * @param {Actor} actor
+ */
+async function endStim(actor) {
+   if (has(actor, STATUS.stimmed)) await actor.toggleStatusEffect(STATUS.stimmed, { active: false });
+   await actor.unsetFlag("edrpg", "stim");
+   if (actor.system.endurance.value <= 0 && !has(actor, STATUS.dead) && !has(actor, STATUS.unconscious)) {
+      await actor.toggleStatusEffect(STATUS.unconscious, { active: true });
+   }
+}
+
+/* -------------------------------------------- */
+/*  Toxin Injector                              */
+/* -------------------------------------------- */
+
+/**
+ * Extra damage from a cybernetic on a Fighting hit (Toxin Injector), posted as its own damage card.
+ *
+ * @param {object} damage    The Fighting hit's damage card state.
+ *
+ * @param {Actor} attacker
+ *
+ * @param {Item} item        The cybernetic.
+ */
+export async function rollExtraDamage(damage, attacker, item) {
+   const s = item.system;
+   if (s.uses?.max !== null && (s.uses.value ?? 0) < 1) return ui.notifications.warn(game.i18n.format("EDRPG.stim.noUses", { name: item.name }));
+   const roll = await new Roll(s.fightingDamage).evaluate();
+   if (s.uses?.max !== null) await item.update({ "system.uses.value": s.uses.value - 1 });
+   const state = {
+      actorUuid: damage.actorUuid,
+      actorName: damage.actorName,
+      weaponName: item.name,
+      damageType: s.fightingDamageType || "toxic",
+      isFighting: false,
+      targetUuid: damage.targetUuid,
+      targetName: damage.targetName,
+      divided: false,
+      explosive: false,
+      free: false,
+      // An injection, not a blow: it doesn't knock anyone over.
+      knock: false,
+      extra: true,
+      base: { formula: s.fightingDamage.toUpperCase(), total: roll.total },
+      dice: d10Results(roll),
+      amounts: [{ key: "hit", value: roll.total, label: game.i18n.localize("EDRPG.damage.title") }],
+      applied: [],
+   };
+   return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: attacker }),
+      flavor: game.i18n.format("EDRPG.damage.flavor", { weapon: item.name }),
+      content: await renderDamageCard(state),
+      rolls: [roll],
+      sound: game.dice3d ? null : CONFIG.sounds.dice,
+      flags: { edrpg: { damage: state } },
+   });
 }

@@ -1,0 +1,27 @@
+{
+  "_id": "4fc46c5bf5c7e141",
+  "_key": "!items!4fc46c5bf5c7e141",
+  "name": "Casual Clothes",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "1cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 0,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 100,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

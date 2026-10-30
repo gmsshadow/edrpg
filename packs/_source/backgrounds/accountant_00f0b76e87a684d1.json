@@ -1,0 +1,40 @@
+{
+  "_id": "00f0b76e87a684d1",
+  "_key": "!items!00f0b76e87a684d1",
+  "name": "Accountant",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 01</p><p><strong>Skills:</strong> Bluff +10, Computer +10, Culture & Law +20, Dodge +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bluff",
+        "bonus": 10
+      },
+      {
+        "skill": "computer",
+        "bonus": 10
+      },
+      {
+        "skill": "cultureLaw",
+        "bonus": 20
+      },
+      {
+        "skill": "dodge",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

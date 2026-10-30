@@ -1,0 +1,41 @@
+{
+  "_id": "a7783d54c2753a77",
+  "_key": "!items!a7783d54c2753a77",
+  "name": "Trucker",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 91-92</p><p><strong>Skills:</strong> Trading +10, Vehicle Piloting +10, Vehicle Weapons +10</p><p><strong>Enhancement:</strong> Tough</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "trading",
+        "bonus": 10
+      },
+      {
+        "skill": "vehiclePiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "vehicleWeapons",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [
+      {
+        "name": "Tough",
+        "skill": ""
+      }
+    ],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 5000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

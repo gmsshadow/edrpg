@@ -1,0 +1,37 @@
+{
+  "_id": "78f9d5effc9c456f",
+  "_key": "!items!78f9d5effc9c456f",
+  "name": "Manual Syringe",
+  "type": "gear",
+  "img": "icons/svg/pill.svg",
+  "system": {
+    "description": "<p>Takes an action to apply.</p>",
+    "cost": "2mcr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "injector",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": 100,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Takes an action to apply.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Combat Stims"
+    }
+  },
+  "sort": 4100,
+  "effects": [],
+  "folder": "048a8292f6dd6779",
+  "ownership": {
+    "default": 0
+  }
+}

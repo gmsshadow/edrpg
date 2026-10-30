@@ -1,0 +1,53 @@
+{
+  "_id": "008f0370e0b3fca1",
+  "_key": "!items!008f0370e0b3fca1",
+  "name": "Type 2 Armoured Carapace",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Can no longer wear clothes or other armour.</p>",
+    "cost": "242,000cr",
+    "rarity": "common",
+    "location": "carried",
+    "karmaCost": 4,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 5,
+      "energy": 3,
+      "explosive": 5,
+      "fighting": 3,
+      "melee": 3,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": 8,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Can no longer wear clothes or other armour.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Armoured Carapaces"
+    }
+  },
+  "sort": 2500,
+  "effects": [],
+  "folder": "5dfbf9d24f5bd7f1",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "_id": "b0a99fdabb8b54e4",
+  "_key": "!items!b0a99fdabb8b54e4",
+  "name": "Class 3 Retractable Laser Pistol",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Hidden Magnetising Hotshot Laserpistol in the arm.</p>",
+    "cost": "4,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 2,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "Arm Upgrade",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "Magnetising Hotshot Laserpistol",
+    "notes": "Hidden Magnetising Hotshot Laserpistol in the arm.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Arm Add-ons"
+    }
+  },
+  "sort": 4000,
+  "effects": [],
+  "folder": "da74c949b7f29053",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "_id": "0e86f4f8156e41d8",
+  "_key": "!items!0e86f4f8156e41d8",
+  "name": "Lave Radio Host",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 47</p><p><strong>Skills:</strong> Bluff +20, Charm +10, Insight +20</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bluff",
+        "bonus": 20
+      },
+      {
+        "skill": "charm",
+        "bonus": 10
+      },
+      {
+        "skill": "insight",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

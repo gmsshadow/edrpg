@@ -10,12 +10,12 @@
       <label>{{localize "EDRPG.item.rarity"}}</label>
       <div class="form-fields"><select name="system.rarity" {{#unless editable}}disabled{{/unless}}>{{selectOptions rarities selected=source.rarity localize=true}}</select></div>
    </div>
-   {{#if onActor}}
+   {{#if onActor}}{{#unless isCybernetic}}
    <div class="form-group">
       <label>{{localize "EDRPG.item.location"}}</label>
       <div class="form-fields"><select name="system.location" {{#unless editable}}disabled{{/unless}}>{{selectOptions equipmentLocations selected=source.location localize=true}}</select></div>
    </div>
-   {{/if}}
+   {{/unless}}{{/if}}
 </div>
 
 {{#if isWeapon}}
@@ -110,6 +110,94 @@
 </div>
 {{/if}}
 
+{{#if isCybernetic}}
+<h2 class="section-title"><span>{{localize "EDRPG.cybernetic.installation"}}</span></h2>
+<div class="ed-item-grid">
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.karmaCost"}}</label><div class="form-fields">{{> num name="system.karmaCost" value=source.karmaCost}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.maxInstalled"}}</label><div class="form-fields">{{> num name="system.maxInstalled" value=source.maxInstalled}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.requires"}}</label><div class="form-fields"><input type="text" name="system.requires" value="{{source.requires}}" {{#unless editable}}disabled{{/unless}}></div></div>
+   <label class="ed-check">{{> check name="system.discreet" value=source.discreet}} {{localize "EDRPG.armour.discreet"}}</label>
+</div>
+<p class="hint">{{localize "EDRPG.cybernetic.karmaHint"}}</p>
+<h2 class="section-title"><span>{{localize "EDRPG.cybernetic.effects"}}</span></h2>
+<div class="ed-item-grid three">
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.damageBonus"}}</label><div class="form-fields">{{> num name="system.damageBonus" value=source.damageBonus}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.speedBonus"}}</label><div class="form-fields">{{> num name="system.speedBonus" value=source.speedBonus}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.resistKnockdown"}}</label><div class="form-fields">{{> num name="system.resistKnockdown" value=source.resistKnockdown}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.enduranceBonus"}}</label><div class="form-fields">{{> num name="system.enduranceBonus" value=source.enduranceBonus}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.initiativeBonus"}}</label><div class="form-fields">{{> num name="system.initiativeBonus" value=source.initiativeBonus}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.fightingDamage"}}</label><div class="form-fields"><input type="text" class="short" name="system.fightingDamage" value="{{source.fightingDamage}}" placeholder="1d10" {{#unless editable}}disabled{{/unless}}><select name="system.fightingDamageType" {{#unless editable}}disabled{{/unless}}>{{selectOptions damageTypes selected=source.fightingDamageType localize=true}}</select></div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.usesPerDay"}}</label><div class="form-fields">{{> num name="system.uses.value" value=source.uses.value}} <span>/</span> {{> num name="system.uses.max" value=source.uses.max}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.cybernetic.grantsWeapon"}}</label><div class="form-fields"><input type="text" name="system.grantsWeapon" value="{{source.grantsWeapon}}" {{#unless editable}}disabled{{/unless}}></div></div>
+</div>
+<h2 class="section-title"><span>{{localize "EDRPG.cybernetic.carapace"}}</span></h2>
+<div class="ed-item-grid three">
+   {{#each absorbRows as |row|}}
+   <div class="form-group"><label>{{localize row.label}}</label><div class="form-fields">{{> num name=(concat "system.absorb." row.key) value=row.value}}</div></div>
+   {{/each}}
+</div>
+<div class="ed-item-grid">
+   <label class="ed-check">{{> check name="system.toxicAll" value=source.toxicAll}} {{localize "EDRPG.armour.toxicAll"}}</label>
+   <div class="form-group"><label>{{localize "EDRPG.armour.hardened"}}</label><div class="form-fields">{{> num name="system.hardened" value=source.hardened}}</div></div>
+   <label class="ed-check">{{> check name="system.spaceSuit" value=source.spaceSuit}} {{localize "EDRPG.clothing.spaceSuit"}}</label>
+</div>
+<div class="form-group">
+   <label>{{localize "EDRPG.sheet.notes"}}</label>
+   <div class="form-fields"><input type="text" name="system.notes" value="{{source.notes}}" {{#unless editable}}disabled{{/unless}}></div>
+</div>
+{{/if}}
+
+{{#if isClothing}}
+<div class="ed-item-grid">
+   <div class="form-group"><label>{{localize "EDRPG.socialFactor.title"}}</label><div class="form-fields">{{> num name="system.socialFactor" value=source.socialFactor}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.clothing.toxicResistance"}}</label><div class="form-fields">{{> num name="system.toxicResistance" value=source.toxicResistance}}</div></div>
+   <label class="ed-check">{{> check name="system.spaceSuit" value=source.spaceSuit}} {{localize "EDRPG.clothing.spaceSuit"}}</label>
+   {{#if onActor}}<label class="ed-check">{{> check name="system.worn" value=source.worn}} {{localize "EDRPG.equipment.Worn"}}</label>{{/if}}
+</div>
+<div class="form-group">
+   <label>{{localize "EDRPG.sheet.notes"}}</label>
+   <div class="form-fields"><input type="text" name="system.notes" value="{{source.notes}}" {{#unless editable}}disabled{{/unless}}></div>
+</div>
+<p class="hint">{{localize "EDRPG.clothing.hint"}}</p>
+{{/if}}
+
+{{#if isGear}}
+<div class="ed-item-grid">
+   <div class="form-group"><label>{{localize "EDRPG.gear.categoryLabel"}}</label><div class="form-fields"><select name="system.category" {{#unless editable}}disabled{{/unless}}>{{selectOptions gearCategories selected=source.category localize=true}}</select></div></div>
+   <div class="form-group"><label>{{localize "EDRPG.gear.quantity"}}</label><div class="form-fields">{{> num name="system.quantity" value=source.quantity}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.gear.uses"}}</label><div class="form-fields">{{> num name="system.uses.value" value=source.uses.value}} <span>/</span> {{> num name="system.uses.max" value=source.uses.max}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.socialFactor.title"}}</label><div class="form-fields">{{> num name="system.socialFactor" value=source.socialFactor}}</div></div>
+   {{#if (eq source.category "stim")}}<div class="form-group"><label>{{localize "EDRPG.stim.effectLabel"}}</label><div class="form-fields"><select name="system.stimEffect" {{#unless editable}}disabled{{/unless}}>{{selectOptions stimEffects selected=source.stimEffect blank="" localize=true}}</select></div></div>{{/if}}
+   {{#if (eq source.category "injector")}}<div class="form-group"><label>{{localize "EDRPG.gear.injectionSuccess"}}</label><div class="form-fields">{{> num name="system.injectionSuccess" value=source.injectionSuccess}}</div></div>{{/if}}
+   {{#if (eq source.category "ammo")}}<div class="form-group"><label>{{localize "EDRPG.gear.ammoFor"}}</label><div class="form-fields"><input type="text" name="system.ammoFor" value="{{source.ammoFor}}" {{#unless editable}}disabled{{/unless}}></div></div>{{/if}}
+   {{#if onActor}}<label class="ed-check">{{> check name="system.active" value=source.active}} {{localize "EDRPG.gear.active"}}</label>{{/if}}
+</div>
+<div class="form-group">
+   <label>{{localize "EDRPG.sheet.notes"}}</label>
+   <div class="form-fields"><input type="text" name="system.notes" value="{{source.notes}}" {{#unless editable}}disabled{{/unless}}></div>
+</div>
+<p class="hint">{{localize "EDRPG.gear.hint"}}</p>
+{{/if}}
+
+{{#if hasRollBonuses}}
+<h2 class="section-title">
+   <span>{{localize "EDRPG.item.rollBonuses"}}</span>
+   {{#if editable}}<a class="item-control" data-action="addRollBonus" data-tooltip="EDRPG.item.addSkillBonus"><i class="fa-solid fa-plus"></i></a>{{/if}}
+</h2>
+<ol class="skill-bonus-list roll-bonuses">
+   {{#each source.rollBonuses as |b idx|}}
+   <li data-index="{{idx}}">
+      <select name="system.rollBonuses.{{idx}}.skill" {{#unless @root.editable}}disabled{{/unless}}>{{selectOptions @root.skillChoices selected=b.skill blank="" localize=true sort=true}}</select>
+      <input type="number" name="system.rollBonuses.{{idx}}.value" value="{{b.value}}" step="1" {{#unless @root.editable}}disabled{{/unless}}>
+      <select name="system.rollBonuses.{{idx}}.kind" class="narrow" {{#unless @root.editable}}disabled{{/unless}}>{{selectOptions @root.bonusKinds selected=b.kind localize=true}}</select>
+      <select name="system.rollBonuses.{{idx}}.when" class="narrow" {{#unless @root.editable}}disabled{{/unless}}>{{selectOptions @root.bonusConditions selected=b.when localize=true}}</select>
+      {{#if @root.editable}}<a class="item-control" data-action="removeRollBonus" data-tooltip="EDRPG.item.removeSkillBonus"><i class="fa-solid fa-trash"></i></a>{{/if}}
+   </li>
+   {{/each}}
+</ol>
+<p class="hint">{{localize "EDRPG.item.rollBonusesHint"}}</p>
+{{/if}}
+
 {{#if isArmour}}
 <h2 class="section-title"><span>{{localize "EDRPG.armour.absorb"}}</span></h2>
 <div class="ed-item-grid three">
@@ -131,6 +219,7 @@
 <p class="hint">{{localize "EDRPG.armour.hint"}}</p>
 {{/if}}
 
+{{#unless isGear}}
 <h2 class="section-title">
    <span>{{localize "EDRPG.item.skillMods"}}</span>
    {{#if editable}}<a class="item-control" data-action="addSkillMod" data-tooltip="EDRPG.item.addSkillBonus"><i class="fa-solid fa-plus"></i></a>{{/if}}
@@ -146,4 +235,5 @@
    </li>
    {{/each}}
 </ol>
-<p class="hint">{{#if isWeapon}}{{localize "EDRPG.item.skillModsWeaponHint"}}{{else}}{{localize "EDRPG.item.skillModsArmourHint"}}{{/if}}</p>
+<p class="hint">{{#if isWeapon}}{{localize "EDRPG.item.skillModsWeaponHint"}}{{else if isArmour}}{{localize "EDRPG.item.skillModsArmourHint"}}{{else}}{{localize "EDRPG.item.skillModsWornHint"}}{{/if}}</p>
+{{/unless}}

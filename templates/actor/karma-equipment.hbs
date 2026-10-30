@@ -53,7 +53,7 @@
          </tbody>
       </table>
       {{/edrpgSection}}
-      {{#> edrpgSection title="EDRPG.sheet.clothing" icon="fa-solid fa-shirt" addType="armour"}}
+      {{#> edrpgSection title="EDRPG.sheet.clothing" icon="fa-solid fa-shirt" addType="clothing"}}
       <table class="ed-table gear">
          <thead><tr><th class="name">{{localize "EDRPG.equipment.Item"}}</th><th class="notes">{{localize "EDRPG.sheet.notes"}}</th><th class="toggle">{{localize "EDRPG.equipment.Worn"}}</th><th class="controls"></th></tr></thead>
          <tbody>
@@ -68,6 +68,41 @@
          </tbody>
       </table>
       <p class="hint">{{localize "EDRPG.sheet.clothingHint"}}</p>
+      {{/edrpgSection}}
+   </div>
+
+   <div class="ed-two-col">
+      {{#> edrpgSection title="EDRPG.sheet.gear" icon="fa-solid fa-toolbox" addType="gear"}}
+      <table class="ed-table gear">
+         <thead><tr><th class="name">{{localize "EDRPG.equipment.Item"}}</th><th class="qty">{{localize "EDRPG.gear.qtyShort"}}</th><th class="notes">{{localize "EDRPG.sheet.notes"}}</th><th class="toggle">{{localize "EDRPG.gear.inUse"}}</th><th class="controls"></th></tr></thead>
+         <tbody>
+            {{#each gear as |g|}}
+            <tr data-item-id="{{g.id}}" class="draggable">
+               <th class="name"><a data-action="editItem">{{g.name}}</a></th>
+               <td class="qty">{{#if g.uses}}<input type="number" data-item-field="system.uses.value" value="{{g.uses.value}}" min="0" step="1" data-tooltip="EDRPG.gear.uses">/{{g.uses.max}}{{else}}<input type="number" data-item-field="system.quantity" value="{{g.quantity}}" min="0" step="1">{{/if}}</td>
+               <td class="notes">{{g.notes}}</td>
+               <td class="toggle">{{#if g.toggleable}}<a data-action="toggleItem" data-field="system.active" data-tooltip="EDRPG.gear.activeHint">{{#if g.active}}<i class="fa-solid fa-toggle-on"></i>{{else}}<i class="fa-solid fa-toggle-off"></i>{{/if}}</a>{{/if}}</td>
+               <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            </tr>
+            {{else}}<tr class="empty"><td colspan="5">{{localize "EDRPG.gear.none"}}</td></tr>{{/each}}
+         </tbody>
+      </table>
+      {{/edrpgSection}}
+      {{#> edrpgSection title="EDRPG.sheet.cybernetics" icon="fa-solid fa-microchip" addType="cybernetic"}}
+      <table class="ed-table gear">
+         <thead><tr><th class="name">{{localize "EDRPG.equipment.Item"}}</th><th class="qty" data-tooltip="EDRPG.cybernetic.karmaCost">{{localize "EDRPG.cybernetic.karmaShort"}}</th><th class="notes">{{localize "EDRPG.cybernetic.effects"}}</th><th class="controls"></th></tr></thead>
+         <tbody>
+            {{#each cybernetics as |c|}}
+            <tr data-item-id="{{c.id}}" class="draggable">
+               <th class="name"><a data-action="editItem">{{c.name}}</a>{{#if c.discreet}} <i class="fa-solid fa-eye-slash" data-tooltip="EDRPG.armour.discreet"></i>{{/if}}</th>
+               <td class="qty">{{c.karmaCost}}</td>
+               <td class="notes">{{c.notes}}</td>
+               <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            </tr>
+            {{else}}<tr class="empty"><td colspan="4">{{localize "EDRPG.cybernetic.none"}}</td></tr>{{/each}}
+         </tbody>
+      </table>
+      {{#if cybernetics.length}}<p class="hint">{{localize "EDRPG.cybernetic.karmaSummary" spent=cyberKarma.spent fromCyber=cyberKarma.fromCyber}}{{#if cyberKarma.cyborg}} {{localize "EDRPG.cybernetic.cyborgNote"}}{{/if}}</p>{{/if}}
       {{/edrpgSection}}
    </div>
 

@@ -3,6 +3,7 @@
    <table class="breakdown">
       <tbody>
          <tr><td>{{localize "EDRPG.resourceConfig.fromRank"}}</td><td class="num">{{system.karma.standard.base}}</td></tr>
+         {{#if system.karma.standard.cybernetics}}<tr><td>{{localize "EDRPG.resourceConfig.cybernetics"}}</td><td class="num">−{{system.karma.standard.cybernetics}}</td></tr>{{/if}}
       </tbody>
    </table>
    <div class="form-group">
@@ -16,8 +17,14 @@
    </tbody></table>
 
    <h3 class="config-heading karma">{{localize "EDRPG.sheet.karma.cyber"}}</h3>
+   {{#if system.karma.cyber.enhancement}}
+   <table class="breakdown"><tbody>
+      <tr><td>{{localize "EDRPG.enhancement.effect.cyberneticAffinity"}}</td><td class="num">{{system.karma.cyber.enhancement}}</td></tr>
+      {{#if system.karma.cyber.spent}}<tr><td>{{localize "EDRPG.resourceConfig.cybernetics"}}</td><td class="num">−{{system.karma.cyber.spent}}</td></tr>{{/if}}
+   </tbody></table>
+   {{/if}}
    <div class="form-group">
-      <label>{{localize "EDRPG.resourceConfig.maximum"}}</label>
+      <label>{{#if system.karma.cyber.enhancement}}{{localize "EDRPG.resourceConfig.other"}}{{else}}{{localize "EDRPG.resourceConfig.maximum"}}{{/if}}</label>
       <div class="form-fields">
          <input type="number" name="system.karma.cyber.bonus" value="{{systemSource.karma.cyber.bonus}}" min="0" step="1">
       </div>
@@ -27,7 +34,9 @@
    <h3 class="config-heading endurance">{{localize "EDRPG.sheet.endurance"}}</h3>
    <table class="breakdown">
       <tbody>
-         <tr><td>{{localize "EDRPG.resourceConfig.fromRank"}}</td><td class="num">{{system.endurance.base}}</td></tr>
+         <tr><td>{{localize "EDRPG.resourceConfig.fromRank"}}</td><td class="num">{{system.endurance.rank}}</td></tr>
+         {{#if system.endurance.cybernetics}}<tr><td>{{localize "EDRPG.resourceConfig.cybernetics"}}</td><td class="num">+{{system.endurance.cybernetics}}</td></tr>{{/if}}
+         {{#if system.endurance.enhancement}}<tr><td>{{localize "EDRPG.enhancement.effect.tough"}}</td><td class="num">+{{system.endurance.enhancement}}</td></tr>{{/if}}
       </tbody>
    </table>
    <div class="form-group">

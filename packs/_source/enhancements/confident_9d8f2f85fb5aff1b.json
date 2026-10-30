@@ -1,0 +1,19 @@
+{
+  "_id": "9d8f2f85fb5aff1b",
+  "_key": "!items!9d8f2f85fb5aff1b",
+  "name": "Confident",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>No Social Factor penalties from your equipment, armour or cybernetics.</p>",
+    "effect": "confident",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

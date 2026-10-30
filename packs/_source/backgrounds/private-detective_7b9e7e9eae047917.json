@@ -1,0 +1,44 @@
+{
+  "_id": "7b9e7e9eae047917",
+  "_key": "!items!7b9e7e9eae047917",
+  "name": "Private Detective",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 67-68</p><p><strong>Skills:</strong> Energy Weapons +10, Insight +10, Perception +10, Security +10, Stealth +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "energyWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "insight",
+        "bonus": 10
+      },
+      {
+        "skill": "perception",
+        "bonus": 10
+      },
+      {
+        "skill": "security",
+        "bonus": 10
+      },
+      {
+        "skill": "stealth",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

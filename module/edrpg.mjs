@@ -1,6 +1,15 @@
 import * as EDRPG from "./config.mjs";
 import { CharacterData, NPCIndividualData, OpponentData } from "./data/actor.mjs";
-import { BackgroundData, EnhancementData, KarmaCapabilityData, WeaponData, ArmourData } from "./data/item.mjs";
+import {
+   BackgroundData,
+   EnhancementData,
+   KarmaCapabilityData,
+   WeaponData,
+   ArmourData,
+   CyberneticData,
+   ClothingData,
+   GearData,
+} from "./data/item.mjs";
 import { EDActor, EDItem } from "./documents.mjs";
 import EDActorSheet from "./sheets/actor-sheet.mjs";
 import EDOpponentSheet from "./sheets/opponent-sheet.mjs";
@@ -8,6 +17,7 @@ import EDItemSheet from "./sheets/item-sheet.mjs";
 import { rollSkillCheck, onRenderSkillCheck } from "./dice/skill-check.mjs";
 import { onRenderContest, registerContestSocket } from "./dice/contest.mjs";
 import { onRenderAttack, registerAttackSocket } from "./dice/attack.mjs";
+import { registerGrabSocket } from "./dice/grab.mjs";
 import { onRenderDamage, registerDamageHooks, registerStatusEffects, bleedOut, heal } from "./dice/damage.mjs";
 import registerSettings from "./settings.mjs";
 import { endAdventure } from "./advancement.mjs";
@@ -36,6 +46,9 @@ Hooks.once("init", () => {
       karma: KarmaCapabilityData,
       weapon: WeaponData,
       armour: ArmourData,
+      cybernetic: CyberneticData,
+      clothing: ClothingData,
+      gear: GearData,
    });
 
    // Token bars: max values are derived, so declare them explicitly.
@@ -61,7 +74,7 @@ Hooks.once("init", () => {
       label: "EDRPG.sheet.labels.opponent",
    });
    DocumentSheetConfig.registerSheet(foundry.documents.Item, "edrpg", EDItemSheet, {
-      types: ["background", "enhancement", "karma", "weapon", "armour"],
+      types: ["background", "enhancement", "karma", "weapon", "armour", "cybernetic", "clothing", "gear"],
       makeDefault: true,
       label: "EDRPG.sheet.labels.item",
    });
@@ -71,6 +84,7 @@ Hooks.once("init", () => {
       edrpgStoredList: "systems/edrpg/templates/actor/stored-list.hbs",
       edrpgEquipmentDetails: "systems/edrpg/templates/item/equipment-details.hbs",
       edrpgCondition: "systems/edrpg/templates/actor/condition.hbs",
+      edrpgCreation: "systems/edrpg/templates/actor/creation.hbs",
    });
 });
 
@@ -78,6 +92,7 @@ Hooks.once("ready", () => {
    registerContestSocket();
    registerAttackSocket();
    registerDamageHooks();
+   registerGrabSocket();
 });
 
 Hooks.on("renderChatMessageHTML", (message, html) => {

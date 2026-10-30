@@ -1,0 +1,37 @@
+{
+  "_id": "231ef80319c1f0a0",
+  "_key": "!items!231ef80319c1f0a0",
+  "name": "Autopistol Magazine",
+  "type": "gear",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "description": "",
+    "cost": "70mcr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "ammo",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "Autopistol",
+    "notes": "",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Ammunition"
+    }
+  },
+  "sort": 4600,
+  "effects": [],
+  "folder": "c7a9c61c7906dea4",
+  "ownership": {
+    "default": 0
+  }
+}

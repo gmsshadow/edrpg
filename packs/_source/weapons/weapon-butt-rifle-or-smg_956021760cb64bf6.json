@@ -1,0 +1,68 @@
+{
+  "_id": "956021760cb64bf6",
+  "_key": "!items!956021760cb64bf6",
+  "name": "Weapon Butt (rifle or SMG)",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Improvised: the butt of a sub-machine gun or rifle.</p>",
+    "cost": "",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "meleeWeapons",
+    "damageType": "melee",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": 6,
+    "damage": "1d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "notes": "Improvised: the butt of a sub-machine gun or rifle.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Melee Weapons"
+    }
+  },
+  "sort": 7900,
+  "effects": [],
+  "folder": "d182e39f2af5d0e6",
+  "ownership": {
+    "default": 0
+  }
+}

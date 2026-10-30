@@ -1,0 +1,40 @@
+{
+  "_id": "bf41fdbdc7e65283",
+  "_key": "!items!bf41fdbdc7e65283",
+  "name": "Monk/Nun",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 55</p><p><strong>Skills:</strong> Fighting +10, Insight +20, Medicine +10, Stealth +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "fighting",
+        "bonus": 10
+      },
+      {
+        "skill": "insight",
+        "bonus": 20
+      },
+      {
+        "skill": "medicine",
+        "bonus": 10
+      },
+      {
+        "skill": "stealth",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 3000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

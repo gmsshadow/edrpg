@@ -1,0 +1,37 @@
+{
+  "_id": "fa01dddc83d13ecc",
+  "_key": "!items!fa01dddc83d13ecc",
+  "name": "Boxer",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 11-12</p><p><strong>Skills:</strong> Fighting +20, Parry +10</p><p><strong>Enhancement:</strong> Strong</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "fighting",
+        "bonus": 20
+      },
+      {
+        "skill": "parry",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [
+      {
+        "name": "Strong",
+        "skill": ""
+      }
+    ],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

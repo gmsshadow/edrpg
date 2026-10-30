@@ -1,8 +1,9 @@
-import { attackRules, rangedAttackSkills, fighting as FIGHTING } from "../config.mjs";
+import { attackRules, rangedAttackSkills, fighting as FIGHTING, scatterDirections, missTables } from "../config.mjs";
 import { rollSkillDice, skillLabel, signed } from "./skill-check.mjs";
 import { showDice } from "./contest.mjs";
 import { useKarmaCapability } from "../karma.mjs";
 import { rollDamage, STATUS } from "./damage.mjs";
+import { rollGrabCheck, performGrab } from "./grab.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/attack.hbs";
 const SOCKET = "system.edrpg";
@@ -39,6 +40,7 @@ export function fightingWeapon() {
          isMelee: true,
          finesse: FIGHTING.finesse,
          damage: FIGHTING.damage,
+         halveDamage: FIGHTING.halve,
          ranges: {},
          usesAmmo: false,
          ammo: { value: 0, max: null },
@@ -64,9 +66,27 @@ export function fightingWeapon() {
  */
 export function defenceOf(target, type) {
    if (!target) return { value: 0, available: false };
+   // Grabbing or grabbed: Defence (Dodge) 0 and no Parry (Core Rules p.61).
+   if (target.statuses?.has(STATUS.grabbed) || target.statuses?.has(STATUS.grabbing)) {
+      return type === "dodge" ? { value: 0, available: true, grab: true } : { value: 0, available: false, grab: true };
+   }
    const v = target.system[type];
    if (v === null || v === undefined) return { value: 0, available: false };
    return { value: Number(v) || 0, available: true };
+}
+
+/**
+ * The explosives mode for a card: the world setting, unless it is "ask" (then whatever was chosen, or null to offer
+ * both on the card).
+ *
+ * @param {string} chosen
+ *
+ * @returns {"mapped"|"mapless"|null}
+ */
+function modeSetting(chosen) {
+   const setting = game.settings.get("edrpg", "explosiveMode");
+   if (setting === "mapped" || setting === "mapless") return setting;
+   return chosen ?? null;
 }
 
 /** Kind of attack, for matching Karma Capability bonuses. */
@@ -97,9 +117,9 @@ function firstBand(weapon) {
  *
  * @returns {Promise<ChatMessage|null>}
  */
-export async function rollAttack(actor, weapon, { prompt = true } = {}) {
+export async function rollAttack(actor, weapon, { prompt = true, target: forcedTarget = null, counter = false } = {}) {
    const s = weapon.system;
-   const target = [...game.user.targets].map((t) => t.actor).find((a) => a && a !== actor) ?? null;
+   const target = forcedTarget ?? [...game.user.targets].map((t) => t.actor).find((a) => a && a !== actor) ?? null;
    const isGrenade = s.skill === "grenade" && !firstBand(weapon);
    const isExplosive = s.blast?.fatal !== null && s.blast?.fatal !== undefined;
 
@@ -107,7 +127,10 @@ export async function rollAttack(actor, weapon, { prompt = true } = {}) {
       band: firstBand(weapon),
       defence: "dodge",
       cover: false,
-      aim: false,
+      // Aiming last turn (the Aiming status) gives +5; it is used up by the attack (p.61).
+      aim: actor.statuses?.has(STATUS.aiming) ?? false,
+      free: false,
+      grab: false,
       twoWeapons: false,
       knockedOver: actor.statuses?.has(STATUS.knockedOver) ?? false,
       divideFire: false,
@@ -115,12 +138,15 @@ export async function rollAttack(actor, weapon, { prompt = true } = {}) {
       squares: 0,
       coverPieces: 0,
       zeroG: false,
+      // Battle map or not, for explosives: the world setting, or chosen in the dialog when it is "ask".
+      explosiveMode: game.settings.get("edrpg", "explosiveMode") === "mapless" ? "mapless" : "mapped",
+      throwWith: "advantage",
       adjust: 0,
       modifier: 0,
       mode: undefined,
    };
    if (prompt) {
-      const result = await promptAttack(actor, weapon, target, { isGrenade, isExplosive, ...opts });
+      const result = await promptAttack(actor, weapon, target, { isGrenade, isExplosive, counter, ...opts });
       if (!result) return null;
       opts = { ...opts, ...result };
    }
@@ -137,7 +163,15 @@ export async function rollAttack(actor, weapon, { prompt = true } = {}) {
    // Difficulty To Hit.
    const parts = [];
    let cantEvade = false;
-   if (isGrenade) {
+   if (isGrenade && opts.explosiveMode === "mapless") {
+      // Without a map: 7 thrown with advantage (round a corner, down stairs), 12 with disadvantage (p.59).
+      const advantage = opts.throwWith !== "disadvantage";
+      parts.push({
+         label: advantage ? "EDRPG.attack.part.withAdvantage" : "EDRPG.attack.part.withDisadvantage",
+         value: advantage ? attackRules.grenadeAdvantage : attackRules.grenadeDisadvantage,
+      });
+      if (opts.zeroG) parts.push({ label: "EDRPG.attack.part.zeroG", value: attackRules.zeroGravity });
+   } else if (isGrenade) {
       parts.push({ label: "EDRPG.attack.part.grenadeSquares", value: Math.max(attackRules.grenadeMinimum, opts.squares) });
       if (opts.coverPieces) parts.push({ label: "EDRPG.attack.part.interposingCover", value: opts.coverPieces * 2 });
       if (opts.zeroG) parts.push({ label: "EDRPG.attack.part.zeroG", value: attackRules.zeroGravity });
@@ -166,11 +200,16 @@ export async function rollAttack(actor, weapon, { prompt = true } = {}) {
    // To Hit roll.
    const mods = [];
    if (opts.aim) mods.push({ label: "EDRPG.attack.part.aim", value: attackRules.aim });
-   if (opts.twoWeapons) mods.push({ label: "EDRPG.attack.part.twoWeapons", value: attackRules.twoWeapons });
+   // Ambidextrous reduces the two-weapon penalty to -1, then 0.
+   const twoWeapons = actor.system.twoWeaponPenalty ?? attackRules.twoWeapons;
+   if (opts.twoWeapons && twoWeapons) mods.push({ label: "EDRPG.attack.part.twoWeapons", value: twoWeapons });
    if (opts.modifier) mods.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier });
    const bonus = opts.knockedOver ? 0 : actor.weaponBonus(weapon);
    const modifier = mods.reduce((n, m) => n + m.value, 0);
    const result = await rollSkillDice(actor, s.skill, { bonus, modifier, socialFactor: false });
+
+   // The aim is used up once you attack.
+   if (actor.statuses?.has(STATUS.aiming) && actor.isOwner) await actor.toggleStatusEffect(STATUS.aiming, { active: false });
 
    let ammo = null;
    if (s.usesAmmo && weapon.id !== "fighting") {
@@ -194,7 +233,18 @@ export async function rollAttack(actor, weapon, { prompt = true } = {}) {
       // Damage at this range: some weapons (shotguns) do less at medium and long range.
       damage: (!s.isMelee && opts.band && s.rangeDamage?.[opts.band]) || s.damage || "",
       blast: isExplosive ? { ...s.blast } : null,
+      // Explosives: thrown grenades use the Grenade Miss Table, anything fired (missiles, launchers) the Missile one.
+      explosiveKind: isExplosive ? (isGrenade ? "grenade" : "missile") : null,
+      explosiveMode: isExplosive ? modeSetting(prompt ? opts.explosiveMode : null) : null,
+      scatter: null,
+      caught: null,
       damageMessageId: null,
+      halveDamage: !!s.halveDamage,
+      counter,
+      free: !!opts.free,
+      grab: !!opts.grab && s.skill === "fighting",
+      grabResult: null,
+      countered: false,
       divideFire: !!opts.divideFire,
       destroyCover: !!s.destroyCover && targeted && opts.cover,
       targetUuid: targeted ? (target?.uuid ?? null) : null,
@@ -282,9 +332,23 @@ async function promptAttack(actor, weapon, target, defaults) {
       html += `<p class="hint">${i18n("EDRPG.attack.noTarget")}</p>`;
    }
 
+   const askMode = defaults.isExplosive && game.settings.get("edrpg", "explosiveMode") === "ask";
+   if (askMode) {
+      const opt = (k) => `<option value="${k}" ${defaults.explosiveMode === k ? "selected" : ""}>${i18n(`EDRPG.settings.explosiveMode.${k}`)}</option>`;
+      html += row(i18n("EDRPG.attack.explosiveMode"), `<select name="explosiveMode">${opt("mapped")}${opt("mapless")}</select>`);
+   }
    if (defaults.isGrenade) {
-      html += row(i18n("EDRPG.attack.squares"), num("squares", 0), i18n("EDRPG.attack.squaresHint"));
-      html += row(i18n("EDRPG.attack.interposingCover"), num("coverPieces", 0));
+      const mapped = (field) => `<div data-explosive-mode="mapped">${field}</div>`;
+      const mapless = (field) => `<div data-explosive-mode="mapless">${field}</div>`;
+      html += mapped(row(i18n("EDRPG.attack.squares"), num("squares", 0), i18n("EDRPG.attack.squaresHint")));
+      html += mapped(row(i18n("EDRPG.attack.interposingCover"), num("coverPieces", 0)));
+      html += mapless(
+         row(
+            i18n("EDRPG.attack.throwWith"),
+            `<select name="throwWith"><option value="advantage">${i18n("EDRPG.attack.withAdvantage")}</option><option value="disadvantage">${i18n("EDRPG.attack.withDisadvantage")}</option></select>`,
+            i18n("EDRPG.attack.throwWithHint"),
+         ),
+      );
       html += row(i18n("EDRPG.attack.zeroG"), check("zeroG"));
    } else if (!s.isMelee) {
       const bands = ["short", "medium", "long"]
@@ -312,7 +376,12 @@ async function promptAttack(actor, weapon, target, defaults) {
       html += row(i18n("EDRPG.attack.targetDefence"), num("targetDefence", 0));
    }
 
-   html += row(i18n("EDRPG.attack.aim"), check("aim"), i18n("EDRPG.attack.aimHint"));
+   if (defaults.counter) html = `<p class="ed-attack-counter"><i class="fa-solid fa-shield-halved"></i> ${i18n("EDRPG.attack.counterIntro")}</p>${html}`;
+   html += row(i18n("EDRPG.attack.aim"), check("aim", defaults.aim), i18n("EDRPG.attack.aimHint"));
+   if (s.isMelee && !defaults.counter) {
+      html += row(i18n("EDRPG.attack.free"), check("free"), i18n("EDRPG.attack.freeHint"));
+   }
+   if (s.skill === "fighting") html += row(i18n("EDRPG.attack.grab"), check("grab"), i18n("EDRPG.attack.grabHint"));
    if (s.oneHanded || s.isMelee) html += row(i18n("EDRPG.attack.twoWeapons"), check("twoWeapons"));
    html += row(i18n("EDRPG.attack.knockedOver"), check("knockedOver", defaults.knockedOver), i18n("EDRPG.attack.knockedOverHint"));
    if (s.divideFire) html += row(i18n("EDRPG.weapon.divideFire"), check("divideFire"), i18n("EDRPG.attack.divideFireHint"));
@@ -328,6 +397,18 @@ async function promptAttack(actor, weapon, target, defaults) {
       classes: ["edrpg", "edrpg-dialog", "edrpg-attack-dialog"],
       content: html,
       ok: { label: "EDRPG.attack.roll", icon: "fa-solid fa-dice-d10" },
+      render: (_event, dialog) => {
+         // Show only the fields for the chosen kind of combat (with or without a map).
+         const root = dialog.element ?? dialog;
+         const select = root.querySelector("select[name=explosiveMode]");
+         const sync = () => {
+            const mode = select?.value ?? defaults.explosiveMode;
+            for (const el of root.querySelectorAll("[data-explosive-mode]")) el.hidden = el.dataset.explosiveMode !== mode;
+            dialog.setPosition?.({ height: "auto" });
+         };
+         select?.addEventListener("change", sync);
+         sync();
+      },
       rejectClose: false,
    });
    if (!result) return null;
@@ -337,6 +418,8 @@ async function promptAttack(actor, weapon, target, defaults) {
       defence: result.defence ?? "dodge",
       cover: !!result.cover,
       aim: !!result.aim,
+      free: !!result.free,
+      grab: !!result.grab,
       twoWeapons: !!result.twoWeapons,
       knockedOver: !!result.knockedOver,
       divideFire: !!result.divideFire,
@@ -344,6 +427,8 @@ async function promptAttack(actor, weapon, target, defaults) {
       squares: n(result.squares),
       coverPieces: n(result.coverPieces),
       zeroG: !!result.zeroG,
+      explosiveMode: result.explosiveMode ?? defaults.explosiveMode,
+      throwWith: result.throwWith ?? "advantage",
       targetDefence: n(result.targetDefence),
       modifier: n(result.modifier),
       adjust: n(result.adjust),
@@ -392,6 +477,17 @@ async function applyAttackChange(message, change) {
       state.boosts.push(change.boost);
    } else if (change.type === "damageRolled") {
       state.damageMessageId = change.messageId;
+   } else if (change.type === "grab") {
+      state.grabResult = change.grabResult;
+      if (change.grabResult.success) {
+         await performGrab({ type: "set", grabberUuid: change.grabResult.grabberUuid, targetUuid: change.grabResult.targetUuid });
+      }
+   } else if (change.type === "countered") {
+      state.countered = true;
+   } else if (change.type === "scatter") {
+      state.scatter = change.scatter;
+   } else if (change.type === "caught") {
+      state.caught = change.caught;
    } else if (change.type === "reroll") {
       state.roll = { ...state.roll, ...change.roll };
       state.rerolls += 1;
@@ -489,8 +585,52 @@ export function onRenderAttack(message, html) {
       controls.append(button);
    };
 
-   // Attacker (or GM): roll the damage for a hit.
-   if ((attacker?.isOwner || game.user.isGM) && state.hit && !state.damageMessageId && attacker) {
+   const canAct = !!attacker && (attacker.isOwner || game.user.isGM);
+   // A missed explosive still goes off somewhere: scatter on the map, or the miss table without one.
+   if (canAct && state.isExplosive && !state.hit && !state.scatter) {
+      const modes = state.explosiveMode ? [state.explosiveMode] : ["mapped", "mapless"];
+      for (const mode of modes) {
+         add(
+            `<i class="fa-solid ${mode === "mapped" ? "fa-map" : "fa-table-list"}"></i> ${game.i18n.localize(`EDRPG.scatter.button.${mode}`)}`,
+            game.i18n.localize(`EDRPG.scatter.hint.${mode}`),
+            () => scatter(message, mode),
+            "scatter",
+         );
+      }
+   }
+   // Without a map, the GM may roll how many people are caught in the blast.
+   if (canAct && state.isExplosive && state.hit && state.explosiveMode === "mapless" && !state.caught) {
+      add(`<i class="fa-solid fa-users"></i> ${game.i18n.localize("EDRPG.scatter.button.caught")}`, game.i18n.localize("EDRPG.scatter.hint.caught"), () =>
+         rollCaught(message),
+      );
+   }
+   // Grab: on a hit, an opposed Athletics check instead of damage.
+   if (canAct && state.grab && state.hit && !state.grabResult && target) {
+      add(`<i class="fa-solid fa-hands"></i> ${game.i18n.localize("EDRPG.grab.resolve")}`, game.i18n.localize("EDRPG.grab.resolveHint"), () =>
+         resolveGrab(message, attacker, target),
+      );
+   }
+   // Defender who Parried a Melee or Fighting attack that missed: an immediate counter-attack (p.56).
+   if (target?.isOwner && state.isMelee && !state.hit && state.defence === "parry" && !state.countered && attacker) {
+      if (!state.counter) {
+         add(`<i class="fa-solid fa-shield-halved"></i> ${game.i18n.format("EDRPG.attack.counter", { name: target.name })}`, game.i18n.localize("EDRPG.attack.counterHint"), () =>
+            counterAttack(message, target, attacker),
+            "counter",
+         );
+      } else {
+         // A counter-attack can't be countered — except with the Riposte Karma Capability.
+         const riposte = target.itemTypes.karma?.find((k) => /riposte/i.test(k.name));
+         if (riposte) {
+            add(`<i class="fa-solid fa-yin-yang"></i> ${game.i18n.format("EDRPG.attack.riposte", { name: riposte.name })}`, game.i18n.localize("EDRPG.attack.riposteHint"), async () => {
+               const { useKarmaCapability: use } = await import("../karma.mjs");
+               if (await use(target, riposte)) return counterAttack(message, target, attacker);
+            }, "karma");
+         }
+      }
+   }
+   // Attacker (or GM): roll the damage for a hit, or for a missed explosive wherever it landed.
+   const explodes = (state.hit && !state.grab) || (state.isExplosive && state.scatter && !state.scatter.harmless);
+   if (canAct && explodes && !state.damageMessageId) {
       add(
          `<i class="fa-solid fa-burst"></i> ${game.i18n.localize(state.isExplosive ? "EDRPG.damage.explosion" : "EDRPG.damage.roll")}`,
          null,
@@ -576,5 +716,122 @@ async function rerollAttack(message, actor) {
    return submitAttackChange(message, {
       type: "reroll",
       roll: { natural: result.natural, base: result.total, json: result.roll.toJSON() },
+   });
+}
+
+/* -------------------------------------------- */
+/*  Missed explosives                           */
+/* -------------------------------------------- */
+
+/**
+ * Where a missed explosive ends up (Core Rules pp.59–60).
+ *
+ * @param {object} state  Attack card state.
+ *
+ * @param {"mapped"|"mapless"} mode
+ *
+ * @returns {Promise<{result: object, rolls: Roll[]}>}
+ */
+export async function rollScatter(state, mode) {
+   const rolls = [];
+   const d = async (formula) => {
+      const roll = await new Roll(formula).evaluate();
+      rolls.push(roll);
+      return roll.total;
+   };
+   if (mode === "mapped") {
+      const direction = await d("1d10");
+      const squares = await d("1d10");
+      return {
+         rolls,
+         result: {
+            mode,
+            direction,
+            squares,
+            metres: squares * 2,
+            overshoot: direction >= 9,
+            label: direction >= 9 ? "EDRPG.scatter.overshoot" : scatterDirections[direction],
+         },
+      };
+   }
+   const kind = state.explosiveKind === "grenade" ? "grenade" : "missile";
+   const roll = await d("1d10");
+   const [, key, extra, harmless] = missTables[kind].find(([max]) => roll <= max);
+   const metres = extra ? await d(extra) : null;
+   return { rolls, result: { mode, kind, roll, key: `EDRPG.scatter.table.${key}`, metres, harmless } };
+}
+
+/**
+ * Roll and record the scatter on the card.
+ *
+ * @param {ChatMessage} message
+ *
+ * @param {"mapped"|"mapless"} mode
+ */
+async function scatter(message, mode) {
+   const state = message.getFlag("edrpg", "attack");
+   const { result, rolls } = await rollScatter(state, mode);
+   for (const roll of rolls) await showDice(roll);
+   return submitAttackChange(message, { type: "scatter", scatter: result });
+}
+
+/**
+ * Mapless hit: how many people are caught in the blast, if the GM is unsure — a D10, halved (rounded up).
+ *
+ * @param {ChatMessage} message
+ */
+async function rollCaught(message) {
+   const roll = await new Roll("1d10").evaluate();
+   await showDice(roll);
+   return submitAttackChange(message, { type: "caught", caught: { roll: roll.total, people: Math.ceil(roll.total / 2) } });
+}
+
+/* -------------------------------------------- */
+/*  Counter-attacks and grabs                   */
+/* -------------------------------------------- */
+
+/**
+ * Counter-attack the attacker with Fighting or a Melee weapon in hand.
+ *
+ * @param {ChatMessage} message  The missed attack.
+ *
+ * @param {Actor} defender
+ *
+ * @param {Actor} attacker
+ */
+async function counterAttack(message, defender, attacker) {
+   const melee = defender.itemTypes.weapon.filter((w) => w.system.isMelee && w.system.skill !== "fighting" && (defender.type === "opponent" || w.system.equipped));
+   let weapon = fightingWeapon();
+   if (melee.length) {
+      const options = [`<option value="fighting">${foundry.utils.escapeHTML(weapon.name)}</option>`, ...melee.map((w) => `<option value="${w.id}">${foundry.utils.escapeHTML(w.name)}</option>`)];
+      const result = await foundry.applications.api.DialogV2.input({
+         window: { title: game.i18n.format("EDRPG.attack.counter", { name: defender.name }), icon: "fa-solid fa-shield-halved" },
+         classes: ["edrpg", "edrpg-dialog"],
+         content: `<div class="form-group"><label>${game.i18n.localize("EDRPG.attack.counterWith")}</label><div class="form-fields"><select name="weapon">${options.join("")}</select></div></div>`,
+         ok: { label: "EDRPG.attack.roll", icon: "fa-solid fa-dice-d10" },
+         rejectClose: false,
+      });
+      if (!result) return;
+      if (result.weapon !== "fighting") weapon = defender.items.get(result.weapon) ?? weapon;
+   }
+   await submitAttackChange(message, { type: "countered" });
+   return rollAttack(defender, weapon, { target: attacker, counter: true });
+}
+
+/**
+ * Resolve a grab that hit: opposed Athletics (+ Strength damage bonus); the grabber must win.
+ *
+ * @param {ChatMessage} message
+ *
+ * @param {Actor} attacker
+ *
+ * @param {Actor} target
+ */
+async function resolveGrab(message, attacker, target) {
+   const { mine, theirs } = await rollGrabCheck(attacker, target);
+   const success = mine.total > theirs.total;
+   return submitAttackChange(message, {
+      type: "grab",
+      grabResult: { grabber: mine, target: theirs, success, grabberUuid: attacker.uuid, targetUuid: target.uuid },
    });
 }

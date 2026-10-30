@@ -10,6 +10,7 @@
       <dt class="head">{{localize "EDRPG.damage.title"}}</dt><dd class="head">{{main.value}}</dd>
       {{#if base}}<dt>{{localize "EDRPG.damage.weapon"}} <span class="muted">{{base.formula}}</span></dt><dd>{{base.total}}</dd>{{/if}}
       {{#if burst}}<dt>{{localize "EDRPG.damage.burst"}} <span class="muted">{{burst.formula}}</span></dt><dd>+{{burst.total}}</dd>{{/if}}
+      {{#if strong}}<dt>{{localize "EDRPG.damage.strengthBonus"}}</dt><dd>+{{strong}}</dd>{{/if}}
       {{#if divided}}<dt>{{localize "EDRPG.damage.divided"}}</dt><dd>½</dd>{{/if}}
    </dl>
    {{else}}
@@ -19,7 +20,8 @@
    {{/if}}
    {{#if dice.length}}<div class="damage-dice">{{#each dice as |d|}}<span class="die {{#if (eq d 10)}}ten{{/if}}">{{d}}</span>{{/each}}</div>{{/if}}
    {{#if explosive}}<div class="attack-note">{{localize "EDRPG.damage.explosiveKnock"}}</div>
-   {{else if knock}}<div class="attack-note knock"><i class="fa-solid fa-person-falling"></i> {{localize "EDRPG.damage.knock"}}</div>{{/if}}
+   {{else if knock}}<div class="attack-note knock"><i class="fa-solid fa-person-falling"></i> {{localize "EDRPG.damage.knock"}}{{#if free}} {{localize "EDRPG.damage.freeKnock"}}{{/if}}</div>{{/if}}
+   {{#if disarm}}<div class="attack-note knock"><i class="fa-solid fa-hand"></i> {{localize "EDRPG.damage.disarm"}}</div>{{/if}}
    {{#if noKnockEnergy}}<div class="attack-note muted">{{localize "EDRPG.damage.noKnockEnergy"}}</div>{{/if}}
 
    {{#if applied.length}}
@@ -32,6 +34,7 @@
          <div>{{#if a.escaped}}{{localize "EDRPG.damage.enduranceBack" value=a.before max=a.max}}{{else}}{{localize "EDRPG.damage.enduranceFromTo" before=a.before after=a.after max=a.max}}{{/if}}
             {{#each a.flags as |f|}}<span class="ed-chip">{{localize f}}</span>{{/each}}
          </div>
+         {{#if a.stimText}}<div class="muted"><i class="fa-solid fa-syringe"></i> {{{a.stimText}}}</div>{{/if}}
       </li>
       {{/each}}
    </ul>

@@ -1,0 +1,40 @@
+{
+  "_id": "b1c6ac34b409187a",
+  "_key": "!items!b1c6ac34b409187a",
+  "name": "Frontier Trader",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 34-35</p><p><strong>Skills:</strong> Bargain +10, Dodge +10, Kinetic Weapons +10, Trading +20</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bargain",
+        "bonus": 10
+      },
+      {
+        "skill": "dodge",
+        "bonus": 10
+      },
+      {
+        "skill": "kineticWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "trading",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,19 @@
+{
+  "_id": "c253172e24b7d280",
+  "_key": "!items!c253172e24b7d280",
+  "name": "Cybernetic Affinity",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Gain 2 Karma points that can only be spent on Cybernetic upgrades. Each time you take it again: another 2.</p>",
+    "effect": "cyberneticAffinity",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

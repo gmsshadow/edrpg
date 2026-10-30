@@ -1,0 +1,40 @@
+{
+  "_id": "17754dd546b4cc3f",
+  "_key": "!items!17754dd546b4cc3f",
+  "name": "Stockbroker",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 84-85</p><p><strong>Skills:</strong> Bluff +10, Fighting +10, Intimidate +10, Trading +20</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bluff",
+        "bonus": 10
+      },
+      {
+        "skill": "fighting",
+        "bonus": 10
+      },
+      {
+        "skill": "intimidate",
+        "bonus": 10
+      },
+      {
+        "skill": "trading",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 4600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

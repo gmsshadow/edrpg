@@ -1,0 +1,44 @@
+{
+  "_id": "e7d087d32b38b7ea",
+  "_key": "!items!e7d087d32b38b7ea",
+  "name": "Teacher",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 86-87</p><p><strong>Skills:</strong> Culture & Law +10, Diplomacy +10, Intimidate +10, Perception +10, Science +10</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "cultureLaw",
+        "bonus": 10
+      },
+      {
+        "skill": "diplomacy",
+        "bonus": 10
+      },
+      {
+        "skill": "intimidate",
+        "bonus": 10
+      },
+      {
+        "skill": "perception",
+        "bonus": 10
+      },
+      {
+        "skill": "science",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 4700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

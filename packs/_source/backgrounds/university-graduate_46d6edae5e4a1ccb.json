@@ -1,0 +1,36 @@
+{
+  "_id": "46d6edae5e4a1ccb",
+  "_key": "!items!46d6edae5e4a1ccb",
+  "name": "University Graduate",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 93-94</p><p>One Intelligence Skill +20 and two Intelligence Skills +10 (choose them in the skill list).</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "",
+        "bonus": 20
+      },
+      {
+        "skill": "",
+        "bonus": 10
+      },
+      {
+        "skill": "",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 5100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

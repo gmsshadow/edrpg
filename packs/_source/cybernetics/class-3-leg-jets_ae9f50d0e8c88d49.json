@@ -1,0 +1,53 @@
+{
+  "_id": "ae9f50d0e8c88d49",
+  "_key": "!items!ae9f50d0e8c88d49",
+  "name": "Class 3 Leg Jets",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Fly 30 metres instead of moving. Three times per hour.</p>",
+    "cost": "1,890,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 2,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "Leg Upgrade",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Fly 30 metres instead of moving. Three times per hour.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Leg Add-ons"
+    }
+  },
+  "sort": 4300,
+  "effects": [],
+  "folder": "0a0610245d7054d9",
+  "ownership": {
+    "default": 0
+  }
+}

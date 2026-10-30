@@ -1,0 +1,27 @@
+{
+  "_id": "505b7658f054dfba",
+  "_key": "!items!505b7658f054dfba",
+  "name": "Space Suit",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>For long-term work in space. Includes breathing equipment and Magnetic Boots.</p>",
+    "cost": "10cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": -2,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": true,
+    "notes": "For long-term work in space. Includes breathing equipment and Magnetic Boots.",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1000,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

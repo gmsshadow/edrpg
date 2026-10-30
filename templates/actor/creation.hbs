@@ -1,0 +1,22 @@
+<section class="ed-creation">
+   <header class="ed-creation-head">
+      <h3><i class="fa-solid fa-user-astronaut"></i> {{localize "EDRPG.creation.title"}}</h3>
+      <span class="ed-creation-progress">{{localize "EDRPG.creation.ofCount" value=creation.done max=creation.total}}</span>
+      {{#if editable}}<button type="button" class="ed-button" data-action="creationFinish"><i class="fa-solid fa-flag-checkered"></i> {{localize "EDRPG.creation.finish"}}</button>{{/if}}
+   </header>
+   <ol class="ed-creation-steps">
+      {{#each creation.steps as |s|}}
+      <li class="{{#if s.done}}done{{else if s.warn}}warn{{/if}}" {{#if s.hint}}data-tooltip="{{s.hint}}"{{/if}}>
+         {{#if s.toggle}}
+         <input type="checkbox" name="{{s.toggle}}" {{checked s.done}} {{#unless @root.editable}}disabled{{/unless}}>
+         {{else}}
+         <i class="fa-solid {{#if s.done}}fa-circle-check{{else if s.warn}}fa-triangle-exclamation{{else}}fa-circle{{/if}}"></i>
+         {{/if}}
+         <span class="step-label">{{s.label}}</span>
+         {{#if s.detail}}<span class="step-detail">{{s.detail}}</span>{{/if}}
+         {{#if s.action}}{{#if @root.editable}}<button type="button" class="ed-step-action" data-action="{{s.action}}">{{s.actionLabel}}</button>{{/if}}{{/if}}
+      </li>
+      {{/each}}
+   </ol>
+   <p class="hint">{{localize "EDRPG.creation.hint.finish"}}</p>
+</section>

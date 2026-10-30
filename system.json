@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.10",
+  "version": "0.1.15",
   "authors": [
     {
       "name": "gmsshadow",
@@ -69,10 +69,47 @@
         "htmlFields": [
           "description"
         ]
+      },
+      "cybernetic": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "clothing": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "gear": {
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   },
   "packs": [
+    {
+      "name": "backgrounds",
+      "label": "Backgrounds",
+      "path": "packs/backgrounds",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "enhancements",
+      "label": "Enhancements",
+      "path": "packs/enhancements",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
     {
       "name": "karma-capabilities",
       "label": "Karma Capabilities",
@@ -107,6 +144,39 @@
       }
     },
     {
+      "name": "cybernetics",
+      "label": "Cybernetics",
+      "path": "packs/cybernetics",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "clothing",
+      "label": "Clothing & Cosmetics",
+      "path": "packs/clothing",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "gear",
+      "label": "Equipment",
+      "path": "packs/gear",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "opponents",
       "label": "Opponents (sample)",
       "path": "packs/opponents",
@@ -124,9 +194,14 @@
       "sorting": "a",
       "color": "#0b2238",
       "packs": [
+        "backgrounds",
+        "enhancements",
         "karma-capabilities",
         "weapons",
         "armour",
+        "cybernetics",
+        "clothing",
+        "gear",
         "opponents"
       ]
     }

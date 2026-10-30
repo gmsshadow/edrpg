@@ -1,0 +1,27 @@
+{
+  "_id": "ad42107d74d62dc0",
+  "_key": "!items!ad42107d74d62dc0",
+  "name": "EmoGoth Suicidal Clothes",
+  "type": "clothing",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "",
+    "cost": "5cr",
+    "rarity": "common",
+    "location": "carried",
+    "socialFactor": 1,
+    "skillMods": [],
+    "rollBonuses": [],
+    "toxicResistance": 0,
+    "spaceSuit": false,
+    "notes": "",
+    "worn": false
+  },
+  "flags": {},
+  "sort": 1100,
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0
+  }
+}

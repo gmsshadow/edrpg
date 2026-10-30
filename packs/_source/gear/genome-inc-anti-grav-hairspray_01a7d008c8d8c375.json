@@ -1,0 +1,37 @@
+{
+  "_id": "01a7d008c8d8c375",
+  "_key": "!items!01a7d008c8d8c375",
+  "name": "Genome Inc Anti-grav Hairspray",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>One use. Flammable.</p>",
+    "cost": "500cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "cosmetic",
+    "quantity": 1,
+    "uses": {
+      "value": 1,
+      "max": 1
+    },
+    "socialFactor": 1,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "One use. Flammable.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Cosmetics"
+    }
+  },
+  "sort": 3200,
+  "effects": [],
+  "folder": "42cdf7205c146532",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "f6185ef341b67a51",
+  "_key": "!items!f6185ef341b67a51",
+  "name": "Gene Mod Baby",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Random background (D100):</strong> 37-38</p><p>Choose any two Enhancements.</p>",
+    "choices": 1,
+    "free": false,
+    "skills": [],
+    "enhancements": [],
+    "enhancementChoices": 2,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

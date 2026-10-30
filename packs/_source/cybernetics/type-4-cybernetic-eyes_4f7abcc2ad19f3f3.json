@@ -1,0 +1,70 @@
+{
+  "_id": "4f7abcc2ad19f3f3",
+  "_key": "!items!4f7abcc2ad19f3f3",
+  "name": "Type 4 Cybernetic Eyes",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces eyes.</p>",
+    "cost": "2,200,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 2,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [
+      {
+        "skill": "kineticWeapons",
+        "value": 20
+      },
+      {
+        "skill": "energyWeapons",
+        "value": 20
+      },
+      {
+        "skill": "heavyWeapons",
+        "value": 20
+      },
+      {
+        "skill": "perception",
+        "value": 20
+      }
+    ],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces eyes.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Cybernetic Eyes"
+    }
+  },
+  "sort": 3200,
+  "effects": [],
+  "folder": "f2f3a945562f454f",
+  "ownership": {
+    "default": 0
+  }
+}

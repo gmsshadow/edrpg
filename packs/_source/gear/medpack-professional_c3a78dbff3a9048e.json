@@ -1,0 +1,44 @@
+{
+  "_id": "c3a78dbff3a9048e",
+  "_key": "!items!c3a78dbff3a9048e",
+  "name": "Medpack, Professional",
+  "type": "gear",
+  "img": "icons/svg/heal.svg",
+  "system": {
+    "description": "<p>+4 to Medicine when stabilising or healing. About five uses.</p>",
+    "cost": "90,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "medical",
+    "quantity": 1,
+    "uses": {
+      "value": 5,
+      "max": 5
+    },
+    "socialFactor": 0,
+    "rollBonuses": [
+      {
+        "skill": "medicine",
+        "value": 4,
+        "kind": "roll",
+        "when": "medical"
+      }
+    ],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "+4 to Medicine when stabilising or healing. About five uses.",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medpacks"
+    }
+  },
+  "sort": 1900,
+  "effects": [],
+  "folder": "ca9684b6158c9a77",
+  "ownership": {
+    "default": 0
+  }
+}

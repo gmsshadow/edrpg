@@ -15,6 +15,7 @@ import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs"
 import { endAdventure } from "../advancement.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
 import { conditionView, conditionAction } from "../dice/damage.mjs";
+import { creationView, promptIndependentLearning, promptStartingEquipment, finishCreation } from "../creation.mjs";
 import { EDSkillConfig, EDResourceConfig, EDSocialFactorConfig } from "./actor-config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -63,6 +64,9 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          configureSocialFactor: EDActorSheet.#onConfigureSocialFactor,
          toggleSkillUsed: EDActorSheet.#onToggleSkillUsed,
          endAdventure: EDActorSheet.#onEndAdventure,
+         creationLearning: EDActorSheet.#onCreationLearning,
+         creationEquipment: EDActorSheet.#onCreationEquipment,
+         creationFinish: EDActorSheet.#onCreationFinish,
          useKarma: EDActorSheet.#onUseKarma,
          restKarma: EDActorSheet.#onRestKarma,
          toggleItem: EDActorSheet.#onToggleItem,
@@ -115,6 +119,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          editable: this.isEditable,
          owner: actor.isOwner,
          condition: conditionView(actor),
+         creation: creationView(actor),
          rank: system.rank,
          tabs: this._prepareTabs("primary"),
          isCharacter,
@@ -292,13 +297,75 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          location: item.system.location,
       });
 
-      const weapons = [...actor.itemTypes.weapon].sort((a, b) => (a.sort || 0) - (b.sort || 0));
-      const armour = [...actor.itemTypes.armour].sort((a, b) => (a.sort || 0) - (b.sort || 0));
+      const sorted = (type) => [...(actor.itemTypes[type] ?? [])].sort((a, b) => (a.sort || 0) - (b.sort || 0));
+      const weapons = sorted("weapon");
+      const armour = sorted("armour");
+      const clothing = sorted("clothing");
+      const gear = sorted("gear");
+      const signedSf = (v) => (v ? game.i18n.format("EDRPG.armour.sfShort", { value: v > 0 ? `+${v}` : v }) : "");
+      const bonusText = (s) =>
+         (s.rollBonuses ?? [])
+            .filter((b) => b.skill && b.value)
+            .map((b) => `${b.value > 0 ? "+" : ""}${b.value} ${game.i18n.localize(skillChoices()[b.skill] ?? "")}`)
+            .join(", ");
+      const modText = (s) =>
+         (s.skillMods ?? [])
+            .filter((m) => m.skill && m.value)
+            .map((m) => `${m.value > 0 ? "+" : ""}${m.value} ${game.i18n.localize(skillChoices()[m.skill] ?? "")}`)
+            .join(", ");
+      const clothingView = (item) => ({
+         id: item.id,
+         name: item.name,
+         kind: "clothing",
+         notes: [signedSf(item.system.socialFactor), item.system.notes || [modText(item.system), bonusText(item.system)].filter(Boolean).join(", ")]
+            .filter(Boolean)
+            .join(". "),
+         worn: item.system.worn,
+         location: item.system.location,
+      });
+      const gearView = (item) => {
+         const s = item.system;
+         return {
+            id: item.id,
+            name: item.name,
+            kind: "gear",
+            quantity: s.quantity,
+            uses: s.uses.max !== null ? s.uses : null,
+            toggleable: !!s.socialFactor || ["cosmetic", "com"].includes(s.category),
+            active: s.active,
+            notes: [signedSf(s.socialFactor), s.notes || bonusText(s), s.injectionSuccess !== null ? `${s.injectionSuccess}%` : ""].filter(Boolean).join(". "),
+            location: s.location,
+         };
+      };
       const carried = weapons.filter((w) => loc(w) === "carried").map(weaponView);
       context.rangedWeapons = carried.filter((w) => !w.isMelee);
       context.meleeWeapons = carried.filter((w) => w.isMelee);
       context.carriedWeapons = carried;
-      context.clothing = armour.filter((a) => loc(a) === "carried").map(armourView);
+      context.clothing = [
+         ...clothing.filter((c) => loc(c) === "carried").map(clothingView),
+         ...armour.filter((a) => loc(a) === "carried").map(armourView),
+      ];
+      context.gear = gear.filter((g) => loc(g) === "carried").map(gearView);
+      context.cybernetics = sorted("cybernetic").map((item) => {
+         const s = item.system;
+         const effects = [
+            s.damageBonus ? game.i18n.format("EDRPG.cybernetic.short.damage", { value: s.damageBonus }) : "",
+            s.speedBonus ? game.i18n.format("EDRPG.cybernetic.short.speed", { value: s.speedBonus }) : "",
+            s.resistKnockdown ? game.i18n.format("EDRPG.cybernetic.short.resist", { value: s.resistKnockdown }) : "",
+            s.enduranceBonus ? game.i18n.format("EDRPG.cybernetic.short.endurance", { value: s.enduranceBonus }) : "",
+            s.initiativeBonus ? game.i18n.format("EDRPG.cybernetic.short.initiative", { value: s.initiativeBonus }) : "",
+            modText(s),
+            s.isArmour ? s.absorbLabel : "",
+            s.hardened ? game.i18n.format("EDRPG.armour.hardenedShort", { value: s.hardened }) : "",
+            s.notes,
+         ].filter(Boolean);
+         return { id: item.id, name: item.name, karmaCost: s.karmaCost, discreet: s.discreet, notes: effects.join(". ") };
+      });
+      context.cyberKarma = {
+         spent: actor.system.karma.standard.cybernetics ?? 0,
+         fromCyber: actor.system.karma.cyber.spent ?? 0,
+         cyborg: actor.system.socialFactor.cyborg,
+      };
 
       // Combat tab: what worn armour absorbs, by damage type.
       context.damageTypeLabels = Object.keys(damageTypes).map((t) => `EDRPG.damageShort.${t}`);
@@ -316,6 +383,8 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       const stored = (where) => [
          ...weapons.filter((w) => loc(w) === where).map((w) => ({ ...weaponView(w), kind: "weapon" })),
          ...armour.filter((a) => loc(a) === where).map((a) => ({ ...armourView(a), kind: "armour" })),
+         ...clothing.filter((c) => loc(c) === where).map(clothingView),
+         ...gear.filter((g) => loc(g) === where).map(gearView),
       ];
       context.packItems = stored("pack");
       context.shipItems = stored("ship");
@@ -432,12 +501,38 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     */
    static async #onReloadWeapon(event, target) {
       const item = this.#getItem(target);
-      if (item?.system.usesAmmo) return item.update({ "system.ammo.value": item.system.ammo.max });
+      if (!item?.system.usesAmmo) return;
+      // Use a spare magazine of the right kind if the character carries one (Core Rules p.133).
+      const name = item.name.toLowerCase();
+      const group = String(item.getFlag("edrpg", "group") ?? "").toLowerCase();
+      const spare = this.document.itemTypes.gear.find((g) => {
+         const kind = g.system.ammoFor?.trim().toLowerCase();
+         return g.system.category === "ammo" && kind && g.system.quantity > 0 && (name.includes(kind) || group.includes(kind));
+      });
+      if (spare) await spare.update({ "system.quantity": spare.system.quantity - 1 });
+      await item.update({ "system.ammo.value": item.system.ammo.max });
+      const key = spare ? "EDRPG.weapon.reloadedFrom" : "EDRPG.weapon.reloadedNoSpare";
+      ui.notifications.info(game.i18n.format(key, { weapon: item.name, ammo: spare?.name ?? "", left: spare ? spare.system.quantity : 0 }));
    }
 
    /** @this {EDActorSheet} */
    static async #onRestKarma() {
       if (this.isEditable) return restKarma(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onCreationLearning() {
+      return promptIndependentLearning(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onCreationEquipment() {
+      return promptStartingEquipment(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onCreationFinish() {
+      return finishCreation(this.document);
    }
 
    /** @this {EDActorSheet} */
@@ -464,7 +559,8 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
 
    /** @this {EDActorSheet} */
    static async #onRollFightingDamage() {
-      const roll = await new Roll(fighting.damage).evaluate();
+      // 1D10 halved, rounding up (Core Rules p.60).
+      const roll = await new Roll(`ceil(${fighting.damage} / 2)`).evaluate();
       return roll.toMessage({
          speaker: ChatMessage.getSpeaker({ actor: this.document }),
          flavor: `${game.i18n.localize("EDRPG.sheet.skills.combat.fighting.name")} — ${game.i18n.localize("EDRPG.sheet.damage")}`,

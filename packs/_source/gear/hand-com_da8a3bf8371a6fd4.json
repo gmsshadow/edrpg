@@ -1,0 +1,37 @@
+{
+  "_id": "da8a3bf8371a6fd4",
+  "_key": "!items!da8a3bf8371a6fd4",
+  "name": "Hand Com",
+  "type": "gear",
+  "img": "icons/svg/sound.svg",
+  "system": {
+    "description": "",
+    "cost": "3cr",
+    "rarity": "common",
+    "location": "carried",
+    "category": "com",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "",
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Coms"
+    }
+  },
+  "sort": 2800,
+  "effects": [],
+  "folder": "7f9e4aae3771afc1",
+  "ownership": {
+    "default": 0
+  }
+}

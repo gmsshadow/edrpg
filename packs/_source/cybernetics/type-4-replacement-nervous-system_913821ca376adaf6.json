@@ -1,0 +1,58 @@
+{
+  "_id": "913821ca376adaf6",
+  "_key": "!items!913821ca376adaf6",
+  "name": "Type 4 Replacement Nervous System",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>Replaces spinal cord and primary nerve endings.</p>",
+    "cost": "6,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 5,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 2,
+    "skillMods": [
+      {
+        "skill": "dodge",
+        "value": 20
+      }
+    ],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "Replaces spinal cord and primary nerve endings.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    }
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Replacement Nervous Systems"
+    }
+  },
+  "sort": 2200,
+  "effects": [],
+  "folder": "6d9d4ea367e1e841",
+  "ownership": {
+    "default": 0
+  }
+}

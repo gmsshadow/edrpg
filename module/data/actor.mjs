@@ -8,6 +8,8 @@ import {
    rankFor,
    MAX_HUMAN_ENDURANCE,
    CYBORG_SOCIAL_FACTOR,
+   BASE_SPEED,
+   enhancementEffects,
 } from "../config.mjs";
 
 const fields = foundry.data.fields;
@@ -95,7 +97,10 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
    get equippedItems() {
       const items = this.parent.items ?? [];
       return items.filter(
-         (i) => (i.type === "weapon" && i.system.equipped) || (i.type === "armour" && i.system.worn),
+         (i) =>
+            (i.type === "weapon" && i.system.equipped) ||
+            ((i.type === "armour" || i.type === "clothing") && i.system.worn) ||
+            i.type === "cybernetic",
       );
    }
 
@@ -120,9 +125,69 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
       return this.skills[skillCategory[skill]]?.[skill]?.bonus ?? 0;
    }
 
-   /** Initiative score = Tactics bonus (Core Rules, "Determine Defence & Initiative"). */
+   /**
+    * Equipment bonuses to checks with a Skill: worn clothing and carried gear (e.g. Studded Thug Outfit +1
+    * Intimidate, Medpack +2 Medicine when stabilising or healing). Score bonuses are converted to the change in
+    * Skill bonus they make.
+    *
+    * @param {string} skill
+    *
+    * @returns {{key: string, label: string, value: number, raw: number, kind: string, when: string}[]}
+    */
+   itemSkillBonuses(skill) {
+      const data = this.skills[skillCategory[skill]]?.[skill];
+      const out = [];
+      for (const item of this.parent.items ?? []) {
+         const using = (item.type === "clothing" && item.system.worn) || (item.type === "gear" && item.system.location === "carried");
+         if (!using) continue;
+         (item.system.rollBonuses ?? []).forEach((b, index) => {
+            if (b.skill !== skill || !b.value) return;
+            let value = b.value;
+            if (b.kind === "score" && data) value = Math.floor(Math.min(data.score + b.value, MAX_SKILL_SCORE) / 10) - data.bonus;
+            out.push({ key: `${item.id}.${index}`, label: item.name, value, raw: b.value, kind: b.kind, when: b.when });
+         });
+      }
+      return out;
+   }
+
+   /**
+    * Initiative score = Tactics bonus (Core Rules, "Determine Defence & Initiative"). With the Awareness
+    * enhancement the Perception bonus may be used instead, so the better of the two.
+    */
    get initiative() {
-      return this.skills.intelligence.tactics.bonus;
+      const tactics = this.skills.intelligence.tactics.bonus;
+      const base = this.enhancements?.awareness ? Math.max(tactics, this.skills.espionage.perception.bonus) : tactics;
+      return base + (this.cybernetics?.initiativeBonus ?? 0);
+   }
+
+   /**
+    * How many of each Enhancement the actor has, by effect key.
+    *
+    * @returns {Record<string, number>}
+    */
+   _countEnhancements() {
+      const counts = {};
+      const genius = {};
+      for (const item of this.parent.itemTypes?.enhancement ?? []) {
+         const { effect, skill } = item.system;
+         counts[effect] = (counts[effect] ?? 0) + 1;
+         if (effect === "naturalGenius" && skill) genius[skill] = (genius[skill] ?? 0) + 1;
+      }
+      // Combat Stim: Brutal Plus gives Strong and Quick Runner while it lasts.
+      if (this.stimEffect === "brutal") {
+         counts.strong = (counts.strong ?? 0) + 1;
+         counts.quickRunner = (counts.quickRunner ?? 0) + 1;
+      }
+      // Armour that grants an Enhancement while worn (Powered Armour: Strong).
+      for (const armour of this.parent.itemTypes?.armour ?? []) {
+         const name = armour.system.enhancement?.trim().toLowerCase();
+         if (!armour.system.worn || !name) continue;
+         const effect = Object.keys(enhancementEffects).find(
+            (k) => k.toLowerCase() === name.replace(/\s+/g, "") || game.i18n.localize(enhancementEffects[k]).toLowerCase() === name,
+         );
+         if (effect && effect !== "none") counts[effect] = (counts[effect] ?? 0) + 1;
+      }
+      return { counts, genius };
    }
 
    /** Defence (Dodge) = Dodge bonus. */
@@ -152,13 +217,60 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
    /** @override */
    prepareDerivedData() {
       const rank = this.rank;
+      // An active Combat Stim (the Stimmed status) and its drug's extra effect.
+      this.stimmed = this.parent.statuses?.has("edrpgStimmed") ?? false;
+      this.stimEffect = this.stimmed ? (this.parent.getFlag?.("edrpg", "stim")?.effect ?? "") : "";
+      const { counts, genius } = this._countEnhancements();
+      const n = (key) => counts[key] ?? 0;
+      this.enhancements = counts;
 
+      // Cybernetics: their bonuses add up (two Type 1 Arm Upgrades: +4 damage), separately from Enhancements.
+      const cybernetics = this.parent.itemTypes?.cybernetic ?? [];
+      const sum = (key) => cybernetics.reduce((total, c) => total + (c.system[key] ?? 0), 0);
+      this.cybernetics = {
+         count: cybernetics.length,
+         karmaCost: sum("karmaCost"),
+         damageBonus: sum("damageBonus"),
+         speedBonus: sum("speedBonus"),
+         resistKnockdown: sum("resistKnockdown"),
+         enduranceBonus: sum("enduranceBonus"),
+         initiativeBonus: sum("initiativeBonus"),
+      };
+      this.resistKnockdown = this.cybernetics.resistKnockdown;
+
+      // Cybernetic Affinity: 2 Karma points for cybernetic upgrades each time. Cybernetics drain Karma permanently,
+      // paid from those cybernetic Karma points first, then from standard Karma (Core Rules p.124).
+      this.karma.cyber.enhancement = 2 * n("cyberneticAffinity");
+      this.karma.cyber.base = this.karma.cyber.enhancement;
+      const cyberPool = Math.max(this.karma.cyber.base + this.karma.cyber.bonus, 0);
+      this.karma.cyber.spent = Math.min(this.cybernetics.karmaCost, cyberPool);
+      this.karma.cyber.max = cyberPool - this.karma.cyber.spent;
       this.karma.standard.base = rank.karmaPoints;
-      this.karma.standard.max = rank.karmaPoints + this.karma.standard.bonus;
-      this.karma.cyber.base = 0;
-      this.karma.cyber.max = this.karma.cyber.bonus;
-      this.endurance.base = Math.min(rank.endurance, MAX_HUMAN_ENDURANCE);
-      this.endurance.max = this.endurance.base + this.endurance.bonus;
+      this.karma.standard.cybernetics = this.cybernetics.karmaCost - this.karma.cyber.spent;
+      this.karma.standard.max = Math.max(rank.karmaPoints + this.karma.standard.bonus - this.karma.standard.cybernetics, 0);
+      // Tough: +5 Endurance each time, up to the natural human maximum; cybernetics etc. go in `bonus`.
+      this.endurance.enhancement = 5 * n("tough");
+      this.endurance.rank = rank.endurance;
+      this.endurance.base = Math.min(rank.endurance + this.endurance.enhancement, MAX_HUMAN_ENDURANCE);
+      // Replacement Internals add to Endurance beyond the natural human maximum.
+      this.endurance.cybernetics = this.cybernetics.enduranceBonus;
+      this.endurance.max = this.endurance.base + this.endurance.cybernetics + this.endurance.bonus;
+      // Quick Runner: +2m each time (at most three times).
+      this.speed = BASE_SPEED + 2 * Math.min(n("quickRunner"), 3) + this.cybernetics.speedBonus;
+      // Strong: +2 Fighting and Melee damage each time, at most +10.
+      this.damageBonus = Math.min(2 * n("strong"), 10) + this.cybernetics.damageBonus;
+      // Ambidextrous: two-weapon penalty -1, then none.
+      this.twoWeaponPenalty = n("ambidextrous") >= 2 ? 0 : n("ambidextrous") === 1 ? -1 : -2;
+      // Hard to Kill: die at minus maximum Endurance; the second time Escape Death costs at most 4 Karma.
+      this.hardToKill = n("hardToKill");
+
+      // Natural Genius: +10 to that Skill's Cap (max 100).
+      for (const [skill, times] of Object.entries(genius)) {
+         const data = this.skills[skillCategory[skill]]?.[skill];
+         if (!data) continue;
+         data.geniusCap = 10 * times;
+         data.cap = Math.min(data.cap + data.geniusCap, MAX_SKILL_SCORE);
+      }
 
       this._prepareSocialFactor();
 
@@ -169,6 +281,14 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
       }
       for (const background of this.parent.itemTypes.background ?? []) {
          sources.push({ label: background.name, mods: background.system.skills ?? [] });
+      }
+      // Independent learning at character creation: +10 to the first Skill chosen down to +1 for the tenth.
+      const learning = (this.creation?.learning ?? []).slice(0, 10);
+      if (learning.length) {
+         sources.push({
+            label: "EDRPG.creation.independentLearning",
+            mods: learning.map((skill, i) => ({ skill, bonus: 10 - i })).filter((m) => m.skill),
+         });
       }
       for (const { label, mods } of sources) {
          for (const { skill, bonus } of mods) {
@@ -190,6 +310,13 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
             data.equipmentMod += value;
             data.equipmentSources.push({ label: item.name, value });
          }
+      }
+
+      // Combat Stim: Paranoia Plus gives +10 Dodge Skill score while it lasts.
+      if (this.stimEffect === "paranoia") {
+         const dodge = this.skills.combat.dodge;
+         dodge.equipmentMod += 10;
+         dodge.equipmentSources.push({ label: "EDRPG.stim.paranoia", value: 10 });
       }
 
       // Score: Base + Learn is the natural score, limited by the Skill Cap. Equipment and temporary
@@ -216,39 +343,63 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
     */
    _prepareSocialFactor() {
       const sf = this.socialFactor;
+      const items = this.parent.itemTypes ?? {};
       const sources = [];
+      // The Confident enhancement works like the manual "confident" box.
+      const confident = sf.confident || !!this.enhancements?.confident;
+      sf.confidentEnhancement = !!this.enhancements?.confident;
+      // Visible cybernetics (anything not Discreet), or Discreet ones once revealed.
+      const cybernetics = items.cybernetic ?? [];
+      sf.cyborgVisible = cybernetics.some((c) => !c.system.discreet);
+      sf.cyborg = sf.cyborgVisible || sf.cyborgRevealed;
+
+      /**
+       * One source, applying the damaged-clothes and Confident rules.
+       *
+       * @param {string} label
+       *
+       * @param {number} value
+       *
+       * @param {object} [options]
+       *
+       * @param {boolean} [options.clothing]  Positive values are lost once the wearer is damaged.
+       */
+      const add = (label, value, { clothing = false } = {}) => {
+         let note = null;
+         if (value > 0 && clothing && sf.damaged) {
+            value = 0;
+            note = "EDRPG.socialFactor.damagedNote";
+         } else if (value < 0 && confident) {
+            value = 0;
+            note = "EDRPG.socialFactor.confidentNote";
+         }
+         sources.push({ label, value, note });
+         return value;
+      };
+
       let total;
-      if (sf.cyborgRevealed) {
-         const value = sf.confident ? 0 : CYBORG_SOCIAL_FACTOR;
-         sources.push({ label: "EDRPG.socialFactor.cyborg", value });
-         total = value;
+      if (sf.cyborg) {
+         // Clothes, cosmetics and other items don't alter a cyborg's Social Factor.
+         total = add("EDRPG.socialFactor.cyborg", CYBORG_SOCIAL_FACTOR);
       } else {
-         let worn = sf.worn;
-         let wornNote = null;
-         if (worn > 0 && sf.damaged) {
-            worn = 0;
-            wornNote = "EDRPG.socialFactor.damagedNote";
-         } else if (worn < 0 && sf.confident) {
-            worn = 0;
-            wornNote = "EDRPG.socialFactor.confidentNote";
+         total = add("EDRPG.socialFactor.worn", sf.worn, { clothing: true });
+         for (const item of (items.clothing ?? []).filter((c) => c.system.worn && c.system.socialFactor)) {
+            total += add(item.name, item.system.socialFactor, { clothing: true });
          }
-         sources.push({ label: "EDRPG.socialFactor.worn", value: worn, note: wornNote });
          // Worn armour (Discreet armour only counts when worn openly).
-         for (const armour of (this.parent.itemTypes?.armour ?? []).filter((a) => a.system.worn)) {
-            let value = armour.system.effectiveSocialFactor;
-            let note = null;
-            if (value < 0 && sf.confident) {
-               value = 0;
-               note = "EDRPG.socialFactor.confidentNote";
-            }
-            if (value || note) {
-               sources.push({ label: armour.name, value, note });
-               worn += value;
-            }
+         for (const armour of (items.armour ?? []).filter((a) => a.system.worn && a.system.effectiveSocialFactor)) {
+            total += add(armour.name, armour.system.effectiveSocialFactor);
          }
-         sources.push({ label: "EDRPG.socialFactor.cosmetics", value: sf.cosmetics });
-         sources.push({ label: "EDRPG.socialFactor.other", value: sf.other });
-         total = worn + sf.cosmetics + sf.other;
+         // Coms, gas masks and other items in use.
+         const active = (items.gear ?? []).filter((g) => g.system.active && g.system.socialFactor);
+         for (const item of active.filter((g) => g.system.category !== "cosmetic")) {
+            total += add(item.name, item.system.socialFactor);
+         }
+         // Only one cosmetics bonus at a time: the best applied cosmetic, or the manual value.
+         const cosmetics = active.filter((g) => g.system.category === "cosmetic").sort((a, b) => b.system.socialFactor - a.system.socialFactor);
+         if (cosmetics.length) total += add(cosmetics[0].name, cosmetics[0].system.socialFactor);
+         else total += add("EDRPG.socialFactor.cosmetics", sf.cosmetics);
+         total += add("EDRPG.socialFactor.other", sf.other);
       }
       const cap = game.settings.get("edrpg", "socialFactorCap");
       sf.sources = sources;
@@ -274,6 +425,8 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
          parry: this.parry,
          rankPoints: this.rankPoints,
          socialFactor: this.socialFactor.value,
+         speed: this.speed,
+         damageBonus: this.damageBonus,
          skill,
       };
    }
@@ -281,6 +434,21 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
 
 /** Player characters get Pilot Trained for free (Core Rules p.14). */
 export class CharacterData extends IndividualData {
+   static defineSchema() {
+      return {
+         ...super.defineSchema(),
+         // Character creation (Core Rules pp.14–39). New characters start with `complete: false` (see EDActor),
+         // existing ones default to complete so the checklist doesn't appear on them.
+         creation: new fields.SchemaField({
+            complete: new fields.BooleanField({ initial: true }),
+            // Independent learning: ten Skills in order, receiving +10, +9 … +1 (p.37).
+            learning: new fields.ArrayField(new fields.StringField({ required: true, blank: true, initial: "" })),
+            equipment: new fields.BooleanField({ initial: false }),
+            ship: new fields.BooleanField({ initial: false }),
+         }),
+      };
+   }
+
    get receivesPilotTrained() {
       return true;
    }

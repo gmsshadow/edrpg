@@ -1,0 +1,179 @@
+{
+  "_id": "e5ccca90f2b9cb54",
+  "_key": "!actors!e5ccca90f2b9cb54",
+  "name": "Eranin Missile Tank",
+  "type": "vehicle",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "large",
+    "manufacturer": "Eranin People's Party",
+    "dimensions": "L 15m x W 9m x H 8.6m",
+    "bays": 4,
+    "crewSize": 3,
+    "passengers": 0,
+    "sensors": "4km",
+    "cargo": "None",
+    "cost": "612,000cr",
+    "special": "",
+    "agility": 0,
+    "maxSpeed": 5,
+    "accelerate": 2,
+    "decelerate": 1,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 1,
+        "attack": -3
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 320,
+      "max": 320
+    },
+    "shields": {
+      "value": 200,
+      "max": 200,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Eranin Missile Tank",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "eaf3cc67f88b83f2",
+      "_key": "!actors.items!e5ccca90f2b9cb54.eaf3cc67f88b83f2",
+      "name": "Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 4,
+        "damage": 50,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 25,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "25a55b813e5eeacc",
+      "_key": "!actors.items!e5ccca90f2b9cb54.25a55b813e5eeacc",
+      "name": "Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 4,
+        "damage": 50,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 25,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "df256b69592aa50f",
+  "sort": 1700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

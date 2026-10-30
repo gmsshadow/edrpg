@@ -4,7 +4,8 @@
       "character": "Character",
       "npcIndividual": "NPC (full character)",
       "opponent": "Opponent (stat block)",
-      "partner": "Partner"
+      "partner": "Partner",
+      "vehicle": "Vehicle"
     },
     "Item": {
       "karma": "Karma Capability",
@@ -14,7 +15,8 @@
       "armour": "Armour",
       "cybernetic": "Cybernetic",
       "clothing": "Clothing",
-      "gear": "Equipment"
+      "gear": "Equipment",
+      "craftWeapon": "Vehicle/Ship Weapon"
     }
   },
   "EDRPG": {
@@ -236,7 +238,8 @@
       "labels": {
         "actor": "EDRPG Actor Sheet",
         "item": "EDRPG Item Sheet",
-        "opponent": "EDRPG Opponent Sheet"
+        "opponent": "EDRPG Opponent Sheet",
+        "vehicle": "EDRPG Vehicle Sheet"
       },
       "character": "Character",
       "dataSheet": "Data Sheet",
@@ -1109,6 +1112,104 @@
       "allowKarma": "My partner may spend my Karma",
       "allowKarmaHint": "A partner who can see you within 30m can use your Karma Capabilities, paid from your Karma (Core Rules p.27).",
       "depth3": "(third in the chain: Endurance −15; can't have a partner)"
+    },
+    "craft": {
+      "size": {
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large",
+        "huge": "Huge"
+      },
+      "mount": {
+        "fixed": "Fixed",
+        "gimballed": "Gimballed",
+        "turret": "Turret"
+      },
+      "zone": {
+        "atDistance": "At-Distance",
+        "upClose": "Up-Close"
+      },
+      "burstShort": "Burst ({max})",
+      "vsShieldsShort": "{value} vs Shields",
+      "bonusVsHull": "+{value} vs Hull",
+      "bonusVsShields": "+{value} vs Shields",
+      "mountSize": "Mount size",
+      "mountKind": "Mount",
+      "accuracy": "Accuracy",
+      "burstMax": "Burst maximum (0 = none)",
+      "damageVsShields": "Damage vs Shields",
+      "bonusVsHullLabel": "Bonus vs Hull",
+      "bonusVsShieldsLabel": "Bonus vs Shields",
+      "weaponHint": "Burst weapons add 5 damage for each point the attack beats the target's Defence, up to the maximum. Kinetic weapons typically add +5 against Hull, energy weapons +5 against Shields; missiles list lower damage against Shields."
+    },
+    "vehicle": {
+      "tag": "Vehicle",
+      "model": "Model",
+      "pilot": "Pilot",
+      "pilotHint": "Drag a character or opponent onto the sheet, or choose one here. Their Vehicle Piloting gives Defence and Pursuit, Tactics gives Initiative, and Vehicle Weapons fires the fixed and gimballed weapons.",
+      "noPilot": "— no pilot —",
+      "pilotMissing": "— pilot not found —",
+      "clearPilot": "Remove the pilot",
+      "agility": "Agility",
+      "maxSpeed": "Max Speed",
+      "accelerate": "Accelerate",
+      "decelerate": "Decelerate",
+      "defence": "Defence",
+      "defenceOver": "Agility + Vehicle Piloting",
+      "defenceHint": "Agility + the pilot's Vehicle Piloting bonus + the Speed Table bonus. 0 when stationary.",
+      "initiativeOver": "Pilot's Tactics",
+      "pursuit": "Pursuit",
+      "pursuitOver": "Speed + ½ Vehicle Piloting",
+      "pursuitHint": "Current Speed + half the pilot's Vehicle Piloting bonus (rounded down).",
+      "hull": "Hull",
+      "shields": "Shields",
+      "recharge": "Recharge",
+      "shieldsDown": "Down (charging)",
+      "shieldsDownHint": "Knocked-out shields charge up by their recharge each turn and work again once back to half their maximum.",
+      "zone": "Zone",
+      "zoneFromMap": "(from the token's position on the combat map)",
+      "speedNow": "Speed {speed}",
+      "weapons": "Weapons",
+      "weaponName": "Name",
+      "special": "Special",
+      "fireHint": "Fire this weapon (shift-click: no dialog)",
+      "gunner": "Gunner",
+      "automatic": "Automatic (bonus 3)",
+      "autoTurret": "Automatic turret (+{bonus})",
+      "noWeapons": "No weapons fitted.",
+      "speedTable": "Speed Table",
+      "speed": "Speed",
+      "defenceBonus": "Defence Bonus",
+      "attackPenalty": "Attack Penalty",
+      "setSpeedHint": "Set the current speed (click again to stop)",
+      "tab": {
+        "sheet": "Data Sheet",
+        "details": "Specifications"
+      },
+      "category": "Category",
+      "manufacturer": "Manufacturer",
+      "dimensions": "Dimensions",
+      "bays": "Vehicle bay slots",
+      "crew": "Crew",
+      "passengers": "Passengers",
+      "sensors": "Sensors",
+      "cargo": "Cargo capacity",
+      "specialRules": "Special",
+      "targetLine": "Target: {name} — Defence {defence} at Speed {speed}",
+      "noTarget": "No vehicle targeted: type the target's Defence.",
+      "targetDefence": "Target's Defence",
+      "targetDefenceHint": "0 if the target is stationary or sniping.",
+      "part": {
+        "gunnery": "Vehicle Weapons",
+        "autoTurret": "Automatic turret",
+        "speed": "Speed"
+      },
+      "naturalTen": "Natural 10: against a spaceship this would also hit a component (vehicles take no critical hits).",
+      "shieldsHit": "Shields {before} → {after}.",
+      "shieldsCollapse": "Shields down",
+      "hullHit": "Hull −{damage} ({before} → {after}).",
+      "destroyed": "Destroyed",
+      "selectVehicles": "Select the vehicle tokens to damage first."
     }
   }
 }

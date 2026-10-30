@@ -1,0 +1,179 @@
+{
+  "_id": "34d258382bedba16",
+  "_key": "!actors!34d258382bedba16",
+  "name": "Quadbike SRV – Lancer",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/garriot-shielded-recon-quadbike-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Garriot",
+    "dimensions": "L 3.1m x W 1.8m x H 1.1m",
+    "bays": 1,
+    "crewSize": 1,
+    "passengers": 0,
+    "sensors": "1km",
+    "cargo": "None",
+    "cost": "22,000cr",
+    "special": "",
+    "agility": 5,
+    "maxSpeed": 7,
+    "accelerate": 4,
+    "decelerate": 3,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 3,
+        "attack": -2
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 25,
+      "max": 25
+    },
+    "shields": {
+      "value": 30,
+      "max": 30,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Quadbike SRV – Lancer",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/garriot-shielded-recon-quadbike-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "761f1cd5096d2336",
+      "_key": "!actors.items!34d258382bedba16.761f1cd5096d2336",
+      "name": "Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "8cc85e9451d7ad39",
+      "_key": "!actors.items!34d258382bedba16.8cc85e9451d7ad39",
+      "name": "Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 25,
+          "max": 25
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "71c3949acc42f3ca",
+  "sort": 600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

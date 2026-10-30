@@ -1,0 +1,33 @@
+<header class="ed-vheader">
+   <div class="ed-vident">
+      <img class="ed-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-action="editImage" data-edit="img">
+      <div class="ed-datasheet-tag">
+         <span class="big">{{localize "EDRPG.vehicle.tag"}}</span>
+         <span class="small">{{localize "EDRPG.sheet.dataSheet"}}</span>
+      </div>
+   </div>
+   <div class="ed-vtitle">
+      <label class="ed-vfield model">
+         <span class="ed-tag">{{localize "EDRPG.vehicle.model"}}</span>
+         <input type="text" name="name" value="{{actor.name}}">
+      </label>
+      <div class="ed-vfield pilot" data-tooltip="EDRPG.vehicle.pilotHint">
+         <span class="ed-tag">{{localize "EDRPG.vehicle.pilot"}}</span>
+         {{#if pilot}}
+         <a class="ed-vpilot" data-action="openActor" data-uuid="{{pilot.uuid}}"><img src="{{pilot.img}}" alt=""> {{pilot.name}}</a>
+         {{#if editable}}<a class="ed-vclear" data-action="clearPilot" data-tooltip="EDRPG.vehicle.clearPilot"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+         {{else}}
+         <select name="system.pilot" {{#unless editable}}disabled{{/unless}}>
+            <option value="">{{#if pilotMissing}}{{localize "EDRPG.vehicle.pilotMissing"}}{{else}}{{localize "EDRPG.vehicle.noPilot"}}{{/if}}</option>
+            {{selectOptions pilotChoices sort=true}}
+         </select>
+         {{/if}}
+      </div>
+      <div class="ed-vhandling">
+         <label><span>{{localize "EDRPG.vehicle.agility"}}</span><input type="number" name="system.agility" value="{{source.agility}}" step="1"></label>
+         <label><span>{{localize "EDRPG.vehicle.maxSpeed"}}</span><input type="number" name="system.maxSpeed" value="{{source.maxSpeed}}" min="0" max="10" step="1"></label>
+         <label><span>{{localize "EDRPG.vehicle.accelerate"}}</span><input type="number" name="system.accelerate" value="{{source.accelerate}}" min="0" step="1"></label>
+         <label><span>{{localize "EDRPG.vehicle.decelerate"}}</span><input type="number" name="system.decelerate" value="{{source.decelerate}}" min="0" step="1"></label>
+      </div>
+   </div>
+</header>

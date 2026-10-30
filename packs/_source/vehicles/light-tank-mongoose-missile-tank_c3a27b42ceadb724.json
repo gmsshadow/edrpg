@@ -1,0 +1,179 @@
+{
+  "_id": "c3a27b42ceadb724",
+  "_key": "!actors!c3a27b42ceadb724",
+  "name": "Light Tank – Mongoose Missile Tank",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/light-tank-green.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Various",
+    "dimensions": "L 9.0m x W 4.0m x H 4.7m",
+    "bays": 2,
+    "crewSize": 3,
+    "passengers": 0,
+    "sensors": "2km",
+    "cargo": "None",
+    "cost": "204,990cr",
+    "special": "",
+    "agility": 3,
+    "maxSpeed": 6,
+    "accelerate": 3,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -2
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 250,
+      "max": 250
+    },
+    "shields": {
+      "value": 130,
+      "max": 130,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Light Tank – Mongoose Missile Tank",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/light-tank-green.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "b86f02eb68644714",
+      "_key": "!actors.items!c3a27b42ceadb724.b86f02eb68644714",
+      "name": "Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 4,
+        "damage": 50,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 25,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "24a2e3ee62b52472",
+      "_key": "!actors.items!c3a27b42ceadb724.24a2e3ee62b52472",
+      "name": "Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "06d99395d357c07a",
+  "sort": 1500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

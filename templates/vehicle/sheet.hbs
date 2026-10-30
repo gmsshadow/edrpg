@@ -1,0 +1,101 @@
+<div class="tab vehicle-sheet {{tab.cssClass}}" data-group="primary" data-tab="sheet">
+   <div class="ed-vstats">
+      <div class="ed-vchevrons">
+         <div class="ed-chevron defence" data-tooltip="EDRPG.vehicle.defenceHint">
+            <span class="over">{{localize "EDRPG.vehicle.defenceOver"}}</span>
+            <span class="label">{{localize "EDRPG.vehicle.defence"}}</span>
+            <span class="value">{{stats.defence}}</span>
+         </div>
+         <div class="ed-chevron initiative">
+            <span class="over">{{localize "EDRPG.vehicle.initiativeOver"}}</span>
+            <a class="label" data-action="rollInitiative" data-tooltip="EDRPG.sheet.rollInitiative">{{localize "EDRPG.sheet.initiative"}}</a>
+            <span class="value">{{stats.initiative}}</span>
+         </div>
+         <div class="ed-chevron pursuit" data-tooltip="EDRPG.vehicle.pursuitHint">
+            <span class="over">{{localize "EDRPG.vehicle.pursuitOver"}}</span>
+            <span class="label">{{localize "EDRPG.vehicle.pursuit"}}</span>
+            <span class="value">{{stats.pursuit}}</span>
+         </div>
+      </div>
+      <div class="ed-pool hull">
+         <div class="ed-pool-title"><span class="ed-roundel"><i class="fa-solid fa-shield"></i></span><span>{{localize "EDRPG.vehicle.hull"}}</span></div>
+         <div class="ed-pool-body">
+            <div class="ed-pool-value">
+               <input type="number" name="system.hull.value" value="{{source.hull.value}}" step="1">
+               <span class="max">/ <input type="number" class="max-input" name="system.hull.max" value="{{source.hull.max}}" min="0" step="1"></span>
+            </div>
+         </div>
+      </div>
+      <div class="ed-pool shields {{shieldState}}">
+         <div class="ed-pool-title"><span class="ed-roundel"><i class="fa-solid fa-shield-halved"></i></span><span>{{localize "EDRPG.vehicle.shields"}}</span></div>
+         <div class="ed-pool-body">
+            <div class="ed-pool-value">
+               <input type="number" name="system.shields.value" value="{{source.shields.value}}" min="0" step="1">
+               <span class="max">/ <input type="number" class="max-input" name="system.shields.max" value="{{source.shields.max}}" min="0" step="1"></span>
+            </div>
+            <div class="ed-vshield-extra">
+               <label>{{localize "EDRPG.vehicle.recharge"}} <input type="number" name="system.shields.recharge" value="{{source.shields.recharge}}" min="0" step="1"></label>
+               {{#if system.shields.max}}<label class="down" data-tooltip="EDRPG.vehicle.shieldsDownHint"><input type="checkbox" name="system.shields.down" {{checked source.shields.down}}> {{localize "EDRPG.vehicle.shieldsDown"}}</label>{{/if}}
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="ed-vzone">
+      <span class="ed-vzone-label">{{localize "EDRPG.vehicle.zone"}}</span>
+      {{#each combatZones as |label key|}}
+      <a class="ed-vzone-btn {{#if (eq @root.zone key)}}active{{/if}}" {{#unless @root.zoneFromMap}}data-action="setZone"{{/unless}} data-zone="{{key}}">{{localize label}}</a>
+      {{/each}}
+      {{#if zoneFromMap}}<span class="muted">{{localize "EDRPG.vehicle.zoneFromMap"}}</span>{{/if}}
+      <span class="ed-vspeed-now">{{localize "EDRPG.vehicle.speedNow" speed=system.speed}}</span>
+   </div>
+
+   {{#> edrpgSection title="EDRPG.vehicle.weapons" icon="fa-solid fa-crosshairs" addType="craftWeapon"}}
+   <table class="ed-table weapons vweapons">
+      <thead>
+         <tr>
+            <th class="name">{{localize "EDRPG.vehicle.weaponName"}}</th>
+            <th>{{localize "EDRPG.sheet.toHit"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.damage"}}</th>
+            <th class="damage">{{localize "EDRPG.sheet.ammo"}}</th>
+            <th class="notes">{{localize "EDRPG.vehicle.special"}}</th>
+         </tr>
+      </thead>
+      <tbody>
+         {{#each weapons as |w|}}
+         <tr data-item-id="{{w.id}}" class="draggable">
+            <th class="name">
+               <a data-action="editItem" class="ed-edit" data-tooltip="EDRPG.sheet.editItem"><i class="fa-solid fa-pen"></i></a>
+               <a data-action="rollWeapon" data-tooltip="EDRPG.vehicle.fireHint">{{w.name}}</a>
+               <span class="ed-vmount">{{w.mount}}</span>
+            </th>
+            <td>{{#if (gte w.toHit 0)}}+{{/if}}{{w.toHit}}</td>
+            <td class="damage">{{w.damage}}</td>
+            <td class="damage ammo">{{#if w.usesAmmo}}<input type="number" data-item-field="system.ammo.value" value="{{w.ammo.value}}" min="0" step="1">/{{w.ammo.max}} <a data-action="reloadWeapon" data-tooltip="EDRPG.weapon.reload"><i class="fa-solid fa-rotate"></i></a>{{else}}—{{/if}}</td>
+            <td class="notes">
+               {{w.special}}
+               {{#if w.turret}}
+               <div class="ed-vgunner">
+                  <span>{{localize "EDRPG.vehicle.gunner"}}</span>
+                  <select data-gunner-select {{#unless @root.editable}}disabled{{/unless}}>
+                     <option value="">{{localize "EDRPG.vehicle.automatic"}}</option>
+                     {{selectOptions @root.pilotChoices selected=w.gunner sort=true}}
+                  </select>
+               </div>
+               {{/if}}
+            </td>
+         </tr>
+         {{else}}<tr class="empty"><td colspan="5">{{localize "EDRPG.vehicle.noWeapons"}}</td></tr>{{/each}}
+      </tbody>
+   </table>
+   {{/edrpgSection}}
+
+   <div class="ed-vspeedtable">
+      <div class="ed-vspeed-title"><i class="fa-solid fa-gauge-high"></i> {{localize "EDRPG.vehicle.speedTable"}}</div>
+      <table>
+         <tr class="speed"><th>{{localize "EDRPG.vehicle.speed"}}</th>{{#each speedCells as |c|}}<td class="{{#if c.current}}current{{/if}} {{#if c.beyond}}beyond{{/if}}">{{#unless c.beyond}}<a data-action="setSpeed" data-speed="{{c.speed}}" data-tooltip="EDRPG.vehicle.setSpeedHint">{{c.speed}}</a>{{else}}{{c.speed}}{{/unless}}</td>{{/each}}</tr>
+         <tr class="defence"><th>{{localize "EDRPG.vehicle.defenceBonus"}}</th>{{#each speedCells as |c|}}<td class="{{#if c.current}}current{{/if}} {{#if c.beyond}}beyond{{/if}}">{{c.defence}}</td>{{/each}}</tr>
+         <tr class="attack"><th>{{localize "EDRPG.vehicle.attackPenalty"}}</th>{{#each speedCells as |c|}}<td class="{{#if c.current}}current{{/if}} {{#if c.beyond}}beyond{{/if}}">{{c.attack}}</td>{{/each}}</tr>
+      </table>
+   </div>
+</div>

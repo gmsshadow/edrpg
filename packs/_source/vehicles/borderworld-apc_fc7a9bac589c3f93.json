@@ -1,0 +1,179 @@
+{
+  "_id": "fc7a9bac589c3f93",
+  "_key": "!actors!fc7a9bac589c3f93",
+  "name": "Borderworld APC",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/borderworld-apc-yellow.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Procyon Crimson Advanced",
+    "dimensions": "L 9.3m x W 3.1m x H 4.7m",
+    "bays": 2,
+    "crewSize": 1,
+    "passengers": 14,
+    "sensors": "2km",
+    "cargo": "8T with no passengers",
+    "cost": "65,730cr",
+    "special": "",
+    "agility": 2,
+    "maxSpeed": 7,
+    "accelerate": 2,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -3
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 130,
+      "max": 130
+    },
+    "shields": {
+      "value": 80,
+      "max": 80,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>Pressurised. Seats 2 in front and 12 in the back.</p>"
+  },
+  "prototypeToken": {
+    "name": "Borderworld APC",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/borderworld-apc-yellow.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "8621c93d4a77f9d4",
+      "_key": "!actors.items!fc7a9bac589c3f93.8621c93d4a77f9d4",
+      "name": "Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 25,
+          "max": 25
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "72bd1ee8fbee7aaf",
+      "_key": "!actors.items!fc7a9bac589c3f93.72bd1ee8fbee7aaf",
+      "name": "Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "ff69c58b2c2fa288",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

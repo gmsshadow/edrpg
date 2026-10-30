@@ -1,0 +1,216 @@
+{
+  "_id": "61e82d5b490e2bce",
+  "_key": "!actors!61e82d5b490e2bce",
+  "name": "Longhaul Truck",
+  "type": "vehicle",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Magnus Transporting",
+    "dimensions": "L 9.8m x W 3.0m x H 5.0m",
+    "bays": 2,
+    "crewSize": 1,
+    "passengers": 2,
+    "sensors": "1km",
+    "cargo": "12T",
+    "cost": "10,300cr",
+    "special": "",
+    "agility": 2,
+    "maxSpeed": 7,
+    "accelerate": 2,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -3
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 70,
+      "max": 70
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>Pressurised.</p>"
+  },
+  "prototypeToken": {
+    "name": "Longhaul Truck",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "4bde97e837320e3a",
+      "_key": "!actors.items!61e82d5b490e2bce.4bde97e837320e3a",
+      "name": "Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "c45ba866c912a26f",
+      "_key": "!actors.items!61e82d5b490e2bce.c45ba866c912a26f",
+      "name": "Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5c3a32aa5252df1b",
+      "_key": "!actors.items!61e82d5b490e2bce.5c3a32aa5252df1b",
+      "name": "Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "05af6ba7d5268114",
+  "sort": 1100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

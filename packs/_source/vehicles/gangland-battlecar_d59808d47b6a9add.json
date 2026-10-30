@@ -1,0 +1,179 @@
+{
+  "_id": "d59808d47b6a9add",
+  "_key": "!actors!d59808d47b6a9add",
+  "name": "Gangland Battlecar",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/gangland-battlecar-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Various manufacturers",
+    "dimensions": "L 4.4m x W 1.7m x H 1.6m",
+    "bays": 1,
+    "crewSize": 3,
+    "passengers": 2,
+    "sensors": "None",
+    "cargo": "Minimal",
+    "cost": "3,200cr",
+    "special": "",
+    "agility": 2,
+    "maxSpeed": 7,
+    "accelerate": 3,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -3
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 60,
+      "max": 60
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>Not pressurised.</p>"
+  },
+  "prototypeToken": {
+    "name": "Gangland Battlecar",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/gangland-battlecar-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "deaeb5b13f9e0344",
+      "_key": "!actors.items!d59808d47b6a9add.deaeb5b13f9e0344",
+      "name": "Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "812ec10e5c95b010",
+      "_key": "!actors.items!d59808d47b6a9add.812ec10e5c95b010",
+      "name": "Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "2110339aa6a19120",
+  "sort": 900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

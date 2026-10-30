@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.19
+- **Assets**: the EDRPG combat maps (`assets/maps`) and 178 top-down ship and vehicle tokens (`assets/tokens/<group>`:
+  Combat, Explorer, Fighter, Pirate, Empire, Federation, Police, Transport, Passenger, Skimmer, Thargoid, Vehicles),
+  converted to WebP.
+- New compendium **Combat Maps**: premade *Vehicle Combat Map* and *Space Combat Map* scenes (gridless zone maps:
+  up-close inside the circle, at-distance outside). Each scene records its up-close circle, so tokens on it know
+  which zone they're in.
+- **Vehicles, step 1** (Core Rules pp.71–75, 220–235):
+  - New **Vehicle** actor with a sheet laid out like the Vehicle Data Sheet (p.363): model, pilot, Agility / Max
+    Speed / Accelerate / Decelerate, Defence, Initiative and Pursuit, Hull, Shields (recharge, down/charging), a
+    weapons table and the Speed Table (click a speed to set it). A Specifications tab holds the stat-block details,
+    an editable Speed Table and notes.
+  - Crew: drag a character (or opponent) onto the sheet, or pick one, as pilot: their Vehicle Piloting gives Defence
+    (Agility + Piloting + speed bonus; 0 when stationary) and Pursuit (½ Piloting + Speed), Tactics gives Initiative,
+    Vehicle Weapons fires fixed and gimballed weapons. Turrets take a gunner, or fire automatically at bonus 3.
+  - New **Vehicle/Ship Weapon** item: mount size and kind, Accuracy, damage, Burst maximum, damage vs Shields,
+    bonuses vs Hull / Shields, ammo, special.
+  - Clicking a weapon fires it: D10 + gunnery + Accuracy + the speed's Attack penalty against the targeted vehicle's
+    Defence, Burst damage, ammo spent; the card applies damage to the target (or selected vehicles): Shields first,
+    the excess to the Hull, with the bonuses vs Shields and Hull. Hull 0 or less is marked destroyed.
+  - New compendium **Vehicles**: all 22 vehicles and variants with their weapons and Speed Tables; vehicles with a
+    matching token (Scarab, Garriot Quadbike, Battlecar, APC, Light Tank) use it.
+
 ## 0.1.18
 - Partners can chain **three** deep, as in the book: a partner (Endurance −5), their partner (−10) and their partner
   (−15). Only the third is refused the Partner background. Every partner in the chain uses the owning character's

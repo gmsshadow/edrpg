@@ -2432,3 +2432,311 @@ li:hover > .ed-row-delete {
    font-size: var(--font-size-11, 11px);
    line-height: 1.4;
 }
+
+/* ---------- Vehicle sheet ---------- */
+
+.edrpg.vehicle .window-content {
+   display: flex;
+   flex-direction: column;
+   gap: 0.4rem;
+   background: var(--ed-white);
+}
+
+.edrpg .ed-vheader {
+   display: grid;
+   grid-template-columns: auto 1fr;
+   gap: 0.8rem;
+   align-items: center;
+}
+
+.edrpg .ed-vident {
+   display: flex;
+   gap: 0.5rem;
+   align-items: center;
+}
+
+.edrpg .ed-vident .ed-portrait {
+   width: 84px;
+   height: 84px;
+   object-fit: contain;
+   background: radial-gradient(circle, var(--ed-highlight), var(--ed-navy));
+}
+
+.edrpg .ed-vtitle {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.3rem 0.6rem;
+}
+
+.edrpg .ed-vfield {
+   display: flex;
+   flex-direction: column;
+   min-width: 0;
+}
+
+.edrpg .ed-vfield input[type="text"],
+.edrpg .ed-vfield select {
+   height: 1.8rem;
+   border: none;
+   border-bottom: 2px solid var(--ed-navy);
+   background: linear-gradient(to right, var(--ed-name), var(--ed-name-soft));
+   font-size: var(--font-size-16, 16px);
+}
+
+.edrpg .ed-vfield.pilot {
+   position: relative;
+}
+
+.edrpg .ed-vpilot {
+   display: flex;
+   gap: 0.3rem;
+   align-items: center;
+   height: 1.8rem;
+   border-bottom: 2px solid var(--ed-navy);
+   background: linear-gradient(to right, var(--ed-name), var(--ed-name-soft));
+   font-size: var(--font-size-15, 15px);
+}
+
+.edrpg .ed-vpilot img {
+   width: 1.5rem;
+   height: 1.5rem;
+   border: none;
+   object-fit: cover;
+}
+
+.edrpg .ed-vclear {
+   position: absolute;
+   top: 1.2rem;
+   right: 0.3rem;
+}
+
+.edrpg .ed-vhandling {
+   display: grid;
+   grid-column: 1 / -1;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 0.3rem;
+}
+
+.edrpg .ed-vhandling label {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0.15rem 0.4rem;
+   border-bottom: 2px solid var(--ed-navy);
+   background: linear-gradient(to right, var(--ed-highlight), var(--ed-white));
+   font-size: var(--font-size-11, 11px);
+   text-transform: uppercase;
+}
+
+.edrpg .ed-vhandling input {
+   width: 2.6rem;
+   border: none;
+   background: transparent;
+   font-size: var(--font-size-14, 14px);
+   font-weight: 700;
+   text-align: center;
+}
+
+.edrpg .ed-vstats {
+   display: grid;
+   grid-template-columns: 1.2fr 1fr 1fr;
+   gap: 0.6rem;
+   align-items: stretch;
+}
+
+.edrpg .ed-vchevrons {
+   display: flex;
+   gap: 0.3rem;
+   justify-content: space-around;
+}
+
+.edrpg .ed-vstats .ed-pool {
+   grid-row: auto;
+   grid-column: auto;
+}
+
+.edrpg .ed-pool.hull {
+   --pool-1: var(--ed-end-1);
+   --pool-2: var(--ed-end-2);
+   --pool-bg: var(--ed-end-soft);
+   --pool-pale: var(--ed-end-pale);
+}
+
+.edrpg .ed-pool.shields {
+   --pool-1: var(--ed-blue-mid);
+   --pool-2: var(--ed-blue);
+   --pool-bg: #b9d9f0;
+   --pool-pale: #eef6fc;
+}
+
+.edrpg .ed-pool.shields.down .ed-pool-body {
+   opacity: 0.6;
+}
+
+.edrpg .ed-pool .max-input {
+   width: 3rem;
+   border: none;
+   background: transparent;
+   font-size: inherit;
+   text-align: left;
+}
+
+.edrpg .ed-vshield-extra {
+   display: flex;
+   gap: 0.5rem;
+   justify-content: center;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg .ed-vshield-extra input[type="number"] {
+   width: 2.4rem;
+   text-align: center;
+}
+
+.edrpg .ed-vzone {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.4rem;
+   align-items: center;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-vzone-label {
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.edrpg .ed-vzone-btn {
+   padding: 0.1rem 0.5rem;
+   border: 1px solid var(--ed-navy);
+   text-transform: uppercase;
+}
+
+.edrpg .ed-vzone-btn.active {
+   background: var(--ed-navy);
+   color: var(--ed-white);
+}
+
+.edrpg .ed-vspeed-now {
+   margin-left: auto;
+   font-weight: 700;
+}
+
+.edrpg .ed-vmount {
+   display: block;
+   font-size: var(--font-size-10, 10px);
+   font-weight: 400;
+   opacity: 0.7;
+   text-transform: uppercase;
+}
+
+.edrpg .ed-table.vweapons td.ammo input {
+   width: 2.6rem;
+}
+
+.edrpg .ed-vgunner {
+   display: flex;
+   gap: 0.3rem;
+   align-items: center;
+   margin-top: 0.15rem;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg .ed-vgunner select {
+   flex: 1;
+   height: 1.4rem;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg .ed-vspeedtable {
+   border: 1px solid var(--ed-cell-border);
+}
+
+.edrpg .ed-vspeed-title {
+   padding: 0.2rem 0.5rem;
+   background: var(--ed-navy);
+   color: var(--ed-white);
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.edrpg .ed-vspeedtable table,
+.edrpg .ed-vspeededit {
+   width: 100%;
+   margin: 0;
+   border-collapse: collapse;
+   table-layout: fixed;
+}
+
+.edrpg .ed-vspeedtable th,
+.edrpg .ed-vspeededit th {
+   width: auto;
+   padding: 0.15rem 0.4rem;
+   font-size: var(--font-size-11, 11px);
+   text-align: left;
+   text-transform: uppercase;
+}
+
+.edrpg .ed-vspeedtable th:first-child,
+.edrpg .ed-vspeededit tr > :first-child {
+   width: 7.5rem;
+}
+
+.edrpg .ed-vspeededit th {
+   text-align: center;
+}
+
+.edrpg .ed-vspeedtable td {
+   padding: 0.15rem;
+   border-left: 1px solid var(--ed-cell-border);
+   text-align: center;
+}
+
+.edrpg .ed-vspeedtable tr.speed {
+   background: var(--ed-navy);
+   color: var(--ed-white);
+}
+
+.edrpg .ed-vspeedtable tr.speed a {
+   display: block;
+   color: inherit;
+}
+
+.edrpg .ed-vspeedtable tr.defence {
+   background: var(--ed-highlight);
+}
+
+.edrpg .ed-vspeedtable tr.attack {
+   background: var(--ed-damage);
+}
+
+.edrpg .ed-vspeedtable td.current {
+   outline: 2px solid var(--ed-end-2);
+   outline-offset: -2px;
+   font-weight: 700;
+}
+
+.edrpg .ed-vspeedtable td.beyond {
+   opacity: 0.3;
+}
+
+.edrpg .ed-vspecs {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.2rem 1rem;
+}
+
+.edrpg .ed-vspecs .form-group.wide {
+   grid-column: 1 / -1;
+}
+
+.edrpg .ed-vsub {
+   margin: 0.6rem 0 0.2rem;
+   border-bottom: 2px solid var(--ed-navy);
+   text-transform: uppercase;
+}
+
+.edrpg .ed-vspeededit td input {
+   width: 100%;
+   text-align: center;
+}

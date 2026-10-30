@@ -1,4 +1,20 @@
 <section class="item-details">
+   {{#if isCraftWeapon}}
+   <div class="ed-item-grid">
+      <div class="form-group"><label>{{localize "EDRPG.craft.mountSize"}}</label><div class="form-fields"><select name="system.mount.size" {{#unless editable}}disabled{{/unless}}>{{selectOptions mountSizes selected=source.mount.size localize=true}}</select></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.craft.mountKind"}}</label><div class="form-fields"><select name="system.mount.kind" {{#unless editable}}disabled{{/unless}}>{{selectOptions mountKinds selected=source.mount.kind localize=true}}</select></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.craft.accuracy"}}</label><div class="form-fields"><input type="number" name="system.accuracy" value="{{source.accuracy}}" step="1" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.sheet.damage"}}</label><div class="form-fields"><input type="number" name="system.damage" value="{{source.damage}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.craft.burstMax"}}</label><div class="form-fields"><input type="number" name="system.burst.max" value="{{source.burst.max}}" min="0" step="5" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.craft.damageVsShields"}}</label><div class="form-fields"><input type="number" name="system.damageVsShields" value="{{source.damageVsShields}}" min="0" step="1" placeholder="—" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.craft.bonusVsHullLabel"}}</label><div class="form-fields"><input type="number" name="system.bonusVsHull" value="{{source.bonusVsHull}}" step="1" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.craft.bonusVsShieldsLabel"}}</label><div class="form-fields"><input type="number" name="system.bonusVsShields" value="{{source.bonusVsShields}}" step="1" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.sheet.ammo"}}</label><div class="form-fields"><input type="number" name="system.ammo.value" value="{{source.ammo.value}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}> <span>/</span> <input type="number" name="system.ammo.max" value="{{source.ammo.max}}" min="0" step="1" placeholder="—" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.item.price"}}</label><div class="form-fields"><input type="text" name="system.cost" value="{{source.cost}}" {{#unless editable}}disabled{{/unless}}></div></div>
+   </div>
+   <div class="form-group"><label>{{localize "EDRPG.vehicle.special"}}</label><div class="form-fields"><input type="text" name="system.special" value="{{source.special}}" {{#unless editable}}disabled{{/unless}}></div></div>
+   <p class="hint">{{localize "EDRPG.craft.weaponHint"}}</p>
+   {{/if}}
    {{#if isEquipment}}{{> edrpgEquipmentDetails}}{{/if}}
    {{#if isBackground}}
    <div class="form-group">

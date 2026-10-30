@@ -1,0 +1,142 @@
+{
+  "_id": "6907366e275775bb",
+  "_key": "!actors!6907366e275775bb",
+  "name": "Scarab SRV – Ranger",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/scarab-blue.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Vodel",
+    "dimensions": "L 4.8m x W 4.0m x H 2.5m",
+    "bays": 1,
+    "crewSize": 1,
+    "passengers": 0,
+    "sensors": "4km; can detect surface minerals",
+    "cargo": "2T",
+    "cost": "32,510cr",
+    "special": "",
+    "agility": 5,
+    "maxSpeed": 9,
+    "accelerate": 4,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 3,
+        "attack": -1
+      },
+      {
+        "defence": 3,
+        "attack": -2
+      },
+      {
+        "defence": 4,
+        "attack": -2
+      }
+    ],
+    "hull": {
+      "value": 40,
+      "max": 40
+    },
+    "shields": {
+      "value": 40,
+      "max": 40,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>Two small forward fixed mounts, empty.</p>"
+  },
+  "prototypeToken": {
+    "name": "Scarab SRV – Ranger",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/scarab-blue.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "674822778e00cefb",
+      "_key": "!actors.items!6907366e275775bb.674822778e00cefb",
+      "name": "Plasma Repeater",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 15
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "5d2342c1e2dc56da",
+  "sort": 300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

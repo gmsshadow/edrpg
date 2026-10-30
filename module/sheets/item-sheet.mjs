@@ -14,6 +14,7 @@ import {
    bonusKinds,
    gearCategories,
 } from "../config.mjs";
+import { mountSizes, mountKinds } from "../data/vehicle.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -73,6 +74,9 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          isArmour: item.type === "armour",
          isEquipment: ["weapon", "armour", "cybernetic", "clothing", "gear"].includes(item.type),
          isCybernetic: item.type === "cybernetic",
+         isCraftWeapon: item.type === "craftWeapon",
+         mountSizes,
+         mountKinds,
          isClothing: item.type === "clothing",
          isGear: item.type === "gear",
          hasRollBonuses: ["clothing", "gear"].includes(item.type),

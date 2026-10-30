@@ -1,0 +1,179 @@
+{
+  "_id": "e0aa5721c8f6fa66",
+  "_key": "!actors!e0aa5721c8f6fa66",
+  "name": "Light Tank – Bulldog Advanced",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/light-tank-red.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Various",
+    "dimensions": "L 9.0m x W 4.0m x H 4.7m",
+    "bays": 2,
+    "crewSize": 3,
+    "passengers": 0,
+    "sensors": "2km",
+    "cargo": "None",
+    "cost": "418,200cr",
+    "special": "",
+    "agility": 3,
+    "maxSpeed": 5,
+    "accelerate": 3,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -2
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 280,
+      "max": 280
+    },
+    "shields": {
+      "value": 130,
+      "max": 130,
+      "recharge": 5,
+      "down": false
+    },
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Light Tank – Bulldog Advanced",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/light-tank-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "2469769c089823c0",
+      "_key": "!actors.items!e0aa5721c8f6fa66.2469769c089823c0",
+      "name": "Plasma Accelerator",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": -1,
+        "damage": 60,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 25,
+          "max": 25
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "e8162f28e201761b",
+      "_key": "!actors.items!e0aa5721c8f6fa66.e8162f28e201761b",
+      "name": "Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 4,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "06d99395d357c07a",
+  "sort": 1600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

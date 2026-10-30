@@ -29,6 +29,8 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   Clothing, Equipment and Opponents (sample).
 - **Character creation** checklist with independent learning and the starting equipment kit; **rank-ups**.
 - **Partners**: linked companion characters using their host's Karma.
+- **Vehicles**: Vehicle Data Sheet actors with crew, weapons and the Speed Table; Vehicles compendium.
+- **Assets**: combat map scenes (Combat Maps compendium) and ship/vehicle tokens under `systems/edrpg/assets/tokens/`.
 - **Item sheets** for Backgrounds (choices used, skill bonuses), Karma Capabilities (category, cost) and Enhancements.
 - Initiative: `1d10 + Tactics bonus`.
 

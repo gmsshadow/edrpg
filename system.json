@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "authors": [
     {
       "name": "gmsshadow",
@@ -47,6 +47,11 @@
         "htmlFields": [
           "biography"
         ]
+      },
+      "vehicle": {
+        "htmlFields": [
+          "description"
+        ]
       }
     },
     "Item": {
@@ -86,6 +91,11 @@
         ]
       },
       "gear": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "craftWeapon": {
         "htmlFields": [
           "description"
         ]
@@ -182,6 +192,17 @@
       }
     },
     {
+      "name": "vehicles",
+      "label": "Vehicles",
+      "path": "packs/vehicles",
+      "type": "Actor",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "opponents",
       "label": "Opponents (sample)",
       "path": "packs/opponents",
@@ -189,6 +210,17 @@
       "system": "edrpg",
       "ownership": {
         "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "combat-maps",
+      "label": "Combat Maps",
+      "path": "packs/combat-maps",
+      "type": "Scene",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
     }
@@ -207,7 +239,9 @@
         "cybernetics",
         "clothing",
         "gear",
-        "opponents"
+        "vehicles",
+        "opponents",
+        "combat-maps"
       ]
     }
   ],

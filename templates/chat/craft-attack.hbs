@@ -1,0 +1,42 @@
+<div class="edrpg edrpg-chat edrpg-attack edrpg-craft-attack {{#if hit}}hit{{else}}miss{{/if}}">
+   <div class="attack-head">
+      <span class="attack-who">{{vehicleName}}</span>
+      {{#if targetName}}<i class="fa-solid fa-angles-right"></i> <span class="attack-who">{{targetName}}</span>{{/if}}
+   </div>
+   <div class="attack-weapon">{{weaponName}}</div>
+   <div class="attack-columns">
+      <dl class="breakdown">
+         <dt class="head">{{localize "EDRPG.attack.toHit"}}</dt><dd class="head">{{total}}</dd>
+         <dt>{{localize "EDRPG.contest.d10"}}</dt><dd>{{natural}}</dd>
+         {{#each parts as |p|}}<dt>{{localize p.label}}{{#if p.note}} <span class="muted">{{p.note}}</span>{{/if}}</dt><dd>{{p.signed}}</dd>{{/each}}
+      </dl>
+      <dl class="breakdown">
+         <dt class="head">{{localize "EDRPG.vehicle.defence"}}</dt><dd class="head">{{defence}}</dd>
+         {{#if damage}}
+         <dt>{{localize "EDRPG.sheet.damage"}}</dt><dd><b>{{damage.total}}</b></dd>
+         {{#if damage.burst}}<dt class="muted">{{localize "EDRPG.damage.burst"}}</dt><dd class="muted">+{{damage.burst}}</dd>{{/if}}
+         {{#if (ne damage.vsShields null)}}<dt class="muted">{{localize "EDRPG.craft.damageVsShields"}}</dt><dd class="muted">{{damage.vsShields}}</dd>{{/if}}
+         {{#if damage.bonusVsShields}}<dt class="muted">{{localize "EDRPG.craft.bonusVsShieldsLabel"}}</dt><dd class="muted">+{{damage.bonusVsShields}}</dd>{{/if}}
+         {{#if damage.bonusVsHull}}<dt class="muted">{{localize "EDRPG.craft.bonusVsHullLabel"}}</dt><dd class="muted">+{{damage.bonusVsHull}}</dd>{{/if}}
+         {{/if}}
+      </dl>
+   </div>
+   <div class="outcome {{#if hit}}success{{else}}failure{{/if}}">
+      {{#if hit}}{{localize "EDRPG.attack.hit"}}{{#if margin}} — {{localize "EDRPG.attack.beatBy" points=margin}}{{/if}}{{else}}{{localize "EDRPG.attack.miss"}}{{/if}}
+   </div>
+   {{#if reason}}<div class="attack-note">{{localize (concat "EDRPG.contest.reason." reason)}}</div>{{/if}}
+   {{#if (and critical hit)}}<div class="attack-note">{{localize "EDRPG.vehicle.naturalTen"}}</div>{{/if}}
+   {{#if ammo}}<div class="attack-note muted">{{localize "EDRPG.attack.ammoLeft" left=ammo.left max=ammo.max}}</div>{{/if}}
+   {{#if applied.length}}
+   <ul class="damage-applied">
+      {{#each applied as |a|}}
+      <li><strong>{{a.name}}</strong>:
+         {{#if a.toShields}}{{localize "EDRPG.vehicle.shieldsHit" before=a.shieldsBefore after=a.shieldsAfter}}{{#if a.collapsed}} <span class="ed-chip">{{localize "EDRPG.vehicle.shieldsCollapse"}}</span>{{/if}}{{/if}}
+         {{#if a.toHull}} {{localize "EDRPG.vehicle.hullHit" damage=a.toHull before=a.hullBefore after=a.hullAfter}}{{/if}}
+         {{#if a.destroyed}} <span class="ed-chip">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}
+      </li>
+      {{/each}}
+   </ul>
+   {{/if}}
+   <div class="attack-controls"></div>
+</div>

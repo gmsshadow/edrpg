@@ -1,0 +1,285 @@
+{
+  "_id": "84c0ad59ff657fd5",
+  "_key": "!actors!84c0ad59ff657fd5",
+  "name": "Special Forces",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "dangerous",
+    "role": "Soldier",
+    "dodge": 7,
+    "parry": 6,
+    "initiative": 6,
+    "perception": 7,
+    "toHit": 7,
+    "speed": "12m",
+    "endurance": {
+      "value": 50,
+      "max": 50
+    },
+    "otherSkills": [
+      {
+        "skill": "medicine",
+        "bonus": 6
+      },
+      {
+        "skill": "stealth",
+        "bonus": 6
+      }
+    ],
+    "equipment": "Med Pac",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Special Forces",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "c09d1e280a30b941",
+      "_key": "!actors.items!84c0ad59ff657fd5.c09d1e280a30b941",
+      "name": "Assault Combat Armour",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 10,
+          "energy": 4,
+          "explosive": 6,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 6,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "74adb14ad444b196",
+      "_key": "!actors.items!84c0ad59ff657fd5.74adb14ad444b196",
+      "name": "GTN 195 Autopistol",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "225,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "8m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "56m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "110m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "2d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "2d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 3,
+          "max": 3
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9aedb87680cd957e",
+      "_key": "!actors.items!84c0ad59ff657fd5.9aedb87680cd957e",
+      "name": "Perun Light Machinegun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "1,788,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "18m",
+            "dn": 6
+          },
+          "medium": {
+            "distance": "140m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "600m",
+            "dn": 10
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "5d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "a5e108a52e122e8f",
+      "_key": "!actors.items!84c0ad59ff657fd5.a5e108a52e122e8f",
+      "name": "Concussion Grenade",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "100cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "grenade",
+        "damageType": "explosive",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 40,
+          "injury": 5,
+          "fatalRadius": 2,
+          "injuryRadius": 6
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "6a044ecc3fdb3ab5",
+  "sort": 600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

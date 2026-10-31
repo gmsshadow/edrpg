@@ -1,0 +1,110 @@
+{
+  "_id": "444ecbe931e9c055",
+  "_key": "!actors!444ecbe931e9c055",
+  "name": "Bathawk",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "harmless",
+    "role": "Biomod",
+    "dodge": 5,
+    "parry": null,
+    "initiative": 2,
+    "perception": 3,
+    "toHit": 2,
+    "speed": "16m",
+    "endurance": {
+      "value": 4,
+      "max": 4
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Eye-ripping Beak: damage halved; on a 10 the target is blinded (no Skill bonuses to attacks and Skill checks) until treated with a Difficulty 8 Medicine check. Flies: ignores difficult terrain and interposing enemies.</p>"
+  },
+  "prototypeToken": {
+    "name": "Bathawk",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "3a6307451e368243",
+      "_key": "!actors.items!444ecbe931e9c055.3a6307451e368243",
+      "name": "Eye-ripping Beak",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "ceil(1d10/2)",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "7bc190f50d05a685",
+  "sort": 4200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

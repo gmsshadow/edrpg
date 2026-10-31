@@ -1,0 +1,276 @@
+{
+  "_id": "1d77d5cb263fe56c",
+  "_key": "!actors!1d77d5cb263fe56c",
+  "name": "Type X Walker Drone",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "dangerous",
+    "role": "High Threat Drone",
+    "dodge": null,
+    "parry": null,
+    "initiative": 4,
+    "perception": 2,
+    "toHit": 7,
+    "speed": "10m",
+    "endurance": {
+      "value": 180,
+      "max": 180
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Continuous Attack (Chain Gun only). Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p>"
+  },
+  "prototypeToken": {
+    "name": "Type X Walker Drone",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "bef3e4e55c6826b4",
+      "_key": "!actors.items!1d77d5cb263fe56c.bef3e4e55c6826b4",
+      "name": "Super Heavy Plating",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 12,
+          "energy": 8,
+          "explosive": 0,
+          "fighting": 10,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 5,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "e674fbb708338153",
+      "_key": "!actors.items!1d77d5cb263fe56c.e674fbb708338153",
+      "name": "G910 Heavy Repeater",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "7,600,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "kinetic",
+        "heavy": true,
+        "ranges": {
+          "short": {
+            "distance": "30m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "180m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "2d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "heavy",
+          "max": "8d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "2a9df4b1bf1171eb",
+      "_key": "!actors.items!1d77d5cb263fe56c.2a9df4b1bf1171eb",
+      "name": "Plasma Cannon",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "<p>The firer is knocked over unless the weapon is tripod mounted.</p>",
+        "cost": "4000cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "energy",
+        "heavy": true,
+        "ranges": {
+          "short": {
+            "distance": "Min. 36m",
+            "dn": null
+          },
+          "medium": {
+            "distance": "500m",
+            "dn": 9
+          },
+          "long": {
+            "distance": "3km",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 100,
+          "injury": 40,
+          "fatalRadius": 12,
+          "injuryRadius": 34
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "The firer is knocked over unless the weapon is tripod mounted.",
+        "equipped": true,
+        "toHit": 8
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "e9b1d2cb37f74538",
+      "_key": "!actors.items!1d77d5cb263fe56c.e9b1d2cb37f74538",
+      "name": "Walker Punch",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 7,
+        "damage": "3d10+6",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a95f554708a32938",
+  "sort": 5100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

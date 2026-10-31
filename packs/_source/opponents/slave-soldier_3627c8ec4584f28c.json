@@ -1,0 +1,151 @@
+{
+  "_id": "3627c8ec4584f28c",
+  "_key": "!actors!3627c8ec4584f28c",
+  "name": "Slave Soldier",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Soldier",
+    "dodge": 2,
+    "parry": 3,
+    "initiative": 1,
+    "perception": 2,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 20,
+      "max": 20
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 3
+      }
+    ],
+    "equipment": "Med Pac",
+    "notes": "<p>Variants: Medic (+3 Medicine); Radio Operator/Drone Pilot (+3 Systems and Cyber).</p>"
+  },
+  "prototypeToken": {
+    "name": "Slave Soldier",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "50c9fdd8ccacb953",
+      "_key": "!actors.items!3627c8ec4584f28c.50c9fdd8ccacb953",
+      "name": "Riot Armour",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 0,
+          "energy": 0,
+          "explosive": 0,
+          "fighting": 3,
+          "melee": 5,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "5236605594bc2f06",
+      "_key": "!actors.items!3627c8ec4584f28c.5236605594bc2f06",
+      "name": "Laser Rifle",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "40cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "20m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "150m",
+            "dn": 6
+          },
+          "long": {
+            "distance": "500m",
+            "dn": 9
+          }
+        },
+        "finesse": null,
+        "damage": "15",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "6a044ecc3fdb3ab5",
+  "sort": 300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -9,10 +9,30 @@
       <div class="form-group"><label>{{localize "EDRPG.vehicle.sensors"}}</label><div class="form-fields"><input type="text" name="system.sensors" value="{{source.sensors}}"></div></div>
       <div class="form-group"><label>{{localize "EDRPG.vehicle.cargo"}}</label><div class="form-fields"><input type="text" name="system.cargo" value="{{source.cargo}}"></div></div>
       <div class="form-group"><label>{{localize "EDRPG.item.price"}}</label><div class="form-fields"><input type="text" name="system.cost" value="{{source.cost}}"></div></div>
+      {{#if isShip}}
+      <div class="form-group"><label>{{localize "EDRPG.ship.range"}}</label><div class="form-fields"><input type="text" name="system.range" value="{{source.range}}"></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.ship.fuel"}}</label><div class="form-fields"><input type="text" name="system.fuel" value="{{source.fuel}}"></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.ship.bonuses"}}</label><div class="form-fields"><label>{{localize "EDRPG.ship.bonusToHit"}} <input type="number" name="system.bonuses.toHit" value="{{source.bonuses.toHit}}" step="1"></label><label>{{localize "EDRPG.ship.bonusInitiative"}} <input type="number" name="system.bonuses.initiative" value="{{source.bonuses.initiative}}" step="1"></label><label>{{localize "EDRPG.ship.bonusDogfighting"}} <input type="number" name="system.bonuses.dogfighting" value="{{source.bonuses.dogfighting}}" step="1"></label></div><p class="hint">{{localize "EDRPG.ship.bonusesHint"}}</p></div>
+      <div class="form-group wide"><label>{{localize "EDRPG.ship.utilityMounts"}}</label><div class="form-fields"><input type="text" name="system.utilityMounts" value="{{source.utilityMounts}}"></div></div>
+      {{else}}
       <div class="form-group"><label>{{localize "EDRPG.vcombat.forwardRamLabel"}}</label><div class="form-fields"><input type="checkbox" name="system.forwardRam" {{checked source.forwardRam}}></div><p class="hint">{{localize "EDRPG.vcombat.forwardRamHint"}}</p></div>
+      {{/if}}
       <div class="form-group wide"><label>{{localize "EDRPG.vehicle.specialRules"}}</label><div class="form-fields"><input type="text" name="system.special" value="{{source.special}}"></div></div>
    </div>
 
+   {{#if isShip}}
+   <h3 class="ed-vsub">{{localize "EDRPG.ship.npcTitle"}}</h3>
+   <div class="ed-vspecs">
+      <div class="form-group"><label>{{localize "EDRPG.ship.npcEnabled"}}</label><div class="form-fields"><input type="checkbox" name="system.npc.enabled" {{checked source.npc.enabled}}></div><p class="hint">{{localize "EDRPG.ship.npcHint"}}</p></div>
+      {{#if source.npc.enabled}}
+      <div class="form-group"><label>{{localize "EDRPG.vehicle.defence"}}</label><div class="form-fields"><input type="number" name="system.npc.defence" value="{{source.npc.defence}}" step="1"></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.ship.dogfighting"}}</label><div class="form-fields"><input type="number" name="system.npc.dogfighting" value="{{source.npc.dogfighting}}" step="1"></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.vehicle.pursuit"}}</label><div class="form-fields"><input type="number" name="system.npc.pursuit" value="{{source.npc.pursuit}}" step="1"></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.sheet.initiative"}}</label><div class="form-fields"><input type="number" name="system.npc.initiative" value="{{source.npc.initiative}}" step="1"></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.ship.critical"}}</label><div class="form-fields"><input type="number" name="system.npc.critical" value="{{source.npc.critical}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.ship.criticalHint"}}</p></div>
+      {{/if}}
+   </div>
+   {{else}}
    <h3 class="ed-vsub">{{localize "EDRPG.drone.title"}}</h3>
    <div class="ed-vspecs">
       <div class="form-group"><label>{{localize "EDRPG.drone.enabled"}}</label><div class="form-fields"><input type="checkbox" name="system.drone.enabled" {{checked source.drone.enabled}}></div><p class="hint">{{localize "EDRPG.drone.enabledHint"}}</p></div>
@@ -26,12 +46,56 @@
       <div class="form-group"><label>{{localize "EDRPG.drone.bomb"}}</label><div class="form-fields"><input type="number" name="system.bomb.damage" value="{{source.bomb.damage}}" min="0" step="1"> / <input type="number" name="system.bomb.vsShields" value="{{source.bomb.vsShields}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.drone.bombHint"}}</p></div>
    </div>
 
+   {{/if}}
+
+   {{#if isShip}}
+   <h3 class="ed-vsub">{{localize "EDRPG.ship.components"}} <a data-action="addRow" data-list="components" data-tooltip="EDRPG.ship.addComponent"><i class="fa-solid fa-plus"></i></a></h3>
+   <p class="hint">{{localize "EDRPG.ship.componentsHint"}}</p>
+   <table class="ed-vrows">
+      <tr><th>{{localize "EDRPG.ship.componentName"}}</th><th>{{localize "EDRPG.ship.componentKind"}}</th><th>{{localize "EDRPG.ship.strength"}}</th><th>{{localize "EDRPG.sheet.notes"}}</th><th></th></tr>
+      {{#each componentRows as |r|}}
+      <tr data-index="{{r.index}}">
+         <td><input type="text" name="system.components.{{r.index}}.name" value="{{r.name}}"></td>
+         <td><select name="system.components.{{r.index}}.kind">{{selectOptions @root.componentKinds selected=r.kind localize=true}}</select></td>
+         <td class="num"><input type="number" name="system.components.{{r.index}}.strength.value" value="{{r.strength.value}}" step="1"> / <input type="number" name="system.components.{{r.index}}.strength.max" value="{{r.strength.max}}" min="0" step="1"></td>
+         <td><input type="text" name="system.components.{{r.index}}.notes" value="{{r.notes}}"></td>
+         <td><a data-action="deleteRow" data-list="components" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-trash"></i></a></td>
+      </tr>
+      {{/each}}
+   </table>
+
+   <h3 class="ed-vsub">{{localize "EDRPG.equip.title"}}</h3>
+   <div class="ed-vspecs">
+      <div class="form-group"><label>{{localize "EDRPG.equip.chaff"}}</label><div class="form-fields"><input type="number" name="system.equipment.chaff.value" value="{{source.equipment.chaff.value}}" min="0" step="1"> / <input type="number" name="system.equipment.chaff.max" value="{{source.equipment.chaff.max}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.equip.chaffHint"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.equip.mines"}}</label><div class="form-fields"><input type="number" name="system.equipment.mines.value" value="{{source.equipment.mines.value}}" min="0" step="1"> / <input type="number" name="system.equipment.mines.max" value="{{source.equipment.mines.max}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.equip.minesConfig"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.equip.mineStats"}}</label><div class="form-fields"><input type="number" name="system.equipment.mines.dn" value="{{source.equipment.mines.dn}}" step="1"> / <input type="number" name="system.equipment.mines.damage" value="{{source.equipment.mines.damage}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.equip.mineStatsHint"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.equip.pd"}}</label><div class="form-fields"><input type="number" name="system.equipment.pointDefence.value" value="{{source.equipment.pointDefence.value}}" min="0" step="1"> / <input type="number" name="system.equipment.pointDefence.max" value="{{source.equipment.pointDefence.max}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.equip.pdHint"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.equip.ecm"}}</label><div class="form-fields"><input type="checkbox" name="system.equipment.ecm" {{checked source.equipment.ecm}}></div><p class="hint">{{localize "EDRPG.equip.ecmHint"}}</p></div>
+      <div class="form-group"><label>{{localize "EDRPG.equip.floatingCount"}}</label><div class="form-fields"><input type="number" name="system.equipment.floating" value="{{source.equipment.floating}}" min="0" step="1"></div><p class="hint">{{localize "EDRPG.equip.floatingHint"}}</p></div>
+   </div>
+   <h3 class="ed-vsub">{{localize "EDRPG.equip.cellBanks"}} <a data-action="addRow" data-list="cellBanks" data-tooltip="EDRPG.equip.addBank"><i class="fa-solid fa-plus"></i></a></h3>
+   <table class="ed-vrows">
+      <tr><th>{{localize "EDRPG.ship.componentName"}}</th><th>{{localize "EDRPG.equip.boost"}}</th><th>{{localize "EDRPG.equip.duration"}}</th><th>{{localize "EDRPG.equip.uses"}}</th><th></th></tr>
+      {{#each cellBankRows as |r|}}
+      <tr data-index="{{r.index}}">
+         <td><input type="text" name="system.equipment.cellBanks.{{r.index}}.name" value="{{r.name}}"></td>
+         <td class="num"><input type="number" name="system.equipment.cellBanks.{{r.index}}.boost" value="{{r.boost}}" min="0" step="1"></td>
+         <td class="num"><input type="number" name="system.equipment.cellBanks.{{r.index}}.duration" value="{{r.duration}}" min="1" step="1"></td>
+         <td class="num"><input type="number" name="system.equipment.cellBanks.{{r.index}}.uses" value="{{r.uses}}" min="0" step="1"></td>
+         <td><a data-action="deleteRow" data-list="cellBanks" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-trash"></i></a></td>
+      </tr>
+      {{else}}<tr><td colspan="5" class="muted">{{localize "EDRPG.equip.noBanks"}}</td></tr>{{/each}}
+   </table>
+   {{/if}}
+
+   {{#unless isShip}}
    <h3 class="ed-vsub">{{localize "EDRPG.vehicle.speedTable"}}</h3>
    <table class="ed-vspeededit">
       <tr><th>{{localize "EDRPG.vehicle.speed"}}</th>{{#each speedRows as |r|}}<th>{{r.speed}}</th>{{/each}}</tr>
       <tr><th>{{localize "EDRPG.vehicle.defenceBonus"}}</th>{{#each speedRows as |r|}}<td><input type="number" name="system.speedTable.{{r.index}}.defence" value="{{r.defence}}" step="1"></td>{{/each}}</tr>
       <tr><th>{{localize "EDRPG.vehicle.attackPenalty"}}</th>{{#each speedRows as |r|}}<td><input type="number" name="system.speedTable.{{r.index}}.attack" value="{{r.attack}}" step="1"></td>{{/each}}</tr>
    </table>
+   {{/unless}}
 
    <h3 class="ed-vsub">{{localize "EDRPG.sheet.notes"}}</h3>
    {{formInput descriptionField value=source.description enriched=enrichedDescription toggled=true name="system.description"}}

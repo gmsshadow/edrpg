@@ -1,0 +1,119 @@
+{
+  "_id": "08dc4f03e2db15f0",
+  "_key": "!actors!08dc4f03e2db15f0",
+  "name": "Street Punk",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "harmless",
+    "role": "Criminal",
+    "dodge": 2,
+    "parry": 1,
+    "initiative": 1,
+    "perception": 3,
+    "toHit": 2,
+    "speed": "10m",
+    "endurance": {
+      "value": 15,
+      "max": 15
+    },
+    "otherSkills": [
+      {
+        "skill": "streetwise",
+        "bonus": 2
+      },
+      {
+        "skill": "sleightOfHand",
+        "bonus": 2
+      }
+    ],
+    "equipment": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Street Punk",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "b7de17f5bdf0a3b7",
+      "_key": "!actors.items!08dc4f03e2db15f0.b7de17f5bdf0a3b7",
+      "name": "Autopistol",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "4cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "6m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "50m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "100m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "2d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 3,
+          "max": 3
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "85887dbc8b1ef2ea",
+  "sort": 1200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,240 @@
+{
+  "_id": "0df6b3ac2c20522e",
+  "_key": "!actors!0df6b3ac2c20522e",
+  "name": "Vigilante",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Assassin",
+    "dodge": 3,
+    "parry": 2,
+    "initiative": 2,
+    "perception": 3,
+    "toHit": 2,
+    "speed": "10m",
+    "endurance": {
+      "value": 20,
+      "max": 20
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Shotgun: 2D10 at medium range, 1D10 at long range.</p>"
+  },
+  "prototypeToken": {
+    "name": "Vigilante",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "6602a8cf44bef1e7",
+      "_key": "!actors.items!0df6b3ac2c20522e.6602a8cf44bef1e7",
+      "name": "Shotgun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "6m",
+            "dn": 3
+          },
+          "medium": {
+            "distance": "12m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "50m",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "3d10",
+        "rangeDamage": {
+          "medium": "2d10",
+          "long": "1d10"
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "01c31f4e73aac613",
+      "_key": "!actors.items!0df6b3ac2c20522e.01c31f4e73aac613",
+      "name": "Laser Pistol",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "3cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "80m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "120m",
+            "dn": 11
+          }
+        },
+        "finesse": null,
+        "damage": "8",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "0dc5d7674c30f1f2",
+      "_key": "!actors.items!0df6b3ac2c20522e.0dc5d7674c30f1f2",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "1cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 7,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "533d789456e0886c",
+  "sort": 2600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

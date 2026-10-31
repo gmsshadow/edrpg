@@ -1,0 +1,174 @@
+{
+  "_id": "f978c0e5bd3ab4d8",
+  "_key": "!actors!f978c0e5bd3ab4d8",
+  "name": "Top Gun",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/vulture-purple.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Deadly Soldier. Spaceship: Vulture - 59 Alpha.",
+    "agility": 11,
+    "speed": 8,
+    "maxSpeed": 8,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 375,
+      "max": 375
+    },
+    "shields": {
+      "value": 220,
+      "max": 220,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 20,
+      "dogfighting": 21,
+      "pursuit": 12,
+      "initiative": 10,
+      "critical": 65
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Top Gun",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/vulture-purple.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "e71b1c39d753a1df",
+      "_key": "!actors.items!f978c0e5bd3ab4d8.e71b1c39d753a1df",
+      "name": "Large Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 12,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ef2e3a4abdc7483d",
+      "_key": "!actors.items!f978c0e5bd3ab4d8.ef2e3a4abdc7483d",
+      "name": "Large Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 12,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "799b41505de30ede",
+  "sort": 900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

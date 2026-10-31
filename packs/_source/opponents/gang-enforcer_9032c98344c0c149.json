@@ -1,0 +1,123 @@
+{
+  "_id": "9032c98344c0c149",
+  "_key": "!actors!9032c98344c0c149",
+  "name": "Gang Enforcer",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Criminal",
+    "dodge": 3,
+    "parry": 2,
+    "initiative": 1,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 20,
+      "max": 20
+    },
+    "otherSkills": [
+      {
+        "skill": "bluff",
+        "bonus": 2
+      },
+      {
+        "skill": "streetwise",
+        "bonus": 2
+      },
+      {
+        "skill": "fighting",
+        "bonus": 3
+      }
+    ],
+    "equipment": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Gang Enforcer",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "b34dfd3d97a348a7",
+      "_key": "!actors.items!9032c98344c0c149.b34dfd3d97a348a7",
+      "name": "Sub Machinegun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "9cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "120m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "3d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "85887dbc8b1ef2ea",
+  "sort": 1300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

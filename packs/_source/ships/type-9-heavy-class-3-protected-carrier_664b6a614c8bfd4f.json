@@ -1,0 +1,466 @@
+{
+  "_id": "664b6a614c8bfd4f",
+  "_key": "!actors!664b6a614c8bfd4f",
+  "name": "Type-9 Heavy – Class 3 Protected Carrier",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/transport/type-9.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "L 117.4m x W 115.3m x H 33.2m",
+    "landingPad": "Large",
+    "crewSize": 6,
+    "passengers": 6,
+    "utilityMounts": "4",
+    "cargo": "500T",
+    "range": "19LY",
+    "fuel": "64T (640LY)",
+    "cost": "91,822,620cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 0,
+    "speed": 0,
+    "maxSpeed": 0,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 430,
+      "max": 430
+    },
+    "shields": {
+      "value": 230,
+      "max": 230,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 6D",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "18.9MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 7E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 6B",
+        "kind": "fsd",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Range 19LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 5E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 6E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 4E",
+        "kind": "sensors",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "+2 General Scan",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "0E Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "+5% shield boost",
+        "item": ""
+      },
+      {
+        "name": "8E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "Capacity 256",
+        "item": ""
+      },
+      {
+        "name": "7E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 128",
+        "item": ""
+      },
+      {
+        "name": "6E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Capacity 64",
+        "item": ""
+      },
+      {
+        "name": "5A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Shield Power 220",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 20,
+        "max": 20
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Type-9 Heavy – Class 3 Protected Carrier",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/transport/type-9.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "69770bbb8e5ad69d",
+      "_key": "!actors.items!664b6a614c8bfd4f.69770bbb8e5ad69d",
+      "name": "Medium Turreted Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ed83f92a4370aafe",
+      "_key": "!actors.items!664b6a614c8bfd4f.ed83f92a4370aafe",
+      "name": "Medium Turreted Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "672972663bb24d45",
+      "_key": "!actors.items!664b6a614c8bfd4f.672972663bb24d45",
+      "name": "Medium Turreted Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "63a30f92b4645999",
+      "_key": "!actors.items!664b6a614c8bfd4f.63a30f92b4645999",
+      "name": "Small Turreted Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 4,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 5/10/15",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "01b8a4b098e2ae29",
+      "_key": "!actors.items!664b6a614c8bfd4f.01b8a4b098e2ae29",
+      "name": "Small Turreted Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 4,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 5/10/15",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "a796347f7ad37a4a",
+  "sort": 5500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,211 @@
+{
+  "_id": "49e86ef0d9e162bf",
+  "_key": "!actors!49e86ef0d9e162bf",
+  "name": "Private Military Contractor (PMC)",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "competent",
+    "role": "Security",
+    "dodge": 4,
+    "parry": 3,
+    "initiative": 3,
+    "perception": 3,
+    "toHit": 4,
+    "speed": "10m",
+    "endurance": {
+      "value": 35,
+      "max": 35
+    },
+    "otherSkills": [],
+    "equipment": "Med Pac",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Private Military Contractor (PMC)",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "c13362b0f52bd66d",
+      "_key": "!actors.items!49e86ef0d9e162bf.c13362b0f52bd66d",
+      "name": "Reflec Breastplate",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 5,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 3,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 7,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "b1526f6736831314",
+      "_key": "!actors.items!49e86ef0d9e162bf.b1526f6736831314",
+      "name": "Laser Pistol",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "3cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "80m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "120m",
+            "dn": 11
+          }
+        },
+        "finesse": null,
+        "damage": "8",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 4
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "492fec9d1fa79e0f",
+      "_key": "!actors.items!49e86ef0d9e162bf.492fec9d1fa79e0f",
+      "name": "Frag Grenade",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "grenade",
+        "damageType": "explosive",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 25,
+          "injury": 10,
+          "fatalRadius": 6,
+          "injuryRadius": 16
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "cc4d2963c9bea9ea",
+  "sort": 2100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

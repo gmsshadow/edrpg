@@ -1,0 +1,285 @@
+{
+  "_id": "51ff8229fefcd99b",
+  "_key": "!actors!51ff8229fefcd99b",
+  "name": "Asp Explorer – Proteus E",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/explorer/asp-explorer.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "L 56.5m x W 51.3m x H 19.7m",
+    "landingPad": "Medium",
+    "crewSize": 2,
+    "passengers": 4,
+    "utilityMounts": "4",
+    "cargo": "38T",
+    "range": "19.5LY (50% bonus included)",
+    "fuel": "32T (320LY)",
+    "cost": "6,661,150cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 6,
+    "speed": 7,
+    "maxSpeed": 7,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 285,
+      "max": 285
+    },
+    "shields": {
+      "value": 140,
+      "max": 140,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 5E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "13.6MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 5E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 5E",
+        "kind": "fsd",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Range 13LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 4E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 4E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 5E",
+        "kind": "sensors",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "+3 General Scan",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "5E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Shield Power 140",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "1E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Capacity 2",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Asp Explorer – Proteus E",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/explorer/asp-explorer.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "5e15fe1d1654c035",
+      "_key": "!actors.items!51ff8229fefcd99b.5e15fe1d1654c035",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "668181f383baf9a8",
+      "_key": "!actors.items!51ff8229fefcd99b.668181f383baf9a8",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "e9d057b075fc50c8",
+  "sort": 800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

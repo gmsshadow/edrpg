@@ -1,0 +1,216 @@
+{
+  "_id": "d95c0d6fa46520a0",
+  "_key": "!actors!d95c0d6fa46520a0",
+  "name": "Police Raider",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "Police",
+    "dodge": 4,
+    "parry": 4,
+    "initiative": 5,
+    "perception": 4,
+    "toHit": 5,
+    "speed": "10m",
+    "endurance": {
+      "value": 30,
+      "max": 30
+    },
+    "otherSkills": [
+      {
+        "skill": "cultureLaw",
+        "bonus": 4
+      }
+    ],
+    "equipment": "Restraints, Wrist Com",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Police Raider",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "72a4530b39077759",
+      "_key": "!actors.items!d95c0d6fa46520a0.72a4530b39077759",
+      "name": "Bullet Proof Vest",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 0,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "194379e877d0b950",
+      "_key": "!actors.items!d95c0d6fa46520a0.194379e877d0b950",
+      "name": "Shotgun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "6m",
+            "dn": 3
+          },
+          "medium": {
+            "distance": "12m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "50m",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "3d10",
+        "rangeDamage": {
+          "medium": "2d10",
+          "long": "1d10"
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "982d207fa411614f",
+      "_key": "!actors.items!d95c0d6fa46520a0.982d207fa411614f",
+      "name": "Assault Rifle",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "15cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "16m",
+            "dn": 6
+          },
+          "medium": {
+            "distance": "100m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "400m",
+            "dn": 10
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "3d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "cc4d2963c9bea9ea",
+  "sort": 2300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,349 @@
+{
+  "_id": "72e8b236646d5e7a",
+  "_key": "!actors!72e8b236646d5e7a",
+  "name": "Viper Mk III – Police Issue",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/police/viper-mk-iii-police.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 29.8m x W 24.0m x H 8.6m",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "4T",
+    "range": "9LY",
+    "fuel": "4T (40LY)",
+    "cost": "355,810cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 6,
+    "speed": 9,
+    "maxSpeed": 9,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 60,
+      "max": 60
+    },
+    "shields": {
+      "value": 65,
+      "max": 65,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 3D",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "9MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 3E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 3E",
+        "kind": "fsd",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Range 9LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 2E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3E",
+        "kind": "sensors",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "+1 General Scan",
+        "item": ""
+      },
+      {
+        "name": "0E Manifest Scanner",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "3E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Power 65",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Viper Mk III – Police Issue",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/police/viper-mk-iii-police.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "a1f78cdf1fb6460d",
+      "_key": "!actors.items!72e8b236646d5e7a.a1f78cdf1fb6460d",
+      "name": "Medium Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d13ec1954938b7bf",
+      "_key": "!actors.items!72e8b236646d5e7a.d13ec1954938b7bf",
+      "name": "Medium Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5916dda3996b1145",
+      "_key": "!actors.items!72e8b236646d5e7a.5916dda3996b1145",
+      "name": "Small Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 10,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "423830388297f9cd",
+      "_key": "!actors.items!72e8b236646d5e7a.423830388297f9cd",
+      "name": "Small Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 10,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "c26d740c2f4246d0",
+  "sort": 5800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

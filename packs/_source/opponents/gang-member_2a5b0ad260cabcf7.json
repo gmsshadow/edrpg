@@ -1,0 +1,184 @@
+{
+  "_id": "2a5b0ad260cabcf7",
+  "_key": "!actors!2a5b0ad260cabcf7",
+  "name": "Gang Member",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "harmless",
+    "role": "Criminal",
+    "dodge": 2,
+    "parry": 2,
+    "initiative": 1,
+    "perception": 2,
+    "toHit": 2,
+    "speed": "10m",
+    "endurance": {
+      "value": 15,
+      "max": 15
+    },
+    "otherSkills": [
+      {
+        "skill": "bluff",
+        "bonus": 2
+      },
+      {
+        "skill": "streetwise",
+        "bonus": 2
+      }
+    ],
+    "equipment": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Gang Member",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "534f94947765bb13",
+      "_key": "!actors.items!2a5b0ad260cabcf7.534f94947765bb13",
+      "name": "Shotgun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "6m",
+            "dn": 3
+          },
+          "medium": {
+            "distance": "12m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "50m",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "3d10",
+        "rangeDamage": {
+          "medium": "2d10",
+          "long": "1d10"
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9ffaeacdfc96d5c6",
+      "_key": "!actors.items!2a5b0ad260cabcf7.9ffaeacdfc96d5c6",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "1cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 7,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "85887dbc8b1ef2ea",
+  "sort": 1100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

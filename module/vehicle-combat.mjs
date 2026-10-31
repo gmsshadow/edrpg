@@ -1,6 +1,8 @@
 import { rollCraftAttack, applyCraftDamage } from "./dice/craft-attack.mjs";
 import { rollCrashDamage } from "./dice/damage.mjs";
+import { spendPointDefence } from "./dice/craft-attack.mjs";
 import { zoneOf, moveToZone } from "./zones.mjs";
+import { isCraft } from "./data/vehicle.mjs";
 
 /**
  * Vehicle combat turn (Core Rules pp.65–68 for Space Combat, 72–75 for the vehicle differences).
@@ -23,6 +25,30 @@ export const VEHICLE_ACTIONS = {
    upClose: ["tail", "broadsides", "ram", "disengage", "pass", "rescue"],
 };
 
+/** Spaceship combat actions by zone (Core Rules p.66). */
+export const SHIP_ACTIONS = {
+   atDistance: ["joust", "snipe", "strafe", "chicken", "flee", "pass"],
+   upClose: ["dogfight", "broadsides", "faOff", "ram", "disengage", "pass"],
+};
+
+/**
+ * The actions open to a craft in a zone.
+ *
+ * @param {Actor} actor
+ *
+ * @param {string} zone
+ *
+ * @returns {string[]}
+ */
+export function actionsFor(actor, zone) {
+   return (actor.system.isShip ? SHIP_ACTIONS : VEHICLE_ACTIONS)[zone] ?? [];
+}
+
+/** Ship collision Damage by size: Chicken (each ship inflicts on the other) and Ram (p.66–67). */
+export const SHIP_CHICKEN_DAMAGE = { small: 25, medium: 50, large: 75 };
+export const SHIP_RAM_DAMAGE = { small: 10, medium: 20, large: 30 };
+const SIZE_ORDER = { small: 1, medium: 2, large: 3 };
+
 /** Action icons for the sheet. */
 export const ACTION_ICONS = {
    joust: "fa-solid fa-angles-right",
@@ -36,6 +62,8 @@ export const ACTION_ICONS = {
    ram: "fa-solid fa-truck-monster",
    disengage: "fa-solid fa-arrow-right-from-bracket",
    rescue: "fa-solid fa-hand-holding-medical",
+   dogfight: "fa-solid fa-jet-fighter",
+   faOff: "fa-solid fa-arrows-spin",
 };
 
 /** Obstacle tables: [highest roll, result] (Core Rules p.73). */
@@ -179,7 +207,7 @@ export function registerVehicleCombat() {
          const sys = actor.system;
          enqueue(() =>
             actor.update({
-               "system.speed": sys.speed || Math.min(START_SPEED, sys.topSpeed),
+               "system.speed": sys.isShip ? sys.speed : sys.speed || Math.min(START_SPEED, sys.topSpeed),
                "system.zone": "atDistance",
                "system.combat": freshState(),
             }),
@@ -190,9 +218,9 @@ export function registerVehicleCombat() {
    Hooks.on("combatTurnChange", (combat, prior) => {
       if (!game.user.isActiveGM) return;
       const previous = prior?.combatantId ? combat.combatants.get(prior.combatantId)?.actor : null;
-      if (previous?.type === "vehicle") enqueue(() => previous.update({ "system.combat.turnSpeed": null }));
+      if (isCraft(previous)) enqueue(() => previous.update({ "system.combat.turnSpeed": null }));
       const actor = combat.combatant?.actor;
-      if (actor?.type === "vehicle") enqueue(() => startVehicleTurn(actor, combat));
+      if (isCraft(actor)) enqueue(() => startVehicleTurn(actor, combat));
    });
 
    // Destruction: runs on the client that dropped the Hull to 0.
@@ -220,7 +248,7 @@ function vehiclesIn(combat) {
    const seen = new Set();
    return combat.combatants
       .map((c) => c.actor)
-      .filter((a) => a?.type === "vehicle" && !seen.has(a.uuid) && seen.add(a.uuid));
+      .filter((a) => isCraft(a) && !seen.has(a.uuid) && seen.add(a.uuid));
 }
 
 /**
@@ -327,7 +355,12 @@ export async function startVehicleTurn(actor, combat = null) {
       "system.combat.rammed": false,
       "system.combat.lostAction": false,
       "system.combat.pass": Math.max(0, c.pass - 1),
+      "system.combat.faOff": false,
+      "system.combat.chaff": false,
+      "system.combat.mines": false,
+      "system.combat.outOfControl": Math.max(0, (c.outOfControl ?? 0) - 1),
    };
+   if (sys.isShip) data["system.combat.turnSpeed"] = null;
    const notes = [];
    if (c.escaped || sys.destroyed) return actor.update(data);
    if (c.fleeing) {
@@ -346,8 +379,11 @@ export async function startVehicleTurn(actor, combat = null) {
    }
    // Shields: +recharge while up; while down they charge up and come back at half (p.65).
    const sh = sys.shields;
-   if (sh.max > 0) {
-      const value = Math.min(sh.max, sh.value + sh.recharge);
+   // A destroyed Power Distributor (or Shield Generator) stops shield recharge (p.69).
+   const rate = sys.isShip ? sys.rechargeNow : sh.recharge;
+   if (sys.isShip && (sys.damaged?.powerDistributor || sys.damaged?.shieldGenerator) && sh.max > 0) notes.push(L("EDRPG.ship.noRecharge"));
+   else if (sh.max > 0) {
+      const value = Math.min(sh.max, sh.value + rate);
       if (sh.down) {
          data["system.shields.value"] = value;
          if (value >= sys.shields.halfway) {
@@ -359,19 +395,29 @@ export async function startVehicleTurn(actor, combat = null) {
          notes.push(L("EDRPG.vcombat.shieldsRecharge", { before: sh.value, value }));
       }
    }
+   // A running Shield Cell Bank counts down its rounds.
+   const bank = sys.isShip ? c.cellBank : null;
+   if (bank && bank.index >= 0 && bank.rounds > 0) {
+      const left = bank.rounds - 1;
+      data["system.combat.cellBank"] = left > 0 ? { index: bank.index, rounds: left } : { index: -1, rounds: 0 };
+      notes.push(L(left > 0 ? "EDRPG.equip.bankRunning" : "EDRPG.equip.bankDone", { rounds: left }));
+   }
    await actor.update(data);
    if (zone !== zoneOf(actor)) await moveToZone(actor, zone);
    if (data["system.combat.escaped"]) {
       return postEvent(actor, { kind: "turn", title: L("EDRPG.vcombat.turnStart", { name: actor.name }), notes, outcome: L("EDRPG.vcombat.escapedShort"), outcomeClass: "success" });
    }
    const range = actor.system.speedRange;
-   notes.unshift(L("EDRPG.vcombat.speedRange", { speed: sys.speed, min: range.min, max: range.max }));
+   if (range) notes.unshift(L("EDRPG.vcombat.speedRange", { speed: sys.speed, min: range.min, max: range.max }));
+   if (sys.isShip && sys.immobilised) notes.push(L("EDRPG.ship.immobilisedNote", { name: esc(actor.name) }));
+   if ((actor.system.combat.outOfControl ?? 0) === 1) notes.push(L("EDRPG.ship.outOfControlNote", { name: esc(actor.name) }));
+   const noObstacles = sys.flying || sys.isShip;
    return postEvent(actor, {
       kind: "turn",
       title: L("EDRPG.vcombat.turnStart", { name: actor.name }),
-      subtitle: L("EDRPG.vcombat.turnOrder"),
+      subtitle: L(sys.isShip ? "EDRPG.ship.turnOrder" : "EDRPG.vcombat.turnOrder"),
       notes: sys.flying ? [...notes, L("EDRPG.drone.flyingNoObstacles", { name: esc(actor.name) })] : notes,
-      obstacle: sys.flying ? null : { vehicleUuid: actor.uuid, done: false },
+      obstacle: noObstacles ? null : { vehicleUuid: actor.uuid, done: false },
    });
 }
 
@@ -387,7 +433,7 @@ export async function startVehicleTurn(actor, combat = null) {
 function enemiesUpClose(actor, combat) {
    const mine = actor.getActiveTokens?.()[0]?.document.disposition ?? actor.prototypeToken?.disposition;
    return combat.combatants
-      .filter((cb) => cb.actor?.type === "vehicle" && cb.actor !== actor && !cb.defeated)
+      .filter((cb) => isCraft(cb.actor) && cb.actor !== actor && !cb.defeated)
       .filter((cb) => (cb.token?.disposition ?? cb.actor.prototypeToken?.disposition) !== mine)
       .map((cb) => cb.actor)
       .filter((a) => !a.system.combat.escaped && a.system.hull.value > 0 && zoneOf(a) === "upClose");
@@ -579,7 +625,7 @@ async function pickTarget(actor, { zone = null, filter = () => true, title, wrec
    const seen = new Set();
    const candidates = (canvas?.scene?.tokens ?? [])
       .map((t) => t.actor)
-      .filter((a) => a?.type === "vehicle" && a !== actor && a.uuid !== actor.uuid && !seen.has(a.uuid) && seen.add(a.uuid))
+      .filter((a) => isCraft(a) && a !== actor && a.uuid !== actor.uuid && !seen.has(a.uuid) && seen.add(a.uuid))
       .filter((a) => (wrecks ? a.system.destroyed : !a.system.combat.escaped && !a.system.destroyed))
       .filter((a) => !zone || zoneOf(a) === zone)
       .filter(filter);
@@ -622,12 +668,12 @@ async function pickTarget(actor, { zone = null, filter = () => true, title, wrec
  *
  * @returns {Promise<{fired: number, missed: boolean, left: Item[]}>}
  */
-async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifier = 0, note = null, action = null } = {}) {
+async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifier = 0, note = null, action = null, forward = false } = {}) {
    weapons ??= sortedWeapons(actor);
    let fired = 0;
    let missed = false;
    for (const [i, weapon] of weapons.entries()) {
-      const message = await rollCraftAttack(actor, weapon, { prompt: false, target, modifier, note, action });
+      const message = await rollCraftAttack(actor, weapon, { prompt: false, target, modifier, note, action, forward });
       if (!message) continue;
       fired++;
       if (!message.getFlag("edrpg", "craftAttack")?.hit && stopOnMiss) {
@@ -708,7 +754,9 @@ export async function vehicleAction(actor, action) {
    const zone = zoneOf(actor);
    if (sys.combat.escaped) return void ui.notifications.warn(L("EDRPG.vcombat.hasEscaped", { name: actor.name }));
    if (sys.destroyed) return void ui.notifications.warn(L("EDRPG.vdestroy.isDestroyed", { name: actor.name }));
-   if (!VEHICLE_ACTIONS[zone].includes(action)) {
+   // Immobilised ships can't take combat actions (they may still fire one turret, from the sheet).
+   if (sys.isShip && sys.immobilised) return void ui.notifications.warn(L("EDRPG.ship.immobilised", { name: actor.name }));
+   if (!actionsFor(actor, zone).includes(action)) {
       return void ui.notifications.warn(L("EDRPG.vcombat.wrongZone", { action: L(`EDRPG.vcombat.action.${action}`), zone: L(`EDRPG.craft.zone.${zone}`) }));
    }
    if (sys.combat.lostAction) {
@@ -724,6 +772,9 @@ export async function vehicleAction(actor, action) {
    const done = await handler(actor);
    if (done !== false) await update(actor, { "system.combat.action": action });
 }
+
+/** "dogfight" for ships, "tail" for vehicles. */
+const tailKey = (actor) => (actor.system.isShip ? "dogfight" : "tail");
 
 /** Title for a target picker. */
 const pickTitle = (action) => L("EDRPG.vcombat.pickTarget", { action: L(`EDRPG.vcombat.action.${action}`) });
@@ -746,13 +797,13 @@ const ACTIONS = {
       if (target.system.combat.fleeing) {
          const winner = await pursuit(actor, target, "flee");
          if (winner !== "chaser") return;
-         await fireWeapons(actor, target, { action: "EDRPG.vcombat.action.joust" });
+         await fireWeapons(actor, target, { action: "EDRPG.vcombat.action.joust", forward: true });
          await update(target, { "system.combat.fleeing": false });
          await setZone(target, "upClose");
          await setZone(actor, "upClose", target);
          return;
       }
-      await fireWeapons(actor, target, { action: "EDRPG.vcombat.action.joust" });
+      await fireWeapons(actor, target, { action: "EDRPG.vcombat.action.joust", forward: true });
       if (target.system.combat.sniping && zoneOf(target) !== "upClose") await setZone(target, "upClose");
       await setZone(actor, "upClose", target);
    },
@@ -763,7 +814,7 @@ const ACTIONS = {
       if (!target) return false;
       await update(actor, { "system.combat.sniping": true });
       await announce(actor, "snipe", target);
-      await fireWeapons(actor, target, { modifier: 1, note: "EDRPG.vcombat.snipeBonus", action: "EDRPG.vcombat.action.snipe" });
+      await fireWeapons(actor, target, { modifier: 1, note: "EDRPG.vcombat.snipeBonus", action: "EDRPG.vcombat.action.snipe", forward: true });
    },
 
    /** Strafe: fire weapons one at a time until one misses, then move up-close and Disengage. */
@@ -771,7 +822,7 @@ const ACTIONS = {
       const target = await pickTarget(actor, { title: pickTitle("strafe"), filter: (a) => !a.system.combat.disengaging && !a.system.combat.fleeing });
       if (!target) return false;
       await announce(actor, "strafe", target);
-      await fireWeapons(actor, target, { stopOnMiss: true, action: "EDRPG.vcombat.action.strafe" });
+      await fireWeapons(actor, target, { stopOnMiss: true, action: "EDRPG.vcombat.action.strafe", forward: true });
       await setZone(actor, "upClose", target);
       await update(actor, { "system.combat.disengaging": true });
    },
@@ -784,6 +835,10 @@ const ACTIONS = {
 
    /** Flee: escapes at the start of its next turn unless Jousted and caught. */
    async flee(actor) {
+      if (actor.system.isShip && actor.system.damaged?.fsd) {
+         ui.notifications.warn(L("EDRPG.ship.noFsd", { name: actor.name }));
+         return false;
+      }
       await update(actor, { "system.combat.fleeing": true });
       await announce(actor, "flee");
    },
@@ -815,14 +870,15 @@ const ACTIONS = {
 
    /** Tail (the vehicle Dogfight): D10 + Defence each; whoever gets behind fires everything. */
    async tail(actor, { target = null, bonus = 0 } = {}) {
-      target ??= await pickTarget(actor, { zone: "upClose", title: pickTitle("tail") });
+      const key = tailKey(actor);
+      target ??= await pickTarget(actor, { zone: "upClose", title: pickTitle(key) });
       if (!target) return false;
       if (target.system.combat.disengaging) {
-         await announce(actor, "tail", target);
+         await announce(actor, key, target);
          const winner = await pursuit(actor, target, "disengage");
          if (winner === "chaser") {
             await update(target, { "system.combat.disengaging": false });
-            await fireWeapons(actor, target, { action: "EDRPG.vcombat.action.tail" });
+            await fireWeapons(actor, target, { action: `EDRPG.vcombat.action.${key}`, forward: true });
          } else if (winner === "tie") {
             await update(target, { "system.combat.disengaging": false });
             await setZone(target, "atDistance");
@@ -831,6 +887,24 @@ const ACTIONS = {
          return;
       }
       await dogfight(actor, target, bonus);
+   },
+
+   /** Dogfight (ships): as Tail. An out-of-control ship can't start one (p.67). */
+   async dogfight(actor) {
+      if ((actor.system.combat.outOfControl ?? 0) === 1) {
+         ui.notifications.warn(L("EDRPG.ship.outOfControl", { name: actor.name }));
+         return false;
+      }
+      return ACTIONS.tail(actor);
+   },
+
+   /** Flight Assist off (ships): fire at an up-close target until a miss; no Agility in Defence until next turn. */
+   async faOff(actor) {
+      const target = await pickTarget(actor, { zone: "upClose", title: pickTitle("faOff") });
+      if (!target) return false;
+      await update(actor, { "system.combat.faOff": true });
+      await announce(actor, "faOff", target);
+      await fireWeapons(actor, target, { stopOnMiss: true, action: "EDRPG.vcombat.action.faOff" });
    },
 
    /** Broadsides: fire turrets at an up-close target until one misses. */
@@ -868,6 +942,30 @@ const ACTIONS = {
       let toTarget = 0;
       let toSelf = 0;
       const bomb = actor.system.bomb?.damage > 0;
+      const ship = actor.system.isShip;
+      if (ship) {
+         // Ships: 10/20/30 by the rammer's size, half to the rammer; a glance is 5 each (p.67).
+         if (a.total > b.total) {
+            toTarget = SHIP_RAM_DAMAGE[actor.system.category] ?? 10;
+            toSelf = Math.floor(toTarget / 2);
+            outcome = L("EDRPG.vcombat.ram.hit", { ...names, damage: toTarget, self: toSelf });
+         } else if (a.total === b.total) {
+            toTarget = toSelf = 5;
+            outcome = L("EDRPG.ship.glance", names);
+         } else outcome = L("EDRPG.vcombat.ram.miss", names);
+         const big = (x, y) => (SIZE_ORDER[x.system.category] ?? 1) >= (SIZE_ORDER[y.system.category] ?? 1);
+         const notes = [];
+         if (toTarget && big(actor, target)) notes.push(L("EDRPG.ship.spinsOut", { name: esc(target.name) }));
+         if (toSelf && big(target, actor)) notes.push(L("EDRPG.ship.spinsOut", { name: esc(actor.name) }));
+         const card = await postEvent(
+            actor,
+            { kind: "ram", title: L("EDRPG.vcombat.action.ram"), subtitle: L("EDRPG.vcombat.versus", { name: actor.name, target: target.name }), rolls: [a.view, b.view], outcome, outcomeClass: toTarget ? "success" : "failure", notes },
+            [a.roll, b.roll],
+         );
+         if (toTarget) await damage(target, toTarget, card, big(actor, target) ? { "system.combat.outOfControl": 2 } : null);
+         if (toSelf) await damage(actor, toSelf, card, big(target, actor) ? { "system.combat.outOfControl": 2 } : null);
+         return;
+      }
       if (a.total > b.total) {
          toTarget = 10 * speed;
          toSelf = actor.system.forwardRam || bomb ? 0 : Math.floor(toTarget / 2);
@@ -944,13 +1042,41 @@ const ACTIONS = {
  * @param {number} bonus
  */
 async function dogfight(actor, target, bonus = 0) {
+   const key = tailKey(actor);
+   const scoreLabel = (v) => L(v.system.npc?.enabled ? "EDRPG.ship.dogfighting" : "EDRPG.vehicle.defence");
    const a = await rollWith(actor.name, [
-      { label: L("EDRPG.vehicle.defence"), value: actor.system.defence, always: true },
+      { label: scoreLabel(actor), value: actor.system.dogfight, always: true },
       { label: L("EDRPG.vcombat.chickenBonus"), value: bonus },
    ]);
-   const b = await rollWith(target.name, [{ label: L("EDRPG.vehicle.defence"), value: target.system.defence, always: true }]);
+   const b = await rollWith(target.name, [{ label: scoreLabel(target), value: target.system.dogfight, always: true }]);
    const names = { name: esc(actor.name), target: esc(target.name) };
-   const [winner, loser] = a.total > b.total ? [actor, target] : b.total > a.total ? [target, actor] : [null, null];
+   let [winner, loser] = a.total > b.total ? [actor, target] : b.total > a.total ? [target, actor] : [null, null];
+   // Dodging mines: facing a ship that is laying mines, your roll must beat the launcher's Difficulty or you lose and
+   // hit a mine (p.66). Point Defence can shoot the mine down.
+   const mineNotes = [];
+   const mineHits = [];
+   const mineCheck = async (roller, total, layer) => {
+      if (!layer.system.combat?.mines) return false;
+      const dn = layer.system.equipment?.mines?.dn ?? 15;
+      if (total > dn) {
+         mineNotes.push(L("EDRPG.equip.minesDodged", { name: esc(roller.name), dn }));
+         return false;
+      }
+      mineNotes.push(L("EDRPG.equip.minesHit", { name: esc(roller.name), dn }));
+      let blocked = false;
+      if ((roller.system.equipment?.pointDefence?.value ?? 0) > 0) {
+         const pd = await new Roll("1d10").evaluate();
+         blocked = pd.total % 2 === 0;
+         await spendPointDefence(roller);
+         mineNotes.push(L(blocked ? "EDRPG.equip.pdHit" : "EDRPG.equip.pdMiss", { roll: pd.total }));
+      }
+      if (!blocked) mineHits.push({ actor: roller, amount: layer.system.equipment?.mines?.damage ?? 10 });
+      return true;
+   };
+   const failA = await mineCheck(actor, a.total, target);
+   const failB = await mineCheck(target, b.total, actor);
+   if (failA && !failB) [winner, loser] = [target, actor];
+   else if (failB && !failA) [winner, loser] = [actor, target];
    const returnFire = [];
    const offer = (from, at) => turrets(from).length && returnFire.push({ vehicleUuid: from.uuid, targetUuid: at.uuid, name: from.name, target: at.name, used: false });
    if (winner) offer(loser, winner);
@@ -961,22 +1087,23 @@ async function dogfight(actor, target, bonus = 0) {
    // The winner fires on a client that owns it; otherwise its owner gets a button.
    const firesHere = winner?.isOwner;
    const fullFire = winner && !firesHere ? { vehicleUuid: winner.uuid, targetUuid: loser.uuid, name: winner.name, target: loser.name, used: false } : null;
-   await postEvent(
+   const tailCard = await postEvent(
       actor,
       {
          kind: "tail",
          fullFire,
-         title: L("EDRPG.vcombat.action.tail"),
+         title: L(`EDRPG.vcombat.action.${key}`),
          subtitle: L("EDRPG.vcombat.versus", { name: actor.name, target: target.name }),
          rolls: [a.view, b.view],
          outcome: winner ? L("EDRPG.vcombat.tailWin", { name: esc(winner.name), target: esc(loser.name) }) : L("EDRPG.vcombat.tailDraw", names),
          outcomeClass: winner === actor ? "success" : "failure",
-         notes: winner ? [L("EDRPG.vcombat.tailReturn", { name: esc(loser.name) })] : [],
+         notes: [...mineNotes, ...(winner ? [L("EDRPG.vcombat.tailReturn", { name: esc(loser.name) })] : [])],
          returnFire,
       },
       [a.roll, b.roll],
    );
-   if (firesHere) await fireWeapons(winner, loser, { action: "EDRPG.vcombat.action.tail" });
+   for (const m of mineHits) await damage(m.actor, m.amount, tailCard);
+   if (firesHere) await fireWeapons(winner, loser, { action: `EDRPG.vcombat.action.${key}`, forward: true });
 }
 
 /**
@@ -1042,18 +1169,21 @@ async function resolveChicken(message, targetChoice) {
    await moveToZone(target, "upClose", actor);
 
    if (collision) {
-      const total = 5 * (actor.system.speed + target.system.speed);
-      const hit = (v) => (v.system.forwardRam ? Math.floor(total / 2) : total);
+      const ships = actor.system.isShip;
+      // Vehicles: 5 × combined speed to each. Ships: each inflicts 25/50/75 by its size on the other (p.66).
+      const total = ships ? null : 5 * (actor.system.speed + target.system.speed);
+      const other = (v) => (v === actor ? target : actor);
+      const hit = (v) => (ships ? (SHIP_CHICKEN_DAMAGE[other(v).system.category] ?? 25) : v.system.forwardRam ? Math.floor(total / 2) : total);
       const isBomb = (v) => v.system.bomb?.damage > 0;
       // A flying bomb breaks apart: its victim isn't stopped dead.
-      const stop = (v, other) => (isBomb(other) ? null : { "system.speed": 0 });
+      const stop = (v, o) => (ships || isBomb(o) ? null : { "system.speed": 0 });
       const card = await postEvent(
          actor,
          {
             kind: "chicken",
             title: L("EDRPG.vcombat.collision"),
             subtitle: L("EDRPG.vcombat.versus", { name: actor.name, target: target.name }),
-            outcome: L("EDRPG.vcombat.collisionText", { damage: total }),
+            outcome: ships ? L("EDRPG.ship.collisionText", { name: esc(actor.name), target: esc(target.name), a: hit(target), b: hit(actor) }) : L("EDRPG.vcombat.collisionText", { damage: total }),
             outcomeClass: "failure",
             notes: [actor, target].filter((v) => v.system.forwardRam).map((v) => L("EDRPG.vcombat.forwardRamChicken", { name: esc(v.name) })),
          },
@@ -1071,6 +1201,74 @@ async function resolveChicken(message, targetChoice) {
 }
 
 /* -------------------------------------------- */
+/*  Equipment actions (ships)                   */
+/* -------------------------------------------- */
+
+/**
+ * An Equipment Action (Core Rules p.65): chaff, mines, a Shield Cell Bank, or assigning floating bonuses. Any number
+ * can be taken in a turn, before the combat action.
+ *
+ * @param {Actor} actor
+ *
+ * @param {"chaff"|"mines"|"cellBank"|"floating"} which
+ */
+export async function equipmentAction(actor, which) {
+   const sys = actor.system;
+   if (!sys.isShip) return;
+   const eq = sys.equipment;
+   const c = sys.combat;
+   const say = (key, data = {}) => postEvent(actor, { kind: "equipment", title: L("EDRPG.equip.title"), subtitle: actor.name, notes: [L(key, { name: esc(actor.name), ...data })] });
+   if (which === "chaff" || which === "mines") {
+      const store = eq[which];
+      if (c[which]) return void ui.notifications.info(L(`EDRPG.equip.${which}Active`, { name: actor.name }));
+      if (store.value < 1) return void ui.notifications.warn(L("EDRPG.equip.noAmmo", { name: actor.name, what: L(`EDRPG.equip.${which}`) }));
+      await actor.update({ [`system.equipment.${which}.value`]: store.value - 1, [`system.combat.${which}`]: true });
+      return say(`EDRPG.equip.${which}Used`, { left: store.value - 1, max: store.max, dn: eq.mines.dn });
+   }
+   if (which === "cellBank") {
+      if (c.cellBank.index >= 0 && c.cellBank.rounds > 0) return void ui.notifications.warn(L("EDRPG.equip.bankBusy", { name: actor.name }));
+      const banks = eq.cellBanks.map((b, i) => ({ ...b, i })).filter((b) => b.uses > 0 && !sys.components.some((x) => x.name === b.name && x.strength.value <= 0));
+      if (!banks.length) return void ui.notifications.warn(L("EDRPG.equip.noBank", { name: actor.name }));
+      let bank = banks[0];
+      if (banks.length > 1) {
+         const input = await foundry.applications.api.DialogV2.input({
+            window: { title: L("EDRPG.equip.cellBank") },
+            classes: ["edrpg", "edrpg-dialog"],
+            content: `<div class="form-group"><label>${L("EDRPG.equip.cellBank")}</label><div class="form-fields"><select name="bank">${banks.map((b) => `<option value="${b.i}">${esc(b.name)} (+${b.boost} × ${b.duration})</option>`).join("")}</select></div></div>`,
+            rejectClose: false,
+         });
+         if (!input) return;
+         bank = banks.find((b) => b.i === Number(input.bank)) ?? bank;
+      }
+      const cellBanks = foundry.utils.deepClone(sys._source.equipment.cellBanks);
+      cellBanks[bank.i].uses -= 1;
+      // It boosts this turn's recharge straight away (the recharge already ran at turn start), then the next rounds.
+      const sh = sys.shields;
+      const value = Math.min(sh.max, sh.value + bank.boost);
+      const update = { "system.equipment.cellBanks": cellBanks, "system.combat.cellBank": { index: bank.i, rounds: bank.duration - 1 }, "system.shields.value": value };
+      if (sh.down && value >= sh.halfway) update["system.shields.down"] = false;
+      await actor.update(update);
+      return say("EDRPG.equip.bankUsed", { bank: esc(bank.name), boost: bank.boost, rounds: bank.duration, before: sh.value, after: value, uses: bank.uses - 1 });
+   }
+   if (which === "floating") {
+      const n = eq.floating;
+      if (!n) return void ui.notifications.warn(L("EDRPG.equip.noFloating", { name: actor.name }));
+      const box = (k) => `<label class="checkbox"><input type="checkbox" name="${k}" ${c.floating[k] ? "checked" : ""}> ${L(`EDRPG.equip.floating.${k}`)}</label>`;
+      const input = await foundry.applications.api.DialogV2.input({
+         window: { title: L("EDRPG.equip.floatingTitle") },
+         classes: ["edrpg", "edrpg-dialog"],
+         content: `<p>${L("EDRPG.equip.floatingIntro", { n })}</p><div class="form-group stacked">${box("engines")}${box("weapons")}${box("shields")}</div>`,
+         rejectClose: false,
+      });
+      if (!input) return;
+      const chosen = ["engines", "weapons", "shields"].filter((k) => input[k]);
+      if (chosen.length > n) return void ui.notifications.warn(L("EDRPG.equip.tooManyFloating", { n }));
+      await actor.update({ "system.combat.floating": { engines: !!input.engines, weapons: !!input.weapons, shields: !!input.shields } });
+      return say("EDRPG.equip.floatingSet", { list: chosen.map((k) => L(`EDRPG.equip.floating.${k}`)).join(", ") || L("EDRPG.equip.none") });
+   }
+}
+
+/* -------------------------------------------- */
 /*  Destruction                                 */
 /* -------------------------------------------- */
 
@@ -1083,6 +1281,12 @@ async function resolveChicken(message, targetChoice) {
  */
 async function onVehicleDestroyed(actor) {
    const crew = actor.system.crewActors;
+   // Ships keep their Speed rating and nobody is left stranded (p.70).
+   if (actor.system.isShip) {
+      await actor.update({ "system.combat.fleeing": false, "system.combat.disengaging": false, "system.combat.sniping": false });
+      await markWreck(actor);
+      return shipDestroyed(actor, crew);
+   }
    await actor.update({
       "system.speed": 0,
       "system.stranded": crew.map((c) => c.uuid),
@@ -1090,16 +1294,7 @@ async function onVehicleDestroyed(actor) {
       "system.combat.disengaging": false,
       "system.combat.sniping": false,
    });
-   try {
-      await actor.toggleStatusEffect("dead", { active: true, overlay: true });
-   } catch (err) {
-      console.warn("edrpg | couldn't mark the wreck", err);
-   }
-   if (game.user.isGM) {
-      for (const combat of game.combats ?? []) {
-         for (const c of combat.combatants) if (c.actor?.uuid === actor.uuid && !c.defeated) await c.update({ defeated: true });
-      }
-   }
+   await markWreck(actor);
    const notes = [];
    if (actor.system.drone?.enabled) notes.push(L("EDRPG.vdestroy.drone"));
    else if (!crew.length) notes.push(L("EDRPG.vdestroy.noCrew"));
@@ -1116,6 +1311,57 @@ async function onVehicleDestroyed(actor) {
       vehicleUuid: actor.uuid,
       crewDamage: crew.map((c) => ({ uuid: c.uuid, name: c.name, npc: c.type === "opponent", rolled: false })),
    });
+}
+
+/**
+ * Dead overlay on the wreck's token; its combatants defeated.
+ *
+ * @param {Actor} actor
+ */
+async function markWreck(actor) {
+   try {
+      await actor.toggleStatusEffect("dead", { active: true, overlay: true });
+   } catch (err) {
+      console.warn("edrpg | couldn't mark the wreck", err);
+   }
+   if (!game.user.isGM) return;
+   for (const combat of game.combats ?? []) {
+      for (const c of combat.combatants) if (c.actor?.uuid === actor.uuid && !c.defeated) await c.update({ defeated: true });
+   }
+}
+
+/** Cargo canisters that survive a ship's destruction, by size (p.70). */
+const CARGO_SCATTER = { small: "1d10", medium: "2d10", large: "3d10" };
+
+/**
+ * A ship is destroyed (p.70): anyone aboard dies, unless the pilot makes an emergency eject (Systems, Difficulty 12)
+ * or someone uses Escape Death. Some cargo canisters scatter intact.
+ *
+ * @param {Actor} actor
+ *
+ * @param {Actor[]} crew
+ */
+async function shipDestroyed(actor, crew) {
+   const roll = await new Roll(CARGO_SCATTER[actor.system.category] ?? "1d10").evaluate();
+   const pilot = actor.system.pilotActor;
+   const notes = [
+      L("EDRPG.ship.destroyedAboard"),
+      L("EDRPG.ship.cargoScatter", { count: roll.total, formula: (CARGO_SCATTER[actor.system.category] ?? "1d10").toUpperCase() }),
+   ];
+   if (crew.length) notes.push(L("EDRPG.vdestroy.crew2", { crew: crew.map((c) => esc(c.name)).join(", ") }));
+   return postEvent(
+      actor,
+      {
+         kind: "destroyed",
+         title: L("EDRPG.vdestroy.title", { name: actor.name }),
+         outcome: L("EDRPG.vdestroy.outcome"),
+         outcomeClass: "failure",
+         notes,
+         vehicleUuid: actor.uuid,
+         eject: pilot ? { uuid: pilot.uuid, name: pilot.name, done: false } : null,
+      },
+      [roll],
+   );
 }
 
 /* -------------------------------------------- */
@@ -1175,6 +1421,14 @@ export function onRenderVehicleEvent(message, html) {
          await op("event", { messageId: message.id, patch: { crewDamage } });
       });
    }
+   if (state.eject && !state.eject.done && owns(state.eject.uuid)) {
+      add("fa-solid fa-person-falling", L("EDRPG.ship.eject", { name: esc(state.eject.name) }), async () => {
+         const pilot = await fromUuid(state.eject.uuid);
+         if (!pilot) return;
+         await game.edrpg.rollSkillCheck(pilot, "systems", { difficulty: 12, prompt: false, label: L("EDRPG.ship.ejectTitle") });
+         await op("event", { messageId: message.id, patch: { eject: { done: true } } });
+      });
+   }
    const ff = state.fullFire;
    if (ff && !ff.used && owns(ff.vehicleUuid)) {
       add("fa-solid fa-burst", L("EDRPG.vcombat.fireAll", { name: esc(ff.name), target: esc(ff.target) }), async () => {
@@ -1182,7 +1436,7 @@ export function onRenderVehicleEvent(message, html) {
          const at = await fromUuid(ff.targetUuid);
          if (!from || !at) return;
          await op("event", { messageId: message.id, patch: { fullFire: { used: true } } });
-         await fireWeapons(from, at, { action: "EDRPG.vcombat.action.tail" });
+         await fireWeapons(from, at, { action: "EDRPG.vcombat.action.dogfight", forward: true });
       });
    }
    for (const [i, rf] of (state.returnFire ?? []).entries()) {

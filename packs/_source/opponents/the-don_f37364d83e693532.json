@@ -1,0 +1,181 @@
+{
+  "_id": "f37364d83e693532",
+  "_key": "!actors!f37364d83e693532",
+  "name": "The Don",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "master",
+    "role": "Criminal",
+    "dodge": 6,
+    "parry": 7,
+    "initiative": 6,
+    "perception": 7,
+    "toHit": 7,
+    "speed": "10m",
+    "endurance": {
+      "value": 40,
+      "max": 40
+    },
+    "otherSkills": [
+      {
+        "skill": "intimidate",
+        "bonus": 9
+      }
+    ],
+    "equipment": "",
+    "notes": "<p>Eat Lead Sucker!: on a hit with a Burst weapon, inflicts maximum Burst damage.</p>"
+  },
+  "prototypeToken": {
+    "name": "The Don",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "aafeeae15093dfe0",
+      "_key": "!actors.items!f37364d83e693532.aafeeae15093dfe0",
+      "name": "Bullet Proof Vest",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 0,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "5faee7319309440b",
+      "_key": "!actors.items!f37364d83e693532.5faee7319309440b",
+      "name": "Ergon Tommygun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "74,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "64m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "128m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "3d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 8,
+          "max": 8
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "25bfb6d3401cc96f",
+      "_key": "!actors.items!f37364d83e693532.25bfb6d3401cc96f",
+      "name": "Eat Lead Sucker!",
+      "type": "karma",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "role": "offensive",
+        "category": "personal",
+        "cost": 5,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": false,
+        "usesPerBattle": 1,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "85887dbc8b1ef2ea",
+  "sort": 1500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

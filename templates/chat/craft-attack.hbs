@@ -24,9 +24,12 @@
    <div class="outcome {{#if hit}}success{{else}}failure{{/if}}">
       {{#if hit}}{{localize "EDRPG.attack.hit"}}{{#if margin}} — {{localize "EDRPG.attack.beatBy" points=margin}}{{/if}}{{else}}{{localize "EDRPG.attack.miss"}}{{/if}}
    </div>
+   {{#each defenceNotes as |n|}}<div class="attack-note muted">{{localize n}}</div>{{/each}}
+   {{#if aim}}<div class="attack-note">{{localize "EDRPG.crit.aimed" name=aim.name}}</div>{{/if}}
+   {{#if pointDefence}}<div class="attack-note">{{#if pointDefence.destroyed}}{{localize "EDRPG.equip.pdHit" roll=pointDefence.roll}}{{else}}{{localize "EDRPG.equip.pdMiss" roll=pointDefence.roll}}{{/if}}</div>{{/if}}
    {{#if sniping}}<div class="attack-note">{{localize "EDRPG.vcombat.snipingTarget"}}</div>{{/if}}
    {{#if reason}}<div class="attack-note">{{localize (concat "EDRPG.contest.reason." reason)}}</div>{{/if}}
-   {{#if (and critical hit)}}<div class="attack-note">{{localize "EDRPG.vehicle.naturalTen"}}</div>{{/if}}
+   {{#if (and critical hit)}}{{#unless aim}}<div class="attack-note">{{#if shipTarget}}{{localize "EDRPG.crit.naturalTen"}}{{else}}{{localize "EDRPG.vehicle.naturalTen"}}{{/if}}</div>{{/unless}}{{/if}}
    {{#if ammo}}<div class="attack-note muted">{{localize "EDRPG.attack.ammoLeft" left=ammo.left max=ammo.max}}</div>{{/if}}
    {{#if applied.length}}
    <ul class="damage-applied">
@@ -35,6 +38,8 @@
          {{#if a.toShields}}{{localize "EDRPG.vehicle.shieldsHit" before=a.shieldsBefore after=a.shieldsAfter}}{{#if a.collapsed}} <span class="ed-chip">{{localize "EDRPG.vehicle.shieldsCollapse"}}</span>{{/if}}{{/if}}
          {{#if a.toHull}} {{localize "EDRPG.vehicle.hullHit" damage=a.toHull before=a.hullBefore after=a.hullAfter}}{{/if}}
          {{#if a.destroyed}} <span class="ed-chip">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}
+         {{#if a.component}}{{localize "EDRPG.crit.componentHit" name=a.component.name damage=a.component.damage before=a.component.before after=a.component.after}}{{#if a.component.destroyed}} <span class="ed-chip">{{localize "EDRPG.crit.destroyed"}}</span> {{a.component.effect}}{{/if}}{{/if}}
+         {{#if a.crit}}<div class="ed-crit">{{#if a.crit.nothing}}{{localize "EDRPG.crit.nothing" roll=a.crit.table kind=a.crit.kindLabel}}{{else}}{{localize "EDRPG.crit.result" roll=a.crit.table kind=a.crit.kindLabel name=a.crit.name before=a.crit.before after=a.crit.after}}{{#if a.crit.position}} <span class="muted">({{localize "EDRPG.crit.position" roll=a.crit.position}})</span>{{/if}}{{#if a.crit.destroyed}} <span class="ed-chip">{{localize "EDRPG.crit.destroyed"}}</span> {{a.crit.effect}}{{/if}}{{/if}}</div>{{/if}}
       </li>
       {{/each}}
    </ul>

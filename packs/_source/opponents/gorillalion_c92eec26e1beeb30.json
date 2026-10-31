@@ -1,0 +1,110 @@
+{
+  "_id": "c92eec26e1beeb30",
+  "_key": "!actors!c92eec26e1beeb30",
+  "name": "Gorillalion",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Biomod",
+    "dodge": 3,
+    "parry": 3,
+    "initiative": 3,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 40,
+      "max": 40
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Pummelling Slash: if both damage dice are even, the target is grabbed. Gorilla Grab: the target takes 1D10 halved damage at the start of its turn, can't move, and can only use its Action to escape (Athletics, Difficulty 11; Close Combat damage bonuses add to the roll).</p>"
+  },
+  "prototypeToken": {
+    "name": "Gorillalion",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "3de43409ea5b3d4f",
+      "_key": "!actors.items!c92eec26e1beeb30.3de43409ea5b3d4f",
+      "name": "Pummelling slash",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "2d10+4",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "7bc190f50d05a685",
+  "sort": 4400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

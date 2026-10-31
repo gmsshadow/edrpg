@@ -1,6 +1,8 @@
 import { craftSizes, mountKinds, mountSizes, combatZones } from "../data/vehicle.mjs";
 import { zoneOfToken } from "../zones.mjs";
-import { VEHICLE_ACTIONS, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
+import { componentKinds } from "../data/vehicle.mjs";
+import { equipmentAction } from "../vehicle-combat.mjs";
+import { actionsFor, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -34,6 +36,9 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          checkObstacles: EDVehicleSheet.#onCheckObstacles,
          startTurn: EDVehicleSheet.#onStartTurn,
          clearCombat: EDVehicleSheet.#onClearCombat,
+         equip: EDVehicleSheet.#onEquip,
+         addRow: EDVehicleSheet.#onAddRow,
+         deleteRow: EDVehicleSheet.#onDeleteRow,
       },
    };
 
@@ -78,6 +83,7 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          pilotMissing: !!system.pilot && !pilot,
          pilotChoices: this.#crewChoices(),
          stats: {
+            dogfight: system.dogfight,
             defence: system.defence,
             initiative: system.initiative,
             pursuit: system.pursuit,
@@ -109,8 +115,29 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
       context.destroyed = system.destroyed;
       context.strandedNames = (system.stranded ?? []).map((u) => fromUuidSync(u)?.name).filter(Boolean).join(", ");
       // Rescue only shows while someone on the scene is waiting to be picked up.
-      const strandedNearby = (globalThis.canvas?.scene?.tokens ?? []).some((t) => t.actor?.type === "vehicle" && t.actor.system.destroyed && t.actor.system.stranded?.length);
-      context.vactions = VEHICLE_ACTIONS[zone].filter((key) => key !== "rescue" || strandedNearby).map((key) => ({
+      const strandedNearby = (globalThis.canvas?.scene?.tokens ?? []).some((t) => ["vehicle", "ship"].includes(t.actor?.type) && t.actor.system.destroyed && t.actor.system.stranded?.length);
+      context.isShip = system.isShip;
+      context.npcShip = !!system.npc?.enabled;
+      context.componentKinds = componentKinds;
+      if (system.isShip) {
+         const eq = system.equipment;
+         const c = system.combat;
+         context.components = system.components.map((x, i) => ({ ...x, index: i, kindLabel: game.i18n.localize(componentKinds[x.kind] ?? x.kind), broken: x.strength.value <= 0 }));
+         context.componentRows = system._source.components.map((x, i) => ({ ...x, index: i }));
+         context.cellBankRows = system._source.equipment.cellBanks.map((x, i) => ({ ...x, index: i }));
+         const bank = eq.cellBanks[c.cellBank.index];
+         context.equip = {
+            chaff: eq.chaff.max > 0 ? { ...eq.chaff, active: c.chaff } : null,
+            mines: eq.mines.max > 0 ? { ...eq.mines, active: c.mines } : null,
+            pd: eq.pointDefence.max > 0 ? eq.pointDefence : null,
+            ecm: eq.ecm,
+            floating: eq.floating ? { n: eq.floating, list: ["engines", "weapons", "shields"].filter((k) => c.floating[k]).map((k) => game.i18n.localize(`EDRPG.equip.floating.${k}`)).join(", ") } : null,
+            banks: eq.cellBanks.length ? { uses: eq.cellBanks.reduce((n, b) => n + b.uses, 0), running: bank && c.cellBank.rounds >= 0 && c.cellBank.index >= 0 ? `${bank.name} (+${bank.boost})` : "" } : null,
+            recharge: system.rechargeNow,
+         };
+         context.hasEquip = !!(context.equip.chaff || context.equip.mines || context.equip.pd || context.equip.ecm || context.equip.floating || context.equip.banks);
+      }
+      context.vactions = actionsFor(actor, zone).filter((key) => key !== "rescue" || strandedNearby).map((key) => ({
          key,
          icon: ACTION_ICONS[key],
          label: game.i18n.localize(`EDRPG.vcombat.action.${key}`),
@@ -217,6 +244,13 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
     */
    _processFormData(event, form, formData) {
       const data = super._processFormData(event, form, formData);
+      // Ship rosters arrive as { "0": {...}, "1": {...} }: merge into the stored arrays.
+      const toArray = (incoming, current) => current.map((row, i) => foundry.utils.mergeObject(row, incoming[i] ?? {}, { inplace: false }));
+      if (data.system?.components && !Array.isArray(data.system.components)) {
+         data.system.components = toArray(data.system.components, this.document.system.toObject().components);
+      }
+      const banks = data.system?.equipment?.cellBanks;
+      if (banks && !Array.isArray(banks)) data.system.equipment.cellBanks = toArray(banks, this.document.system.toObject().equipment.cellBanks);
       const table = data.system?.speedTable;
       if (table && !Array.isArray(table)) {
          const current = this.document.system.toObject().speedTable;
@@ -253,10 +287,39 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
    }
 
    /** @this {EDVehicleSheet} */
+   static async #onEquip(event, target) {
+      if (this.isEditable) return equipmentAction(this.document, target.dataset.equip);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onAddRow(event, target) {
+      if (!this.isEditable) return;
+      const src = this.document.system.toObject();
+      if (target.dataset.list === "components") {
+         const components = [...src.components, { name: "", kind: "internal", strength: { value: 10, max: 10 }, notes: "", item: "" }];
+         return this.document.update({ "system.components": components });
+      }
+      const cellBanks = [...src.equipment.cellBanks, { name: game.i18n.localize("EDRPG.equip.cellBank"), boost: 5, duration: 1, uses: 3 }];
+      return this.document.update({ "system.equipment.cellBanks": cellBanks });
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onDeleteRow(event, target) {
+      if (!this.isEditable) return;
+      const src = this.document.system.toObject();
+      const i = Number(target.closest("[data-index]")?.dataset.index);
+      if (target.dataset.list === "components") return this.document.update({ "system.components": src.components.filter((_, j) => j !== i) });
+      return this.document.update({ "system.equipment.cellBanks": src.equipment.cellBanks.filter((_, j) => j !== i) });
+   }
+
+   /** @this {EDVehicleSheet} */
    static async #onClearCombat() {
       if (!game.user.isGM) return;
       return this.document.update({
-         "system.combat": { turnSpeed: null, action: "", sniping: false, fleeing: false, disengaging: false, rammed: false, lostAction: false, pass: 0, escaped: false },
+         "system.combat": {
+            turnSpeed: null, action: "", sniping: false, fleeing: false, disengaging: false, rammed: false, lostAction: false, pass: 0, escaped: false,
+            faOff: false, outOfControl: 0, chaff: false, mines: false, cellBank: { index: -1, rounds: 0 },
+         },
       });
    }
 

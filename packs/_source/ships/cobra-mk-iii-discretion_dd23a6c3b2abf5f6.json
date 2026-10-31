@@ -1,0 +1,396 @@
+{
+  "_id": "dd23a6c3b2abf5f6",
+  "_key": "!actors!dd23a6c3b2abf5f6",
+  "name": "Cobra Mk III – Discretion",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/cobra-mk-iii-wireframe.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 27.1m x W 44.0m x H 7.9m",
+    "landingPad": "Small",
+    "crewSize": 12,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "32T",
+    "range": "14LY",
+    "fuel": "16T (160LY)",
+    "cost": "1,767,790cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 8,
+    "speed": 11,
+    "maxSpeed": 11,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 100,
+      "max": 100
+    },
+    "shields": {
+      "value": 165,
+      "max": 165,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4C",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "13MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4C",
+        "kind": "thrusters",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "+1 to Speed, +1 to Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4C",
+        "kind": "fsd",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Range 14LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3C",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Emergency Life Support 10 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3C",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "2 Floating Bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3C",
+        "kind": "sensors",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "+1 General Scan, +1 to Initiative, +1 to Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "Heat Sink Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 4",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "+25% Boost",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "4C Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Shield Power 130",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "2C Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Recharge 10/3",
+        "item": ""
+      },
+      {
+        "name": "2H Planetary Vehicle Hanger",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Vehicle 1",
+        "item": ""
+      },
+      {
+        "name": "1A Collector Limpet Controller",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Mining Bonus 7, Canisters 1",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 2,
+      "cellBanks": [
+        {
+          "name": "2C Shield Cell Bank",
+          "boost": 10,
+          "duration": 3,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Cobra Mk III – Discretion",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/cobra-mk-iii-wireframe.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "7d41c208eceaf14b",
+      "_key": "!actors.items!dd23a6c3b2abf5f6.7d41c208eceaf14b",
+      "name": "Medium Fixed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "f5df11eec9b9b222",
+      "_key": "!actors.items!dd23a6c3b2abf5f6.f5df11eec9b9b222",
+      "name": "Medium Fixed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "41b0c1249b709ea9",
+      "_key": "!actors.items!dd23a6c3b2abf5f6.41b0c1249b709ea9",
+      "name": "Small Fixed Multi cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ec20e3095011ff88",
+      "_key": "!actors.items!dd23a6c3b2abf5f6.ec20e3095011ff88",
+      "name": "Small Fixed Multi cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "a98db68add62bf54",
+  "sort": 1700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -19,7 +19,7 @@
     },
     "otherSkills": [],
     "equipment": "Med Pac",
-    "notes": "<p>Variants: a Medic adds Medicine +3; a Sniper swaps the Laser Rifle for a sniper rifle; a Sergeant adds Leadership +3.</p>"
+    "notes": "<p>Infantry variants: Medic (+3 Medicine); Radio Operator/Drone Pilot (+3 Systems and Cyber); SRV/Tank Driver (+3 Vehicle Piloting); Combat Engineer (+3 Repair).</p>"
   },
   "prototypeToken": {
     "name": "Army Soldier",
@@ -88,7 +88,8 @@
         "attackBonus": 0,
         "skillMods": [],
         "notes": "",
-        "equipped": true
+        "equipped": true,
+        "toHit": 3
       },
       "flags": {},
       "effects": [],
@@ -152,7 +153,8 @@
         "attackBonus": 0,
         "skillMods": [],
         "notes": "",
-        "equipped": true
+        "equipped": true,
+        "toHit": 3
       },
       "flags": {},
       "effects": [],
@@ -164,7 +166,7 @@
     }
   ],
   "effects": [],
-  "folder": null,
+  "folder": "6a044ecc3fdb3ab5",
   "sort": 100,
   "ownership": {
     "default": 0

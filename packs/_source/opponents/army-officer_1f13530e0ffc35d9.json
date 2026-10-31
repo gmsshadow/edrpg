@@ -1,0 +1,115 @@
+{
+  "_id": "1f13530e0ffc35d9",
+  "_key": "!actors!1f13530e0ffc35d9",
+  "name": "Army Officer",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Soldier",
+    "dodge": 3,
+    "parry": 2,
+    "initiative": 4,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 25,
+      "max": 25
+    },
+    "otherSkills": [
+      {
+        "skill": "tactics",
+        "bonus": 4
+      }
+    ],
+    "equipment": "Med Pac",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Army Officer",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "e744ec70f73182e6",
+      "_key": "!actors.items!1f13530e0ffc35d9.e744ec70f73182e6",
+      "name": "Autopistol",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "4cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "6m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "50m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "100m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "2d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 3,
+          "max": 3
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "6a044ecc3fdb3ab5",
+  "sort": 400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

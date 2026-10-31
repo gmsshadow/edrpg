@@ -1,8 +1,8 @@
 <div class="tab vehicle-sheet {{tab.cssClass}}" data-group="primary" data-tab="sheet">
    <div class="ed-vstats">
       <div class="ed-vchevrons">
-         <div class="ed-chevron defence" data-tooltip="EDRPG.vehicle.defenceHint">
-            <span class="over">{{localize "EDRPG.vehicle.defenceOver"}}</span>
+         <div class="ed-chevron defence" data-tooltip="{{#if isShip}}EDRPG.ship.defenceHint{{else}}EDRPG.vehicle.defenceHint{{/if}}">
+            <span class="over">{{#if npcShip}}{{localize "EDRPG.ship.statBlock"}}{{else if isShip}}{{localize "EDRPG.ship.defenceOver"}}{{else}}{{localize "EDRPG.vehicle.defenceOver"}}{{/if}}</span>
             <span class="label">{{localize "EDRPG.vehicle.defence"}}</span>
             <span class="value">{{stats.defence}}</span>
          </div>
@@ -11,8 +11,8 @@
             <a class="label" data-action="rollInitiative" data-tooltip="EDRPG.sheet.rollInitiative">{{localize "EDRPG.sheet.initiative"}}</a>
             <span class="value">{{stats.initiative}}</span>
          </div>
-         <div class="ed-chevron pursuit" data-tooltip="EDRPG.vehicle.pursuitHint">
-            <span class="over">{{localize "EDRPG.vehicle.pursuitOver"}}</span>
+         <div class="ed-chevron pursuit" data-tooltip="{{#if isShip}}EDRPG.ship.pursuitHint{{else}}EDRPG.vehicle.pursuitHint{{/if}}">
+            <span class="over">{{#if npcShip}}{{localize "EDRPG.ship.statBlock"}}{{else if isShip}}{{localize "EDRPG.ship.pursuitOver"}}{{else}}{{localize "EDRPG.vehicle.pursuitOver"}}{{/if}}</span>
             <span class="label">{{localize "EDRPG.vehicle.pursuit"}}</span>
             <span class="value">{{stats.pursuit}}</span>
          </div>
@@ -57,6 +57,10 @@
          {{else if speedLocked}}<span class="ed-vturn-range locked" data-tooltip="EDRPG.vcombat.speedLockedHint"><i class="fa-solid fa-lock"></i> {{localize "EDRPG.vcombat.speedLockedShort"}}</span>{{/if}}
          {{#if destroyed}}<span class="ed-chip ed-vstate destroyed" data-tooltip="EDRPG.vdestroy.chipHint">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}
          {{#if strandedNames}}<span class="ed-chip ed-vstate stranded" data-tooltip="EDRPG.vdestroy.strandedHint">{{localize "EDRPG.vdestroy.strandedChip" names=strandedNames}}</span>{{/if}}
+         {{#if npcShip}}<span class="ed-chip ed-vstate" data-tooltip="EDRPG.ship.dogfightingHint">{{localize "EDRPG.ship.dogfighting"}} {{stats.dogfight}}</span>{{/if}}
+         {{#if system.immobilised}}<span class="ed-chip ed-vstate destroyed">{{localize "EDRPG.ship.immobilisedChip"}}</span>{{/if}}
+         {{#if system.combat.faOff}}<span class="ed-chip ed-vstate sniping" data-tooltip="EDRPG.ship.faOffHint">{{localize "EDRPG.vcombat.action.faOff"}}</span>{{/if}}
+         {{#if (eq system.combat.outOfControl 1)}}<span class="ed-chip ed-vstate rammed" data-tooltip="EDRPG.ship.outOfControlHint">{{localize "EDRPG.ship.outOfControlChip"}}</span>{{/if}}
          {{#if system.flying}}<span class="ed-chip ed-vstate flying" data-tooltip="EDRPG.drone.flyingHint">{{localize "EDRPG.drone.flying"}}</span>{{/if}}
          {{#each combatChips as |chip|}}<span class="ed-chip ed-vstate {{chip.key}}" data-tooltip="{{chip.hint}}">{{chip.label}}</span>{{/each}}
          {{#if isGM}}
@@ -73,6 +77,25 @@
       </div>
       {{/if}}
    </div>
+
+   {{#if hasEquip}}
+   <div class="ed-vequip">
+      <span class="ed-vturn-title"><i class="fa-solid fa-toolbox"></i> {{localize "EDRPG.equip.title"}}</span>
+      {{#if equip.chaff}}<button type="button" data-action="equip" data-equip="chaff" class="{{#if equip.chaff.active}}taken{{/if}}" data-tooltip="EDRPG.equip.chaffHint"><i class="fa-solid fa-wand-sparkles"></i> {{localize "EDRPG.equip.chaff"}} {{equip.chaff.value}}/{{equip.chaff.max}}</button>{{/if}}
+      {{#if equip.mines}}<button type="button" data-action="equip" data-equip="mines" class="{{#if equip.mines.active}}taken{{/if}}" data-tooltip="EDRPG.equip.minesHint"><i class="fa-solid fa-burst"></i> {{localize "EDRPG.equip.mines"}} {{equip.mines.value}}/{{equip.mines.max}}</button>{{/if}}
+      {{#if equip.banks}}<button type="button" data-action="equip" data-equip="cellBank" class="{{#if equip.banks.running}}taken{{/if}}" data-tooltip="EDRPG.equip.bankHint"><i class="fa-solid fa-car-battery"></i> {{localize "EDRPG.equip.cellBank"}} ({{equip.banks.uses}}){{#if equip.banks.running}}: {{equip.banks.running}}{{/if}}</button>{{/if}}
+      {{#if equip.floating}}<button type="button" data-action="equip" data-equip="floating" data-tooltip="EDRPG.equip.floatingHint"><i class="fa-solid fa-sliders"></i> {{localize "EDRPG.equip.floatingShort" n=equip.floating.n}}{{#if equip.floating.list}}: {{equip.floating.list}}{{/if}}</button>{{/if}}
+      {{#if equip.pd}}<span class="ed-chip ed-vstate" data-tooltip="EDRPG.equip.pdHint">{{localize "EDRPG.equip.pd"}} {{equip.pd.value}}/{{equip.pd.max}}</span>{{/if}}
+      {{#if equip.ecm}}<span class="ed-chip ed-vstate" data-tooltip="EDRPG.equip.ecmHint">{{localize "EDRPG.equip.ecm"}}</span>{{/if}}
+      <span class="ed-chip ed-vstate" data-tooltip="EDRPG.equip.rechargeHint">{{localize "EDRPG.equip.rechargeNow" n=equip.recharge}}</span>
+   </div>
+   {{/if}}
+
+   {{#if components.length}}
+   <div class="ed-vcomponents">
+      {{#each components as |c|}}<span class="ed-vcomp {{#if c.broken}}broken{{/if}}" data-tooltip="{{c.kindLabel}}{{#if c.notes}}: {{c.notes}}{{/if}}">{{#if c.name}}{{c.name}}{{else}}{{c.kindLabel}}{{/if}} <b>{{c.strength.value}}/{{c.strength.max}}</b></span>{{/each}}
+   </div>
+   {{/if}}
 
    {{#> edrpgSection title="EDRPG.vehicle.weapons" icon="fa-solid fa-crosshairs" addType="craftWeapon"}}
    <table class="ed-table weapons vweapons">
@@ -114,6 +137,7 @@
    </table>
    {{/edrpgSection}}
 
+   {{#unless isShip}}
    <div class="ed-vspeedtable">
       <div class="ed-vspeed-title"><i class="fa-solid fa-gauge-high"></i> {{localize "EDRPG.vehicle.speedTable"}}</div>
       <table>
@@ -122,4 +146,5 @@
          <tr class="attack"><th>{{localize "EDRPG.vehicle.attackPenalty"}}</th>{{#each speedCells as |c|}}<td class="{{#if c.current}}current{{/if}} {{#if c.beyond}}beyond{{/if}}">{{c.attack}}</td>{{/each}}</tr>
       </table>
    </div>
+   {{/unless}}
 </div>

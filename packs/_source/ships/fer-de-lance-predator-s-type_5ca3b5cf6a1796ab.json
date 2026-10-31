@@ -1,0 +1,433 @@
+{
+  "_id": "5ca3b5cf6a1796ab",
+  "_key": "!actors!5ca3b5cf6a1796ab",
+  "name": "Fer-de-Lance – Predator S-Type",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/fdl-blue.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Zorgon Peterson",
+    "dimensions": "L 73.6m x W 51.6m x H 15.4m",
+    "landingPad": "Medium",
+    "crewSize": 2,
+    "passengers": 6,
+    "utilityMounts": "6",
+    "cargo": "16T",
+    "range": "15LY",
+    "fuel": "8T (80LY)",
+    "cost": "75,860,320cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 7,
+    "speed": 9,
+    "maxSpeed": 9,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 300,
+      "max": 300
+    },
+    "shields": {
+      "value": 220,
+      "max": 220,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 6C",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "21MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 5C",
+        "kind": "thrusters",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "+1 Speed, +1 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4B",
+        "kind": "fsd",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Range 15LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 4D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 6C",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "2 Floating Bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 4C",
+        "kind": "sensors",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+2 General Scan, +1 Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "Chaff Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 6",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "0D Kill Warrant Scanner",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "+40% bounty",
+        "item": ""
+      },
+      {
+        "name": "5A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Shield Power 220",
+        "item": ""
+      },
+      {
+        "name": "4A Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Recharge 20/5",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "Planetary Vehicle Hanger",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "1 Vehicle Bay",
+        "item": ""
+      },
+      {
+        "name": "1D Intermediate Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "1000LS Range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 2,
+      "cellBanks": [
+        {
+          "name": "4A Shield Cell Bank",
+          "boost": 20,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Fer-de-Lance – Predator S-Type",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/fdl-blue.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "869d3863a73a8d1f",
+      "_key": "!actors.items!5ca3b5cf6a1796ab.869d3863a73a8d1f",
+      "name": "Huge Plasma Accelerator",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "huge",
+          "kind": "fixed"
+        },
+        "accuracy": -1,
+        "damage": 70,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "0ab65fd6337bf840",
+      "_key": "!actors.items!5ca3b5cf6a1796ab.0ab65fd6337bf840",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "9c51a0b0027b0d92",
+      "_key": "!actors.items!5ca3b5cf6a1796ab.9c51a0b0027b0d92",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "bd77f88f82b4739e",
+      "_key": "!actors.items!5ca3b5cf6a1796ab.bd77f88f82b4739e",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "82463d16ddbb5791",
+      "_key": "!actors.items!5ca3b5cf6a1796ab.82463d16ddbb5791",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "10766c8998628c38",
+  "sort": 2800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

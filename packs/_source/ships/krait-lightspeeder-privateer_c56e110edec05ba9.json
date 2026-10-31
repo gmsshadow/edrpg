@@ -1,0 +1,285 @@
+{
+  "_id": "c56e110edec05ba9",
+  "_key": "!actors!c56e110edec05ba9",
+  "name": "Krait Lightspeeder – Privateer",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/pirate/krait-pirate1.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 24.4m x W 27.5m x H 6.0m",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "1",
+    "cargo": "10T",
+    "range": "7LY",
+    "fuel": "2T (20LY)",
+    "cost": "94,604cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 6,
+    "speed": 5,
+    "maxSpeed": 5,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 60,
+      "max": 60
+    },
+    "shields": {
+      "value": 40,
+      "max": 40,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 2E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "6.4MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 2E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 2E",
+        "kind": "fsd",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "Range 7LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 1E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 2E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 1E",
+        "kind": "sensors",
+        "strength": {
+          "value": 5,
+          "max": 5
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "0E Manifest Scanner",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "2D Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Shield Power 40",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "1E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Capacity 2",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Krait Lightspeeder – Privateer",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/pirate/krait-pirate1.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "62ffe5f845a7cdbc",
+      "_key": "!actors.items!c56e110edec05ba9.62ffe5f845a7cdbc",
+      "name": "Medium Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "c825ecc696f6eda3",
+      "_key": "!actors.items!c56e110edec05ba9.c825ecc696f6eda3",
+      "name": "Medium Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "1a08aa47c263d17f",
+  "sort": 3500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

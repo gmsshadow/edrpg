@@ -14,7 +14,7 @@ import { EDActor, EDItem } from "./documents.mjs";
 import EDActorSheet from "./sheets/actor-sheet.mjs";
 import EDOpponentSheet from "./sheets/opponent-sheet.mjs";
 import EDVehicleSheet from "./sheets/vehicle-sheet.mjs";
-import { VehicleData, CraftWeaponData } from "./data/vehicle.mjs";
+import { VehicleData, ShipData, CraftWeaponData } from "./data/vehicle.mjs";
 import EDItemSheet from "./sheets/item-sheet.mjs";
 import { rollSkillCheck, onRenderSkillCheck } from "./dice/skill-check.mjs";
 import { onRenderContest, registerContestSocket } from "./dice/contest.mjs";
@@ -47,6 +47,7 @@ Hooks.once("init", () => {
       partner: PartnerData,
       opponent: OpponentData,
       vehicle: VehicleData,
+      ship: ShipData,
    });
    Object.assign(CONFIG.Item.dataModels, {
       background: BackgroundData,
@@ -68,6 +69,7 @@ Hooks.once("init", () => {
       partner: { bar: ["endurance"], value: ["rankPoints"] },
       opponent: { bar: ["endurance"], value: ["toHit", "perception"] },
       vehicle: { bar: ["hull", "shields"], value: ["speed"] },
+      ship: { bar: ["hull", "shields"], value: ["speed"] },
    };
 
    // Initiative: D10 + Tactics bonus (Core Rules, Personal Combat).
@@ -85,7 +87,7 @@ Hooks.once("init", () => {
       label: "EDRPG.sheet.labels.opponent",
    });
    DocumentSheetConfig.registerSheet(foundry.documents.Actor, "edrpg", EDVehicleSheet, {
-      types: ["vehicle"],
+      types: ["vehicle", "ship"],
       makeDefault: true,
       label: "EDRPG.sheet.labels.vehicle",
    });

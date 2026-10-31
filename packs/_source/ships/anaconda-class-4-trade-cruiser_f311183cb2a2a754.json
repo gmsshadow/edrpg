@@ -1,0 +1,577 @@
+{
+  "_id": "f311183cb2a2a754",
+  "_key": "!actors!f311183cb2a2a754",
+  "name": "Anaconda – Class 4 Trade Cruiser",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/explorer/anaconda.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 152.4m x W 61.8m x H 32.0m",
+    "landingPad": "Large",
+    "crewSize": 8,
+    "passengers": 12,
+    "utilityMounts": "8",
+    "cargo": "404T",
+    "range": "27LY (50% bonus included)",
+    "fuel": "32T (320 LY)",
+    "cost": "161,124,280cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 2,
+    "speed": 3,
+    "maxSpeed": 3,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 950,
+      "max": 950
+    },
+    "shields": {
+      "value": 210,
+      "max": 210,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 8E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "24MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 7D",
+        "kind": "thrusters",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "+1 Speed",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 6C",
+        "kind": "fsd",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Range 18LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 5C",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Emergency Life Support 10 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 8D",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "One floating bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 8D",
+        "kind": "sensors",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "+5 General Scan, +1 to Initiative",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "7E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 128",
+        "item": ""
+      },
+      {
+        "name": "6E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Capacity 64",
+        "item": ""
+      },
+      {
+        "name": "6D Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Shield Power 210",
+        "item": ""
+      },
+      {
+        "name": "6E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Capacity 64",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 1,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Anaconda – Class 4 Trade Cruiser",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/explorer/anaconda.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "195bb13be984a280",
+      "_key": "!actors.items!f311183cb2a2a754.195bb13be984a280",
+      "name": "Huge Gimballed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "huge",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "365dee33065bd0a6",
+      "_key": "!actors.items!f311183cb2a2a754.365dee33065bd0a6",
+      "name": "Large Turreted Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "40bbe350a12e708a",
+      "_key": "!actors.items!f311183cb2a2a754.40bbe350a12e708a",
+      "name": "Large Turreted Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "401f8c4c4161cda8",
+      "_key": "!actors.items!f311183cb2a2a754.401f8c4c4161cda8",
+      "name": "Large Turreted Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b2baa9d9c4daed28",
+      "_key": "!actors.items!f311183cb2a2a754.b2baa9d9c4daed28",
+      "name": "Medium Gimballed Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "7c72f290adbe8c7d",
+      "_key": "!actors.items!f311183cb2a2a754.7c72f290adbe8c7d",
+      "name": "Medium Gimballed Multi-cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "8a0861e9f1defac6",
+      "_key": "!actors.items!f311183cb2a2a754.8a0861e9f1defac6",
+      "name": "Small Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "467e8342c5008dae",
+      "_key": "!actors.items!f311183cb2a2a754.467e8342c5008dae",
+      "name": "Small Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 800,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "591c9edb57c8b9a6",
+  "sort": 600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

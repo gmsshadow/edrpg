@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.26",
+  "version": "0.1.30",
   "authors": [
     {
       "name": "gmsshadow",
@@ -49,6 +49,11 @@
         ]
       },
       "vehicle": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "ship": {
         "htmlFields": [
           "description"
         ]
@@ -203,6 +208,18 @@
       }
     },
     {
+      "name": "ships",
+      "label": "Ships",
+      "system": "edrpg",
+      "path": "packs/ships",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
       "name": "opponents",
       "label": "Opponents (sample)",
       "path": "packs/opponents",
@@ -240,6 +257,7 @@
         "clothing",
         "gear",
         "vehicles",
+        "ships",
         "opponents",
         "combat-maps"
       ]

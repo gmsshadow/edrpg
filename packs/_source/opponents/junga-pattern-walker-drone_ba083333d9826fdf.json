@@ -19,7 +19,7 @@
     },
     "otherSkills": [],
     "equipment": "",
-    "notes": "<p>Auto-loader: the Chain Gun reloads itself at no cost.</p><p>Slow Witted: cannot take reactions.</p><p>Mechanical: immune to toxic damage.</p><p>No Karma.</p>"
+    "notes": "<p>Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p>"
   },
   "prototypeToken": {
     "name": "Junga Pattern Walker Drone",
@@ -75,15 +75,15 @@
       "_key": "!actors.items!ba083333d9826fdf.b574bfc1feecc75a",
       "name": "Chain Gun",
       "type": "weapon",
-      "img": "icons/svg/target.svg",
+      "img": "icons/svg/explosion.svg",
       "system": {
         "description": "",
-        "cost": "",
+        "cost": "1000cr",
         "rarity": "common",
         "location": "carried",
-        "skill": "kineticWeapons",
+        "skill": "heavyWeapons",
         "damageType": "kinetic",
-        "heavy": false,
+        "heavy": true,
         "ranges": {
           "short": {
             "distance": "30m",
@@ -119,13 +119,13 @@
           "max": 10
         },
         "oneHanded": false,
-        "destroyCover": false,
-        "divideFire": false,
+        "destroyCover": true,
+        "divideFire": true,
         "attackBonus": 0,
         "skillMods": [],
-        "notes": "Auto-loader: reloads itself.",
+        "notes": "",
         "equipped": true,
-        "toHit": null
+        "toHit": 2
       },
       "flags": {},
       "effects": [],
@@ -190,7 +190,7 @@
         "skillMods": [],
         "notes": "",
         "equipped": true,
-        "toHit": null
+        "toHit": 2
       },
       "flags": {},
       "effects": [],
@@ -202,8 +202,8 @@
     }
   ],
   "effects": [],
-  "folder": null,
-  "sort": 400,
+  "folder": "a95f554708a32938",
+  "sort": 4900,
   "ownership": {
     "default": 0
   },

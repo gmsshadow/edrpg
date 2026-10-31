@@ -1,0 +1,175 @@
+{
+  "_id": "eeb98d9f3679b556",
+  "_key": "!actors!eeb98d9f3679b556",
+  "name": "Apex-Fire Combat Drone",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "Drone",
+    "dodge": 5,
+    "parry": null,
+    "initiative": 3,
+    "perception": 4,
+    "toHit": 5,
+    "speed": "16m",
+    "endurance": {
+      "value": 30,
+      "max": 30
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Fly: ignores difficult terrain and interposing enemies. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p>"
+  },
+  "prototypeToken": {
+    "name": "Apex-Fire Combat Drone",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "cac58e3c963c1dc7",
+      "_key": "!actors.items!eeb98d9f3679b556.cac58e3c963c1dc7",
+      "name": "Assault Beamer",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "50cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "70m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "200m",
+            "dn": 10
+          }
+        },
+        "finesse": null,
+        "damage": "5",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "20"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "94991ed26850373a",
+      "_key": "!actors.items!eeb98d9f3679b556.94991ed26850373a",
+      "name": "Underslung Grenade Launcher",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "<p>Direct-fire explosive. Uses the Grenade skill.</p>",
+        "cost": "40cr fitted to an SMG, 90cr to an assault rifle",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "grenade",
+        "damageType": "explosive",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "Min. 18m",
+            "dn": null
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 9
+          },
+          "long": {
+            "distance": "150m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 25,
+          "injury": 10,
+          "fatalRadius": 6,
+          "injuryRadius": 16
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "Direct-fire explosive. Uses the Grenade skill.",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a95f554708a32938",
+  "sort": 4800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

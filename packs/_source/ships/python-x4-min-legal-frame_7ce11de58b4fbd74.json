@@ -1,0 +1,295 @@
+{
+  "_id": "7ce11de58b4fbd74",
+  "_key": "!actors!7ce11de58b4fbd74",
+  "name": "Python – X4 Min Legal Frame",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/python.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 87.9m x W 58.1m x H 18.0m",
+    "landingPad": "Medium",
+    "crewSize": 4,
+    "passengers": 6,
+    "utilityMounts": "4",
+    "cargo": "82T",
+    "range": "13LY",
+    "fuel": "32T (320 LY)",
+    "cost": "56,978,180cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 4,
+    "speed": 5,
+    "maxSpeed": 5,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 460,
+      "max": 460
+    },
+    "shields": {
+      "value": 185,
+      "max": 185,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 7E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "20MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 6E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 5E",
+        "kind": "fsd",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Range 13LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 4E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 7E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 6E",
+        "kind": "sensors",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "+3 General Scan",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "6E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Shield Power 185",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      },
+      {
+        "name": "1E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Capacity 2",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Python – X4 Min Legal Frame",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/python.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "c63eae7802e08a20",
+      "_key": "!actors.items!7ce11de58b4fbd74.c63eae7802e08a20",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "c59c568b7bccb25c",
+      "_key": "!actors.items!7ce11de58b4fbd74.c59c568b7bccb25c",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "142aa5d59d999ca4",
+  "sort": 3700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

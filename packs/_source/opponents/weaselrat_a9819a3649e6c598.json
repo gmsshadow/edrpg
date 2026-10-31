@@ -1,0 +1,110 @@
+{
+  "_id": "a9819a3649e6c598",
+  "_key": "!actors!a9819a3649e6c598",
+  "name": "Weaselrat",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "harmless",
+    "role": "Biomod",
+    "dodge": 4,
+    "parry": null,
+    "initiative": 2,
+    "perception": 2,
+    "toHit": 1,
+    "speed": "12m",
+    "endurance": {
+      "value": 5,
+      "max": 5
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Ripping Bite: damage halved; on an even roll the target bleeds 1 damage per turn until treated with a Difficulty 7 Medicine check.</p>"
+  },
+  "prototypeToken": {
+    "name": "Weaselrat",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "aa8d2cb8f2e1fee5",
+      "_key": "!actors.items!a9819a3649e6c598.aa8d2cb8f2e1fee5",
+      "name": "Ripping Bite",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "ceil(1d10/2)",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 1
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "7bc190f50d05a685",
+  "sort": 4000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

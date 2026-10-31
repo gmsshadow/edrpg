@@ -1,0 +1,275 @@
+{
+  "_id": "18e839aafa175c23",
+  "_key": "!actors!18e839aafa175c23",
+  "name": "Sidewinder – Discovery Alpha",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/sidewinder-whiteorange.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 14.9m x W 21.3m x H 5.4m",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "2",
+    "cargo": "2T",
+    "range": "10LY",
+    "fuel": "2T (20LY)",
+    "cost": "99,340cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 8,
+    "speed": 7,
+    "maxSpeed": 7,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 50,
+      "max": 50
+    },
+    "shields": {
+      "value": 40,
+      "max": 40,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 2,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 2D",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "7.2MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 2D",
+        "kind": "thrusters",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "+1 Speed",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 2C",
+        "kind": "fsd",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Range 10LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 1B",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Emergency Life Support 15 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 1E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 1B",
+        "kind": "sensors",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "+2 Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "2D Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Shield Power 40",
+        "item": ""
+      },
+      {
+        "name": "2H Planetary Vehicle Hanger",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Vehicles 1",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "1E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Capacity 2",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Sidewinder – Discovery Alpha",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/sidewinder-whiteorange.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "61753d03b1f851d5",
+      "_key": "!actors.items!18e839aafa175c23.61753d03b1f851d5",
+      "name": "Small Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "7f3663cccbe335f6",
+      "_key": "!actors.items!18e839aafa175c23.7f3663cccbe335f6",
+      "name": "Small Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "e2c7f573ce05cfec",
+  "sort": 4400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

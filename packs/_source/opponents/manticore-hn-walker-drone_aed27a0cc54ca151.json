@@ -1,0 +1,211 @@
+{
+  "_id": "aed27a0cc54ca151",
+  "_key": "!actors!aed27a0cc54ca151",
+  "name": "Manticore HN Walker Drone",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "High Threat Drone",
+    "dodge": null,
+    "parry": null,
+    "initiative": 3,
+    "perception": 1,
+    "toHit": 6,
+    "speed": "10m",
+    "endurance": {
+      "value": 130,
+      "max": 130
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Continuous Attack (Chain Gun only). Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p>"
+  },
+  "prototypeToken": {
+    "name": "Manticore HN Walker Drone",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "884527d4be39d416",
+      "_key": "!actors.items!aed27a0cc54ca151.884527d4be39d416",
+      "name": "Heavy Plating",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 8,
+          "energy": 5,
+          "explosive": 0,
+          "fighting": 5,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 6,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "84ac455b59f6ff35",
+      "_key": "!actors.items!aed27a0cc54ca151.84ac455b59f6ff35",
+      "name": "Chain Gun",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "1000cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "kinetic",
+        "heavy": true,
+        "ranges": {
+          "short": {
+            "distance": "30m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "180m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "2d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "heavy",
+          "max": "6d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 10,
+          "max": 10
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "482efc53ab26c380",
+      "_key": "!actors.items!aed27a0cc54ca151.482efc53ab26c380",
+      "name": "Walker Punch",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 7,
+        "damage": "2d10+4",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a95f554708a32938",
+  "sort": 5000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

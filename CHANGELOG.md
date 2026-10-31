@@ -1,5 +1,108 @@
 # Changelog
 
+## 0.1.30
+
+Full individual-scale opponent compendium (Core Rules pp.284–319).
+
+- The Opponents compendium now has all **51 individual-scale opponents**, in an *Individual-Scale Opponents* folder
+  with subfolders: Soldier & Mercenary (10), Criminal (8), Police & Security (5), Assassin (6), Alien Animal (10),
+  Biomod (6) and Drone (6). These replace the five earlier samples, which are all in the list.
+- Each has:
+  - Rank and role (High Threat noted), Dodge, Parry, Initiative, Perception, Endurance, Speed, To Hit, other skills
+    and equipment.
+  - Worn armour with its listed Absorb values and Hardened rating.
+  - Its attacks: compendium weapons at the opponent's listed To Hit (with its damage, Burst, ammo and Finesse
+    where the stat block differs), or natural and custom attacks built from the stat block. That includes ranges,
+    Burst, blast radii, shotgun range damage, toxic attacks and halved bites.
+  - Its listed Karma Capabilities, with uses per battle.
+  - Special rules as short, rules-only notes; the book's descriptive text is left out.
+- A plain "Fighting … 1D10/2" entry uses the sheet's built-in Fighting attack. Its bonus is recorded as a Fighting
+  skill when it differs from To Hit −1.
+- The stat blocks were extracted into tools/opponents-data.json; tools/opponents.py builds the pack from it.
+
+## 0.1.29
+
+Spaceship combat, step 3: the Ships compendium and GM opponent craft.
+
+- New **Ships** compendium: all 63 ship variants from the Spaceships chapter, in a folder per ship family (Adder to
+  Vulture). Each one has:
+  - Agility, Speed, Hull, Shields and size, plus manufacturer, dimensions, landing pad, crew, passengers, cargo,
+    range, fuel and cost.
+  - Every weapon, with Accuracy, Damage, Burst, Ammo, damage against shields, and the +5 vs Shields (lasers) or +5 vs
+    Hull (cannons) markers.
+  - The full component roster in book order (fixed components, utility mounts, internal components) with strengths,
+    so critical hits land on the right component.
+  - Equipment: chaff, point defence, ECM, Shield Cell Banks (boost and duration) and floating bonuses.
+  - The Bonuses line as new To Hit / Initiative / Dogfighting bonus fields (on the Specifications tab), plus the
+    shield recharge bonus. Agility and Speed are already in the ratings.
+  - A token from the uploaded ship art, sized 1/2/3 grid squares for small/medium/large ships. Pirate- and
+    police-flavoured variants get the matching art.
+- **Opponents compendium**: a *Spaceship-Scale Opponents* folder with the 38 GM ships, by Soldier & Mercenary,
+  Criminal, Police & Security and Assassin.
+  - Each has its fixed Defence, Dogfighting, Pursuit, Initiative, Critical, Hull, Shields, recharge and Shield Cell
+    Bank, weapons at their listed To Hit, and utility equipment.
+  - Agility, Speed, size and token come from the matching ship variant.
+- *Vehicle-Scale Opponents* folder: the Corporate Tank and the Brazen Assassin (light tanks with fixed stat blocks;
+  speed tables and tokens from the Vehicles compendium).
+- The Pirate Lord's stat block prints "Agility 17" where every other block has Defence; it's read as Defence 17.
+
+## 0.1.28
+
+Spaceship combat, step 2: components, critical hits and equipment (Core Rules pp.65–71, 197–198, 214).
+
+- **Components** editor on the ship's Specifications tab: name, type, strength and notes, in roster order. The Data
+  Sheet tab shows each component's strength, with destroyed ones struck through.
+- **Critical hits**: a natural 10 that hits a ship whose shields were down rolls on the Critical Hit Table when the
+  damage is applied.
+  - Weapon, Utility Mount and Internal Component results roll again for which one: 1–5 count from the top of the
+    roster, 6–10 from the bottom.
+  - The Damage hits both the Hull and the component. A component that isn't listed yet is added at the ship's
+    Critical value, as GM ships use for every component.
+  - The card states what a destroyed component does.
+  - A destroyed Shield Generator takes the shields down for good, and a destroyed weapon can't fire. The other
+    component effects work as in 0.1.27.
+- **Targeted shots**: when the target's shields are down, both ships are up-close and the weapon is gimballed, the
+  attack dialog offers "Target a component". The target gains +4 Defence, and all the Damage goes to that component,
+  not the Hull.
+- **Equipment** (Specifications tab to fit; Data Sheet bar to use):
+  - **Chaff**: +4 Defence against gimballed weapons and automatic turrets until the next turn.
+  - **Mines**: anyone Dogfighting the minelayer must beat the launcher's Difficulty (15), or they lose the Dogfight
+    and take the mine's Damage (10).
+  - **Point Defence**: automatically rolls against incoming missiles, torpedoes and mines; even shoots them down.
+  - **ECM**: +4 Defence against seeker missiles.
+  - **Shield Cell Banks**: one running at a time. Each adds its boost immediately and for its remaining rounds, with
+    three uses per bank.
+  - **Floating bonuses**: engines +1 Agility, weapons +1 To Hit, shields +5 recharge; one per area, kept until
+    changed.
+  - Ammo is tracked for each item; chaff and mines expire at the start of the ship's next turn.
+- Ship attack cards now say "Spaceship Weapons" (or "Listed To Hit" for GM ships).
+
+## 0.1.27
+
+Spaceship combat, step 1 (Core Rules pp.63–71).
+
+- New **Spaceship** actor type, using the vehicle sheet:
+  - Agility, Speed (a fixed rating, with no Speed Table), landing pad, size, range, fuel and utility mounts.
+  - Crew use Spaceship Piloting and Spaceship Weapons. Defence = Agility + Piloting; Pursuit = Speed + ½ Piloting.
+  - **GM opponent stat block** option: fixed Defence, Dogfighting, Pursuit, Initiative and Critical value, with each
+    weapon's Accuracy holding its listed To Hit.
+- **Combat turn** for ships: no speed changes or obstacle checks; shields recharge as before.
+  - At-distance: Joust, Snipe, Strafe, Chicken, Flee, Pass.
+  - Up-close: **Dogfight** (rolled with the Dogfighting score for GM ships), Broadsides, **Flight Assist Off** (fire
+    until a miss; no Agility in Defence until the next turn), Ram, Disengage, Pass.
+  - **Chicken** collision: each ship inflicts 25/50/75 by its size on the other; speeds are unchanged.
+  - **Ram**: 10/20/30 by the rammer's size, half to the rammer; a glance is 5 each. A ship rammed by one its size
+    or larger spins out of control and can't start a Dogfight in its next turn.
+  - **Small ships fix their turrets forwards** when Jousting, Sniping, Strafing or winning a Dogfight, firing them
+    with the pilot's Spaceship Weapons.
+- **Damaged components** (strength 0, stored on the ship; editing comes in step 2):
+  - Destroyed Power Plant or Thrusters: immobilised, Defence 0, no actions.
+  - Destroyed FSD: can't Flee.
+  - Destroyed Power Distributor: −1 Agility and To Hit (−2 for GM ships), and no shield recharge.
+  - Destroyed Sensors: −1 Defence.
+- **Ship destruction**: everyone aboard dies unless the pilot makes an emergency eject (button: Systems, Difficulty
+  12) or uses Escape Death. 1D10/2D10/3D10 cargo canisters scatter, by size.
+
 ## 0.1.26
 
 - Ram card: a flying bomb (Stinger-2) that rams successfully now reads "rams … for X Damage and explodes, destroying

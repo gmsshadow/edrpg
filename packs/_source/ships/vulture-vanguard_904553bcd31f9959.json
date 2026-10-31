@@ -1,0 +1,282 @@
+{
+  "_id": "904553bcd31f9959",
+  "_key": "!actors!904553bcd31f9959",
+  "name": "Vulture – Vanguard",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/vulture-green.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "L 43.1m x W 34.7m x H 12.3m",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 1,
+    "utilityMounts": "4",
+    "cargo": "None",
+    "range": "12LY",
+    "fuel": "8T (80LY)",
+    "cost": "6,727,000cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 10,
+    "speed": 8,
+    "maxSpeed": 8,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 230,
+      "max": 230
+    },
+    "shields": {
+      "value": 180,
+      "max": 180,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4C",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "13MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 5C",
+        "kind": "thrusters",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "+1 Speed, +1 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4D",
+        "kind": "fsd",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Range 12LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 5D",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 4C",
+        "kind": "sensors",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+2 General Scan, +1 Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "5C Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Shield Power 180",
+        "item": ""
+      },
+      {
+        "name": "4C Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Recharge 20/3",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      },
+      {
+        "name": "5E Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+90 Hull",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 1,
+      "cellBanks": [
+        {
+          "name": "4C Shield Cell Bank",
+          "boost": 20,
+          "duration": 3,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Vulture – Vanguard",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/vulture-green.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "814614b5241b1b02",
+      "_key": "!actors.items!904553bcd31f9959.814614b5241b1b02",
+      "name": "Large Gimballed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "26816984272dae41",
+      "_key": "!actors.items!904553bcd31f9959.26816984272dae41",
+      "name": "Large Gimballed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "5389b29ea37b8519",
+  "sort": 6200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

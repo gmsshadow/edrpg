@@ -42,7 +42,7 @@
       "img": "icons/svg/shield.svg",
       "system": {
         "description": "",
-        "cost": "90,000cr",
+        "cost": "",
         "rarity": "common",
         "location": "carried",
         "absorb": {
@@ -57,13 +57,8 @@
         "hardened": 7,
         "discreet": false,
         "wornOpenly": false,
-        "socialFactor": -1,
-        "skillMods": [
-          {
-            "skill": "athletics",
-            "value": -10
-          }
-        ],
+        "socialFactor": 0,
+        "skillMods": [],
         "enhancement": "",
         "worn": true
       },
@@ -129,7 +124,8 @@
         "attackBonus": 0,
         "skillMods": [],
         "notes": "Half damage against shields.",
-        "equipped": true
+        "equipped": true,
+        "toHit": 4
       },
       "flags": {},
       "effects": [],
@@ -193,7 +189,8 @@
         "attackBonus": 0,
         "skillMods": [],
         "notes": "",
-        "equipped": true
+        "equipped": true,
+        "toHit": 4
       },
       "flags": {},
       "effects": [],
@@ -205,8 +202,8 @@
     }
   ],
   "effects": [],
-  "folder": null,
-  "sort": 200,
+  "folder": "6a044ecc3fdb3ab5",
+  "sort": 900,
   "ownership": {
     "default": 0
   },

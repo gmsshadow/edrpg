@@ -1,0 +1,110 @@
+{
+  "_id": "a4b45dd2a9e96248",
+  "_key": "!actors!a4b45dd2a9e96248",
+  "name": "Snakewolf",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Biomod",
+    "dodge": 2,
+    "parry": null,
+    "initiative": 1,
+    "perception": 2,
+    "toHit": 2,
+    "speed": "12m",
+    "endurance": {
+      "value": 15,
+      "max": 15
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Bite: on an even damage roll the target is poisoned, taking 3 toxic damage at the start of its turn until treated with a Difficulty 8 Medicine check. It flees after biting.</p>"
+  },
+  "prototypeToken": {
+    "name": "Snakewolf",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "53938f583b57f6d2",
+      "_key": "!actors.items!a4b45dd2a9e96248.53938f583b57f6d2",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "7bc190f50d05a685",
+  "sort": 4100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

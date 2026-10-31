@@ -1,0 +1,110 @@
+{
+  "_id": "d32ceb8736e6c67d",
+  "_key": "!actors!d32ceb8736e6c67d",
+  "name": "T-90 Patrol Drone",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Drone",
+    "dodge": 3,
+    "parry": null,
+    "initiative": 2,
+    "perception": 4,
+    "toHit": 3,
+    "speed": "14m",
+    "endurance": {
+      "value": 20,
+      "max": 20
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Hail of Fire: if it doesn't move, it can fire its Sub Machinegun twice. Fly: ignores difficult terrain and interposing enemies. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p>"
+  },
+  "prototypeToken": {
+    "name": "T-90 Patrol Drone",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "4e67bb00e5ec30f7",
+      "_key": "!actors.items!d32ceb8736e6c67d.4e67bb00e5ec30f7",
+      "name": "Sub Machinegun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "9cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "120m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "3d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 16,
+          "max": 16
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a95f554708a32938",
+  "sort": 4600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

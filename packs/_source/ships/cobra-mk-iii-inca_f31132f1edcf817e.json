@@ -1,0 +1,379 @@
+{
+  "_id": "f31132f1edcf817e",
+  "_key": "!actors!f31132f1edcf817e",
+  "name": "Cobra Mk III – Inca",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/cobra-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 27.1m x W 44.0m x H 7.9m",
+    "landingPad": "Small",
+    "crewSize": 12,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "40T",
+    "range": "12LY",
+    "fuel": "16T (160LY)",
+    "cost": "759,070cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 7,
+    "speed": 11,
+    "maxSpeed": 11,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 100,
+      "max": 100
+    },
+    "shields": {
+      "value": 130,
+      "max": 130,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "10.4MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4D",
+        "kind": "thrusters",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+1 to Speed",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4D",
+        "kind": "fsd",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Range 12LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3C",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "2 floating bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3D",
+        "kind": "sensors",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "+1 General Scan, +1 to Initiative",
+        "item": ""
+      },
+      {
+        "name": "0D Kill Warrant Scanner",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "40% bounty bonus",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "4C Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Shield Power 130",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 2,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Cobra Mk III – Inca",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/cobra-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "6d99b40cdb6e6873",
+      "_key": "!actors.items!f31132f1edcf817e.6d99b40cdb6e6873",
+      "name": "Medium Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "2f3812e4a85a7e2c",
+      "_key": "!actors.items!f31132f1edcf817e.2f3812e4a85a7e2c",
+      "name": "Medium Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "e65fa2db15174675",
+      "_key": "!actors.items!f31132f1edcf817e.e65fa2db15174675",
+      "name": "Small Gimballed Multi cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "3c0ef38c38073b6d",
+      "_key": "!actors.items!f31132f1edcf817e.3c0ef38c38073b6d",
+      "name": "Small Gimballed Multi cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "a98db68add62bf54",
+  "sort": 1300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

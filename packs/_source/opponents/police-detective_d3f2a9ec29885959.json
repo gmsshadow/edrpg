@@ -1,0 +1,215 @@
+{
+  "_id": "d3f2a9ec29885959",
+  "_key": "!actors!d3f2a9ec29885959",
+  "name": "Police Detective",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "competent",
+    "role": "Police",
+    "dodge": 4,
+    "parry": 2,
+    "initiative": 4,
+    "perception": 5,
+    "toHit": 5,
+    "speed": "10m",
+    "endurance": {
+      "value": 30,
+      "max": 30
+    },
+    "otherSkills": [
+      {
+        "skill": "streetwise",
+        "bonus": 4
+      },
+      {
+        "skill": "cultureLaw",
+        "bonus": 4
+      }
+    ],
+    "equipment": "Restraints, Hand Com",
+    "notes": "<p>Dive Aside: +5 to Defence (Dodge). Eat Lead Sucker!: inflict maximum Burst damage.</p>"
+  },
+  "prototypeToken": {
+    "name": "Police Detective",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "f87b41ccef888e97",
+      "_key": "!actors.items!d3f2a9ec29885959.f87b41ccef888e97",
+      "name": "Reflec vest",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 0,
+          "energy": 3,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "f6812ff99e2d24fe",
+      "_key": "!actors.items!d3f2a9ec29885959.f6812ff99e2d24fe",
+      "name": "Autopistol",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "4cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "6m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "50m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "100m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "2d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 3,
+          "max": 3
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "a9ab6fd5c6e521e0",
+      "_key": "!actors.items!d3f2a9ec29885959.a9ab6fd5c6e521e0",
+      "name": "Dive Aside",
+      "type": "karma",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "role": "defensive",
+        "category": "personal",
+        "cost": 5,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 5,
+        "defenceApplies": "dodge",
+        "preventsKnockdown": false,
+        "usesPerBattle": 1,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "7281061f64e0fccf",
+      "_key": "!actors.items!d3f2a9ec29885959.7281061f64e0fccf",
+      "name": "Eat Lead Sucker!",
+      "type": "karma",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "role": "offensive",
+        "category": "personal",
+        "cost": 5,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": false,
+        "usesPerBattle": 1,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "cc4d2963c9bea9ea",
+  "sort": 2200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

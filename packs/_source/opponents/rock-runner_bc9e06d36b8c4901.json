@@ -1,0 +1,110 @@
+{
+  "_id": "bc9e06d36b8c4901",
+  "_key": "!actors!bc9e06d36b8c4901",
+  "name": "Rock Runner",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "Alien Animal",
+    "dodge": 5,
+    "parry": 5,
+    "initiative": 4,
+    "perception": 4,
+    "toHit": 5,
+    "speed": "18m",
+    "endurance": {
+      "value": 35,
+      "max": 35
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Bite: 2D10+4 against both individual- and vehicle-scale targets. No disadvantage over uneven ground.</p>"
+  },
+  "prototypeToken": {
+    "name": "Rock Runner",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "e631a8ad5f373bdd",
+      "_key": "!actors.items!bc9e06d36b8c4901.e631a8ad5f373bdd",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "2d10+4",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "ca06225a8d6f3453",
+  "sort": 3600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

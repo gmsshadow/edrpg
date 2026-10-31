@@ -33,6 +33,15 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
 - **Vehicle combat turn**: speed changes limited by Accelerate/Decelerate, shield recharge and charge-up, GM obstacle
   checks (light/medium/heavy tables, sudden slopes by gravity), and the Joust, Snipe, Strafe, Chicken, Flee, Pass,
   Tail, Broadsides, Ram and Disengage actions with Pursuits. Zones follow tokens on the combat maps.
+- **Spaceships**: a Spaceship actor type (crewed, or a GM opponent stat block) sharing the vehicle sheet and combat
+  turn, with the space rules: Dogfight, Flight Assist Off, size-based Chicken and Ram damage, out-of-control ships,
+  small ships fixing turrets forwards, damaged components' effects, and ship destruction (emergency eject, cargo).
+  Components and critical hits, targeted shots, and equipment actions (chaff, mines, point defence, ECM, Shield Cell
+  Banks, floating bonuses).
+- **Opponents compendium**: every individual-scale opponent in the Core Rules (51), plus the spaceship- and
+  vehicle-scale ones and the drones.
+- **Ships compendium**: all 63 ship variants from the Spaceships chapter with weapons, components, equipment, bonuses
+  and tokens; the GM's spaceship- and vehicle-scale opponents in the Opponents compendium.
 - **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until
   another vehicle stops to Rescue them. Vehicle-scale drones (the four skimmers) in the Opponents compendium, with
   flying and flying-bomb rules.

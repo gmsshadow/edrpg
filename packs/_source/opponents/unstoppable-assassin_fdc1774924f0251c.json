@@ -19,16 +19,16 @@
     },
     "otherSkills": [
       {
-        "skill": "fighting",
+        "skill": "stealth",
         "bonus": 10
       },
       {
-        "skill": "stealth",
+        "skill": "fighting",
         "bonus": 10
       }
     ],
     "equipment": "",
-    "notes": "<p>Fighting damage: 1D10/2+8.</p><p>Continuous Driving Attack: each turn it hits, it pushes its target back and follows.</p>"
+    "notes": "<p>Fighting damage: 1D10 halved +8. Continuous Driving Attack. Dive Aside (×3): +5 Defence (Dodge) against an attack that would hit. Riposte (×2): can counter-attack its enemy's counter-attack. Stay Standing (×3): an attack that just hit does not knock it down.</p>"
   },
   "prototypeToken": {
     "name": "Unstoppable Assassin",
@@ -94,8 +94,13 @@
         "oneHanded": true,
         "destroyCover": false,
         "divideFire": false,
-        "attackBonus": 0,
-        "skillMods": [],
+        "attackBonus": 20,
+        "skillMods": [
+          {
+            "skill": "parry",
+            "value": 15
+          }
+        ],
         "notes": "",
         "equipped": true,
         "toHit": 10
@@ -139,36 +144,6 @@
       }
     },
     {
-      "_id": "9e553c96364d2f44",
-      "_key": "!actors.items!fdc1774924f0251c.9e553c96364d2f44",
-      "name": "Riposte",
-      "type": "karma",
-      "img": "icons/svg/sword.svg",
-      "system": {
-        "description": "",
-        "role": "offensive",
-        "category": "personal",
-        "cost": 1,
-        "costAll": false,
-        "free": false,
-        "usedThisTurn": false,
-        "attackBonus": 0,
-        "attackApplies": "",
-        "defenceBonus": 0,
-        "defenceApplies": "",
-        "preventsKnockdown": false,
-        "usesPerBattle": 2,
-        "timesUsed": 0
-      },
-      "flags": {},
-      "effects": [],
-      "folder": null,
-      "sort": 300,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
       "_id": "5ba051a041934f8b",
       "_key": "!actors.items!fdc1774924f0251c.5ba051a041934f8b",
       "name": "Stay Standing",
@@ -193,6 +168,36 @@
       "flags": {},
       "effects": [],
       "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9e553c96364d2f44",
+      "_key": "!actors.items!fdc1774924f0251c.9e553c96364d2f44",
+      "name": "Riposte",
+      "type": "karma",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "role": "offensive",
+        "category": "personal",
+        "cost": 1,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": false,
+        "usesPerBattle": 2,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
       "sort": 400,
       "ownership": {
         "default": 0
@@ -200,8 +205,8 @@
     }
   ],
   "effects": [],
-  "folder": null,
-  "sort": 500,
+  "folder": "533d789456e0886c",
+  "sort": 2900,
   "ownership": {
     "default": 0
   },

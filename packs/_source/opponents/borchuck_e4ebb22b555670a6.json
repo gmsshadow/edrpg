@@ -19,7 +19,7 @@
     },
     "otherSkills": [],
     "equipment": "",
-    "notes": ""
+    "notes": "<p>If its Slam knocks the target over, it can make a free Hoof attack on that target. Toxic Vomit does toxic damage.</p>"
   },
   "prototypeToken": {
     "name": "Borchuck",
@@ -89,7 +89,7 @@
         "skillMods": [],
         "notes": "",
         "equipped": true,
-        "toHit": null
+        "toHit": 2
       },
       "flags": {},
       "effects": [],
@@ -152,9 +152,9 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
-        "notes": "If it knocks its target over, it makes a free Hoof attack.",
+        "notes": "",
         "equipped": true,
-        "toHit": null
+        "toHit": 2
       },
       "flags": {},
       "effects": [],
@@ -219,7 +219,7 @@
         "skillMods": [],
         "notes": "",
         "equipped": true,
-        "toHit": null
+        "toHit": 2
       },
       "flags": {},
       "effects": [],
@@ -231,8 +231,8 @@
     }
   ],
   "effects": [],
-  "folder": null,
-  "sort": 300,
+  "folder": "ca06225a8d6f3453",
+  "sort": 3000,
   "ownership": {
     "default": 0
   },

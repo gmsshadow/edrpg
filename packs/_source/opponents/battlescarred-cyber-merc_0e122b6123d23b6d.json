@@ -1,0 +1,211 @@
+{
+  "_id": "0e122b6123d23b6d",
+  "_key": "!actors!0e122b6123d23b6d",
+  "name": "Battlescarred Cyber Merc",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "deadly",
+    "role": "High Threat Mercenary",
+    "dodge": 9,
+    "parry": 7,
+    "initiative": 7,
+    "perception": 8,
+    "toHit": 9,
+    "speed": "14m",
+    "endurance": {
+      "value": 100,
+      "max": 100
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Continuous Attack.</p>"
+  },
+  "prototypeToken": {
+    "name": "Battlescarred Cyber Merc",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "4ab1b8e812e77bbd",
+      "_key": "!actors.items!0e122b6123d23b6d.4ab1b8e812e77bbd",
+      "name": "Type 5 Armoured Carapace",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 10,
+          "energy": 7,
+          "explosive": 15,
+          "fighting": 6,
+          "melee": 6,
+          "toxic": 0
+        },
+        "toxicAll": true,
+        "hardened": 5,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "b99cca3a765450f2",
+      "_key": "!actors.items!0e122b6123d23b6d.b99cca3a765450f2",
+      "name": "G910 Heavy Repeater",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "7,600,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "kinetic",
+        "heavy": true,
+        "ranges": {
+          "short": {
+            "distance": "30m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "180m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "2d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "heavy",
+          "max": "8d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 10
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "441039d227564755",
+      "_key": "!actors.items!0e122b6123d23b6d.441039d227564755",
+      "name": "Cyberclaws (Class 2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>Cybernetic: retracts when not in use.</p>",
+        "cost": "",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 6,
+        "damage": "3d10+6",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "Cybernetic: retracts when not in use.",
+        "equipped": true,
+        "toHit": 9
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "6a044ecc3fdb3ab5",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

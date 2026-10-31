@@ -1,0 +1,110 @@
+{
+  "_id": "b9296c3fc224a40f",
+  "_key": "!actors!b9296c3fc224a40f",
+  "name": "Conscript",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "harmless",
+    "role": "Soldier",
+    "dodge": 2,
+    "parry": 2,
+    "initiative": 1,
+    "perception": 2,
+    "toHit": 2,
+    "speed": "10m",
+    "endurance": {
+      "value": 15,
+      "max": 15
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": ""
+  },
+  "prototypeToken": {
+    "name": "Conscript",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "00590ed5e69132f6",
+      "_key": "!actors.items!b9296c3fc224a40f.00590ed5e69132f6",
+      "name": "Laser Rifle",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "40cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "20m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "150m",
+            "dn": 6
+          },
+          "long": {
+            "distance": "500m",
+            "dn": 9
+          }
+        },
+        "finesse": null,
+        "damage": "15",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "6a044ecc3fdb3ab5",
+  "sort": 200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

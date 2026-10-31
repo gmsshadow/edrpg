@@ -2866,3 +2866,62 @@ li:hover > .ed-row-delete {
    gap: 0.35rem;
    padding: 0 0.4rem;
 }
+
+/* Ship equipment and components */
+.edrpg .ed-vequip {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 0.3rem;
+   padding: 0.3rem 0.5rem;
+   border: 1px solid var(--ed-highlight-border);
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-vequip button {
+   width: auto;
+   height: auto;
+   padding: 0.15rem 0.45rem;
+   font-size: var(--font-size-12, 12px);
+   border: 1px solid var(--ed-navy);
+   background: var(--ed-white);
+   color: var(--ed-navy);
+}
+
+.edrpg .ed-vequip button.taken {
+   background: var(--ed-blue-mid);
+   color: var(--ed-white);
+}
+
+.edrpg .ed-vcomponents {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.25rem;
+   font-size: var(--font-size-11, 11px);
+}
+
+.edrpg .ed-vcomp {
+   padding: 0.05rem 0.4rem;
+   background: var(--ed-cell);
+   border: 1px solid var(--ed-cell-border);
+}
+
+.edrpg .ed-vcomp.broken {
+   background: var(--ed-damage);
+   border-color: var(--ed-damage-border);
+   text-decoration: line-through;
+}
+
+.edrpg .ed-vrows {
+   width: 100%;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-vrows td.num input {
+   width: 3.5rem;
+}
+
+.edrpg-craft-attack .ed-crit {
+   margin-top: 0.15rem;
+   font-weight: 700;
+}

@@ -1,0 +1,175 @@
+{
+  "_id": "2b7e9a1ced9ec2ce",
+  "_key": "!actors!2b7e9a1ced9ec2ce",
+  "name": "Pendragon Support Drone",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "deadly",
+    "role": "Drone",
+    "dodge": 8,
+    "parry": null,
+    "initiative": 5,
+    "perception": 4,
+    "toHit": 8,
+    "speed": "8m",
+    "endurance": {
+      "value": 50,
+      "max": 50
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Fly: ignores difficult terrain and interposing enemies. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p>"
+  },
+  "prototypeToken": {
+    "name": "Pendragon Support Drone",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "8a3f294fe93a4b4c",
+      "_key": "!actors.items!2b7e9a1ced9ec2ce.8a3f294fe93a4b4c",
+      "name": "Plasma Repeater",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "22m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "170m",
+            "dn": 6
+          },
+          "long": {
+            "distance": "600m",
+            "dn": 9
+          }
+        },
+        "finesse": null,
+        "damage": "24",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 8
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "22f79dbde49ffae3",
+      "_key": "!actors.items!2b7e9a1ced9ec2ce.22f79dbde49ffae3",
+      "name": "Plasma Cannon",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "<p>The firer is knocked over unless the weapon is tripod mounted.</p>",
+        "cost": "4000cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "energy",
+        "heavy": true,
+        "ranges": {
+          "short": {
+            "distance": "Min. 36m",
+            "dn": null
+          },
+          "medium": {
+            "distance": "500m",
+            "dn": 9
+          },
+          "long": {
+            "distance": "3km",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 100,
+          "injury": 40,
+          "fatalRadius": 12,
+          "injuryRadius": 34
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "The firer is knocked over unless the weapon is tripod mounted.",
+        "equipped": true,
+        "toHit": 8
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a95f554708a32938",
+  "sort": 4700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

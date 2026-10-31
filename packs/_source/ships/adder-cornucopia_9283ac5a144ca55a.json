@@ -1,0 +1,312 @@
+{
+  "_id": "9283ac5a144ca55a",
+  "_key": "!actors!9283ac5a144ca55a",
+  "name": "Adder – Cornucopia",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/explorer/adder-blue.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Zorgon Peterson",
+    "dimensions": "L 31.5m x W 28.8m x H 9.6m",
+    "landingPad": "Small",
+    "crewSize": 12,
+    "passengers": 1,
+    "utilityMounts": "2",
+    "cargo": "12T",
+    "range": "13.5LY (50% bonus included)",
+    "fuel": "8T (80LY)",
+    "cost": "99,570cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 8,
+    "speed": 6,
+    "maxSpeed": 6,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 75,
+      "max": 75
+    },
+    "shields": {
+      "value": 65,
+      "max": 65,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 3E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "8MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 3E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 3E",
+        "kind": "fsd",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Range 9LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 1E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 2E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3E",
+        "kind": "sensors",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "+1 General Scan",
+        "item": ""
+      },
+      {
+        "name": "3E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Power 65",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Adder – Cornucopia",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/explorer/adder-blue.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "783ea45a233efd2a",
+      "_key": "!actors.items!9283ac5a144ca55a.783ea45a233efd2a",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "4b8a1d1c3b43e076",
+      "_key": "!actors.items!9283ac5a144ca55a.4b8a1d1c3b43e076",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "22529ac8845b881a",
+      "_key": "!actors.items!9283ac5a144ca55a.22529ac8845b881a",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "6ca64f9f56328eae",
+  "sort": 200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

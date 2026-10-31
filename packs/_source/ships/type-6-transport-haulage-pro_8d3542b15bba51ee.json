@@ -1,0 +1,325 @@
+{
+  "_id": "8d3542b15bba51ee",
+  "_key": "!actors!8d3542b15bba51ee",
+  "name": "Type-6 Transport – Haulage Pro",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/transport/type-6.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "L 48.4m x W 27.2m x H 15.0m",
+    "landingPad": "Medium",
+    "crewSize": 1,
+    "passengers": 2,
+    "utilityMounts": "3",
+    "cargo": "104T",
+    "range": "18LY (50% bonus included)",
+    "fuel": "16T (160LY)",
+    "cost": "1,442,120cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 3,
+    "speed": 8,
+    "maxSpeed": 8,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 100,
+      "max": 100
+    },
+    "shields": {
+      "value": 75,
+      "max": 75,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 3D",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "9MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4D",
+        "kind": "thrusters",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+1 Speed",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4D",
+        "kind": "fsd",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Range 12LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 2D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3D",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 2D",
+        "kind": "sensors",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "+1 General Scan, +1 Initiative",
+        "item": ""
+      },
+      {
+        "name": "Chaff Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 6",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "3D Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Power 75",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 1,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Type-6 Transport – Haulage Pro",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/transport/type-6.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "466c89a05ba452fc",
+      "_key": "!actors.items!8d3542b15bba51ee.466c89a05ba452fc",
+      "name": "Small Turreted Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "02325b6f0d3e5f50",
+      "_key": "!actors.items!8d3542b15bba51ee.02325b6f0d3e5f50",
+      "name": "Small Turreted Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "3f0bff4df522a7ad",
+  "sort": 4900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,379 @@
+{
+  "_id": "5ff59c16b68f88ae",
+  "_key": "!actors!5ff59c16b68f88ae",
+  "name": "Viper Mk III – Warhammer",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/viper-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 29.8m x W 24.0m x H 8.6m",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "None",
+    "range": "9LY",
+    "fuel": "4T (40LY)",
+    "cost": "989,570cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 8,
+    "speed": 10,
+    "maxSpeed": 10,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 255,
+      "max": 255
+    },
+    "shields": {
+      "value": 95,
+      "max": 95,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 3C",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "10MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 3C",
+        "kind": "thrusters",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+1 Speed, +1 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 3C",
+        "kind": "fsd",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Range 12LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 2E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3B",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+1 to hit, +1 Agility, +5 Shield Recharge",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3C",
+        "kind": "sensors",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "+1 General Scan, +1 to Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "Chaff Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Ammo 6",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "3D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "+65 Hull",
+        "item": ""
+      },
+      {
+        "name": "3B Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Shield Power 95",
+        "item": ""
+      },
+      {
+        "name": "2D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "+45 Hull",
+        "item": ""
+      },
+      {
+        "name": "1D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "+25 Hull",
+        "item": ""
+      },
+      {
+        "name": "3E Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "+15 Str/All",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Viper Mk III – Warhammer",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/viper-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "18bd670077bd581d",
+      "_key": "!actors.items!5ff59c16b68f88ae.18bd670077bd581d",
+      "name": "Medium Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "cbcc976561223b01",
+      "_key": "!actors.items!5ff59c16b68f88ae.cbcc976561223b01",
+      "name": "Medium Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5af1c6cc0bbb0bc3",
+      "_key": "!actors.items!5ff59c16b68f88ae.5af1c6cc0bbb0bc3",
+      "name": "Small Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d2167230344c6236",
+      "_key": "!actors.items!5ff59c16b68f88ae.d2167230344c6236",
+      "name": "Small Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "c26d740c2f4246d0",
+  "sort": 5900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,211 @@
+{
+  "_id": "4a774ee70daa0efb",
+  "_key": "!actors!4a774ee70daa0efb",
+  "name": "Tengoroth",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "master",
+    "role": "Alien Animal",
+    "dodge": 2,
+    "parry": null,
+    "initiative": 3,
+    "perception": 2,
+    "toHit": 6,
+    "speed": "14m",
+    "endurance": {
+      "value": 100,
+      "max": 100
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Tusks: human-sized targets are knocked over. Acid Globule: explodes on impact (Fatal 8m, Injury 12m); two per day.</p>"
+  },
+  "prototypeToken": {
+    "name": "Tengoroth",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "5f5df94507430d1d",
+      "_key": "!actors.items!4a774ee70daa0efb.5f5df94507430d1d",
+      "name": "Thick Hide",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 8,
+          "energy": 0,
+          "explosive": 0,
+          "fighting": 6,
+          "melee": 6,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "17fcc1a32544cec2",
+      "_key": "!actors.items!4a774ee70daa0efb.17fcc1a32544cec2",
+      "name": "Tusks",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "2d10+6",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "b6b449b0a198d777",
+      "_key": "!actors.items!4a774ee70daa0efb.b6b449b0a198d777",
+      "name": "Acid Globule",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "toxic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "30m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "50m",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "0",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 20,
+          "injury": 10,
+          "fatalRadius": 8,
+          "injuryRadius": 12
+        },
+        "ammo": {
+          "value": 2,
+          "max": 2
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "ca06225a8d6f3453",
+  "sort": 3700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

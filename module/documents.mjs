@@ -39,7 +39,7 @@ export class EDActor extends foundry.documents.Actor {
       }
       // A vehicle's Hull dropping to 0 or less: destroyed (Core Rules p.75). Handled after the update.
       const newHull = foundry.utils.getProperty(changes, "system.hull.value");
-      if (this.type === "vehicle" && Number.isFinite(newHull) && newHull <= 0 && this.system.hull.value > 0) {
+      if (["vehicle", "ship"].includes(this.type) && Number.isFinite(newHull) && newHull <= 0 && this.system.hull.value > 0) {
          options.edrpgDestroyed = true;
       }
    }

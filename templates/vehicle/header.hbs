@@ -2,7 +2,7 @@
    <div class="ed-vident">
       <img class="ed-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-action="editImage" data-edit="img">
       <div class="ed-datasheet-tag">
-         <span class="big">{{localize "EDRPG.vehicle.tag"}}</span>
+         <span class="big">{{#if isShip}}{{localize "EDRPG.ship.tag"}}{{else}}{{localize "EDRPG.vehicle.tag"}}{{/if}}</span>
          <span class="small">{{localize "EDRPG.sheet.dataSheet"}}</span>
       </div>
    </div>
@@ -13,7 +13,9 @@
       </label>
       <div class="ed-vfield pilot" data-tooltip="EDRPG.vehicle.pilotHint">
          <span class="ed-tag">{{localize "EDRPG.vehicle.pilot"}}</span>
-         {{#if system.drone.enabled}}
+         {{#if npcShip}}
+         <span class="ed-vpilot drone"><i class="fa-solid fa-user-secret"></i> {{localize "EDRPG.ship.npcCrew"}}</span>
+         {{else if system.drone.enabled}}
          <span class="ed-vpilot drone"><i class="fa-solid fa-robot"></i> {{localize "EDRPG.drone.noCrew"}}</span>
          {{else if pilot}}
          <a class="ed-vpilot" data-action="openActor" data-uuid="{{pilot.uuid}}"><img src="{{pilot.img}}" alt=""> {{pilot.name}}</a>
@@ -27,9 +29,15 @@
       </div>
       <div class="ed-vhandling">
          <label><span>{{localize "EDRPG.vehicle.agility"}}</span><input type="number" name="system.agility" value="{{source.agility}}" step="1"></label>
+         {{#if isShip}}
+         <label><span>{{localize "EDRPG.vehicle.speed"}}</span><input type="number" name="system.speed" value="{{source.speed}}" min="0" step="1"></label>
+         <label><span>{{localize "EDRPG.ship.landingPad"}}</span><input type="text" name="system.landingPad" value="{{source.landingPad}}"></label>
+         <label><span>{{localize "EDRPG.vehicle.category"}}</span><select name="system.category">{{selectOptions craftSizes selected=source.category localize=true}}</select></label>
+         {{else}}
          <label><span>{{localize "EDRPG.vehicle.maxSpeed"}}</span><input type="number" name="system.maxSpeed" value="{{source.maxSpeed}}" min="0" max="10" step="1"></label>
          <label><span>{{localize "EDRPG.vehicle.accelerate"}}</span><input type="number" name="system.accelerate" value="{{source.accelerate}}" min="0" step="1"></label>
          <label><span>{{localize "EDRPG.vehicle.decelerate"}}</span><input type="number" name="system.decelerate" value="{{source.decelerate}}" min="0" step="1"></label>
+         {{/if}}
       </div>
    </div>
 </header>

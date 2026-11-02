@@ -207,7 +207,7 @@ export function registerVehicleCombat() {
          const sys = actor.system;
          enqueue(() =>
             actor.update({
-               "system.speed": sys.isShip ? sys.speed : sys.speed || Math.min(START_SPEED, sys.topSpeed),
+               "system.speed": startSpeed(sys),
                "system.zone": "atDistance",
                "system.combat": freshState(),
             }),
@@ -230,6 +230,20 @@ export function registerVehicleCombat() {
       if (!game.user.isActiveGM) return;
       for (const actor of vehiclesIn(combat)) enqueue(() => actor.update({ "system.combat": freshState() }));
    });
+}
+
+/**
+ * Battle-start speed: ships keep their rating; a stopped vehicle starts at 5 or its top speed, whichever is less.
+ *
+ * @param {object} sys
+ *
+ * @returns {number}
+ */
+function startSpeed(sys) {
+   const current = Number.isFinite(sys.speed) ? sys.speed : 0;
+   if (sys.isShip || current > 0) return current;
+   const top = Number.isFinite(sys.topSpeed) ? sys.topSpeed : Math.min(sys.maxSpeed ?? 0, 10);
+   return Math.max(0, Math.min(START_SPEED, top));
 }
 
 /** @returns {object} A clean combat-turn state. */

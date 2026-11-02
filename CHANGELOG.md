@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.31
+
+- Fixed vehicle and spaceship tokens failing data preparation ("Cannot read properties of undefined (reading
+  'defence')"). Foundry asks for roll data while applying Active Effects, before derived data is prepared, and the
+  Speed Table row didn't exist yet.
+  - The combat values (Speed Table row, top speed, shield halfway point, ship damage states) are now prepared in the
+    base phase as well.
+  - Roll data prepares them on demand if needed.
+- Fixed "speed: must be a number" when a combat started: the battle-start speed is now always a valid number.
+
 ## 0.1.30
 
 Full individual-scale opponent compendium (Core Rules pp.284–319).

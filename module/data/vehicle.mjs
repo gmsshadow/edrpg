@@ -141,12 +141,28 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
       };
    }
 
-   /** @override */
-   prepareDerivedData() {
+   /**
+    * Values that Defence, Pursuit, To Hit and roll data depend on. Prepared in the base phase too, because Foundry
+    * asks for roll data while applying Active Effects, before derived data exists.
+    */
+   prepareCombatValues() {
       this.hull.max = Math.max(this.hull.max, 0);
       this.shields.halfway = Math.ceil(this.shields.max / 2);
-      this.speedRow = this.speed > 0 ? (this.speedTable[this.speed - 1] ?? { defence: 0, attack: 0 }) : { defence: 0, attack: 0 };
-      this.topSpeed = Math.min(this.maxSpeed, this.speedTable.length);
+      const row = this.speed > 0 ? this.speedTable?.[this.speed - 1] : null;
+      this.speedRow = { defence: row?.defence ?? 0, attack: row?.attack ?? 0 };
+      this.topSpeed = Math.min(this.maxSpeed ?? 0, this.speedTable?.length ?? 0);
+   }
+
+   /** @override */
+   prepareBaseData() {
+      super.prepareBaseData();
+      this.prepareCombatValues();
+   }
+
+   /** @override */
+   prepareDerivedData() {
+      super.prepareDerivedData();
+      this.prepareCombatValues();
    }
 
    /** The pilot actor, if one is assigned and available (drones have none). */
@@ -271,6 +287,7 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
 
    /** @returns {object} Roll data: initiative from the pilot. */
    getRollData() {
+      if (!this.speedRow) this.prepareCombatValues();
       return { initiative: this.initiative, defence: this.defence, pursuit: this.pursuit, speed: this.speed };
    }
 }
@@ -411,12 +428,12 @@ export class ShipData extends VehicleData {
    }
 
    /** @override */
-   prepareDerivedData() {
-      super.prepareDerivedData();
+   prepareCombatValues() {
+      super.prepareCombatValues();
       // No Speed Table in space: the ship's Speed is a fixed rating.
       this.speedRow = { defence: 0, attack: 0 };
       this.topSpeed = this.speed;
-      const broken = (kind) => this.components.some((c) => c.kind === kind && c.strength.value <= 0);
+      const broken = (kind) => (this.components ?? []).some((c) => c.kind === kind && c.strength.value <= 0);
       this.damaged = {
          powerPlant: broken("powerPlant"),
          thrusters: broken("thrusters"),
@@ -432,9 +449,10 @@ export class ShipData extends VehicleData {
       const fl = this.combat?.floating ?? {};
       this.floatingAgility = fl.engines ? 1 : 0;
       // Destroyed Power Distributor: −1 Agility and To Hit (−2 for GM ships), and no shield recharge.
-      const pd = this.damaged.powerDistributor ? (this.npc.enabled ? 2 : 1) : 0;
+      const npc = !!this.npc?.enabled;
+      const pd = this.damaged.powerDistributor ? (npc ? 2 : 1) : 0;
       this.agilityPenalty = pd - this.floatingAgility;
-      this.weaponPenalty = -pd + (fl.weapons ? 1 : 0) + (this.npc.enabled ? 0 : (this.bonuses?.toHit ?? 0));
+      this.weaponPenalty = -pd + (fl.weapons ? 1 : 0) + (npc ? 0 : (this.bonuses?.toHit ?? 0));
    }
 
    /** @override */

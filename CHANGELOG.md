@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.33
+
+Sheet layout fixes.
+
+- **Hull and Shields** boxes on vehicle and ship sheets fit up to four digits (e.g. an Anaconda's 1,725 Hull). The
+  Shields box now puts Recharge and the Down checkbox under the value instead of beside it.
+- The ship header's **Landing Pad** field is wide enough for "Small", "Medium" or "Large".
+- **Weapon names** wrap inside their column instead of running into the To Hit column, on vehicle and ship sheets
+  and on the character sheet's weapon tables. The name column on craft sheets is also wider.
+
 ## 0.1.32
 
 - Fixed "category: small,small is not a valid choice" when editing a spaceship (e.g. choosing a pilot). The ship sheet

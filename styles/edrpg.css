@@ -762,6 +762,14 @@
    border: none;
 }
 
+/* Weapon names can be long ("Small Gimballed Pulse Laser", "Gold & Perry 'Watcher' Autopistol"): let them wrap
+   inside their cell instead of running into the next column. */
+.edrpg .ed-table.weapons tbody th.name {
+   white-space: normal;
+   overflow-wrap: anywhere;
+   line-height: 1.15;
+}
+
 .ed-skill-table td,
 .edrpg .ed-table td {
    padding: 0.05rem 0.2rem;
@@ -2924,4 +2932,72 @@ li:hover > .ed-row-delete {
 .edrpg-craft-attack .ed-crit {
    margin-top: 0.15rem;
    font-weight: 700;
+}
+
+
+/* ---------- Vehicle / ship sheet sizing ---------- */
+
+/* Text fields in the handling strip (Landing Pad) need room for a word, not two digits. */
+.edrpg .ed-vhandling input[type="text"] {
+   width: 100%;
+   min-width: 0;
+   flex: 1;
+   margin-left: 0.4rem;
+   text-align: right;
+}
+
+/* Long weapon names get more of the row on craft sheets. */
+.edrpg .ed-table.vweapons th.name {
+   width: 30%;
+}
+
+/* Hull and Shields hold up to four digits (an Anaconda's 1,725 Hull). */
+.edrpg .ed-vstats .ed-pool-body {
+   gap: 0.4rem;
+   padding: 0.6rem 0.4rem 0.3rem 1.2rem;
+}
+
+.edrpg .ed-vstats .ed-pool-value {
+   flex-wrap: nowrap;
+   white-space: nowrap;
+}
+
+.edrpg .ed-vstats .ed-pool-value input {
+   width: 4.4ch;
+   min-width: 4.4ch;
+   font-size: 1.45rem;
+   padding: 0;
+}
+
+.edrpg .ed-vstats .ed-pool .max {
+   display: inline-flex;
+   align-items: baseline;
+   white-space: nowrap;
+}
+
+.edrpg .ed-vstats .ed-pool .max-input {
+   width: 4.6ch;
+   min-width: 4.6ch;
+   font-size: 1.1rem;
+   padding: 0;
+}
+
+/* Shields: the value on top, recharge and the "down" box underneath, so the numbers keep their width. */
+.edrpg .ed-vstats .ed-pool.shields .ed-pool-body {
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 0.15rem;
+}
+
+.edrpg .ed-vstats .ed-vshield-extra {
+   align-items: center;
+   gap: 0.8rem;
+}
+
+.edrpg .ed-vstats .ed-vshield-extra label {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.25rem;
+   white-space: nowrap;
 }

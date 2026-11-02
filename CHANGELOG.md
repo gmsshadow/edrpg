@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.32
+
+- Fixed "category: small,small is not a valid choice" when editing a spaceship (e.g. choosing a pilot). The ship sheet
+  had a size selector in the header as well as on the Specifications tab, so the form sent the value twice; the
+  header copy is removed (size stays on the Specifications tab). The vehicle, ship, actor and item sheets were checked
+  for any other repeated form fields.
+
 ## 0.1.31
 
 - Fixed vehicle and spaceship tokens failing data preparation ("Cannot read properties of undefined (reading

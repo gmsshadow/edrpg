@@ -32,7 +32,6 @@
          {{#if isShip}}
          <label><span>{{localize "EDRPG.vehicle.speed"}}</span><input type="number" name="system.speed" value="{{source.speed}}" min="0" step="1"></label>
          <label><span>{{localize "EDRPG.ship.landingPad"}}</span><input type="text" name="system.landingPad" value="{{source.landingPad}}"></label>
-         <label><span>{{localize "EDRPG.vehicle.category"}}</span><select name="system.category">{{selectOptions craftSizes selected=source.category localize=true}}</select></label>
          {{else}}
          <label><span>{{localize "EDRPG.vehicle.maxSpeed"}}</span><input type="number" name="system.maxSpeed" value="{{source.maxSpeed}}" min="0" max="10" step="1"></label>
          <label><span>{{localize "EDRPG.vehicle.accelerate"}}</span><input type="number" name="system.accelerate" value="{{source.accelerate}}" min="0" step="1"></label>

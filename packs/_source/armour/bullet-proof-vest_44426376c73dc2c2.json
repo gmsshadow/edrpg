@@ -24,7 +24,8 @@
     "socialFactor": 0,
     "skillMods": [],
     "enhancement": "",
-    "worn": false
+    "worn": false,
+    "destroyed": false
   },
   "flags": {},
   "sort": 200,

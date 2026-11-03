@@ -1,0 +1,389 @@
+{
+  "_id": "a403b9c59cb23b9c",
+  "_key": "!actors!a403b9c59cb23b9c",
+  "name": "Keelback – Escort Carrier",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/transport/keelback.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "L 73.9m x W 52.3m x H 21.7m",
+    "landingPad": "Medium",
+    "crewSize": 2,
+    "passengers": 0,
+    "utilityMounts": "3",
+    "cargo": "52T",
+    "range": "14LY",
+    "fuel": "16T (160LY)",
+    "cost": "6,565,990cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 2,
+    "speed": 6,
+    "maxSpeed": 6,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 525,
+      "max": 525
+    },
+    "shields": {
+      "value": 120,
+      "max": 120,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 2,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4B",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "14.3MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4D",
+        "kind": "thrusters",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+1 Speed",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4C",
+        "kind": "fsd",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Range 14LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 1D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3C",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "2 Floating Bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 2B",
+        "kind": "sensors",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "+1 General Scan, +2 Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "0C Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "15% shield boost",
+        "item": ""
+      },
+      {
+        "name": "5D Fighter Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Fighter Bays 1",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32T",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "3A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Power 105",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4T",
+        "item": ""
+      },
+      {
+        "name": "2H Planetary Vehicle Hanger",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Vehicles 1",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 2,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Keelback – Escort Carrier",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/transport/keelback.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "ab5d4432e6c32be4",
+      "_key": "!actors.items!a403b9c59cb23b9c.ab5d4432e6c32be4",
+      "name": "Medium Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "949e5d96b1895d64",
+      "_key": "!actors.items!a403b9c59cb23b9c.949e5d96b1895d64",
+      "name": "Medium Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "628c13e5df67e90d",
+      "_key": "!actors.items!a403b9c59cb23b9c.628c13e5df67e90d",
+      "name": "Small Fixed Rail Gun",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 0,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 10,
+          "max": 10
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "f9b6b0f0730abe8e",
+      "_key": "!actors.items!a403b9c59cb23b9c.f9b6b0f0730abe8e",
+      "name": "Small Fixed Rail Gun",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 0,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 10,
+          "max": 10
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "06113ca3c59bda4b",
+  "sort": 5600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,332 @@
+{
+  "_id": "6423d9316dd3a64f",
+  "_key": "!actors!6423d9316dd3a64f",
+  "name": "Imperial Eagle – Sagittarius",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/empire/imperial-eagle.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Gutamaya",
+    "dimensions": "L 31.2m x W 34.7m x H 7.1m",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "1",
+    "cargo": "None",
+    "range": "15LY",
+    "fuel": "4T (40LY)",
+    "cost": "4,496,870cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 11,
+    "speed": 11,
+    "maxSpeed": 11,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 110,
+      "max": 110
+    },
+    "shields": {
+      "value": 105,
+      "max": 105,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 1,
+      "initiative": 2,
+      "dogfighting": 2
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 3A",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "12MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 3A",
+        "kind": "thrusters",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+2 Speed, +2 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 3A",
+        "kind": "fsd",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Range 15LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 1C",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Emergency Life Support 10 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 2A",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+1 to Hit, +1 to Agility, +5 Shield Recharge, 1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 2A",
+        "kind": "sensors",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "+1 General Scan, +2 Initiative, +2 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "ECM",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "3A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Shield Power 105",
+        "item": ""
+      },
+      {
+        "name": "2H Planetary Vehicle Hanger",
+        "kind": "internal",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Vehicle Bays 1",
+        "item": ""
+      },
+      {
+        "name": "1C Advanced Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Range: System Wide",
+        "item": ""
+      },
+      {
+        "name": "1A Fuel Scoop",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Scoop 6/16",
+        "item": ""
+      },
+      {
+        "name": "2E Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": true,
+      "floating": 1,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Imperial Eagle – Sagittarius",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/empire/imperial-eagle.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "40a0cc43a15059ab",
+      "_key": "!actors.items!6423d9316dd3a64f.40a0cc43a15059ab",
+      "name": "Medium Fixed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "0fba28d482050a22",
+      "_key": "!actors.items!6423d9316dd3a64f.0fba28d482050a22",
+      "name": "Small Fixed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "00dc3183cd2232c5",
+      "_key": "!actors.items!6423d9316dd3a64f.00dc3183cd2232c5",
+      "name": "Small Fixed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "3bf16a365314805e",
+  "sort": 4600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

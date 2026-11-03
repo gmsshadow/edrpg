@@ -1,0 +1,285 @@
+{
+  "_id": "a6557895ce4bcfba",
+  "_key": "!actors!a6557895ce4bcfba",
+  "name": "Boa Mk III – Production Line",
+  "type": "ship",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "huge",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 203.7m x W 92.1m x H 67.4m",
+    "landingPad": "None",
+    "crewSize": 14,
+    "passengers": 20,
+    "utilityMounts": "8",
+    "cargo": "130T",
+    "range": "19LY",
+    "fuel": "128T (1,280 LY)",
+    "cost": "364,575,880cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 1,
+    "speed": 1,
+    "maxSpeed": 1,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 2000,
+      "max": 2000
+    },
+    "shields": {
+      "value": 290,
+      "max": 290,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 8E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "24MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 8E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 8E",
+        "kind": "fsd",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Range 19LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 8E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 85,
+          "max": 85
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 8E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 8E",
+        "kind": "sensors",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "+5 General Scan",
+        "item": ""
+      },
+      {
+        "name": "8D Spaceship Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Hangar Size: Small",
+        "item": ""
+      },
+      {
+        "name": "8E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Shield Power 290",
+        "item": ""
+      },
+      {
+        "name": "7E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 128T",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      },
+      {
+        "name": "1E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Capacity 2T",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Boa Mk III – Production Line",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 4,
+    "height": 4,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "08e2690d05e3c8ff",
+      "_key": "!actors.items!a6557895ce4bcfba.08e2690d05e3c8ff",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "340f7bdb96ce1663",
+      "_key": "!actors.items!a6557895ce4bcfba.340f7bdb96ce1663",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "0cd05dbd53aa5576",
+  "sort": 4700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,36 @@
+{
+  "_id": "4ee88d47e5cc8a7c",
+  "_key": "!items!4ee88d47e5cc8a7c",
+  "name": "Xenobiologist",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Science +20, Medicine +20, Planetary Knowledge +10</p><p>The book prints “Planetary Systems +10”; there is no such skill, so this uses Planetary Knowledge.</p><p><em>Exploration Supplement</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "science",
+        "bonus": 20
+      },
+      {
+        "skill": "medicine",
+        "bonus": 20
+      },
+      {
+        "skill": "planetaryKnowledge",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "e3c2005099e33eca",
+  "sort": 5900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

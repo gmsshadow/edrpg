@@ -1,0 +1,75 @@
+{
+  "_id": "05bad1140dfa5596",
+  "_key": "!items!05bad1140dfa5596",
+  "name": "Mannex Nighteye Carbine",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr.</p><p><em>Military Sourcebook</em></p>",
+    "cost": "270,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "16m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "100m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "300m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "4d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 10,
+    "skillMods": [],
+    "special": {
+      "burstType": "kinetic",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Military Sourcebook/Laser Carbines"
+    }
+  },
+  "sort": 8800,
+  "effects": [],
+  "folder": "e48fc94b42116cef",
+  "ownership": {
+    "default": 0
+  }
+}

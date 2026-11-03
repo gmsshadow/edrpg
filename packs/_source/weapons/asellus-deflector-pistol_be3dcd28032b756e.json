@@ -51,6 +51,13 @@
     "divideFire": false,
     "attackBonus": 10,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "Absorbs 3 Kinetic and Energy damage.",
     "equipped": false
   },

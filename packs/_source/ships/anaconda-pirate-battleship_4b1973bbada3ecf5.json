@@ -488,7 +488,7 @@
     {
       "_id": "385ab6c2ea5915c7",
       "_key": "!actors.items!4b1973bbada3ecf5.385ab6c2ea5915c7",
-      "name": "Medium Turreted Multi-cannon",
+      "name": "Medium Turreted Multi-Cannon",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {
@@ -525,7 +525,7 @@
     {
       "_id": "225d2cc8cf846040",
       "_key": "!actors.items!4b1973bbada3ecf5.225d2cc8cf846040",
-      "name": "Medium Turreted Multi-cannon",
+      "name": "Medium Turreted Multi-Cannon",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {

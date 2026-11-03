@@ -179,7 +179,7 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
       const data = this.skills[skillCategory[skill]]?.[skill];
       const out = [];
       for (const item of this.parent.items ?? []) {
-         const using = (item.type === "clothing" && item.system.worn) || (item.type === "gear" && item.system.location === "carried");
+         const using = (item.type === "clothing" && item.system.worn) || (item.type === "gear" && item.system.location === "carried") || item.type === "cybernetic";
          if (!using) continue;
          (item.system.rollBonuses ?? []).forEach((b, index) => {
             if (b.skill !== skill || !b.value) return;
@@ -187,6 +187,13 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
             if (b.kind === "score" && data) value = Math.floor(Math.min(data.score + b.value, MAX_SKILL_SCORE) / 10) - data.bonus;
             out.push({ key: `${item.id}.${index}`, label: item.name, value, raw: b.value, kind: b.kind, when: b.when });
          });
+      }
+      // Survivalist (Exploration Supplement): add the Survival bonus to checks made in a natural environment.
+      // Offered unticked; not for Survival itself or for attacks.
+      const combat = ["dodge", "energyWeapons", "fighting", "grenade", "heavyWeapons", "kineticWeapons", "meleeWeapons", "parry"];
+      const survival = this.skills.espionage?.survival?.bonus ?? this.skills[skillCategory.survival]?.survival?.bonus ?? 0;
+      if (this.enhancements?.survivalist && skill !== "survival" && !combat.includes(skill) && survival) {
+         out.push({ key: "enhancement.survivalist", label: game.i18n.localize("EDRPG.enhancement.survivalistBonus"), value: survival, raw: survival, kind: "flat", when: "situational" });
       }
       return out;
    }
@@ -513,6 +520,8 @@ export class OpponentData extends foundry.abstract.TypeDataModel {
       return {
          rank: new fields.StringField({ required: true, blank: true, initial: "" }),
          role: new fields.StringField({ initial: "" }),
+         // Robots and drones: double damage from Anti-Material Projectors (Exploration Supplement).
+         robotic: new fields.BooleanField({ initial: false }),
          dodge: nullableInt(),
          parry: nullableInt(),
          initiative: int(1),

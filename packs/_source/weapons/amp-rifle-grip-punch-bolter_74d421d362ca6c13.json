@@ -1,0 +1,75 @@
+{
+  "_id": "74d421d362ca6c13",
+  "_key": "!items!74d421d362ca6c13",
+  "name": "AMP - Rifle Grip Punch Bolter",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Knocks the target over on a hit. A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "7,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "12m",
+        "dn": 4
+      },
+      "medium": {
+        "distance": "20m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "30m",
+        "dn": 10
+      }
+    },
+    "finesse": null,
+    "damage": "20",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 3,
+      "max": 3
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": true,
+      "doubleVsRobots": true,
+      "molten": false
+    },
+    "notes": "Knocks the target over on a hit. A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 9700,
+  "effects": [],
+  "folder": "889391937104d1e9",
+  "ownership": {
+    "default": 0
+  }
+}

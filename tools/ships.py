@@ -16,8 +16,10 @@ import hashlib, json, os, re
 
 HERE = os.path.dirname(__file__)
 DATA = json.load(open(os.path.join(HERE, "ships-data.json"), encoding="utf-8"))
+# Supplement ships (Espionage, Exploration, Military, Super Traders), each with its "source" book.
+SUPPLEMENT = json.load(open(os.path.join(HERE, "ships-supplements.json"), encoding="utf-8"))["ships"]
 TOK = "systems/edrpg/assets/tokens"
-TOKEN_SIZE = {"small": 1, "medium": 2, "large": 3}
+TOKEN_SIZE = {"small": 1, "medium": 2, "large": 3, "huge": 4}
 
 # Family → token images (cycled across variants); pirate/police variants get their own art where there is some.
 FAMILY_TOKENS = {
@@ -37,13 +39,32 @@ FAMILY_TOKENS = {
     "Type-9 Heavy": ["transport/type-9"],
     "Viper Mk III": ["combat/viper-mk-iii", "combat/viper-blue", "combat/viper-red", "combat/viper-yellow"],
     "Vulture": ["combat/vulture", "combat/vulture-green", "combat/vulture-grey", "combat/vulture-purple", "combat/vulture-red"],
+    # Supplements (no token art yet for the Imperial Explorer or Boa Mk III).
+    "Mamba Mk II": ["combat/mamba-stock", "combat/mamba-blue", "combat/mamba-red", "combat/mamba-purple", "combat/mamba-yellow"],
+    "Merlin": ["combat/merlin-stock", "combat/merlin-blue", "combat/merlin-red", "combat/merlin-green", "combat/merlin-purple", "combat/merlin-yellow"],
+    "Mongoose": ["combat/mongoose-blue", "combat/mongoose-red", "combat/mongoose-yellow"],
+    "Viper Mk IV": ["combat/viper-mk-iv"],
+    "Asp Scout": ["explorer/asp-scout"],
+    "Diamondback Explorer": ["explorer/diamondback-explorer-yellow", "explorer/diamondback-explorer-purple"],
+    "Federal Assault Ship": ["federation/federal-assault-ship"],
+    "Federal Corvette": ["federation/federal-corvette"],
+    "Federal Dropship": ["federation/federal-dropship"],
+    "Federal Gunship": ["federation/federal-gunship"],
+    "Imperial Clipper": ["empire/imperial-clipper"],
+    "Imperial Courier": ["empire/imperial-courier", "empire/imperial-courier-red", "empire/imperial-courier-black"],
+    "Imperial Cutter": ["empire/imperial-cutter"],
+    "Imperial Eagle": ["empire/imperial-eagle"],
+    "Cobra Mk IV": ["combat/cobra-mk-iv-red"],
+    "Keelback": ["transport/keelback"],
+    "Imperial Explorer": [],
+    "Boa Mk III": [],
 }
 PIRATE = {"Cobra Mk III": "pirate/cobra-pirate1", "Eagle Mk II": "pirate/eagle-pirate1", "Krait Lightspeeder": "pirate/krait-pirate1",
           "Sidewinder": "pirate/sidewinder-pirate1", "Viper Mk III": "pirate/viper-pirate1"}
-POLICE = {"Viper Mk III": "police/viper-mk-iii-police"}
+POLICE = {"Viper Mk III": "police/viper-mk-iii-police", "Viper Mk IV": "police/viper-mk-iv-police"}
 
 ACRONYMS = {"Mk": "Mk", "Ii": "II", "Iii": "III", "Iv": "IV", "Dcc": "DCC", "Gti": "GTI", "Egx": "EGX", "Mr": "MR", "Fd-4": "FD-4",
-            "Var": "VAR", "B3": "B3", "X4": "X4", "T21": "T21", "S-Type": "S-Type", "Cx": "CX", "A9": "A9", "Q": "Q", "De": "de", "Haz": "Haz"}
+            "Var": "VAR", "B3": "B3", "X4": "X4", "T21": "T21", "S-Type": "S-Type", "Cx": "CX", "A9": "A9", "Q": "Q", "De": "de", "Haz": "Haz", "Mp": "MP"}
 
 
 def did(*parts):
@@ -81,12 +102,19 @@ def weapon_mods(name):
     return 0, 0
 
 
+def weapon_name(name):
+    """One spelling for the book's variants: Multi-Cannon, Gimballed, Rail Gun."""
+    name = re.sub(r"Multi[- ]?cannon", "Multi-Cannon", name, flags=re.I)
+    name = re.sub(r"Gimbaled", "Gimballed", name)
+    return re.sub(r"Railgun", "Rail Gun", name)
+
+
 def weapon_item(owner, i, w, gm=False):
     _id = did(owner, "w", str(i), w["name"])
     hull, shields = weapon_mods(w["name"])
     special = w.get("special", "")
     return {
-        "_id": _id, "_key": f"!actors.items!{owner}.{_id}", "name": w["name"], "type": "craftWeapon", "img": "icons/svg/target.svg",
+        "_id": _id, "_key": f"!actors.items!{owner}.{_id}", "name": weapon_name(w["name"]), "type": "craftWeapon", "img": "icons/svg/target.svg",
         "system": {
             "description": "", "cost": "", "mount": {"size": w["size"] if w["size"] in ("small", "medium", "large", "huge") else "small", "kind": w["kind"]},
             "accuracy": w["acc"], "damage": w["damage"], "burst": {"perPoint": 5, "max": w["burst"]}, "damageVsShields": w["vs"],
@@ -103,7 +131,7 @@ def token_for(family, name, index):
     if family in PIRATE and re.search(r"raider|pirate|jolly|annihilator|privateer|war totem|cutthroat", lname):
         return PIRATE[family]
     pool = FAMILY_TOKENS.get(family, ["combat/sidewinder"])
-    return pool[index % len(pool)]
+    return pool[index % len(pool)] if pool else None
 
 
 def equipment(eq):
@@ -121,7 +149,8 @@ def ship_doc(v, index, folder, sort):
     family = family_name(v["family"])
     name = variant_name(v["name"])
     vid = did(name)
-    img = f"{TOK}/{token_for(family, name, index)}.webp"
+    token = token_for(family, name, index)
+    img = f"{TOK}/{token}.webp" if token else "icons/svg/wing.svg"
     b = v["base"]
     cat = b["category"]
     comps = [{"name": c["name"], "kind": c["kind"], "strength": {"value": c["str"], "max": c["str"]}, "notes": c["notes"], "item": ""} for c in v["components"]]
@@ -139,7 +168,7 @@ def ship_doc(v, index, folder, sort):
             "bonuses": {"toHit": v["bonus"]["toHit"], "initiative": v["bonus"]["initiative"], "dogfighting": v["bonus"]["dogfighting"]},
             "npc": {"enabled": False, "defence": 0, "dogfighting": 0, "pursuit": 0, "initiative": 0, "critical": 20},
             "components": comps, "equipment": equipment(v["equipment"]),
-            "zone": "atDistance", "pilot": "", "description": "",
+            "zone": "atDistance", "pilot": "", "description": f"<p><em>{v['source']}</em></p>" if v.get("source") else "",
         },
         "prototypeToken": {
             "name": name, "actorLink": False, "disposition": 0, "displayBars": 20, "width": TOKEN_SIZE[cat], "height": TOKEN_SIZE[cat],
@@ -180,7 +209,23 @@ def write_ships():
         doc = ship_doc(v, counts[family], folders[family], (i + 1) * 100)
         counts[family] += 1
         dump(root, doc, slugify(doc["name"]))
-    return len(DATA["ships"])
+    # Supplement ships: a folder per book, with a family folder inside.
+    books = {}
+    for i, v in enumerate(SUPPLEMENT):
+        book = v["source"]
+        if book not in books:
+            books[book] = did("folder", book)
+            dump(root, folder_doc(books[book], book, 10000 + len(books) * 100), "_folder-" + slugify(book))
+        family = family_name(v["family"])
+        key = f"{book}/{family}"
+        if key not in folders:
+            folders[key] = did("folder", key)
+            dump(root, folder_doc(folders[key], family, len(folders) * 100, books[book]), "_folder-" + slugify(key))
+        counts[key] = counts.get(key, 0)
+        doc = ship_doc(v, counts[key], folders[key], (i + 1) * 100)
+        counts[key] += 1
+        dump(root, doc, slugify(doc["name"]))
+    return len(DATA["ships"]) + len(SUPPLEMENT)
 
 
 def match_variant(text):

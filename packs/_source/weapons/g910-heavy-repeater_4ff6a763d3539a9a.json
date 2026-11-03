@@ -51,6 +51,13 @@
     "divideFire": true,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "",
     "equipped": false
   },

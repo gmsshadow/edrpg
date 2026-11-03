@@ -51,6 +51,13 @@
     "divideFire": false,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "No damage. Targets in the Fatal radius must pass a Perception check (difficulty 10), and those in the Injury radius a difficulty 7 check, or be stunned: they miss their next turn and have a Defence of 0 until it starts.",
     "equipped": false
   },

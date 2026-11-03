@@ -1,5 +1,5 @@
 import { isCraft } from "../data/vehicle.mjs";
-import { rollCritical, damageComponent, targetableComponents } from "./ship-damage.mjs";
+import { rollCritical, damageComponent, targetableComponents, FIXED_KINDS } from "./ship-damage.mjs";
 import { zoneOf } from "../zones.mjs";
 
 /** Missiles, torpedoes (and mines) can be shot down by Point Defence; seekers are jammed by ECM. */
@@ -161,6 +161,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       reason: sniping ? null : natural === 1 ? "natural1" : natural === 10 && roll.total < opts.defence ? "natural10" : null,
       damage: hit ? { base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields } : null,
       critical: natural === 10,
+      destabilise: !!s.destabilise,
       ammo,
       applied: [],
    };
@@ -252,6 +253,8 @@ async function execute({ messageId, targetUuid }) {
    if (state.aim && target.system.isShip) {
       const comp = await damageComponent(target, state.aim, state.damage.total);
       state.applied.push({ uuid: target.uuid, name: target.name, component: comp });
+   } else if (state.destabilise) {
+      state.applied.push(await destabilise(target, state.damage.total, state.critical));
    } else {
       const sh = target.system.shields;
       const shieldsUp = sh.max > 0 && !sh.down && sh.value > 0;
@@ -261,6 +264,41 @@ async function execute({ messageId, targetUuid }) {
       state.applied.push(record);
    }
    await message.update({ content: await renderCraftAttack(state), "flags.edrpg.craftAttack": state });
+}
+
+/**
+ * A Destabilisation Beam hit (Exploration Supplement p.36): the shields collapse and the Damage goes straight to the
+ * Hull. A vehicle that survives is disabled; a ship takes the Damage on each Fixed and Internal component, and on a
+ * critical hit on its weapons and utility mounts as well.
+ *
+ * @param {Actor} target
+ *
+ * @param {number} amount
+ *
+ * @param {boolean} critical
+ *
+ * @returns {Promise<object>}
+ */
+async function destabilise(target, amount, critical) {
+   const sh = target.system.shields;
+   const shieldsBefore = sh.value;
+   if (sh.max > 0 && (!sh.down || sh.value > 0)) await target.update({ "system.shields.value": 0, "system.shields.down": true });
+   const record = await applyCraftDamage(target, { total: amount });
+   Object.assign(record, { shieldsBefore, shieldsAfter: 0, collapsed: sh.max > 0, toShields: 0, destabilised: true });
+   if (record.destroyed) return record;
+   if (!target.system.isShip) {
+      record.disabled = true;
+      return record;
+   }
+   const refs = FIXED_KINDS.map((kind) => ({ kind }));
+   const kinds = critical ? ["internal", "utility"] : ["internal"];
+   target.system.components.forEach((c, index) => {
+      if (kinds.includes(c.kind)) refs.push({ kind: c.kind, name: c.name, index });
+   });
+   if (critical) for (const w of target.itemTypes.craftWeapon) refs.push({ kind: "weapon", name: w.name, item: w.id });
+   record.components = [];
+   for (const ref of refs) record.components.push(await damageComponent(target, ref, amount));
+   return record;
 }
 
 /**

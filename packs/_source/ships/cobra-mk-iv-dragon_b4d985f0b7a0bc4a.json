@@ -1,0 +1,446 @@
+{
+  "_id": "b4d985f0b7a0bc4a",
+  "_key": "!actors!b4d985f0b7a0bc4a",
+  "name": "Cobra Mk IV – Dragon",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/cobra-mk-iv-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 33.1m x W 48.1m x H 8.6m",
+    "landingPad": "Small",
+    "crewSize": 12,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "48T",
+    "range": "15LY",
+    "fuel": "16T (160LY)",
+    "cost": "7,431,330cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 3,
+    "speed": 5,
+    "maxSpeed": 5,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 265,
+      "max": 265
+    },
+    "shields": {
+      "value": 200,
+      "max": 200,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4A",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "15.6MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4D",
+        "kind": "thrusters",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "+1 to Speed",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4B",
+        "kind": "fsd",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Range 15LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3B",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "2 floating bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3D",
+        "kind": "sensors",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+1 General Scan, +1 to Initiative",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "+25% Shield Boost",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "4A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Shield Power 160",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "3D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "+65 Hull",
+        "item": ""
+      },
+      {
+        "name": "3E Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "+15 Str/All",
+        "item": ""
+      },
+      {
+        "name": "2H Planetary Vehicle Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Vehicle Bays 1",
+        "item": ""
+      },
+      {
+        "name": "1D Intermediate Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Str25, Range 1000LS",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 2,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Cobra Mk IV – Dragon",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/cobra-mk-iv-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "429277fb6e705031",
+      "_key": "!actors.items!b4d985f0b7a0bc4a.429277fb6e705031",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "fbb4322a200b37cd",
+      "_key": "!actors.items!b4d985f0b7a0bc4a.fbb4322a200b37cd",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "39fc237fb55aebaa",
+      "_key": "!actors.items!b4d985f0b7a0bc4a.39fc237fb55aebaa",
+      "name": "Small Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 10,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "c6b4f8b772315f77",
+      "_key": "!actors.items!b4d985f0b7a0bc4a.c6b4f8b772315f77",
+      "name": "Small Fixed Rail Gun",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 0,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 10,
+          "max": 10
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "47c2d9e3c80b35d5",
+      "_key": "!actors.items!b4d985f0b7a0bc4a.47c2d9e3c80b35d5",
+      "name": "Small Fixed Rail Gun",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 0,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 10,
+          "max": 10
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "b82858fda7dcf5ac",
+  "sort": 5300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

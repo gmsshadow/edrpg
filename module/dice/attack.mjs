@@ -230,6 +230,7 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       isExplosive,
       burstLabel: s.burstLabel ?? "",
       burst: s.burst ? { kind: s.burst.kind, max: s.burst.max } : { kind: "none", max: "" },
+      special: s.special ? { ...s.special } : null,
       band: s.isMelee || isGrenade ? null : opts.band,
       // Damage at this range: some weapons (shotguns) do less at medium and long range.
       damage: (!s.isMelee && opts.band && s.rangeDamage?.[opts.band]) || s.damage || "",

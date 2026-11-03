@@ -104,6 +104,21 @@
    <label class="ed-check">{{> check name="system.divideFire" value=source.divideFire}} {{localize "EDRPG.weapon.divideFire"}}</label>
    {{#if onActor}}<label class="ed-check">{{> check name="system.equipped" value=source.equipped}} {{localize "EDRPG.equipment.Equipped"}}</label>{{/if}}
 </div>
+<div class="ed-item-grid">
+   <div class="form-group">
+      <label>{{localize "EDRPG.weapon.burstType"}}</label>
+      <div class="form-fields"><select name="system.special.burstType" {{#unless editable}}disabled{{/unless}}>{{selectOptions damageTypes selected=source.special.burstType blank=(localize "EDRPG.weapon.sameType") localize=true}}</select></div>
+   </div>
+   <div class="form-group">
+      <label>{{localize "EDRPG.weapon.ignoresArmour"}}</label>
+      <div class="form-fields"><select name="system.special.ignoresArmour" {{#unless editable}}disabled{{/unless}}>{{selectOptions damageTypes selected=source.special.ignoresArmour blank="—" localize=true}}</select></div>
+   </div>
+</div>
+<div class="ed-item-grid three">
+   <label class="ed-check">{{> check name="system.special.destroysArmour" value=source.special.destroysArmour}} {{localize "EDRPG.weapon.destroysArmour"}}</label>
+   <label class="ed-check">{{> check name="system.special.doubleVsRobots" value=source.special.doubleVsRobots}} {{localize "EDRPG.weapon.doubleVsRobots"}}</label>
+   <label class="ed-check">{{> check name="system.special.molten" value=source.special.molten}} {{localize "EDRPG.weapon.molten"}}</label>
+</div>
 <div class="form-group">
    <label>{{localize "EDRPG.sheet.notes"}}</label>
    <div class="form-fields"><input type="text" name="system.notes" value="{{source.notes}}" {{#unless editable}}disabled{{/unless}}></div>
@@ -140,6 +155,7 @@
    <label class="ed-check">{{> check name="system.toxicAll" value=source.toxicAll}} {{localize "EDRPG.armour.toxicAll"}}</label>
    <div class="form-group"><label>{{localize "EDRPG.armour.hardened"}}</label><div class="form-fields">{{> num name="system.hardened" value=source.hardened}}</div></div>
    <label class="ed-check">{{> check name="system.spaceSuit" value=source.spaceSuit}} {{localize "EDRPG.clothing.spaceSuit"}}</label>
+   <label class="ed-check" data-tooltip="EDRPG.armour.destroyedHint">{{> check name="system.destroyed" value=source.destroyed}} {{localize "EDRPG.armour.destroyed"}}</label>
 </div>
 <div class="form-group">
    <label>{{localize "EDRPG.sheet.notes"}}</label>
@@ -172,6 +188,26 @@
    {{#if (eq source.category "ammo")}}<div class="form-group"><label>{{localize "EDRPG.gear.ammoFor"}}</label><div class="form-fields"><input type="text" name="system.ammoFor" value="{{source.ammoFor}}" {{#unless editable}}disabled{{/unless}}></div></div>{{/if}}
    {{#if onActor}}<label class="ed-check">{{> check name="system.active" value=source.active}} {{localize "EDRPG.gear.active"}}</label>{{/if}}
 </div>
+{{#if (or (or (eq source.category "shield") (eq source.category "alien")) source.rounds.max)}}
+<h2 class="section-title"><span>{{localize "EDRPG.gear.power"}}</span></h2>
+<div class="ed-item-grid">
+   <div class="form-group"><label>{{localize "EDRPG.gear.rounds"}}</label><div class="form-fields">{{> num name="system.rounds.value" value=source.rounds.value}} <span>/</span> {{> num name="system.rounds.max" value=source.rounds.max}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.gear.regenerate"}}</label><div class="form-fields">{{> num name="system.regenerate" value=source.regenerate}}</div></div>
+</div>
+<p class="hint">{{localize "EDRPG.gear.powerHint"}}</p>
+{{/if}}
+{{#if (eq source.category "shield")}}
+<h2 class="section-title"><span>{{localize "EDRPG.shield.title"}}</span></h2>
+<div class="ed-item-grid">
+   <div class="form-group"><label>{{localize "EDRPG.shield.value"}}</label><div class="form-fields">{{> num name="system.shield.value" value=source.shield.value}} <span>/</span> {{> num name="system.shield.max" value=source.shield.max}}</div></div>
+   <div class="form-group"><label>{{localize "EDRPG.shield.rechargeLabel"}}</label><div class="form-fields">{{> num name="system.shield.recharge" value=source.shield.recharge}}</div></div>
+   <label class="ed-check">{{> check name="system.shield.down" value=source.shield.down}} {{localize "EDRPG.shield.down"}}</label>
+</div>
+<div class="ed-item-grid four">
+   {{#each shieldBlocks as |b|}}<label class="ed-check">{{> check name=(concat "system.shield.blocks." b.key) value=b.value}} {{localize b.label}}</label>{{/each}}
+</div>
+<p class="hint">{{localize "EDRPG.shield.hint"}}</p>
+{{/if}}
 <div class="form-group">
    <label>{{localize "EDRPG.sheet.notes"}}</label>
    <div class="form-fields"><input type="text" name="system.notes" value="{{source.notes}}" {{#unless editable}}disabled{{/unless}}></div>
@@ -215,6 +251,7 @@
    <label class="ed-check">{{> check name="system.discreet" value=source.discreet}} {{localize "EDRPG.armour.discreet"}}</label>
    {{#if source.discreet}}<label class="ed-check">{{> check name="system.wornOpenly" value=source.wornOpenly}} {{localize "EDRPG.armour.wornOpenly"}}</label>{{/if}}
    {{#if onActor}}<label class="ed-check">{{> check name="system.worn" value=source.worn}} {{localize "EDRPG.equipment.Worn"}}</label>{{/if}}
+   <label class="ed-check" data-tooltip="EDRPG.armour.destroyedHint">{{> check name="system.destroyed" value=source.destroyed}} {{localize "EDRPG.armour.destroyed"}}</label>
 </div>
 <p class="hint">{{localize "EDRPG.armour.hint"}}</p>
 {{/if}}

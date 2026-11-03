@@ -1,0 +1,30 @@
+{
+  "_id": "9a8bc53d2055ed8f",
+  "_key": "!items!9a8bc53d2055ed8f",
+  "name": "Hunter",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> When making an attack roll against an Alien Animal or Biomod, add your Survival bonus to the roll as well as the weapon Skill bonus.</p><p><em>Exploration Supplement</em></p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 1,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "ad162389c5b6c402",
+  "sort": 4500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

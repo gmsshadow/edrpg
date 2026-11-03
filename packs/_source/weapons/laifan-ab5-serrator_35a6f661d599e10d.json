@@ -51,6 +51,13 @@
     "divideFire": true,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "On a natural 1 To Hit the weapon deals 10 Energy damage to its user.",
     "equipped": false
   },

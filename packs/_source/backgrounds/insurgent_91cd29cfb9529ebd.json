@@ -1,0 +1,40 @@
+{
+  "_id": "91cd29cfb9529ebd",
+  "_key": "!items!91cd29cfb9529ebd",
+  "name": "Insurgent",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Bluff +20, Fighting +10, Security +10, Stealth +10</p><p><em>Espionage Supplement</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bluff",
+        "bonus": 20
+      },
+      {
+        "skill": "fighting",
+        "bonus": 10
+      },
+      {
+        "skill": "security",
+        "bonus": 10
+      },
+      {
+        "skill": "stealth",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "28abc93c14fdf9c6",
+  "sort": 5500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

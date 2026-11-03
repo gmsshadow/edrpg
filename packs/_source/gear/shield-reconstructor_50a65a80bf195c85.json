@@ -1,0 +1,55 @@
+{
+  "_id": "50a65a80bf195c85",
+  "_key": "!items!50a65a80bf195c85",
+  "name": "Shield Reconstructor",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>Spaceship utility mount. An Equipment action restores the ship's shields to full and drains its Alien Power Cell. Holds one cell; reloading takes at least ten minutes. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week).</p><p><em>Exploration Supplement</em></p>",
+    "cost": "35,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "alien",
+    "quantity": 1,
+    "uses": {
+      "value": 1,
+      "max": 1
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Spaceship utility mount. An Equipment action restores the ship's shields to full and drains its Alien Power Cell. Holds one cell; reloading takes at least ten minutes. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week).",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 8300,
+  "effects": [],
+  "folder": "8ea7456e256b46f7",
+  "ownership": {
+    "default": 0
+  }
+}

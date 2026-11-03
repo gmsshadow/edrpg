@@ -1,0 +1,436 @@
+{
+  "_id": "afaab3ce4e6b138e",
+  "_key": "!actors!afaab3ce4e6b138e",
+  "name": "Cobra Mk IV – Holdfast",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/cobra-mk-iv-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 33.1m x W 48.1m x H 8.6m",
+    "landingPad": "Small",
+    "crewSize": 12,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "72T",
+    "range": "14LY",
+    "fuel": "16T (160LY)",
+    "cost": "1,233,530cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 3,
+    "speed": 5,
+    "maxSpeed": 5,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 100,
+      "max": 100
+    },
+    "shields": {
+      "value": 115,
+      "max": 115,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "10.4MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4D",
+        "kind": "thrusters",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+1 to Speed",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4C",
+        "kind": "fsd",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Range 14LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3D",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "1 floating bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3D",
+        "kind": "sensors",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "+1 General Scan, +1 to Initiative",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "4D Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Power 115",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8T",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Str30, Capacity 8T",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4T",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4T",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 1,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Cobra Mk IV – Holdfast",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/cobra-mk-iv-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "e02f40031f44ece1",
+      "_key": "!actors.items!afaab3ce4e6b138e.e02f40031f44ece1",
+      "name": "Medium Gimballed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "e4cb1d2892cecb5c",
+      "_key": "!actors.items!afaab3ce4e6b138e.e4cb1d2892cecb5c",
+      "name": "Medium Gimballed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b3b6d804a6820558",
+      "_key": "!actors.items!afaab3ce4e6b138e.b3b6d804a6820558",
+      "name": "Small Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5819c3f638cbe587",
+      "_key": "!actors.items!afaab3ce4e6b138e.5819c3f638cbe587",
+      "name": "Small Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "f649dceb646bf907",
+      "_key": "!actors.items!afaab3ce4e6b138e.f649dceb646bf907",
+      "name": "Small Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "b82858fda7dcf5ac",
+  "sort": 5100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

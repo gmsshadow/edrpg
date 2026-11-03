@@ -51,6 +51,13 @@
     "divideFire": false,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "After using it you cannot use the Dodge defence until the start of your next turn.",
     "equipped": false
   },

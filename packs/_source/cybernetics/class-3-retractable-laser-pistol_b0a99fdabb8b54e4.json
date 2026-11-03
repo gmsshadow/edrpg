@@ -37,7 +37,9 @@
     "uses": {
       "value": null,
       "max": null
-    }
+    },
+    "rollBonuses": [],
+    "destroyed": false
   },
   "flags": {
     "edrpg": {

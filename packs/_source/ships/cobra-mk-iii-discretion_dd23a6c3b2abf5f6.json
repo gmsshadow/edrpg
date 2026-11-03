@@ -314,7 +314,7 @@
     {
       "_id": "41b0c1249b709ea9",
       "_key": "!actors.items!dd23a6c3b2abf5f6.41b0c1249b709ea9",
-      "name": "Small Fixed Multi cannon",
+      "name": "Small Fixed Multi-Cannon",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {
@@ -351,7 +351,7 @@
     {
       "_id": "ec20e3095011ff88",
       "_key": "!actors.items!dd23a6c3b2abf5f6.ec20e3095011ff88",
-      "name": "Small Fixed Multi cannon",
+      "name": "Small Fixed Multi-Cannon",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {

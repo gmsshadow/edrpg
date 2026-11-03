@@ -1,0 +1,55 @@
+{
+  "_id": "5a25ef5b84817b01",
+  "_key": "!items!5a25ef5b84817b01",
+  "name": "Personal Shield Generator, A Grade",
+  "type": "gear",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Shield 60. Absorbs damage like a ship's shields, recharging 5 at the start of your turn; once knocked down it charges back up to half strength first. The battery lasts 1 minute (10 rounds); spare batteries weigh 10kg and take a minute to change. Switching it on or off isn't an action (not both in one round). While it's on: no pack, no Parry, no Fighting attacks, and switch it off to handle anything not on your person or squeeze through a gap under 120cm.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "19,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "shield",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Shield 60. Absorbs damage like a ship's shields, recharging 5 at the start of your turn; once knocked down it charges back up to half strength first. The battery lasts 1 minute (10 rounds); spare batteries weigh 10kg and take a minute to change. Switching it on or off isn't an action (not both in one round). While it's on: no pack, no Parry, no Fighting attacks, and switch it off to handle anything not on your person or squeeze through a gap under 120cm.",
+    "shield": {
+      "value": 60,
+      "max": 60,
+      "recharge": 5,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 10,
+      "max": 10
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Personal Shields"
+    }
+  },
+  "sort": 7400,
+  "effects": [],
+  "folder": "3e81ed3254f95eb4",
+  "ownership": {
+    "default": 0
+  }
+}

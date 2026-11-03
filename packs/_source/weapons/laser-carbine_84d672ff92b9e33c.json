@@ -1,0 +1,75 @@
+{
+  "_id": "84d672ff92b9e33c",
+  "_key": "!items!84d672ff92b9e33c",
+  "name": "Laser Carbine",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr. 50cr with an underslung grenade launcher (use the Underslung Grenade Launcher).</p><p><em>Military Sourcebook</em></p>",
+    "cost": "10cr",
+    "rarity": "common",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "16m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "100m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "300m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "kinetic",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr. 50cr with an underslung grenade launcher (use the Underslung Grenade Launcher).",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Military Sourcebook/Laser Carbines"
+    }
+  },
+  "sort": 8700,
+  "effects": [],
+  "folder": "e48fc94b42116cef",
+  "ownership": {
+    "default": 0
+  }
+}

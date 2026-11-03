@@ -1,0 +1,37 @@
+{
+  "_id": "a0bc7c219cfc36a6",
+  "_key": "!items!a0bc7c219cfc36a6",
+  "name": "Castaway",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Survival +20, Melee Weapons +10</p><p><strong>Enhancement:</strong> Survivalist</p><p><em>Exploration Supplement</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "survival",
+        "bonus": 20
+      },
+      {
+        "skill": "meleeWeapons",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [
+      {
+        "name": "Survivalist",
+        "skill": ""
+      }
+    ],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "e3c2005099e33eca",
+  "sort": 5800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

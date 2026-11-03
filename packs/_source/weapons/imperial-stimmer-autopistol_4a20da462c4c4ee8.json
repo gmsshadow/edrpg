@@ -51,6 +51,13 @@
     "divideFire": false,
     "attackBonus": 5,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "Injects Combat Stims (80%) when you reach 0 Endurance.",
     "equipped": false
   },

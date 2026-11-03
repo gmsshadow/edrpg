@@ -51,6 +51,13 @@
     "divideFire": false,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "At short range, knocks the target over on a natural 8, 9 or 10 To Hit. On a natural 1 To Hit it malfunctions and needs three hours' servicing.",
     "equipped": false
   },

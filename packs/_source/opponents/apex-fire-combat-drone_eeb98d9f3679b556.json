@@ -7,6 +7,7 @@
   "system": {
     "rank": "expert",
     "role": "Drone",
+    "robotic": true,
     "dodge": 5,
     "parry": null,
     "initiative": 3,
@@ -87,6 +88,13 @@
         "divideFire": true,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 5
@@ -152,6 +160,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "Direct-fire explosive. Uses the Grenade skill.",
         "equipped": true,
         "toHit": 5

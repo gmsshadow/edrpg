@@ -1,0 +1,44 @@
+{
+  "_id": "61d9e932e29b96c2",
+  "_key": "!items!61d9e932e29b96c2",
+  "name": "Wage Slave",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Bargain +10, Computer +10, Culture & Law +10, Diplomacy +10, Security +10</p><p><em>Espionage Supplement</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bargain",
+        "bonus": 10
+      },
+      {
+        "skill": "computer",
+        "bonus": 10
+      },
+      {
+        "skill": "cultureLaw",
+        "bonus": 10
+      },
+      {
+        "skill": "diplomacy",
+        "bonus": 10
+      },
+      {
+        "skill": "security",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "28abc93c14fdf9c6",
+  "sort": 5400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

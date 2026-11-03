@@ -88,7 +88,7 @@ export function bestArmour(actor, type) {
    let best = null;
    // Worn armour, Armoured Carapace cybernetics, and the Environment Suit's Toxic resistance.
    const protective = [
-      ...(actor.itemTypes?.armour ?? []).filter((a) => a.system.worn),
+      ...(actor.itemTypes?.armour ?? []).filter((a) => a.system.worn && !a.system.destroyed),
       ...(actor.itemTypes?.cybernetic ?? []).filter((c) => c.system.isArmour),
    ];
    if (type === "toxic") {
@@ -150,6 +150,7 @@ export async function rollDamage(attack, attacker) {
       explosive: !!attack.isExplosive,
       // A free attack (point blank / running away) that knocks the target over ends their turn (p.60).
       free: !!attack.free,
+      special: attack.special ? { ...attack.special } : null,
       amounts: [],
       applied: [],
    };
@@ -177,8 +178,9 @@ export async function rollDamage(attack, attacker) {
       }
       const extra = burstExtra(attack.burst, attack.margin);
       let burstTotal = 0;
+      let burstRoll = null;
       if (extra?.dice) {
-         const burstRoll = await new Roll(`${extra.dice}d10`).evaluate();
+         burstRoll = await new Roll(`${extra.dice}d10`).evaluate();
          rolls.push(burstRoll);
          burstTotal = burstRoll.total;
          state.burst = { formula: `${extra.dice}D10`, total: burstTotal };
@@ -191,14 +193,33 @@ export async function rollDamage(attack, attacker) {
       if (strong) state.strong = strong;
       let total = state.base.total + burstTotal + strong;
       if (state.divided) total = Math.floor(total / 2);
-      const tenCount = d10Results(...rolls).filter((r) => r === 10).length;
+      // Laser Carbines: the Burst is a different damage type (kinetic), absorbed separately (Military Sourcebook p.39).
+      const burstType = state.special?.burstType;
+      let parts = null;
+      if (burstType && burstType !== attack.damageType && burstTotal > 0) {
+         const half = (n) => (state.divided ? Math.floor(n / 2) : n);
+         parts = [
+            { type: attack.damageType, value: half(state.base.total + strong) },
+            { type: burstType, value: half(burstTotal) },
+         ];
+         total = parts[0].value + parts[1].value;
+         state.burstType = burstType;
+      }
+      // A 10 knocks the target over, unless the die is Energy damage.
+      const baseTens = d10Results(roll).filter((r) => r === 10).length;
+      const burstTens = d10Results(burstRoll).filter((r) => r === 10).length;
+      const knockType = (type) => type !== "energy";
+      const tenCount = baseTens + burstTens;
+      const knockTens = (knockType(attack.damageType) ? baseTens : 0) + (knockType(burstType || attack.damageType) ? burstTens : 0);
       const tens = tenCount > 0;
       state.tens = tens;
-      state.tenCount = tenCount;
-      state.knock = tens && attack.damageType !== "energy";
-      state.noKnockEnergy = tens && attack.damageType === "energy";
+      state.tenCount = knockTens;
+      state.knock = knockTens > 0;
+      state.noKnockEnergy = tens && !knockTens;
       state.dice = d10Results(...rolls);
-      state.amounts.push({ key: "hit", value: total, label: game.i18n.localize("EDRPG.damage.title") });
+      // Rail Rifles' molten munitions: each damage die showing a 1 burns for 1D10 Energy next turn (p.40).
+      if (state.special?.molten) state.molten = state.dice.filter((r) => r === 1).length;
+      state.amounts.push({ key: "hit", value: total, label: game.i18n.localize("EDRPG.damage.title"), parts });
    }
 
    const messageData = {
@@ -225,6 +246,7 @@ export async function renderDamageCard(state) {
       applied: state.applied.map((a) => ({
          ...a,
          stimText: a.stim ? stimText(a.name, a.stim) : null,
+         armourDestroyedText: (a.armourDestroyed ?? []).join(", "),
          flags: [
             a.knocked && !a.stayedStanding && !a.conditions.includes("dead") ? "EDRPG.status.knockedOver" : null,
             a.stayedStanding ? "EDRPG.damage.stayedStanding" : null,
@@ -256,30 +278,94 @@ export async function renderDamageCard(state) {
  *
  * @returns {Promise<object>}  A record of what happened, for the card.
  */
-export async function applyDamage(actor, { amount, damageType, knock = false, isFighting = false }) {
-   const armour = bestArmour(actor, damageType);
-   let absorb = 0;
-   let hardened = null;
+export async function applyDamage(actor, { amount, damageType, parts = null, special = null, knock = false, isFighting = false }) {
+   parts = (parts?.length ? parts : [{ type: damageType, value: amount }]).map((p) => ({ ...p }));
+   // Anti-Material Projectors: Robots and Drones take double damage.
+   const doubled = !!special?.doubleVsRobots && !!actor.system.robotic;
+   if (doubled) for (const p of parts) p.value *= 2;
+   const total = parts.reduce((n, p) => n + p.value, 0);
    const rolls = [];
-   if (armour) {
-      absorb = armour.all ? amount : armour.absorb;
-      if (armour.hardened && !armour.all) {
-         const r = await new Roll("1d10").evaluate();
-         rolls.push(r);
-         hardened = { roll: r.total, target: armour.hardened, doubled: r.total >= armour.hardened };
-         if (hardened.doubled) absorb *= 2;
+
+   // A personal shield takes the damage first, like a ship's shields; what gets through carries on (Espionage p.28).
+   const shieldItem = (actor.itemTypes?.gear ?? []).find((g) => g.system.shieldUp);
+   let shield = null;
+   if (shieldItem) {
+      const sh = shieldItem.system.shield;
+      const shieldBefore = sh.value;
+      let left = sh.value;
+      let absorbed = 0;
+      for (const p of parts) {
+         if (!sh.blocks[p.type] || !left) continue;
+         const take = Math.min(left, p.value);
+         p.value -= take;
+         left -= take;
+         absorbed += take;
+         p.shielded = true;
+      }
+      if (absorbed) {
+         const collapsed = left <= 0;
+         await shieldItem.update({ "system.shield.value": left, ...(collapsed ? { "system.shield.down": true } : {}) });
+         shield = { name: shieldItem.name, before: shieldBefore, after: left, absorbed, collapsed };
       }
    }
-   const taken = Math.max(amount - absorb, damageType === "toxic" ? 0 : 1);
+
+   // Armour absorbs each damage type separately; one Hardened roll per piece of armour.
+   const destroys = !!special?.destroysArmour;
+   const hardenedRolls = new Map();
+   let firstArmour = null;
+   let hardened = null;
+   let absorbedTotal = 0;
+   let taken = 0;
+   for (const p of parts) {
+      if (p.value <= 0) {
+         p.taken = 0;
+         continue;
+      }
+      const ignored = destroys || (special?.ignoresArmour && special.ignoresArmour === p.type);
+      const armour = ignored ? null : bestArmour(actor, p.type);
+      let absorb = 0;
+      if (armour) {
+         absorb = armour.all ? p.value : armour.absorb;
+         if (armour.hardened && !armour.all) {
+            if (!hardenedRolls.has(armour.name)) {
+               const r = await new Roll("1d10").evaluate();
+               rolls.push(r);
+               hardenedRolls.set(armour.name, { roll: r.total, target: armour.hardened, doubled: r.total >= armour.hardened });
+            }
+            p.hardened = hardenedRolls.get(armour.name);
+            if (p.hardened.doubled) absorb *= 2;
+         }
+         p.armour = { name: armour.name, absorb: armour.all ? p.value : armour.absorb };
+         firstArmour ??= p.armour;
+         hardened ??= p.hardened ?? null;
+      }
+      if (ignored && !destroys) p.ignored = true;
+      p.absorbed = Math.min(absorb, p.value);
+      absorbedTotal += p.absorbed;
+      p.taken = Math.max(p.value - absorb, p.type === "toxic" ? 0 : 1);
+      taken += p.taken;
+   }
+   const gotThrough = parts.some((p) => p.value > 0);
+
+   // The Anti-Material Projector's hit leaves the target's armour (and any Armoured Carapace) useless until repaired.
+   const destroyed = [];
+   if (destroys && gotThrough) {
+      for (const item of [...(actor.itemTypes?.armour ?? []).filter((a) => a.system.worn && !a.system.destroyed), ...(actor.itemTypes?.cybernetic ?? []).filter((c) => c.system.isArmour)]) {
+         await item.update({ "system.destroyed": true });
+         destroyed.push(item.name);
+      }
+   }
+
    const before = actor.system.endurance.value;
    const after = before - taken;
    const statusesBefore = Object.values(STATUS).filter((id) => has(actor, id));
    const dyingBefore = actor.getFlag("edrpg", "dying") ?? null;
 
-   await actor.update({ "system.endurance.value": after });
+   if (taken) await actor.update({ "system.endurance.value": after });
    // Taking damage spoils an aim (Core Rules p.61).
    if (taken > 0 && has(actor, STATUS.aiming)) await actor.toggleStatusEffect(STATUS.aiming, { active: false });
-   const conditions = await updateCondition(actor, after, { knock, isFighting, cauterised: damageType === "energy", wounded: taken > 0 });
+   const cauterised = parts.some((p) => p.taken > 0 && p.type === "energy") && !parts.some((p) => p.taken > 0 && p.type !== "energy");
+   const conditions = await updateCondition(actor, after, { knock: knock && gotThrough, isFighting, cauterised, wounded: taken > 0 });
    if (rolls.length && game.dice3d) for (const r of rolls) game.dice3d.showForRoll(r, game.user, true);
    // Dropped: an automatic Stim injector may fire (p.130).
    let stim = null;
@@ -292,15 +378,21 @@ export async function applyDamage(actor, { amount, damageType, knock = false, is
    return {
       uuid: actor.uuid,
       name: actor.name,
-      amount,
-      armour: armour ? { name: armour.name, absorb: armour.all ? amount : armour.absorb } : null,
-      hardened,
-      absorbed: Math.min(absorb, amount),
+      amount: total,
+      doubled,
+      shield,
+      parts: parts.length > 1 ? parts.map((p) => ({ ...p, typeLabel: `EDRPG.damage.${p.type}` })) : null,
+      ignored: parts.length === 1 && !!parts[0].ignored,
+      armour: parts.length === 1 ? (parts[0].armour ?? null) : firstArmour,
+      hardened: parts.length === 1 ? (parts[0].hardened ?? null) : hardened,
+      absorbed: absorbedTotal,
+      armourDestroyed: destroyed,
+      gotThrough,
       taken,
       before,
       after,
       max: actor.system.endurance.max,
-      knocked: knock,
+      knocked: knock && gotThrough,
       conditions,
       stim,
       statusesBefore,
@@ -602,11 +694,22 @@ async function execute(action) {
          const record = await applyDamage(actor, {
             amount: amount.value,
             damageType: state.damageType,
+            parts: amount.parts,
+            special: state.special,
             knock,
             isFighting: state.isFighting,
          });
+         // Molten munitions: the target burns at the start of its next turn.
+         if (state.molten && record.gotThrough) {
+            await actor.setFlag("edrpg", "molten", (actor.getFlag("edrpg", "molten") ?? 0) + state.molten);
+            record.molten = state.molten;
+         }
          if (state.knock && !knock) record.resisted = true;
          record.amountKey = amount.key;
+         // Vengeful (Super Traders Supplement): an enemy attack drops you to 1–9 Endurance → an immediate attack back.
+         if (actor.system.enhancements?.vengeful && record.after >= 1 && record.after <= 9 && record.before > record.after && state.actorName) {
+            record.vengeful = state.actorName;
+         }
          state.applied.push(record);
       }
    } else if (action.type === "escapeDeath" || action.type === "stayStanding") {
@@ -626,6 +729,83 @@ async function execute(action) {
    await message.update({ content: await renderDamageCard(state), "flags.edrpg.damage": state });
 }
 
+/**
+ * Start of the wearer's turn, for powered gear that is switched on: a personal shield recharges (while knocked down
+ * it charges back up to half strength first, like a ship's shields), a Cellular Regeneration Emitter heals, and the
+ * battery or power cell runs down a round.
+ *
+ * @param {Actor} actor
+ */
+export async function startOfTurnGear(actor) {
+   for (const item of actor.itemTypes?.gear ?? []) {
+      const s = item.system;
+      if (!s.active || s.location !== "carried" || !(s.isShield || s.regenerate || s.rounds.max)) continue;
+      const update = {};
+      const notes = [];
+      if (s.isShield) {
+         const sh = s.shield;
+         const value = Math.min(sh.max, sh.value + sh.recharge);
+         const half = Math.ceil(sh.max / 2);
+         if (sh.down) {
+            update["system.shield.value"] = value;
+            if (value >= half) {
+               update["system.shield.down"] = false;
+               notes.push(game.i18n.format("EDRPG.shield.back", { value }));
+            } else notes.push(game.i18n.format("EDRPG.shield.charging", { value, need: half }));
+         } else if (value !== sh.value) {
+            update["system.shield.value"] = value;
+            notes.push(game.i18n.format("EDRPG.shield.recharge", { before: sh.value, value }));
+         }
+      }
+      // Cellular Regeneration Emitter: recover Endurance (and wake up at 1 or more).
+      if (s.regenerate) {
+         const endurance = actor.system.endurance;
+         if (endurance && endurance.value < endurance.max) {
+            await heal(actor, s.regenerate, item.name);
+         }
+      }
+      if (s.rounds.max > 0) {
+         const left = Math.max(0, s.rounds.value - 1);
+         update["system.rounds.value"] = left;
+         if (left === 0) {
+            update["system.active"] = false;
+            notes.push(game.i18n.localize("EDRPG.gear.drained"));
+         }
+      }
+      if (Object.keys(update).length) await item.update(update);
+      if (notes.length) {
+         await ChatMessage.create({
+            speaker: ChatMessage.getSpeaker({ actor }),
+            content: `<div class="edrpg edrpg-chat edrpg-condition"><p><strong>${foundry.utils.escapeHTML(item.name)}</strong>: ${notes.join(" ")}</p></div>`,
+         });
+      }
+   }
+}
+
+/**
+ * Molten munitions: 1D10 Energy damage per die that showed a 1, at the start of the target's next turn, then the
+ * metal cools.
+ *
+ * @param {Actor} actor
+ */
+async function moltenBurn(actor) {
+   const dice = actor.getFlag("edrpg", "molten");
+   if (!dice) return;
+   await actor.unsetFlag("edrpg", "molten");
+   await rollDamage(
+      {
+         actorUuid: actor.uuid,
+         actorName: "",
+         weaponName: game.i18n.localize("EDRPG.damage.moltenName"),
+         damageType: "energy",
+         damage: `${dice}d10`,
+         targetUuid: actor.uuid,
+         targetName: actor.name,
+      },
+      actor,
+   );
+}
+
 /** Socket listener and hooks (call once, at `ready`). */
 export function registerDamageHooks() {
    game.socket.on(SOCKET, async (data) => {
@@ -643,7 +823,10 @@ export function registerDamageHooks() {
          if (result) await postStimMessage(previous, result);
       }
       const actor = combat.combatant?.actor;
-      if (actor && has(actor, STATUS.bleeding)) bleedOut(actor);
+      if (!actor) return;
+      await startOfTurnGear(actor);
+      await moltenBurn(actor);
+      if (has(actor, STATUS.bleeding)) bleedOut(actor);
    });
 }
 

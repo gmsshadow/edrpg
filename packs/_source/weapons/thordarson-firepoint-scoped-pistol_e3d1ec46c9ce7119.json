@@ -1,0 +1,75 @@
+{
+  "_id": "e3d1ec46c9ce7119",
+  "_key": "!items!e3d1ec46c9ce7119",
+  "name": "Thordarson Firepoint Scoped Pistol",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p><em>Espionage Supplement</em></p>",
+    "cost": "305,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "70m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "120m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 8,
+      "max": 8
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 20,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Heavy Pistols"
+    }
+  },
+  "sort": 8500,
+  "effects": [],
+  "folder": "f20b16aa8a7b306a",
+  "ownership": {
+    "default": 0
+  }
+}

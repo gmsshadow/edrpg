@@ -1,0 +1,30 @@
+{
+  "_id": "cd5519411b46bc88",
+  "_key": "!items!cd5519411b46bc88",
+  "name": "Don't Give Out on Me Yet!",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> A component has just been reduced to 0 Strength by a critical hit.</p><p><strong>Effect:</strong> The component is reduced to 5 Strength instead, and still functions.</p><p><em>Exploration Supplement</em></p>",
+    "role": "defensive",
+    "category": "spaceship",
+    "cost": 5,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "ad162389c5b6c402",
+  "sort": 4800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,30 @@
+{
+  "_id": "edac211bb1aa17da",
+  "_key": "!items!edac211bb1aa17da",
+  "name": "Rapid Deployment",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You are flying a fighter that has just launched, or one has just launched from your hangar.</p><p><strong>Effect:</strong> The ship-launched fighter takes its turn immediately (use it yourself, or grant it to the fighter). After this free turn, roll Initiative for the fighter as normal and resume the mothership's turn.</p><p><em>Super Traders Supplement</em></p>",
+    "role": "offensive",
+    "category": "spaceship",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "a737a1b99f6ceb01",
+  "sort": 5400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

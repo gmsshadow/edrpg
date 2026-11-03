@@ -1,0 +1,84 @@
+{
+  "_id": "1ec7ae1efc35911c",
+  "_key": "!items!1ec7ae1efc35911c",
+  "name": "Leonis Hacker Pistol",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>+10 Computer and Security score while equipped; combines with assistant hacks.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "695,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "8m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "110m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 8,
+      "max": 8
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 10,
+    "skillMods": [
+      {
+        "skill": "computer",
+        "value": 10
+      },
+      {
+        "skill": "security",
+        "value": 10
+      }
+    ],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "+10 Computer and Security score while equipped; combines with assistant hacks.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Heavy Pistols"
+    }
+  },
+  "sort": 8600,
+  "effects": [],
+  "folder": "f20b16aa8a7b306a",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "_id": "a5832be7a8ac335d",
+  "_key": "!items!a5832be7a8ac335d",
+  "name": "Krayton KX Heavy Carbine",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr. Can only be fired from a braced position.</p><p><em>Military Sourcebook</em></p>",
+    "cost": "2,200,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "energy",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "16m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "100m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "300m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "15",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "heavy",
+      "max": "8d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "kinetic",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr. Can only be fired from a braced position.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Military Sourcebook/Laser Carbines"
+    }
+  },
+  "sort": 9000,
+  "effects": [],
+  "folder": "e48fc94b42116cef",
+  "ownership": {
+    "default": 0
+  }
+}

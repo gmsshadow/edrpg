@@ -7,6 +7,7 @@
   "system": {
     "rank": "dangerous",
     "role": "High Threat Drone",
+    "robotic": true,
     "dodge": null,
     "parry": null,
     "initiative": 4,
@@ -60,7 +61,8 @@
         "socialFactor": 0,
         "skillMods": [],
         "enhancement": "",
-        "worn": true
+        "worn": true,
+        "destroyed": false
       },
       "flags": {},
       "effects": [],
@@ -123,6 +125,13 @@
         "divideFire": true,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 7
@@ -188,6 +197,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "The firer is knocked over unless the weapon is tripod mounted.",
         "equipped": true,
         "toHit": 8
@@ -253,6 +269,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 7

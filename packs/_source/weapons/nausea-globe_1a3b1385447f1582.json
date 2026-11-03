@@ -1,0 +1,75 @@
+{
+  "_id": "1a3b1385447f1582",
+  "_key": "!items!1a3b1385447f1582",
+  "name": "Nausea Globe",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Thrown; set its radius anywhere from 6m to 80m. Living creatures in the area lose their combat action and roll a D10: on an odd number they also lose their move action and take that much damage. Anything more complex than staggering away needs a Tactics check (10). Afterwards they add no Skill bonuses to checks or attacks until 24 hours' rest or a Medicine check (13). No effect on Drones, Robots or pressurised vehicles. Runs an hour at 6m, two minutes at 80m; can't be switched off. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "8,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "grenade",
+    "damageType": "explosive",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "",
+        "dn": null
+      },
+      "medium": {
+        "distance": "",
+        "dn": null
+      },
+      "long": {
+        "distance": "",
+        "dn": null
+      }
+    },
+    "finesse": null,
+    "damage": "",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "Thrown; set its radius anywhere from 6m to 80m. Living creatures in the area lose their combat action and roll a D10: on an odd number they also lose their move action and take that much damage. Anything more complex than staggering away needs a Tactics check (10). Afterwards they add no Skill bonuses to checks or attacks until 24 hours' rest or a Medicine check (13). No effect on Drones, Robots or pressurised vehicles. Runs an hour at 6m, two minutes at 80m; can't be switched off. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 10100,
+  "effects": [],
+  "folder": "889391937104d1e9",
+  "ownership": {
+    "default": 0
+  }
+}

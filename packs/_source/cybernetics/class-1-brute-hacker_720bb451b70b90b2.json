@@ -1,0 +1,68 @@
+{
+  "_id": "720bb451b70b90b2",
+  "_key": "!items!720bb451b70b90b2",
+  "name": "Class 1 Brute Hacker",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>+1 to Security and Computer checks; on a success the lock or computer is destroyed (doors stay open, data is lost). Installed into an existing cybernetic. After a successful Fighting attack on a drone or robot, roll D10 + Cyber bonus against D10 + the drone controller's Cyber bonus (or the robot's To Hit): higher deactivates it. Illegal.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "30,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 3,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "+1 to Security and Computer checks; on a success the lock or computer is destroyed (doors stay open, data is lost). Installed into an existing cybernetic. After a successful Fighting attack on a drone or robot, roll D10 + Cyber bonus against D10 + the drone controller's Cyber bonus (or the robot's To Hit): higher deactivates it. Illegal.",
+    "fightingDamage": "",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "rollBonuses": [
+      {
+        "skill": "computer",
+        "value": 1,
+        "kind": "roll",
+        "when": "brute"
+      },
+      {
+        "skill": "security",
+        "value": 1,
+        "kind": "roll",
+        "when": "brute"
+      }
+    ],
+    "destroyed": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement"
+    }
+  },
+  "sort": 4500,
+  "effects": [],
+  "folder": "1444eded6c422501",
+  "ownership": {
+    "default": 0
+  }
+}

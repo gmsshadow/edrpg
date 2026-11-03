@@ -1,0 +1,30 @@
+{
+  "_id": "178293dece0ebd86",
+  "_key": "!items!178293dece0ebd86",
+  "name": "3D Thinking",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You have just completed the Flight Assist Off action.</p><p><strong>Effect:</strong> Keep your spaceship's Agility when calculating your Defence.</p><p><em>Military Sourcebook</em></p>",
+    "role": "defensive",
+    "category": "spaceship",
+    "cost": 2,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "a3493a5d591f0c58",
+  "sort": 4900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

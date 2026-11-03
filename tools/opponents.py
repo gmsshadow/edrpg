@@ -189,7 +189,10 @@ def main():
             "_id": _id, "_key": f"!actors!{_id}", "name": o["name"], "type": "opponent",
             "img": "icons/svg/mystery-man.svg",
             "system": {
-                "rank": o["rank"], "role": o["role"], "dodge": o["dodge"], "parry": o["parry"],
+                "rank": o["rank"], "role": o["role"],
+                # Robots and drones (double damage from Anti-Material Projectors).
+                "robotic": bool(re.search(r"\b(drone|robot)s?\b", f"{o['name']} {o['role']}", re.I)),
+                "dodge": o["dodge"], "parry": o["parry"],
                 "initiative": o["initiative"], "perception": o["perception"], "toHit": o["toHit"], "speed": o["speed"],
                 "endurance": {"value": o["endurance"], "max": o["endurance"]},
                 "otherSkills": [{"skill": s, "bonus": b} for s, b in o.get("skills", [])],

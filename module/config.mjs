@@ -110,6 +110,10 @@ export const enhancementEffects = {
    quickRunner: "EDRPG.enhancement.effect.quickRunner",
    strong: "EDRPG.enhancement.effect.strong",
    tough: "EDRPG.enhancement.effect.tough",
+   // Supplements
+   overclocking: "EDRPG.enhancement.effect.overclocking",
+   survivalist: "EDRPG.enhancement.effect.survivalist",
+   vengeful: "EDRPG.enhancement.effect.vengeful",
 };
 
 /**
@@ -122,6 +126,10 @@ export const bonusConditions = {
    repair: "EDRPG.bonusWhen.repair",
    hacking: "EDRPG.bonusWhen.hacking",
    drones: "EDRPG.bonusWhen.drones",
+   locks: "EDRPG.bonusWhen.locks",
+   brute: "EDRPG.bonusWhen.brute",
+   impersonating: "EDRPG.bonusWhen.impersonating",
+   situational: "EDRPG.bonusWhen.situational",
    other: "EDRPG.bonusWhen.other",
 };
 
@@ -141,6 +149,9 @@ export const gearCategories = {
    stim: "EDRPG.gear.category.stim",
    injector: "EDRPG.gear.category.injector",
    ammo: "EDRPG.gear.category.ammo",
+   hack: "EDRPG.gear.category.hack",
+   shield: "EDRPG.gear.category.shield",
+   alien: "EDRPG.gear.category.alien",
 };
 
 /** Base movement per turn for a person (Core Rules, Personal Combat). */

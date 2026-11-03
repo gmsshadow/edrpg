@@ -1,0 +1,473 @@
+{
+  "_id": "67230e01d8f447e7",
+  "_key": "!actors!67230e01d8f447e7",
+  "name": "Federal Gunship – Pirate Mod",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/federation/federal-gunship.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "L 75.5m x W 853.3m x H 22.5m",
+    "landingPad": "Medium",
+    "crewSize": 2,
+    "passengers": 3,
+    "utilityMounts": "4",
+    "cargo": "4T",
+    "range": "16LY",
+    "fuel": "16T (160LY)",
+    "cost": "43,592,650cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 2,
+    "speed": 4,
+    "maxSpeed": 4,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 505,
+      "max": 505
+    },
+    "shields": {
+      "value": 235,
+      "max": 235,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 6D",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "18.9MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 6E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 5C",
+        "kind": "fsd",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Range 16LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 5D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 7D",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 90,
+          "max": 90
+        },
+        "notes": "1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 5C",
+        "kind": "sensors",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "+3 General Scan, +1 Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "6C Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Shield Power 235",
+        "item": ""
+      },
+      {
+        "name": "6D Shield Cells Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "Recharge 30/2, Ammo 3",
+        "item": ""
+      },
+      {
+        "name": "5C Hatch Breaker Limpet Controller",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "OR 4(3D10)",
+        "item": ""
+      },
+      {
+        "name": "2A FSD Interdictor",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+2/Med",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "4E Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+20/All",
+        "item": ""
+      },
+      {
+        "name": "4D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Hull +85",
+        "item": ""
+      },
+      {
+        "name": "4D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Hull +85",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 6,
+        "max": 6,
+        "dn": 17,
+        "damage": 20
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 1,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Federal Gunship – Pirate Mod",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/federation/federal-gunship.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "8138ca6b1f7f8d3a",
+      "_key": "!actors.items!67230e01d8f447e7.8138ca6b1f7f8d3a",
+      "name": "Large Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "fb8f1a13f929bb9a",
+      "_key": "!actors.items!67230e01d8f447e7.fb8f1a13f929bb9a",
+      "name": "Medium Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "2a97479ca9c42c64",
+      "_key": "!actors.items!67230e01d8f447e7.2a97479ca9c42c64",
+      "name": "Medium Fixed Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 15/20/25",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "01623abe882df622",
+      "_key": "!actors.items!67230e01d8f447e7.01623abe882df622",
+      "name": "Medium Fixed Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 15/20/25",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "34a2808893a79d9e",
+      "_key": "!actors.items!67230e01d8f447e7.34a2808893a79d9e",
+      "name": "Small Fixed Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 5/10/15",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5ff1701905915680",
+      "_key": "!actors.items!67230e01d8f447e7.5ff1701905915680",
+      "name": "Small Fixed Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 5/10/15",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "23d423128d70e0e6",
+  "sort": 3200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

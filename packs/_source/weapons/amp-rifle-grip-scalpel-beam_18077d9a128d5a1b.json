@@ -1,0 +1,75 @@
+{
+  "_id": "18077d9a128d5a1b",
+  "_key": "!items!18077d9a128d5a1b",
+  "name": "AMP - Rifle Grip Scalpel Beam",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "17,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 6
+      },
+      "medium": {
+        "distance": "120m",
+        "dn": 7
+      },
+      "long": {
+        "distance": "1km",
+        "dn": 10
+      }
+    },
+    "finesse": null,
+    "damage": "25",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 2,
+      "max": 2
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": true,
+      "doubleVsRobots": true,
+      "molten": false
+    },
+    "notes": "A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 9900,
+  "effects": [],
+  "folder": "889391937104d1e9",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,5 +1,86 @@
 # Changelog
 
+## 0.1.36
+
+Supplements, step 3: the 56 ship variants, in the Ships compendium under a folder per book with a folder per ship.
+
+- **Espionage**: Mamba Mk II, Merlin, Mongoose, Viper Mk IV (3 variants each).
+- **Exploration**: Asp Scout, Diamondback Explorer, Imperial Explorer.
+- **Military**: Federal Assault Ship, Federal Corvette, Federal Dropship, Federal Gunship, Imperial Clipper,
+  Imperial Courier, Imperial Cutter (3 each), Imperial Eagle (4).
+- **Super Traders**: Boa Mk III, Keelback (3 each), Cobra Mk IV (4).
+- Each has its weapons, components (with strengths), utility equipment (chaff, point defence, ECM, mines, Shield Cell
+  Banks, floating bonuses), Bonuses line, cargo, range, fuel and cost, and a token from the token assets where there
+  is one. The Imperial Explorer and Boa Mk III have no token art yet.
+- **Huge ships**: a new size for the Boa Mk III and Imperial Explorer (4×4 tokens). The book doesn't give their Chicken,
+  Ram or cargo-scatter values, so they continue the size steps: 100, 40 and 4D10.
+- Several mine launchers on one ship pool their mines.
+- Fixes to the core ships: seven A-grade Power Distributors whose line wrapped in the book had Strength 10 instead of
+  their real value (e.g. Viper Mk III – Damask Rose 55, Fer-de-Lance – A9 Excalibur 70). Weapon names are spelt one
+  way (Multi-Cannon, Gimballed, Rail Gun).
+- Hull and Shields boxes fit four-figure values.
+
+## 0.1.35
+
+Supplements, step 2: equipment and weapons. Each book's items are in its own folder in the Weapons, Armour,
+Cybernetics and Equipment compendiums.
+
+- **Weapons**:
+  - Espionage: Heavy Pistol and four rare heavy pistols (the Leonis Hacker Pistol also adds +10 Computer and Security
+    while equipped).
+  - Military: Laser Carbine and three rare carbines; Rail Rifle and three rare rail rifles.
+  - Exploration: the six Guardian Anti-Material Projectors, the Nausea Globe, and the Destabilisation Beam (a ship
+    weapon you drag onto a spaceship).
+- **Armour**: Enhanced Bullet Proof, Reflec and Stab Vests.
+- **Cybernetics**: Brute Hacker (Class 1–3) and Venomous Bite (Class 1–2). Cybernetics can now carry bonuses to Skill
+  checks, like gear.
+- **Equipment**: Assistant and Autonomous Computer/Security Hacks, illegal cosmetics (Death Musk, Disruptive Perfume,
+  Face Mask, Venomous Lipstick), Holo-Cloak, Mag Grapple, Personal Shield Generators (A–E), Charged Particle Shields,
+  Cellular Regeneration Emitter, Shield Reconstructor and Alien Power Cells. New equipment kinds: Hacks, Personal
+  Shields, Alien Artefacts.
+- **Automated**:
+  - Laser carbines: the base damage is Energy and the Burst Kinetic, and armour absorbs each separately (one Hardened
+    roll per piece of armour). Matches the book's worked example.
+  - Voltigen Armour Piercing Carbine: Kinetic armour doesn't absorb its damage.
+  - Anti-Material Projectors: armour gives no protection against the hit, and is marked Destroyed (an Armoured
+    Carapace too) until repaired. Opponents have a new Robot box (ticked for the drones), and robots take double
+    damage.
+  - Rail rifles' molten munitions: each damage die showing a 1 adds 1D10 Energy damage, rolled at the start of the
+    target's next turn.
+  - Personal shields: while switched on, they take the damage first (only the types they block), recharge at the
+    start of the wearer's turn, charge back to half strength after being knocked down, and switch off when the
+    battery or power cell runs out. The shield's value is shown and editable in the gear list.
+  - Cellular Regeneration Emitter: heals 10 at the start of the wearer's turn while it has power.
+  - Destabilisation Beam: a hit collapses the shields and the Damage goes to the Hull; a ship also takes it on every
+    Fixed and Internal component (and its weapons and utility mounts on a critical hit); a vehicle is disabled.
+- New Skill-check conditions: opening locks, brute hacking, impersonating. The Survivalist bonus now has a label.
+- Rulings: an Anti-Material Projector's hit is taken without armour (the armour is destroyed by it). The Personal
+  Shield Generator blocks every damage type except Toxic; the Charged Particle Shield only Energy and Kinetic.
+
+## 0.1.34
+
+Supplements, step 1: character options from the Espionage Supplement, Exploration Supplement, Military Sourcebook and
+Super Traders Supplement.
+
+- **Backgrounds** (14), each worth one background choice:
+  - Espionage: Wage Slave, Insurgent, Corporate Security.
+  - Exploration: Big Game Hunter, Castaway (with Survivalist), Xenobiologist.
+  - Military: Federal Reservist, Slave Soldier, Military Courier, Drone Controller (starts with a T-90 Patrol
+    Drone; the card carries the drone ownership, control and buying rules).
+  - Super Traders: Disgraced Banker, Labour Slave (with Strong and Tough), Pit Fighter, Smuggler.
+- **Enhancements** (3):
+  - **Survivalist**: the skill check dialog offers your Survival bonus as an optional bonus on non-combat checks.
+  - **Vengeful**: the damage card flags when an enemy attack drops you to 1–9 Endurance, so you can attack back.
+  - **Overclocking**: rules text for now; it will plug into ship engineering when that's added.
+- **Karma Capabilities** (16), used and paid for like the core ones (effects applied at the table):
+  - Espionage: Follow Up, Kiss, Kiss, Bang, Bang, Quick Loader, Weak Point.
+  - Exploration: Hunter, Iron Willed, Concentration, Don't Give Out on Me Yet!
+  - Military: 3D Thinking, Drill Sergeant, Instinct, Penetrating Shot.
+  - Super Traders: Burnout, Rapid Deployment, Secret Markets, Terrain Breaking.
+- The Backgrounds, Enhancements and Karma Capabilities compendiums are now organised into a folder per book (Core
+  Rules plus each supplement).
+- The Xenobiologist's "Planetary Systems +10" (not a skill) is read as Planetary Knowledge +10.
+
 ## 0.1.33
 
 Sheet layout fixes.

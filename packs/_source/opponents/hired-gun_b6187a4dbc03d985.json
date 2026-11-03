@@ -7,6 +7,7 @@
   "system": {
     "rank": "expert",
     "role": "Assassin",
+    "robotic": false,
     "dodge": 5,
     "parry": 4,
     "initiative": 5,
@@ -65,7 +66,8 @@
         "socialFactor": 0,
         "skillMods": [],
         "enhancement": "",
-        "worn": true
+        "worn": true,
+        "destroyed": false
       },
       "flags": {},
       "effects": [],
@@ -128,6 +130,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 5
@@ -193,6 +202,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 5
@@ -258,6 +274,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 5

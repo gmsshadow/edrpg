@@ -1,0 +1,490 @@
+{
+  "_id": "221b97c883984da1",
+  "_key": "!actors!221b97c883984da1",
+  "name": "Mongoose – Assault Fighter",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/mongoose-yellow.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Zorgon Peterson",
+    "dimensions": "L 51.2m x W 75.0m x H 26.3m",
+    "landingPad": "Medium",
+    "crewSize": 4,
+    "passengers": 0,
+    "utilityMounts": "4",
+    "cargo": "None",
+    "range": "14LY",
+    "fuel": "16T (160LY)",
+    "cost": "30,840,896cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 10,
+    "speed": 7,
+    "maxSpeed": 7,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 490,
+      "max": 490
+    },
+    "shields": {
+      "value": 215,
+      "max": 215,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 1,
+      "initiative": 2,
+      "dogfighting": 2
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 5A",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "20.4MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4A",
+        "kind": "thrusters",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "+2 Speed, +2 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4C",
+        "kind": "fsd",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Range 14LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 5A",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "+1 To Hit, +1 Agility, +5 Shield Recharge, 1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 4A",
+        "kind": "sensors",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "+2 General Scan, +2 Initiative, +2 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "ECM",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "25% Shield Boost",
+        "item": ""
+      },
+      {
+        "name": "0D Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "10% Shield Boost",
+        "item": ""
+      },
+      {
+        "name": "4A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Shield Power 160",
+        "item": ""
+      },
+      {
+        "name": "4A Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Recharge 20/5",
+        "item": ""
+      },
+      {
+        "name": "2H Planetary Vehicle Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Vehicles 1",
+        "item": ""
+      },
+      {
+        "name": "1C Advanced Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "System Wide range",
+        "item": ""
+      },
+      {
+        "name": "4D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+85 Hull",
+        "item": ""
+      },
+      {
+        "name": "4E Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+20 Str/All",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": true,
+      "floating": 1,
+      "cellBanks": [
+        {
+          "name": "4A Shield Cell Bank",
+          "boost": 20,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Espionage Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Mongoose – Assault Fighter",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/mongoose-yellow.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "b3cf3ed7ea0fb034",
+      "_key": "!actors.items!221b97c883984da1.b3cf3ed7ea0fb034",
+      "name": "Medium Gimballed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "36220ad12dd93e13",
+      "_key": "!actors.items!221b97c883984da1.36220ad12dd93e13",
+      "name": "Medium Gimballed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "eeeecec5974cc891",
+      "_key": "!actors.items!221b97c883984da1.eeeecec5974cc891",
+      "name": "Medium Gimballed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "96ca964acd31d597",
+      "_key": "!actors.items!221b97c883984da1.96ca964acd31d597",
+      "name": "Medium Gimballed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "34a2f03374f99eb5",
+      "_key": "!actors.items!221b97c883984da1.34a2f03374f99eb5",
+      "name": "Medium Fixed Plasma Accelerator",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": -1,
+        "damage": 50,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "e44a21afd231b6d3",
+      "_key": "!actors.items!221b97c883984da1.e44a21afd231b6d3",
+      "name": "Medium Fixed Plasma Accelerator",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": -1,
+        "damage": 50,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "cadf4db2a8343283",
+  "sort": 900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,362 @@
+{
+  "_id": "46f11ad14642203f",
+  "_key": "!actors!46f11ad14642203f",
+  "name": "Diamondback Explorer – Galaxy",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/explorer/diamondback-explorer-yellow.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "L 45.0m x W 27.3m x H 13.6m",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 1,
+    "utilityMounts": "4",
+    "cargo": "16T",
+    "range": "28.5LY",
+    "fuel": "32T (320LY)",
+    "cost": "16,545,736cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 9,
+    "speed": 8,
+    "maxSpeed": 8,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 180,
+      "max": 180
+    },
+    "shields": {
+      "value": 160,
+      "max": 160,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 1,
+      "initiative": 2,
+      "dogfighting": 2
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4A",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "15.6MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4A",
+        "kind": "thrusters",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+2 Speed, +2 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 5A",
+        "kind": "fsd",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Range 19LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 4A",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+1 Agility, +1 To Hit, +5 Shield Recharge, 1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3A",
+        "kind": "sensors",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "+1 General Scan, +2 Initiative, +2 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "0E Frame Shift Wake Scanner",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Chaff Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 6",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "4A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Shield Power 160",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16T",
+        "item": ""
+      },
+      {
+        "name": "3A Fuel Scoop",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "1C Detailed Surface Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "1C Advanced Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "System Wide range",
+        "item": ""
+      },
+      {
+        "name": "2H Planetary Vehicle Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Vehicle Bays 1",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 1,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Diamondback Explorer – Galaxy",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/explorer/diamondback-explorer-yellow.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "8c04d47a9a7e407b",
+      "_key": "!actors.items!46f11ad14642203f.8c04d47a9a7e407b",
+      "name": "Large Gimballed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "081336498a3576f6",
+      "_key": "!actors.items!46f11ad14642203f.081336498a3576f6",
+      "name": "Medium Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "2094ce5e5d96a6fe",
+      "_key": "!actors.items!46f11ad14642203f.2094ce5e5d96a6fe",
+      "name": "Medium Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "08df97e75564411d",
+  "sort": 1800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

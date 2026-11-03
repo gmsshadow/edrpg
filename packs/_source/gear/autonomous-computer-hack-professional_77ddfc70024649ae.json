@@ -1,0 +1,55 @@
+{
+  "_id": "77ddfc70024649ae",
+  "_key": "!items!77ddfc70024649ae",
+  "name": "Autonomous Computer Hack, Professional",
+  "type": "gear",
+  "img": "icons/svg/padlock.svg",
+  "system": {
+    "description": "<p>Makes an automatic Computer check of 14 to gain access to a computer: equal to or above the difficulty, it's unlocked. One use.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "100,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "hack",
+    "quantity": 1,
+    "uses": {
+      "value": 1,
+      "max": 1
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Makes an automatic Computer check of 14 to gain access to a computer: equal to or above the difficulty, it's unlocked. One use.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Hacks"
+    }
+  },
+  "sort": 6400,
+  "effects": [],
+  "folder": "f73c7ab72a74dc68",
+  "ownership": {
+    "default": 0
+  }
+}

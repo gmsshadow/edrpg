@@ -1,0 +1,436 @@
+{
+  "_id": "8c91eae0fa2bd1b5",
+  "_key": "!actors!8c91eae0fa2bd1b5",
+  "name": "Imperial Clipper – Palanquin",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/empire/imperial-clipper.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Gutamaya",
+    "dimensions": "L 106.7m x W 103.7m x H 24.8m",
+    "landingPad": "Large",
+    "crewSize": 4,
+    "passengers": 8,
+    "utilityMounts": "4",
+    "cargo": "168T",
+    "range": "16LY",
+    "fuel": "16T (160LY)",
+    "cost": "35,313,430cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 5,
+    "speed": 9,
+    "maxSpeed": 9,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 490,
+      "max": 490
+    },
+    "shields": {
+      "value": 270,
+      "max": 270,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 6D",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "18.9MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 6C",
+        "kind": "thrusters",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "+1 Speed, +1 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 5C",
+        "kind": "fsd",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Range 16LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 5E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 6C",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "2 Floating Bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 5D",
+        "kind": "sensors",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "+3 General Scan, +1 Initiative",
+        "item": ""
+      },
+      {
+        "name": "Chaff Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 6",
+        "item": ""
+      },
+      {
+        "name": "ECM",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "0C Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "+15% shield bonus",
+        "item": ""
+      },
+      {
+        "name": "7E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 128",
+        "item": ""
+      },
+      {
+        "name": "6C Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Shield Power 235",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "4C Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 45,
+          "max": 45
+        },
+        "notes": "Recharge 20/3, Ammo 3",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": true,
+      "floating": 2,
+      "cellBanks": [
+        {
+          "name": "4C Shield Cell Bank",
+          "boost": 20,
+          "duration": 3,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Imperial Clipper – Palanquin",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/empire/imperial-clipper.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "a2a3bf508b50e437",
+      "_key": "!actors.items!8c91eae0fa2bd1b5.a2a3bf508b50e437",
+      "name": "Large Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "91b0e2192951a7b1",
+      "_key": "!actors.items!8c91eae0fa2bd1b5.91b0e2192951a7b1",
+      "name": "Large Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "9316e8c5492e0df2",
+      "_key": "!actors.items!8c91eae0fa2bd1b5.9316e8c5492e0df2",
+      "name": "Medium Turreted Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ac2ec0980f81a68d",
+      "_key": "!actors.items!8c91eae0fa2bd1b5.ac2ec0980f81a68d",
+      "name": "Medium Turreted Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "c415da8bcf148a75",
+  "sort": 3500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

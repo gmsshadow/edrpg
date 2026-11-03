@@ -1,0 +1,55 @@
+{
+  "_id": "dd3140a4a35872b7",
+  "_key": "!items!dd3140a4a35872b7",
+  "name": "Holo-Cloak",
+  "type": "gear",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>While on, attackers behind or to your side take -2 To Hit, unless they rely entirely on digital vision. No Stealth checks while it's on. Runs 1 minute (10 rounds) before it needs recharging.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "65,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "general",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "While on, attackers behind or to your side take -2 To Hit, unless they rely entirely on digital vision. No Stealth checks while it's on. Runs 1 minute (10 rounds) before it needs recharging.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 10,
+      "max": 10
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement"
+    }
+  },
+  "sort": 7200,
+  "effects": [],
+  "folder": "e54097ed07ecf167",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -51,6 +51,13 @@
     "divideFire": false,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "Damages robotic targets only. Energy weapons in the Fatal radius are disabled until repaired. Harmless to people, except those with cybernetic organs.",
     "equipped": false
   },

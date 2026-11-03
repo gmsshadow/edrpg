@@ -14,11 +14,11 @@ C, R = "common", "rare"
 
 def W(name, skill, dtype, ranges, damage, ammo, cost, rarity, *, one=False, burst=None, heavy=False,
       finesse=None, blast=None, bonus=0, mods=None, cover=False, divide=False, notes="", range_damage=None,
-      group=""):
+      group="", special=None, source=""):
     return dict(kind="weapon", name=name, skill=skill, dtype=dtype, ranges=ranges, damage=damage, ammo=ammo,
                 cost=cost, rarity=rarity, one=one, burst=burst, heavy=heavy, finesse=finesse, blast=blast,
                 bonus=bonus, mods=mods or [], cover=cover, divide=divide, notes=notes,
-                range_damage=range_damage or {}, group=group)
+                range_damage=range_damage or {}, group=group, special=special or {}, source=source)
 
 
 def bands(s, m, l):
@@ -172,9 +172,10 @@ WEAPONS = [
 ]
 
 
-def A(name, absorb, cost, rarity, *, hardened=None, discreet=False, sf=0, mods=None, toxic_all=False, enhancement="", notes=""):
+def A(name, absorb, cost, rarity, *, hardened=None, discreet=False, sf=0, mods=None, toxic_all=False, enhancement="", notes="",
+      group="", source=""):
     return dict(kind="armour", name=name, absorb=absorb, cost=cost, rarity=rarity, hardened=hardened, discreet=discreet,
-                sf=sf, mods=mods or [], toxic_all=toxic_all, enhancement=enhancement, notes=notes)
+                sf=sf, mods=mods or [], toxic_all=toxic_all, enhancement=enhancement, notes=notes, group=group, source=source)
 
 
 ARMOUR = [
@@ -193,6 +194,99 @@ ARMOUR = [
       mods=[("intimidate", 20), ("athletics", -10)], toxic_all=True, enhancement="Strong",
       notes="Grants the Strong enhancement while worn; it stacks with other physical or cybernetic enhancements."),
 ]
+
+# ---------------------------------------------------------------- Supplements
+# Each book's items go in a folder named after the book ("Book/Group" nests a group folder inside it).
+ESP, EXP, MIL = "Espionage Supplement", "Exploration Supplement", "Military Sourcebook"
+HP = bands(("8m", 5), ("60m", 8), ("110m", 14))
+LC = bands(("16m", 5), ("100m", 8), ("300m", 9))
+RR = bands(("20m", 7), ("140m", 8), ("1000m", 9))
+CARBINE = {"burstType": "kinetic"}
+MOLTEN = {"molten": True}
+AMP = {"destroysArmour": True, "doubleVsRobots": True}
+CARBINE_NOTE = "Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr."
+RAIL_NOTE = "Molten munitions: each damage die showing a 1 deals 1D10 Energy damage at the start of the target's next turn. Spare clip 10cr."
+ALIEN_NOTE = "Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell."
+AMP_NOTE = "A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage."
+
+
+def supp(book, group):
+    return f"{book}/{group}"
+
+
+SUPPLEMENT_WEAPONS = [
+    # Espionage Supplement: heavy pistols
+    W("Heavy Pistol", KW, "kinetic", HP, "2d10", 8, "3cr", C, one=True, group=supp(ESP, "Heavy Pistols"), source=ESP),
+    W("Ross Y49 Suregrip Pistol", KW, "kinetic", HP, "2d10", 10, "83,000cr", R, one=True, bonus=10,
+      notes="Social Factor +1.", group=supp(ESP, "Heavy Pistols"), source=ESP),
+    W("Callaghan Arctic Hawk Heavy Pistol", KW, "kinetic", HP, "3d10", 8, "114,000cr", R, one=True, group=supp(ESP, "Heavy Pistols"), source=ESP),
+    W("Thordarson Firepoint Scoped Pistol", KW, "kinetic", bands(("10m", 5), ("70m", 8), ("120m", 14)), "2d10", 8, "305,000cr", R, one=True,
+      bonus=20, group=supp(ESP, "Heavy Pistols"), source=ESP),
+    W("Leonis Hacker Pistol", KW, "kinetic", HP, "2d10", 8, "695,000cr", R, one=True, bonus=10, mods=[("computer", 10), ("security", 10)],
+      notes="+10 Computer and Security score while equipped; combines with assistant hacks.", group=supp(ESP, "Heavy Pistols"), source=ESP),
+    # Military Sourcebook: laser carbines (fired with Kinetic Weapons) and rail rifles
+    W("Laser Carbine", KW, "energy", LC, "10", 4, "10cr", C, burst=("burst", "3d10"), special=CARBINE,
+      notes=f"{CARBINE_NOTE} 50cr with an underslung grenade launcher (use the Underslung Grenade Launcher).",
+      group=supp(MIL, "Laser Carbines"), source=MIL),
+    W("Mannex Nighteye Carbine", KW, "energy", LC, "10", 4, "270,000cr", R, burst=("burst", "4d10"), bonus=10, special=CARBINE,
+      notes=CARBINE_NOTE, group=supp(MIL, "Laser Carbines"), source=MIL),
+    W("Voltigen Armour Piercing Carbine", KW, "energy", LC, "15", 4, "362,000cr", R, burst=("burst", "3d10"),
+      special={**CARBINE, "ignoresArmour": "kinetic"}, notes=f"{CARBINE_NOTE} Ignores Kinetic armour absorption.",
+      group=supp(MIL, "Laser Carbines"), source=MIL),
+    W("Krayton KX Heavy Carbine", HW, "energy", LC, "15", 6, "2,200,000cr", R, heavy=True, burst=("heavy", "8d10"), special=CARBINE,
+      notes=f"{CARBINE_NOTE} Can only be fired from a braced position.", group=supp(MIL, "Laser Carbines"), source=MIL),
+    W("Rail Rifle", KW, "kinetic", RR, "3d10", 6, "500cr", C, special=MOLTEN, notes=RAIL_NOTE, group=supp(MIL, "Rail Rifles"), source=MIL),
+    W("Centauri Quickfire Rail Rifle", KW, "kinetic", bands(("20m", 5), ("140m", 8), ("1000m", 9)), "3d10", 6, "225,000cr", R, special=MOLTEN,
+      notes=RAIL_NOTE, group=supp(MIL, "Rail Rifles"), source=MIL),
+    W("TX9 SmartScope Rail Rifle", KW, "kinetic", RR, "3d10", 6, "352,000cr", R, bonus=15, special=MOLTEN, notes=RAIL_NOTE,
+      group=supp(MIL, "Rail Rifles"), source=MIL),
+    W("Sorbago Molybdenum Rifle", KW, "kinetic", RR, "4d10", 6, "705,000cr", R, bonus=10, notes="No molten munitions. Spare clip 10cr.",
+      group=supp(MIL, "Rail Rifles"), source=MIL),
+    # Exploration Supplement: Guardian Anti-Material Projectors and the Nausea Globe
+    W("AMP - Short Stock Bolt Caster", EW, "energy", bands(("10m", 5), ("40m", 8), ("100m", 11)), "15", 4, "5,000,000cr", R, one=True,
+      special=AMP, notes=f"{AMP_NOTE} {ALIEN_NOTE}", group=supp(EXP, "Alien Artefacts"), source=EXP),
+    W("AMP - Short Stock Streamer", EW, "energy", bands(("8m", 5), ("30m", 8), ("60m", 12)), "10", 3, "9,000,000cr", R, one=True,
+      burst=("energy", "15"), special=AMP, notes=f"{AMP_NOTE} {ALIEN_NOTE}", group=supp(EXP, "Alien Artefacts"), source=EXP),
+    W("AMP - Rifle Grip Punch Bolter", EW, "energy", bands(("12m", 4), ("20m", 7), ("30m", 10)), "20", 3, "7,000,000cr", R,
+      special=AMP, notes=f"Knocks the target over on a hit. {AMP_NOTE} {ALIEN_NOTE}", group=supp(EXP, "Alien Artefacts"), source=EXP),
+    W("AMP - Rifle Grip Streamer", EW, "energy", bands(("16m", 6), ("50m", 8), ("120m", 11)), "20", 2, "12,000,000cr", R,
+      burst=("energy", "20"), special=AMP, notes=f"{AMP_NOTE} {ALIEN_NOTE}", group=supp(EXP, "Alien Artefacts"), source=EXP),
+    W("AMP - Rifle Grip Scalpel Beam", EW, "energy", bands(("10m", 6), ("120m", 7), ("1km", 10)), "25", 2, "17,000,000cr", R,
+      special=AMP, notes=f"{AMP_NOTE} {ALIEN_NOTE}", group=supp(EXP, "Alien Artefacts"), source=EXP),
+    W("AMP - Shoulder Mounted Annihilator", HW, "energy", bands(("30m", 6), ("700m", 8), ("5km", 13)), "60", 1, "35,000,000cr", R, heavy=True,
+      special=AMP, notes=f"Against vehicles and spaceships it deals 60 damage at their scale and ignores shields. {AMP_NOTE} {ALIEN_NOTE}",
+      group=supp(EXP, "Alien Artefacts"), source=EXP),
+    W("Nausea Globe", GR, "explosive", NONE, "", 1, "8,000,000cr", R,
+      notes=("Thrown; set its radius anywhere from 6m to 80m. Living creatures in the area lose their combat action and roll a D10: "
+             "on an odd number they also lose their move action and take that much damage. Anything more complex than staggering away "
+             "needs a Tactics check (10). Afterwards they add no Skill bonuses to checks or attacks until 24 hours' rest or a Medicine check (13). "
+             "No effect on Drones, Robots or pressurised vehicles. Runs an hour at 6m, two minutes at 80m; can't be switched off. "
+             f"{ALIEN_NOTE}"), group=supp(EXP, "Alien Artefacts"), source=EXP),
+]
+
+SUPPLEMENT_ARMOUR = [
+    A("Enhanced Bullet Proof Vest", {"kinetic": 8}, "100,000cr", R, discreet=True, group=ESP, source=ESP),
+    A("Enhanced Reflec Vest", {"energy": 5}, "150,000cr", R, discreet=True, group=ESP, source=ESP),
+    A("Enhanced Stab Vest", {"melee": 6}, "70,000cr", R, discreet=True, group=ESP, source=ESP),
+]
+
+
+# Spaceship weapon (a craft weapon item, dragged onto a ship).
+DESTABILISATION_BEAM = {
+    "name": "Destabilisation Beam", "type": "craftWeapon", "img": "icons/svg/lightning.svg",
+    "system": {
+        "description": "<p>Each shot uses an Alien Power Cell; up to six can be loaded. It can't draw on the ship's power plant. "
+                       f"A hit collapses the target's shields and the Damage goes straight to the Hull. A vehicle that survives is disabled "
+                       "(all systems fail for weeks). A ship takes the Damage on each Fixed and Internal component, and on a critical hit on its "
+                       "weapons and utility mounts too.</p>"
+                       f"<p>{ALIEN_NOTE}</p><p><em>{EXP}</em></p>",
+        "cost": "42,000,000cr", "mount": {"size": "medium", "kind": "fixed"}, "accuracy": 1, "damage": 20,
+        "burst": {"perPoint": 5, "max": 30}, "damageVsShields": None, "bonusVsHull": 0, "bonusVsShields": 0,
+        "ammo": {"value": 1, "max": 6}, "special": "Collapses shields; damages every Fixed and Internal component.",
+        "destabilise": True, "gunner": "",
+    },
+    "flags": {"edrpg": {"group": supp(EXP, "Alien Artefacts")}},
+}
 
 ICONS = {
     "kineticWeapons": "icons/svg/target.svg",
@@ -213,6 +307,9 @@ def weapon_doc(w, sort):
     burst_kind, burst_max = w["burst"] or ("none", "")
     fatal, injury, fr, ir = w["blast"] or (None, None, None, None)
     html = f"<p>{w['notes']}</p>" if w["notes"] else ""
+    if w.get("source"):
+        html += f"<p><em>{w['source']}</em></p>"
+    special = {"burstType": "", "ignoresArmour": "", "destroysArmour": False, "doubleVsRobots": False, "molten": False, **w.get("special", {})}
     return {
         "name": w["name"], "type": "weapon", "img": ICONS[w["skill"]],
         "system": {
@@ -226,7 +323,7 @@ def weapon_doc(w, sort):
             "ammo": {"value": w["ammo"] or 0, "max": w["ammo"]},
             "oneHanded": w["one"], "destroyCover": w["cover"], "divideFire": w["divide"],
             "attackBonus": w["bonus"], "skillMods": [{"skill": s, "value": v} for s, v in w["mods"]],
-            "notes": w["notes"], "equipped": False,
+            "special": special, "notes": w["notes"], "equipped": False,
         },
         "flags": {"edrpg": {"group": w["group"]}}, "sort": sort,
     }
@@ -235,16 +332,45 @@ def weapon_doc(w, sort):
 def armour_doc(a, sort):
     absorb = {t: a["absorb"].get(t, 0) for t in ["kinetic", "energy", "explosive", "fighting", "melee", "toxic"]}
     html = f"<p>{a['notes']}</p>" if a["notes"] else ""
+    if a.get("source"):
+        html += f"<p><em>{a['source']}</em></p>"
     return {
         "name": a["name"], "type": "armour", "img": ICONS["armour"],
         "system": {
             "description": html, "cost": a["cost"], "rarity": a["rarity"], "location": "carried",
             "absorb": absorb, "toxicAll": a["toxic_all"], "hardened": a["hardened"], "discreet": a["discreet"],
             "wornOpenly": False, "socialFactor": a["sf"], "skillMods": [{"skill": s, "value": v} for s, v in a["mods"]],
-            "enhancement": a["enhancement"], "worn": False,
+            "enhancement": a["enhancement"], "worn": False, "destroyed": False,
         },
-        "flags": {}, "sort": sort,
+        "flags": {"edrpg": {"group": a["group"]}} if a.get("group") else {}, "sort": sort,
     }
+
+
+def write_folders(root, pack, docs, item_type="Item"):
+    """One compendium folder per group, in order. A group "Book/Group" nests the group's folder inside the book's.
+    Returns {group: folder id}."""
+    folders = {}
+
+    def make(path):
+        if path in folders:
+            return folders[path]
+        parent, _, name = path.rpartition("/")
+        parent_id = make(parent) if parent else None
+        fid = doc_id("folder", f"{pack}-{path}")
+        folders[path] = fid
+        folder = {"_id": fid, "_key": f"!folders!{fid}", "name": name, "type": item_type, "folder": parent_id,
+                  "description": "", "sorting": "m", "sort": len(folders) * 100, "color": None, "flags": {}}
+        slug = re.sub(r"[^a-z0-9]+", "-", path.lower()).strip("-")
+        with open(os.path.join(root, f"_folder-{slug}_{fid}.json"), "w") as fh:
+            json.dump(folder, fh, indent=2)
+            fh.write("\n")
+        return fid
+
+    for doc in docs:
+        group = doc["flags"].get("edrpg", {}).get("group")
+        if group:
+            make(group)
+    return folders
 
 
 def write_pack(pack, docs, kind):
@@ -252,18 +378,7 @@ def write_pack(pack, docs, kind):
     os.makedirs(root, exist_ok=True)
     for f in os.listdir(root):
         os.remove(os.path.join(root, f))
-    # One compendium folder per group (Autopistols, Laser Pistols, ...), in book order.
-    folders = {}
-    for doc in docs:
-        group = doc["flags"].get("edrpg", {}).get("group")
-        if group and group not in folders:
-            fid = doc_id("folder", f"{pack}-{group}")
-            folders[group] = fid
-            folder = {"_id": fid, "_key": f"!folders!{fid}", "name": group, "type": "Item", "folder": None,
-                      "description": "", "sorting": "m", "sort": len(folders) * 100, "color": None, "flags": {}}
-            with open(os.path.join(root, f"_folder-{re.sub(r'[^a-z0-9]+', '-', group.lower())}_{fid}.json"), "w") as fh:
-                json.dump(folder, fh, indent=2)
-                fh.write("\n")
+    folders = write_folders(root, pack, docs)
     for doc in docs:
         _id = doc_id(kind, doc["name"])
         group = doc["flags"].get("edrpg", {}).get("group")
@@ -277,5 +392,7 @@ def write_pack(pack, docs, kind):
 
 
 if __name__ == "__main__":
-    write_pack("weapons", [weapon_doc(w, (i + 1) * 100) for i, w in enumerate(WEAPONS)], "weapon")
-    write_pack("armour", [armour_doc(a, (i + 1) * 100) for i, a in enumerate(ARMOUR)], "armour")
+    weapons = [weapon_doc(w, (i + 1) * 100) for i, w in enumerate(WEAPONS + SUPPLEMENT_WEAPONS)]
+    weapons.append({**DESTABILISATION_BEAM, "sort": (len(weapons) + 1) * 100})
+    write_pack("weapons", weapons, "weapon")
+    write_pack("armour", [armour_doc(a, (i + 1) * 100) for i, a in enumerate(ARMOUR + SUPPLEMENT_ARMOUR)], "armour")

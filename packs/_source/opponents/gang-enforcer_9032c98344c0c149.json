@@ -7,6 +7,7 @@
   "system": {
     "rank": "mostlyHarmless",
     "role": "Criminal",
+    "robotic": false,
     "dodge": 3,
     "parry": 2,
     "initiative": 1,
@@ -100,6 +101,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 3

@@ -626,7 +626,15 @@
       "aim": "Aim",
       "stopAiming": "Stop aiming",
       "aimHint": "Spend your turn aiming at one enemy for +5 To Hit next turn. Lost if you take damage, are attacked in close combat, or lose sight of them.",
-      "crash": "Crash"
+      "crash": "Crash",
+      "vengeful": "Vengeful: {name} is down to single-digit Endurance and can immediately attack {attacker} (if in range of a held weapon and in sight). {attacker} then resumes their turn.",
+      "molten": "Molten munitions: {dice}D10 Energy damage at the start of the target's next turn.",
+      "moltenApplied": "Splashed with molten metal: {dice}D10 Energy damage at the start of their next turn.",
+      "moltenName": "Molten munitions",
+      "destroysArmourNote": "Anti-Material Projector: armour gives no protection, and a hit destroys it.",
+      "ignoresArmourNote": "Ignores {type} armour.",
+      "doubleRobot": "Double damage against a robot or drone.",
+      "armourDestroyed": "Armour destroyed until repaired: {items}."
     },
     "burst": {
       "none": "None",
@@ -668,7 +676,13 @@
       "rollHint": "Roll an attack ({skill}). Shift-click to skip the dialog.",
       "rollOpponent": "Roll an attack with this weapon",
       "reloadedFrom": "{weapon} reloaded with a {ammo} ({left} left).",
-      "reloadedNoSpare": "{weapon} reloaded (no spare ammunition carried for it)."
+      "reloadedNoSpare": "{weapon} reloaded (no spare ammunition carried for it).",
+      "burstType": "Burst damage type",
+      "sameType": "Same as the weapon",
+      "ignoresArmour": "Ignores armour against",
+      "destroysArmour": "Destroys armour",
+      "doubleVsRobots": "Double vs robots",
+      "molten": "Molten munitions"
     },
     "armour": {
       "absorb": "Absorbs",
@@ -681,7 +695,9 @@
       "hardenedShort": "Hardened {value}",
       "sfShort": "Social Factor {value}",
       "noneCarried": "No clothing or armour.",
-      "hardenedAbbr": "Hard."
+      "hardenedAbbr": "Hard.",
+      "destroyed": "Destroyed",
+      "destroyedHint": "Destroyed by an Anti-Material Projector: gives no protection until repaired."
     },
     "combat": {
       "protection": "Protection",
@@ -710,7 +726,9 @@
       "blast": "{fatalRadius}m Fatal, {injuryRadius}m Injury, Damage Fatal {fatal}, Injury {injury}",
       "ammo": "Ammo {value}/{max}",
       "fightingLine": "Finesse 5, +{toHit} To Hit, Damage 1D10 halved (Fighting is To Hit −1 unless listed)",
-      "karmaHint": "Opponents have no Karma points: each capability can be used once per battle."
+      "karmaHint": "Opponents have no Karma points: each capability can be used once per battle.",
+      "robotic": "Robot",
+      "roboticHint": "Robots and drones take double damage from Anti-Material Projectors."
     },
     "damageShort": {
       "kinetic": "Kin",
@@ -842,7 +860,10 @@
         "naturalGenius": "Natural Genius",
         "quickRunner": "Quick Runner",
         "strong": "Strong",
-        "tough": "Tough"
+        "tough": "Tough",
+        "overclocking": "Overclocking (engineering on new ships)",
+        "survivalist": "Survivalist (Survival bonus in natural environments)",
+        "vengeful": "Vengeful (attack back at 1–9 Endurance)"
       },
       "hint": {
         "none": "Not automated.",
@@ -855,8 +876,12 @@
         "naturalGenius": "Automated: +10 to the chosen Skill's Skill Cap (max 100).",
         "quickRunner": "Automated: +2m Speed each time (up to three times).",
         "strong": "Automated: +2 Fighting and Melee damage each time (max +10).",
-        "tough": "Automated: +5 maximum Endurance each time (up to 80)."
-      }
+        "tough": "Automated: +5 maximum Endurance each time (up to 80).",
+        "overclocking": "Engineering improvements without faults on new ships (Repair 40/50/70 → 1/2/3). Applied by hand until ship engineering is added.",
+        "survivalist": "The skill check dialog offers your Survival bonus as an extra (unticked) bonus on non-combat checks.",
+        "vengeful": "Damage cards flag when an enemy attack drops you to 1–9 Endurance, so you can attack back at once."
+      },
+      "survivalistBonus": "Survivalist (natural environment)"
     },
     "creation": {
       "title": "Character creation",
@@ -914,7 +939,11 @@
       "repair": "Field repairs",
       "hacking": "Hacking",
       "drones": "Controlling drones",
-      "other": "When the GM allows"
+      "other": "When the GM allows",
+      "locks": "Opening or destroying locks",
+      "impersonating": "Impersonating someone",
+      "situational": "When it applies",
+      "brute": "Brute hacking (destroys it)"
     },
     "bonusKind": {
       "roll": "Roll bonus",
@@ -930,7 +959,10 @@
         "cosmetic": "Cosmetic",
         "stim": "Combat Stim",
         "injector": "Stim injector",
-        "ammo": "Ammunition"
+        "ammo": "Ammunition",
+        "hack": "Hacks",
+        "shield": "Personal Shields",
+        "alien": "Alien Artefacts"
       },
       "categoryLabel": "Kind",
       "quantity": "Quantity",
@@ -942,7 +974,12 @@
       "hint": "Bonuses apply while carried. Ammunition is used up when you reload a weapon whose name (or compendium group) contains the text above.",
       "qtyShort": "Qty",
       "inUse": "In use",
-      "none": "No equipment carried."
+      "none": "No equipment carried.",
+      "power": "Power",
+      "rounds": "Rounds of power",
+      "regenerate": "Heals per turn",
+      "powerHint": "While switched on (In use), each of the wearer's turns uses a round of power; at 0 the device switches off until a new battery or Alien Power Cell is fitted. A healing device restores its Endurance at the start of the wearer's turn.",
+      "drained": "Out of power: it switches off."
     },
     "cybernetic": {
       "installation": "Installation",
@@ -1609,6 +1646,26 @@
       "bankDone": "The Shield Cell Bank is spent.",
       "minesDodged": "<strong>{name}</strong> threads the minefield (beat {dn}).",
       "minesHit": "<strong>{name}</strong> doesn't beat the minefield's {dn}: it loses the Dogfight and hits a mine."
+    },
+    "shield": {
+      "title": "Personal Shield",
+      "value": "Shield",
+      "rechargeLabel": "Recharge per turn",
+      "down": "Knocked down",
+      "hint": "While switched on (In use), the shield takes damage of the ticked types before armour, like a ship's shields; anything left over carries through. At the start of the wearer's turn it recharges, and once knocked down it charges back up to half strength before it holds again.",
+      "back": "Shields back up at {value}.",
+      "charging": "Charging: {value} (holds again at {need}).",
+      "recharge": "Shield {before} → {value}.",
+      "hit": "{name}: {before} → {after}.",
+      "collapsed": "Knocked down!",
+      "downShort": "Down",
+      "roundsLeft": "{value}/{max} rounds"
+    },
+    "destab": {
+      "label": "Destabilisation Beam",
+      "hint": "A hit collapses the target's shields and puts the Damage straight on the Hull; a ship also takes it on every Fixed and Internal component (and its weapons and utility mounts on a critical hit); a vehicle that survives is disabled.",
+      "collapse": "Destabilisation Beam: the shields collapse and the Damage goes straight to the Hull.",
+      "disabled": "The vehicle is disabled: all its systems, weapons, scanners and engines fail, and take weeks to repair."
     }
   }
 }

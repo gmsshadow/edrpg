@@ -9,7 +9,7 @@
    <dl class="breakdown">
       <dt class="head">{{localize "EDRPG.damage.title"}}</dt><dd class="head">{{main.value}}</dd>
       {{#if base}}<dt>{{localize "EDRPG.damage.weapon"}} <span class="muted">{{base.formula}}</span></dt><dd>{{base.total}}</dd>{{/if}}
-      {{#if burst}}<dt>{{localize "EDRPG.damage.burst"}} <span class="muted">{{burst.formula}}</span></dt><dd>+{{burst.total}}</dd>{{/if}}
+      {{#if burst}}<dt>{{localize "EDRPG.damage.burst"}} <span class="muted">{{burst.formula}}{{#if burstType}} · {{localize (concat "EDRPG.damage." burstType)}}{{/if}}</span></dt><dd>+{{burst.total}}</dd>{{/if}}
       {{#if strong}}<dt>{{localize "EDRPG.damage.strengthBonus"}}</dt><dd>+{{strong}}</dd>{{/if}}
       {{#if divided}}<dt>{{localize "EDRPG.damage.divided"}}</dt><dd>½</dd>{{/if}}
    </dl>
@@ -22,6 +22,9 @@
    {{#if explosive}}<div class="attack-note">{{localize "EDRPG.damage.explosiveKnock"}}</div>
    {{else if knock}}<div class="attack-note knock"><i class="fa-solid fa-person-falling"></i> {{localize "EDRPG.damage.knock"}}{{#if free}} {{localize "EDRPG.damage.freeKnock"}}{{/if}}</div>{{/if}}
    {{#if disarm}}<div class="attack-note knock"><i class="fa-solid fa-hand"></i> {{localize "EDRPG.damage.disarm"}}</div>{{/if}}
+   {{#if molten}}<div class="attack-note"><i class="fa-solid fa-fire"></i> {{localize "EDRPG.damage.molten" dice=molten}}</div>{{/if}}
+   {{#if special.destroysArmour}}<div class="attack-note muted">{{localize "EDRPG.damage.destroysArmourNote"}}</div>{{/if}}
+   {{#if special.ignoresArmour}}<div class="attack-note muted">{{localize "EDRPG.damage.ignoresArmourNote" type=(localize (concat "EDRPG.damage." special.ignoresArmour))}}</div>{{/if}}
    {{#if noKnockEnergy}}<div class="attack-note muted">{{localize "EDRPG.damage.noKnockEnergy"}}</div>{{/if}}
 
    {{#if applied.length}}
@@ -29,12 +32,18 @@
       {{#each applied as |a|}}
       <li class="{{#if a.escaped}}escaped{{/if}}">
          <div><strong>{{a.name}}</strong>: {{localize "EDRPG.damage.took" taken=a.taken}}
-            <span class="muted">({{a.amount}}{{#if a.armour}} − {{a.absorbed}} {{a.armour.name}}{{#if a.hardened}}, {{localize "EDRPG.damage.hardenedRoll" roll=a.hardened.roll target=a.hardened.target}}{{#if a.hardened.doubled}} {{localize "EDRPG.damage.doubled"}}{{/if}}{{/if}}{{/if}})</span>
+            {{#if a.parts}}<span class="muted">({{#each a.parts as |p|}}{{#unless @first}}; {{/unless}}{{localize p.typeLabel}} {{p.value}}{{#if p.armour}} − {{p.absorbed}} {{p.armour.name}}{{#if p.hardened.doubled}} {{localize "EDRPG.damage.doubled"}}{{/if}}{{/if}} → {{p.taken}}{{/each}}{{#if a.hardened}}, {{localize "EDRPG.damage.hardenedRoll" roll=a.hardened.roll target=a.hardened.target}}{{/if}})</span>
+            {{else}}<span class="muted">({{a.amount}}{{#if a.shield}} − {{a.shield.absorbed}} {{a.shield.name}}{{/if}}{{#if a.armour}} − {{a.absorbed}} {{a.armour.name}}{{#if a.hardened}}, {{localize "EDRPG.damage.hardenedRoll" roll=a.hardened.roll target=a.hardened.target}}{{#if a.hardened.doubled}} {{localize "EDRPG.damage.doubled"}}{{/if}}{{/if}}{{/if}})</span>{{/if}}
          </div>
+         {{#if a.doubled}}<div class="muted">{{localize "EDRPG.damage.doubleRobot"}}</div>{{/if}}
+         {{#if a.shield}}<div class="muted"><i class="fa-solid fa-shield-halved"></i> {{localize "EDRPG.shield.hit" name=a.shield.name before=a.shield.before after=a.shield.after}}{{#if a.shield.collapsed}} {{localize "EDRPG.shield.collapsed"}}{{/if}}</div>{{/if}}
+         {{#if a.armourDestroyed.length}}<div class="ed-vengeful"><i class="fa-solid fa-heart-crack"></i> {{localize "EDRPG.damage.armourDestroyed" items=a.armourDestroyedText}}</div>{{/if}}
+         {{#if a.molten}}<div class="muted"><i class="fa-solid fa-fire"></i> {{localize "EDRPG.damage.moltenApplied" dice=a.molten}}</div>{{/if}}
          <div>{{#if a.escaped}}{{localize "EDRPG.damage.enduranceBack" value=a.before max=a.max}}{{else}}{{localize "EDRPG.damage.enduranceFromTo" before=a.before after=a.after max=a.max}}{{/if}}
             {{#each a.flags as |f|}}<span class="ed-chip">{{localize f}}</span>{{/each}}
          </div>
          {{#if a.stimText}}<div class="muted"><i class="fa-solid fa-syringe"></i> {{{a.stimText}}}</div>{{/if}}
+         {{#if (and a.vengeful (not a.escaped))}}<div class="ed-vengeful"><i class="fa-solid fa-hand-fist"></i> {{localize "EDRPG.damage.vengeful" name=a.name attacker=a.vengeful}}</div>{{/if}}
       </li>
       {{/each}}
    </ul>

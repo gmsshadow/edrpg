@@ -1,0 +1,32 @@
+{
+  "_id": "0f17b8350af77fed",
+  "_key": "!items!0f17b8350af77fed",
+  "name": "Drone Controller",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Cyber +20, Computer +10</p><p>You begin with a T-90 Patrol Drone (Opponents compendium, Individual-Scale Opponents → Drone), controlled through your com. Drone rules: you control one drone at a time, from up to 100km away (planet-wide through a settlement's network). Flying drones gain a Defence (Dodge) bonus equal to your Cyber bonus; Walker Drones cannot Dodge or Parry. All drones gain a To Hit bonus equal to your Cyber bonus. Drones can't use skills, but you can use Social skills through one at −5 Social Factor (Intimidate is unaffected). Player-owned drones don't benefit from Continuous Attack, and can be hacked (resist with Computer). Buying: T-90 Patrol Drone 20,000cr, Walker Drone 300,000cr (common, on industrial worlds that sell Heavy Weapons); Apex-Fire Combat Drone 100,000cr, Manticore HN Walker Drone 2,000,000cr, Pendragon Support Drone 5,000,000cr, Type X Walker Drone 15,000,000cr (rare).</p><p><em>Military Sourcebook</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "cyber",
+        "bonus": 20
+      },
+      {
+        "skill": "computer",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "2411abc734323770",
+  "sort": 6300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

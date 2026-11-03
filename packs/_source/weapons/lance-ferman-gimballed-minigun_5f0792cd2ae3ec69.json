@@ -51,6 +51,13 @@
     "divideFire": true,
     "attackBonus": 15,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "Aimed through a linked firing helmet, which must be worn.",
     "equipped": false
   },

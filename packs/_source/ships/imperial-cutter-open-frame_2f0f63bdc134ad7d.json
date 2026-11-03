@@ -1,0 +1,285 @@
+{
+  "_id": "2f0f63bdc134ad7d",
+  "_key": "!actors!2f0f63bdc134ad7d",
+  "name": "Imperial Cutter – Open Frame",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/empire/imperial-cutter.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Gutamaya",
+    "dimensions": "L 106.7m x W 103.7m x H 24.8m",
+    "landingPad": "Large",
+    "crewSize": 6,
+    "passengers": 12,
+    "utilityMounts": "8",
+    "cargo": "164T",
+    "range": "17LY",
+    "fuel": "64T (640LY)",
+    "cost": "208,969,450cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 0,
+    "speed": 6,
+    "maxSpeed": 6,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 720,
+      "max": 720
+    },
+    "shields": {
+      "value": 290,
+      "max": 290,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 8E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "24MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 8E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 7E",
+        "kind": "fsd",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "Range 17LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 7E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 7E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 7E",
+        "kind": "sensors",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "+4 General Scan",
+        "item": ""
+      },
+      {
+        "name": "7E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 128",
+        "item": ""
+      },
+      {
+        "name": "8E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Shield Power 290",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Imperial Cutter – Open Frame",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/empire/imperial-cutter.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "f6365d3fcbe73521",
+      "_key": "!actors.items!2f0f63bdc134ad7d.f6365d3fcbe73521",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "f8ac9e036e03f905",
+      "_key": "!actors.items!2f0f63bdc134ad7d.f8ac9e036e03f905",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "209c14c918155a4e",
+  "sort": 4000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

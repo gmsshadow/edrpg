@@ -92,10 +92,10 @@
         "name": "Power Distributor 3A",
         "kind": "powerDistributor",
         "strength": {
-          "value": 10,
-          "max": 10
+          "value": 40,
+          "max": 40
         },
-        "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, ",
+        "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, 1 Floating Bonus",
         "item": ""
       },
       {

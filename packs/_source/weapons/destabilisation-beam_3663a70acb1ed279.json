@@ -1,0 +1,42 @@
+{
+  "_id": "3663a70acb1ed279",
+  "_key": "!items!3663a70acb1ed279",
+  "name": "Destabilisation Beam",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Each shot uses an Alien Power Cell; up to six can be loaded. It can't draw on the ship's power plant. A hit collapses the target's shields and the Damage goes straight to the Hull. A vehicle that survives is disabled (all systems fail for weeks). A ship takes the Damage on each Fixed and Internal component, and on a critical hit on its weapons and utility mounts too.</p><p>Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "42,000,000cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 1,
+    "damage": 20,
+    "burst": {
+      "perPoint": 5,
+      "max": 30
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 1,
+      "max": 6
+    },
+    "special": "Collapses shields; damages every Fixed and Internal component.",
+    "destabilise": true,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 10200,
+  "effects": [],
+  "folder": "889391937104d1e9",
+  "ownership": {
+    "default": 0
+  }
+}

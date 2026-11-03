@@ -1,0 +1,36 @@
+{
+  "_id": "6a001ae4ea854f3a",
+  "_key": "!items!6a001ae4ea854f3a",
+  "name": "Big Game Hunter",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Kinetic Weapons +10, Stealth +20, Survival +20</p><p><em>Exploration Supplement</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "kineticWeapons",
+        "bonus": 10
+      },
+      {
+        "skill": "stealth",
+        "bonus": 20
+      },
+      {
+        "skill": "survival",
+        "bonus": 20
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "e3c2005099e33eca",
+  "sort": 5700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

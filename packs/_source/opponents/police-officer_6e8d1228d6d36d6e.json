@@ -7,6 +7,7 @@
   "system": {
     "rank": "mostlyHarmless",
     "role": "Police",
+    "robotic": false,
     "dodge": 2,
     "parry": 1,
     "initiative": 2,
@@ -65,7 +66,8 @@
         "socialFactor": 0,
         "skillMods": [],
         "enhancement": "",
-        "worn": true
+        "worn": true,
+        "destroyed": false
       },
       "flags": {},
       "effects": [],
@@ -128,6 +130,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 3
@@ -193,6 +202,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 3

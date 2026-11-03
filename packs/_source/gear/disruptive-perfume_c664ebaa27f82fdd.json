@@ -1,0 +1,55 @@
+{
+  "_id": "c664ebaa27f82fdd",
+  "_key": "!items!c664ebaa27f82fdd",
+  "name": "Disruptive Perfume",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>Illegal. Opponents relying entirely on digital vision (drones, robots, cyborgs with replacement eyes) take -2 to all attacks against you. Three uses.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "40,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "cosmetic",
+    "quantity": 1,
+    "uses": {
+      "value": 3,
+      "max": 3
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Illegal. Opponents relying entirely on digital vision (drones, robots, cyborgs with replacement eyes) take -2 to all attacks against you. Three uses.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Illegal Cosmetics"
+    }
+  },
+  "sort": 6900,
+  "effects": [],
+  "folder": "56b156744b2d67f4",
+  "ownership": {
+    "default": 0
+  }
+}

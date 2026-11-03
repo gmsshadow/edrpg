@@ -51,6 +51,13 @@
     "divideFire": true,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "Must always divide fire, but every target in the area takes full damage instead of half.",
     "equipped": false
   },

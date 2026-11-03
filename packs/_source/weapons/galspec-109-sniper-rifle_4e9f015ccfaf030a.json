@@ -51,6 +51,13 @@
     "divideFire": false,
     "attackBonus": 0,
     "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "Two modes. Assault mode: 1D10 + Burst. Sniper mode: +15 Kinetic Weapons score, a fixed 15 Damage, no Burst, and it only uses an ammo point after twelve shots in a row.",
     "equipped": false
   },

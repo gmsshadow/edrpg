@@ -1,0 +1,19 @@
+{
+  "_id": "60e4970cd3dc4105",
+  "_key": "!items!60e4970cd3dc4105",
+  "name": "Overclocking",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Whenever you buy a new ship (or with your starting ship), you can apply engineering improvements to its components with no risk of faults: Repair 40 grants one improvement, 50 two, 70 three. Choose any positive benefit available to the component. Not for ships you have already modified, and a component modified this way can't take further engineering.</p><p><em>Espionage Supplement</em></p>",
+    "effect": "overclocking",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": "1570d5a1d96e37c1",
+  "sort": 1100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

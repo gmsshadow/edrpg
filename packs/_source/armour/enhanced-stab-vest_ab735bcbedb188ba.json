@@ -1,0 +1,41 @@
+{
+  "_id": "ab735bcbedb188ba",
+  "_key": "!items!ab735bcbedb188ba",
+  "name": "Enhanced Stab Vest",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><em>Espionage Supplement</em></p>",
+    "cost": "70,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 6,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "discreet": true,
+    "wornOpenly": false,
+    "socialFactor": 0,
+    "skillMods": [],
+    "enhancement": "",
+    "worn": false,
+    "destroyed": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement"
+    }
+  },
+  "sort": 1300,
+  "effects": [],
+  "folder": "91f3f751712a31f6",
+  "ownership": {
+    "default": 0
+  }
+}

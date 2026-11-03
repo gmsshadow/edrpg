@@ -1,0 +1,55 @@
+{
+  "_id": "0a7cc91b936a2bc8",
+  "_key": "!items!0a7cc91b936a2bc8",
+  "name": "Class 1 Venomous Bite",
+  "type": "cybernetic",
+  "img": "icons/svg/circle.svg",
+  "system": {
+    "description": "<p>After a successful Fighting attack, bite for an extra 1D10 Toxic damage. Twice per day. Combines with Toxin Injectors.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "20,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "karmaCost": 2,
+    "discreet": false,
+    "maxInstalled": null,
+    "requires": "",
+    "damageBonus": 0,
+    "speedBonus": 0,
+    "resistKnockdown": 0,
+    "enduranceBonus": 0,
+    "initiativeBonus": 0,
+    "skillMods": [],
+    "absorb": {
+      "kinetic": 0,
+      "energy": 0,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "spaceSuit": false,
+    "grantsWeapon": "",
+    "notes": "After a successful Fighting attack, bite for an extra 1D10 Toxic damage. Twice per day. Combines with Toxin Injectors.",
+    "fightingDamage": "1d10",
+    "fightingDamageType": "toxic",
+    "uses": {
+      "value": 2,
+      "max": 2
+    },
+    "rollBonuses": [],
+    "destroyed": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement"
+    }
+  },
+  "sort": 4800,
+  "effects": [],
+  "folder": "1444eded6c422501",
+  "ownership": {
+    "default": 0
+  }
+}

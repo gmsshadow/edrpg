@@ -1,0 +1,55 @@
+{
+  "_id": "3e99fef2ba31f3b0",
+  "_key": "!items!3e99fef2ba31f3b0",
+  "name": "Fluctuating Charged Particle Shield",
+  "type": "gear",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Shield 70. Absorbs Energy and Kinetic damage like a ship's shields (not Explosive, Melee or Fighting), recharging 10 at the start of your turn; once knocked down it charges back up to half strength first. Runs 10 rounds per Alien Power Cell; changing the cell is a combat action. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week).</p><p><em>Exploration Supplement</em></p>",
+    "cost": "26,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "shield",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Shield 70. Absorbs Energy and Kinetic damage like a ship's shields (not Explosive, Melee or Fighting), recharging 10 at the start of your turn; once knocked down it charges back up to half strength first. Runs 10 rounds per Alien Power Cell; changing the cell is a combat action. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week).",
+    "shield": {
+      "value": 70,
+      "max": 70,
+      "recharge": 10,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": false,
+        "fighting": false,
+        "melee": false
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 10,
+      "max": 10
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 8000,
+  "effects": [],
+  "folder": "8ea7456e256b46f7",
+  "ownership": {
+    "default": 0
+  }
+}

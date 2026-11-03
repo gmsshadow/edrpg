@@ -79,7 +79,7 @@
             {{#each gear as |g|}}
             <tr data-item-id="{{g.id}}" class="draggable">
                <th class="name"><a data-action="editItem">{{g.name}}</a></th>
-               <td class="qty">{{#if g.uses}}<input type="number" data-item-field="system.uses.value" value="{{g.uses.value}}" min="0" step="1" data-tooltip="EDRPG.gear.uses">/{{g.uses.max}}{{else}}<input type="number" data-item-field="system.quantity" value="{{g.quantity}}" min="0" step="1">{{/if}}</td>
+               <td class="qty">{{#if g.shield}}<input type="number" data-item-field="system.shield.value" value="{{g.shield.value}}" min="0" step="1" data-tooltip="EDRPG.shield.value">/{{g.shield.max}}{{else if g.uses}}<input type="number" data-item-field="system.uses.value" value="{{g.uses.value}}" min="0" step="1" data-tooltip="EDRPG.gear.uses">/{{g.uses.max}}{{else}}<input type="number" data-item-field="system.quantity" value="{{g.quantity}}" min="0" step="1">{{/if}}</td>
                <td class="notes">{{g.notes}}</td>
                <td class="toggle">{{#if g.toggleable}}<a data-action="toggleItem" data-field="system.active" data-tooltip="EDRPG.gear.activeHint">{{#if g.active}}<i class="fa-solid fa-toggle-on"></i>{{else}}<i class="fa-solid fa-toggle-off"></i>{{/if}}</a>{{/if}}</td>
                <td class="controls">{{#if @root.editable}}<a data-action="deleteItem" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>

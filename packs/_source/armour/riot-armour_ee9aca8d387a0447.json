@@ -29,7 +29,8 @@
       }
     ],
     "enhancement": "",
-    "worn": false
+    "worn": false,
+    "destroyed": false
   },
   "flags": {},
   "sort": 400,

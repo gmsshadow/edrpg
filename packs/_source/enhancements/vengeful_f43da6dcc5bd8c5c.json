@@ -1,0 +1,19 @@
+{
+  "_id": "f43da6dcc5bd8c5c",
+  "_key": "!items!f43da6dcc5bd8c5c",
+  "name": "Vengeful",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>If an enemy attack reduces your Endurance to a single digit (1 to 9), you can immediately make an attack against that enemy, provided they are in range of a weapon you are holding and you can see them. The enemy then resumes their turn. (The damage card flags it.)</p><p><em>Super Traders Supplement</em></p>",
+    "effect": "vengeful",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": "ca8d65566f2f0213",
+  "sort": 1300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

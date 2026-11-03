@@ -38,6 +38,9 @@
          {{#if a.toShields}}{{localize "EDRPG.vehicle.shieldsHit" before=a.shieldsBefore after=a.shieldsAfter}}{{#if a.collapsed}} <span class="ed-chip">{{localize "EDRPG.vehicle.shieldsCollapse"}}</span>{{/if}}{{/if}}
          {{#if a.toHull}} {{localize "EDRPG.vehicle.hullHit" damage=a.toHull before=a.hullBefore after=a.hullAfter}}{{/if}}
          {{#if a.destroyed}} <span class="ed-chip">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}
+         {{#if a.destabilised}}<div class="ed-crit">{{localize "EDRPG.destab.collapse"}}</div>{{/if}}
+         {{#if a.disabled}}<div class="ed-crit">{{localize "EDRPG.destab.disabled"}}</div>{{/if}}
+         {{#if a.components.length}}<ul class="ed-destab">{{#each a.components as |c|}}<li>{{localize "EDRPG.crit.componentHit" name=c.name damage=c.damage before=c.before after=c.after}}{{#if c.destroyed}} <span class="ed-chip">{{localize "EDRPG.crit.destroyed"}}</span> {{c.effect}}{{/if}}</li>{{/each}}</ul>{{/if}}
          {{#if a.component}}{{localize "EDRPG.crit.componentHit" name=a.component.name damage=a.component.damage before=a.component.before after=a.component.after}}{{#if a.component.destroyed}} <span class="ed-chip">{{localize "EDRPG.crit.destroyed"}}</span> {{a.component.effect}}{{/if}}{{/if}}
          {{#if a.crit}}<div class="ed-crit">{{#if a.crit.nothing}}{{localize "EDRPG.crit.nothing" roll=a.crit.table kind=a.crit.kindLabel}}{{else}}{{localize "EDRPG.crit.result" roll=a.crit.table kind=a.crit.kindLabel name=a.crit.name before=a.crit.before after=a.crit.after}}{{#if a.crit.position}} <span class="muted">({{localize "EDRPG.crit.position" roll=a.crit.position}})</span>{{/if}}{{#if a.crit.destroyed}} <span class="ed-chip">{{localize "EDRPG.crit.destroyed"}}</span> {{a.crit.effect}}{{/if}}{{/if}}</div>{{/if}}
       </li>

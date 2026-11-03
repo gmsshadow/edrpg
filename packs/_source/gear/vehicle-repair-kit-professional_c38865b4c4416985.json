@@ -28,6 +28,24 @@
     "stimEffect": "",
     "ammoFor": "",
     "notes": "+4 to Repair for emergency and field repairs on your vehicle.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
     "active": false
   },
   "flags": {

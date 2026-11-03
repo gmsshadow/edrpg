@@ -7,6 +7,7 @@
   "system": {
     "rank": "expert",
     "role": "High Threat Drone",
+    "robotic": true,
     "dodge": null,
     "parry": null,
     "initiative": 3,
@@ -60,7 +61,8 @@
         "socialFactor": 0,
         "skillMods": [],
         "enhancement": "",
-        "worn": true
+        "worn": true,
+        "destroyed": false
       },
       "flags": {},
       "effects": [],
@@ -123,6 +125,13 @@
         "divideFire": true,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 6
@@ -188,6 +197,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 6

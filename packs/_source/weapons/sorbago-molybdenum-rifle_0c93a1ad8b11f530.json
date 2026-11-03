@@ -1,0 +1,75 @@
+{
+  "_id": "0c93a1ad8b11f530",
+  "_key": "!items!0c93a1ad8b11f530",
+  "name": "Sorbago Molybdenum Rifle",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>No molten munitions. Spare clip 10cr.</p><p><em>Military Sourcebook</em></p>",
+    "cost": "705,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "20m",
+        "dn": 7
+      },
+      "medium": {
+        "distance": "140m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "1000m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "4d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 10,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "No molten munitions. Spare clip 10cr.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Military Sourcebook/Rail Rifles"
+    }
+  },
+  "sort": 9400,
+  "effects": [],
+  "folder": "f15a27031cd4d1d9",
+  "ownership": {
+    "default": 0
+  }
+}

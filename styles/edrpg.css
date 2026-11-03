@@ -2963,8 +2963,8 @@ li:hover > .ed-row-delete {
 }
 
 .edrpg .ed-vstats .ed-pool-value input {
-   width: 4.4ch;
-   min-width: 4.4ch;
+   width: 5.4ch;
+   min-width: 5.4ch;
    font-size: 1.45rem;
    padding: 0;
 }
@@ -2976,8 +2976,8 @@ li:hover > .ed-row-delete {
 }
 
 .edrpg .ed-vstats .ed-pool .max-input {
-   width: 4.6ch;
-   min-width: 4.6ch;
+   width: 5.6ch;
+   min-width: 5.6ch;
    font-size: 1.1rem;
    padding: 0;
 }
@@ -3001,3 +3001,17 @@ li:hover > .ed-row-delete {
    gap: 0.25rem;
    white-space: nowrap;
 }
+
+.edrpg-damage .ed-vengeful {
+   margin-top: 0.15rem;
+   font-weight: 700;
+   color: var(--ed-end-1);
+}
+
+/* Opponent: Robot tick box beside the role */
+.edrpg-sheet.opponent .ed-op-rank-edit { flex-wrap: wrap; }
+.edrpg-sheet.opponent .ed-op-rank-edit label.ed-check { flex: 0 0 auto; display: flex; align-items: center; gap: 0.2rem; white-space: nowrap; font-size: var(--font-size-12, 12px); }
+.edrpg-sheet.opponent .ed-op-rank-edit label.ed-check input { flex: none; margin: 0; }
+
+/* Destabilisation Beam: the components it hit */
+.edrpg-chat ul.ed-destab { margin: 0.2rem 0 0; padding-left: 1rem; font-size: 0.9em; }

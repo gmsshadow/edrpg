@@ -1,0 +1,75 @@
+{
+  "_id": "1e5686736b497f46",
+  "_key": "!items!1e5686736b497f46",
+  "name": "TX9 SmartScope Rail Rifle",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Molten munitions: each damage die showing a 1 deals 1D10 Energy damage at the start of the target's next turn. Spare clip 10cr.</p><p><em>Military Sourcebook</em></p>",
+    "cost": "352,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "20m",
+        "dn": 7
+      },
+      "medium": {
+        "distance": "140m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "1000m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 15,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": true
+    },
+    "notes": "Molten munitions: each damage die showing a 1 deals 1D10 Energy damage at the start of the target's next turn. Spare clip 10cr.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Military Sourcebook/Rail Rifles"
+    }
+  },
+  "sort": 9300,
+  "effects": [],
+  "folder": "f15a27031cd4d1d9",
+  "ownership": {
+    "default": 0
+  }
+}

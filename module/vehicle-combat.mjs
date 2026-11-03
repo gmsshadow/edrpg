@@ -45,9 +45,10 @@ export function actionsFor(actor, zone) {
 }
 
 /** Ship collision Damage by size: Chicken (each ship inflicts on the other) and Ram (p.66–67). */
-export const SHIP_CHICKEN_DAMAGE = { small: 25, medium: 50, large: 75 };
-export const SHIP_RAM_DAMAGE = { small: 10, medium: 20, large: 30 };
-const SIZE_ORDER = { small: 1, medium: 2, large: 3 };
+// Huge ships (Supplements: Boa Mk III, Imperial Explorer) carry the size steps on: 100 / 40 / 4D10.
+export const SHIP_CHICKEN_DAMAGE = { small: 25, medium: 50, large: 75, huge: 100 };
+export const SHIP_RAM_DAMAGE = { small: 10, medium: 20, large: 30, huge: 40 };
+const SIZE_ORDER = { small: 1, medium: 2, large: 3, huge: 4 };
 
 /** Action icons for the sheet. */
 export const ACTION_ICONS = {
@@ -1345,7 +1346,7 @@ async function markWreck(actor) {
 }
 
 /** Cargo canisters that survive a ship's destruction, by size (p.70). */
-const CARGO_SCATTER = { small: "1d10", medium: "2d10", large: "3d10" };
+const CARGO_SCATTER = { small: "1d10", medium: "2d10", large: "3d10", huge: "4d10" };
 
 /**
  * A ship is destroyed (p.70): anyone aboard dies, unless the pilot makes an emergency eject (Systems, Difficulty 12)

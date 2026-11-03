@@ -1,0 +1,285 @@
+{
+  "_id": "f9fbb7c50d54a568",
+  "_key": "!actors!f9fbb7c50d54a568",
+  "name": "Cobra Mk IV – Adventure",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/cobra-mk-iv-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Faulcon DeLacy",
+    "dimensions": "L 33.1m x W 48.1m x H 8.6m",
+    "landingPad": "Small",
+    "crewSize": 12,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "18T",
+    "range": "11LY",
+    "fuel": "16T (160LY)",
+    "cost": "349,720cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 3,
+    "speed": 4,
+    "maxSpeed": 4,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 100,
+      "max": 100
+    },
+    "shields": {
+      "value": 100,
+      "max": 100,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "10.4MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4E",
+        "kind": "fsd",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Range 11LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 3E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3E",
+        "kind": "sensors",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "+1 General Scan",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8T",
+        "item": ""
+      },
+      {
+        "name": "4E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Shield Power 100",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8T",
+        "item": ""
+      },
+      {
+        "name": "1E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Capacity 2T",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Cobra Mk IV – Adventure",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/cobra-mk-iv-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "99f00a65a0a63837",
+      "_key": "!actors.items!f9fbb7c50d54a568.99f00a65a0a63837",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "4c97cc3a2df63b9a",
+      "_key": "!actors.items!f9fbb7c50d54a568.4c97cc3a2df63b9a",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "b82858fda7dcf5ac",
+  "sort": 5000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

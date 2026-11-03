@@ -56,6 +56,13 @@
         "value": 15
       }
     ],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
     "notes": "",
     "equipped": false
   },

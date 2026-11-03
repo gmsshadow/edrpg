@@ -1,0 +1,285 @@
+{
+  "_id": "aae0cee6905b973e",
+  "_key": "!actors!aae0cee6905b973e",
+  "name": "Federal Corvette – Private Sale Variant",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/federation/federal-corvette.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "L 167.8m x W 87.2m x H 28.3m",
+    "landingPad": "Large",
+    "crewSize": 8,
+    "passengers": 12,
+    "utilityMounts": "8",
+    "cargo": "76T",
+    "range": "15LY",
+    "fuel": "32T (320LY)",
+    "cost": "187,969,450cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 2,
+    "speed": 5,
+    "maxSpeed": 5,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 660,
+      "max": 660
+    },
+    "shields": {
+      "value": 235,
+      "max": 235,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 8E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "24MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 7E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 6E",
+        "kind": "fsd",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Range 15LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 5E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 55,
+          "max": 55
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 8E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 8E",
+        "kind": "sensors",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "+5 General Scan",
+        "item": ""
+      },
+      {
+        "name": "6E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Capacity 64",
+        "item": ""
+      },
+      {
+        "name": "7E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Shield Power 235",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500ls range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Federal Corvette – Private Sale Variant",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/federation/federal-corvette.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "1d1bc8d9b0ecdcbb",
+      "_key": "!actors.items!aae0cee6905b973e.1d1bc8d9b0ecdcbb",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "c85291e259bf9635",
+      "_key": "!actors.items!aae0cee6905b973e.c85291e259bf9635",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "f3bd0beaedca093a",
+  "sort": 2500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

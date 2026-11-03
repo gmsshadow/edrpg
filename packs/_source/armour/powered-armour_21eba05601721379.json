@@ -33,7 +33,8 @@
       }
     ],
     "enhancement": "Strong",
-    "worn": false
+    "worn": false,
+    "destroyed": false
   },
   "flags": {},
   "sort": 1000,

@@ -8,6 +8,7 @@ export const craftSizes = {
    small: "EDRPG.craft.size.small",
    medium: "EDRPG.craft.size.medium",
    large: "EDRPG.craft.size.large",
+   huge: "EDRPG.craft.size.huge",
 };
 
 /** Weapon mount sizes. */
@@ -319,6 +320,9 @@ export class CraftWeaponData extends foundry.abstract.TypeDataModel {
             max: new fields.NumberField({ required: true, nullable: true, integer: true, min: 0, initial: null }),
          }),
          special: new fields.StringField({ initial: "" }),
+         // Destabilisation Beam (Exploration Supplement): a hit collapses the shields, puts the Damage on the Hull, and
+         // on a ship also on every Fixed and Internal component (weapons and utility mounts too on a critical hit).
+         destabilise: new fields.BooleanField({ initial: false }),
          // The crew member firing a turret (UUID); none = automatic fire at bonus 3.
          gunner: new fields.StringField({ required: true, blank: true, initial: "" }),
       };

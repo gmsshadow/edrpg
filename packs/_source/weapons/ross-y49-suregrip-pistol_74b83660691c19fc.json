@@ -1,0 +1,75 @@
+{
+  "_id": "74b83660691c19fc",
+  "_key": "!items!74b83660691c19fc",
+  "name": "Ross Y49 Suregrip Pistol",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Social Factor +1.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "83,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "8m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "110m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "2d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 10,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "Social Factor +1.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Heavy Pistols"
+    }
+  },
+  "sort": 8300,
+  "effects": [],
+  "folder": "f20b16aa8a7b306a",
+  "ownership": {
+    "default": 0
+  }
+}

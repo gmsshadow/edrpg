@@ -7,6 +7,7 @@
   "system": {
     "rank": "dangerous",
     "role": "Alien Animal",
+    "robotic": false,
     "dodge": 7,
     "parry": 7,
     "initiative": 6,
@@ -60,7 +61,8 @@
         "socialFactor": 0,
         "skillMods": [],
         "enhancement": "",
-        "worn": true
+        "worn": true,
+        "destroyed": false
       },
       "flags": {},
       "effects": [],
@@ -123,6 +125,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 7
@@ -188,6 +197,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "Only if target is knocked over.",
         "equipped": true,
         "toHit": 7
@@ -253,6 +269,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 7

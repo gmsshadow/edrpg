@@ -1,0 +1,75 @@
+{
+  "_id": "790b335355eab091",
+  "_key": "!items!790b335355eab091",
+  "name": "AMP - Shoulder Mounted Annihilator",
+  "type": "weapon",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "description": "<p>Against vehicles and spaceships it deals 60 damage at their scale and ignores shields. A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "35,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "heavyWeapons",
+    "damageType": "energy",
+    "heavy": true,
+    "ranges": {
+      "short": {
+        "distance": "30m",
+        "dn": 6
+      },
+      "medium": {
+        "distance": "700m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "5km",
+        "dn": 13
+      }
+    },
+    "finesse": null,
+    "damage": "60",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": true,
+      "doubleVsRobots": true,
+      "molten": false
+    },
+    "notes": "Against vehicles and spaceships it deals 60 damage at their scale and ignores shields. A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 10000,
+  "effects": [],
+  "folder": "889391937104d1e9",
+  "ownership": {
+    "default": 0
+  }
+}

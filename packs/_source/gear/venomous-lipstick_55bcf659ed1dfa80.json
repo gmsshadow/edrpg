@@ -1,0 +1,55 @@
+{
+  "_id": "55bcf659ed1dfa80",
+  "_key": "!items!55bcf659ed1dfa80",
+  "name": "Venomous Lipstick",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>Illegal. On a successful Fighting attack (a kiss), instead of damage the target takes 10 Toxic damage at the start of each of its turns until someone makes a Medicine check (9) with a Medpack. Includes a jar of ten antidote pills.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "1,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "cosmetic",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Illegal. On a successful Fighting attack (a kiss), instead of damage the target takes 10 Toxic damage at the start of each of its turns until someone makes a Medicine check (9) with a Medpack. Includes a jar of ten antidote pills.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Illegal Cosmetics"
+    }
+  },
+  "sort": 7100,
+  "effects": [],
+  "folder": "56b156744b2d67f4",
+  "ownership": {
+    "default": 0
+  }
+}

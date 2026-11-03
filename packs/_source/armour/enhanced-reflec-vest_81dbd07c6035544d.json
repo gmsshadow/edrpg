@@ -1,0 +1,41 @@
+{
+  "_id": "81dbd07c6035544d",
+  "_key": "!items!81dbd07c6035544d",
+  "name": "Enhanced Reflec Vest",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><em>Espionage Supplement</em></p>",
+    "cost": "150,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "absorb": {
+      "kinetic": 0,
+      "energy": 5,
+      "explosive": 0,
+      "fighting": 0,
+      "melee": 0,
+      "toxic": 0
+    },
+    "toxicAll": false,
+    "hardened": null,
+    "discreet": true,
+    "wornOpenly": false,
+    "socialFactor": 0,
+    "skillMods": [],
+    "enhancement": "",
+    "worn": false,
+    "destroyed": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement"
+    }
+  },
+  "sort": 1200,
+  "effects": [],
+  "folder": "91f3f751712a31f6",
+  "ownership": {
+    "default": 0
+  }
+}

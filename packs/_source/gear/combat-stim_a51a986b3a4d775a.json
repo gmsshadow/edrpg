@@ -21,6 +21,24 @@
     "stimEffect": "",
     "ammoFor": "",
     "notes": "One dose for a Stim injector. For about an hour you can't fall unconscious at 0 Endurance or below (you still die at minus half your Endurance) and they don't stabilise you.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
     "active": false
   },
   "flags": {

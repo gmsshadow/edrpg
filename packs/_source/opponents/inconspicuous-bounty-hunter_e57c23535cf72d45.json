@@ -173,7 +173,7 @@
     {
       "_id": "4776e2f247bff7bd",
       "_key": "!actors.items!e57c23535cf72d45.4776e2f247bff7bd",
-      "name": "Small Gimballed Multi cannon",
+      "name": "Small Gimballed Multi-Cannon",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {
@@ -210,7 +210,7 @@
     {
       "_id": "20868b5e1edd8b9e",
       "_key": "!actors.items!e57c23535cf72d45.20868b5e1edd8b9e",
-      "name": "Small Gimballed Multi cannon",
+      "name": "Small Gimballed Multi-Cannon",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {

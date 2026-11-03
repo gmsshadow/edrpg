@@ -1,0 +1,30 @@
+{
+  "_id": "c044594b244ed73a",
+  "_key": "!items!c044594b244ed73a",
+  "name": "Burnout",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> Your attack has damaged the enemy spaceship's hull.</p><p><strong>Effect:</strong> This attack becomes a critical hit.</p><p><em>Super Traders Supplement</em></p>",
+    "role": "offensive",
+    "category": "spaceship",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "a737a1b99f6ceb01",
+  "sort": 5300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

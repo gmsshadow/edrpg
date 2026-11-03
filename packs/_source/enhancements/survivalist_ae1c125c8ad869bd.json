@@ -1,0 +1,19 @@
+{
+  "_id": "ae1c125c8ad869bd",
+  "_key": "!items!ae1c125c8ad869bd",
+  "name": "Survivalist",
+  "type": "enhancement",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>When making a Skill check in a natural environment, such as an alien forest or marsh, add your Survival bonus to the check as well as the relevant Skill bonus. Not for attacks, or for technological hurdles such as locks or security fences; the GM can disallow it where knowing nature couldn't help. (Offered as an option in the skill check dialog.)</p><p><em>Exploration Supplement</em></p>",
+    "effect": "survivalist",
+    "skill": ""
+  },
+  "effects": [],
+  "folder": "4c7528f902fdd0d0",
+  "sort": 1200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

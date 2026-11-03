@@ -1,0 +1,44 @@
+{
+  "_id": "0e555088fb2e732c",
+  "_key": "!items!0e555088fb2e732c",
+  "name": "Smuggler",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Bargain +10, Spaceship Piloting +10, Systems +10, Tactics +10, Vehicle Piloting +10</p><p><em>Super Traders Supplement</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bargain",
+        "bonus": 10
+      },
+      {
+        "skill": "shipPiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "systems",
+        "bonus": 10
+      },
+      {
+        "skill": "tactics",
+        "bonus": 10
+      },
+      {
+        "skill": "vehiclePiloting",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "cab1202969997249",
+  "sort": 6700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

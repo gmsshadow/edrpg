@@ -1,0 +1,285 @@
+{
+  "_id": "cf0fba514c066961",
+  "_key": "!actors!cf0fba514c066961",
+  "name": "Federal Assault Ship – Patriot Edition",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/federation/federal-assault-ship.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "L 73.8m x W 49.5m x H 22.8m",
+    "landingPad": "Medium",
+    "crewSize": 2,
+    "passengers": 6,
+    "utilityMounts": "4",
+    "cargo": "32T",
+    "range": "13LY",
+    "fuel": "16T (160LY)",
+    "cost": "19,815,210cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 6,
+    "speed": 7,
+    "maxSpeed": 7,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 360,
+      "max": 360
+    },
+    "shields": {
+      "value": 140,
+      "max": 140,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 3E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "8MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 3E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 3E",
+        "kind": "fsd",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "Range 9LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 1E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 2E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 3E",
+        "kind": "sensors",
+        "strength": {
+          "value": 25,
+          "max": 25
+        },
+        "notes": "+1 General Scan, No bonus",
+        "item": ""
+      },
+      {
+        "name": "4E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 16",
+        "item": ""
+      },
+      {
+        "name": "5E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Shield Power 140",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Federal Assault Ship – Patriot Edition",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/federation/federal-assault-ship.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "9289fd2d33b8ac84",
+      "_key": "!actors.items!cf0fba514c066961.9289fd2d33b8ac84",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "2dce3d0fe8357c5d",
+      "_key": "!actors.items!cf0fba514c066961.2dce3d0fe8357c5d",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "b165e851e2386ff9",
+  "sort": 2200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

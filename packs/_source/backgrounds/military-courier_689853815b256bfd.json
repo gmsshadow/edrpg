@@ -1,0 +1,44 @@
+{
+  "_id": "689853815b256bfd",
+  "_key": "!items!689853815b256bfd",
+  "name": "Military Courier",
+  "type": "background",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p><strong>Skills:</strong> Bluff +10, Navigation +10, Spaceship Piloting +10, Vehicle Piloting +10, Vehicle Weapons +10</p><p><em>Military Sourcebook</em></p>",
+    "choices": 1,
+    "free": false,
+    "skills": [
+      {
+        "skill": "bluff",
+        "bonus": 10
+      },
+      {
+        "skill": "navigation",
+        "bonus": 10
+      },
+      {
+        "skill": "shipPiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "vehiclePiloting",
+        "bonus": 10
+      },
+      {
+        "skill": "vehicleWeapons",
+        "bonus": 10
+      }
+    ],
+    "enhancements": [],
+    "enhancementChoices": 0,
+    "requires": ""
+  },
+  "effects": [],
+  "folder": "2411abc734323770",
+  "sort": 6200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

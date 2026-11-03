@@ -1,0 +1,55 @@
+{
+  "_id": "51adc09b50f2d789",
+  "_key": "!items!51adc09b50f2d789",
+  "name": "Alien Power Cell (Charged)",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>Powers alien artefacts. Fitting one to a human-modified device takes a Repair check (10, or 7 with time). Sells for 5,000,000cr.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "5,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "alien",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Powers alien artefacts. Fitting one to a human-modified device takes a Repair check (10, or 7 with time). Sells for 5,000,000cr.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 8400,
+  "effects": [],
+  "folder": "8ea7456e256b46f7",
+  "ownership": {
+    "default": 0
+  }
+}

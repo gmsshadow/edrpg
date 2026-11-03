@@ -1,0 +1,62 @@
+{
+  "_id": "a152986429e1b546",
+  "_key": "!items!a152986429e1b546",
+  "name": "Assistant Security Hack, Basic",
+  "type": "gear",
+  "img": "icons/svg/padlock.svg",
+  "system": {
+    "description": "<p>+2 to Security checks to open a lock. Reusable.</p><p><em>Espionage Supplement</em></p>",
+    "cost": "5,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "hack",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [
+      {
+        "skill": "security",
+        "value": 2,
+        "kind": "roll",
+        "when": "locks"
+      }
+    ],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "+2 to Security checks to open a lock. Reusable.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Hacks"
+    }
+  },
+  "sort": 5900,
+  "effects": [],
+  "folder": "f73c7ab72a74dc68",
+  "ownership": {
+    "default": 0
+  }
+}

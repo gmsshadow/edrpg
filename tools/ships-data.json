@@ -3103,8 +3103,8 @@
     {
      "name": "Power Distributor 3A",
      "kind": "powerDistributor",
-     "str": 10,
-     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, "
+     "str": 40,
+     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, 1 Floating Bonus"
     },
     {
      "name": "Sensors 3A",
@@ -4773,8 +4773,8 @@
     {
      "name": "Power Distributor 6A",
      "kind": "powerDistributor",
-     "str": 10,
-     "notes": "1 Floating Bonuses, +1 to hit, "
+     "str": 70,
+     "notes": "1 Floating Bonuses, +1 to hit, +1 Agility, +5 Shield Recharge"
     },
     {
      "name": "Sensors 4A",
@@ -6420,8 +6420,8 @@
     {
      "name": "Power Distributor 7A",
      "kind": "powerDistributor",
-     "str": 10,
-     "notes": "1 Floating Bonus, +1 to hit, +1 Agility, "
+     "str": 80,
+     "notes": "1 Floating Bonus, +1 to hit, +1 Agility, +5 Shield Recharge"
     },
     {
      "name": "Sensors 6A",
@@ -7350,8 +7350,8 @@
     {
      "name": "Power Distributor 1A",
      "kind": "powerDistributor",
-     "str": 10,
-     "notes": "1 Floating Bonus, +1 to hit, +1 Agility, "
+     "str": 20,
+     "notes": "1 Floating Bonus, +1 to hit, +1 Agility, +5 Shield Recharge"
     },
     {
      "name": "Sensors 1C",
@@ -8272,8 +8272,8 @@
     {
      "name": "Power Distributor 3A",
      "kind": "powerDistributor",
-     "str": 10,
-     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, "
+     "str": 40,
+     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, 1 Floating bonus"
     },
     {
      "name": "Sensors 3A",
@@ -8822,8 +8822,8 @@
     {
      "name": "Power Distributor 6A",
      "kind": "powerDistributor",
-     "str": 10,
-     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, "
+     "str": 70,
+     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, 1 Floating bonus"
     },
     {
      "name": "Sensors 4A",
@@ -9455,8 +9455,8 @@
     {
      "name": "Power Distributor 3A",
      "kind": "powerDistributor",
-     "str": 10,
-     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, "
+     "str": 55,
+     "notes": "+1 to hit, +1 Agility, +5 Shield Recharge, 1 Floating Bonus"
     },
     {
      "name": "Sensors 3B",

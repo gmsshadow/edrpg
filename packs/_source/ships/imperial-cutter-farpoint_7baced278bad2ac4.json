@@ -1,0 +1,587 @@
+{
+  "_id": "7baced278bad2ac4",
+  "_key": "!actors!7baced278bad2ac4",
+  "name": "Imperial Cutter – Farpoint",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/empire/imperial-cutter.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Gutamaya",
+    "dimensions": "L 106.7m x W 103.7m x H 24.8m",
+    "landingPad": "Large",
+    "crewSize": 6,
+    "passengers": 12,
+    "utilityMounts": "8",
+    "cargo": "256T",
+    "range": "23LY",
+    "fuel": "128T (1280LY)",
+    "cost": "1,033,321,660cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 0,
+    "speed": 6,
+    "maxSpeed": 6,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 720,
+      "max": 720
+    },
+    "shields": {
+      "value": 290,
+      "max": 290,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 1,
+      "initiative": 2,
+      "dogfighting": 2
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 8A",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 140,
+          "max": 140
+        },
+        "notes": "36MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 8A",
+        "kind": "thrusters",
+        "strength": {
+          "value": 140,
+          "max": 140
+        },
+        "notes": "+2 Speed, +2 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 7A",
+        "kind": "fsd",
+        "strength": {
+          "value": 135,
+          "max": 135
+        },
+        "notes": "Range 23LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 7B",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 130,
+          "max": 130
+        },
+        "notes": "Emergency Life Support 15 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 7A",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 130,
+          "max": 130
+        },
+        "notes": "+1 Agility, +1 to hit, +5 Shield recharge, 1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 7A",
+        "kind": "sensors",
+        "strength": {
+          "value": 125,
+          "max": 125
+        },
+        "notes": "+4 General Scan, +2 Initiative, +2 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Shield Bonus 25%",
+        "item": ""
+      },
+      {
+        "name": "ECM",
+        "kind": "utility",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "Chaff Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Ammo 6",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Shield Bonus 25%",
+        "item": ""
+      },
+      {
+        "name": "8E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 105,
+          "max": 105
+        },
+        "notes": "Capacity 256",
+        "item": ""
+      },
+      {
+        "name": "8A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 105,
+          "max": 105
+        },
+        "notes": "Shield Power 430",
+        "item": ""
+      },
+      {
+        "name": "6A Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 95,
+          "max": 95
+        },
+        "notes": "Shield Recharge 30/5, Ammo 3",
+        "item": ""
+      },
+      {
+        "name": "6A Fuel Scoop",
+        "kind": "internal",
+        "strength": {
+          "value": 95,
+          "max": 95
+        },
+        "notes": "Scoop: Auto/6",
+        "item": ""
+      },
+      {
+        "name": "6C Fuel Tank",
+        "kind": "internal",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "Extra Fuel Capacity: 64t",
+        "item": ""
+      },
+      {
+        "name": "5D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+100 Hull",
+        "item": ""
+      },
+      {
+        "name": "5D Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "",
+        "item": ""
+      },
+      {
+        "name": "4H Planetary Vehicle Hanger",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Vehicle Bays 2",
+        "item": ""
+      },
+      {
+        "name": "1C Advanced Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Range: System wide",
+        "item": ""
+      },
+      {
+        "name": "5D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+100 Hull",
+        "item": ""
+      },
+      {
+        "name": "5E Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+25 Str/All",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": true,
+      "floating": 1,
+      "cellBanks": [
+        {
+          "name": "6A Shield Cell Bank",
+          "boost": 30,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Imperial Cutter – Farpoint",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/empire/imperial-cutter.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "d11adcb4696e3654",
+      "_key": "!actors.items!7baced278bad2ac4.d11adcb4696e3654",
+      "name": "Huge Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "huge",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "39aa8ed509349b26",
+      "_key": "!actors.items!7baced278bad2ac4.39aa8ed509349b26",
+      "name": "Large Turreted Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "2a7f516ed1b26ff6",
+      "_key": "!actors.items!7baced278bad2ac4.2a7f516ed1b26ff6",
+      "name": "Large Turreted Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "111d4210533ed78f",
+      "_key": "!actors.items!7baced278bad2ac4.111d4210533ed78f",
+      "name": "Medium Turreted Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "99b2dfbd14df0fec",
+      "_key": "!actors.items!7baced278bad2ac4.99b2dfbd14df0fec",
+      "name": "Medium Turreted Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "63fda8df9735b92d",
+      "_key": "!actors.items!7baced278bad2ac4.63fda8df9735b92d",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "373a8dc45df8d585",
+      "_key": "!actors.items!7baced278bad2ac4.373a8dc45df8d585",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "209c14c918155a4e",
+  "sort": 4200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

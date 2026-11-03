@@ -1,0 +1,275 @@
+{
+  "_id": "e39b32949b84a157",
+  "_key": "!actors!e39b32949b84a157",
+  "name": "Imperial Explorer – Assembly Line Variant",
+  "type": "ship",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "huge",
+    "manufacturer": "Gutamaya",
+    "dimensions": "L 226.3m x W 91.2m x H 85.7m",
+    "landingPad": "None",
+    "crewSize": 22,
+    "passengers": 60,
+    "utilityMounts": "8",
+    "cargo": "128T",
+    "range": "28.5LY",
+    "fuel": "128T (1,280 LY)",
+    "cost": "514,368,730cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 0,
+    "speed": 3,
+    "maxSpeed": 3,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 2200,
+      "max": 2200
+    },
+    "shields": {
+      "value": 290,
+      "max": 290,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 8E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "24MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 8E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 8E",
+        "kind": "fsd",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Range 19LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 8E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 85,
+          "max": 85
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 8E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 8E",
+        "kind": "sensors",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "+5 General Scan",
+        "item": ""
+      },
+      {
+        "name": "8D Spaceship Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Hangar Size: Small",
+        "item": ""
+      },
+      {
+        "name": "8E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Shield Power 290",
+        "item": ""
+      },
+      {
+        "name": "7E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 128T",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Imperial Explorer – Assembly Line Variant",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 4,
+    "height": 4,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "7e175265e9f5b322",
+      "_key": "!actors.items!e39b32949b84a157.7e175265e9f5b322",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5e6ebe93bb41b42f",
+      "_key": "!actors.items!e39b32949b84a157.5e6ebe93bb41b42f",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "d3d29ded7e4cf2be",
+  "sort": 1900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

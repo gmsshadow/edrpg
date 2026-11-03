@@ -94,6 +94,35 @@ BACKGROUNDS = [
     ("Wise Guy", 2, "97-00", "Dodge +10, Gambling +10, Heavy Weapons +10, Kinetic Weapons +10, Medicine +10, Melee Weapons +10, Streetwise +20, Tactics +10, Vehicle Weapons +10", []),
 ]
 
+# Supplements: (source, name, choices, d100, skills, enhancements, options). Names, skills and mechanics only.
+ESP, EXP, MIL, ST = "Espionage Supplement", "Exploration Supplement", "Military Sourcebook", "Super Traders Supplement"
+SUPPLEMENT_BACKGROUNDS = [
+    (ESP, "Wage Slave", 1, "", "Bargain +10, Computer +10, Culture & Law +10, Diplomacy +10, Security +10", []),
+    (ESP, "Insurgent", 1, "", "Bluff +20, Fighting +10, Security +10, Stealth +10", []),
+    (ESP, "Corporate Security", 1, "", "Dodge +10, Energy Weapons +10, Fighting +10, Security +20", []),
+    (EXP, "Big Game Hunter", 1, "", "Kinetic Weapons +10, Stealth +20, Survival +20", []),
+    (EXP, "Castaway", 1, "", "Survival +20, Melee Weapons +10", [("Survivalist", "")]),
+    (EXP, "Xenobiologist", 1, "", "Science +20, Medicine +20, Planetary Knowledge +10", [],
+     {"notes": "The book prints “Planetary Systems +10”; there is no such skill, so this uses Planetary Knowledge."}),
+    (MIL, "Federal Reservist", 1, "", "Dodge +10, Fighting +10, Intimidate +10, Kinetic Weapons +10, Stealth +10", []),
+    (MIL, "Slave Soldier", 1, "", "Bluff +10, Charm +10, Dodge +10, Energy Weapons +10, Vehicle Weapons +10", []),
+    (MIL, "Military Courier", 1, "", "Bluff +10, Navigation +10, Spaceship Piloting +10, Vehicle Piloting +10, Vehicle Weapons +10", []),
+    (MIL, "Drone Controller", 1, "", "Cyber +20, Computer +10", [],
+     {"bonus": 20, "notes": "You begin with a T-90 Patrol Drone (Opponents compendium, Individual-Scale Opponents → Drone), "
+      "controlled through your com. Drone rules: you control one drone at a time, from up to 100km away (planet-wide "
+      "through a settlement's network). Flying drones gain a Defence (Dodge) bonus equal to your Cyber bonus; Walker "
+      "Drones cannot Dodge or Parry. All drones gain a To Hit bonus equal to your Cyber bonus. Drones can't use skills, "
+      "but you can use Social skills through one at −5 Social Factor (Intimidate is unaffected). Player-owned drones "
+      "don't benefit from Continuous Attack, and can be hacked (resist with Computer). Buying: T-90 Patrol Drone "
+      "20,000cr, Walker Drone 300,000cr (common, on industrial worlds that sell Heavy Weapons); Apex-Fire Combat Drone "
+      "100,000cr, Manticore HN Walker Drone 2,000,000cr, Pendragon Support Drone 5,000,000cr, Type X Walker Drone "
+      "15,000,000cr (rare)."}),
+    (ST, "Disgraced Banker", 1, "", "Dodge +10, Energy Weapons +10, Tactics +10, Trading +20", []),
+    (ST, "Labour Slave", 1, "", "Fighting +10", [("Strong", ""), ("Tough", "")]),
+    (ST, "Pit Fighter", 1, "", "Bluff +10, Charm +20, Fighting +10, Parry +10", []),
+    (ST, "Smuggler", 1, "", "Bargain +10, Spaceship Piloting +10, Systems +10, Tactics +10, Vehicle Piloting +10", []),
+]
+
 # (name, effect, mechanics)
 ENHANCEMENTS = [
     ("Ambidextrous", "ambidextrous",
@@ -119,6 +148,27 @@ ENHANCEMENTS = [
     ("Tough", "tough", "Endurance +5. Stacks, up to the natural human maximum of 80 Endurance (without cybernetics)."),
 ]
 
+# (source, name, effect, mechanics)
+SUPPLEMENT_ENHANCEMENTS = [
+    (ESP, "Overclocking", "overclocking",
+     "Whenever you buy a new ship (or with your starting ship), you can apply engineering improvements to its "
+     "components with no risk of faults: Repair 40 grants one improvement, 50 two, 70 three. Choose any positive "
+     "benefit available to the component. Not for ships you have already modified, and a component modified this way "
+     "can't take further engineering."),
+    (EXP, "Survivalist", "survivalist",
+     "When making a Skill check in a natural environment, such as an alien forest or marsh, add your Survival bonus "
+     "to the check as well as the relevant Skill bonus. Not for attacks, or for technological hurdles such as locks "
+     "or security fences; the GM can disallow it where knowing nature couldn't help. (Offered as an option in the "
+     "skill check dialog.)"),
+    (ST, "Vengeful", "vengeful",
+     "If an enemy attack reduces your Endurance to a single digit (1 to 9), you can immediately make an attack against "
+     "that enemy, provided they are in range of a weapon you are holding and you can see them. The enemy then resumes "
+     "their turn. (The damage card flags it.)"),
+]
+
+CORE = "Core Rules"
+SOURCES = [CORE, ESP, EXP, MIL, ST]
+
 ICONS = {"background": "icons/svg/book.svg", "enhancement": "icons/svg/upgrade.svg"}
 
 
@@ -139,6 +189,12 @@ def write(root, doc):
         fh.write("\n")
 
 
+def folder_doc(kind, name, sort):
+    _id = doc_id(f"folder-{kind}", name)
+    return {"_id": _id, "_key": f"!folders!{_id}", "name": name, "type": "Item", "folder": None, "description": "",
+            "sorting": "a", "sort": sort, "color": None, "flags": {}}
+
+
 def background_doc(entry, sort):
     name, choices, roll, skills, grants, *rest = entry
     opts = rest[0] if rest else {}
@@ -157,6 +213,8 @@ def background_doc(entry, sort):
         html += f"<p><strong>Enhancement{'s' if len(names) > 1 else ''}:</strong> {' &amp; '.join(names)}</p>"
     if opts.get("notes"):
         html += f"<p>{opts['notes']}</p>"
+    if opts.get("source"):
+        html += f"<p><em>{opts['source']}</em></p>"
     return {
         "_id": _id, "_key": f"!items!{_id}", "name": name, "type": "background", "img": ICONS["background"],
         "system": {
@@ -169,38 +227,56 @@ def background_doc(entry, sort):
     }
 
 
-def enhancement_doc(entry, sort):
+def enhancement_doc(entry, sort, source=None):
     name, effect, text = entry
     _id = doc_id("enhancement", name)
+    html = f"<p>{text}</p>" + (f"<p><em>{source}</em></p>" if source else "")
     return {
         "_id": _id, "_key": f"!items!{_id}", "name": name, "type": "enhancement", "img": ICONS["enhancement"],
-        "system": {"description": f"<p>{text}</p>", "effect": effect, "skill": ""},
+        "system": {"description": html, "effect": effect, "skill": ""},
         "effects": [], "folder": None, "sort": sort, "ownership": {"default": 0}, "flags": {},
     }
 
 
 def main():
     # Sanity check: a background choice is worth 50 points, an Enhancement 20.
-    for entry in BACKGROUNDS:
+    for entry in BACKGROUNDS + [e[1:] for e in SUPPLEMENT_BACKGROUNDS]:
         name, choices, _, skills, grants, *rest = entry
         opts = rest[0] if rest else {}
         if not skills or opts.get("blank"):
             continue
-        total = sum(b for _, b in S(skills)) + 20 * len(grants)
+        total = sum(b for _, b in S(skills)) + 20 * len(grants) + opts.get("bonus", 0)
         if total != 50 * choices:
             print(f"warning: {name} totals {total}")
 
+    # One folder per book.
     root = os.path.join(HERE, "..", "packs", "_source", "backgrounds")
     clean(root)
-    for i, entry in enumerate(BACKGROUNDS):
-        write(root, background_doc(entry, (i + 1) * 100))
-    print(f"{len(BACKGROUNDS)} backgrounds written to {os.path.normpath(root)}")
+    folders = {src: folder_doc("background", src, (i + 1) * 100) for i, src in enumerate(SOURCES)}
+    for f in folders.values():
+        write(root, f)
+    entries = [(CORE, e) for e in BACKGROUNDS] + [(e[0], e[1:]) for e in SUPPLEMENT_BACKGROUNDS]
+    for i, (src, entry) in enumerate(entries):
+        if src != CORE:
+            name, choices, roll, skills, grants, *rest = entry
+            entry = (name, choices, roll, skills, grants, {**(rest[0] if rest else {}), "source": src})
+        doc = background_doc(entry, (i + 1) * 100)
+        doc["folder"] = folders[src]["_id"]
+        write(root, doc)
+    print(f"{len(entries)} backgrounds written to {os.path.normpath(root)}")
 
     root = os.path.join(HERE, "..", "packs", "_source", "enhancements")
     clean(root)
-    for i, entry in enumerate(ENHANCEMENTS):
-        write(root, enhancement_doc(entry, (i + 1) * 100))
-    print(f"{len(ENHANCEMENTS)} enhancements written to {os.path.normpath(root)}")
+    used = [CORE] + sorted({e[0] for e in SUPPLEMENT_ENHANCEMENTS}, key=SOURCES.index)
+    folders = {src: folder_doc("enhancement", src, (SOURCES.index(src) + 1) * 100) for src in used}
+    for f in folders.values():
+        write(root, f)
+    entries = [(CORE, e) for e in ENHANCEMENTS] + [(e[0], e[1:]) for e in SUPPLEMENT_ENHANCEMENTS]
+    for i, (src, entry) in enumerate(entries):
+        doc = enhancement_doc(entry, (i + 1) * 100, None if src == CORE else src)
+        doc["folder"] = folders[src]["_id"]
+        write(root, doc)
+    print(f"{len(entries)} enhancements written to {os.path.normpath(root)}")
 
 
 if __name__ == "__main__":

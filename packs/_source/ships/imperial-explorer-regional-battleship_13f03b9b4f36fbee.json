@@ -1,0 +1,614 @@
+{
+  "_id": "13f03b9b4f36fbee",
+  "_key": "!actors!13f03b9b4f36fbee",
+  "name": "Imperial Explorer – Regional Battleship",
+  "type": "ship",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "huge",
+    "manufacturer": "Gutamaya",
+    "dimensions": "L 226.3m x W 91.2m x H 85.7m",
+    "landingPad": "None",
+    "crewSize": 22,
+    "passengers": 60,
+    "utilityMounts": "8",
+    "cargo": "128T",
+    "range": "33LY",
+    "fuel": "128T (1,280 LY)",
+    "cost": "1,578,960,319cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 1,
+    "speed": 3,
+    "maxSpeed": 3,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 4400,
+      "max": 4400
+    },
+    "shields": {
+      "value": 645,
+      "max": 645,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 1,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 8A",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 140,
+          "max": 140
+        },
+        "notes": "36MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 8E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 130,
+          "max": 130
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 8C",
+        "kind": "fsd",
+        "strength": {
+          "value": 130,
+          "max": 130
+        },
+        "notes": "Range 22LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 8E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 135,
+          "max": 135
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 8A",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 140,
+          "max": 140
+        },
+        "notes": "+1 Agility, +1 to hit, +5 Shield Recharge, 1 Floating Bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 8D",
+        "kind": "sensors",
+        "strength": {
+          "value": 125,
+          "max": 125
+        },
+        "notes": "+1 Initiative, +5 General Scan",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster (Str 10",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "25% Shield boost)",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster (Str 10",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "25% Shield boost)",
+        "item": ""
+      },
+      {
+        "name": "Point Defence (Str 10",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10)",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Wake Scanner (Str 10",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "+1 scan bonus)",
+        "item": ""
+      },
+      {
+        "name": "8D Spaceship Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Hangar Size: Small",
+        "item": ""
+      },
+      {
+        "name": "8D Spaceship Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Hangar Size: Small",
+        "item": ""
+      },
+      {
+        "name": "8A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "Shield Power 430",
+        "item": ""
+      },
+      {
+        "name": "8C Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 85,
+          "max": 85
+        },
+        "notes": "Recharge 40/3, Ammo 3",
+        "item": ""
+      },
+      {
+        "name": "7C Fuel Scoop",
+        "kind": "internal",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Scoop Auto/6",
+        "item": ""
+      },
+      {
+        "name": "7E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 128T",
+        "item": ""
+      },
+      {
+        "name": "6H Planetary Vehicle Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "Vehicles 4",
+        "item": ""
+      },
+      {
+        "name": "6H Planetary Vehicle Hangar",
+        "kind": "internal",
+        "strength": {
+          "value": 65,
+          "max": 65
+        },
+        "notes": "Vehicles 4",
+        "item": ""
+      },
+      {
+        "name": "1C Detailed Surface Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "50% discovery bonus",
+        "item": ""
+      },
+      {
+        "name": "1C Advanced Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 15,
+          "max": 15
+        },
+        "notes": "Range System Wide",
+        "item": ""
+      },
+      {
+        "name": "5D Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "+50 Str/Fixed",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 1,
+      "cellBanks": [
+        {
+          "name": "8C Shield Cell Bank",
+          "boost": 40,
+          "duration": 3,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Imperial Explorer – Regional Battleship",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 4,
+    "height": 4,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "cf921ac03f72944f",
+      "_key": "!actors.items!13f03b9b4f36fbee.cf921ac03f72944f",
+      "name": "Huge Fixed Plasma Accelerator",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "huge",
+          "kind": "fixed"
+        },
+        "accuracy": -1,
+        "damage": 70,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "35f2cd2809c47957",
+      "_key": "!actors.items!13f03b9b4f36fbee.35f2cd2809c47957",
+      "name": "Large Turreted Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ce92d2e248400258",
+      "_key": "!actors.items!13f03b9b4f36fbee.ce92d2e248400258",
+      "name": "Large Turreted Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "9c1d5932a03f2c8e",
+      "_key": "!actors.items!13f03b9b4f36fbee.9c1d5932a03f2c8e",
+      "name": "Large Turreted Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "8babe8844c4c6374",
+      "_key": "!actors.items!13f03b9b4f36fbee.8babe8844c4c6374",
+      "name": "Large Turreted Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "8da14184ba9e851e",
+      "_key": "!actors.items!13f03b9b4f36fbee.8da14184ba9e851e",
+      "name": "Large Turreted Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "c2936dd7bac3b6c5",
+      "_key": "!actors.items!13f03b9b4f36fbee.c2936dd7bac3b6c5",
+      "name": "Medium Turreted Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "717861c50f94eaa0",
+      "_key": "!actors.items!13f03b9b4f36fbee.717861c50f94eaa0",
+      "name": "Medium Turreted Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 800,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "d3d29ded7e4cf2be",
+  "sort": 2100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

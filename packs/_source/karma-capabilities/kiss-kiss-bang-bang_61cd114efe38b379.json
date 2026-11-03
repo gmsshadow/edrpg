@@ -1,0 +1,30 @@
+{
+  "_id": "61cd114efe38b379",
+  "_key": "!items!61cd114efe38b379",
+  "name": "Kiss, Kiss, Bang, Bang",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You are alone with your target and have just made a successful Charm check.</p><p><strong>Effect:</strong> You automatically hit the target with a One-Handed weapon you are carrying. A Burst weapon rolls its maximum number of dice; any other weapon inflicts double damage.</p><p><em>Espionage Supplement</em></p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 4,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "659fcd6b848f4e81",
+  "sort": 4200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

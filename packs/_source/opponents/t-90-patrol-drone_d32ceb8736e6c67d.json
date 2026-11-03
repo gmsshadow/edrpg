@@ -7,6 +7,7 @@
   "system": {
     "rank": "novice",
     "role": "Drone",
+    "robotic": true,
     "dodge": 3,
     "parry": null,
     "initiative": 2,
@@ -87,6 +88,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 3

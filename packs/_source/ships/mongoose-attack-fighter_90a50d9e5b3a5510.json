@@ -1,0 +1,470 @@
+{
+  "_id": "90a50d9e5b3a5510",
+  "_key": "!actors!90a50d9e5b3a5510",
+  "name": "Mongoose – Attack Fighter",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/mongoose-red.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Zorgon Peterson",
+    "dimensions": "L 51.2m x W 75.0m x H 26.3m",
+    "landingPad": "Medium",
+    "crewSize": 4,
+    "passengers": 0,
+    "utilityMounts": "4",
+    "cargo": "8T",
+    "range": "12LY",
+    "fuel": "16T (160LY)",
+    "cost": "13,208,946cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 8,
+    "speed": 6,
+    "maxSpeed": 6,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 355,
+      "max": 355
+    },
+    "shields": {
+      "value": 145,
+      "max": 145,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 5C",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 95,
+          "max": 95
+        },
+        "notes": "17MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4C",
+        "kind": "thrusters",
+        "strength": {
+          "value": 85,
+          "max": 85
+        },
+        "notes": "+1 Speed, +1 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4D",
+        "kind": "fsd",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Range 12LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 5C",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 95,
+          "max": 95
+        },
+        "notes": "2 Floating Bonuses",
+        "item": ""
+      },
+      {
+        "name": "Sensors 4C",
+        "kind": "sensors",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "+2 General Scan, +1 Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "Chaff Launcher",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 6",
+        "item": ""
+      },
+      {
+        "name": "Point Defence",
+        "kind": "utility",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "Ammo 10",
+        "item": ""
+      },
+      {
+        "name": "4B Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Shield Power 145",
+        "item": ""
+      },
+      {
+        "name": "4D Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Recharge 20/2",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4T",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Capacity 4T",
+        "item": ""
+      },
+      {
+        "name": "4D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+85 Hull",
+        "item": ""
+      },
+      {
+        "name": "4D Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "+40 Str/Fixed",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 2,
+      "cellBanks": [
+        {
+          "name": "4D Shield Cell Bank",
+          "boost": 20,
+          "duration": 2,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Espionage Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Mongoose – Attack Fighter",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/mongoose-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "d78b569a8781a91a",
+      "_key": "!actors.items!90a50d9e5b3a5510.d78b569a8781a91a",
+      "name": "Medium Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "f9313afa0d283179",
+      "_key": "!actors.items!90a50d9e5b3a5510.f9313afa0d283179",
+      "name": "Medium Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "a19d27e22d1f15e6",
+      "_key": "!actors.items!90a50d9e5b3a5510.a19d27e22d1f15e6",
+      "name": "Medium Fixed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "be8fa5ff7d1be0c8",
+      "_key": "!actors.items!90a50d9e5b3a5510.be8fa5ff7d1be0c8",
+      "name": "Medium Fixed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "717f9a3ed45e71ab",
+      "_key": "!actors.items!90a50d9e5b3a5510.717f9a3ed45e71ab",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "4c97b71e0ed736a7",
+      "_key": "!actors.items!90a50d9e5b3a5510.4c97b71e0ed736a7",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 4,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "cadf4db2a8343283",
+  "sort": 800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

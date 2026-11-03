@@ -1,0 +1,30 @@
+{
+  "_id": "9932143ded600141",
+  "_key": "!items!9932143ded600141",
+  "name": "Weak Point",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You have just hit an opponent with a ranged attack but haven't rolled the damage.</p><p><strong>Effect:</strong> The opponent makes a Hardened armour check (armour without the Hardened quality fails automatically). On a failure their armour gives no protection against this attack's damage.</p><p><em>Espionage Supplement</em></p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "659fcd6b848f4e81",
+  "sort": 4400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -83,6 +83,47 @@ BOOSTS = {
 }
 
 
+# Supplements: (source, name, role, category, cost, prerequisite, effect)
+ESP, EXP, MIL, ST = "Espionage Supplement", "Exploration Supplement", "Military Sourcebook", "Super Traders Supplement"
+SUPPLEMENT_CAPABILITIES = [
+    (ESP, "Follow Up", O, P, 6, "You have just hit an opponent with a ranged weapon.",
+     "Make another attack with the same weapon against that opponent immediately."),
+    (ESP, "Kiss, Kiss, Bang, Bang", O, P, 4, "You are alone with your target and have just made a successful Charm check.",
+     "You automatically hit the target with a One-Handed weapon you are carrying. A Burst weapon rolls its maximum "
+     "number of dice; any other weapon inflicts double damage."),
+    (ESP, "Quick Loader", X, P, 2, "You have just used the last ammo point of the weapon you are firing, and have a spare clip.",
+     "Reload the weapon immediately; it doesn't use your next turn's action."),
+    (ESP, "Weak Point", O, P, 3, "You have just hit an opponent with a ranged attack but haven't rolled the damage.",
+     "The opponent makes a Hardened armour check (armour without the Hardened quality fails automatically). On a "
+     "failure their armour gives no protection against this attack's damage."),
+    (EXP, "Hunter", O, P, 1, None,
+     "When making an attack roll against an Alien Animal or Biomod, add your Survival bonus to the roll as well as "
+     "the weapon Skill bonus."),
+    (EXP, "Iron Willed", D, P, 3, None,
+     "You are unaffected by an attack or condition that would make you hallucinate or lose control of your actions."),
+    (EXP, "Concentration", X, GEN, 3, "You have just failed a Skill check.", "Re-roll the failed Skill check."),
+    (EXP, "Don't Give Out on Me Yet!", D, S, 5, "A component has just been reduced to 0 Strength by a critical hit.",
+     "The component is reduced to 5 Strength instead, and still functions."),
+    (MIL, "3D Thinking", D, S, 2, "You have just completed the Flight Assist Off action.",
+     "Keep your spaceship's Agility when calculating your Defence."),
+    (MIL, "Drill Sergeant", X, GEN, 1, None,
+     "Double your Skill bonus for a Social skill check made to influence military personnel."),
+    (MIL, "Instinct", X, VS, 4, None,
+     "When you or an opponent makes a Chicken attack, your opponent must declare impact or evade before you do."),
+    (MIL, "Penetrating Shot", O, P, 5, None, "When your opponent takes damage, their armour's absorption is ignored for this attack."),
+    (ST, "Burnout", O, S, 3, "Your attack has damaged the enemy spaceship's hull.",
+     "This attack becomes a critical hit."),
+    (ST, "Rapid Deployment", O, S, 3, "You are flying a fighter that has just launched, or one has just launched from your hangar.",
+     "The ship-launched fighter takes its turn immediately (use it yourself, or grant it to the fighter). After this "
+     "free turn, roll Initiative for the fighter as normal and resume the mothership's turn."),
+    (ST, "Secret Markets", X, GEN, 2, None,
+     "Re-roll a result you or the GM just made on the Advanced Trading tables, then choose which result applies."),
+    (ST, "Terrain Breaking", X, V, 1, None,
+     "Unless the ground is perfectly flat (a road, an ice sheet…), you can accelerate or decelerate 1 point more "
+     "than normal this turn."),
+]
+
+
 def doc_id(name):
     return hashlib.sha1(f"edrpg-karma-{name}".encode()).hexdigest()[:16]
 
@@ -92,12 +133,24 @@ def main():
     os.makedirs(root, exist_ok=True)
     for f in os.listdir(root):
         os.remove(os.path.join(root, f))
-    for sort, (name, role, category, cost, prereq, effect) in enumerate(CAPABILITIES):
+    sources = ["Core Rules", ESP, EXP, MIL, ST]
+    folders = {}
+    for i, src in enumerate(sources):
+        fid = doc_id(f"folder-{src}")
+        folders[src] = fid
+        with open(os.path.join(root, f"_folder-{re.sub(r'[^a-z0-9]+', '-', src.lower())}_{fid}.json"), "w") as fh:
+            json.dump({"_id": fid, "_key": f"!folders!{fid}", "name": src, "type": "Item", "folder": None, "description": "",
+                       "sorting": "a", "sort": (i + 1) * 100, "color": None, "flags": {}}, fh, indent=2)
+            fh.write("\n")
+    entries = [("Core Rules", *c) for c in CAPABILITIES] + list(SUPPLEMENT_CAPABILITIES)
+    for sort, (source, name, role, category, cost, prereq, effect) in enumerate(entries):
         _id = doc_id(name)
         html = ""
         if prereq:
             html += f"<p><strong>Prerequisite:</strong> {prereq}</p>"
         html += f"<p><strong>Effect:</strong> {effect}</p>"
+        if source != "Core Rules":
+            html += f"<p><em>{source}</em></p>"
         escape = name == "Escape Death"
         doc = {
             "_id": _id,
@@ -122,7 +175,7 @@ def main():
                 "timesUsed": 0,
             },
             "effects": [],
-            "folder": None,
+            "folder": folders[source],
             "sort": (sort + 1) * 100,
             "ownership": {"default": 0},
             "flags": {},
@@ -131,7 +184,7 @@ def main():
         with open(os.path.join(root, f"{slug}_{_id}.json"), "w") as fh:
             json.dump(doc, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
-    print(f"{len(CAPABILITIES)} capabilities written to {os.path.normpath(root)}")
+    print(f"{len(entries)} capabilities written to {os.path.normpath(root)}")
 
 
 if __name__ == "__main__":

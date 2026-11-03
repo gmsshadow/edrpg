@@ -1,0 +1,75 @@
+{
+  "_id": "b0a66254c5c9a097",
+  "_key": "!items!b0a66254c5c9a097",
+  "name": "AMP - Short Stock Bolt Caster",
+  "type": "weapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "5,000,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "energyWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "10m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "40m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "100m",
+        "dn": 11
+      }
+    },
+    "finesse": null,
+    "damage": "15",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": true,
+      "doubleVsRobots": true,
+      "molten": false
+    },
+    "notes": "A hit destroys the target's armour (an Armoured Carapace until repaired); Robots and Drones take double damage. Alien artefact: making it usable by a human takes a Repair check (12, or 8 with 2,000cr and a week). Powered by an Alien Power Cell.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 9500,
+  "effects": [],
+  "folder": "889391937104d1e9",
+  "ownership": {
+    "default": 0
+  }
+}

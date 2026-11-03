@@ -1,0 +1,30 @@
+{
+  "_id": "ab0bc7e185ae7c00",
+  "_key": "!items!ab0bc7e185ae7c00",
+  "name": "Follow Up",
+  "type": "karma",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p><strong>Prerequisite:</strong> You have just hit an opponent with a ranged weapon.</p><p><strong>Effect:</strong> Make another attack with the same weapon against that opponent immediately.</p><p><em>Espionage Supplement</em></p>",
+    "role": "offensive",
+    "category": "personal",
+    "cost": 6,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "659fcd6b848f4e81",
+  "sort": 4100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

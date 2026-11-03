@@ -13,6 +13,7 @@
                {{selectOptions rankChoices selected=source.rank localize=true}}
             </select>
             <input type="text" name="system.role" value="{{source.role}}" placeholder="{{localize 'EDRPG.opponent.role'}}">
+            <label class="ed-check" data-tooltip="EDRPG.opponent.roboticHint"><input type="checkbox" name="system.robotic" {{checked source.robotic}}> {{localize "EDRPG.opponent.robotic"}}</label>
          </div>
          {{/if}}
       </div>

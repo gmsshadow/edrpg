@@ -7,6 +7,7 @@
   "system": {
     "rank": "deadly",
     "role": "High Threat Mercenary",
+    "robotic": false,
     "dodge": 9,
     "parry": 7,
     "initiative": 7,
@@ -60,7 +61,8 @@
         "socialFactor": 0,
         "skillMods": [],
         "enhancement": "",
-        "worn": true
+        "worn": true,
+        "destroyed": false
       },
       "flags": {},
       "effects": [],
@@ -123,6 +125,13 @@
         "divideFire": true,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "",
         "equipped": true,
         "toHit": 10
@@ -188,6 +197,13 @@
         "divideFire": false,
         "attackBonus": 0,
         "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
         "notes": "Cybernetic: retracts when not in use.",
         "equipped": true,
         "toHit": 9

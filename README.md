@@ -38,10 +38,15 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   small ships fixing turrets forwards, damaged components' effects, and ship destruction (emergency eject, cargo).
   Components and critical hits, targeted shots, and equipment actions (chaff, mines, point defence, ECM, Shield Cell
   Banks, floating bonuses).
+- **Supplements**: backgrounds, enhancements and Karma Capabilities from the Espionage, Exploration, Military and
+  Super Traders supplements, plus their weapons, armour, cybernetics and equipment (heavy pistols, laser carbines,
+  rail rifles, Guardian Anti-Material Projectors, hacks, personal shields, alien artefacts), in a folder per book.
+  Split Energy/Kinetic damage, armour-piercing and armour-destroying weapons, molten munitions, personal shields,
+  the Cellular Regeneration Emitter and the Destabilisation Beam are automated.
 - **Opponents compendium**: every individual-scale opponent in the Core Rules (51), plus the spaceship- and
   vehicle-scale ones and the drones.
-- **Ships compendium**: all 63 ship variants from the Spaceships chapter with weapons, components, equipment, bonuses
-  and tokens; the GM's spaceship- and vehicle-scale opponents in the Opponents compendium.
+- **Ships compendium**: all 63 ship variants from the Spaceships chapter, plus the 56 from the supplements (in a folder
+  per book), with weapons, components, equipment, bonuses and tokens; the GM's spaceship- and vehicle-scale opponents in the Opponents compendium.
 - **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until
   another vehicle stops to Rescue them. Vehicle-scale drones (the four skimmers) in the Opponents compendium, with
   flying and flying-bomb rules.

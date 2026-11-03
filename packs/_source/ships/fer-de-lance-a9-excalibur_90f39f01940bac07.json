@@ -92,10 +92,10 @@
         "name": "Power Distributor 6A",
         "kind": "powerDistributor",
         "strength": {
-          "value": 10,
-          "max": 10
+          "value": 70,
+          "max": 70
         },
-        "notes": "1 Floating Bonuses, +1 to hit, ",
+        "notes": "1 Floating Bonuses, +1 to hit, +1 Agility, +5 Shield Recharge",
         "item": ""
       },
       {

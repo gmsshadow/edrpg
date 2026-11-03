@@ -223,6 +223,18 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
          attackBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
          // Opponents only: a To Hit for this weapon that replaces the stat block's general To Hit.
          toHit: new fields.NumberField(nullableInt),
+         // Supplement weapon effects (Military Sourcebook, Exploration Supplement).
+         special: new fields.SchemaField({
+            // Laser Carbines: the Burst is a different damage type, absorbed separately.
+            burstType: new fields.StringField({ required: true, blank: true, choices: damageTypes, initial: "" }),
+            // Voltigen Armour Piercing Carbine: armour doesn't absorb this damage type.
+            ignoresArmour: new fields.StringField({ required: true, blank: true, choices: damageTypes, initial: "" }),
+            // Anti-Material Projectors: a hit destroys the target's armour; Robots and Drones take double damage.
+            destroysArmour: new fields.BooleanField({ initial: false }),
+            doubleVsRobots: new fields.BooleanField({ initial: false }),
+            // Rail Rifles: each damage die showing 1 burns for 1D10 Energy at the start of the target's next turn.
+            molten: new fields.BooleanField({ initial: false }),
+         }),
          skillMods: skillModsField(),
          notes: new fields.StringField({ initial: "" }),
          equipped: new fields.BooleanField({ initial: false }),
@@ -275,6 +287,8 @@ export class ArmourData extends foundry.abstract.TypeDataModel {
          skillMods: skillModsField(),
          enhancement: new fields.StringField({ initial: "" }),
          worn: new fields.BooleanField({ initial: false }),
+         // Destroyed by an Anti-Material Projector: no protection until repaired.
+         destroyed: new fields.BooleanField({ initial: false }),
       };
    }
 
@@ -326,12 +340,17 @@ export class CyberneticData extends foundry.abstract.TypeDataModel {
          }),
          // Built-in weapon added from the Weapons compendium (Cyberclaws, retractable pistols).
          grantsWeapon: new fields.StringField({ initial: "" }),
+         // Bonuses to Skill checks (Brute Hacker: Security and Computer).
+         rollBonuses: rollBonusesField(),
+         // An Armoured Carapace hit by an Anti-Material Projector protects no more until repaired.
+         destroyed: new fields.BooleanField({ initial: false }),
          notes: new fields.StringField({ initial: "" }),
       };
    }
 
    /** Whether it protects like armour (Armoured Carapace). */
    get isArmour() {
+      if (this.destroyed) return false;
       return this.toxicAll || Object.values(this.absorb).some((v) => v > 0);
    }
 
@@ -384,8 +403,37 @@ export class GearData extends foundry.abstract.TypeDataModel {
          injectionSuccess: new fields.NumberField({ required: true, nullable: true, integer: true, min: 0, max: 100, initial: null }),
          // Ammunition: the weapons it reloads (text matched against the weapon's name, e.g. "Autopistol").
          ammoFor: new fields.StringField({ initial: "" }),
+         // Personal shields (Personal Shield Generator, Charged Particle Shield): absorb damage like a ship's
+         // shields while active, recharge at the start of the wearer's turn, and run for a number of rounds per battery.
+         shield: new fields.SchemaField({
+            value: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+            max: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+            recharge: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+            down: new fields.BooleanField({ initial: false }),
+            blocks: new fields.SchemaField(
+               Object.fromEntries(["kinetic", "energy", "explosive", "fighting", "melee"].map((k) => [k, new fields.BooleanField({ initial: true })])),
+            ),
+         }),
+         // Cellular Regeneration Emitter: Endurance recovered at the start of the wearer's turn while active.
+         regenerate: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+         // Powered devices: rounds of power left in the battery or Alien Power Cell (0 max = not tracked). Each of the
+         // wearer's turns while active uses one; at 0 the device switches off.
+         rounds: new fields.SchemaField({
+            value: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+            max: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+         }),
          notes: new fields.StringField({ initial: "" }),
          active: new fields.BooleanField({ initial: false }),
       };
+   }
+
+   /** Whether this is a personal shield. */
+   get isShield() {
+      return this.shield.max > 0;
+   }
+
+   /** Whether the shield is switched on and holding. */
+   get shieldUp() {
+      return this.isShield && this.active && this.location === "carried" && !this.shield.down && this.shield.value > 0;
    }
 }

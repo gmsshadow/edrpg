@@ -1,0 +1,275 @@
+{
+  "_id": "f1b015d8ac194a2d",
+  "_key": "!actors!f1b015d8ac194a2d",
+  "name": "Asp Scout – MP Variant",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/explorer/asp-scout.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "L 54.8m x W 59.4m x H 17.0m",
+    "landingPad": "Medium",
+    "crewSize": 2,
+    "passengers": 2,
+    "utilityMounts": "2",
+    "cargo": "16T",
+    "range": "16.5LY (50% bonus included)",
+    "fuel": "16T (160LY)",
+    "cost": "3,962,150cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 8,
+    "speed": 5,
+    "maxSpeed": 5,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 250,
+      "max": 250
+    },
+    "shields": {
+      "value": 65,
+      "max": 65,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 4E",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "10.4MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 4E",
+        "kind": "thrusters",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "No bonuses",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 4E",
+        "kind": "fsd",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Range 11LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 3E",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "Emergency Life Support 5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 4E",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "No bonus",
+        "item": ""
+      },
+      {
+        "name": "Sensors 4E",
+        "kind": "sensors",
+        "strength": {
+          "value": 35,
+          "max": 35
+        },
+        "notes": "+2 General Scan",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8T",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Capacity 8T",
+        "item": ""
+      },
+      {
+        "name": "3E Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 20,
+          "max": 20
+        },
+        "notes": "Shield Power 65",
+        "item": ""
+      },
+      {
+        "name": "1E Basic Discovery Scanner",
+        "kind": "internal",
+        "strength": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": "500 LS range",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Asp Scout – MP Variant",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/explorer/asp-scout.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "e1d24e59f5d3bd56",
+      "_key": "!actors.items!f1b015d8ac194a2d.e1d24e59f5d3bd56",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "e5b3241e98ad8d2c",
+      "_key": "!actors.items!f1b015d8ac194a2d.e5b3241e98ad8d2c",
+      "name": "Small Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 2,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "6074ef9b0bcd6f8f",
+  "sort": 1300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

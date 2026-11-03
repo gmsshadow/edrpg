@@ -323,6 +323,11 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       const armour = sorted("armour");
       const clothing = sorted("clothing");
       const gear = sorted("gear");
+      // A personal shield's state for the gear list: "Down · 7/10 rounds".
+      const shieldText = (g) =>
+         [g.isShield && g.shield.down ? game.i18n.localize("EDRPG.shield.downShort") : "", g.rounds.max ? game.i18n.format("EDRPG.shield.roundsLeft", { value: g.rounds.value, max: g.rounds.max }) : ""]
+            .filter(Boolean)
+            .join(" · ");
       const signedSf = (v) => (v ? game.i18n.format("EDRPG.armour.sfShort", { value: v > 0 ? `+${v}` : v }) : "");
       const bonusText = (s) =>
          (s.rollBonuses ?? [])
@@ -352,9 +357,15 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
             kind: "gear",
             quantity: s.quantity,
             uses: s.uses.max !== null ? s.uses : null,
-            toggleable: !!s.socialFactor || ["cosmetic", "com"].includes(s.category),
+            toggleable: !!s.socialFactor || ["cosmetic", "com", "shield", "alien"].includes(s.category) || s.isShield || s.rounds.max > 0,
             active: s.active,
-            notes: [signedSf(s.socialFactor), s.notes || bonusText(s), s.injectionSuccess !== null ? `${s.injectionSuccess}%` : ""].filter(Boolean).join(". "),
+            shield: s.isShield ? s.shield : null,
+            notes: [
+               shieldText(s),
+               signedSf(s.socialFactor),
+               s.notes || bonusText(s),
+               s.injectionSuccess !== null ? `${s.injectionSuccess}%` : "",
+            ].filter(Boolean).join(". "),
             location: s.location,
          };
       };

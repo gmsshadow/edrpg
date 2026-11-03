@@ -1,0 +1,75 @@
+{
+  "_id": "2ba60e318f49729b",
+  "_key": "!items!2ba60e318f49729b",
+  "name": "Callaghan Arctic Hawk Heavy Pistol",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p><em>Espionage Supplement</em></p>",
+    "cost": "114,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "kinetic",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "8m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "60m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "110m",
+        "dn": 14
+      }
+    },
+    "finesse": null,
+    "damage": "3d10",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "none",
+      "max": ""
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 8,
+      "max": 8
+    },
+    "oneHanded": true,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "",
+      "ignoresArmour": "",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Espionage Supplement/Heavy Pistols"
+    }
+  },
+  "sort": 8400,
+  "effects": [],
+  "folder": "f20b16aa8a7b306a",
+  "ownership": {
+    "default": 0
+  }
+}

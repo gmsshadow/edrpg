@@ -1,0 +1,75 @@
+{
+  "_id": "05a1c4d184922ff8",
+  "_key": "!items!05a1c4d184922ff8",
+  "name": "Voltigen Armour Piercing Carbine",
+  "type": "weapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr. Ignores Kinetic armour absorption.</p><p><em>Military Sourcebook</em></p>",
+    "cost": "362,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "skill": "kineticWeapons",
+    "damageType": "energy",
+    "heavy": false,
+    "ranges": {
+      "short": {
+        "distance": "16m",
+        "dn": 5
+      },
+      "medium": {
+        "distance": "100m",
+        "dn": 8
+      },
+      "long": {
+        "distance": "300m",
+        "dn": 9
+      }
+    },
+    "finesse": null,
+    "damage": "15",
+    "rangeDamage": {
+      "medium": "",
+      "long": ""
+    },
+    "burst": {
+      "kind": "burst",
+      "max": "3d10"
+    },
+    "blast": {
+      "fatal": null,
+      "injury": null,
+      "fatalRadius": null,
+      "injuryRadius": null
+    },
+    "ammo": {
+      "value": 4,
+      "max": 4
+    },
+    "oneHanded": false,
+    "destroyCover": false,
+    "divideFire": false,
+    "attackBonus": 0,
+    "skillMods": [],
+    "special": {
+      "burstType": "kinetic",
+      "ignoresArmour": "kinetic",
+      "destroysArmour": false,
+      "doubleVsRobots": false,
+      "molten": false
+    },
+    "notes": "Base damage is Energy; the Burst is Kinetic, and armour absorbs each separately. Spare clip 1cr. Ignores Kinetic armour absorption.",
+    "equipped": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Military Sourcebook/Laser Carbines"
+    }
+  },
+  "sort": 8900,
+  "effects": [],
+  "folder": "e48fc94b42116cef",
+  "ownership": {
+    "default": 0
+  }
+}

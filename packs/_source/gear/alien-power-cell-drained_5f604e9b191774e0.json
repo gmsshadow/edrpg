@@ -1,0 +1,55 @@
+{
+  "_id": "5f604e9b191774e0",
+  "_key": "!items!5f604e9b191774e0",
+  "name": "Alien Power Cell (Drained)",
+  "type": "gear",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p>An empty Alien Power Cell. Sells for 100,000cr.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "100,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "alien",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "An empty Alien Power Cell. Sells for 100,000cr.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Alien Artefacts"
+    }
+  },
+  "sort": 8500,
+  "effects": [],
+  "folder": "8ea7456e256b46f7",
+  "ownership": {
+    "default": 0
+  }
+}

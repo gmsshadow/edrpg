@@ -1,0 +1,473 @@
+{
+  "_id": "e71816f4e24d181a",
+  "_key": "!actors!e71816f4e24d181a",
+  "name": "Federal Dropship – Armoured Transporter",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/federation/federal-dropship.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "L 73.9m x W 52.3m x H 21.7m",
+    "landingPad": "Medium",
+    "crewSize": 2,
+    "passengers": 8,
+    "utilityMounts": "4",
+    "cargo": "116T",
+    "range": "17LY",
+    "fuel": "16T (160LY)",
+    "cost": "52,261,890cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 4,
+    "speed": 6,
+    "maxSpeed": 6,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 625,
+      "max": 625
+    },
+    "shields": {
+      "value": 385,
+      "max": 385,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 1,
+      "initiative": 2,
+      "dogfighting": 1
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [
+      {
+        "name": "Power Plant 6B",
+        "kind": "powerPlant",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "23.1MW output",
+        "item": ""
+      },
+      {
+        "name": "Thrusters 6C",
+        "kind": "thrusters",
+        "strength": {
+          "value": 85,
+          "max": 85
+        },
+        "notes": "+1 Speed, +1 Agility",
+        "item": ""
+      },
+      {
+        "name": "Frame Shift Drive 5B",
+        "kind": "fsd",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Range 17LY",
+        "item": ""
+      },
+      {
+        "name": "Life Support 5D",
+        "kind": "lifeSupport",
+        "strength": {
+          "value": 75,
+          "max": 75
+        },
+        "notes": "Emergency Life Support 7.5 minutes",
+        "item": ""
+      },
+      {
+        "name": "Power Distributor 6B",
+        "kind": "powerDistributor",
+        "strength": {
+          "value": 85,
+          "max": 85
+        },
+        "notes": "+1 Agility, +1 to hit, +5 Shield Recharge",
+        "item": ""
+      },
+      {
+        "name": "Sensors 4B",
+        "kind": "sensors",
+        "strength": {
+          "value": 60,
+          "max": 60
+        },
+        "notes": "+2 General Scan, +2 Initiative, +1 Dogfighting",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Boost 25%",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Boost 25%",
+        "item": ""
+      },
+      {
+        "name": "0A Shield Booster",
+        "kind": "utility",
+        "strength": {
+          "value": 30,
+          "max": 30
+        },
+        "notes": "Shield Boost 25%",
+        "item": ""
+      },
+      {
+        "name": "6E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 80,
+          "max": 80
+        },
+        "notes": "Capacity 64",
+        "item": ""
+      },
+      {
+        "name": "5E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Capacity 32",
+        "item": ""
+      },
+      {
+        "name": "5A Shield Generator",
+        "kind": "shieldGenerator",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Shield Power 220",
+        "item": ""
+      },
+      {
+        "name": "4A Shield Cell Bank",
+        "kind": "internal",
+        "strength": {
+          "value": 70,
+          "max": 70
+        },
+        "notes": "Shield Recharge 20/5, Ammo 3",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "3E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 50,
+          "max": 50
+        },
+        "notes": "Capacity 8",
+        "item": ""
+      },
+      {
+        "name": "2E Cargo Rack",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Capacity 4",
+        "item": ""
+      },
+      {
+        "name": "4D Hull Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "Hull +85",
+        "item": ""
+      },
+      {
+        "name": "4E Module Reinforcement Package",
+        "kind": "internal",
+        "strength": {
+          "value": 40,
+          "max": 40
+        },
+        "notes": "",
+        "item": ""
+      }
+    ],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": [
+        {
+          "name": "4A Shield Cell Bank",
+          "boost": 20,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Federal Dropship – Armoured Transporter",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/federation/federal-dropship.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "ba287b290ce12ce2",
+      "_key": "!actors.items!e71816f4e24d181a.ba287b290ce12ce2",
+      "name": "Large Fixed Plasma Accelerator",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "fixed"
+        },
+        "accuracy": -1,
+        "damage": 60,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d0612b7aedc6515c",
+      "_key": "!actors.items!e71816f4e24d181a.d0612b7aedc6515c",
+      "name": "Medium Turreted Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "46b7f239844bdba7",
+      "_key": "!actors.items!e71816f4e24d181a.46b7f239844bdba7",
+      "name": "Medium Turreted Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "6adfba904bd71b7a",
+      "_key": "!actors.items!e71816f4e24d181a.6adfba904bd71b7a",
+      "name": "Medium Turreted Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "a6d3029dfc403ae6",
+      "_key": "!actors.items!e71816f4e24d181a.a6d3029dfc403ae6",
+      "name": "Medium Turreted Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 2,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "acf7085252fad0c9",
+  "sort": 3000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

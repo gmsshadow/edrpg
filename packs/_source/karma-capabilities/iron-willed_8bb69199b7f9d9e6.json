@@ -1,0 +1,30 @@
+{
+  "_id": "8bb69199b7f9d9e6",
+  "_key": "!items!8bb69199b7f9d9e6",
+  "name": "Iron Willed",
+  "type": "karma",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><strong>Effect:</strong> You are unaffected by an attack or condition that would make you hallucinate or lose control of your actions.</p><p><em>Exploration Supplement</em></p>",
+    "role": "defensive",
+    "category": "personal",
+    "cost": 3,
+    "costAll": false,
+    "free": false,
+    "usedThisTurn": false,
+    "attackBonus": 0,
+    "attackApplies": "",
+    "defenceBonus": 0,
+    "defenceApplies": "",
+    "preventsKnockdown": false,
+    "usesPerBattle": 1,
+    "timesUsed": 0
+  },
+  "effects": [],
+  "folder": "ad162389c5b6c402",
+  "sort": 4600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,192 @@
+{
+  "_id": "cb80f615c5cef827",
+  "_key": "!actors!cb80f615c5cef827",
+  "name": "Battlecar",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/gangland-battlecar-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "",
+    "dimensions": "",
+    "bays": 1,
+    "crewSize": 0,
+    "passengers": 0,
+    "sensors": "None",
+    "cargo": "Minimal",
+    "cost": "",
+    "special": "Mostly Harmless Criminal. Vehicle: Gangland Battlecar.",
+    "agility": 0,
+    "maxSpeed": 7,
+    "accelerate": 3,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -2
+      },
+      {
+        "defence": 2,
+        "attack": -3
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 60,
+      "max": 60
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 5,
+      "down": false
+    },
+    "drone": {
+      "enabled": true,
+      "defence": 6,
+      "initiative": 3,
+      "pursuit": 2,
+      "perception": 3
+    },
+    "flying": false,
+    "bomb": {
+      "damage": 0,
+      "vsShields": 0
+    },
+    "forwardRam": false,
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Battlecar",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/gangland-battlecar-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "5efa4ea48c352087",
+      "_key": "!actors.items!cb80f615c5cef827.5efa4ea48c352087",
+      "name": "Small Turreted Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 25,
+          "max": 25
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b5c285e09e7354ed",
+      "_key": "!actors.items!cb80f615c5cef827.b5c285e09e7354ed",
+      "name": "Small Turreted Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 25,
+          "max": 25
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "64cce25a11f5f00f",
+  "sort": 4800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

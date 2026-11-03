@@ -74,6 +74,8 @@
         }
       ]
     },
+    "impervious": false,
+    "swarm": false,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p>When destroyed, the AspWinder splits into two Ghost Sidewinders. Roll Initiative for these ships as normal.</p><p><em>Exploration Supplement</em></p>"

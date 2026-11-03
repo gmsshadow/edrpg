@@ -1,0 +1,130 @@
+{
+  "_id": "f7f80d7402795062",
+  "_key": "!tables!f7f80d7402795062",
+  "name": "Criminal Opponents – Vehicles – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "d32721f81894d56a",
+      "_key": "!tables.results!f7f80d7402795062.d32721f81894d56a",
+      "type": "document",
+      "name": "Pirate Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1a0a0261b9f2cd6c"
+    },
+    {
+      "_id": "ae405c0564d5d31a",
+      "_key": "!tables.results!f7f80d7402795062.ae405c0564d5d31a",
+      "type": "document",
+      "name": "S-4 Sentry Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bcc0698fa1aab01b"
+    },
+    {
+      "_id": "2c8047a745e37f78",
+      "_key": "!tables.results!f7f80d7402795062.2c8047a745e37f78",
+      "type": "document",
+      "name": "Pirate Scout",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.463a7088cc3c1b1d"
+    },
+    {
+      "_id": "97e44162d1692b98",
+      "_key": "!tables.results!f7f80d7402795062.97e44162d1692b98",
+      "type": "document",
+      "name": "Battlecar",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.cb80f615c5cef827"
+    },
+    {
+      "_id": "e48ac52b22de59cd",
+      "_key": "!tables.results!f7f80d7402795062.e48ac52b22de59cd",
+      "type": "document",
+      "name": "Biker Hitman",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.06993df94246ee36"
+    },
+    {
+      "_id": "23dff89b4e972a80",
+      "_key": "!tables.results!f7f80d7402795062.23dff89b4e972a80",
+      "type": "document",
+      "name": "Kumo Dune Raider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.30fa20e42e0be0be"
+    },
+    {
+      "_id": "355613e1484d7ec4",
+      "_key": "!tables.results!f7f80d7402795062.355613e1484d7ec4",
+      "type": "document",
+      "name": "S5LM Guardian Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4cc63547da2a9581"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "fb667cfdb0c2517c",
+  "sort": 4200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

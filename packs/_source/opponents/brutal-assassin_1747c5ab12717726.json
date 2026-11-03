@@ -74,6 +74,8 @@
         }
       ]
     },
+    "impervious": false,
+    "swarm": false,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p><em>Espionage Supplement</em></p>"

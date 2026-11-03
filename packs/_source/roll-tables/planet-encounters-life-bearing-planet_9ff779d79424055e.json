@@ -1,0 +1,243 @@
+{
+  "_id": "9ff779d79424055e",
+  "_key": "!tables!9ff779d79424055e",
+  "name": "Planet Encounters – Life-Bearing Planet",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.43.</p>",
+  "results": [
+    {
+      "_id": "c0af6d980ae23a2d",
+      "_key": "!tables.results!9ff779d79424055e.c0af6d980ae23a2d",
+      "type": "text",
+      "name": "Alien Animal Attack – Easy",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9bd0df9d08fa0268",
+      "_key": "!tables.results!9ff779d79424055e.9bd0df9d08fa0268",
+      "type": "text",
+      "name": "Alien Animal Attack – Medium",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cdb1f35ee60bc013",
+      "_key": "!tables.results!9ff779d79424055e.cdb1f35ee60bc013",
+      "type": "text",
+      "name": "Alien Animal Attack – Hard",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        15
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f560486844d77835",
+      "_key": "!tables.results!9ff779d79424055e.f560486844d77835",
+      "type": "text",
+      "name": "Alien Obelisk",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3bec68b603529f8c",
+      "_key": "!tables.results!9ff779d79424055e.3bec68b603529f8c",
+      "type": "text",
+      "name": "Alien Spawning Ground",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        25
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e89f91f27f6c08ea",
+      "_key": "!tables.results!9ff779d79424055e.e89f91f27f6c08ea",
+      "type": "text",
+      "name": "Lost",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        30
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b316a3ae475612d6",
+      "_key": "!tables.results!9ff779d79424055e.b316a3ae475612d6",
+      "type": "text",
+      "name": "No Event",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        60
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "74f56803f0455298",
+      "_key": "!tables.results!9ff779d79424055e.74f56803f0455298",
+      "type": "text",
+      "name": "Pirate Attack – Medium",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        65
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b3c7e23bff8d5e8b",
+      "_key": "!tables.results!9ff779d79424055e.b3c7e23bff8d5e8b",
+      "type": "text",
+      "name": "Pirate Outpost",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        70
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1feb7242ed75671f",
+      "_key": "!tables.results!9ff779d79424055e.1feb7242ed75671f",
+      "type": "text",
+      "name": "Quicksand",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "63174992f0e71ec8",
+      "_key": "!tables.results!9ff779d79424055e.63174992f0e71ec8",
+      "type": "text",
+      "name": "Sudden Illness",
+      "description": "<p>Exploration Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a1f41a3dabd4a840",
+      "_key": "!tables.results!9ff779d79424055e.a1f41a3dabd4a840",
+      "type": "text",
+      "name": "Tribal Village",
+      "description": "<p>Exploration Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        85
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "95c462cba64acd4a",
+      "_key": "!tables.results!9ff779d79424055e.95c462cba64acd4a",
+      "type": "text",
+      "name": "Tribals Attack – Easy",
+      "description": "<p>Exploration Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        90
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a9eaf8dfeea5bcac",
+      "_key": "!tables.results!9ff779d79424055e.a9eaf8dfeea5bcac",
+      "type": "text",
+      "name": "Tribals Attack – Medium",
+      "description": "<p>Exploration Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c7fde16413b37d65",
+      "_key": "!tables.results!9ff779d79424055e.c7fde16413b37d65",
+      "type": "text",
+      "name": "Tribals Attack – Hard",
+      "description": "<p>Exploration Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "3be1f70254e16607",
+  "sort": 5300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

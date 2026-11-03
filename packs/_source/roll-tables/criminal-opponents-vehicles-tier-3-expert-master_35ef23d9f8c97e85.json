@@ -1,0 +1,242 @@
+{
+  "_id": "35ef23d9f8c97e85",
+  "_key": "!tables!35ef23d9f8c97e85",
+  "name": "Criminal Opponents – Vehicles – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "3e3ba7e87fbd165d",
+      "_key": "!tables.results!35ef23d9f8c97e85.3e3ba7e87fbd165d",
+      "type": "document",
+      "name": "Pirate Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1a0a0261b9f2cd6c"
+    },
+    {
+      "_id": "a52a443096d66630",
+      "_key": "!tables.results!35ef23d9f8c97e85.a52a443096d66630",
+      "type": "document",
+      "name": "S-4 Sentry Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bcc0698fa1aab01b"
+    },
+    {
+      "_id": "f554cffcf5fedcd7",
+      "_key": "!tables.results!35ef23d9f8c97e85.f554cffcf5fedcd7",
+      "type": "document",
+      "name": "Pirate Scout",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        13,
+        18
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.463a7088cc3c1b1d"
+    },
+    {
+      "_id": "b20f87f484971d72",
+      "_key": "!tables.results!35ef23d9f8c97e85.b20f87f484971d72",
+      "type": "document",
+      "name": "Battlecar",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        19,
+        24
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.cb80f615c5cef827"
+    },
+    {
+      "_id": "fa7fe27ad3e65aeb",
+      "_key": "!tables.results!35ef23d9f8c97e85.fa7fe27ad3e65aeb",
+      "type": "document",
+      "name": "Biker Hitman",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        25,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.06993df94246ee36"
+    },
+    {
+      "_id": "4ce355ab49d9838c",
+      "_key": "!tables.results!35ef23d9f8c97e85.4ce355ab49d9838c",
+      "type": "document",
+      "name": "Kumo Dune Raider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        38
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.30fa20e42e0be0be"
+    },
+    {
+      "_id": "8eaebbd887abc9d1",
+      "_key": "!tables.results!35ef23d9f8c97e85.8eaebbd887abc9d1",
+      "type": "document",
+      "name": "S5LM Guardian Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        39,
+        45
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4cc63547da2a9581"
+    },
+    {
+      "_id": "54906745d5900f67",
+      "_key": "!tables.results!35ef23d9f8c97e85.54906745d5900f67",
+      "type": "document",
+      "name": "Pirate Trash Tank*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.93719bafad88b9a8"
+    },
+    {
+      "_id": "f05a58aa046fe977",
+      "_key": "!tables.results!35ef23d9f8c97e85.f05a58aa046fe977",
+      "type": "document",
+      "name": "War Truck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c7c0e91062f7ef46"
+    },
+    {
+      "_id": "9724a1ceff6a5d1c",
+      "_key": "!tables.results!35ef23d9f8c97e85.9724a1ceff6a5d1c",
+      "type": "document",
+      "name": "Drive-by Killer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4caa33d21343299f"
+    },
+    {
+      "_id": "a8d3dda3a12569bc",
+      "_key": "!tables.results!35ef23d9f8c97e85.a8d3dda3a12569bc",
+      "type": "document",
+      "name": "Stinger-2 Attack Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c76daa79d0ab6744"
+    },
+    {
+      "_id": "c94e5e1d3f6eebc7",
+      "_key": "!tables.results!35ef23d9f8c97e85.c94e5e1d3f6eebc7",
+      "type": "document",
+      "name": "S9 Goliath Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c68d335dc946cf70"
+    },
+    {
+      "_id": "acd5dfdbf7615d9f",
+      "_key": "!tables.results!35ef23d9f8c97e85.acd5dfdbf7615d9f",
+      "type": "document",
+      "name": "Brazen Assassin",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1092acc95bc15194"
+    },
+    {
+      "_id": "498107715b1bc6fb",
+      "_key": "!tables.results!35ef23d9f8c97e85.498107715b1bc6fb",
+      "type": "document",
+      "name": "Stolen Tank",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4ea577e846874894"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "fb667cfdb0c2517c",
+  "sort": 4400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,162 @@
+{
+  "_id": "5e549128e6317343",
+  "_key": "!tables!5e549128e6317343",
+  "name": "Criminal Opponents – Spaceships – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "1791e67bf34c81bd",
+      "_key": "!tables.results!5e549128e6317343.1791e67bf34c81bd",
+      "type": "document",
+      "name": "Pirate Skirmisher",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7ddd401b8aeb5236"
+    },
+    {
+      "_id": "e4c7b5d33feabfb9",
+      "_key": "!tables.results!5e549128e6317343.e4c7b5d33feabfb9",
+      "type": "document",
+      "name": "Pirate Aggressor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.575b3ab27878b0ca"
+    },
+    {
+      "_id": "c33ad4f5b9b7b433",
+      "_key": "!tables.results!5e549128e6317343.c33ad4f5b9b7b433",
+      "type": "document",
+      "name": "Pirate Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8ed7b702c327fe28"
+    },
+    {
+      "_id": "4f67875e7011cbf8",
+      "_key": "!tables.results!5e549128e6317343.4f67875e7011cbf8",
+      "type": "document",
+      "name": "Pirate Harasser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.62ce8a90d4dfb477"
+    },
+    {
+      "_id": "25bf24f6ab3da463",
+      "_key": "!tables.results!5e549128e6317343.25bf24f6ab3da463",
+      "type": "document",
+      "name": "Pirate Hold Buster",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ac55324bce084ed5"
+    },
+    {
+      "_id": "b75c1129b07c9e5d",
+      "_key": "!tables.results!5e549128e6317343.b75c1129b07c9e5d",
+      "type": "document",
+      "name": "Pirate Cobra",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.04586615436cdcc0"
+    },
+    {
+      "_id": "c1a061e931fc2803",
+      "_key": "!tables.results!5e549128e6317343.c1a061e931fc2803",
+      "type": "document",
+      "name": "Swift Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.6967920c1845e833"
+    },
+    {
+      "_id": "866d626d1536404b",
+      "_key": "!tables.results!5e549128e6317343.866d626d1536404b",
+      "type": "document",
+      "name": "Pirate Berserker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c0c628734a15c989"
+    },
+    {
+      "_id": "476a24e3147a6b8d",
+      "_key": "!tables.results!5e549128e6317343.476a24e3147a6b8d",
+      "type": "document",
+      "name": "Pirate Cruiser*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d8424d7cd5af7a0c"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ee45724ecd2585b0",
+  "sort": 4700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

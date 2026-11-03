@@ -1,0 +1,98 @@
+{
+  "_id": "57a82db9b6178b36",
+  "_key": "!tables!57a82db9b6178b36",
+  "name": "Relic AI – Personal Scale – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "df7f35ada57d0149",
+      "_key": "!tables.results!57a82db9b6178b36.df7f35ada57d0149",
+      "type": "document",
+      "name": "Assembler",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.36dc977715adebd1"
+    },
+    {
+      "_id": "022a980e6bf3d085",
+      "_key": "!tables.results!57a82db9b6178b36.022a980e6bf3d085",
+      "type": "document",
+      "name": "Shambler",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ab97184aef89640c"
+    },
+    {
+      "_id": "e1a9ae5d3ab5c7a0",
+      "_key": "!tables.results!57a82db9b6178b36.e1a9ae5d3ab5c7a0",
+      "type": "document",
+      "name": "Progenitor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d50e8c8fd9ffa383"
+    },
+    {
+      "_id": "3b975eb41dee304b",
+      "_key": "!tables.results!57a82db9b6178b36.3b975eb41dee304b",
+      "type": "document",
+      "name": "Holomancer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8f5a484a6ac756bc"
+    },
+    {
+      "_id": "f185cc72dc797d9d",
+      "_key": "!tables.results!57a82db9b6178b36.f185cc72dc797d9d",
+      "type": "document",
+      "name": "Disorientator",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9c7b768c93dc4d03"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "4abc676d923962e0",
+  "sort": 2000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -10,6 +10,22 @@
       {{#if grab}}<span class="ed-chip">{{localize "EDRPG.attack.tag.grab"}}</span>{{/if}}
    </div>{{/if}}
 
+   {{#if d100}}
+   <div class="attack-columns">
+      <dl class="breakdown">
+         <dt class="head">{{localize "EDRPG.d100.roll"}}</dt><dd class="head">{{d100.roll}}</dd>
+         <dt>{{localize "EDRPG.d100.skillScore"}}</dt><dd>{{#if roll.knockedOver}}0 <span class="muted">({{localize "EDRPG.attack.knockedOver"}})</span>{{else}}{{d100.score}}{{/if}}</dd>
+         {{#each d100.mods as |m|}}<dt>{{localize m.label}}</dt><dd>{{m.d100}}</dd>{{/each}}
+         {{#each d100.attackBoosts as |b|}}<dt class="karma">{{b.name}}</dt><dd class="karma">{{b.d100}}</dd>{{/each}}
+      </dl>
+      <dl class="breakdown">
+         <dt class="head">{{localize "EDRPG.d100.target"}}</dt><dd class="head">{{d100.target}}</dd>
+         {{#each d100.parts as |p|}}<dt>{{localize p.label}}{{#if p.note}} <span class="muted">{{p.note}}</span>{{/if}}</dt><dd>{{p.d100}}</dd>{{/each}}
+         {{#each d100.defenceBoosts as |b|}}<dt class="karma">{{b.name}}</dt><dd class="karma">{{b.d100}}</dd>{{/each}}
+         {{#if cantEvade}}<dt class="muted" colspan="2">{{localize "EDRPG.attack.cantEvade"}}</dt><dd></dd>{{/if}}
+      </dl>
+   </div>
+   {{else}}
    <div class="attack-columns">
       <dl class="breakdown">
          <dt class="head">{{localize "EDRPG.attack.toHit"}}</dt><dd class="head">{{total}}</dd>
@@ -26,20 +42,26 @@
       </dl>
    </div>
 
+   {{/if}}
    <div class="outcome {{#if hit}}success{{else}}failure{{/if}}">
-      {{#if hit}}{{localize "EDRPG.attack.hit"}}{{#if margin}} — {{localize "EDRPG.attack.beatBy" points=margin}}{{/if}}{{else}}{{localize "EDRPG.attack.miss"}}{{/if}}
+      {{#if hit}}{{localize "EDRPG.attack.hit"}}{{#if d100}} — {{localize "EDRPG.d100.slShort" sl=margin}}{{#if critical}} · {{localize "EDRPG.d100.critical"}}{{/if}}{{else}}{{#if margin}} — {{localize "EDRPG.attack.beatBy" points=margin}}{{/if}}{{/if}}{{else}}{{localize "EDRPG.attack.miss"}}{{/if}}
    </div>
    {{#if reason}}<div class="attack-note">{{localize (concat "EDRPG.contest.reason." reason)}}</div>{{/if}}
    {{#if rerolls}}<div class="attack-note"><i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.attack.rerolled" count=rerolls}}</div>{{/if}}
    {{#if burstNote}}<div class="attack-note">{{burstNote}}</div>{{/if}}
    {{#if divideFire}}<div class="attack-note">{{localize "EDRPG.attack.divideFireNote"}}</div>{{/if}}
-   {{#if destroyCover}}{{#unless hit}}<div class="attack-note">{{localize "EDRPG.attack.destroyCoverNote"}}</div>{{/unless}}{{/if}}
+   {{#if destroyCover}}{{#if coverOnly}}<div class="attack-note">{{localize "EDRPG.attack.destroyCoverNote"}}</div>{{/if}}{{/if}}
    {{#if isExplosive}}{{#if hit}}<div class="attack-note">{{localize "EDRPG.attack.explosiveNote"}}</div>{{/if}}{{/if}}
    {{#if grabResult}}
    <div class="attack-note scatter">
       <i class="fa-solid fa-hands"></i> {{localize "EDRPG.grab.check"}}:
+      {{#if grabResult.grabber.d100}}
+      {{grabResult.grabber.name}} {{grabResult.grabber.label}} / {{grabResult.grabber.target}} = <b>{{grabResult.grabber.total}}</b>,
+      {{grabResult.target.name}} {{grabResult.target.label}} / {{grabResult.target.target}} = <b>{{grabResult.target.total}}</b> —
+      {{else}}
       {{grabResult.grabber.name}} {{grabResult.grabber.natural}}+{{grabResult.grabber.bonus}} = <b>{{grabResult.grabber.total}}</b>,
       {{grabResult.target.name}} {{grabResult.target.natural}}+{{grabResult.target.bonus}} = <b>{{grabResult.target.total}}</b> —
+      {{/if}}
       <b>{{#if grabResult.success}}{{localize "EDRPG.grab.success"}}{{else}}{{localize "EDRPG.grab.slips"}}{{/if}}</b>
    </div>
    {{/if}}

@@ -1,5 +1,80 @@
 # Changelog
 
+## 0.1.40
+
+The d100 roll-under variant, as a world setting ("Check resolution": Core Rules or d100). It needs a reload; the two
+modes share the same sheets, compendia and cards.
+
+- **One resolver** (`module/dice/resolve.mjs`). Skill checks, contests, personal attacks, grabs, ship and vehicle
+  attacks, driving checks and engineering all roll and judge through it. In Core Rules mode nothing changes.
+- **The d100 check**: roll d100 equal to or under Skill score + (11 − difficulty) × 10 + every d10 modifier × 10.
+  - 01–05 always succeed (SL 0) and 96–00 always fail.
+  - The tens die is the Success Level, +1 for every full 10 the target is over 100.
+  - A success is a critical on a double (11–88) or a roll of exactly the target.
+- **Skill checks**: the difficulty is a choice of the six bands (Very Easy +60 to Almost Impossible −90). A world
+  default that isn't a band starts at Average, and a published difficulty number keeps its own (11 − n) × 10 option.
+  Social Factor and flat equipment bonuses are ×10; a Skill score bonus adds the score itself. The modifier you type
+  is in d100 points. The card shows the score, each modifier, the target and the SL.
+- **Attacks**: target = weapon Skill score + (11 − Range or Finesse) × 10 − Defence × 10, with cover −20, aiming +50,
+  two weapons −20 and so on. Burst, Energy Burst and Heavy Burst count SL. The card lists every part as a d100
+  modifier.
+- **Opposed checks** (contests, grabs and escapes): a success beats a failure, then the higher SL, then the higher
+  roll. The "other opponent" of a contest takes a Skill score.
+- **Karma**: Capabilities' +2/+4 are +20/+40 to the target, and +5 Defence is −50. Karma rerolls a 96–00 instead of
+  a 1.
+- **Ship and vehicle attacks**: target = Weapons score + Accuracy × 10 + (11 − Defence) × 10, with the speed penalty,
+  floating bonuses and Snipe ×10. Automatic turrets are Weapons 30. Defence 0 hits automatically and rolls only for
+  SL. A critical replaces the natural 10 for component hits.
+- **Driving checks**: Vehicle Piloting score + Agility × 10 + (11 − difficulty) × 10.
+- **Unchanged on d10**: Dogfight, Ram, Chicken, Pursuit, Tailing, Initiative, damage, the GM's tables, scatter and
+  point defence.
+- **Rulings**:
+  - Opponent, GM ship and drone stat blocks use their bonus × 10 as the score (an opponent's To Hit +5 is 50; a GM
+    ship weapon's listed Accuracy +7 is 70).
+  - Engineering is a Repair roll-under check: a failure is a Malfunction, a 96–00 is Ruined, and a success reads row
+    10 + SL (at most 20). The professional engineers are Repair 50, 70, 90 and 100.
+  - Initiative and other rules that add a skill bonus to a d10 keep the bonus (score ÷ 10).
+  - Treat wounds heals the tens die (read as a d10) + the Medicine bonus and equipment bonuses, unless the roll is a
+    96–00.
+- Destroy Cover: the card now says the cover is destroyed only when the attack missed because of it. In d100, that's
+  a roll over the target by no more than the cover penalty.
+
+## 0.1.39
+
+Supplements, step 6: trading, honorary ranks, drones, Aegis weapons and the random generation tables.
+
+- **Commodity Market** (Super Traders Supplement pp.6–14). A GM button at the top of the Actors sidebar (or
+  `game.edrpg.openMarket()`). Name the star port, pick its economy, and roll the column (D10+2 on the first visit,
+  then D10, D8, D6 and D4 as the system is traded out) or pick one. It posts the price per ton of all 44 commodities
+  from the economy's Price Index, with the column's meaning (black market, poor, at war, rich). Visits are counted
+  per port; reset them when the system recovers. Colony, prison and terraforming economies are marked buy-only.
+- **Honorary ranks** (Military Sourcebook). The Notes tab has Imperial and Federal honorary rank ladders, showing
+  the ships each step unlocks. The rank's Social Factor bonus is offered on Social Factor skill rolls when dealing
+  with that power.
+- **Drones** (Espionage Supplement). Robotic opponents have a controller: drop a character on the drone's sheet and
+  their Cyber skill bonus is added to its To Hit and Dodge, and kept up to date. Drone prices are in their notes.
+- **Aegis and Thargoids** (Exploration Supplement). 8 AX weapons (AX Multi-Cannons, AX Missile Racks, Flak Launchers,
+  Remote Release Flechette Launchers and so on) and the AX Xeno Scanner and Shutdown Field Neutraliser. Ships can be
+  marked with an impervious hull (only AX weapons damage the Hull) or as a swarm (each hit does 1 Damage plus Burst,
+  unless the weapon is flak). Neither can suffer critical hits. The Thargoid Invader and Thargon Swarm use these.
+- **Roll Tables compendium** (new). 67 tables in a folder per book:
+  - The supplements' opponent tables by Tier (personal, vehicle and spaceship scale), with each result linked to its
+    stat block in the Opponents compendium.
+  - Number of Opponents (Easy, Medium, Hard), Space Lane Encounters (by security rating), Planet Encounters (by
+    planet type), Infiltration Challenges, Corporate and Military Base Rooms, Travel, Corridor Length and End of
+    Corridor, Random Cargo and Alien Items.
+  - Results that aren't opponents give the page to read.
+- **Core vehicle-scale opponents**. The 17 missing from the Core Rules are added (Federal and Police Bikers, Merc
+  APC, Assault Tank, Anti-Aircraft Battery, Mainline Battletank, Battlecar, War Truck, Police Ram Raider and the
+  rest), plus the Trelym, so the opponent tables can link to them.
+- Fix: the Pirate Cruiser is named as printed (it was "Pirate Cruiser High Threat").
+- Rulings and gaps:
+  - A drone's To Hit adds the controller's Cyber on top of its stat block.
+  - The books leave a few table ranges empty: Military Spaceships Tier 1 21–29, and Relic AI Spaceships Tier 3 11–20.
+    A draw on them returns nothing.
+  - Imperial Slaves prices are printed in brackets in the book. They're shown as printed.
+  - Trade missions aren't included.
+
 ## 0.1.38
 
 Supplements, step 5: engineering and ship-launched fighters.

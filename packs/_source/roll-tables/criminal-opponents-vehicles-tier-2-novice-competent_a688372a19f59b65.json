@@ -1,0 +1,210 @@
+{
+  "_id": "a688372a19f59b65",
+  "_key": "!tables!a688372a19f59b65",
+  "name": "Criminal Opponents – Vehicles – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "8b9d070dc3ab1bdf",
+      "_key": "!tables.results!a688372a19f59b65.8b9d070dc3ab1bdf",
+      "type": "document",
+      "name": "Pirate Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1a0a0261b9f2cd6c"
+    },
+    {
+      "_id": "9c29895b646b5f56",
+      "_key": "!tables.results!a688372a19f59b65.9c29895b646b5f56",
+      "type": "document",
+      "name": "S-4 Sentry Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bcc0698fa1aab01b"
+    },
+    {
+      "_id": "c218700da9c77b8a",
+      "_key": "!tables.results!a688372a19f59b65.c218700da9c77b8a",
+      "type": "document",
+      "name": "Pirate Scout",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.463a7088cc3c1b1d"
+    },
+    {
+      "_id": "ed27c384f777e088",
+      "_key": "!tables.results!a688372a19f59b65.ed27c384f777e088",
+      "type": "document",
+      "name": "Battlecar",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.cb80f615c5cef827"
+    },
+    {
+      "_id": "a2beb971b9371781",
+      "_key": "!tables.results!a688372a19f59b65.a2beb971b9371781",
+      "type": "document",
+      "name": "Biker Hitman",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        45
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.06993df94246ee36"
+    },
+    {
+      "_id": "ebdc59601bc869d0",
+      "_key": "!tables.results!a688372a19f59b65.ebdc59601bc869d0",
+      "type": "document",
+      "name": "Kumo Dune Raider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        55
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.30fa20e42e0be0be"
+    },
+    {
+      "_id": "2cf718b2bbd15d82",
+      "_key": "!tables.results!a688372a19f59b65.2cf718b2bbd15d82",
+      "type": "document",
+      "name": "S5LM Guardian Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4cc63547da2a9581"
+    },
+    {
+      "_id": "082dc6f1ae2e45d8",
+      "_key": "!tables.results!a688372a19f59b65.082dc6f1ae2e45d8",
+      "type": "document",
+      "name": "Pirate Trash Tank*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.93719bafad88b9a8"
+    },
+    {
+      "_id": "455f99b9462f2c78",
+      "_key": "!tables.results!a688372a19f59b65.455f99b9462f2c78",
+      "type": "document",
+      "name": "War Truck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c7c0e91062f7ef46"
+    },
+    {
+      "_id": "a86df8fb912a43fd",
+      "_key": "!tables.results!a688372a19f59b65.a86df8fb912a43fd",
+      "type": "document",
+      "name": "Drive-by Killer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4caa33d21343299f"
+    },
+    {
+      "_id": "05fcd062e7bc03b7",
+      "_key": "!tables.results!a688372a19f59b65.05fcd062e7bc03b7",
+      "type": "document",
+      "name": "Stinger-2 Attack Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c76daa79d0ab6744"
+    },
+    {
+      "_id": "0d5a84ffae4d99a3",
+      "_key": "!tables.results!a688372a19f59b65.0d5a84ffae4d99a3",
+      "type": "document",
+      "name": "S9 Goliath Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c68d335dc946cf70"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "fb667cfdb0c2517c",
+  "sort": 4300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

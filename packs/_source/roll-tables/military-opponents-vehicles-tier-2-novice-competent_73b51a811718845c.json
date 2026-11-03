@@ -1,0 +1,114 @@
+{
+  "_id": "73b51a811718845c",
+  "_key": "!tables!73b51a811718845c",
+  "name": "Military Opponents – Vehicles – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.54.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "2345e70b611bfae3",
+      "_key": "!tables.results!73b51a811718845c.2345e70b611bfae3",
+      "type": "document",
+      "name": "Federal Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c4a813dd3476384b"
+    },
+    {
+      "_id": "d2103d884425b472",
+      "_key": "!tables.results!73b51a811718845c.d2103d884425b472",
+      "type": "document",
+      "name": "Military Transport",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7fccb52fbbd48526"
+    },
+    {
+      "_id": "9eb2768f6dbe6a18",
+      "_key": "!tables.results!73b51a811718845c.9eb2768f6dbe6a18",
+      "type": "document",
+      "name": "Corporate Scout Vehicle (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a1e26816909bea27"
+    },
+    {
+      "_id": "3a90e4ccfb44e43f",
+      "_key": "!tables.results!73b51a811718845c.3a90e4ccfb44e43f",
+      "type": "document",
+      "name": "Merc APC",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d5c925cc7aac5351"
+    },
+    {
+      "_id": "834ec1444f7ea829",
+      "_key": "!tables.results!73b51a811718845c.834ec1444f7ea829",
+      "type": "document",
+      "name": "War Truck (Criminals)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c7c0e91062f7ef46"
+    },
+    {
+      "_id": "97a7790c7cfdfac6",
+      "_key": "!tables.results!73b51a811718845c.97a7790c7cfdfac6",
+      "type": "document",
+      "name": "Assault Tank",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c91a0e7ddb0e7164"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "f3fa93bcd63ff0a5",
+  "sort": 3100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

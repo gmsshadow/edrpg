@@ -1,0 +1,50 @@
+{
+  "_id": "957af6f5f62f2bad",
+  "_key": "!tables!957af6f5f62f2bad",
+  "name": "Tribals – Personal Scale – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "a0e36666977e3b09",
+      "_key": "!tables.results!957af6f5f62f2bad.a0e36666977e3b09",
+      "type": "document",
+      "name": "Tribal Young Blood",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d1d512ada0cf7ec5"
+    },
+    {
+      "_id": "5a2cb77ccfda146b",
+      "_key": "!tables.results!957af6f5f62f2bad.5a2cb77ccfda146b",
+      "type": "document",
+      "name": "Tribal Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e91cda97aa519ed3"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ba9ade06a7f61f5f",
+  "sort": 1400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

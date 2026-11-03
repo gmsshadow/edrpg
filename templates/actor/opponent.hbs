@@ -18,6 +18,13 @@
          {{/if}}
       </div>
    </header>
+   {{#if source.robotic}}
+   <div class="ed-op-controller">
+      {{#if controller}}<i class="fa-solid fa-gamepad"></i> {{localize "EDRPG.drone.controlledBy" name=controller.name bonus=controller.bonus}}
+         {{#if editable}}<a data-action="clearController" data-tooltip="EDRPG.drone.clearController"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+      {{else}}<span class="hint">{{localize "EDRPG.drone.dropController"}}</span>{{/if}}
+   </div>
+   {{/if}}
 
    <table class="ed-op-table">
       <colgroup><col class="label"><col class="value"><col class="label"><col class="value"></colgroup>

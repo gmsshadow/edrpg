@@ -1,0 +1,178 @@
+{
+  "_id": "2b4613d5103041ee",
+  "_key": "!tables!2b4613d5103041ee",
+  "name": "Criminal Opponents – Vehicles – Tier 4 (Dangerous – Elite)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "8a768f92d47275dd",
+      "_key": "!tables.results!2b4613d5103041ee.8a768f92d47275dd",
+      "type": "document",
+      "name": "Biker Hitman",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.06993df94246ee36"
+    },
+    {
+      "_id": "338e7e4f3322aaf4",
+      "_key": "!tables.results!2b4613d5103041ee.338e7e4f3322aaf4",
+      "type": "document",
+      "name": "Kumo Dune Raider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.30fa20e42e0be0be"
+    },
+    {
+      "_id": "cb75cc45b422647e",
+      "_key": "!tables.results!2b4613d5103041ee.cb75cc45b422647e",
+      "type": "document",
+      "name": "S5LM Guardian Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4cc63547da2a9581"
+    },
+    {
+      "_id": "9c8fc3c4e93d77d0",
+      "_key": "!tables.results!2b4613d5103041ee.9c8fc3c4e93d77d0",
+      "type": "document",
+      "name": "War Truck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c7c0e91062f7ef46"
+    },
+    {
+      "_id": "1fdd190f00046eb5",
+      "_key": "!tables.results!2b4613d5103041ee.1fdd190f00046eb5",
+      "type": "document",
+      "name": "Drive-by Killer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4caa33d21343299f"
+    },
+    {
+      "_id": "6ffd242613f790a7",
+      "_key": "!tables.results!2b4613d5103041ee.6ffd242613f790a7",
+      "type": "document",
+      "name": "Stinger-2 Attack Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c76daa79d0ab6744"
+    },
+    {
+      "_id": "d92ecc62f928d8ef",
+      "_key": "!tables.results!2b4613d5103041ee.d92ecc62f928d8ef",
+      "type": "document",
+      "name": "S9 Goliath Skimmer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c68d335dc946cf70"
+    },
+    {
+      "_id": "28567f1392e68ae8",
+      "_key": "!tables.results!2b4613d5103041ee.28567f1392e68ae8",
+      "type": "document",
+      "name": "Brazen Assassin",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1092acc95bc15194"
+    },
+    {
+      "_id": "8a878b8361749e01",
+      "_key": "!tables.results!2b4613d5103041ee.8a878b8361749e01",
+      "type": "document",
+      "name": "Stolen Tank",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4ea577e846874894"
+    },
+    {
+      "_id": "27b839e389a2c9f6",
+      "_key": "!tables.results!2b4613d5103041ee.27b839e389a2c9f6",
+      "type": "document",
+      "name": "Stronghold Tank",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.337d7eb78821c4a3"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "fb667cfdb0c2517c",
+  "sort": 4500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,82 @@
+{
+  "_id": "4ed206ce8acd39a3",
+  "_key": "!tables!4ed206ce8acd39a3",
+  "name": "Relic AI – Personal Scale – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "74288f653f0e2412",
+      "_key": "!tables.results!4ed206ce8acd39a3.74288f653f0e2412",
+      "type": "document",
+      "name": "Assembler",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.36dc977715adebd1"
+    },
+    {
+      "_id": "0b9d7fb83fc2b113",
+      "_key": "!tables.results!4ed206ce8acd39a3.0b9d7fb83fc2b113",
+      "type": "document",
+      "name": "Shambler",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ab97184aef89640c"
+    },
+    {
+      "_id": "3a0f52f55e0ecdb1",
+      "_key": "!tables.results!4ed206ce8acd39a3.3a0f52f55e0ecdb1",
+      "type": "document",
+      "name": "Progenitor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d50e8c8fd9ffa383"
+    },
+    {
+      "_id": "f1c7513210f1a692",
+      "_key": "!tables.results!4ed206ce8acd39a3.f1c7513210f1a692",
+      "type": "document",
+      "name": "Holomancer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8f5a484a6ac756bc"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "4abc676d923962e0",
+  "sort": 1900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

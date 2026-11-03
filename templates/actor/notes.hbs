@@ -1,4 +1,18 @@
 <div class="tab notes {{tab.cssClass}}" data-group="primary" data-tab="notes">
+   {{#if honorary}}
+   {{#> edrpgSection title="EDRPG.honorary.title" icon="fa-solid fa-medal"}}
+   <div class="ed-honorary">
+      {{#each honorary as |h|}}
+      <div class="form-group">
+         <label>{{localize h.label}}</label>
+         <div class="form-fields"><select name="system.honorary.{{h.power}}" data-dtype="Number" {{#unless @root.editable}}disabled{{/unless}}>{{selectOptions h.choices selected=h.value}}</select></div>
+         {{#if h.ships}}<p class="hint">{{localize "EDRPG.honorary.ships" ships=h.ships}}</p>{{/if}}
+      </div>
+      {{/each}}
+      <p class="hint">{{localize "EDRPG.honorary.hint"}}</p>
+   </div>
+   {{/edrpgSection}}
+   {{/if}}
    {{#> edrpgSection title="EDRPG.sheet.biography" icon="fa-solid fa-id-card"}}
    {{formInput biographyField value=source.biography enriched=enrichedBiography toggled=true name="system.biography"}}
    {{/edrpgSection}}

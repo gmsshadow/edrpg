@@ -1,0 +1,82 @@
+{
+  "_id": "c5a38beb5427fb56",
+  "_key": "!tables!c5a38beb5427fb56",
+  "name": "Relic AI – Spaceships – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "845a8d842177459a",
+      "_key": "!tables.results!c5a38beb5427fb56.845a8d842177459a",
+      "type": "document",
+      "name": "Ghost Sidewinder",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.19f891200d17fb15"
+    },
+    {
+      "_id": "8550d0fbb30dbc97",
+      "_key": "!tables.results!c5a38beb5427fb56.8550d0fbb30dbc97",
+      "type": "document",
+      "name": "Possessed Krait",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9c7ee4bb748b88a3"
+    },
+    {
+      "_id": "29371c61df191684",
+      "_key": "!tables.results!c5a38beb5427fb56.29371c61df191684",
+      "type": "document",
+      "name": "Cyber-Cobra",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e73b6ba1e1c0d8a7"
+    },
+    {
+      "_id": "65874371d7ecc038",
+      "_key": "!tables.results!c5a38beb5427fb56.65874371d7ecc038",
+      "type": "document",
+      "name": "AspWinder",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0964f7009b783c58"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "72da0dd01c74ed2e",
+  "sort": 2400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,322 @@
+{
+  "_id": "b302e4f0e7c07361",
+  "_key": "!tables!b302e4f0e7c07361",
+  "name": "Security Opponents – Personal Scale – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "57ba7c26aa3bc33c",
+      "_key": "!tables.results!b302e4f0e7c07361.57ba7c26aa3bc33c",
+      "type": "document",
+      "name": "Security Guard",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.3ac9612a3e123dc6"
+    },
+    {
+      "_id": "76f86b5754b0075d",
+      "_key": "!tables.results!b302e4f0e7c07361.76f86b5754b0075d",
+      "type": "document",
+      "name": "Panther Hound",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0a983f58bec18da4"
+    },
+    {
+      "_id": "6aec7d302f66243f",
+      "_key": "!tables.results!b302e4f0e7c07361.6aec7d302f66243f",
+      "type": "document",
+      "name": "Bruiser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4bc5fa1a9690ff25"
+    },
+    {
+      "_id": "e8cbea641767768c",
+      "_key": "!tables.results!b302e4f0e7c07361.e8cbea641767768c",
+      "type": "document",
+      "name": "Police Officer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.6e8d1228d6d36d6e"
+    },
+    {
+      "_id": "bb4270ee93aec0b3",
+      "_key": "!tables.results!b302e4f0e7c07361.bb4270ee93aec0b3",
+      "type": "document",
+      "name": "Vigilante",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0df6b3ac2c20522e"
+    },
+    {
+      "_id": "cd0e9bb1d28a8c59",
+      "_key": "!tables.results!b302e4f0e7c07361.cd0e9bb1d28a8c59",
+      "type": "document",
+      "name": "SnakeWolf",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a4b45dd2a9e96248"
+    },
+    {
+      "_id": "ce0acf755ccf27b7",
+      "_key": "!tables.results!b302e4f0e7c07361.ce0acf755ccf27b7",
+      "type": "document",
+      "name": "Junga Pattern Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        45
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ba083333d9826fdf"
+    },
+    {
+      "_id": "2720f7e8b79c738b",
+      "_key": "!tables.results!b302e4f0e7c07361.2720f7e8b79c738b",
+      "type": "document",
+      "name": "War Front Security Guard",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5d46f78d1c4d71c1"
+    },
+    {
+      "_id": "4097a2f0b1d3c2d9",
+      "_key": "!tables.results!b302e4f0e7c07361.4097a2f0b1d3c2d9",
+      "type": "document",
+      "name": "GorillaLion",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c92eec26e1beeb30"
+    },
+    {
+      "_id": "5511db390b44665e",
+      "_key": "!tables.results!b302e4f0e7c07361.5511db390b44665e",
+      "type": "document",
+      "name": "T-90 Patrol Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d32ceb8736e6c67d"
+    },
+    {
+      "_id": "4491106c92907f76",
+      "_key": "!tables.results!b302e4f0e7c07361.4491106c92907f76",
+      "type": "document",
+      "name": "Private Military Contractor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.49e86ef0d9e162bf"
+    },
+    {
+      "_id": "3bfb1580b871b952",
+      "_key": "!tables.results!b302e4f0e7c07361.3bfb1580b871b952",
+      "type": "document",
+      "name": "Police Detective",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d3f2a9ec29885959"
+    },
+    {
+      "_id": "39672838ab2eb3b5",
+      "_key": "!tables.results!b302e4f0e7c07361.39672838ab2eb3b5",
+      "type": "document",
+      "name": "Police Raider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d95c0d6fa46520a0"
+    },
+    {
+      "_id": "4b333f584075e34b",
+      "_key": "!tables.results!b302e4f0e7c07361.4b333f584075e34b",
+      "type": "document",
+      "name": "Heavy Support Officer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.b9fba1cf2b1a6a59"
+    },
+    {
+      "_id": "3d2243357ef1b6ec",
+      "_key": "!tables.results!b302e4f0e7c07361.3d2243357ef1b6ec",
+      "type": "document",
+      "name": "Hired Gun",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        92
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.b6187a4dbc03d985"
+    },
+    {
+      "_id": "0d94a29e86729cb4",
+      "_key": "!tables.results!b302e4f0e7c07361.0d94a29e86729cb4",
+      "type": "document",
+      "name": "Apex-Fire Combat Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        93,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.eeb98d9f3679b556"
+    },
+    {
+      "_id": "17a997f59e7642fe",
+      "_key": "!tables.results!b302e4f0e7c07361.17a997f59e7642fe",
+      "type": "document",
+      "name": "Manticore HN Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        96
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.aed27a0cc54ca151"
+    },
+    {
+      "_id": "d76ee4d7e401d35d",
+      "_key": "!tables.results!b302e4f0e7c07361.d76ee4d7e401d35d",
+      "type": "document",
+      "name": "Counter Assault Security",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        97,
+        99
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.79ccfc0256061fde"
+    },
+    {
+      "_id": "c3cefad784b237d1",
+      "_key": "!tables.results!b302e4f0e7c07361.c3cefad784b237d1",
+      "type": "document",
+      "name": "Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.03f29042cb987fc5"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "94ea539178afc38b",
+  "sort": 300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

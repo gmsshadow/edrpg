@@ -67,6 +67,8 @@
       "floating": 0,
       "cellBanks": []
     },
+    "impervious": false,
+    "swarm": false,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p>If the Possessed Krait hits with both its Pulse Lasers, it also transmits a signal to the target ship which sends its controls haywire. The affected ship loses its next Combat Action.</p><p><em>Exploration Supplement</em></p>"

@@ -1,0 +1,123 @@
+{
+  "_id": "ceafb423a7d45263",
+  "_key": "!tables!ceafb423a7d45263",
+  "name": "Travel (Military)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.59.</p><p>Roll D10 (results of 10 or more are a Spacecraft Sweep). A unique event can happen once a mission; again, it counts as No Event.</p>",
+  "results": [
+    {
+      "_id": "330e013af7bf6caa",
+      "_key": "!tables.results!ceafb423a7d45263.330e013af7bf6caa",
+      "type": "text",
+      "name": "No Event",
+      "description": "<p>Military Sourcebook, p.59</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7362492f109315a7",
+      "_key": "!tables.results!ceafb423a7d45263.7362492f109315a7",
+      "type": "text",
+      "name": "Minefield",
+      "description": "<p>Military Sourcebook, p.59</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "62ea4f4990fd0aad",
+      "_key": "!tables.results!ceafb423a7d45263.62ea4f4990fd0aad",
+      "type": "text",
+      "name": "Vehicle Patrol",
+      "description": "<p>Military Sourcebook, p.59</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "31b3aa63b0fe248f",
+      "_key": "!tables.results!ceafb423a7d45263.31b3aa63b0fe248f",
+      "type": "text",
+      "name": "Foot Patrol",
+      "description": "<p>Military Sourcebook, p.59</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "052a86f2d26b81e8",
+      "_key": "!tables.results!ceafb423a7d45263.052a86f2d26b81e8",
+      "type": "text",
+      "name": "Checkpoint (unique)",
+      "description": "<p>Military Sourcebook, p.59</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fb0ebf697dd24af0",
+      "_key": "!tables.results!ceafb423a7d45263.fb0ebf697dd24af0",
+      "type": "text",
+      "name": "Snipers (unique; only on alert and on foot)",
+      "description": "<p>Military Sourcebook, p.59</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5d921ea6d0d0dac1",
+      "_key": "!tables.results!ceafb423a7d45263.5d921ea6d0d0dac1",
+      "type": "text",
+      "name": "Spacecraft Sweep",
+      "description": "<p>Military Sourcebook, p.59</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d10",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "e06eb0bedabe38ae",
+  "sort": 5800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

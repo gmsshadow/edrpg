@@ -1,0 +1,322 @@
+{
+  "_id": "3fdcc1a5dc5dc662",
+  "_key": "!tables!3fdcc1a5dc5dc662",
+  "name": "Military Opponents – Personal Scale – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.53.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "44c86fd449562bd7",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.44c86fd449562bd7",
+      "type": "document",
+      "name": "Conscript",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.b9296c3fc224a40f"
+    },
+    {
+      "_id": "82e65f6d376d2330",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.82e65f6d376d2330",
+      "type": "document",
+      "name": "Eye Bot",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7d7b366aa4b43244"
+    },
+    {
+      "_id": "a5f9608df458fcff",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.a5f9608df458fcff",
+      "type": "document",
+      "name": "Slave Soldier",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.3627c8ec4584f28c"
+    },
+    {
+      "_id": "579314643cea8085",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.579314643cea8085",
+      "type": "document",
+      "name": "Army Soldier",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d01ba113b5cf01fb"
+    },
+    {
+      "_id": "a73e212cc88fd198",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.a73e212cc88fd198",
+      "type": "document",
+      "name": "Army Officer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1f13530e0ffc35d9"
+    },
+    {
+      "_id": "c4c17b578612f05a",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.c4c17b578612f05a",
+      "type": "document",
+      "name": "T-90 Patrol Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d32ceb8736e6c67d"
+    },
+    {
+      "_id": "cd12ac3ff65ce856",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.cd12ac3ff65ce856",
+      "type": "document",
+      "name": "Junga Pattern Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        45
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ba083333d9826fdf"
+    },
+    {
+      "_id": "a5544317360a0889",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.a5544317360a0889",
+      "type": "document",
+      "name": "Mercenary Demolisher",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7364c8275c6493a0"
+    },
+    {
+      "_id": "4decb1a8ef62a180",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.4decb1a8ef62a180",
+      "type": "document",
+      "name": "Sentinel Turret (defence only)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c83d8b436a7d9bdd"
+    },
+    {
+      "_id": "1f61d549c733c0fc",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.1f61d549c733c0fc",
+      "type": "document",
+      "name": "Mercenary Demolisher",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7364c8275c6493a0"
+    },
+    {
+      "_id": "959b7954fe9f1fb3",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.959b7954fe9f1fb3",
+      "type": "document",
+      "name": "Heavy Weapons Support",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.69d9a5fc507cb198"
+    },
+    {
+      "_id": "c4e11a5cc672497e",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.c4e11a5cc672497e",
+      "type": "document",
+      "name": "Guard Bot* (defence only)",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.3ebfa528e88c15c1"
+    },
+    {
+      "_id": "e133d983dcffed12",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.e133d983dcffed12",
+      "type": "document",
+      "name": "Apex-Fire Combat Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.eeb98d9f3679b556"
+    },
+    {
+      "_id": "1d598a50b35c1565",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.1d598a50b35c1565",
+      "type": "document",
+      "name": "Assault Trooper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.65d57b4a174d8f40"
+    },
+    {
+      "_id": "dcb7cd78c600f4f5",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.dcb7cd78c600f4f5",
+      "type": "document",
+      "name": "Dog Mortar",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        92
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.18bb7388d5729e33"
+    },
+    {
+      "_id": "a39aad95c74275be",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.a39aad95c74275be",
+      "type": "document",
+      "name": "Sniper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        93,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c31833cb4e79506e"
+    },
+    {
+      "_id": "7fb4465548970a6c",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.7fb4465548970a6c",
+      "type": "document",
+      "name": "Manticore HN Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        96
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.aed27a0cc54ca151"
+    },
+    {
+      "_id": "3ce6bfee844d7725",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.3ce6bfee844d7725",
+      "type": "document",
+      "name": "Achilles Combat Android",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        97,
+        99
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a13a83498138732b"
+    },
+    {
+      "_id": "d82fa9078495e5ce",
+      "_key": "!tables.results!3fdcc1a5dc5dc662.d82fa9078495e5ce",
+      "type": "document",
+      "name": "Special Forces",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.84c0ad59ff657fd5"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ed764186c2b9008a",
+  "sort": 2800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

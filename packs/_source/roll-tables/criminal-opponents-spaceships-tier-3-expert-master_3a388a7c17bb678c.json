@@ -1,0 +1,274 @@
+{
+  "_id": "3a388a7c17bb678c",
+  "_key": "!tables!3a388a7c17bb678c",
+  "name": "Criminal Opponents – Spaceships – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "ce51e7fb8a5d1719",
+      "_key": "!tables.results!3a388a7c17bb678c.ce51e7fb8a5d1719",
+      "type": "document",
+      "name": "Pirate Skirmisher",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7ddd401b8aeb5236"
+    },
+    {
+      "_id": "4a643d7aa1d3a2db",
+      "_key": "!tables.results!3a388a7c17bb678c.4a643d7aa1d3a2db",
+      "type": "document",
+      "name": "Pirate Aggressor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.575b3ab27878b0ca"
+    },
+    {
+      "_id": "8dfc00d1295cf9f8",
+      "_key": "!tables.results!3a388a7c17bb678c.8dfc00d1295cf9f8",
+      "type": "document",
+      "name": "Pirate Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        13,
+        18
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8ed7b702c327fe28"
+    },
+    {
+      "_id": "1090a6c34b4ef73b",
+      "_key": "!tables.results!3a388a7c17bb678c.1090a6c34b4ef73b",
+      "type": "document",
+      "name": "Pirate Harasser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        19,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.62ce8a90d4dfb477"
+    },
+    {
+      "_id": "e440faf1c6f72b66",
+      "_key": "!tables.results!3a388a7c17bb678c.e440faf1c6f72b66",
+      "type": "document",
+      "name": "Pirate Hold Buster",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        31
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ac55324bce084ed5"
+    },
+    {
+      "_id": "c508a42162b444c0",
+      "_key": "!tables.results!3a388a7c17bb678c.c508a42162b444c0",
+      "type": "document",
+      "name": "Pirate Cobra",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        32,
+        37
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.04586615436cdcc0"
+    },
+    {
+      "_id": "cd24d8652c04d243",
+      "_key": "!tables.results!3a388a7c17bb678c.cd24d8652c04d243",
+      "type": "document",
+      "name": "Swift Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        38,
+        43
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.6967920c1845e833"
+    },
+    {
+      "_id": "7927bf3666531dd6",
+      "_key": "!tables.results!3a388a7c17bb678c.7927bf3666531dd6",
+      "type": "document",
+      "name": "Pirate Berserker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        44,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c0c628734a15c989"
+    },
+    {
+      "_id": "8c0b269ab38d6a8e",
+      "_key": "!tables.results!3a388a7c17bb678c.8c0b269ab38d6a8e",
+      "type": "document",
+      "name": "Pirate Cruiser*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        56
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d8424d7cd5af7a0c"
+    },
+    {
+      "_id": "57fb0361969afd46",
+      "_key": "!tables.results!3a388a7c17bb678c.57fb0361969afd46",
+      "type": "document",
+      "name": "Pirate Assault Ship",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        57,
+        62
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f854c856bd456905"
+    },
+    {
+      "_id": "5625fae3e8ec6ef4",
+      "_key": "!tables.results!3a388a7c17bb678c.5625fae3e8ec6ef4",
+      "type": "document",
+      "name": "Pirate Command Ship",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        63,
+        68
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.cfaa9505b575a512"
+    },
+    {
+      "_id": "35ea93632513e7a4",
+      "_key": "!tables.results!3a388a7c17bb678c.35ea93632513e7a4",
+      "type": "document",
+      "name": "Pirate Attacker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        69,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5cd4ed54f77a1267"
+    },
+    {
+      "_id": "5ea52ebe89cf3284",
+      "_key": "!tables.results!3a388a7c17bb678c.5ea52ebe89cf3284",
+      "type": "document",
+      "name": "Cobra Mk IV Aggressor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        81
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4f349e92c8e8dd3e"
+    },
+    {
+      "_id": "f7375868803884a4",
+      "_key": "!tables.results!3a388a7c17bb678c.f7375868803884a4",
+      "type": "document",
+      "name": "Pirate Shock Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        82,
+        87
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.137a41b594ca33cf"
+    },
+    {
+      "_id": "9848ff1bde9fb020",
+      "_key": "!tables.results!3a388a7c17bb678c.9848ff1bde9fb020",
+      "type": "document",
+      "name": "Inconspicuous Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        88,
+        93
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e57c23535cf72d45"
+    },
+    {
+      "_id": "a8842ec8a1515aef",
+      "_key": "!tables.results!3a388a7c17bb678c.a8842ec8a1515aef",
+      "type": "document",
+      "name": "Ruthless Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        94,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.dae61271297b3671"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ee45724ecd2585b0",
+  "sort": 4800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

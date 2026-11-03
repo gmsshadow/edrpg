@@ -1,0 +1,55 @@
+{
+  "_id": "45ec4025585a049f",
+  "_key": "!items!45ec4025585a049f",
+  "name": "Shutdown Field Neutraliser",
+  "type": "gear",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Spaceship utility mount (0.2MW). Prevents the automatic shutdown when encountering Thargoid vessels.</p><p><em>Exploration Supplement</em></p>",
+    "cost": "63,000cr",
+    "rarity": "rare",
+    "location": "carried",
+    "category": "general",
+    "quantity": 1,
+    "uses": {
+      "value": null,
+      "max": null
+    },
+    "socialFactor": 0,
+    "rollBonuses": [],
+    "injectionSuccess": null,
+    "stimEffect": "",
+    "ammoFor": "",
+    "notes": "Spaceship utility mount (0.2MW). Prevents the automatic shutdown when encountering Thargoid vessels.",
+    "shield": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false,
+      "blocks": {
+        "kinetic": true,
+        "energy": true,
+        "explosive": true,
+        "fighting": true,
+        "melee": true
+      }
+    },
+    "regenerate": 0,
+    "rounds": {
+      "value": 0,
+      "max": 0
+    },
+    "active": false
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Aegis Equipment"
+    }
+  },
+  "sort": 8700,
+  "effects": [],
+  "folder": "207f95d181def66d",
+  "ownership": {
+    "default": 0
+  }
+}

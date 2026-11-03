@@ -1,0 +1,306 @@
+{
+  "_id": "4e312d9dfa3e7645",
+  "_key": "!tables!4e312d9dfa3e7645",
+  "name": "Military Opponents – Personal Scale – Tier 4 (Dangerous – Elite)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.53.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "3473cace3716fceb",
+      "_key": "!tables.results!4e312d9dfa3e7645.3473cace3716fceb",
+      "type": "document",
+      "name": "Army Soldier",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d01ba113b5cf01fb"
+    },
+    {
+      "_id": "b00f4ff1738b352e",
+      "_key": "!tables.results!4e312d9dfa3e7645.b00f4ff1738b352e",
+      "type": "document",
+      "name": "Army Officer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1f13530e0ffc35d9"
+    },
+    {
+      "_id": "d6e636c09d2cdec0",
+      "_key": "!tables.results!4e312d9dfa3e7645.d6e636c09d2cdec0",
+      "type": "document",
+      "name": "T-90 Patrol Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d32ceb8736e6c67d"
+    },
+    {
+      "_id": "9570b5df32d54c20",
+      "_key": "!tables.results!4e312d9dfa3e7645.9570b5df32d54c20",
+      "type": "document",
+      "name": "Mercenary Demolisher",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7364c8275c6493a0"
+    },
+    {
+      "_id": "15545cb260de3255",
+      "_key": "!tables.results!4e312d9dfa3e7645.15545cb260de3255",
+      "type": "document",
+      "name": "Sentinel Turret (defence only)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c83d8b436a7d9bdd"
+    },
+    {
+      "_id": "d9a0629fd3a25521",
+      "_key": "!tables.results!4e312d9dfa3e7645.d9a0629fd3a25521",
+      "type": "document",
+      "name": "Mercenary Demolisher",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7364c8275c6493a0"
+    },
+    {
+      "_id": "43b32bbabc846217",
+      "_key": "!tables.results!4e312d9dfa3e7645.43b32bbabc846217",
+      "type": "document",
+      "name": "Heavy Weapons Support",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.69d9a5fc507cb198"
+    },
+    {
+      "_id": "833e42f4e1359cde",
+      "_key": "!tables.results!4e312d9dfa3e7645.833e42f4e1359cde",
+      "type": "document",
+      "name": "Guard Bot* (defence only)",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        45
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.3ebfa528e88c15c1"
+    },
+    {
+      "_id": "5896965d0c542740",
+      "_key": "!tables.results!4e312d9dfa3e7645.5896965d0c542740",
+      "type": "document",
+      "name": "Apex-Fire Combat Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.eeb98d9f3679b556"
+    },
+    {
+      "_id": "6b1c4d711dc8f015",
+      "_key": "!tables.results!4e312d9dfa3e7645.6b1c4d711dc8f015",
+      "type": "document",
+      "name": "Assault Trooper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.65d57b4a174d8f40"
+    },
+    {
+      "_id": "3509f1be15af7677",
+      "_key": "!tables.results!4e312d9dfa3e7645.3509f1be15af7677",
+      "type": "document",
+      "name": "Dog Mortar",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.18bb7388d5729e33"
+    },
+    {
+      "_id": "829b2fc75d23ea6c",
+      "_key": "!tables.results!4e312d9dfa3e7645.829b2fc75d23ea6c",
+      "type": "document",
+      "name": "Sniper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c31833cb4e79506e"
+    },
+    {
+      "_id": "b01c06680f5e9b09",
+      "_key": "!tables.results!4e312d9dfa3e7645.b01c06680f5e9b09",
+      "type": "document",
+      "name": "Manticore HN Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.aed27a0cc54ca151"
+    },
+    {
+      "_id": "0456b240a2e3c33a",
+      "_key": "!tables.results!4e312d9dfa3e7645.0456b240a2e3c33a",
+      "type": "document",
+      "name": "Achilles Combat Android",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a13a83498138732b"
+    },
+    {
+      "_id": "2e7726b6dc989e68",
+      "_key": "!tables.results!4e312d9dfa3e7645.2e7726b6dc989e68",
+      "type": "document",
+      "name": "Special Forces",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.84c0ad59ff657fd5"
+    },
+    {
+      "_id": "414db3241fd64635",
+      "_key": "!tables.results!4e312d9dfa3e7645.414db3241fd64635",
+      "type": "document",
+      "name": "Pendragon Support Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.2b7e9a1ced9ec2ce"
+    },
+    {
+      "_id": "839fbbdbd3052cc6",
+      "_key": "!tables.results!4e312d9dfa3e7645.839fbbdbd3052cc6",
+      "type": "document",
+      "name": "Battlescarred Cyber Merc*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0e122b6123d23b6d"
+    },
+    {
+      "_id": "a2f548f55283f5de",
+      "_key": "!tables.results!4e312d9dfa3e7645.a2f548f55283f5de",
+      "type": "document",
+      "name": "Type X Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1d77d5cb263fe56c"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ed764186c2b9008a",
+  "sort": 2900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

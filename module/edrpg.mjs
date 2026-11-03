@@ -1,3 +1,4 @@
+import { openMarket } from "./trading.mjs";
 import * as EDRPG from "./config.mjs";
 import { CharacterData, NPCIndividualData, OpponentData, PartnerData } from "./data/actor.mjs";
 import {
@@ -32,7 +33,7 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
+   game.edrpg = { config: EDRPG, openMarket, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
    registerKarmaHooks();
 
    registerSettings();
@@ -114,6 +115,32 @@ Hooks.once("ready", () => {
    registerCraftSocket();
    registerVehicleCombat();
    ensureLandingScene();
+   // Controlled drones take their controller's Cyber bonus: refresh them once every actor exists, and when a
+   // controller changes.
+   const refreshDrones = (uuid) => {
+      for (const a of game.actors) {
+         if (a.type === "opponent" && a.system.controller && (!uuid || a.system.controller === uuid)) {
+            a.reset();
+            a.sheet?.rendered && a.sheet.render();
+         }
+      }
+   };
+   refreshDrones();
+   Hooks.on("updateActor", (actor) => refreshDrones(actor.uuid));
+});
+
+// The GM's Star Port Market (Advanced Trading) button, at the top of the Actors sidebar.
+Hooks.on("renderActorDirectory", (app, html) => {
+   if (!game.user.isGM) return;
+   const root = html instanceof HTMLElement ? html : html?.[0];
+   const actions = root?.querySelector(".header-actions");
+   if (!actions || actions.querySelector(".edrpg-market")) return;
+   const button = document.createElement("button");
+   button.type = "button";
+   button.className = "edrpg-market";
+   button.innerHTML = `<i class="fa-solid fa-scale-balanced"></i> ${game.i18n.localize("EDRPG.trade.button")}`;
+   button.addEventListener("click", () => openMarket());
+   actions.append(button);
 });
 
 Hooks.on("renderChatMessageHTML", (message, html) => {

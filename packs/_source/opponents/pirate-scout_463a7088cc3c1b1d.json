@@ -1,0 +1,229 @@
+{
+  "_id": "463a7088cc3c1b1d",
+  "_key": "!actors!463a7088cc3c1b1d",
+  "name": "Pirate Scout",
+  "type": "vehicle",
+  "img": "systems/edrpg/assets/tokens/vehicles/scarab-red.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "",
+    "dimensions": "",
+    "bays": 1,
+    "crewSize": 0,
+    "passengers": 0,
+    "sensors": "2km Range. Can detect surface minerals.",
+    "cargo": "2T",
+    "cost": "",
+    "special": "Mostly Harmless Criminal. Vehicle: Scarab SRV – Interceptor.",
+    "agility": 0,
+    "maxSpeed": 10,
+    "accelerate": 4,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 3,
+        "attack": -1
+      },
+      {
+        "defence": 3,
+        "attack": -2
+      },
+      {
+        "defence": 4,
+        "attack": -2
+      }
+    ],
+    "hull": {
+      "value": 40,
+      "max": 40
+    },
+    "shields": {
+      "value": 30,
+      "max": 30,
+      "recharge": 5,
+      "down": false
+    },
+    "drone": {
+      "enabled": true,
+      "defence": 7,
+      "initiative": 2,
+      "pursuit": 1,
+      "perception": 2
+    },
+    "flying": false,
+    "bomb": {
+      "damage": 0,
+      "vsShields": 0
+    },
+    "forwardRam": false,
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": ""
+  },
+  "prototypeToken": {
+    "name": "Pirate Scout",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/vehicles/scarab-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "6b53fe5174628d48",
+      "_key": "!actors.items!463a7088cc3c1b1d.6b53fe5174628d48",
+      "name": "Small Turreted Plasma Repeater",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "7aa7031747c86213",
+      "_key": "!actors.items!463a7088cc3c1b1d.7aa7031747c86213",
+      "name": "Small Fixed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d28e911dbc621986",
+      "_key": "!actors.items!463a7088cc3c1b1d.d28e911dbc621986",
+      "name": "Small Fixed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "64cce25a11f5f00f",
+  "sort": 4700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

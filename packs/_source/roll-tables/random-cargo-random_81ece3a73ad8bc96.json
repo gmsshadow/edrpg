@@ -1,0 +1,678 @@
+{
+  "_id": "81ece3a73ad8bc96",
+  "_key": "!tables!81ece3a73ad8bc96",
+  "name": "Random Cargo – Random",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.45.</p><p>As printed, Food Cartridges (50–52), Fruit & Veg (50–51) and Gallite (52–53) overlap on the Random column: a roll there can give two results.</p>",
+  "results": [
+    {
+      "_id": "3538ab806582a8a9",
+      "_key": "!tables.results!81ece3a73ad8bc96.3538ab806582a8a9",
+      "type": "text",
+      "name": "Advanced Catalysers",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0e545ad7f92731c9",
+      "_key": "!tables.results!81ece3a73ad8bc96.0e545ad7f92731c9",
+      "type": "text",
+      "name": "Animal Meat",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "75c0b568e1094cc2",
+      "_key": "!tables.results!81ece3a73ad8bc96.75c0b568e1094cc2",
+      "type": "text",
+      "name": "Aquaponic Systems",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "72352f1e9fe9f2af",
+      "_key": "!tables.results!81ece3a73ad8bc96.72352f1e9fe9f2af",
+      "type": "text",
+      "name": "Atmospheric Processors",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "77689a31cb41e10f",
+      "_key": "!tables.results!81ece3a73ad8bc96.77689a31cb41e10f",
+      "type": "text",
+      "name": "Auto Fabricators",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fed3dcaf59f6e872",
+      "_key": "!tables.results!81ece3a73ad8bc96.fed3dcaf59f6e872",
+      "type": "text",
+      "name": "Basic Medicines",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        12,
+        14
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "97b7004f4b4c3530",
+      "_key": "!tables.results!81ece3a73ad8bc96.97b7004f4b4c3530",
+      "type": "text",
+      "name": "Battle Weapons",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        15,
+        16
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "753e829324b8329e",
+      "_key": "!tables.results!81ece3a73ad8bc96.753e829324b8329e",
+      "type": "text",
+      "name": "Beer",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        17,
+        19
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0cea56da0fe606c4",
+      "_key": "!tables.results!81ece3a73ad8bc96.0cea56da0fe606c4",
+      "type": "text",
+      "name": "Bertrandite",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        20,
+        21
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6a799f08b9059c0e",
+      "_key": "!tables.results!81ece3a73ad8bc96.6a799f08b9059c0e",
+      "type": "text",
+      "name": "Beryllium",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        22,
+        23
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1750181fe8d1c1a0",
+      "_key": "!tables.results!81ece3a73ad8bc96.1750181fe8d1c1a0",
+      "type": "text",
+      "name": "Bio-waste",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        24,
+        26
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "95dfa9cce8107643",
+      "_key": "!tables.results!81ece3a73ad8bc96.95dfa9cce8107643",
+      "type": "text",
+      "name": "Clothing",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        27,
+        28
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ff0b2549d0f93e3f",
+      "_key": "!tables.results!81ece3a73ad8bc96.ff0b2549d0f93e3f",
+      "type": "text",
+      "name": "Coffee",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        29,
+        30
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9674ce475871a3bd",
+      "_key": "!tables.results!81ece3a73ad8bc96.9674ce475871a3bd",
+      "type": "text",
+      "name": "Combat Stabilisers",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        32
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3873e76810139945",
+      "_key": "!tables.results!81ece3a73ad8bc96.3873e76810139945",
+      "type": "text",
+      "name": "Computer Components",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        33,
+        35
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d1d6090d7e6c9982",
+      "_key": "!tables.results!81ece3a73ad8bc96.d1d6090d7e6c9982",
+      "type": "text",
+      "name": "Consumer Tech",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        38
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a3557285d425393d",
+      "_key": "!tables.results!81ece3a73ad8bc96.a3557285d425393d",
+      "type": "text",
+      "name": "Copper",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        39,
+        40
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0288b5669009f8ae",
+      "_key": "!tables.results!81ece3a73ad8bc96.0288b5669009f8ae",
+      "type": "text",
+      "name": "Crop Harvesters",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        42
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c151deb91724d765",
+      "_key": "!tables.results!81ece3a73ad8bc96.c151deb91724d765",
+      "type": "text",
+      "name": "Domestic Appliances",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        43,
+        45
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1c71baa2c5370956",
+      "_key": "!tables.results!81ece3a73ad8bc96.1c71baa2c5370956",
+      "type": "text",
+      "name": "Explosives",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        47
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "815170f8196a9a96",
+      "_key": "!tables.results!81ece3a73ad8bc96.815170f8196a9a96",
+      "type": "text",
+      "name": "Fish",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        48,
+        49
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "00ed59fef417f38b",
+      "_key": "!tables.results!81ece3a73ad8bc96.00ed59fef417f38b",
+      "type": "text",
+      "name": "Food Cartridges",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        50,
+        52
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a82ef653c2118452",
+      "_key": "!tables.results!81ece3a73ad8bc96.a82ef653c2118452",
+      "type": "text",
+      "name": "Fruit & Veg",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        50,
+        51
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9d10da5866483135",
+      "_key": "!tables.results!81ece3a73ad8bc96.9d10da5866483135",
+      "type": "text",
+      "name": "Gallite",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        52,
+        53
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e9da06e376270cc6",
+      "_key": "!tables.results!81ece3a73ad8bc96.e9da06e376270cc6",
+      "type": "text",
+      "name": "Gallium",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        54,
+        55
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b4c38c7546fc1a9f",
+      "_key": "!tables.results!81ece3a73ad8bc96.b4c38c7546fc1a9f",
+      "type": "text",
+      "name": "Gold",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        57
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5722034ae14bf486",
+      "_key": "!tables.results!81ece3a73ad8bc96.5722034ae14bf486",
+      "type": "text",
+      "name": "Hazardous Environment Suits",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        58,
+        59
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4c9f1ca2c4d478e2",
+      "_key": "!tables.results!81ece3a73ad8bc96.4c9f1ca2c4d478e2",
+      "type": "text",
+      "name": "Hydrogen Fuel",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        60,
+        62
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fbbcf5db90fe93ff",
+      "_key": "!tables.results!81ece3a73ad8bc96.fbbcf5db90fe93ff",
+      "type": "text",
+      "name": "Imperial Slaves",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        63,
+        64
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2d82f5d7c2d7a6c3",
+      "_key": "!tables.results!81ece3a73ad8bc96.2d82f5d7c2d7a6c3",
+      "type": "text",
+      "name": "Liquor",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        65,
+        67
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "07c6559d53fa4af3",
+      "_key": "!tables.results!81ece3a73ad8bc96.07c6559d53fa4af3",
+      "type": "text",
+      "name": "Mineral Extractors",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        68,
+        70
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "68b814d7b68094a9",
+      "_key": "!tables.results!81ece3a73ad8bc96.68b814d7b68094a9",
+      "type": "text",
+      "name": "Narcotics",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        73
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3a6207018e5859fe",
+      "_key": "!tables.results!81ece3a73ad8bc96.3a6207018e5859fe",
+      "type": "text",
+      "name": "Palladium",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        74,
+        75
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "46c121fd244212cc",
+      "_key": "!tables.results!81ece3a73ad8bc96.46c121fd244212cc",
+      "type": "text",
+      "name": "Performance Enhancers",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        77
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d5ea2c5d2fa11006",
+      "_key": "!tables.results!81ece3a73ad8bc96.d5ea2c5d2fa11006",
+      "type": "text",
+      "name": "Platinum",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        78,
+        79
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "491eebc001fc9935",
+      "_key": "!tables.results!81ece3a73ad8bc96.491eebc001fc9935",
+      "type": "text",
+      "name": "Progenitor Cells",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        80,
+        82
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "87dc6ad28c9b7105",
+      "_key": "!tables.results!81ece3a73ad8bc96.87dc6ad28c9b7105",
+      "type": "text",
+      "name": "Resonating Separators",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        83,
+        84
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "01340cca3232466f",
+      "_key": "!tables.results!81ece3a73ad8bc96.01340cca3232466f",
+      "type": "text",
+      "name": "Robotics",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        85,
+        86
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "93102de185442114",
+      "_key": "!tables.results!81ece3a73ad8bc96.93102de185442114",
+      "type": "text",
+      "name": "Silver",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        87,
+        88
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f42e414b2c6f02dd",
+      "_key": "!tables.results!81ece3a73ad8bc96.f42e414b2c6f02dd",
+      "type": "text",
+      "name": "Slaves",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        89,
+        90
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1f48a42414b39244",
+      "_key": "!tables.results!81ece3a73ad8bc96.1f48a42414b39244",
+      "type": "text",
+      "name": "Superconductors",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        92
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e4ffe69102928b6d",
+      "_key": "!tables.results!81ece3a73ad8bc96.e4ffe69102928b6d",
+      "type": "text",
+      "name": "Tea",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        93,
+        95
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d81221e481cb44d6",
+      "_key": "!tables.results!81ece3a73ad8bc96.d81221e481cb44d6",
+      "type": "text",
+      "name": "Titanium",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        97
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bfd4f18bb4326c3e",
+      "_key": "!tables.results!81ece3a73ad8bc96.bfd4f18bb4326c3e",
+      "type": "text",
+      "name": "Wine",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        98,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "542f8e0ed3d59f4e",
+  "sort": 6100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

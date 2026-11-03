@@ -1,0 +1,82 @@
+{
+  "_id": "cb1519be3069a2dd",
+  "_key": "!tables!cb1519be3069a2dd",
+  "name": "Tribals – Personal Scale – Tier 4 (Dangerous – Elite)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "2e9bfcde0c5d8689",
+      "_key": "!tables.results!cb1519be3069a2dd.2e9bfcde0c5d8689",
+      "type": "document",
+      "name": "Tribal Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e91cda97aa519ed3"
+    },
+    {
+      "_id": "af19343c783a691c",
+      "_key": "!tables.results!cb1519be3069a2dd.af19343c783a691c",
+      "type": "document",
+      "name": "Tribal Slayer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5323df020a2a1357"
+    },
+    {
+      "_id": "6428841775f7fee8",
+      "_key": "!tables.results!cb1519be3069a2dd.6428841775f7fee8",
+      "type": "document",
+      "name": "Vengeful Tribal",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9da1c2826e48a400"
+    },
+    {
+      "_id": "fdd2b025cc5c7f5b",
+      "_key": "!tables.results!cb1519be3069a2dd.fdd2b025cc5c7f5b",
+      "type": "document",
+      "name": "Monstrous Tribal",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a532665c4393e0f2"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ba9ade06a7f61f5f",
+  "sort": 1700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

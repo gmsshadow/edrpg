@@ -3025,3 +3025,15 @@ li:hover > .ed-row-delete {
 
 /* Hangar */
 .edrpg .ed-hangar img { vertical-align: middle; border: none; }
+
+/* Drone controller line on robot/drone stat blocks */
+.edrpg-sheet.opponent .ed-op-controller { padding: 0.25rem 0.5rem; font-size: 0.9em; display: flex; gap: 0.4rem; align-items: center; }
+.edrpg-sheet.opponent .ed-op-controller .hint { font-style: italic; opacity: 0.8; }
+
+/* Star port market (Advanced Trading) */
+.edrpg-chat.edrpg-market h3 { font-size: 1em; margin: 0 0 0.25rem; }
+.edrpg-chat.edrpg-market table.ed-market { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+.edrpg-chat.edrpg-market table.ed-market td { padding: 0 0.2rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+.edrpg-chat.edrpg-market table.ed-market td:last-child { text-align: right; white-space: nowrap; }
+.edrpg-chat.edrpg-market tr.muted { opacity: 0.5; }
+.edrpg-chat.edrpg-market .ed-market-note { font-weight: bold; }

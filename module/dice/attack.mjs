@@ -3,8 +3,9 @@ import { rollSkillDice, skillLabel, signed } from "./skill-check.mjs";
 import { showDice } from "./contest.mjs";
 import { useKarmaCapability } from "../karma.mjs";
 import { rollDamage, STATUS } from "./damage.mjs";
-import { rollGrabCheck, performGrab } from "./grab.mjs";
+import { rollGrabCheck, performGrab, beats } from "./grab.mjs";
 import { karmaPayer } from "../partner.mjs";
+import { isD100, judge, karmaRerollable, dnModifier, d100Label } from "./resolve.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/attack.hbs";
 const SOCKET = "system.edrpg";
@@ -204,10 +205,14 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
    // Ambidextrous reduces the two-weapon penalty to -1, then 0.
    const twoWeapons = actor.system.twoWeaponPenalty ?? attackRules.twoWeapons;
    if (opts.twoWeapons && twoWeapons) mods.push({ label: "EDRPG.attack.part.twoWeapons", value: twoWeapons });
-   if (opts.modifier) mods.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier });
+   // In d100 the modifier the player types is already in d100 points; the others are d10 points (×10).
+   const d100 = isD100();
+   if (opts.modifier) mods.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier, flat: d100 });
    const bonus = opts.knockedOver ? 0 : actor.weaponBonus(weapon);
-   const modifier = mods.reduce((n, m) => n + m.value, 0);
-   const result = await rollSkillDice(actor, s.skill, { bonus, modifier, socialFactor: false });
+   const score = d100 ? (opts.knockedOver ? 0 : actor.weaponScore(weapon)) : undefined;
+   const points = mods.filter((m) => !m.flat).reduce((n, m) => n + m.value, 0);
+   const flat = mods.filter((m) => m.flat).reduce((n, m) => n + m.value, 0);
+   const result = await rollSkillDice(actor, s.skill, { bonus, score, points, modifier: flat, socialFactor: false });
 
    // The aim is used up once you attack.
    if (actor.statuses?.has(STATUS.aiming) && actor.isOwner) await actor.toggleStatusEffect(STATUS.aiming, { active: false });
@@ -255,7 +260,9 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       defence: opts.defence,
       parts,
       baseDn: dn,
-      roll: { natural: result.natural, bonus, knockedOver: opts.knockedOver, mods, base: result.total, json: result.roll.toJSON() },
+      // base: the To Hit total (core), or the d100 target before the difficulty and Karma.
+      roll: { natural: result.natural, bonus, score: score ?? null, knockedOver: opts.knockedOver, mods, base: d100 ? result.target : result.total, json: result.roll.toJSON() },
+      d100,
       boosts: [],
       rerolls: 0,
       ammo,
@@ -283,16 +290,30 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
 export function evaluate(state) {
    const attackBoost = state.boosts.filter((b) => b.side === "attack").reduce((n, b) => n + b.value, 0);
    const defenceBoost = state.boosts.filter((b) => b.side === "defence").reduce((n, b) => n + b.value, 0);
-   state.total = state.roll.base + attackBoost;
    state.dn = state.baseDn + defenceBoost;
    const natural = state.roll.natural;
-   if (natural === 1) state.outcome = "miss";
-   else if (natural === 10) state.outcome = "hit";
-   else state.outcome = state.total >= state.dn ? "hit" : "miss";
-   state.hit = state.outcome === "hit";
-   // Burst counts every point the attack exceeds the difficulty (Core Rules p.57).
-   state.margin = state.hit ? Math.max(0, state.total - state.dn) : 0;
-   state.reason = natural === 1 ? "natural1" : natural === 10 && state.total < state.dn ? "natural10" : null;
+   const coverValue = state.parts.find((p) => p.label === "EDRPG.attack.part.cover")?.value ?? 0;
+   let j;
+   let withoutCover = null;
+   if (state.d100) {
+      // Target = score + modifiers × 10 + (11 − Range/Finesse − Defence …) × 10; Karma +2 is +20, +5 Defence −50.
+      state.total = state.roll.base + attackBoost * 10;
+      state.target = state.total + dnModifier(state.dn);
+      j = judge({ natural, target: state.target, d100: true });
+      if (coverValue) withoutCover = judge({ natural, target: state.target + coverValue * 10, d100: true });
+   } else {
+      state.total = state.roll.base + attackBoost;
+      j = judge({ natural, total: state.total, dn: state.dn, d100: false });
+      if (coverValue) withoutCover = judge({ natural, total: state.total, dn: state.dn - coverValue, d100: false });
+   }
+   state.hit = j.success;
+   state.outcome = j.success ? "hit" : "miss";
+   // Burst counts every point the attack exceeds the difficulty (Core Rules p.57), or each SL in d100.
+   state.margin = j.margin;
+   state.critical = j.critical;
+   state.reason = j.reason;
+   // Destroy Cover: a miss only because of the cover.
+   state.coverOnly = !j.success && !!withoutCover?.success;
    return state;
 }
 
@@ -387,7 +408,7 @@ async function promptAttack(actor, weapon, target, defaults) {
    if (s.oneHanded || s.isMelee) html += row(i18n("EDRPG.attack.twoWeapons"), check("twoWeapons"));
    html += row(i18n("EDRPG.attack.knockedOver"), check("knockedOver", defaults.knockedOver), i18n("EDRPG.attack.knockedOverHint"));
    if (s.divideFire) html += row(i18n("EDRPG.weapon.divideFire"), check("divideFire"), i18n("EDRPG.attack.divideFireHint"));
-   html += row(i18n("EDRPG.test.BonusModifier"), num("modifier", 0));
+   html += row(i18n(isD100() ? "EDRPG.d100.modifier" : "EDRPG.test.BonusModifier"), num("modifier", 0));
    html += row(i18n("EDRPG.attack.adjust"), num("adjust", 0), i18n("EDRPG.attack.adjustHint"));
    const modes = Object.entries(CONFIG.ChatMessage.modes ?? {})
       .map(([key, cfg]) => `<option value="${key}">${i18n(cfg.label)}</option>`)
@@ -460,8 +481,33 @@ export async function renderAttackCard(state) {
       attackBoosts: state.boosts.filter((b) => b.side === "attack"),
       defenceBoosts: state.boosts.filter((b) => b.side === "defence"),
       burstNote,
-      canRerollHint: state.roll.natural === 1,
+      canRerollHint: karmaRerollable(state.roll.natural, !!state.d100),
+      d100: state.d100 ? attackView100(state) : null,
    });
+}
+
+/**
+ * The d100 card's rows: what makes the target, with every d10 number shown as its d100 modifier.
+ *
+ * @param {object} state
+ *
+ * @returns {object}
+ */
+function attackView100(state) {
+   const signed100 = (n) => (n > 0 ? `+${n}` : `${n}`);
+   // The first difficulty part carries the 11: Range 4 is +70, then each later part (Defence, cover) is −10 a point.
+   const parts = state.parts.map((p, i) => ({ ...p, d100: signed100(i === 0 ? dnModifier(p.value) : -p.value * 10) }));
+   if (!parts.length) parts.push({ label: "EDRPG.d100.average", d100: "+0" });
+   return {
+      roll: d100Label(state.roll.natural),
+      score: state.roll.knockedOver ? 0 : state.roll.score,
+      mods: state.roll.mods.map((m) => ({ ...m, d100: signed100(m.flat ? m.value : m.value * 10) })),
+      attackBoosts: state.boosts.filter((b) => b.side === "attack").map((b) => ({ ...b, d100: signed100(b.value * 10) })),
+      defenceBoosts: state.boosts.filter((b) => b.side === "defence").map((b) => ({ ...b, d100: signed100(-b.value * 10) })),
+      difficulty: signed100(dnModifier(state.dn)),
+      parts,
+      target: state.target,
+   };
 }
 
 /**
@@ -653,7 +699,7 @@ export function onRenderAttack(message, html) {
    if (attacker?.isOwner && attacker.type !== "opponent") {
       const allowAll = game.settings.get("edrpg", "allowToRerollAllTests") && !state.rerolls;
       const karma = attacker.system.karma?.standard.value ?? 0;
-      if ((state.roll.natural === 1 || allowAll) && karma > 0) {
+      if ((karmaRerollable(state.roll.natural, !!state.d100) || allowAll) && karma > 0) {
          add(`<i class="fa-solid fa-yin-yang"></i> ${game.i18n.localize("EDRPG.chat.ReRollUsingKarmaTitle")}`, null, () =>
             rerollAttack(message, attacker),
          );
@@ -663,7 +709,7 @@ export function onRenderAttack(message, html) {
    if (attacker?.isOwner && !state.hit) {
       for (const item of boostOptions(attacker, state, "attack")) {
          add(
-            `<i class="fa-solid fa-yin-yang"></i> ${item.name} +${item.system.attackBonus}`,
+            `<i class="fa-solid fa-yin-yang"></i> ${item.name} +${item.system.attackBonus * (state.d100 ? 10 : 1)}`,
             game.i18n.localize("EDRPG.attack.boostHint"),
             () => boost(message, attacker, item, "attack"),
             "karma",
@@ -674,7 +720,7 @@ export function onRenderAttack(message, html) {
    if (target?.isOwner && state.hit) {
       for (const item of boostOptions(target, state, "defence")) {
          add(
-            `<i class="fa-solid fa-shield"></i> ${item.name} +${item.system.defenceBonus}`,
+            `<i class="fa-solid fa-shield"></i> ${state.d100 ? `${item.name} −${item.system.defenceBonus * 10}` : `${item.name} +${item.system.defenceBonus}`}`,
             game.i18n.format("EDRPG.attack.defenceBoostHint", { name: target.name }),
             () => boost(message, target, item, "defence"),
             "karma defence",
@@ -714,12 +760,13 @@ async function rerollAttack(message, actor) {
    const karma = actor.system.karma.standard.value;
    if (karma < 1) return ui.notifications.warn("EDRPG.chat.NoKarmaPoints", { localize: true });
    await actor.update({ "system.karma.standard.value": karma - 1 });
-   const modifier = state.roll.mods.reduce((n, m) => n + m.value, 0);
-   const result = await rollSkillDice(actor, state.skill, { bonus: state.roll.bonus, modifier, socialFactor: false });
+   const points = state.roll.mods.filter((m) => !m.flat).reduce((n, m) => n + m.value, 0);
+   const flat = state.roll.mods.filter((m) => m.flat).reduce((n, m) => n + m.value, 0);
+   const result = await rollSkillDice(actor, state.skill, { bonus: state.roll.bonus, score: state.roll.score ?? undefined, points, modifier: flat, socialFactor: false });
    await showDice(result.roll);
    return submitAttackChange(message, {
       type: "reroll",
-      roll: { natural: result.natural, base: result.total, json: result.roll.toJSON() },
+      roll: { natural: result.natural, base: result.d100 ? result.target : result.total, json: result.roll.toJSON() },
    });
 }
 
@@ -833,7 +880,7 @@ async function counterAttack(message, defender, attacker) {
  */
 async function resolveGrab(message, attacker, target) {
    const { mine, theirs } = await rollGrabCheck(attacker, target);
-   const success = mine.total > theirs.total;
+   const success = beats(mine, theirs);
    return submitAttackChange(message, {
       type: "grab",
       grabResult: { grabber: mine, target: theirs, success, grabberUuid: attacker.uuid, targetUuid: target.uuid },

@@ -1,0 +1,50 @@
+{
+  "_id": "614db2adad54bfe2",
+  "_key": "!tables!614db2adad54bfe2",
+  "name": "Relic AI – Spaceships – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "ea864d7a6ce8d092",
+      "_key": "!tables.results!614db2adad54bfe2.ea864d7a6ce8d092",
+      "type": "document",
+      "name": "Ghost Sidewinder",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.19f891200d17fb15"
+    },
+    {
+      "_id": "1f41dde819d36360",
+      "_key": "!tables.results!614db2adad54bfe2.1f41dde819d36360",
+      "type": "document",
+      "name": "Possessed Krait",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9c7ee4bb748b88a3"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "72da0dd01c74ed2e",
+  "sort": 2200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

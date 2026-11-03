@@ -1,0 +1,242 @@
+{
+  "_id": "5ef43c07d88f0ba1",
+  "_key": "!tables!5ef43c07d88f0ba1",
+  "name": "Security Opponents – Spaceships – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.44.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "3d82ed6666a9f2a7",
+      "_key": "!tables.results!5ef43c07d88f0ba1.3d82ed6666a9f2a7",
+      "type": "document",
+      "name": "Security Freighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0291bf7f08f81a0e"
+    },
+    {
+      "_id": "905b829ffec42497",
+      "_key": "!tables.results!5ef43c07d88f0ba1.905b829ffec42497",
+      "type": "document",
+      "name": "Patrol Viper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5b252394b16988cf"
+    },
+    {
+      "_id": "a2b298f94a76f7bb",
+      "_key": "!tables.results!5ef43c07d88f0ba1.a2b298f94a76f7bb",
+      "type": "document",
+      "name": "Police First Response Ship",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        23
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.16e9f40acb93146a"
+    },
+    {
+      "_id": "7eb6dd05f62d3a74",
+      "_key": "!tables.results!5ef43c07d88f0ba1.7eb6dd05f62d3a74",
+      "type": "document",
+      "name": "Security Interceptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        24,
+        32
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8fc6986315908c54"
+    },
+    {
+      "_id": "f1bed9cf1d230201",
+      "_key": "!tables.results!5ef43c07d88f0ba1.f1bed9cf1d230201",
+      "type": "document",
+      "name": "Heavy Police Viper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        33,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.b2c94c54baa67162"
+    },
+    {
+      "_id": "a17b919889ee7722",
+      "_key": "!tables.results!5ef43c07d88f0ba1.a17b919889ee7722",
+      "type": "document",
+      "name": "Mercenary Interceptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        48
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.b53ad1ced3227ea3"
+    },
+    {
+      "_id": "afc243a8e4952396",
+      "_key": "!tables.results!5ef43c07d88f0ba1.afc243a8e4952396",
+      "type": "document",
+      "name": "Sidewinder Escort",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        56
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.43845685be209d94"
+    },
+    {
+      "_id": "638e2939b0842caf",
+      "_key": "!tables.results!5ef43c07d88f0ba1.638e2939b0842caf",
+      "type": "document",
+      "name": "Stylish Assassin",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        57,
+        64
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c27916a9fe397ee1"
+    },
+    {
+      "_id": "62ab18ce7dbb4493",
+      "_key": "!tables.results!5ef43c07d88f0ba1.62ab18ce7dbb4493",
+      "type": "document",
+      "name": "Swift Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        65,
+        73
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.6967920c1845e833"
+    },
+    {
+      "_id": "3f275471a4408ed4",
+      "_key": "!tables.results!5ef43c07d88f0ba1.3f275471a4408ed4",
+      "type": "document",
+      "name": "Inconspicuous Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        74,
+        81
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e57c23535cf72d45"
+    },
+    {
+      "_id": "45134790ef1b7c80",
+      "_key": "!tables.results!5ef43c07d88f0ba1.45134790ef1b7c80",
+      "type": "document",
+      "name": "Security Escort Ship",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        82,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ed174d3a780bf3ce"
+    },
+    {
+      "_id": "9d793f0cf5f539d3",
+      "_key": "!tables.results!5ef43c07d88f0ba1.9d793f0cf5f539d3",
+      "type": "document",
+      "name": "Police Cruiser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c4f364617136efbf"
+    },
+    {
+      "_id": "fcaadf8e3660262c",
+      "_key": "!tables.results!5ef43c07d88f0ba1.fcaadf8e3660262c",
+      "type": "document",
+      "name": "Ruthless Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.dae61271297b3671"
+    },
+    {
+      "_id": "9d11b1601703f9d1",
+      "_key": "!tables.results!5ef43c07d88f0ba1.9d11b1601703f9d1",
+      "type": "document",
+      "name": "High Value Wing Guard",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.67dee92b53b41e2a"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "a06e70248cce56b0",
+  "sort": 900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -637,7 +637,7 @@ async function onSkillCheckResult(message, { actor, outcome, natural, total, fol
    const success = outcome === "success" || outcome === "critSuccess";
    if (followUp.kind === "stabilise" && success) {
       await perform({ type: "stabilise", actorUuid: followUp.targetUuid });
-   } else if (followUp.kind === "treat" && natural !== 1) {
+   } else if (followUp.kind === "treat" && outcome !== "critFailure") {
       await perform({ type: "heal", actorUuid: followUp.targetUuid, amount: total, source: game.i18n.format("EDRPG.damage.treatedBy", { name: actor.name }) });
    }
 }

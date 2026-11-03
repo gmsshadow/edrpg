@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.38",
+  "version": "0.1.40",
   "authors": [
     {
       "name": "gmsshadow",
@@ -240,6 +240,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "roll-tables",
+      "label": "Roll Tables",
+      "path": "packs/roll-tables",
+      "type": "RollTable",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "packFolders": [
@@ -259,7 +270,8 @@
         "vehicles",
         "ships",
         "opponents",
-        "combat-maps"
+        "combat-maps",
+        "roll-tables"
       ]
     }
   ],

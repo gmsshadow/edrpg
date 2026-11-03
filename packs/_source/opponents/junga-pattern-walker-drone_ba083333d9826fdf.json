@@ -20,7 +20,7 @@
     },
     "otherSkills": [],
     "equipment": "",
-    "notes": "<p>Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p>"
+    "notes": "<p>Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma.</p><p>Price: 300,000cr (common).</p><p>Player-owned (Military Sourcebook): drop the controller on this sheet. It adds their Cyber bonus to its To Hit (and to its Defence (Dodge), if it flies). A player controls one drone at a time, from up to 100km on a com; Social skills used through it take −5 Social Factor (not Intimidate); player drones don't get Continuous Attack.</p>"
   },
   "prototypeToken": {
     "name": "Junga Pattern Walker Drone",

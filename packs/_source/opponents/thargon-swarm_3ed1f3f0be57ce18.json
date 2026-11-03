@@ -67,6 +67,8 @@
       "floating": 0,
       "cellBanks": []
     },
+    "impervious": false,
+    "swarm": true,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p>Multiple Attacks: one Thargon Ballistics attack (ignores shields) for every 8 Hull it has. Swarm Trait: a single hit does at most 1 Damage (one Thargon fighter), plus 1 for every Burst level it inflicts.</p><p><em>Exploration Supplement</em></p>"

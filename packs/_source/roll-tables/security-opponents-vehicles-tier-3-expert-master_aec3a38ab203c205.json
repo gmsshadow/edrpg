@@ -1,0 +1,98 @@
+{
+  "_id": "aec3a38ab203c205",
+  "_key": "!tables!aec3a38ab203c205",
+  "name": "Security Opponents – Vehicles – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.44.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "ba39582fb2528223",
+      "_key": "!tables.results!aec3a38ab203c205.ba39582fb2528223",
+      "type": "document",
+      "name": "Corporate Scout Vehicle",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a1e26816909bea27"
+    },
+    {
+      "_id": "8477141a13711f7f",
+      "_key": "!tables.results!aec3a38ab203c205.8477141a13711f7f",
+      "type": "document",
+      "name": "Police Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ddc1045d4dc49d54"
+    },
+    {
+      "_id": "fd2988683d653c9a",
+      "_key": "!tables.results!aec3a38ab203c205.fd2988683d653c9a",
+      "type": "document",
+      "name": "Haulage Truck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.11e20d7b0ad16f77"
+    },
+    {
+      "_id": "a1705ebd6cde0311",
+      "_key": "!tables.results!aec3a38ab203c205.a1705ebd6cde0311",
+      "type": "document",
+      "name": "Police Ram Raider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bf64ffa0fd4fece4"
+    },
+    {
+      "_id": "2c41be2b25307599",
+      "_key": "!tables.results!aec3a38ab203c205.2c41be2b25307599",
+      "type": "document",
+      "name": "Corporate Tank",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.42f13573f39163fc"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "4c633089b5768a3f",
+  "sort": 600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -67,6 +67,8 @@
       "floating": 0,
       "cellBanks": []
     },
+    "impervious": false,
+    "swarm": false,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p><em>Super Traders Supplement</em></p>"

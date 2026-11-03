@@ -1,4 +1,5 @@
 import { rollCraftAttack, applyCraftDamage } from "./dice/craft-attack.mjs";
+import { isD100, judge, rollD100, scoreFor, dnModifier, d100Label } from "./dice/resolve.mjs";
 import { rollCrashDamage } from "./dice/damage.mjs";
 import { spendPointDefence } from "./dice/craft-attack.mjs";
 import { zoneOf, moveToZone } from "./zones.mjs";
@@ -588,12 +589,35 @@ async function rollPilotCheck(message) {
    const actor = check ? await fromUuid(check.vehicleUuid) : null;
    if (!actor || check.done) return;
    const sys = actor.system;
-   const { roll, natural, total, view } = await rollWith(L("EDRPG.vcombat.pilotCheck"), [
-      { label: L("EDRPG.vehicle.part.piloting"), value: sys.piloting, always: true },
-      { label: L("EDRPG.vehicle.agility"), value: sys.agility, always: true },
-   ]);
-   view.parts.push({ label: L("EDRPG.vcombat.dn"), value: `${check.dn}` });
-   const success = natural === 10 || (natural !== 1 && total >= check.dn);
+   let roll, view, success;
+   if (isD100()) {
+      // d100: Vehicle Piloting score + Agility × 10 + (11 − difficulty) × 10 (= 110 − Speed × 20 for terrain).
+      const score = scoreFor(sys.pilotActor, sys.constructor.PILOTING, sys.piloting);
+      const target = score + sys.agility * 10 + dnModifier(check.dn);
+      let natural;
+      ({ roll, natural } = await rollD100());
+      const j = judge({ natural, target, d100: true });
+      success = j.success;
+      view = {
+         name: L("EDRPG.vcombat.pilotCheck"),
+         total: j.success ? L("EDRPG.d100.slShort", { sl: j.margin }) : L("EDRPG.d100.failed"),
+         parts: [
+            { label: L("EDRPG.d100.roll"), value: d100Label(natural) },
+            { label: L("EDRPG.vehicle.part.piloting"), value: `${score}` },
+            { label: L("EDRPG.vehicle.agility"), value: signed(sys.agility * 10) },
+            { label: L("EDRPG.vcombat.dn") + ` ${check.dn}`, value: signed(dnModifier(check.dn)) },
+            { label: L("EDRPG.d100.target"), value: `${target}` },
+         ],
+      };
+   } else {
+      let natural, total;
+      ({ roll, natural, total, view } = await rollWith(L("EDRPG.vcombat.pilotCheck"), [
+         { label: L("EDRPG.vehicle.part.piloting"), value: sys.piloting, always: true },
+         { label: L("EDRPG.vehicle.agility"), value: sys.agility, always: true },
+      ]));
+      view.parts.push({ label: L("EDRPG.vcombat.dn"), value: `${check.dn}` });
+      success = judge({ natural, total, dn: check.dn, d100: false }).success;
+   }
    await op("event", { messageId: message.id, patch: { pilotCheck: { done: true } } });
    const notes = [];
    const extra = {};

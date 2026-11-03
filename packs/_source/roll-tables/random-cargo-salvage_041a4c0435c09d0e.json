@@ -1,0 +1,198 @@
+{
+  "_id": "041a4c0435c09d0e",
+  "_key": "!tables!041a4c0435c09d0e",
+  "name": "Random Cargo – Salvage",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.45.</p><p>As printed, Food Cartridges (50–52), Fruit & Veg (50–51) and Gallite (52–53) overlap on the Random column: a roll there can give two results.</p>",
+  "results": [
+    {
+      "_id": "86342b8930eec4ae",
+      "_key": "!tables.results!041a4c0435c09d0e.86342b8930eec4ae",
+      "type": "text",
+      "name": "Auto Fabricators",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1c8b4ba6d6c3b294",
+      "_key": "!tables.results!041a4c0435c09d0e.1c8b4ba6d6c3b294",
+      "type": "text",
+      "name": "Basic Medicines",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        16
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ed3fce0ce48e16d9",
+      "_key": "!tables.results!041a4c0435c09d0e.ed3fce0ce48e16d9",
+      "type": "text",
+      "name": "Bio-waste",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        17,
+        24
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9b2a6a01f02222ad",
+      "_key": "!tables.results!041a4c0435c09d0e.9b2a6a01f02222ad",
+      "type": "text",
+      "name": "Computer Components",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        25,
+        32
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3f2785f0c420b689",
+      "_key": "!tables.results!041a4c0435c09d0e.3f2785f0c420b689",
+      "type": "text",
+      "name": "Copper",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        33,
+        40
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d1075a62fbba1c94",
+      "_key": "!tables.results!041a4c0435c09d0e.d1075a62fbba1c94",
+      "type": "text",
+      "name": "Domestic Appliances",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        48
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2abfc725ce372d74",
+      "_key": "!tables.results!041a4c0435c09d0e.2abfc725ce372d74",
+      "type": "text",
+      "name": "Food Cartridges",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        56
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "afe0a9e77d230889",
+      "_key": "!tables.results!041a4c0435c09d0e.afe0a9e77d230889",
+      "type": "text",
+      "name": "Hydrogen Fuel",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        57,
+        64
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "01556e3794c7f4fb",
+      "_key": "!tables.results!041a4c0435c09d0e.01556e3794c7f4fb",
+      "type": "text",
+      "name": "Robotics",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        65,
+        72
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ceb5313ab8da33f4",
+      "_key": "!tables.results!041a4c0435c09d0e.ceb5313ab8da33f4",
+      "type": "text",
+      "name": "Silver",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        73,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0c30baa02b1c8bab",
+      "_key": "!tables.results!041a4c0435c09d0e.0c30baa02b1c8bab",
+      "type": "text",
+      "name": "Superconductors",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        88
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ddb79722d6e963e2",
+      "_key": "!tables.results!041a4c0435c09d0e.ddb79722d6e963e2",
+      "type": "text",
+      "name": "Titanium",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        89,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "542f8e0ed3d59f4e",
+  "sort": 6300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

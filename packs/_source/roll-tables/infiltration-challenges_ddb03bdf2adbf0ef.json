@@ -1,0 +1,393 @@
+{
+  "_id": "ddb03bdf2adbf0ef",
+  "_key": "!tables!ddb03bdf2adbf0ef",
+  "name": "Infiltration Challenges",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.46.</p>",
+  "results": [
+    {
+      "_id": "f1b22202b35e1018",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.f1b22202b35e1018",
+      "type": "text",
+      "name": "Bedroom Acquisition",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3cf3da72d78f1e96",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.3cf3da72d78f1e96",
+      "type": "text",
+      "name": "Befriend Security Guard",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cbf6f810023b2da4",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.cbf6f810023b2da4",
+      "type": "text",
+      "name": "Blackmail",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c31f51a6ad837e82",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.c31f51a6ad837e82",
+      "type": "text",
+      "name": "Break into Agent’s Apartment",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        13,
+        16
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7013b92e48c711d9",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.7013b92e48c711d9",
+      "type": "text",
+      "name": "Break into Deposit Box",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d09f92211025e130",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.d09f92211025e130",
+      "type": "text",
+      "name": "Bribe",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        24
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e0d872424022d212",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.e0d872424022d212",
+      "type": "text",
+      "name": "Car Chase",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        25,
+        28
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b9bb9d296c744a61",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.b9bb9d296c744a61",
+      "type": "text",
+      "name": "Crawl through the Vent Shaft",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        29,
+        32
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "511c6343ee98012b",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.511c6343ee98012b",
+      "type": "text",
+      "name": "Criminal Connections",
+      "description": "<p>Espionage Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        33,
+        36
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f0a0cc23efa4abc0",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.f0a0cc23efa4abc0",
+      "type": "text",
+      "name": "Disguise",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        37,
+        40
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "295b7e5d7ab05bc9",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.295b7e5d7ab05bc9",
+      "type": "text",
+      "name": "Distract",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        44
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "55cdac251da2b63a",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.55cdac251da2b63a",
+      "type": "text",
+      "name": "Evaluate Crime Scene",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        45,
+        48
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eecfc717eb9e09e8",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.eecfc717eb9e09e8",
+      "type": "text",
+      "name": "Flatter",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        52
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3c75c8ab09a8fe38",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.3c75c8ab09a8fe38",
+      "type": "text",
+      "name": "Follow Suspect",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        53,
+        56
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aad1977737e0411e",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.aad1977737e0411e",
+      "type": "text",
+      "name": "Hack Unsecured Network",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        57,
+        60
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1ae1e1112c728547",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.1ae1e1112c728547",
+      "type": "text",
+      "name": "Intimidate Gangster",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        64
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f177835cd965dc24",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.f177835cd965dc24",
+      "type": "text",
+      "name": "Invite to Party",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        65,
+        68
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "21ee87189057f72b",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.21ee87189057f72b",
+      "type": "text",
+      "name": "Observe Weakness",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        69,
+        72
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e6447cc526ec18d0",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.e6447cc526ec18d0",
+      "type": "text",
+      "name": "Pass yourself off",
+      "description": "<p>Espionage Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        73,
+        76
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ba3f2a851d041c34",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.ba3f2a851d041c34",
+      "type": "text",
+      "name": "Pickpocket",
+      "description": "<p>Espionage Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        77,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "adfb41ddfc6aa4cd",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.adfb41ddfc6aa4cd",
+      "type": "text",
+      "name": "Reason with Partner",
+      "description": "<p>Espionage Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        84
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "42d0d39573d47c07",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.42d0d39573d47c07",
+      "type": "text",
+      "name": "Shake off Enemy Spies",
+      "description": "<p>Espionage Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        85,
+        88
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9a112ffe00f0145a",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.9a112ffe00f0145a",
+      "type": "text",
+      "name": "Tail",
+      "description": "<p>Espionage Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        89,
+        92
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ca553c9b0c410295",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.ca553c9b0c410295",
+      "type": "text",
+      "name": "Threaten",
+      "description": "<p>Espionage Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        93,
+        96
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4043d66fc3e48fdd",
+      "_key": "!tables.results!ddb03bdf2adbf0ef.4043d66fc3e48fdd",
+      "type": "text",
+      "name": "You can tell me…",
+      "description": "<p>Espionage Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        97,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "330f2e34803633f3",
+  "sort": 5500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

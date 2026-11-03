@@ -49,7 +49,13 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   the Cellular Regeneration Emitter and the Destabilisation Beam are automated.
 - **Opponents compendium**: every individual-scale opponent in the Core Rules (51), plus the spaceship- and
   vehicle-scale ones and the drones; and the supplements' 68 opponents (individual, spaceship and vehicle scale) in a
-  folder per book.
+  folder per book. Robotic opponents take their controller's Cyber bonus.
+- **Roll Tables compendium**: the supplements' random generation tables (opponents by Tier, linked to their stat
+  blocks; number of opponents; space lane and planet encounters; infiltration; base rooms and corridors; cargo; alien
+  items).
+- **Commodity Market** (Super Traders): a GM button in the Actors sidebar rolls a star port's price column and posts
+  every commodity's price. **Honorary ranks** (Military Sourcebook) on the character's Notes tab. **Aegis**
+  (Exploration): AX and flak weapons against impervious Thargoid hulls and Thargon swarms.
 - **Ships compendium**: all 63 ship variants from the Spaceships chapter, plus the 56 from the supplements (in a folder
   per book), with weapons, components, equipment, bonuses and tokens; the GM's spaceship- and vehicle-scale opponents in the Opponents compendium.
 - **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until
@@ -57,6 +63,9 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   flying and flying-bomb rules.
 - **Assets**: combat map scenes (Scenes & Combat Maps compendium) and ship/vehicle tokens under `systems/edrpg/assets/tokens/`.
 - **Item sheets** for Backgrounds (choices used, skill bonuses), Karma Capabilities (category, cost) and Enhancements.
+- **d100 variant**: a world setting switches every check to d100 roll-under against the Skill score, with Success
+  Levels from the tens die, criticals on doubles or the exact target, and 01–05 / 96–00 automatic results.
+  Manoeuvre contests, Initiative and damage stay on d10.
 - Initiative: `1d10 + Tactics bonus`.
 
 ## Development

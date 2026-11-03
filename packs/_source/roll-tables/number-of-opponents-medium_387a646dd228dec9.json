@@ -1,0 +1,63 @@
+{
+  "_id": "387a646dd228dec9",
+  "_key": "!tables!387a646dd228dec9",
+  "name": "Number of Opponents – Medium",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>From the supplements' Random Generation Systems (the same in each book). High Threat opponents count as three.</p>",
+  "results": [
+    {
+      "_id": "e7ecdbb7e008cd8c",
+      "_key": "!tables.results!387a646dd228dec9.e7ecdbb7e008cd8c",
+      "type": "text",
+      "name": "Number of players",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "89ae123ab573f748",
+      "_key": "!tables.results!387a646dd228dec9.89ae123ab573f748",
+      "type": "text",
+      "name": "Number of players +1",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b91acfc24622062f",
+      "_key": "!tables.results!387a646dd228dec9.b91acfc24622062f",
+      "type": "text",
+      "name": "Number of players +2",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        8,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d10",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "0447fdf604730ec7",
+  "sort": 6600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

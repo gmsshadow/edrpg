@@ -1,0 +1,82 @@
+{
+  "_id": "abc20bf86a9c9bee",
+  "_key": "!tables!abc20bf86a9c9bee",
+  "name": "Security Opponents – Vehicles – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.44.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "65687d730dc3716e",
+      "_key": "!tables.results!abc20bf86a9c9bee.65687d730dc3716e",
+      "type": "document",
+      "name": "Corporate Scout Vehicle",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a1e26816909bea27"
+    },
+    {
+      "_id": "174c16cbd6abe2fb",
+      "_key": "!tables.results!abc20bf86a9c9bee.174c16cbd6abe2fb",
+      "type": "document",
+      "name": "Police Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ddc1045d4dc49d54"
+    },
+    {
+      "_id": "d7d96f40fd40c019",
+      "_key": "!tables.results!abc20bf86a9c9bee.d7d96f40fd40c019",
+      "type": "document",
+      "name": "Haulage Truck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.11e20d7b0ad16f77"
+    },
+    {
+      "_id": "993ca50a167890a3",
+      "_key": "!tables.results!abc20bf86a9c9bee.993ca50a167890a3",
+      "type": "document",
+      "name": "Police Ram Raider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bf64ffa0fd4fece4"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "4c633089b5768a3f",
+  "sort": 500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

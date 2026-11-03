@@ -1,0 +1,50 @@
+{
+  "_id": "7a1f08f128b2c24e",
+  "_key": "!tables!7a1f08f128b2c24e",
+  "name": "Relic AI – Personal Scale – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "0b28dc0f7d8ce62a",
+      "_key": "!tables.results!7a1f08f128b2c24e.0b28dc0f7d8ce62a",
+      "type": "document",
+      "name": "Assembler",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.36dc977715adebd1"
+    },
+    {
+      "_id": "a971d97f329d2f98",
+      "_key": "!tables.results!7a1f08f128b2c24e.a971d97f329d2f98",
+      "type": "document",
+      "name": "Shambler",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ab97184aef89640c"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "4abc676d923962e0",
+  "sort": 1800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

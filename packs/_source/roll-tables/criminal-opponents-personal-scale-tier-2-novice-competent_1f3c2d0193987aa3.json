@@ -1,0 +1,178 @@
+{
+  "_id": "1f3c2d0193987aa3",
+  "_key": "!tables!1f3c2d0193987aa3",
+  "name": "Criminal Opponents – Personal Scale – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "f0d7247987cfe463",
+      "_key": "!tables.results!1f3c2d0193987aa3.f0d7247987cfe463",
+      "type": "document",
+      "name": "Bruiser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4bc5fa1a9690ff25"
+    },
+    {
+      "_id": "79e33458b44f8170",
+      "_key": "!tables.results!1f3c2d0193987aa3.79e33458b44f8170",
+      "type": "document",
+      "name": "Gang Member",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.2a5b0ad260cabcf7"
+    },
+    {
+      "_id": "24b547720377014d",
+      "_key": "!tables.results!1f3c2d0193987aa3.24b547720377014d",
+      "type": "document",
+      "name": "Street Punk",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.08dc4f03e2db15f0"
+    },
+    {
+      "_id": "b6a82ffa8e1366b8",
+      "_key": "!tables.results!1f3c2d0193987aa3.b6a82ffa8e1366b8",
+      "type": "document",
+      "name": "Gang Enforcer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9032c98344c0c149"
+    },
+    {
+      "_id": "8ec47d2f6f401a42",
+      "_key": "!tables.results!1f3c2d0193987aa3.8ec47d2f6f401a42",
+      "type": "document",
+      "name": "Vigilante",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0df6b3ac2c20522e"
+    },
+    {
+      "_id": "c039f24d75e96891",
+      "_key": "!tables.results!1f3c2d0193987aa3.c039f24d75e96891",
+      "type": "document",
+      "name": "Junga Pattern Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ba083333d9826fdf"
+    },
+    {
+      "_id": "e59547643ad7dccb",
+      "_key": "!tables.results!1f3c2d0193987aa3.e59547643ad7dccb",
+      "type": "document",
+      "name": "Saboteur",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ddbe4274fcdde647"
+    },
+    {
+      "_id": "f965481a6f574240",
+      "_key": "!tables.results!1f3c2d0193987aa3.f965481a6f574240",
+      "type": "document",
+      "name": "T-90 Patrol Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d32ceb8736e6c67d"
+    },
+    {
+      "_id": "0a9b20a1794cc023",
+      "_key": "!tables.results!1f3c2d0193987aa3.0a9b20a1794cc023",
+      "type": "document",
+      "name": "Gang Leader",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1cfd45ffb67f4e4f"
+    },
+    {
+      "_id": "5eff876a1d0f064a",
+      "_key": "!tables.results!1f3c2d0193987aa3.5eff876a1d0f064a",
+      "type": "document",
+      "name": "Wise Guy",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f04d5ed6aba04496"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "18ff279c3d2196c4",
+  "sort": 3900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,408 @@
+{
+  "_id": "54efcb258b6427aa",
+  "_key": "!tables!54efcb258b6427aa",
+  "name": "Space Lane Encounters – High Security",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.44.</p>",
+  "results": [
+    {
+      "_id": "a6fd3897a9b451d2",
+      "_key": "!tables.results!54efcb258b6427aa.a6fd3897a9b451d2",
+      "type": "text",
+      "name": "A Better Offer",
+      "description": "<p>Super Traders Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b81e868b9a9abaa9",
+      "_key": "!tables.results!54efcb258b6427aa.b81e868b9a9abaa9",
+      "type": "text",
+      "name": "Abandoned Ship",
+      "description": "<p>Super Traders Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "459a59c21905794a",
+      "_key": "!tables.results!54efcb258b6427aa.459a59c21905794a",
+      "type": "text",
+      "name": "Agency Assault",
+      "description": "<p>Super Traders Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3c2397f6ac966b57",
+      "_key": "!tables.results!54efcb258b6427aa.3c2397f6ac966b57",
+      "type": "text",
+      "name": "Asteroid Base",
+      "description": "<p>Super Traders Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        13,
+        16
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b4239d6945af3d80",
+      "_key": "!tables.results!54efcb258b6427aa.b4239d6945af3d80",
+      "type": "text",
+      "name": "Attacked near Star Port",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        17,
+        18
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ee53c3808f2ecde5",
+      "_key": "!tables.results!54efcb258b6427aa.ee53c3808f2ecde5",
+      "type": "text",
+      "name": "Bounty Hunters",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        19,
+        24
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "605f59abf0c3f271",
+      "_key": "!tables.results!54efcb258b6427aa.605f59abf0c3f271",
+      "type": "text",
+      "name": "Bull Market",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        25,
+        28
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "623ead992a1d0169",
+      "_key": "!tables.results!54efcb258b6427aa.623ead992a1d0169",
+      "type": "text",
+      "name": "Cargo Illegal",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        29,
+        34
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e32914cb173e6596",
+      "_key": "!tables.results!54efcb258b6427aa.e32914cb173e6596",
+      "type": "text",
+      "name": "Cargo Switch",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        35,
+        38
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d51e8cdfdcc7c352",
+      "_key": "!tables.results!54efcb258b6427aa.d51e8cdfdcc7c352",
+      "type": "text",
+      "name": "Corrupt Cops",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        39,
+        40
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0378acc3c6a22301",
+      "_key": "!tables.results!54efcb258b6427aa.0378acc3c6a22301",
+      "type": "text",
+      "name": "Dangerous Cargo",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        44
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4e2f6c7f15dc50f5",
+      "_key": "!tables.results!54efcb258b6427aa.4e2f6c7f15dc50f5",
+      "type": "text",
+      "name": "Drifting Salvage",
+      "description": "<p>Super Traders Supplement, p.47</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        45,
+        48
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "60cbe203043c58eb",
+      "_key": "!tables.results!54efcb258b6427aa.60cbe203043c58eb",
+      "type": "text",
+      "name": "Frame Shift Drive Failure",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        52
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2b86fb8ffc43c9fd",
+      "_key": "!tables.results!54efcb258b6427aa.2b86fb8ffc43c9fd",
+      "type": "text",
+      "name": "Gambling Opportunity",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        53,
+        56
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "278ee2c1f72d0b80",
+      "_key": "!tables.results!54efcb258b6427aa.278ee2c1f72d0b80",
+      "type": "text",
+      "name": "Market Glut",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        57,
+        60
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fc2bbb6adf74618b",
+      "_key": "!tables.results!54efcb258b6427aa.fc2bbb6adf74618b",
+      "type": "text",
+      "name": "Military Checkpoint",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        64
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8aa41951eed82e71",
+      "_key": "!tables.results!54efcb258b6427aa.8aa41951eed82e71",
+      "type": "text",
+      "name": "No Event",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        65,
+        68
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0b88f5bbbe9ae340",
+      "_key": "!tables.results!54efcb258b6427aa.0b88f5bbbe9ae340",
+      "type": "text",
+      "name": "Pirate Attack – Easy",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        69,
+        72
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6bfcae8f683ebdbd",
+      "_key": "!tables.results!54efcb258b6427aa.6bfcae8f683ebdbd",
+      "type": "text",
+      "name": "Pirate Attack – Medium",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        73,
+        74
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7a4b02ec97261c63",
+      "_key": "!tables.results!54efcb258b6427aa.7a4b02ec97261c63",
+      "type": "text",
+      "name": "Pirate Attack – Hard",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        75,
+        76
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0e90b97471295434",
+      "_key": "!tables.results!54efcb258b6427aa.0e90b97471295434",
+      "type": "text",
+      "name": "Saboteur",
+      "description": "<p>Super Traders Supplement, p.48</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        77,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "98c097bf9bb425e1",
+      "_key": "!tables.results!54efcb258b6427aa.98c097bf9bb425e1",
+      "type": "text",
+      "name": "Ship in danger",
+      "description": "<p>Super Traders Supplement, p.49</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        82
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8f0d7c0a9e392eb9",
+      "_key": "!tables.results!54efcb258b6427aa.8f0d7c0a9e392eb9",
+      "type": "text",
+      "name": "Stowaway",
+      "description": "<p>Super Traders Supplement, p.49</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        83,
+        86
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ee8dde5ecf44ea79",
+      "_key": "!tables.results!54efcb258b6427aa.ee8dde5ecf44ea79",
+      "type": "text",
+      "name": "Surprise Inspection",
+      "description": "<p>Super Traders Supplement, p.49</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        87,
+        92
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f3a1e86fcb65f4c7",
+      "_key": "!tables.results!54efcb258b6427aa.f3a1e86fcb65f4c7",
+      "type": "text",
+      "name": "Tip Off",
+      "description": "<p>Super Traders Supplement, p.49</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        93,
+        96
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9d0a48d2d9c45157",
+      "_key": "!tables.results!54efcb258b6427aa.9d0a48d2d9c45157",
+      "type": "text",
+      "name": "Tricky Docking Manoeuvre",
+      "description": "<p>Super Traders Supplement, p.49</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        97,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "38a5a43c26f0b592",
+  "sort": 5000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

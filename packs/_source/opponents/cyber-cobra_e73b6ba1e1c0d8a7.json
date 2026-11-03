@@ -74,6 +74,8 @@
         }
       ]
     },
+    "impervious": false,
+    "swarm": false,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p>If the Cyber-Cobra hits with both of its Pulse Lasers it transmits an override code into the target ship. The override code can do one of the following; jettison the ammo of all the target’s weapons, empty the target’s main fuel tank (one ton of fuel will remain in the emergency tank), jettison the cargo and escape pods of the target’s ship.</p><p><em>Exploration Supplement</em></p>"

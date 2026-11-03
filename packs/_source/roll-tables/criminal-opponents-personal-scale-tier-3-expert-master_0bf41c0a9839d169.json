@@ -1,0 +1,306 @@
+{
+  "_id": "0bf41c0a9839d169",
+  "_key": "!tables!0bf41c0a9839d169",
+  "name": "Criminal Opponents – Personal Scale – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "bf29f3eb76976f71",
+      "_key": "!tables.results!0bf41c0a9839d169.bf29f3eb76976f71",
+      "type": "document",
+      "name": "Bruiser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4bc5fa1a9690ff25"
+    },
+    {
+      "_id": "48e1688c1f756c07",
+      "_key": "!tables.results!0bf41c0a9839d169.48e1688c1f756c07",
+      "type": "document",
+      "name": "Gang Member",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.2a5b0ad260cabcf7"
+    },
+    {
+      "_id": "ac4ba8bdfeb5bb95",
+      "_key": "!tables.results!0bf41c0a9839d169.ac4ba8bdfeb5bb95",
+      "type": "document",
+      "name": "Street Punk",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.08dc4f03e2db15f0"
+    },
+    {
+      "_id": "b38874428341b482",
+      "_key": "!tables.results!0bf41c0a9839d169.b38874428341b482",
+      "type": "document",
+      "name": "Gang Enforcer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9032c98344c0c149"
+    },
+    {
+      "_id": "ba1f33736c0ca03a",
+      "_key": "!tables.results!0bf41c0a9839d169.ba1f33736c0ca03a",
+      "type": "document",
+      "name": "Vigilante",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0df6b3ac2c20522e"
+    },
+    {
+      "_id": "b383b5e91e3cde9c",
+      "_key": "!tables.results!0bf41c0a9839d169.b383b5e91e3cde9c",
+      "type": "document",
+      "name": "Junga Pattern Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ba083333d9826fdf"
+    },
+    {
+      "_id": "9b7d7746376d534e",
+      "_key": "!tables.results!0bf41c0a9839d169.9b7d7746376d534e",
+      "type": "document",
+      "name": "Saboteur",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        45
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ddbe4274fcdde647"
+    },
+    {
+      "_id": "102e3f96a4be1d1d",
+      "_key": "!tables.results!0bf41c0a9839d169.102e3f96a4be1d1d",
+      "type": "document",
+      "name": "T-90 Patrol Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d32ceb8736e6c67d"
+    },
+    {
+      "_id": "1a90a8504bf54afc",
+      "_key": "!tables.results!0bf41c0a9839d169.1a90a8504bf54afc",
+      "type": "document",
+      "name": "Gang Leader",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1cfd45ffb67f4e4f"
+    },
+    {
+      "_id": "0692608c3f17d24a",
+      "_key": "!tables.results!0bf41c0a9839d169.0692608c3f17d24a",
+      "type": "document",
+      "name": "Wise Guy",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f04d5ed6aba04496"
+    },
+    {
+      "_id": "54e0f648a005bf3e",
+      "_key": "!tables.results!0bf41c0a9839d169.54e0f648a005bf3e",
+      "type": "document",
+      "name": "The Cleaner",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.581148a7484783d4"
+    },
+    {
+      "_id": "41a67c02c84c422a",
+      "_key": "!tables.results!0bf41c0a9839d169.41a67c02c84c422a",
+      "type": "document",
+      "name": "Hired Gun",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.b6187a4dbc03d985"
+    },
+    {
+      "_id": "67403305f6dc8a7c",
+      "_key": "!tables.results!0bf41c0a9839d169.67403305f6dc8a7c",
+      "type": "document",
+      "name": "Apex-Fire Combat Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.eeb98d9f3679b556"
+    },
+    {
+      "_id": "b4b3ca92f1b14a6e",
+      "_key": "!tables.results!0bf41c0a9839d169.b4b3ca92f1b14a6e",
+      "type": "document",
+      "name": "Manticore HN Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        92
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.aed27a0cc54ca151"
+    },
+    {
+      "_id": "ce3e2c86981ae03f",
+      "_key": "!tables.results!0bf41c0a9839d169.ce3e2c86981ae03f",
+      "type": "document",
+      "name": "Consigliere",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        93,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.828d4cb390a3699f"
+    },
+    {
+      "_id": "56da1bd2732beffb",
+      "_key": "!tables.results!0bf41c0a9839d169.56da1bd2732beffb",
+      "type": "document",
+      "name": "The Don",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        96
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f37364d83e693532"
+    },
+    {
+      "_id": "ce6ae078781b23a6",
+      "_key": "!tables.results!0bf41c0a9839d169.ce6ae078781b23a6",
+      "type": "document",
+      "name": "Bounty Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        97,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.03f29042cb987fc5"
+    },
+    {
+      "_id": "e006f66d17cef30e",
+      "_key": "!tables.results!0bf41c0a9839d169.e006f66d17cef30e",
+      "type": "document",
+      "name": "Cyber Pirate",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.92e335bcfd503428"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "18ff279c3d2196c4",
+  "sort": 4000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

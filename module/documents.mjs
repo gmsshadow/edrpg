@@ -89,10 +89,26 @@ export class EDActor extends foundry.documents.Actor {
    weaponBonus(weapon) {
       const s = weapon.system;
       if (this.type === "opponent") {
-         return s.toHit ?? (s.skill === "fighting" ? this.system.fighting : this.system.toHit);
+         // A weapon's own To Hit still gets a controlled drone's controller Cyber bonus (the stat block's already has it).
+         return s.toHit !== null && s.toHit !== undefined ? s.toHit + (this.system.controllerBonus ?? 0) : s.skill === "fighting" ? this.system.fighting : this.system.toHit;
       }
       const skill = this.system.skills[skillCategory[s.skill]][s.skill];
       return Math.floor(Math.min(skill.score + s.attackBonus, MAX_SKILL_SCORE) / 10);
+   }
+
+   /**
+    * The d100 variant's score for a weapon attack: the weapon Skill score with a rare weapon's bonus (capped at 100);
+    * an opponent's To Hit × 10.
+    *
+    * @param {Item} weapon
+    *
+    * @returns {number}
+    */
+   weaponScore(weapon) {
+      if (this.type === "opponent") return this.weaponBonus(weapon) * 10;
+      const s = weapon.system;
+      const skill = this.system.skills[skillCategory[s.skill]][s.skill];
+      return Math.min(skill.score + s.attackBonus, MAX_SKILL_SCORE);
    }
 
    /**

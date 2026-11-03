@@ -1,0 +1,82 @@
+{
+  "_id": "ff2638739ae84d37",
+  "_key": "!tables!ff2638739ae84d37",
+  "name": "Criminal Opponents – Spaceships – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "5e0e0df29fd00029",
+      "_key": "!tables.results!ff2638739ae84d37.5e0e0df29fd00029",
+      "type": "document",
+      "name": "Pirate Skirmisher",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7ddd401b8aeb5236"
+    },
+    {
+      "_id": "f108e2e788a2a3b3",
+      "_key": "!tables.results!ff2638739ae84d37.f108e2e788a2a3b3",
+      "type": "document",
+      "name": "Pirate Aggressor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.575b3ab27878b0ca"
+    },
+    {
+      "_id": "0da514876e0c0f50",
+      "_key": "!tables.results!ff2638739ae84d37.0da514876e0c0f50",
+      "type": "document",
+      "name": "Pirate Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8ed7b702c327fe28"
+    },
+    {
+      "_id": "89acd270622fc995",
+      "_key": "!tables.results!ff2638739ae84d37.89acd270622fc995",
+      "type": "document",
+      "name": "Pirate Harasser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.62ce8a90d4dfb477"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ee45724ecd2585b0",
+  "sort": 4600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

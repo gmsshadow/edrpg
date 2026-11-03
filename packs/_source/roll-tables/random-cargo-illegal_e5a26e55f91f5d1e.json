@@ -1,0 +1,93 @@
+{
+  "_id": "e5a26e55f91f5d1e",
+  "_key": "!tables!e5a26e55f91f5d1e",
+  "name": "Random Cargo – Illegal",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.45.</p><p>As printed, Food Cartridges (50–52), Fruit & Veg (50–51) and Gallite (52–53) overlap on the Random column: a roll there can give two results.</p>",
+  "results": [
+    {
+      "_id": "370ee6125fb5823d",
+      "_key": "!tables.results!e5a26e55f91f5d1e.370ee6125fb5823d",
+      "type": "text",
+      "name": "Battle Weapons",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        20
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c7ede0efc9036985",
+      "_key": "!tables.results!e5a26e55f91f5d1e.c7ede0efc9036985",
+      "type": "text",
+      "name": "Combat Stabilisers",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5ae358451790231b",
+      "_key": "!tables.results!e5a26e55f91f5d1e.5ae358451790231b",
+      "type": "text",
+      "name": "Imperial Slaves",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        60
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "06f9b332b013eb60",
+      "_key": "!tables.results!e5a26e55f91f5d1e.06f9b332b013eb60",
+      "type": "text",
+      "name": "Narcotics",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "751d900f3847e0d3",
+      "_key": "!tables.results!e5a26e55f91f5d1e.751d900f3847e0d3",
+      "type": "text",
+      "name": "Slaves",
+      "description": "<p>Super Traders Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "542f8e0ed3d59f4e",
+  "sort": 6200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

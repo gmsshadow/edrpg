@@ -1,0 +1,172 @@
+{
+  "_id": "31d2dab62cbc305c",
+  "_key": "!tables!31d2dab62cbc305c",
+  "name": "Military Opponents – Spaceships – Tier 4 (Dangerous – Elite)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.54.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "ccb23c2c153cf302",
+      "_key": "!tables.results!31d2dab62cbc305c.ccb23c2c153cf302",
+      "type": "document",
+      "name": "Attack Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c92f8e5286ce7962"
+    },
+    {
+      "_id": "a06c30e1b41c1c2f",
+      "_key": "!tables.results!31d2dab62cbc305c.a06c30e1b41c1c2f",
+      "type": "text",
+      "name": "Imperial Interdictor (Military) or Sidewinder Escort (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5831a0b90d97b54e",
+      "_key": "!tables.results!31d2dab62cbc305c.5831a0b90d97b54e",
+      "type": "text",
+      "name": "Federal Support Ship (Military) or Space Superiority Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5d7028248cd3d996",
+      "_key": "!tables.results!31d2dab62cbc305c.5d7028248cd3d996",
+      "type": "text",
+      "name": "Imperial Clipper (Military) or War Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "50802069a0347210",
+      "_key": "!tables.results!31d2dab62cbc305c.50802069a0347210",
+      "type": "text",
+      "name": "Federal Attack Ship (Military) or Security Escort Ship (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c26694e336cf1848",
+      "_key": "!tables.results!31d2dab62cbc305c.c26694e336cf1848",
+      "type": "document",
+      "name": "Military Transport",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7fccb52fbbd48526"
+    },
+    {
+      "_id": "9ceae82abbe5da2b",
+      "_key": "!tables.results!31d2dab62cbc305c.9ceae82abbe5da2b",
+      "type": "document",
+      "name": "Heavy Interceptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.222c0b2f80dabeb2"
+    },
+    {
+      "_id": "eeac9d8152091356",
+      "_key": "!tables.results!31d2dab62cbc305c.eeac9d8152091356",
+      "type": "text",
+      "name": "Federal Line Cruiser* (Military) or High Value Wing Guard (Police and Security)",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7d0794fb0d2814ad",
+      "_key": "!tables.results!31d2dab62cbc305c.7d0794fb0d2814ad",
+      "type": "document",
+      "name": "Top Gun",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f978c0e5bd3ab4d8"
+    },
+    {
+      "_id": "620cf9cd4db759d9",
+      "_key": "!tables.results!31d2dab62cbc305c.620cf9cd4db759d9",
+      "type": "text",
+      "name": "Imperial Cruiser (Military) or Picket Ship",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "7d73e6b98763f768",
+  "sort": 3700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

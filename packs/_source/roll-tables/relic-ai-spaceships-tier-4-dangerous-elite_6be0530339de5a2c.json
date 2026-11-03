@@ -1,0 +1,66 @@
+{
+  "_id": "6be0530339de5a2c",
+  "_key": "!tables!6be0530339de5a2c",
+  "name": "Relic AI – Spaceships – Tier 4 (Dangerous – Elite)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "a03b9295640b291b",
+      "_key": "!tables.results!6be0530339de5a2c.a03b9295640b291b",
+      "type": "document",
+      "name": "Possessed Krait",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9c7ee4bb748b88a3"
+    },
+    {
+      "_id": "a11facc505f3d1d9",
+      "_key": "!tables.results!6be0530339de5a2c.a11facc505f3d1d9",
+      "type": "document",
+      "name": "Cyber-Cobra",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e73b6ba1e1c0d8a7"
+    },
+    {
+      "_id": "3f9620da5090202f",
+      "_key": "!tables.results!6be0530339de5a2c.3f9620da5090202f",
+      "type": "document",
+      "name": "AspWinder",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0964f7009b783c58"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "72da0dd01c74ed2e",
+  "sort": 2500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

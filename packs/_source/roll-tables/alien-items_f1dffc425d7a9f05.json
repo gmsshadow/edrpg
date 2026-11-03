@@ -1,0 +1,258 @@
+{
+  "_id": "f1dffc425d7a9f05",
+  "_key": "!tables!f1dffc425d7a9f05",
+  "name": "Alien Items",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.38.</p><p>All alien items come with a single fully charged Alien Power Cell when found.</p>",
+  "results": [
+    {
+      "_id": "f18366eb1a9dc3a5",
+      "_key": "!tables.results!f1dffc425d7a9f05.f18366eb1a9dc3a5",
+      "type": "text",
+      "name": "1D10 Alien Power Cells (Drained)",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "38b2283fbbd112de",
+      "_key": "!tables.results!f1dffc425d7a9f05.38b2283fbbd112de",
+      "type": "text",
+      "name": "1 Alien Power Cell (Charged)",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        15
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bd924566450ed356",
+      "_key": "!tables.results!f1dffc425d7a9f05.bd924566450ed356",
+      "type": "text",
+      "name": "2 Alien Power Cells (Charged)",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e56ea2c3f3ec0782",
+      "_key": "!tables.results!f1dffc425d7a9f05.e56ea2c3f3ec0782",
+      "type": "text",
+      "name": "AMP - Rifle Grip Punch Bolter",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        26
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5ca91181dd5e58d5",
+      "_key": "!tables.results!f1dffc425d7a9f05.5ca91181dd5e58d5",
+      "type": "text",
+      "name": "AMP - Rifle Grip Scalpel Beam",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        27,
+        32
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9a936ecd0691b98e",
+      "_key": "!tables.results!f1dffc425d7a9f05.9a936ecd0691b98e",
+      "type": "text",
+      "name": "AMP - Rifle Grip Streamer",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        33,
+        38
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "57efdae0a56923db",
+      "_key": "!tables.results!f1dffc425d7a9f05.57efdae0a56923db",
+      "type": "text",
+      "name": "AMP - Short Stock Bolt Caster",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        39,
+        45
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "24e9d49c617adad4",
+      "_key": "!tables.results!f1dffc425d7a9f05.24e9d49c617adad4",
+      "type": "text",
+      "name": "AMP - Short Stock Streamer",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        52
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "213f0f715afb697d",
+      "_key": "!tables.results!f1dffc425d7a9f05.213f0f715afb697d",
+      "type": "text",
+      "name": "AMP - Shoulder Mounted Annihilator",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        53,
+        58
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "865ea81003f533e9",
+      "_key": "!tables.results!f1dffc425d7a9f05.865ea81003f533e9",
+      "type": "text",
+      "name": "Cellular Regeneration Emitter",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        59,
+        70
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6f371754ca2ef2aa",
+      "_key": "!tables.results!f1dffc425d7a9f05.6f371754ca2ef2aa",
+      "type": "text",
+      "name": "Destabilisation Beam",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e3b5f2a4b6eefe8a",
+      "_key": "!tables.results!f1dffc425d7a9f05.e3b5f2a4b6eefe8a",
+      "type": "text",
+      "name": "Fluctuating Charged Particle Shield",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b13604be3a0a277c",
+      "_key": "!tables.results!f1dffc425d7a9f05.b13604be3a0a277c",
+      "type": "text",
+      "name": "Intermittent Charged Particle Shield",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        85
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "085ecac2455112a7",
+      "_key": "!tables.results!f1dffc425d7a9f05.085ecac2455112a7",
+      "type": "text",
+      "name": "Nausea Globe",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        90
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f8f18b12d42ea621",
+      "_key": "!tables.results!f1dffc425d7a9f05.f8f18b12d42ea621",
+      "type": "text",
+      "name": "Shield Reconstructor",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5e6b7972e1bef822",
+      "_key": "!tables.results!f1dffc425d7a9f05.5e6b7972e1bef822",
+      "type": "text",
+      "name": "Steady Charged Particle Shield",
+      "description": "<p>Exploration Supplement, p.38</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "c6460cadd7eeaf4f",
+  "sort": 6400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

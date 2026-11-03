@@ -1,0 +1,82 @@
+{
+  "_id": "3f486b35b0898523",
+  "_key": "!tables!3f486b35b0898523",
+  "name": "Alien Animals – Personal Scale – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.41.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "9689b02b79ce4075",
+      "_key": "!tables.results!3f486b35b0898523.9689b02b79ce4075",
+      "type": "document",
+      "name": "Borchuck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e4ebb22b555670a6"
+    },
+    {
+      "_id": "eb946c679b9b2770",
+      "_key": "!tables.results!3f486b35b0898523.eb946c679b9b2770",
+      "type": "document",
+      "name": "Narseer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bf65864636ccc832"
+    },
+    {
+      "_id": "18c5039887eacafe",
+      "_key": "!tables.results!3f486b35b0898523.18c5039887eacafe",
+      "type": "document",
+      "name": "Spit Viper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f3ef7bf86b5549e3"
+    },
+    {
+      "_id": "50b15bde4175e384",
+      "_key": "!tables.results!3f486b35b0898523.50b15bde4175e384",
+      "type": "document",
+      "name": "Gollunk (High Threat)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5efb53cd66481dcc"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "bba0444843995b69",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

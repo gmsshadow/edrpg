@@ -67,6 +67,8 @@
       "floating": 0,
       "cellBanks": []
     },
+    "impervious": true,
+    "swarm": false,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p>Thargoid Hearts 4. Impervious: its Hull (not its shields) can't be harmed by standard weapons, only by AX Missile Racks and AX Multi-cannons, and it is immune to critical hits. Shields only activate once a Heart has been exerted, then at full strength (800), and are vulnerable to normal weapons. Shutdown Field: its first action, instead of attacking; ships without a Shutdown Field Neutraliser lose all power until it moves away or is destroyed. Regeneration: as an Equipment action at the start of its turn it exerts a Heart to recover all damage and raise its shields (once). Hearts are impervious until detected by an AX Xeno Scanner and exerted; an exerted Heart has 100 Hull, shares the impervious trait and can be targeted like a component (also by fixed and turreted weapons). With no Hearts left it can't Regenerate. Each time it exerts a Heart it deploys a Thargon Swarm. Thargoid Disruptor: 80 Damage (40 vs Hull and components) and an automatic critical hit, even with the target's shields up. Caustic Missile (used between turns when a Heart is destroyed, two at once): +18 To Hit, 100 Damage, bypasses shields and inflicts three 50-Damage critical hits to components; Point Defence can intercept it.</p><p><em>Exploration Supplement</em></p>"

@@ -1,0 +1,130 @@
+{
+  "_id": "4610d42aa93b1c46",
+  "_key": "!tables!4610d42aa93b1c46",
+  "name": "Security Opponents – Personal Scale – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.43.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "7d8470bc7ec64dbf",
+      "_key": "!tables.results!4610d42aa93b1c46.7d8470bc7ec64dbf",
+      "type": "document",
+      "name": "Security Guard",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.3ac9612a3e123dc6"
+    },
+    {
+      "_id": "e92e968a919809ae",
+      "_key": "!tables.results!4610d42aa93b1c46.e92e968a919809ae",
+      "type": "document",
+      "name": "Panther Hound",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0a983f58bec18da4"
+    },
+    {
+      "_id": "015c599e7ff2c352",
+      "_key": "!tables.results!4610d42aa93b1c46.015c599e7ff2c352",
+      "type": "document",
+      "name": "Bruiser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4bc5fa1a9690ff25"
+    },
+    {
+      "_id": "6c677c5ea62b7e97",
+      "_key": "!tables.results!4610d42aa93b1c46.6c677c5ea62b7e97",
+      "type": "document",
+      "name": "Police Officer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.6e8d1228d6d36d6e"
+    },
+    {
+      "_id": "fe9454120425f547",
+      "_key": "!tables.results!4610d42aa93b1c46.fe9454120425f547",
+      "type": "document",
+      "name": "Vigilante",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0df6b3ac2c20522e"
+    },
+    {
+      "_id": "50b3d25699249a35",
+      "_key": "!tables.results!4610d42aa93b1c46.50b3d25699249a35",
+      "type": "document",
+      "name": "SnakeWolf",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a4b45dd2a9e96248"
+    },
+    {
+      "_id": "ebd376978d867410",
+      "_key": "!tables.results!4610d42aa93b1c46.ebd376978d867410",
+      "type": "document",
+      "name": "Junga Pattern Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ba083333d9826fdf"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "94ea539178afc38b",
+  "sort": 100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

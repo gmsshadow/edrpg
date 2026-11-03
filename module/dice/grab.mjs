@@ -1,5 +1,6 @@
 import { STATUS } from "./damage.mjs";
 import { showDice } from "./contest.mjs";
+import { isD100, opposed, rollD100, scoreFor, judge100, d100Label } from "./resolve.mjs";
 
 const SOCKET = "system.edrpg";
 
@@ -42,11 +43,34 @@ export function grabBonus(actor) {
 export async function rollGrabCheck(actor, other) {
    const side = async (who) => {
       const bonus = grabBonus(who);
+      if (isD100()) {
+         // d100: Athletics score (an opponent's bonus × 10) + Strength damage bonus × 10.
+         const listed = who.type === "opponent" ? null : scoreFor(who, "athletics");
+         const target = (listed ?? (bonus - (who.system.damageBonus ?? 0)) * 10) + (who.system.damageBonus ?? 0) * 10;
+         const { roll, natural } = await rollD100();
+         await showDice(roll);
+         const j = judge100(natural, target);
+         return { name: who.name, natural, target, bonus: target, total: j.success ? `SL ${j.sl}` : "✗", d100: true, label: d100Label(natural) };
+      }
       const roll = await new Roll("1d10 + @bonus", { bonus }).evaluate();
       await showDice(roll);
       return { name: who.name, natural: roll.dice[0].total, bonus, total: roll.total };
    };
    return { mine: await side(actor), theirs: await side(other) };
+}
+
+/**
+ * Does the first side beat the second (ties go to the second)?
+ *
+ * @param {object} mine
+ *
+ * @param {object} theirs
+ *
+ * @returns {boolean}
+ */
+export function beats(mine, theirs) {
+   if (mine.d100) return opposed(mine, theirs, "defender", true).winner === "initiator";
+   return mine.total > theirs.total;
 }
 
 /**
@@ -102,9 +126,9 @@ export async function escapeGrab(actor) {
       return performGrab({ type: "clear", targetUuid: actor.uuid });
    }
    const { mine, theirs } = await rollGrabCheck(actor, grabber);
-   const escaped = mine.total > theirs.total;
+   const escaped = beats(mine, theirs);
    if (escaped) await performGrab({ type: "clear", grabberUuid, targetUuid: actor.uuid });
-   const line = (s) => `${foundry.utils.escapeHTML(s.name)}: ${s.natural} + ${s.bonus} = <b>${s.total}</b>`;
+   const line = (s) => (s.d100 ? `${foundry.utils.escapeHTML(s.name)}: ${s.label} / ${s.target} = <b>${s.total}</b>` : `${foundry.utils.escapeHTML(s.name)}: ${s.natural} + ${s.bonus} = <b>${s.total}</b>`);
    return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor }),
       flavor: game.i18n.localize("EDRPG.grab.escapeTitle"),

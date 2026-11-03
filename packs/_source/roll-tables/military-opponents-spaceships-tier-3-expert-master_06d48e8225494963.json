@@ -1,0 +1,173 @@
+{
+  "_id": "06d48e8225494963",
+  "_key": "!tables!06d48e8225494963",
+  "name": "Military Opponents – Spaceships – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.54.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "7e06139db6ebb851",
+      "_key": "!tables.results!06d48e8225494963.7e06139db6ebb851",
+      "type": "document",
+      "name": "Military Escort",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.10021e78a6014999"
+    },
+    {
+      "_id": "fc98c40cf26ccb52",
+      "_key": "!tables.results!06d48e8225494963.fc98c40cf26ccb52",
+      "type": "document",
+      "name": "Military Courier",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.01fdef35803d7cd4"
+    },
+    {
+      "_id": "11facb73dc0a3f9f",
+      "_key": "!tables.results!06d48e8225494963.11facb73dc0a3f9f",
+      "type": "document",
+      "name": "Attack Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c92f8e5286ce7962"
+    },
+    {
+      "_id": "dc464f0fab476e2a",
+      "_key": "!tables.results!06d48e8225494963.dc464f0fab476e2a",
+      "type": "text",
+      "name": "Imperial Interdictor (Military) or Sidewinder Escort (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        40
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "837e78d124688d30",
+      "_key": "!tables.results!06d48e8225494963.837e78d124688d30",
+      "type": "text",
+      "name": "Federal Support Ship (Military) or Space Superiority Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "964a5d12119937ea",
+      "_key": "!tables.results!06d48e8225494963.964a5d12119937ea",
+      "type": "text",
+      "name": "Imperial Clipper (Military) or War Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9fc4a09054fed810",
+      "_key": "!tables.results!06d48e8225494963.9fc4a09054fed810",
+      "type": "text",
+      "name": "Federal Attack Ship (Military) or Security Escort Ship (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "42454ce66de11e70",
+      "_key": "!tables.results!06d48e8225494963.42454ce66de11e70",
+      "type": "document",
+      "name": "Military Transport",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7fccb52fbbd48526"
+    },
+    {
+      "_id": "0c51f072c0767093",
+      "_key": "!tables.results!06d48e8225494963.0c51f072c0767093",
+      "type": "document",
+      "name": "Heavy Interceptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.222c0b2f80dabeb2"
+    },
+    {
+      "_id": "d9ec6b7db656e7d2",
+      "_key": "!tables.results!06d48e8225494963.d9ec6b7db656e7d2",
+      "type": "text",
+      "name": "Federal Line Cruiser* (Military) or High Value Wing Guard (Police and Security)",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "7d73e6b98763f768",
+  "sort": 3600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

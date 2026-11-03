@@ -1,0 +1,114 @@
+{
+  "_id": "9a16b6da8bdaae24",
+  "_key": "!tables!9a16b6da8bdaae24",
+  "name": "Criminal Opponents – Personal Scale – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Super Traders Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "a469605f8df9df12",
+      "_key": "!tables.results!9a16b6da8bdaae24.a469605f8df9df12",
+      "type": "document",
+      "name": "Bruiser",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4bc5fa1a9690ff25"
+    },
+    {
+      "_id": "ff8f71f820f6a763",
+      "_key": "!tables.results!9a16b6da8bdaae24.ff8f71f820f6a763",
+      "type": "document",
+      "name": "Gang Member",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.2a5b0ad260cabcf7"
+    },
+    {
+      "_id": "cc124475f0c9f049",
+      "_key": "!tables.results!9a16b6da8bdaae24.cc124475f0c9f049",
+      "type": "document",
+      "name": "Street Punk",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.08dc4f03e2db15f0"
+    },
+    {
+      "_id": "598805a22b79d31a",
+      "_key": "!tables.results!9a16b6da8bdaae24.598805a22b79d31a",
+      "type": "document",
+      "name": "Gang Enforcer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9032c98344c0c149"
+    },
+    {
+      "_id": "4c1bda433300ce40",
+      "_key": "!tables.results!9a16b6da8bdaae24.4c1bda433300ce40",
+      "type": "document",
+      "name": "Vigilante",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0df6b3ac2c20522e"
+    },
+    {
+      "_id": "3579b38594e3a7a5",
+      "_key": "!tables.results!9a16b6da8bdaae24.3579b38594e3a7a5",
+      "type": "document",
+      "name": "Junga Pattern Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ba083333d9826fdf"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "18ff279c3d2196c4",
+  "sort": 3800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

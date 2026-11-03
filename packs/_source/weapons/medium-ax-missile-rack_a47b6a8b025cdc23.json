@@ -1,0 +1,44 @@
+{
+  "_id": "a47b6a8b025cdc23",
+  "_key": "!items!a47b6a8b025cdc23",
+  "name": "Medium AX Missile Rack",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p><em>Exploration Supplement</em></p>",
+    "cost": "540,900cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 1,
+    "damage": 40,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": 20,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 32,
+      "max": 32
+    },
+    "special": "AX munitions: harms Thargoid hulls.",
+    "destabilise": false,
+    "ax": true,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Aegis Weapons"
+    }
+  },
+  "sort": 10300,
+  "effects": [],
+  "folder": "88376035df8d6a98",
+  "ownership": {
+    "default": 0
+  }
+}

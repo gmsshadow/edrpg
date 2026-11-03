@@ -330,6 +330,9 @@ export class CraftWeaponData extends foundry.abstract.TypeDataModel {
          // Destabilisation Beam (Exploration Supplement): a hit collapses the shields, puts the Damage on the Hull, and
          // on a ship also on every Fixed and Internal component (weapons and utility mounts too on a critical hit).
          destabilise: new fields.BooleanField({ initial: false }),
+         // Aegis weapons (Exploration Supplement): AX munitions harm Thargoid hulls; flak shreds Thargon swarms.
+         ax: new fields.BooleanField({ initial: false }),
+         flak: new fields.BooleanField({ initial: false }),
          // The crew member firing a turret (UUID); none = automatic fire at bonus 3.
          gunner: new fields.StringField({ required: true, blank: true, initial: "" }),
       };
@@ -438,6 +441,10 @@ export class ShipData extends VehicleData {
          ),
          // A docked or launched craft: its mothership, and whether it's flown remotely from there.
          carrier: new fields.StringField({ initial: "" }),
+         // Thargoids (Exploration Supplement): an impervious hull (only AX weapons harm it, no critical hits), and a
+         // swarm (at most 1 Damage a hit, plus 1 per Burst level, except from flak).
+         impervious: new fields.BooleanField({ initial: false }),
+         swarm: new fields.BooleanField({ initial: false }),
          remote: new fields.BooleanField({ initial: true }),
          // The ship roster's components, in roster order (critical hits count along this list).
          components: new fields.ArrayField(

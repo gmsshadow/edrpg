@@ -66,6 +66,10 @@
       {{/each}}
    </table>
 
+   <div class="ed-vspecs">
+      <label class="checkbox" data-tooltip="EDRPG.aegis.imperviousHint"><input type="checkbox" name="system.impervious" {{checked source.impervious}}> {{localize "EDRPG.aegis.imperviousLabel"}}</label>
+      <label class="checkbox" data-tooltip="EDRPG.aegis.swarmHint"><input type="checkbox" name="system.swarm" {{checked source.swarm}}> {{localize "EDRPG.aegis.swarmLabel"}}</label>
+   </div>
    {{#if hangar.show}}
    <h3 class="ed-vsub">{{localize "EDRPG.hangar.title"}}</h3>
    <p class="hint">{{localize "EDRPG.hangar.hint" fighters=hangar.capacity.fighters ships=hangar.capacity.ships}}</p>

@@ -30,6 +30,7 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
          useKarma: EDOpponentSheet.#onUseKarma,
          addSkill: EDOpponentSheet.#onAddSkill,
          removeSkill: EDOpponentSheet.#onRemoveSkill,
+         clearController: EDOpponentSheet.#onClearController,
       },
    };
 
@@ -56,6 +57,7 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
          rankChoices: Object.fromEntries(ranks.map((r) => [r.key, r.name])),
          skillChoices: labels,
          fighting: system.fighting,
+         controller: system.controller ? { name: system.controllerName || game.i18n.localize("EDRPG.drone.controllerMissing"), bonus: system.controllerBonus } : null,
          subtitle: [system.rankData ? game.i18n.localize(system.rankData.name) : "", system.role].filter(Boolean).join(" "),
       });
 
@@ -230,5 +232,21 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
     */
    #getItem(target) {
       return this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+   }
+
+   /**
+    * Drop a character on a robot or drone: they become its controller (Military Sourcebook p.43).
+    *
+    * @override
+    */
+   async _onDropActor(event, actor) {
+      if (!this.isEditable || !this.document.system.robotic) return super._onDropActor?.(event, actor);
+      if (!["character", "npcIndividual", "partner"].includes(actor?.type)) return;
+      await this.document.update({ "system.controller": actor.uuid });
+   }
+
+   /** @this {EDOpponentSheet} */
+   static async #onClearController() {
+      if (this.isEditable) return this.document.update({ "system.controller": "" });
    }
 }

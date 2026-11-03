@@ -1,4 +1,5 @@
 import { isCraft } from "../data/vehicle.mjs";
+import { isD100, judge, rollD100, scoreFor, dnModifier, d100Label } from "./resolve.mjs";
 import { rollCritical, damageComponent, targetableComponents, FIXED_KINDS } from "./ship-damage.mjs";
 import { zoneOf } from "../zones.mjs";
 import { activationFaults, flashpoint, aStar } from "../engineering.mjs";
@@ -91,7 +92,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
          ? `<p class="ed-attack-target">${i18n("EDRPG.vehicle.targetLine", { name: foundry.utils.escapeHTML(target.name), defence: target.system.defence, speed: target.system.speed })}</p>`
          : `<p class="hint">${i18n("EDRPG.vehicle.noTarget")}</p>`;
       content += row(i18n("EDRPG.vehicle.targetDefence"), `<input type="number" name="defence" value="${opts.defence}" step="1">`, i18n("EDRPG.vehicle.targetDefenceHint"));
-      content += row(i18n("EDRPG.test.BonusModifier"), `<input type="number" name="modifier" value="0" step="1">`);
+      content += row(i18n(isD100() ? "EDRPG.d100.modifier" : "EDRPG.test.BonusModifier"), `<input type="number" name="modifier" value="0" step="1">`);
       const aimChoices = canAim ? targetableComponents(target) : [];
       if (aimChoices.length) {
          const options = aimChoices.map((c) => `<option value="${c.key}">${foundry.utils.escapeHTML(c.name)}</option>`).join("");
@@ -124,13 +125,36 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
    if (sys.weaponPenalty) parts.push({ label: "EDRPG.ship.part.modifiers", value: sys.weaponPenalty });
    if (sys.speedRow.attack) parts.push({ label: "EDRPG.vehicle.part.speed", value: sys.speedRow.attack, note: game.i18n.format("EDRPG.vehicle.speedNow", { speed: sys.speed }) });
    if (extra) parts.push({ label: note ?? "EDRPG.attack.part.modifier", value: extra });
-   if (opts.modifier) parts.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier });
+   const d100 = isD100();
+   // d100: the typed modifier is already in d100 points.
+   if (opts.modifier) parts.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier, flat: d100 });
    const bonus = parts.reduce((n, p) => n + p.value, 0);
-   const roll = await new Roll("1d10 + @bonus", { bonus }).evaluate();
-   const natural = roll.dice[0].total;
    // A Sniping target is hit automatically (Core Rules p.67).
    const sniping = !!target?.system.combat?.sniping;
-   let hit = sniping || natural === 10 || (natural !== 1 && roll.total >= opts.defence);
+   let roll, natural, total, j, target100 = null;
+   if (d100) {
+      // Target = Weapons score (automatic turrets 30; a stat block's To Hit × 10) + Accuracy and the other
+      // modifiers × 10 + (11 − Defence) × 10.
+      const score = gun.drone ? (s.accuracy ?? 0) * 10 : gun.auto ? gun.bonus * 10 : scoreFor(gun.gunner, sys.constructor.WEAPONS, gun.bonus);
+      parts[0].score = score;
+      const points = parts.slice(1).filter((p) => !p.flat).reduce((n, p) => n + p.value, 0);
+      const flat = parts.filter((p) => p.flat).reduce((n, p) => n + p.value, 0);
+      target100 = score + points * 10 + flat + dnModifier(opts.defence);
+      ({ roll, natural } = await rollD100());
+      total = natural;
+      j = judge({ natural, target: target100, d100: true });
+      // Defence 0 (Sniping, stationary or immobilised): a hit, rolled only for its SL.
+      if (sniping || opts.defence <= 0) {
+         const over = target100 > 100 ? Math.floor((target100 - 100) / 10) : 0;
+         j = { ...j, success: true, margin: Math.floor((natural % 100) / 10) + over, reason: null };
+      }
+   } else {
+      roll = await new Roll("1d10 + @bonus", { bonus }).evaluate();
+      natural = roll.dice[0].total;
+      total = roll.total;
+      j = judge({ natural, total, dn: opts.defence, d100: false });
+   }
+   let hit = sniping || j.success;
    // Point Defence: an incoming missile or torpedo is shot down on an even D10 (p.198).
    let pointDefence = null;
    if (hit && isMissile(weapon) && (ts?.equipment?.pointDefence?.value ?? 0) > 0) {
@@ -141,7 +165,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       if (pointDefence.destroyed) hit = false;
       await spendPointDefence(target);
    }
-   const margin = hit ? Math.max(0, roll.total - opts.defence) : 0;
+   const margin = hit ? (d100 ? j.margin : Math.max(0, total - opts.defence)) : 0;
    const burst = s.burst.max ? Math.min(margin * (s.burst.perPoint || 5), s.burst.max) : 0;
 
    let ammo = null;
@@ -156,9 +180,14 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       weaponName: weapon.name,
       targetUuid: target?.uuid ?? null,
       targetName: target?.name ?? null,
-      parts: parts.map((p) => ({ ...p, signed: p.value >= 0 ? `+${p.value}` : `${p.value}` })),
-      natural,
-      total: roll.total,
+      parts: parts.map((p) => {
+         // d100: each d10 number as its d100 modifier (the first row is the Weapons score).
+         const v = d100 ? (p.score !== undefined ? p.score : p.flat ? p.value : p.value * 10) : p.value;
+         return { ...p, signed: p.score !== undefined && d100 ? `${v}` : v >= 0 ? `+${v}` : `${v}` };
+      }),
+      natural: d100 ? d100Label(natural) : natural,
+      total,
+      d100: d100 ? { target: target100, defence: dnModifier(opts.defence) > 0 ? `+${dnModifier(opts.defence)}` : `${dnModifier(opts.defence)}`, critical: j.critical } : null,
       defence: opts.defence,
       hit,
       margin,
@@ -169,9 +198,16 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       pointDefence,
       // Critical hits only matter against ships (vehicles have no components).
       shipTarget: !!ts?.isShip,
-      reason: sniping ? null : natural === 1 ? "natural1" : natural === 10 && roll.total < opts.defence ? "natural10" : null,
-      damage: hit ? { base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields } : null,
-      critical: natural === 10,
+      reason: sniping ? null : j.reason,
+      damage: hit
+         ? {
+              base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields,
+              // Aegis weapons (Exploration Supplement): AX harms Thargoid hulls; flak does full damage to swarms.
+              ax: !!s.ax, flak: !!s.flak, burstLevels: burst ? Math.round(burst / (s.burst.perPoint || 5)) : 0,
+           }
+         : null,
+      // A natural 10, or in d100 a critical (a double or exactly the target).
+      critical: j.critical,
       destabilise: !!s.destabilise,
       ammo,
       applied: [],
@@ -205,6 +241,8 @@ export async function renderCraftAttack(state) {
  * @returns {Promise<object>}  What happened, for the card.
  */
 export async function applyCraftDamage(target, damage) {
+   // A Thargon Swarm takes at most 1 Damage a hit, +1 per Burst level, unless the weapon is a flak launcher.
+   if (target.system.swarm && !damage.flak) damage = { ...damage, total: 1 + (damage.burstLevels ?? 0), vsShields: null, bonusVsHull: 0, bonusVsShields: 0, swarmed: true };
    const sh = target.system.shields;
    const hullBefore = target.system.hull.value;
    const shieldsBefore = sh.value;
@@ -226,6 +264,9 @@ export async function applyCraftDamage(target, damage) {
    } else {
       toHull = damage.total + (damage.bonusVsHull ?? 0);
    }
+   // Impervious (Thargoid) hulls are only harmed by AX weapons; their shields take damage as normal.
+   const impervious = !!target.system.impervious && !damage.ax && toHull > 0;
+   if (impervious) toHull = 0;
    if (toHull) update["system.hull.value"] = hullBefore - toHull;
    await target.update(update);
    const hullAfter = hullBefore - toHull;
@@ -244,6 +285,8 @@ export async function applyCraftDamage(target, damage) {
       hullAfter,
       destroyed: hullAfter <= 0,
       flashpoint: flashed.join(", "),
+      impervious,
+      swarmed: !!damage.swarmed,
    };
 }
 
@@ -276,7 +319,7 @@ async function execute({ messageId, targetUuid }) {
       const record = await applyCraftDamage(target, state.damage);
       // Critical hit: a natural 10 against a ship whose shields were down (p.68).
       // Ship-launched fighters can't suffer critical hits (Super Traders Supplement p.27).
-      if (state.critical && target.system.isShip && !target.system.isFighter && !shieldsUp && !record.destroyed) {
+      if (state.critical && target.system.isShip && !target.system.isFighter && !target.system.impervious && !target.system.swarm && !shieldsUp && !record.destroyed) {
          record.crit = await rollCritical(target, state.damage.total);
          if (record.crit && !record.crit.nothing) record.crit.hangar = await hangarCritical(target, record.crit);
       }

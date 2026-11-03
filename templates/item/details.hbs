@@ -13,6 +13,8 @@
       <div class="form-group"><label>{{localize "EDRPG.item.price"}}</label><div class="form-fields"><input type="text" name="system.cost" value="{{source.cost}}" {{#unless editable}}disabled{{/unless}}></div></div>
    </div>
    <div class="form-group"><label>{{localize "EDRPG.vehicle.special"}}</label><div class="form-fields"><input type="text" name="system.special" value="{{source.special}}" {{#unless editable}}disabled{{/unless}}></div></div>
+   <label class="ed-check" data-tooltip="EDRPG.aegis.axHint"><input type="checkbox" name="system.ax" {{checked source.ax}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.aegis.ax"}}</label>
+   <label class="ed-check" data-tooltip="EDRPG.aegis.flakHint"><input type="checkbox" name="system.flak" {{checked source.flak}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.aegis.flak"}}</label>
    <label class="ed-check" data-tooltip="EDRPG.destab.hint"><input type="checkbox" name="system.destabilise" {{checked source.destabilise}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.destab.label"}}</label>
    <p class="hint">{{localize "EDRPG.craft.weaponHint"}}</p>
    {{/if}}

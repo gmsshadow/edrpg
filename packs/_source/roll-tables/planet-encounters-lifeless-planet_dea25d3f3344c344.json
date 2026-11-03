@@ -1,0 +1,228 @@
+{
+  "_id": "dea25d3f3344c344",
+  "_key": "!tables!dea25d3f3344c344",
+  "name": "Planet Encounters – Lifeless Planet",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.43.</p>",
+  "results": [
+    {
+      "_id": "185a760f7d65b3cb",
+      "_key": "!tables.results!dea25d3f3344c344.185a760f7d65b3cb",
+      "type": "text",
+      "name": "Alien Obelisk",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3fdaf0ca5372de49",
+      "_key": "!tables.results!dea25d3f3344c344.3fdaf0ca5372de49",
+      "type": "text",
+      "name": "Alien Ruins",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "904f88f3b816b714",
+      "_key": "!tables.results!dea25d3f3344c344.904f88f3b816b714",
+      "type": "text",
+      "name": "Alien Ship",
+      "description": "<p>Exploration Supplement, p.43</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5399435e4ce0e017",
+      "_key": "!tables.results!dea25d3f3344c344.5399435e4ce0e017",
+      "type": "text",
+      "name": "Crashed Ship",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        10,
+        15
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "84b33842250b8210",
+      "_key": "!tables.results!dea25d3f3344c344.84b33842250b8210",
+      "type": "text",
+      "name": "Lost",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "28560e767a25168d",
+      "_key": "!tables.results!dea25d3f3344c344.28560e767a25168d",
+      "type": "text",
+      "name": "No Event",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        65
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3d645177f72fa1a2",
+      "_key": "!tables.results!dea25d3f3344c344.3d645177f72fa1a2",
+      "type": "text",
+      "name": "Pirate Attack – Medium",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        68
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e4b1ebabc96053cf",
+      "_key": "!tables.results!dea25d3f3344c344.e4b1ebabc96053cf",
+      "type": "text",
+      "name": "Pirate Outpost",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        69,
+        71
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bde6bb611fb72b5b",
+      "_key": "!tables.results!dea25d3f3344c344.bde6bb611fb72b5b",
+      "type": "text",
+      "name": "Razor-crystal Stalagmites",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        72,
+        74
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "05d1b0615345bd6b",
+      "_key": "!tables.results!dea25d3f3344c344.05d1b0615345bd6b",
+      "type": "text",
+      "name": "Reactive Elemental Crust",
+      "description": "<p>Exploration Supplement, p.44</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        75,
+        77
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f57b630dfa3c7926",
+      "_key": "!tables.results!dea25d3f3344c344.f57b630dfa3c7926",
+      "type": "text",
+      "name": "Relic AI Base",
+      "description": "<p>Exploration Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        78,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "85753904a374ed5f",
+      "_key": "!tables.results!dea25d3f3344c344.85753904a374ed5f",
+      "type": "text",
+      "name": "Sinkholes",
+      "description": "<p>Exploration Supplement, p.45</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        85
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e75c2672930d0185",
+      "_key": "!tables.results!dea25d3f3344c344.e75c2672930d0185",
+      "type": "text",
+      "name": "Sudden Drop",
+      "description": "<p>Exploration Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        90
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "96ddc10ef7fab57f",
+      "_key": "!tables.results!dea25d3f3344c344.96ddc10ef7fab57f",
+      "type": "text",
+      "name": "Treacherous Terrain",
+      "description": "<p>Exploration Supplement, p.46</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "3be1f70254e16607",
+  "sort": 5400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

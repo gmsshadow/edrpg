@@ -1,0 +1,194 @@
+{
+  "_id": "a23a808bece6215d",
+  "_key": "!tables!a23a808bece6215d",
+  "name": "Alien Animals – Personal Scale – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.41.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "1747313dc30a00ef",
+      "_key": "!tables.results!a23a808bece6215d.1747313dc30a00ef",
+      "type": "document",
+      "name": "Borchuck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e4ebb22b555670a6"
+    },
+    {
+      "_id": "6cb42215825c2398",
+      "_key": "!tables.results!a23a808bece6215d.6cb42215825c2398",
+      "type": "document",
+      "name": "Narseer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bf65864636ccc832"
+    },
+    {
+      "_id": "028e406af4924169",
+      "_key": "!tables.results!a23a808bece6215d.028e406af4924169",
+      "type": "document",
+      "name": "Spit Viper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f3ef7bf86b5549e3"
+    },
+    {
+      "_id": "fe0dafaf5c72418d",
+      "_key": "!tables.results!a23a808bece6215d.fe0dafaf5c72418d",
+      "type": "document",
+      "name": "Gollunk (High Threat)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5efb53cd66481dcc"
+    },
+    {
+      "_id": "97475a67dca87991",
+      "_key": "!tables.results!a23a808bece6215d.97475a67dca87991",
+      "type": "document",
+      "name": "Frenick",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f9cb1734b902998a"
+    },
+    {
+      "_id": "1478ba22ad3f58cf",
+      "_key": "!tables.results!a23a808bece6215d.1478ba22ad3f58cf",
+      "type": "document",
+      "name": "Stump",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0f9ddc7145ec931f"
+    },
+    {
+      "_id": "d50c6df7c0bcdfcd",
+      "_key": "!tables.results!a23a808bece6215d.d50c6df7c0bcdfcd",
+      "type": "document",
+      "name": "Kai",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.82308edb8e20d4c9"
+    },
+    {
+      "_id": "010f6b3cffe5ea59",
+      "_key": "!tables.results!a23a808bece6215d.010f6b3cffe5ea59",
+      "type": "document",
+      "name": "Kavoraptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5ac0bf213ac95686"
+    },
+    {
+      "_id": "9ea02d55cc7035e3",
+      "_key": "!tables.results!a23a808bece6215d.9ea02d55cc7035e3",
+      "type": "document",
+      "name": "Rock Runner",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bc9e06d36b8c4901"
+    },
+    {
+      "_id": "77aceac77bddd028",
+      "_key": "!tables.results!a23a808bece6215d.77aceac77bddd028",
+      "type": "document",
+      "name": "Blindwurm",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e80e9e02197f99c2"
+    },
+    {
+      "_id": "b329bc5324cdea35",
+      "_key": "!tables.results!a23a808bece6215d.b329bc5324cdea35",
+      "type": "document",
+      "name": "Tengoroth",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4a774ee70daa0efb"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "bba0444843995b69",
+  "sort": 1200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

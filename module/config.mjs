@@ -128,6 +128,8 @@ export const bonusConditions = {
    drones: "EDRPG.bonusWhen.drones",
    locks: "EDRPG.bonusWhen.locks",
    brute: "EDRPG.bonusWhen.brute",
+   empire: "EDRPG.bonusWhen.empire",
+   federation: "EDRPG.bonusWhen.federation",
    impersonating: "EDRPG.bonusWhen.impersonating",
    situational: "EDRPG.bonusWhen.situational",
    other: "EDRPG.bonusWhen.other",
@@ -286,3 +288,21 @@ export function skillChoices() {
 export function rankFor(points) {
    return ranks.find((rank) => points <= rank.maxRankPoints) ?? ranks.at(-1);
 }
+
+/**
+ * Honorary ranks (Military Sourcebook p.12): Empire and Federation ladders, the military ships each unlocks, and the
+ * Social Factor bonus with people aligned to that power.
+ */
+export const honoraryRanks = {
+   empire: [
+      ["None", "", 0], ["Outsider", "Imperial Eagle", 0], ["Serf", "", 1], ["Master", "Imperial Courier", 1], ["Squire", "", 1],
+      ["Knight", "", 1], ["Lord", "", 2], ["Baron", "Imperial Clipper", 2], ["Viscount", "", 2], ["Count", "", 2], ["Earl", "", 3],
+      ["Marquis", "", 3], ["Duke", "Imperial Cutter", 3], ["Prince", "", 3], ["King", "Imperial Explorer", 4],
+   ].map(([name, ship, sf]) => ({ name, ship, sf })),
+   federation: [
+      ["None", "", 0], ["Recruit", "", 0], ["Cadet", "", 1], ["Midshipman", "Federal Dropship", 1], ["Petty Officer", "", 1],
+      ["Chief Petty Officer", "Federal Assault Ship", 1], ["Warrant Officer", "", 2], ["Ensign", "Federal Gunship", 2], ["Lieutenant", "", 2],
+      ["Lieutenant Commander", "", 2], ["Post Commander", "", 3], ["Post Captain", "", 3], ["Rear Admiral", "Federal Corvette", 3],
+      ["Vice Admiral", "", 3], ["Admiral", "", 4],
+   ].map(([name, ship, sf]) => ({ name, ship, sf })),
+};

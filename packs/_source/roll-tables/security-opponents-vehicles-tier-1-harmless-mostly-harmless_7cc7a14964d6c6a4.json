@@ -1,0 +1,66 @@
+{
+  "_id": "7cc7a14964d6c6a4",
+  "_key": "!tables!7cc7a14964d6c6a4",
+  "name": "Security Opponents – Vehicles – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.44.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "3a7aeebc5e42a025",
+      "_key": "!tables.results!7cc7a14964d6c6a4.3a7aeebc5e42a025",
+      "type": "document",
+      "name": "Corporate Scout Vehicle",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a1e26816909bea27"
+    },
+    {
+      "_id": "32cab8a4d220dc52",
+      "_key": "!tables.results!7cc7a14964d6c6a4.32cab8a4d220dc52",
+      "type": "document",
+      "name": "Police Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ddc1045d4dc49d54"
+    },
+    {
+      "_id": "430512019ae2f487",
+      "_key": "!tables.results!7cc7a14964d6c6a4.430512019ae2f487",
+      "type": "document",
+      "name": "Haulage Truck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.11e20d7b0ad16f77"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "4c633089b5768a3f",
+  "sort": 400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

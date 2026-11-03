@@ -67,6 +67,8 @@
       "floating": 0,
       "cellBanks": []
     },
+    "impervious": false,
+    "swarm": false,
     "zone": "atDistance",
     "pilot": "",
     "description": "<p>The Ghost Sidewinder constantly produces confusing signals which confuse Gimballed and Turreted weapons. This effect is the same as a Chaff Launcher (Core Rules p.197), except that it consumes no ammo and does not need to be activated each turn.</p><p><em>Exploration Supplement</em></p>"

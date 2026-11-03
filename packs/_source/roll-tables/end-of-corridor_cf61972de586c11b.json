@@ -1,0 +1,108 @@
+{
+  "_id": "cf61972de586c11b",
+  "_key": "!tables!cf61972de586c11b",
+  "name": "End of Corridor",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.61.</p>",
+  "results": [
+    {
+      "_id": "5ce0f4b5f011806a",
+      "_key": "!tables.results!cf61972de586c11b.5ce0f4b5f011806a",
+      "type": "text",
+      "name": "Another corridor",
+      "description": "<p>Military Sourcebook, p.61</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e9b0a6f2f9c4e608",
+      "_key": "!tables.results!cf61972de586c11b.e9b0a6f2f9c4e608",
+      "type": "text",
+      "name": "Left turn",
+      "description": "<p>Military Sourcebook, p.61</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "031d53e015a9ae75",
+      "_key": "!tables.results!cf61972de586c11b.031d53e015a9ae75",
+      "type": "text",
+      "name": "Right turn",
+      "description": "<p>Military Sourcebook, p.61</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3b47601033269531",
+      "_key": "!tables.results!cf61972de586c11b.3b47601033269531",
+      "type": "text",
+      "name": "T-junction",
+      "description": "<p>Military Sourcebook, p.61</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0d9dc33b224872a2",
+      "_key": "!tables.results!cf61972de586c11b.0d9dc33b224872a2",
+      "type": "text",
+      "name": "Crossroads",
+      "description": "<p>Military Sourcebook, p.61</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "409307b8588c7427",
+      "_key": "!tables.results!cf61972de586c11b.409307b8588c7427",
+      "type": "text",
+      "name": "Door",
+      "description": "<p>Military Sourcebook, p.61</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d10",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "e06eb0bedabe38ae",
+  "sort": 6000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

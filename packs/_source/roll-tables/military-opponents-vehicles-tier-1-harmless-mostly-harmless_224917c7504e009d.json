@@ -1,0 +1,82 @@
+{
+  "_id": "224917c7504e009d",
+  "_key": "!tables!224917c7504e009d",
+  "name": "Military Opponents – Vehicles – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.54.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "41afe7c07690349a",
+      "_key": "!tables.results!224917c7504e009d.41afe7c07690349a",
+      "type": "document",
+      "name": "Federal Biker",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c4a813dd3476384b"
+    },
+    {
+      "_id": "aff2960082c3fdd3",
+      "_key": "!tables.results!224917c7504e009d.aff2960082c3fdd3",
+      "type": "document",
+      "name": "Military Transport",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7fccb52fbbd48526"
+    },
+    {
+      "_id": "93215d0d47545dd5",
+      "_key": "!tables.results!224917c7504e009d.93215d0d47545dd5",
+      "type": "document",
+      "name": "Corporate Scout Vehicle (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a1e26816909bea27"
+    },
+    {
+      "_id": "789f9bdd57d26a64",
+      "_key": "!tables.results!224917c7504e009d.789f9bdd57d26a64",
+      "type": "document",
+      "name": "Merc APC",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d5c925cc7aac5351"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "f3fa93bcd63ff0a5",
+  "sort": 3000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,162 @@
+{
+  "_id": "b38a55feda333a28",
+  "_key": "!tables!b38a55feda333a28",
+  "name": "Alien Animals – Personal Scale – Tier 4 (Dangerous – Elite)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.41.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "ad6f3fa123eb7223",
+      "_key": "!tables.results!b38a55feda333a28.ad6f3fa123eb7223",
+      "type": "document",
+      "name": "Frenick",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f9cb1734b902998a"
+    },
+    {
+      "_id": "5dd9678d7481177e",
+      "_key": "!tables.results!b38a55feda333a28.5dd9678d7481177e",
+      "type": "document",
+      "name": "Stump",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0f9ddc7145ec931f"
+    },
+    {
+      "_id": "3ee48cf283e7da33",
+      "_key": "!tables.results!b38a55feda333a28.3ee48cf283e7da33",
+      "type": "document",
+      "name": "Kai",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.82308edb8e20d4c9"
+    },
+    {
+      "_id": "882535e1a437af1b",
+      "_key": "!tables.results!b38a55feda333a28.882535e1a437af1b",
+      "type": "document",
+      "name": "Kavoraptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5ac0bf213ac95686"
+    },
+    {
+      "_id": "e085b1b46a07f033",
+      "_key": "!tables.results!b38a55feda333a28.e085b1b46a07f033",
+      "type": "document",
+      "name": "Rock Runner",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bc9e06d36b8c4901"
+    },
+    {
+      "_id": "0be10764192b6eb3",
+      "_key": "!tables.results!b38a55feda333a28.0be10764192b6eb3",
+      "type": "document",
+      "name": "Blindwurm",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e80e9e02197f99c2"
+    },
+    {
+      "_id": "3861b7d005f3ad7c",
+      "_key": "!tables.results!b38a55feda333a28.3861b7d005f3ad7c",
+      "type": "document",
+      "name": "Tengoroth",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.4a774ee70daa0efb"
+    },
+    {
+      "_id": "89d3f7e4f2ad2b00",
+      "_key": "!tables.results!b38a55feda333a28.89d3f7e4f2ad2b00",
+      "type": "document",
+      "name": "Mordrake Spider",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.952324c4e7e9cd8a"
+    },
+    {
+      "_id": "ae25b3e06ece93b0",
+      "_key": "!tables.results!b38a55feda333a28.ae25b3e06ece93b0",
+      "type": "document",
+      "name": "Mortis Claw",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.6925ad0b8d805d0d"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "bba0444843995b69",
+  "sort": 1300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

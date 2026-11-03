@@ -1,0 +1,66 @@
+{
+  "_id": "7311542a72883b4a",
+  "_key": "!tables!7311542a72883b4a",
+  "name": "Tribals – Personal Scale – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "fb1e2b4f80a60a2a",
+      "_key": "!tables.results!7311542a72883b4a.fb1e2b4f80a60a2a",
+      "type": "document",
+      "name": "Tribal Young Blood",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d1d512ada0cf7ec5"
+    },
+    {
+      "_id": "ad4a83c72d76910c",
+      "_key": "!tables.results!7311542a72883b4a.ad4a83c72d76910c",
+      "type": "document",
+      "name": "Tribal Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e91cda97aa519ed3"
+    },
+    {
+      "_id": "a8707326ddeacf3c",
+      "_key": "!tables.results!7311542a72883b4a.a8707326ddeacf3c",
+      "type": "document",
+      "name": "Tribal Slayer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5323df020a2a1357"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ba9ade06a7f61f5f",
+  "sort": 1500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

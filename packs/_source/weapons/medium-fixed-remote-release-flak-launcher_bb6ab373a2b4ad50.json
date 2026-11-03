@@ -1,0 +1,44 @@
+{
+  "_id": "bb6ab373a2b4ad50",
+  "_key": "!items!bb6ab373a2b4ad50",
+  "name": "Medium Fixed Remote Release Flak Launcher",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p><em>Exploration Supplement</em></p>",
+    "cost": "261,800cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 4,
+    "damage": 20,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "Full damage to Thargon swarms.",
+    "destabilise": false,
+    "ax": false,
+    "flak": true,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Aegis Weapons"
+    }
+  },
+  "sort": 10900,
+  "effects": [],
+  "folder": "88376035df8d6a98",
+  "ownership": {
+    "default": 0
+  }
+}

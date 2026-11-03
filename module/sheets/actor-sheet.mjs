@@ -12,6 +12,7 @@ import {
    MAX_SKILL_SCORE,
 } from "../config.mjs";
 import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs";
+import { honoraryRanks } from "../config.mjs";
 import { endAdventure } from "../advancement.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
 import { conditionView, conditionAction } from "../dice/damage.mjs";
@@ -247,6 +248,19 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          ? game.i18n.format("EDRPG.partner.hostKarmaCount", { host: payer?.name ?? "—" })
          : `${karma.filter((i) => !i.system.free).length} / ${system.karmaCapabilityLimit ?? system.rank.karmaCap}`;
 
+      // Honorary ranks (Military Sourcebook): the two ladders, with the ship each step unlocks.
+      context.honorary = ["empire", "federation"].map((power) => {
+         const index = system._source.honorary?.[power] ?? 0;
+         const rank = honoraryRanks[power][index];
+         return {
+            power,
+            label: `EDRPG.honorary.${power}`,
+            choices: Object.fromEntries(honoraryRanks[power].map((r, i) => [i, `${r.name}${r.sf ? ` (SF +${r.sf})` : ""}`])),
+            value: index,
+            ships: honoraryRanks[power].slice(1, index + 1).map((r) => r.ship).filter(Boolean).join(", "),
+            sf: rank?.sf ?? 0,
+         };
+      });
       context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.biography, {
          secrets: actor.isOwner,
          relativeTo: actor,

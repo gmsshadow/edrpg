@@ -12,6 +12,7 @@
  *   component. Faults that act in play: Faulty (50%) and Unreliable (10%) break a component when it's activated,
  *   Burnout does it 10 damage each use, Flashpoint breaks it when the shields collapse (or on Hull damage with none).
  */
+import { isD100, judge100, rollD100, scoreFor, d100Label } from "./dice/resolve.mjs";
 
 const L = (key, data) => (data ? game.i18n.format(key, data) : game.i18n.localize(key));
 const esc = (s) => foundry.utils.escapeHTML(String(s ?? ""));
@@ -82,9 +83,33 @@ export function tableFor(c) {
  */
 export function lookup(table, total, natural) {
    if (natural === 1) return { effects: [], faults: ["ruined"], ruined: true };
+   return tableRow(table, total);
+}
+
+/**
+ * Look a d100 Repair check up on a table: a failure is a Malfunction, a 96–00 automatic failure Ruined, and a success
+ * reads row 10 + SL (at most 20).
+ *
+ * @param {string} table
+ *
+ * @param {number} natural
+ *
+ * @param {number} target
+ *
+ * @returns {{effects: string[], faults: string[], ruined?: boolean, malfunction?: boolean, sl?: number}}
+ */
+export function lookup100(table, natural, target) {
+   const j = judge100(natural, target);
+   if (j.fumble) return { effects: [], faults: ["ruined"], ruined: true };
+   if (!j.success) return { effects: [], faults: ["malfunction"], malfunction: true };
+   return { ...tableRow(table, 10 + j.sl), sl: j.sl };
+}
+
+/** A table row by total (below 10 is a Malfunction; totals above 20 read 20). */
+function tableRow(table, total) {
    if (total < 10) return { effects: [], faults: ["malfunction"], malfunction: true };
-   const row = TABLES[table][Math.min(20, total)];
-   return { effects: [...row.effects], faults: [...row.faults] };
+   const r = TABLES[table][Math.min(20, total)];
+   return { effects: [...r.effects], faults: [...r.faults] };
 }
 
 /** Every positive effect a table can give (for Overclocking). */
@@ -329,7 +354,8 @@ export async function engineerDialog(ship, preselect) {
    if (!ship?.system?.isShip) return;
    const targets = engineeringTargets(ship).filter((t) => t.table);
    const pilot = ship.system.pilotActor;
-   const repair = pilot?.system?.skillBonus?.("repair") ?? 0;
+   const d100 = isD100();
+   const repair = d100 ? (pilot ? scoreFor(pilot, "repair") : 0) : (pilot?.system?.skillBonus?.("repair") ?? 0);
    const options = targets.map((t) => `<option value="${t.key}" ${t.key === preselect ? "selected" : ""}>${esc(t.name)}${t.engineered ? ` (${L("EDRPG.engineering.already")})` : ""}</option>`).join("");
    const content = `
       <div class="form-group"><label>${L("EDRPG.engineering.component")}</label><div class="form-fields"><select name="target">${options}</select></div></div>
@@ -338,7 +364,7 @@ export async function engineerDialog(ship, preselect) {
          ${Object.entries(ENGINEER_BONUSES).map(([b, k]) => `<option value="pro${b}">${L(k)}</option>`).join("")}
          <option value="overclock">${L("EDRPG.engineering.overclock")}</option>
       </select></div></div>
-      <div class="form-group"><label>${L("EDRPG.engineering.repairBonus")}</label><div class="form-fields"><input type="number" name="bonus" value="${repair}" step="1"></div>
+      <div class="form-group"><label>${L(d100 ? "EDRPG.d100.repairScore" : "EDRPG.engineering.repairBonus")}</label><div class="form-fields"><input type="number" name="bonus" value="${repair}" step="1"></div>
       <p class="hint">${L("EDRPG.engineering.hint")}</p></div>`;
    const input = await foundry.applications.api.DialogV2.input({
       window: { title: L("EDRPG.engineering.title", { name: ship.name }) },
@@ -372,13 +398,22 @@ export async function engineerDialog(ship, preselect) {
       const bonus = input.who === "self" ? Number(input.bonus) || 0 : Number(input.who.slice(3));
       const times = input.who === "self" ? 1 : 2;
       const outcomes = [];
+      // d100: the engineer's Repair score (a professional's bonus × 10), roll-under; SL picks the row.
+      const score = d100 && input.who !== "self" ? bonus * 10 : bonus;
       for (let n = 0; n < times; n++) {
+         if (d100) {
+            const { roll, natural } = await rollD100();
+            rolls.push(roll);
+            outcomes.push({ total: d100Label(natural), natural, target: score, ...lookup100(target.table, natural, score) });
+            continue;
+         }
          const roll = await new Roll(`1d10 + ${bonus}`).evaluate();
          rolls.push(roll);
          const natural = roll.dice[0]?.total ?? roll.total - bonus;
          outcomes.push({ total: roll.total, natural, ...lookup(target.table, roll.total, natural) });
       }
-      const describe = (o) => `${o.total}${o.natural === 1 ? ` (${L("EDRPG.engineering.natural1")})` : ""}: ${labels(o.effects, "effect") || "—"}${o.faults.length ? ` / ${labels(o.faults, "fault")}` : ""}`;
+      const head = (o) => (d100 ? `${o.total} / ${o.target}${o.ruined ? ` (${L("EDRPG.d100.autoFailed")})` : o.sl !== undefined ? ` (${L("EDRPG.d100.slShort", { sl: o.sl })})` : ""}` : `${o.total}${o.natural === 1 ? ` (${L("EDRPG.engineering.natural1")})` : ""}`);
+      const describe = (o) => `${head(o)}: ${labels(o.effects, "effect") || "—"}${o.faults.length ? ` / ${labels(o.faults, "fault")}` : ""}`;
       let chosen = outcomes[0];
       if (outcomes.length > 1) {
          if (game.dice3d) for (const r of rolls) game.dice3d.showForRoll(r, game.user, true);

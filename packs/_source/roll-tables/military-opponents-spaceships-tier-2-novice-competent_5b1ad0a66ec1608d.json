@@ -1,0 +1,143 @@
+{
+  "_id": "5b1ad0a66ec1608d",
+  "_key": "!tables!5b1ad0a66ec1608d",
+  "name": "Military Opponents – Spaceships – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.54.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "d959a8a6f13d34fa",
+      "_key": "!tables.results!5b1ad0a66ec1608d.d959a8a6f13d34fa",
+      "type": "document",
+      "name": "Merc Wannabie",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.947c57165e4794e0"
+    },
+    {
+      "_id": "ec4b06d4ba8833f8",
+      "_key": "!tables.results!5b1ad0a66ec1608d.ec4b06d4ba8833f8",
+      "type": "document",
+      "name": "Security Freighter (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0291bf7f08f81a0e"
+    },
+    {
+      "_id": "701b5b40e662555f",
+      "_key": "!tables.results!5b1ad0a66ec1608d.701b5b40e662555f",
+      "type": "document",
+      "name": "Military Escort",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.10021e78a6014999"
+    },
+    {
+      "_id": "9607d171a8d2ee01",
+      "_key": "!tables.results!5b1ad0a66ec1608d.9607d171a8d2ee01",
+      "type": "document",
+      "name": "Military Courier",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.01fdef35803d7cd4"
+    },
+    {
+      "_id": "7f4313bb5432be5c",
+      "_key": "!tables.results!5b1ad0a66ec1608d.7f4313bb5432be5c",
+      "type": "document",
+      "name": "Attack Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.c92f8e5286ce7962"
+    },
+    {
+      "_id": "81f4e893a5108771",
+      "_key": "!tables.results!5b1ad0a66ec1608d.81f4e893a5108771",
+      "type": "text",
+      "name": "Imperial Interdictor (Military) or Sidewinder Escort (Police and Security)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        80
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f3fc0972d9d991d4",
+      "_key": "!tables.results!5b1ad0a66ec1608d.f3fc0972d9d991d4",
+      "type": "text",
+      "name": "Federal Support Ship (Military) or Space Superiority Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        95
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f86be0be5b40d3b1",
+      "_key": "!tables.results!5b1ad0a66ec1608d.f86be0be5b40d3b1",
+      "type": "text",
+      "name": "Imperial Clipper (Military) or War Fighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        95,
+        100
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "7d73e6b98763f768",
+  "sort": 3500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

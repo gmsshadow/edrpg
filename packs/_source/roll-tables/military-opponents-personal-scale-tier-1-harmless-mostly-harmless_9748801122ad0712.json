@@ -1,0 +1,130 @@
+{
+  "_id": "9748801122ad0712",
+  "_key": "!tables!9748801122ad0712",
+  "name": "Military Opponents – Personal Scale – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Military Sourcebook, p.53.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "b7ffeef92f597213",
+      "_key": "!tables.results!9748801122ad0712.b7ffeef92f597213",
+      "type": "document",
+      "name": "Conscript",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.b9296c3fc224a40f"
+    },
+    {
+      "_id": "9f9d0070bdd16d9e",
+      "_key": "!tables.results!9748801122ad0712.9f9d0070bdd16d9e",
+      "type": "document",
+      "name": "Eye Bot",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.7d7b366aa4b43244"
+    },
+    {
+      "_id": "da56066361f57c2e",
+      "_key": "!tables.results!9748801122ad0712.da56066361f57c2e",
+      "type": "document",
+      "name": "Slave Soldier",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.3627c8ec4584f28c"
+    },
+    {
+      "_id": "e8f148c8c1ddb412",
+      "_key": "!tables.results!9748801122ad0712.e8f148c8c1ddb412",
+      "type": "document",
+      "name": "Army Soldier",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d01ba113b5cf01fb"
+    },
+    {
+      "_id": "e67caf06a19b600b",
+      "_key": "!tables.results!9748801122ad0712.e67caf06a19b600b",
+      "type": "document",
+      "name": "Army Officer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.1f13530e0ffc35d9"
+    },
+    {
+      "_id": "842369a6d1dd7834",
+      "_key": "!tables.results!9748801122ad0712.842369a6d1dd7834",
+      "type": "document",
+      "name": "T-90 Patrol Drone",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d32ceb8736e6c67d"
+    },
+    {
+      "_id": "004a8ad9b2d12788",
+      "_key": "!tables.results!9748801122ad0712.004a8ad9b2d12788",
+      "type": "document",
+      "name": "Junga Pattern Walker Drone*",
+      "description": "<p>High Threat: counts as three opponents.</p>",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ba083333d9826fdf"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ed764186c2b9008a",
+  "sort": 2600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

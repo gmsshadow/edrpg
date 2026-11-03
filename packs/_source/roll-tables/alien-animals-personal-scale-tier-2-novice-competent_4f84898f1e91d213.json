@@ -1,0 +1,146 @@
+{
+  "_id": "4f84898f1e91d213",
+  "_key": "!tables!4f84898f1e91d213",
+  "name": "Alien Animals – Personal Scale – Tier 2 (Novice – Competent)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.41.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "f4d8b20725a34bbf",
+      "_key": "!tables.results!4f84898f1e91d213.f4d8b20725a34bbf",
+      "type": "document",
+      "name": "Borchuck",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e4ebb22b555670a6"
+    },
+    {
+      "_id": "d32da471d557026c",
+      "_key": "!tables.results!4f84898f1e91d213.d32da471d557026c",
+      "type": "document",
+      "name": "Narseer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.bf65864636ccc832"
+    },
+    {
+      "_id": "9be8c8c85616a483",
+      "_key": "!tables.results!4f84898f1e91d213.9be8c8c85616a483",
+      "type": "document",
+      "name": "Spit Viper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f3ef7bf86b5549e3"
+    },
+    {
+      "_id": "aac7277458588ca9",
+      "_key": "!tables.results!4f84898f1e91d213.aac7277458588ca9",
+      "type": "document",
+      "name": "Gollunk (High Threat)",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5efb53cd66481dcc"
+    },
+    {
+      "_id": "d731237ee182458b",
+      "_key": "!tables.results!4f84898f1e91d213.d731237ee182458b",
+      "type": "document",
+      "name": "Frenick",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.f9cb1734b902998a"
+    },
+    {
+      "_id": "cba341bfc49a36e4",
+      "_key": "!tables.results!4f84898f1e91d213.cba341bfc49a36e4",
+      "type": "document",
+      "name": "Stump",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0f9ddc7145ec931f"
+    },
+    {
+      "_id": "76e2a7abf8caecb7",
+      "_key": "!tables.results!4f84898f1e91d213.76e2a7abf8caecb7",
+      "type": "document",
+      "name": "Kai",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.82308edb8e20d4c9"
+    },
+    {
+      "_id": "61b810678176d105",
+      "_key": "!tables.results!4f84898f1e91d213.61b810678176d105",
+      "type": "document",
+      "name": "Kavoraptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5ac0bf213ac95686"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "bba0444843995b69",
+  "sort": 1100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,98 @@
+{
+  "_id": "4d3676fdd44b86ee",
+  "_key": "!tables!4d3676fdd44b86ee",
+  "name": "Tribals – Personal Scale – Tier 3 (Expert – Master)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "4a09f47856e6112d",
+      "_key": "!tables.results!4d3676fdd44b86ee.4a09f47856e6112d",
+      "type": "document",
+      "name": "Tribal Young Blood",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d1d512ada0cf7ec5"
+    },
+    {
+      "_id": "0e992b512b2d13e0",
+      "_key": "!tables.results!4d3676fdd44b86ee.0e992b512b2d13e0",
+      "type": "document",
+      "name": "Tribal Hunter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        25,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.e91cda97aa519ed3"
+    },
+    {
+      "_id": "a18c67ea3fa09ee7",
+      "_key": "!tables.results!4d3676fdd44b86ee.a18c67ea3fa09ee7",
+      "type": "document",
+      "name": "Tribal Slayer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5323df020a2a1357"
+    },
+    {
+      "_id": "0aca699e4b3431e3",
+      "_key": "!tables.results!4d3676fdd44b86ee.0aca699e4b3431e3",
+      "type": "document",
+      "name": "Vengeful Tribal",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9da1c2826e48a400"
+    },
+    {
+      "_id": "6b608d85a191c60c",
+      "_key": "!tables.results!4d3676fdd44b86ee.6b608d85a191c60c",
+      "type": "document",
+      "name": "Monstrous Tribal",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.a532665c4393e0f2"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "ba9ade06a7f61f5f",
+  "sort": 1600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

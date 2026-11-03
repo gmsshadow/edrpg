@@ -1,0 +1,82 @@
+{
+  "_id": "41da48ad98f8671f",
+  "_key": "!tables!41da48ad98f8671f",
+  "name": "Security Opponents – Spaceships – Tier 1 (Harmless – Mostly Harmless)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Espionage Supplement, p.44.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "8f5cdb5e4ea48491",
+      "_key": "!tables.results!41da48ad98f8671f.8f5cdb5e4ea48491",
+      "type": "document",
+      "name": "Security Freighter",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.0291bf7f08f81a0e"
+    },
+    {
+      "_id": "6cb0e365904f7b17",
+      "_key": "!tables.results!41da48ad98f8671f.6cb0e365904f7b17",
+      "type": "document",
+      "name": "Patrol Viper",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.5b252394b16988cf"
+    },
+    {
+      "_id": "a9c6d96db722ab96",
+      "_key": "!tables.results!41da48ad98f8671f.a9c6d96db722ab96",
+      "type": "document",
+      "name": "Police First Response Ship",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.16e9f40acb93146a"
+    },
+    {
+      "_id": "53c9159e64557aae",
+      "_key": "!tables.results!41da48ad98f8671f.53c9159e64557aae",
+      "type": "document",
+      "name": "Security Interceptor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8fc6986315908c54"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "a06e70248cce56b0",
+  "sort": 700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

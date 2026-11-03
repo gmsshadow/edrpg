@@ -10,6 +10,8 @@ import {
    CYBORG_SOCIAL_FACTOR,
    BASE_SPEED,
    enhancementEffects,
+   socialFactorSkills,
+   honoraryRanks,
 } from "../config.mjs";
 
 const fields = foundry.data.fields;
@@ -90,6 +92,11 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
             u: new fields.NumberField({ ...requiredInteger, min: 0, initial: 0 }),
          }),
          biography: new fields.HTMLField({ initial: "" }),
+         // Honorary ranks (Military Sourcebook): index into the Empire / Federation ladders (0 = none).
+         honorary: new fields.SchemaField({
+            empire: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, max: 14, initial: 0 }),
+            federation: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, max: 14, initial: 0 }),
+         }),
          // Whether this character's partner may spend their Karma (Core Rules p.27).
          partnerKarma: new fields.BooleanField({ initial: true }),
          // Rank advancement (Core Rules pp.49–50): the highest rank whose benefits have been applied, and a record of
@@ -167,6 +174,17 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
    }
 
    /**
+    * Skill score, for the d100 variant's checks (0 to the cap).
+    *
+    * @param {string} skill
+    *
+    * @returns {number}
+    */
+   skillScore(skill) {
+      return this.skills[skillCategory[skill]]?.[skill]?.score ?? 0;
+   }
+
+   /**
     * Equipment bonuses to checks with a Skill: worn clothing and carried gear (e.g. Studded Thug Outfit +1
     * Intimidate, Medpack +2 Medicine when stabilising or healing). Score bonuses are converted to the change in
     * Skill bonus they make.
@@ -187,6 +205,13 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
             if (b.kind === "score" && data) value = Math.floor(Math.min(data.score + b.value, MAX_SKILL_SCORE) / 10) - data.bonus;
             out.push({ key: `${item.id}.${index}`, label: item.name, value, raw: b.value, kind: b.kind, when: b.when });
          });
+      }
+      // Honorary ranks: a Social Factor bonus with people aligned to that power, offered on the Social Factor skills.
+      if (socialFactorSkills.includes(skill)) {
+         for (const power of ["empire", "federation"]) {
+            const rank = honoraryRanks[power][this.honorary?.[power] ?? 0];
+            if (rank?.sf) out.push({ key: `honorary.${power}`, label: game.i18n.format(`EDRPG.honorary.bonus.${power}`, { rank: rank.name }), value: rank.sf, raw: rank.sf, kind: "flat", when: power });
+         }
       }
       // Survivalist (Exploration Supplement): add the Survival bonus to checks made in a natural environment.
       // Offered unticked; not for Survival itself or for attacks.
@@ -522,6 +547,8 @@ export class OpponentData extends foundry.abstract.TypeDataModel {
          role: new fields.StringField({ initial: "" }),
          // Robots and drones: double damage from Anti-Material Projectors (Exploration Supplement).
          robotic: new fields.BooleanField({ initial: false }),
+         // A player-controlled drone (Military Sourcebook p.43): the controller's UUID.
+         controller: new fields.StringField({ required: true, blank: true, initial: "" }),
          dodge: nullableInt(),
          parry: nullableInt(),
          initiative: int(1),
@@ -541,6 +568,23 @@ export class OpponentData extends foundry.abstract.TypeDataModel {
          equipment: new fields.StringField({ initial: "" }),
          notes: new fields.HTMLField({ initial: "" }),
       };
+   }
+
+   /**
+    * A controlled drone adds its controller's Cyber bonus to its To Hit, and (a flying drone, one with a Dodge score)
+    * to its Defence (Dodge).
+    *
+    * @override
+    */
+   prepareDerivedData() {
+      super.prepareDerivedData?.();
+      const controller = this.controller ? fromUuidSync(this.controller) : null;
+      this.controllerBonus = controller?.system?.skillBonus?.("cyber") ?? 0;
+      this.controllerName = controller?.name ?? "";
+      if (this.controllerBonus) {
+         this.toHit += this.controllerBonus;
+         if (this.dodge !== null && this.dodge !== undefined) this.dodge += this.controllerBonus;
+      }
    }
 
    /** Rank table entry, if a rank is chosen. */

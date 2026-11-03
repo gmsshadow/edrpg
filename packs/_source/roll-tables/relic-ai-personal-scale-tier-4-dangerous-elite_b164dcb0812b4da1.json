@@ -1,0 +1,82 @@
+{
+  "_id": "b164dcb0812b4da1",
+  "_key": "!tables!b164dcb0812b4da1",
+  "name": "Relic AI – Personal Scale – Tier 4 (Dangerous – Elite)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "<p>Exploration Supplement, p.42.</p><p>Roll once per opponent. High Threat opponents (*) count as three; unique ones appear once per group.</p>",
+  "results": [
+    {
+      "_id": "bb26404cca08ce98",
+      "_key": "!tables.results!b164dcb0812b4da1.bb26404cca08ce98",
+      "type": "document",
+      "name": "Shambler",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.ab97184aef89640c"
+    },
+    {
+      "_id": "80e838d5fe68099e",
+      "_key": "!tables.results!b164dcb0812b4da1.80e838d5fe68099e",
+      "type": "document",
+      "name": "Progenitor",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.d50e8c8fd9ffa383"
+    },
+    {
+      "_id": "df524648faa18b62",
+      "_key": "!tables.results!b164dcb0812b4da1.df524648faa18b62",
+      "type": "document",
+      "name": "Holomancer",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.8f5a484a6ac756bc"
+    },
+    {
+      "_id": "2c8e561009254c23",
+      "_key": "!tables.results!b164dcb0812b4da1.2c8e561009254c23",
+      "type": "document",
+      "name": "Disorientator",
+      "description": "",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "documentUuid": "Compendium.edrpg.opponents.Actor.9c7b768c93dc4d03"
+    }
+  ],
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "4abc676d923962e0",
+  "sort": 2100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

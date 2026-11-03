@@ -1,6 +1,8 @@
 import { isCraft } from "../data/vehicle.mjs";
 import { rollCritical, damageComponent, targetableComponents, FIXED_KINDS } from "./ship-damage.mjs";
 import { zoneOf } from "../zones.mjs";
+import { activationFaults, flashpoint, aStar } from "../engineering.mjs";
+import { hangarCritical } from "../hangar.mjs";
 
 /** Missiles, torpedoes (and mines) can be shot down by Point Defence; seekers are jammed by ECM. */
 const isMissile = (weapon) => /missile|torpedo/i.test(weapon.name);
@@ -57,21 +59,28 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       ui.notifications.warn(game.i18n.format("EDRPG.crit.weaponOut", { weapon: weapon.name }));
       return null;
    }
+   // Engineering faults: Faulty / Unreliable weapons may spark and break as they fire; Burnout hurts them.
+   if (s.engineered?.faults?.length && vehicle.isOwner) {
+      const fault = await activationFaults(vehicle, { item: weapon.id });
+      if (fault.notes.length) await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor: vehicle }), content: `<div class="edrpg edrpg-chat edrpg-engineering"><p>${fault.notes.join("<br>")}</p></div>` });
+      if (fault.broken) return null;
+   }
    const gun = sys.gunnery(weapon, { forward });
    // Defence modifiers from the target's equipment (Core Rules pp.197–198).
    const defenceNotes = [];
    let defenceMods = 0;
    const ts = target?.system;
+   // A* grade (engineered, Magnified) chaff and ECM give +6 instead of +4.
    if (ts?.combat?.chaff && (s.mount?.kind === "gimballed" || gun.auto)) {
-      defenceMods += 4;
+      defenceMods += aStar(target, /chaff/i) ? 6 : 4;
       defenceNotes.push("EDRPG.equip.chaffNote");
    }
    if (ts?.equipment?.ecm && isSeeker(weapon)) {
-      defenceMods += 4;
+      defenceMods += aStar(target, /\becm\b/i) ? 6 : 4;
       defenceNotes.push("EDRPG.equip.ecmNote");
    }
    // A targeted component: shields down, both up-close, a gimballed weapon (p.70).
-   const canAim = !!ts?.isShip && s.mount?.kind === "gimballed" && (ts.shields.max === 0 || ts.shields.down || ts.shields.value <= 0) && zoneOf(target) === "upClose" && zoneOf(vehicle) === "upClose";
+   const canAim = !!ts?.isShip && !ts.isFighter && s.mount?.kind === "gimballed" && (ts.shields.max === 0 || ts.shields.down || ts.shields.value <= 0) && zoneOf(target) === "upClose" && zoneOf(vehicle) === "upClose";
    let aim = null;
    let opts = { defence: (ts?.defence ?? 0) + defenceMods, modifier: 0, mode: undefined };
    if (prompt) {
@@ -126,7 +135,9 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
    let pointDefence = null;
    if (hit && isMissile(weapon) && (ts?.equipment?.pointDefence?.value ?? 0) > 0) {
       const pd = await new Roll("1d10").evaluate();
-      pointDefence = { roll: pd.total, destroyed: pd.total % 2 === 0 };
+      // A* grade Point Defence destroys it on 3–10.
+      const aStarPD = aStar(target, /point defen/i);
+      pointDefence = { roll: pd.total, destroyed: aStarPD ? pd.total >= 3 : pd.total % 2 === 0, aStar: aStarPD };
       if (pointDefence.destroyed) hit = false;
       await spendPointDefence(target);
    }
@@ -218,6 +229,9 @@ export async function applyCraftDamage(target, damage) {
    if (toHull) update["system.hull.value"] = hullBefore - toHull;
    await target.update(update);
    const hullAfter = hullBefore - toHull;
+   // Flashpoint (engineering fault): fails when the shields collapse, or on Hull damage with no shields.
+   let flashed = [];
+   if (target.system.isShip && (update["system.shields.down"] || (sh.max === 0 && toHull > 0))) flashed = await flashpoint(target);
    return {
       uuid: target.uuid,
       name: target.name,
@@ -229,6 +243,7 @@ export async function applyCraftDamage(target, damage) {
       hullBefore,
       hullAfter,
       destroyed: hullAfter <= 0,
+      flashpoint: flashed.join(", "),
    };
 }
 
@@ -260,7 +275,11 @@ async function execute({ messageId, targetUuid }) {
       const shieldsUp = sh.max > 0 && !sh.down && sh.value > 0;
       const record = await applyCraftDamage(target, state.damage);
       // Critical hit: a natural 10 against a ship whose shields were down (p.68).
-      if (state.critical && target.system.isShip && !shieldsUp && !record.destroyed) record.crit = await rollCritical(target, state.damage.total);
+      // Ship-launched fighters can't suffer critical hits (Super Traders Supplement p.27).
+      if (state.critical && target.system.isShip && !target.system.isFighter && !shieldsUp && !record.destroyed) {
+         record.crit = await rollCritical(target, state.damage.total);
+         if (record.crit && !record.crit.nothing) record.crit.hangar = await hangarCritical(target, record.crit);
+      }
       state.applied.push(record);
    }
    await message.update({ content: await renderCraftAttack(state), "flags.edrpg.craftAttack": state });

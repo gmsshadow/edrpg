@@ -18,9 +18,37 @@ HERE = os.path.dirname(__file__)
 DATA = json.load(open(os.path.join(HERE, "ships-data.json"), encoding="utf-8"))
 # Supplement ships (Espionage, Exploration, Military, Super Traders), each with its "source" book.
 SUPPLEMENT = json.load(open(os.path.join(HERE, "ships-supplements.json"), encoding="utf-8"))["ships"]
+
+# Ship-launched fighters (Super Traders Supplement pp.27–29): three hulls × four loadouts.
+ST = "Super Traders Supplement"
+FIGHTER_HULLS = [
+    ("F63 Condor", "Core Dynamics", "L 13.5m x W 10.5m x H 2.5m", 11, 17, 15, 20),
+    ("GU-97 Fighter", "Gutamaya", "L 6.5m x W 14.9m x H 2.2m", 12, 15, 15, 20),
+    ("Taipan", "Core Dynamics", "L 13.5m x W 10.5m x H 2.5m", 11, 14, 25, 30),
+]
+FW = lambda name, kind, acc, dmg, burst=0: {"name": name, "size": "small", "kind": kind, "acc": acc, "damage": dmg, "burst": burst,
+                                           "vs": None, "ammo": None, "hull": 0, "shields": 5, "special": ""}
+FIGHTER_LOADOUTS = [
+    ("Aegis F", [FW("Fighter Fixed Pulse Laser", "fixed", 2, 15)] * 2, {"pd": 10}, "Point Defence Turret"),
+    ("Gelid G", [FW("Fighter Gimballed Beam Laser", "gimballed", 3, 10, 20)] * 2, {"ecm": True}, "ECM"),
+    ("Rogue G", [FW("Fighter Gimballed Pulse Laser", "gimballed", 3, 15)] * 2, {"chaff": 6}, "Chaff Launcher"),
+    ("Gelid F", [FW("Fighter Fixed Beam Laser", "fixed", 2, 10, 20)] * 2, {"ecm": True}, "ECM"),
+]
+FIGHTERS = []
+for hull_name, maker, dims, ag, sp, hull, shields in FIGHTER_HULLS:
+    for variant, weapons, eq, util in FIGHTER_LOADOUTS:
+        equipment_ = {"chaff": 0, "pd": 0, "ecm": False, "mines": None, "floating": 0, "banks": [], **eq}
+        FIGHTERS.append({
+            "name": f"{hull_name} – {variant}", "family": hull_name, "agility": ag, "speed": sp, "hull": hull, "shields": shields,
+            "weapons": [dict(w) for w in weapons], "components": [], "bonus": {"toHit": 0, "initiative": 0, "dogfighting": 0, "recharge": 0},
+            "equipment": equipment_, "cargo": "", "range": "No FSD", "fuel": "0T", "cost": "15,270cr", "source": ST,
+            "base": {"category": "tiny", "manufacturer": maker, "dimensions": dims, "landingPad": "Requires Fighter Hangar", "crew": "1",
+                     "passengers": "0", "utility": util},
+        })
+SUPPLEMENT = SUPPLEMENT + FIGHTERS
 SUPPLEMENT_OPPONENTS = json.load(open(os.path.join(HERE, "ships-supplements.json"), encoding="utf-8"))["opponents"]
 TOK = "systems/edrpg/assets/tokens"
-TOKEN_SIZE = {"small": 1, "medium": 2, "large": 3, "huge": 4}
+TOKEN_SIZE = {"tiny": 1, "small": 1, "medium": 2, "large": 3, "huge": 4}
 
 # Family → token images (cycled across variants); pirate/police variants get their own art where there is some.
 FAMILY_TOKENS = {
@@ -59,13 +87,16 @@ FAMILY_TOKENS = {
     "Keelback": ["transport/keelback"],
     "Imperial Explorer": [],
     "Boa Mk III": [],
+    "F63 Condor": ["fighter/f63-blue", "fighter/f63-green", "fighter/f63-red", "fighter/f63-yellow"],
+    "GU-97 Fighter": ["fighter/gu-97-blue", "fighter/gu-97-green", "fighter/gu-97-red", "fighter/gu-97-yellow"],
+    "Taipan": ["fighter/taipan", "fighter/taipan-blue", "fighter/taipan-green", "fighter/taipan-red"],
 }
 PIRATE = {"Cobra Mk III": "pirate/cobra-pirate1", "Eagle Mk II": "pirate/eagle-pirate1", "Krait Lightspeeder": "pirate/krait-pirate1",
           "Sidewinder": "pirate/sidewinder-pirate1", "Viper Mk III": "pirate/viper-pirate1"}
 POLICE = {"Viper Mk III": "police/viper-mk-iii-police", "Viper Mk IV": "police/viper-mk-iv-police"}
 
 ACRONYMS = {"Mk": "Mk", "Ii": "II", "Iii": "III", "Iv": "IV", "Dcc": "DCC", "Gti": "GTI", "Egx": "EGX", "Mr": "MR", "Fd-4": "FD-4",
-            "Var": "VAR", "B3": "B3", "X4": "X4", "T21": "T21", "S-Type": "S-Type", "Cx": "CX", "A9": "A9", "Q": "Q", "De": "de", "Haz": "Haz", "Mp": "MP"}
+            "Var": "VAR", "Gu-97": "GU-97", "B3": "B3", "X4": "X4", "T21": "T21", "S-Type": "S-Type", "Cx": "CX", "A9": "A9", "Q": "Q", "De": "de", "Haz": "Haz", "Mp": "MP"}
 
 
 def did(*parts):

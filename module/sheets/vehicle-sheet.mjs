@@ -2,10 +2,21 @@ import { craftSizes, mountKinds, mountSizes, combatZones } from "../data/vehicle
 import { zoneOfToken } from "../zones.mjs";
 import { componentKinds } from "../data/vehicle.mjs";
 import { equipmentAction } from "../vehicle-combat.mjs";
+import { engineerDialog, labels as engLabels } from "../engineering.mjs";
+import { hangarEntries, dock, undock, recover } from "../hangar.mjs";
 import { actionsFor, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
+
+/** "Engineered: Fleet, Boosted; fault: Drag". */
+function engText(e) {
+   if (!e?.effects?.length && !e?.faults?.length) return "";
+   const parts = [];
+   if (e.effects?.length) parts.push(engLabels(e.effects, "effect"));
+   if (e.faults?.length) parts.push(game.i18n.format("EDRPG.engineering.faultList", { list: engLabels(e.faults, "fault") }));
+   return game.i18n.format("EDRPG.engineering.engineeredList", { list: parts.join("; ") });
+}
 
 /** Actor types that can crew a vehicle. */
 const CREW_TYPES = ["character", "npcIndividual", "partner", "opponent"];
@@ -39,6 +50,9 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          equip: EDVehicleSheet.#onEquip,
          addRow: EDVehicleSheet.#onAddRow,
          deleteRow: EDVehicleSheet.#onDeleteRow,
+         engineer: EDVehicleSheet.#onEngineer,
+         undock: EDVehicleSheet.#onUndock,
+         recover: EDVehicleSheet.#onRecover,
       },
    };
 
@@ -123,7 +137,16 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          const eq = system.equipment;
          const c = system.combat;
          context.components = system.components.map((x, i) => ({ ...x, index: i, kindLabel: game.i18n.localize(componentKinds[x.kind] ?? x.kind), broken: x.strength.value <= 0 }));
-         context.componentRows = system._source.components.map((x, i) => ({ ...x, index: i }));
+         context.componentRows = system._source.components.map((x, i) => ({ ...x, index: i, engineeredText: engText(x.engineered) }));
+         context.bulkheadText = engText(system.bulkhead);
+         // Hangar: docked craft and capacity.
+         const cap = system.hangarCapacity;
+         context.hangar = {
+            show: cap.fighters > 0 || cap.ships > 0 || (system.hangar ?? []).length > 0,
+            capacity: cap,
+            entries: hangarEntries(actor).map((e) => ({ ...e, name: e.actor?.name ?? game.i18n.localize("EDRPG.hangar.missing"), img: e.actor?.img })),
+         };
+         context.carrierName = system.carrier ? (fromUuidSync(system.carrier)?.name ?? "") : "";
          context.cellBankRows = system._source.equipment.cellBanks.map((x, i) => ({ ...x, index: i }));
          const bank = eq.cellBanks[c.cellBank.index];
          context.equip = {
@@ -135,7 +158,8 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
             banks: eq.cellBanks.length ? { uses: eq.cellBanks.reduce((n, b) => n + b.uses, 0), running: bank && c.cellBank.rounds >= 0 && c.cellBank.index >= 0 ? `${bank.name} (+${bank.boost})` : "" } : null,
             recharge: system.rechargeNow,
          };
-         context.hasEquip = !!(context.equip.chaff || context.equip.mines || context.equip.pd || context.equip.ecm || context.equip.floating || context.equip.banks);
+         context.equip.launch = context.hangar.entries.some((e) => !e.launched && e.actor);
+         context.hasEquip = !!(context.equip.launch || context.equip.chaff || context.equip.mines || context.equip.pd || context.equip.ecm || context.equip.floating || context.equip.banks);
       }
       context.vactions = actionsFor(actor, zone).filter((key) => key !== "rescue" || strandedNearby).map((key) => ({
          key,
@@ -171,7 +195,7 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
             damage: s.damageLabel,
             usesAmmo: s.usesAmmo,
             ammo: s.ammo,
-            special: s.specialLabel,
+            special: [s.specialLabel, engText(s.engineered)].filter(Boolean).join(". "),
             turret: s.mount.kind === "turret",
             gunner: s.gunner,
             gunnerLabel: gun.auto ? game.i18n.format("EDRPG.vehicle.autoTurret", { bonus: gun.bonus }) : (gun.gunner?.name ?? ""),
@@ -233,7 +257,10 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
     * @override
     */
    async _onDropActor(event, actor) {
-      if (!this.isEditable || !CREW_TYPES.includes(actor?.type)) return;
+      if (!this.isEditable) return;
+      // A fighter or small ship dropped on a carrier docks in its hangar.
+      if (actor?.type === "ship" && this.document.system.isShip) return dock(this.document, actor);
+      if (!CREW_TYPES.includes(actor?.type)) return;
       await this.document.update({ "system.pilot": actor.uuid });
    }
 
@@ -289,6 +316,21 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
    /** @this {EDVehicleSheet} */
    static async #onEquip(event, target) {
       if (this.isEditable) return equipmentAction(this.document, target.dataset.equip);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onEngineer(event, target) {
+      if (this.isEditable) return engineerDialog(this.document, target.dataset.key);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onUndock(event, target) {
+      if (this.isEditable) return undock(this.document, Number(target.closest("[data-index]")?.dataset.index));
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onRecover(event, target) {
+      if (this.isEditable) return recover(this.document, Number(target.closest("[data-index]")?.dataset.index));
    }
 
    /** @this {EDVehicleSheet} */

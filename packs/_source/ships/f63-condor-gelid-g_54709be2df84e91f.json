@@ -1,0 +1,174 @@
+{
+  "_id": "54709be2df84e91f",
+  "_key": "!actors!54709be2df84e91f",
+  "name": "F63 Condor – Gelid G",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/fighter/f63-green.webp",
+  "system": {
+    "category": "tiny",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "L 13.5m x W 10.5m x H 2.5m",
+    "landingPad": "Requires Fighter Hangar",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "ECM",
+    "cargo": "",
+    "range": "No FSD",
+    "fuel": "0T",
+    "cost": "15,270cr",
+    "sensors": "",
+    "bays": 0,
+    "special": "",
+    "agility": 11,
+    "speed": 17,
+    "maxSpeed": 17,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 15,
+      "max": 15
+    },
+    "shields": {
+      "value": 20,
+      "max": 20,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": false,
+      "defence": 0,
+      "dogfighting": 0,
+      "pursuit": 0,
+      "initiative": 0,
+      "critical": 20
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": true,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "F63 Condor – Gelid G",
+    "actorLink": false,
+    "disposition": 0,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/fighter/f63-green.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "240fafb757244430",
+      "_key": "!actors.items!54709be2df84e91f.240fafb757244430",
+      "name": "Fighter Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "f5f3725b7399c2be",
+      "_key": "!actors.items!54709be2df84e91f.f5f3725b7399c2be",
+      "name": "Fighter Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 3,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "a2e6615b52e9dead",
+  "sort": 5800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

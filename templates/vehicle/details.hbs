@@ -49,7 +49,9 @@
    {{/if}}
 
    {{#if isShip}}
-   <h3 class="ed-vsub">{{localize "EDRPG.ship.components"}} <a data-action="addRow" data-list="components" data-tooltip="EDRPG.ship.addComponent"><i class="fa-solid fa-plus"></i></a></h3>
+   <h3 class="ed-vsub">{{localize "EDRPG.ship.components"}} <a data-action="addRow" data-list="components" data-tooltip="EDRPG.ship.addComponent"><i class="fa-solid fa-plus"></i></a>
+      <a data-action="engineer" data-tooltip="EDRPG.engineering.button"><i class="fa-solid fa-screwdriver-wrench"></i></a></h3>
+   {{#if bulkheadText}}<p class="ed-engineered">{{localize "EDRPG.engineering.bulkhead"}}: {{bulkheadText}}</p>{{/if}}
    <p class="hint">{{localize "EDRPG.ship.componentsHint"}}</p>
    <table class="ed-vrows">
       <tr><th>{{localize "EDRPG.ship.componentName"}}</th><th>{{localize "EDRPG.ship.componentKind"}}</th><th>{{localize "EDRPG.ship.strength"}}</th><th>{{localize "EDRPG.sheet.notes"}}</th><th></th></tr>
@@ -58,11 +60,27 @@
          <td><input type="text" name="system.components.{{r.index}}.name" value="{{r.name}}"></td>
          <td><select name="system.components.{{r.index}}.kind">{{selectOptions @root.componentKinds selected=r.kind localize=true}}</select></td>
          <td class="num"><input type="number" name="system.components.{{r.index}}.strength.value" value="{{r.strength.value}}" step="1"> / <input type="number" name="system.components.{{r.index}}.strength.max" value="{{r.strength.max}}" min="0" step="1"></td>
-         <td><input type="text" name="system.components.{{r.index}}.notes" value="{{r.notes}}"></td>
-         <td><a data-action="deleteRow" data-list="components" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-trash"></i></a></td>
+         <td><input type="text" name="system.components.{{r.index}}.notes" value="{{r.notes}}">{{#if r.engineeredText}}<div class="ed-engineered">{{r.engineeredText}}</div>{{/if}}</td>
+         <td class="ed-rowctl"><a data-action="engineer" data-key="c:{{r.index}}" data-tooltip="EDRPG.engineering.button"><i class="fa-solid fa-screwdriver-wrench"></i></a> <a data-action="deleteRow" data-list="components" data-tooltip="EDRPG.sheet.deleteItem"><i class="fa-solid fa-trash"></i></a></td>
       </tr>
       {{/each}}
    </table>
+
+   {{#if hangar.show}}
+   <h3 class="ed-vsub">{{localize "EDRPG.hangar.title"}}</h3>
+   <p class="hint">{{localize "EDRPG.hangar.hint" fighters=hangar.capacity.fighters ships=hangar.capacity.ships}}</p>
+   <table class="ed-vrows ed-hangar">
+      {{#each hangar.entries as |e|}}
+      <tr data-index="{{e.index}}">
+         <td>{{#if e.img}}<img src="{{e.img}}" alt="" width="24" height="24">{{/if}} <a data-action="openActor" data-uuid="{{e.uuid}}">{{e.name}}</a></td>
+         <td>{{#if e.launched}}{{localize "EDRPG.hangar.out"}}{{else}}{{localize "EDRPG.hangar.docked"}}{{/if}}</td>
+         <td class="ed-rowctl">{{#if e.launched}}<a data-action="recover" data-tooltip="EDRPG.hangar.recover"><i class="fa-solid fa-person-walking-arrow-loop-left"></i></a>{{/if}}
+            <a data-action="undock" data-tooltip="EDRPG.hangar.undock"><i class="fa-solid fa-xmark"></i></a></td>
+      </tr>
+      {{else}}<tr><td colspan="3" class="muted">{{localize "EDRPG.hangar.empty"}}</td></tr>{{/each}}
+   </table>
+   {{/if}}
+   {{#if carrierName}}<p class="hint">{{localize "EDRPG.hangar.carrier" name=carrierName}} <label class="checkbox"><input type="checkbox" name="system.remote" {{checked source.remote}}> {{localize "EDRPG.hangar.remoteLabel"}}</label></p>{{/if}}
 
    <h3 class="ed-vsub">{{localize "EDRPG.equip.title"}}</h3>
    <div class="ed-vspecs">

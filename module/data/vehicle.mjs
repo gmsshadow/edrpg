@@ -5,6 +5,8 @@ const int = (initial = 0, options = {}) => new fields.NumberField({ required: tr
 
 /** Vehicle and ship size classes. */
 export const craftSizes = {
+   // Ship-launched fighters (Super Traders Supplement): no critical hits.
+   tiny: "EDRPG.craft.size.tiny",
    small: "EDRPG.craft.size.small",
    medium: "EDRPG.craft.size.medium",
    large: "EDRPG.craft.size.large",
@@ -265,7 +267,7 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
       if (this.drone?.enabled || this.npc?.enabled) return { bonus: 0, gunner: null, auto: false, drone: true };
       const skill = this.constructor.WEAPONS;
       // Small ships can fix their turrets forwards when Jousting, Sniping, Strafing or winning a Dogfight (p.65).
-      const fixedForward = forward && this.isShip && this.category === "small";
+      const fixedForward = forward && this.isShip && ["tiny", "small"].includes(this.category);
       if (weapon.system.mount?.kind === "turret" && !fixedForward) {
          const gunner = weapon.system.gunner ? (fromUuidSync(weapon.system.gunner) ?? null) : null;
          if (!gunner) return { bonus: AUTO_TURRET_BONUS, gunner: null, auto: true };
@@ -320,6 +322,11 @@ export class CraftWeaponData extends foundry.abstract.TypeDataModel {
             max: new fields.NumberField({ required: true, nullable: true, integer: true, min: 0, initial: null }),
          }),
          special: new fields.StringField({ initial: "" }),
+         // Engineering (Espionage Supplement): its positive effects and faults.
+         engineered: new fields.SchemaField({
+            effects: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+            faults: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+         }),
          // Destabilisation Beam (Exploration Supplement): a hit collapses the shields, puts the Damage on the Hull, and
          // on a ship also on every Fixed and Internal component (weapons and utility mounts too on a critical hit).
          destabilise: new fields.BooleanField({ initial: false }),
@@ -416,6 +423,22 @@ export class ShipData extends VehicleData {
                { initial: [] },
             ),
          }),
+         // Engineered bulkhead (Espionage Supplement).
+         bulkhead: new fields.SchemaField({
+            effects: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+            faults: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+         }),
+         // Craft docked in this ship's Fighter Hangars and Spaceship Hangar (Super Traders Supplement).
+         hangar: new fields.ArrayField(
+            new fields.SchemaField({
+               uuid: new fields.StringField({ initial: "" }),
+               launched: new fields.BooleanField({ initial: false }),
+            }),
+            { initial: [] },
+         ),
+         // A docked or launched craft: its mothership, and whether it's flown remotely from there.
+         carrier: new fields.StringField({ initial: "" }),
+         remote: new fields.BooleanField({ initial: true }),
          // The ship roster's components, in roster order (critical hits count along this list).
          components: new fields.ArrayField(
             new fields.SchemaField({
@@ -425,6 +448,11 @@ export class ShipData extends VehicleData {
                notes: new fields.StringField({ initial: "" }),
                // For weapon components: the Craft Weapon item they stand for.
                item: new fields.StringField({ initial: "" }),
+               // Engineering (Espionage Supplement): its positive effects and faults.
+               engineered: new fields.SchemaField({
+               effects: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+               faults: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+            }),
             }),
             { initial: [] },
          ),
@@ -462,6 +490,27 @@ export class ShipData extends VehicleData {
    /** @override */
    get isShip() {
       return true;
+   }
+
+   /** A ship-launched fighter (no critical hits). */
+   get isFighter() {
+      return this.category === "tiny";
+   }
+
+   /**
+    * Hangar capacity from working components: Fighter Bays on Fighter Hangars, one small ship per Spaceship Hangar.
+    *
+    * @returns {{fighters: number, ships: number}}
+    */
+   get hangarCapacity() {
+      let fighters = 0;
+      let ships = 0;
+      for (const c of this.components ?? []) {
+         if (c.strength.value <= 0) continue;
+         if (/fighter hangar/i.test(c.name)) fighters += Number(c.notes.match(/(?:Fighter )?Bays\s*(\d+)/i)?.[1]) || 1;
+         else if (/spaceship hangar/i.test(c.name)) ships += 1;
+      }
+      return { fighters, ships };
    }
 
    /**

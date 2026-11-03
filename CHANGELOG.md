@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.1.38
+
+Supplements, step 5: engineering and ship-launched fighters.
+
+- **Engineering** (Espionage Supplement pp.6–12). The ship sheet's Specifications tab has an Engineer button (on the
+  Components heading and each component row). Pick the component, weapon or bulkhead and who does the work:
+  - Yourself: D10 + your Repair bonus (the pilot's by default). A professional engineer (Repair 5, 7, 9 or 10) rolls
+    twice and you choose.
+  - Overclocking (the enhancement): pick any positive effect from the component's table, with no fault.
+  - All 15 Engineering Tables are in. A natural 1 is Ruined; below 10 is a Malfunction (no change).
+  - Applied to the ship: Fleet/Clumsy (Agility), Boosted/Overdrive/Drag (Speed), Awareness (Initiative), Tracking
+    (Dogfighting), Accurate (To Hit), Quick Charge (recharge), Extra Bonus (floating bonuses), Hardened/Fragile
+    (Strength), Powerful (Shields), Recharger/Extra Cells (Shield Cell Banks), Damage Boost/Steady Mount (weapons).
+    Power, range, scan and mining effects are recorded on the component. A chat card shows the roll and what changed.
+  - Faults in play: Faulty (50%) and Unreliable (10%) break a component when it's activated (chaff, mines, a Shield
+    Cell Bank, or a weapon firing), Burnout does it 10 Damage each use, and Flashpoint makes it fail when the shields
+    collapse (or on Hull damage, with no shields).
+  - A* grade utility mounts (Magnified): chaff and ECM give +6 Defence, and point defence destroys missiles on 3–10.
+- **Ship-launched fighters** (Super Traders Supplement pp.26–30):
+  - The F63 Condor, GU-97 Fighter and Taipan, each in the Aegis F, Gelid G, Rogue G and Gelid F loadouts (12 in the
+    Ships compendium, Super Traders folder), with fighter weapons and their utility mount. They're a new "Tiny"
+    size, and can't suffer critical hits or targeted shots.
+  - Hangars: a ship's Fighter Hangars give it Fighter Bays, and a Spaceship Hangar takes a small ship. Drop a
+    fighter on the carrier's sheet to dock it; the Specifications tab lists what's aboard.
+  - Launch is an Equipment action (one craft a round). The craft appears beside the carrier in the same zone, joins
+    the combat and rolls Initiative. Bring it back aboard after the battle.
+  - A critical hit on a Fighter Hangar destroys the fighters still in it, and fighters flown remotely go dead; one
+    on a Spaceship Hangar does its Strength in Hull damage to the docked ship.
+  - The supplement's fighter opponents now take Agility, Speed and size from these fighters.
+- Ruling: the Shield Generator table prints no fault for an 11, so there isn't one.
+
 ## 0.1.37
 
 Supplements, step 4: the opponents. 68 stat blocks in the Opponents compendium, under a folder per book, then by scale

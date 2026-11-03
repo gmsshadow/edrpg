@@ -3015,3 +3015,13 @@ li:hover > .ed-row-delete {
 
 /* Destabilisation Beam: the components it hit */
 .edrpg-chat ul.ed-destab { margin: 0.2rem 0 0; padding-left: 1rem; font-size: 0.9em; }
+
+/* Engineering: engineered components and the chat card */
+.edrpg .ed-engineered { font-size: 0.8em; color: var(--ed-accent, #1c5d99); margin-top: 0.1rem; }
+.edrpg .ed-rowctl { white-space: nowrap; }
+.edrpg-chat.edrpg-engineering h3 { font-size: 1em; margin: 0 0 0.25rem; }
+.edrpg-chat.edrpg-engineering .ed-fault { color: #9b2c2c; }
+.edrpg-chat.edrpg-engineering ul { margin: 0.2rem 0; padding-left: 1rem; }
+
+/* Hangar */
+.edrpg .ed-hangar img { vertical-align: middle; border: none; }

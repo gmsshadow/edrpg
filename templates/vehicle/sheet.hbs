@@ -81,6 +81,7 @@
    {{#if hasEquip}}
    <div class="ed-vequip">
       <span class="ed-vturn-title"><i class="fa-solid fa-toolbox"></i> {{localize "EDRPG.equip.title"}}</span>
+      {{#if equip.launch}}<button type="button" data-action="equip" data-equip="launch" data-tooltip="EDRPG.hangar.launchHint"><i class="fa-solid fa-jet-fighter-up"></i> {{localize "EDRPG.hangar.launch"}}</button>{{/if}}
       {{#if equip.chaff}}<button type="button" data-action="equip" data-equip="chaff" class="{{#if equip.chaff.active}}taken{{/if}}" data-tooltip="EDRPG.equip.chaffHint"><i class="fa-solid fa-wand-sparkles"></i> {{localize "EDRPG.equip.chaff"}} {{equip.chaff.value}}/{{equip.chaff.max}}</button>{{/if}}
       {{#if equip.mines}}<button type="button" data-action="equip" data-equip="mines" class="{{#if equip.mines.active}}taken{{/if}}" data-tooltip="EDRPG.equip.minesHint"><i class="fa-solid fa-burst"></i> {{localize "EDRPG.equip.mines"}} {{equip.mines.value}}/{{equip.mines.max}}</button>{{/if}}
       {{#if equip.banks}}<button type="button" data-action="equip" data-equip="cellBank" class="{{#if equip.banks.running}}taken{{/if}}" data-tooltip="EDRPG.equip.bankHint"><i class="fa-solid fa-car-battery"></i> {{localize "EDRPG.equip.cellBank"}} ({{equip.banks.uses}}){{#if equip.banks.running}}: {{equip.banks.running}}{{/if}}</button>{{/if}}

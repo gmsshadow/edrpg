@@ -38,6 +38,10 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   small ships fixing turrets forwards, damaged components' effects, and ship destruction (emergency eject, cargo).
   Components and critical hits, targeted shots, and equipment actions (chaff, mines, point defence, ECM, Shield Cell
   Banks, floating bonuses).
+- **Engineering** (Espionage Supplement): an Engineer button on a ship's components rolls Repair on the component's
+  Engineering Table (or lets a professional roll twice, or applies an Overclocking pick) and applies the effects and
+  faults to the ship. **Ship-launched fighters** (Super Traders): the F63 Condor, GU-97 and Taipan in four loadouts;
+  drop them on a carrier to dock them in its hangar, and launch them as an Equipment action.
 - **Supplements**: backgrounds, enhancements and Karma Capabilities from the Espionage, Exploration, Military and
   Super Traders supplements, plus their weapons, armour, cybernetics and equipment (heavy pistols, laser carbines,
   rail rifles, Guardian Anti-Material Projectors, hacks, personal shields, alien artefacts), in a folder per book.

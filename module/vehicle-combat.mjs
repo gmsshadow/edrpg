@@ -3,6 +3,8 @@ import { rollCrashDamage } from "./dice/damage.mjs";
 import { spendPointDefence } from "./dice/craft-attack.mjs";
 import { zoneOf, moveToZone } from "./zones.mjs";
 import { isCraft } from "./data/vehicle.mjs";
+import { activationFaults } from "./engineering.mjs";
+import { chooseLaunch, performLaunch } from "./hangar.mjs";
 
 /**
  * Vehicle combat turn (Core Rules pp.65–68 for Space Combat, 72–75 for the vehicle differences).
@@ -46,9 +48,9 @@ export function actionsFor(actor, zone) {
 
 /** Ship collision Damage by size: Chicken (each ship inflicts on the other) and Ram (p.66–67). */
 // Huge ships (Supplements: Boa Mk III, Imperial Explorer) carry the size steps on: 100 / 40 / 4D10.
-export const SHIP_CHICKEN_DAMAGE = { small: 25, medium: 50, large: 75, huge: 100 };
-export const SHIP_RAM_DAMAGE = { small: 10, medium: 20, large: 30, huge: 40 };
-const SIZE_ORDER = { small: 1, medium: 2, large: 3, huge: 4 };
+export const SHIP_CHICKEN_DAMAGE = { tiny: 25, small: 25, medium: 50, large: 75, huge: 100 };
+export const SHIP_RAM_DAMAGE = { tiny: 10, small: 10, medium: 20, large: 30, huge: 40 };
+const SIZE_ORDER = { tiny: 0, small: 1, medium: 2, large: 3, huge: 4 };
 
 /** Action icons for the sheet. */
 export const ACTION_ICONS = {
@@ -143,6 +145,12 @@ const OPS = {
          }
       }
       if (bomber.system.hull.value > 0) await bomber.update({ "system.hull.value": 0, "system.speed": 0 });
+   },
+   /** Launch a docked craft (creates its token and combatant, so the GM runs it). */
+   async launch({ shipUuid, index }) {
+      const ship = await fromUuid(shipUuid);
+      const notes = await performLaunch({ shipUuid, index });
+      if (ship && notes.length) await postEvent(ship, { kind: "equipment", title: L("EDRPG.equip.title"), subtitle: ship.name, notes });
    },
    /** Change a chat card's state. */
    async event({ messageId, patch }) {
@@ -1233,10 +1241,24 @@ export async function equipmentAction(actor, which) {
    const eq = sys.equipment;
    const c = sys.combat;
    const say = (key, data = {}) => postEvent(actor, { kind: "equipment", title: L("EDRPG.equip.title"), subtitle: actor.name, notes: [L(key, { name: esc(actor.name), ...data })] });
+   if (which === "launch") {
+      const index = await chooseLaunch(actor);
+      if (index === null) return;
+      return op("launch", { shipUuid: actor.uuid, index });
+   }
+   // Engineering faults on the utility mount or Shield Cell Bank being activated.
+   const faultCheck = async (pattern) => {
+      const index = sys.components.findIndex((x) => (x.kind === "utility" || x.kind === "internal") && pattern.test(x.name) && x.strength.value > 0 && x.engineered?.faults?.length);
+      if (index < 0) return false;
+      const result = await activationFaults(actor, { index });
+      if (result.notes.length) await postEvent(actor, { kind: "equipment", title: L("EDRPG.equip.title"), subtitle: actor.name, notes: result.notes });
+      return result.broken;
+   };
    if (which === "chaff" || which === "mines") {
       const store = eq[which];
       if (c[which]) return void ui.notifications.info(L(`EDRPG.equip.${which}Active`, { name: actor.name }));
       if (store.value < 1) return void ui.notifications.warn(L("EDRPG.equip.noAmmo", { name: actor.name, what: L(`EDRPG.equip.${which}`) }));
+      if (await faultCheck(which === "chaff" ? /chaff/i : /mine launcher/i)) return;
       await actor.update({ [`system.equipment.${which}.value`]: store.value - 1, [`system.combat.${which}`]: true });
       return say(`EDRPG.equip.${which}Used`, { left: store.value - 1, max: store.max, dn: eq.mines.dn });
    }
@@ -1255,6 +1277,7 @@ export async function equipmentAction(actor, which) {
          if (!input) return;
          bank = banks.find((b) => b.i === Number(input.bank)) ?? bank;
       }
+      if (await faultCheck(new RegExp(bank.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"))) return;
       const cellBanks = foundry.utils.deepClone(sys._source.equipment.cellBanks);
       cellBanks[bank.i].uses -= 1;
       // It boosts this turn's recharge straight away (the recharge already ran at turn start), then the next rounds.

@@ -12170,9 +12170,7 @@
    "utility": [
     "Point Defence, Ammo 10"
    ],
-   "category": "small",
-   "token": "fighter/f63-blue",
-   "noVariant": true
+   "token": "fighter/f63-blue"
   },
   {
    "name": "Imperial Light Fighter",
@@ -12223,9 +12221,7 @@
    "utility": [
     "Chaff Launcher, Ammo 6"
    ],
-   "category": "small",
-   "token": "fighter/gu-97-blue",
-   "noVariant": true
+   "token": "fighter/gu-97-blue"
   },
   {
    "name": "Imperial Support Fighter",
@@ -12276,9 +12272,7 @@
    "utility": [
     "ECM"
    ],
-   "category": "small",
-   "token": "fighter/gu-97-green",
-   "noVariant": true
+   "token": "fighter/gu-97-green"
   },
   {
    "name": "Federal Scrambler",
@@ -12329,9 +12323,7 @@
    "utility": [
     "ECM"
    ],
-   "category": "small",
-   "token": "fighter/f63-red",
-   "noVariant": true
+   "token": "fighter/f63-red"
   },
   {
    "name": "Taipan Harasser",
@@ -12382,7 +12374,6 @@
    "utility": [
     "Chaff Launcher, Ammo 6"
    ],
-   "category": "small",
    "token": "pirate/taipan-pirate"
   },
   {
@@ -12523,9 +12514,7 @@
    "utility": [
     "ECM"
    ],
-   "category": "small",
-   "token": "fighter/taipan-red",
-   "noVariant": true
+   "token": "fighter/taipan-red"
   },
   {
    "name": "Stalwart Trader",

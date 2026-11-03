@@ -1,0 +1,227 @@
+{
+  "_id": "9c7b768c93dc4d03",
+  "_key": "!actors!9c7b768c93dc4d03",
+  "name": "Disorientator",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "master",
+    "role": "Relic AI",
+    "robotic": true,
+    "dodge": 6,
+    "parry": 6,
+    "initiative": 6,
+    "perception": 6,
+    "toHit": 6,
+    "speed": "10m",
+    "endurance": {
+      "value": 50,
+      "max": 50
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Hallucinogenic Waves: living creatures within 12m can't tell friend from foe unless they pass a Tactics or Perception check (difficulty 10); on a failure they attack a random ally. Disorientating Burst: living creatures within 6m add no Skill bonuses to attacks or Skill checks.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Disorientator",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "fec520ba4b6a86fa",
+      "_key": "!actors.items!9c7b768c93dc4d03.fec520ba4b6a86fa",
+      "name": "Sealed Plating",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 6,
+          "energy": 0,
+          "explosive": 10,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "82a4399cc07d78bf",
+      "_key": "!actors.items!9c7b768c93dc4d03.82a4399cc07d78bf",
+      "name": "Laser Jaw",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "100m",
+            "dn": 11
+          }
+        },
+        "finesse": null,
+        "damage": "20",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "f5a88bce20a53219",
+      "_key": "!actors.items!9c7b768c93dc4d03.f5a88bce20a53219",
+      "name": "Rotating Scalpel",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "2d10+4",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "771f3c9966b2fa2e",
+  "sort": 6500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

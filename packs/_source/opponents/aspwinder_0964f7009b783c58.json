@@ -1,0 +1,403 @@
+{
+  "_id": "0964f7009b783c58",
+  "_key": "!actors!0964f7009b783c58",
+  "name": "AspWinder",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/explorer/asp-scout.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "",
+    "landingPad": "Medium",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Master Relic AI. Spaceship: Modified Asp/Sidewinder.",
+    "agility": 6,
+    "speed": 7,
+    "maxSpeed": 7,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 700,
+      "max": 700
+    },
+    "shields": {
+      "value": 200,
+      "max": 200,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 15,
+      "dogfighting": 15,
+      "pursuit": 12,
+      "initiative": 8,
+      "critical": 50
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": [
+        {
+          "name": "Shield Cell Bank",
+          "boost": 15,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>When destroyed, the AspWinder splits into two Ghost Sidewinders. Roll Initiative for these ships as normal.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "AspWinder",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/explorer/asp-scout.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "46fe7b49e9cb4cda",
+      "_key": "!actors.items!0964f7009b783c58.46fe7b49e9cb4cda",
+      "name": "Overcharged Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "3983d351963e4d3c",
+      "_key": "!actors.items!0964f7009b783c58.3983d351963e4d3c",
+      "name": "Overcharged Fixed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "fc25db60e875e255",
+      "_key": "!actors.items!0964f7009b783c58.fc25db60e875e255",
+      "name": "Overcharged Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "6a8d0933097a6320",
+      "_key": "!actors.items!0964f7009b783c58.6a8d0933097a6320",
+      "name": "Overcharged Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5ef60b69569f98e9",
+      "_key": "!actors.items!0964f7009b783c58.5ef60b69569f98e9",
+      "name": "Overcharged Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "bd10d8113cf5d9c1",
+      "_key": "!actors.items!0964f7009b783c58.bd10d8113cf5d9c1",
+      "name": "Overcharged Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "8cf6b4e45b6fdeac",
+      "_key": "!actors.items!0964f7009b783c58.8cf6b4e45b6fdeac",
+      "name": "Overcharged Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "65bd46d5e7e343a9",
+      "_key": "!actors.items!0964f7009b783c58.65bd46d5e7e343a9",
+      "name": "Overcharged Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 800,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "486466ca29366137",
+  "sort": 1300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

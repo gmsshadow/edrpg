@@ -1,0 +1,118 @@
+{
+  "_id": "d50e8c8fd9ffa383",
+  "_key": "!actors!d50e8c8fd9ffa383",
+  "name": "Progenitor",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "competent",
+    "role": "Relic AI",
+    "robotic": true,
+    "dodge": 5,
+    "parry": 4,
+    "initiative": 4,
+    "perception": 3,
+    "toHit": 4,
+    "speed": "8m",
+    "endurance": {
+      "value": 40,
+      "max": 40
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Whirling Tentacles: it makes two Metallic Tendril or Animate Machinery attacks. Animate Machinery: a Metallic Tendril attack on an enemy it can see within 30m who is standing in a Relic AI facility. Grabbed: take 1D10 halved damage at the start of your turn; you can't move and can only use your action to escape (Athletics, difficulty 11; close combat damage bonuses add). It can't be knocked over.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Progenitor",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "a6eb1ee8c4a62c1a",
+      "_key": "!actors.items!d50e8c8fd9ffa383.a6eb1ee8c4a62c1a",
+      "name": "Metallic Tendril",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 6,
+        "damage": "1d10+4",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "The target is Grabbed.",
+        "equipped": true,
+        "toHit": 4
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "771f3c9966b2fa2e",
+  "sort": 6400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

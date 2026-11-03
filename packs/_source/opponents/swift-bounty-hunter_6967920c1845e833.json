@@ -3,10 +3,10 @@
   "_key": "!actors!6967920c1845e833",
   "name": "Swift Bounty Hunter",
   "type": "ship",
-  "img": "systems/edrpg/assets/tokens/combat/eagle-green.webp",
+  "img": "systems/edrpg/assets/tokens/combat/mamba-red.webp",
   "system": {
     "category": "small",
-    "manufacturer": "Core Dynamics",
+    "manufacturer": "Faulcon DeLacy",
     "dimensions": "",
     "landingPad": "Small",
     "crewSize": 1,
@@ -18,19 +18,19 @@
     "cost": "",
     "sensors": "",
     "bays": 0,
-    "special": "Novice Assassin. Spaceship: Eagle Mk II – EGX Ranger.",
-    "agility": 11,
-    "speed": 8,
-    "maxSpeed": 8,
+    "special": "Competent Assassin. Spaceship: Mamba Mk II Stunt Fighter.",
+    "agility": 8,
+    "speed": 12,
+    "maxSpeed": 12,
     "accelerate": 0,
     "decelerate": 0,
     "hull": {
-      "value": 60,
-      "max": 60
+      "value": 215,
+      "max": 215
     },
     "shields": {
-      "value": 85,
-      "max": 85,
+      "value": 105,
+      "max": 105,
       "recharge": 10,
       "down": false
     },
@@ -41,11 +41,11 @@
     },
     "npc": {
       "enabled": true,
-      "defence": 14,
-      "dogfighting": 15,
-      "pursuit": 9,
-      "initiative": 3,
-      "critical": 20
+      "defence": 15,
+      "dogfighting": 17,
+      "pursuit": 15,
+      "initiative": 5,
+      "critical": 40
     },
     "components": [],
     "equipment": {
@@ -69,7 +69,7 @@
     },
     "zone": "atDistance",
     "pilot": "",
-    "description": ""
+    "description": "<p><em>Espionage Supplement</em></p>"
   },
   "prototypeToken": {
     "name": "Swift Bounty Hunter",
@@ -79,7 +79,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "systems/edrpg/assets/tokens/combat/eagle-green.webp"
+      "src": "systems/edrpg/assets/tokens/combat/mamba-red.webp"
     },
     "bar1": {
       "attribute": "hull"
@@ -90,9 +90,9 @@
   },
   "items": [
     {
-      "_id": "c2d83c2316c23159",
-      "_key": "!actors.items!6967920c1845e833.c2d83c2316c23159",
-      "name": "Small Fixed Beam Laser",
+      "_id": "4ab8536a29320518",
+      "_key": "!actors.items!6967920c1845e833.4ab8536a29320518",
+      "name": "Small Gimballed Beam Laser",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {
@@ -100,9 +100,9 @@
         "cost": "",
         "mount": {
           "size": "small",
-          "kind": "fixed"
+          "kind": "gimballed"
         },
-        "accuracy": 6,
+        "accuracy": 8,
         "damage": 5,
         "burst": {
           "perPoint": 5,
@@ -127,9 +127,9 @@
       "flags": {}
     },
     {
-      "_id": "aed1b2f423ff9df1",
-      "_key": "!actors.items!6967920c1845e833.aed1b2f423ff9df1",
-      "name": "Small Fixed Pulse Laser",
+      "_id": "f68876c984844f01",
+      "_key": "!actors.items!6967920c1845e833.f68876c984844f01",
+      "name": "Small Gimballed Beam Laser",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {
@@ -137,13 +137,13 @@
         "cost": "",
         "mount": {
           "size": "small",
-          "kind": "fixed"
+          "kind": "gimballed"
         },
-        "accuracy": 6,
-        "damage": 10,
+        "accuracy": 8,
+        "damage": 5,
         "burst": {
           "perPoint": 5,
-          "max": 0
+          "max": 20
         },
         "damageVsShields": null,
         "bonusVsHull": 0,
@@ -164,9 +164,9 @@
       "flags": {}
     },
     {
-      "_id": "4f6a142ea8729528",
-      "_key": "!actors.items!6967920c1845e833.4f6a142ea8729528",
-      "name": "Small Fixed Cannon",
+      "_id": "4c69cc3c85082173",
+      "_key": "!actors.items!6967920c1845e833.4c69cc3c85082173",
+      "name": "Small Seeker Missile Rack",
       "type": "craftWeapon",
       "img": "icons/svg/target.svg",
       "system": {
@@ -176,18 +176,18 @@
           "size": "small",
           "kind": "fixed"
         },
-        "accuracy": 6,
-        "damage": 10,
+        "accuracy": 9,
+        "damage": 25,
         "burst": {
           "perPoint": 5,
           "max": 0
         },
-        "damageVsShields": null,
-        "bonusVsHull": 5,
+        "damageVsShields": 10,
+        "bonusVsHull": 0,
         "bonusVsShields": 0,
         "ammo": {
-          "value": 50,
-          "max": 50
+          "value": 12,
+          "max": 12
         },
         "special": "",
         "gunner": ""
@@ -199,11 +199,48 @@
         "default": 0
       },
       "flags": {}
+    },
+    {
+      "_id": "c09f2b91cc60cb35",
+      "_key": "!actors.items!6967920c1845e833.c09f2b91cc60cb35",
+      "name": "Small Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 9,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 10,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
     }
   ],
   "effects": [],
-  "folder": "9157c7c9459ef88f",
-  "sort": 3700,
+  "folder": "d6c89c5306a86d99",
+  "sort": 800,
   "ownership": {
     "default": 0
   },

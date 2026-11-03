@@ -1,0 +1,118 @@
+{
+  "_id": "8f5a484a6ac756bc",
+  "_key": "!actors!8f5a484a6ac756bc",
+  "name": "Holomancer",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "Relic AI",
+    "robotic": true,
+    "dodge": 0,
+    "parry": null,
+    "initiative": 5,
+    "perception": 5,
+    "toHit": 5,
+    "speed": "0m (12m)",
+    "endurance": {
+      "value": 20,
+      "max": 20
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Holomancer: a fixed energy projector that can't move or defend itself, usually hidden in a nearby chamber; its Endurance is the projector's. Holograms: it keeps up to four, projected up to 24m away (speed 12m, through walls, not slowed by terrain). Each attacks separately on the Holomancer's turn. Holograms can't be harmed, block enemies or make physical attacks, but spot enemies for it and interact with the facility. Destroying the projector ends them all.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Holomancer",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "f1e0673d23e613e0",
+      "_key": "!actors.items!8f5a484a6ac756bc.f1e0673d23e613e0",
+      "name": "Energy Blast",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "100m",
+            "dn": 11
+          }
+        },
+        "finesse": null,
+        "damage": "20",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "Fired by its holograms.",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "771f3c9966b2fa2e",
+  "sort": 6200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

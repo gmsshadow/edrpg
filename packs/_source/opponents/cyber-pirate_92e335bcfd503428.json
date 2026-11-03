@@ -1,0 +1,172 @@
+{
+  "_id": "92e335bcfd503428",
+  "_key": "!actors!92e335bcfd503428",
+  "name": "Cyber Pirate",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "master",
+    "role": "Criminal",
+    "robotic": false,
+    "dodge": 6,
+    "parry": 6,
+    "initiative": 3,
+    "perception": 3,
+    "toHit": 6,
+    "speed": "10m",
+    "endurance": {
+      "value": 60,
+      "max": 60
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 6
+      },
+      {
+        "skill": "streetwise",
+        "bonus": 3
+      },
+      {
+        "skill": "shipPiloting",
+        "bonus": 3
+      },
+      {
+        "skill": "shipWeapons",
+        "bonus": 3
+      }
+    ],
+    "equipment": "",
+    "notes": "<p>Fighting: 2D10 damage plus 2D10 Toxic damage.</p><p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Cyber Pirate",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "8870ba0a16bb7375",
+      "_key": "!actors.items!92e335bcfd503428.8870ba0a16bb7375",
+      "name": "Type 3 Armoured Carapace",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 6,
+          "energy": 5,
+          "explosive": 10,
+          "fighting": 4,
+          "melee": 4,
+          "toxic": 0
+        },
+        "toxicAll": true,
+        "hardened": 7,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "324f79fd1fa2541a",
+      "_key": "!actors.items!92e335bcfd503428.324f79fd1fa2541a",
+      "name": "Jupiter 'Lockon' Short Barrelled Rifle",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "867,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "8m",
+            "dn": 3
+          },
+          "medium": {
+            "distance": "16m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "70m",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "4d10",
+        "rangeDamage": {
+          "medium": "2d10",
+          "long": "1d10"
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 10,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a585fbd13c0620df",
+  "sort": 7900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

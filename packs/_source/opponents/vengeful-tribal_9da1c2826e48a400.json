@@ -1,0 +1,199 @@
+{
+  "_id": "9da1c2826e48a400",
+  "_key": "!actors!9da1c2826e48a400",
+  "name": "Vengeful Tribal",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "master",
+    "role": "Tribal",
+    "robotic": false,
+    "dodge": 6,
+    "parry": 6,
+    "initiative": 4,
+    "perception": 6,
+    "toHit": 7,
+    "speed": "10m",
+    "endurance": {
+      "value": 40,
+      "max": 40
+    },
+    "otherSkills": [
+      {
+        "skill": "stealth",
+        "bonus": 6
+      },
+      {
+        "skill": "survival",
+        "bonus": 5
+      }
+    ],
+    "equipment": "Laser Rifle, Knife",
+    "notes": "<p>Dead Eye: on a ranged attack it rerolls natural 1s on the attack die; on a natural 10 to hit, a target that takes any damage drops to 0 Endurance (not against vehicle or spaceship targets).</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Vengeful Tribal",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "f63d21d98b0c70dc",
+      "_key": "!actors.items!9da1c2826e48a400.f63d21d98b0c70dc",
+      "name": "Laser Rifle",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "40cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "20m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "150m",
+            "dn": 6
+          },
+          "long": {
+            "distance": "500m",
+            "dn": 9
+          }
+        },
+        "finesse": null,
+        "damage": "15",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "cd7773b1ef8f725c",
+      "_key": "!actors.items!9da1c2826e48a400.cd7773b1ef8f725c",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "1cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 7,
+        "damage": "1d10+4",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "440610a0171429c8",
+  "sort": 6900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

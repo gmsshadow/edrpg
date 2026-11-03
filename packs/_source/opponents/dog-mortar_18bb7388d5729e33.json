@@ -1,0 +1,227 @@
+{
+  "_id": "18bb7388d5729e33",
+  "_key": "!actors!18bb7388d5729e33",
+  "name": "Dog Mortar",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "Robot",
+    "robotic": true,
+    "dodge": 0,
+    "parry": null,
+    "initiative": 1,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 40,
+      "max": 40
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Robot: immune to Toxic damage. Verification protocols: it can't take reaction actions (counterattacks, attacks on an enemy moving away or firing point blank, grenade or missile reactions) and attacks at a flat +3 To Hit. It can deactivate them on command: Dodge 4 and To Hit +5.</p><p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Dog Mortar",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "4ce08622198e8d20",
+      "_key": "!actors.items!18bb7388d5729e33.4ce08622198e8d20",
+      "name": "Armour Plating",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 3,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "6928c57e3b5dfc2c",
+      "_key": "!actors.items!18bb7388d5729e33.6928c57e3b5dfc2c",
+      "name": "Frag Grenade",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "grenade",
+        "damageType": "explosive",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 25,
+          "injury": 10,
+          "fatalRadius": 6,
+          "injuryRadius": 16
+        },
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "2b9e6c63b3ae9af9",
+      "_key": "!actors.items!18bb7388d5729e33.2b9e6c63b3ae9af9",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 8,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "174ff00fdd2e23bd",
+  "sort": 7600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

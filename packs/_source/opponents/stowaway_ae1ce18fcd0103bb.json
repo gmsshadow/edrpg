@@ -1,0 +1,100 @@
+{
+  "_id": "ae1ce18fcd0103bb",
+  "_key": "!actors!ae1ce18fcd0103bb",
+  "name": "Stowaway",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Criminal",
+    "robotic": false,
+    "dodge": 2,
+    "parry": 3,
+    "initiative": 2,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 20,
+      "max": 20
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 3
+      },
+      {
+        "skill": "streetwise",
+        "bonus": 3
+      },
+      {
+        "skill": "shipPiloting",
+        "bonus": 3
+      },
+      {
+        "skill": "shipWeapons",
+        "bonus": 3
+      }
+    ],
+    "equipment": "",
+    "notes": "<p>Stolen Weapon: +3 To Hit with whatever it has picked up.</p><p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Stowaway",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "1d582d18cc1764ff",
+      "_key": "!actors.items!ae1ce18fcd0103bb.1d582d18cc1764ff",
+      "name": "Reflec Vest",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 0,
+          "energy": 5,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a585fbd13c0620df",
+  "sort": 7700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

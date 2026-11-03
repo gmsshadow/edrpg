@@ -316,8 +316,11 @@ export async function applyDamage(actor, { amount, damageType, parts = null, spe
    let hardened = null;
    let absorbedTotal = 0;
    let taken = 0;
+   // Robots and drones are mechanical: immune to Toxic damage (Military Sourcebook p.48).
+   const mechanical = !!actor.system.robotic;
    for (const p of parts) {
-      if (p.value <= 0) {
+      if (p.value <= 0 || (mechanical && p.type === "toxic")) {
+         if (p.value > 0) p.immune = true;
          p.taken = 0;
          continue;
       }
@@ -345,7 +348,7 @@ export async function applyDamage(actor, { amount, damageType, parts = null, spe
       p.taken = Math.max(p.value - absorb, p.type === "toxic" ? 0 : 1);
       taken += p.taken;
    }
-   const gotThrough = parts.some((p) => p.value > 0);
+   const gotThrough = parts.some((p) => p.value > 0 && !p.immune);
 
    // The Anti-Material Projector's hit leaves the target's armour (and any Armoured Carapace) useless until repaired.
    const destroyed = [];
@@ -383,6 +386,7 @@ export async function applyDamage(actor, { amount, damageType, parts = null, spe
       shield,
       parts: parts.length > 1 ? parts.map((p) => ({ ...p, typeLabel: `EDRPG.damage.${p.type}` })) : null,
       ignored: parts.length === 1 && !!parts[0].ignored,
+      immune: parts.every((p) => p.immune || p.value <= 0) && parts.some((p) => p.immune),
       armour: parts.length === 1 ? (parts[0].armour ?? null) : firstArmour,
       hardened: parts.length === 1 ? (parts[0].hardened ?? null) : hardened,
       absorbed: absorbedTotal,

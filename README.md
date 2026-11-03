@@ -44,7 +44,8 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   Split Energy/Kinetic damage, armour-piercing and armour-destroying weapons, molten munitions, personal shields,
   the Cellular Regeneration Emitter and the Destabilisation Beam are automated.
 - **Opponents compendium**: every individual-scale opponent in the Core Rules (51), plus the spaceship- and
-  vehicle-scale ones and the drones.
+  vehicle-scale ones and the drones; and the supplements' 68 opponents (individual, spaceship and vehicle scale) in a
+  folder per book.
 - **Ships compendium**: all 63 ship variants from the Spaceships chapter, plus the 56 from the supplements (in a folder
   per book), with weapons, components, equipment, bonuses and tokens; the GM's spaceship- and vehicle-scale opponents in the Opponents compendium.
 - **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until

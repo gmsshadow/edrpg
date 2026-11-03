@@ -1,0 +1,192 @@
+{
+  "_id": "93719bafad88b9a8",
+  "_key": "!actors!93719bafad88b9a8",
+  "name": "Pirate Trash Tank",
+  "type": "vehicle",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "medium",
+    "manufacturer": "",
+    "dimensions": "",
+    "bays": 1,
+    "crewSize": 0,
+    "passengers": 0,
+    "sensors": "1km range",
+    "cargo": "1T",
+    "cost": "",
+    "special": "High Threat Novice Criminal. Vehicle: Trash Tank.",
+    "agility": 0,
+    "maxSpeed": 5,
+    "accelerate": 2,
+    "decelerate": 1,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 0,
+        "attack": -1
+      },
+      {
+        "defence": 1,
+        "attack": -2
+      },
+      {
+        "defence": 1,
+        "attack": -3
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 200,
+      "max": 200
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false
+    },
+    "drone": {
+      "enabled": true,
+      "defence": 4,
+      "initiative": 3,
+      "pursuit": 1,
+      "perception": 3
+    },
+    "flying": false,
+    "bomb": {
+      "damage": 0,
+      "vsShields": 0
+    },
+    "forwardRam": false,
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Pirate Trash Tank",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "82c55c429df90699",
+      "_key": "!actors.items!93719bafad88b9a8.82c55c429df90699",
+      "name": "Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "turret"
+        },
+        "accuracy": 5,
+        "damage": 30,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "bf83ecf42a1ff3a7",
+      "_key": "!actors.items!93719bafad88b9a8.bf83ecf42a1ff3a7",
+      "name": "Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "8b02b32403f14176",
+  "sort": 3900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

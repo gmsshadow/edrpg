@@ -1,0 +1,211 @@
+{
+  "_id": "28958b0fd1122bd9",
+  "_key": "!actors!28958b0fd1122bd9",
+  "name": "Empire Privateer",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/empire/imperial-eagle.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Gutamaya",
+    "dimensions": "",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Mostly Harmless Criminal. Spaceship: Imperial Eagle Outreach Omega.",
+    "agility": 9,
+    "speed": 10,
+    "maxSpeed": 10,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 130,
+      "max": 130
+    },
+    "shields": {
+      "value": 85,
+      "max": 85,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 13,
+      "dogfighting": 14,
+      "pursuit": 11,
+      "initiative": 3,
+      "critical": 25
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": true,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Empire Privateer",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/empire/imperial-eagle.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "b83861bd940f3e93",
+      "_key": "!actors.items!28958b0fd1122bd9.b83861bd940f3e93",
+      "name": "Medium Fixed Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 20,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "9761d4a30265220d",
+      "_key": "!actors.items!28958b0fd1122bd9.9761d4a30265220d",
+      "name": "Small Fixed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "5ab7b7e34e8ed644",
+      "_key": "!actors.items!28958b0fd1122bd9.5ab7b7e34e8ed644",
+      "name": "Small Fixed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "39c050194da7e745",
+  "sort": 2200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

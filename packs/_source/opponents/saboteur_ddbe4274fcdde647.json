@@ -1,0 +1,135 @@
+{
+  "_id": "ddbe4274fcdde647",
+  "_key": "!actors!ddbe4274fcdde647",
+  "name": "Saboteur",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Criminal",
+    "robotic": false,
+    "dodge": 3,
+    "parry": 3,
+    "initiative": 3,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 25,
+      "max": 25
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 3
+      },
+      {
+        "skill": "streetwise",
+        "bonus": 3
+      },
+      {
+        "skill": "repair",
+        "bonus": 3
+      },
+      {
+        "skill": "computer",
+        "bonus": 3
+      }
+    ],
+    "equipment": "",
+    "notes": "<p>Wears a space suit (no armour).</p><p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Saboteur",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "0571863f62d8e362",
+      "_key": "!actors.items!ddbe4274fcdde647.0571863f62d8e362",
+      "name": "Sub Machinegun",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "9cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "120m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "3d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a585fbd13c0620df",
+  "sort": 7800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

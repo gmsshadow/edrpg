@@ -1,0 +1,155 @@
+{
+  "_id": "7d7b366aa4b43244",
+  "_key": "!actors!7d7b366aa4b43244",
+  "name": "Eye Bot",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "harmless",
+    "role": "Robot",
+    "robotic": true,
+    "dodge": 3,
+    "parry": null,
+    "initiative": 4,
+    "perception": 4,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 15,
+      "max": 15
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Robot: immune to Toxic damage. Verification protocols: it can't take reaction actions (counterattacks, attacks on an enemy moving away or firing point blank, grenade or missile reactions) and attacks at a flat +3 To Hit. It can deactivate them on command: Dodge 4 and To Hit +5. Fly: ignores difficult terrain and interposing enemies. Encounter building: Harmless alone, but robots linked to it count one threat rank higher.</p><p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Eye Bot",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "3f60be3b483070cd",
+      "_key": "!actors.items!7d7b366aa4b43244.3f60be3b483070cd",
+      "name": "Armour Plating",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 3,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "0db46776090e30e5",
+      "_key": "!actors.items!7d7b366aa4b43244.0db46776090e30e5",
+      "name": "Laser Painter",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "20m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "150m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "500m",
+            "dn": 10
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "No damage: linked robots get +2 To Hit with ranged attacks against the target while the Eye Bot keeps it in sight.",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "174ff00fdd2e23bd",
+  "sort": 7300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

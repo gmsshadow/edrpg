@@ -1,0 +1,137 @@
+{
+  "_id": "3ed1f3f0be57ce18",
+  "_key": "!actors!3ed1f3f0be57ce18",
+  "name": "Thargon Swarm",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/thargoid/thargon-swarm.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "",
+    "dimensions": "",
+    "landingPad": "",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Elite Alien. Spaceship: Thargon Swarm.",
+    "agility": 0,
+    "speed": 0,
+    "maxSpeed": 0,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 32,
+      "max": 32
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 20,
+      "dogfighting": 22,
+      "pursuit": 17,
+      "initiative": 6,
+      "critical": 0
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>Multiple Attacks: one Thargon Ballistics attack (ignores shields) for every 8 Hull it has. Swarm Trait: a single hit does at most 1 Damage (one Thargon fighter), plus 1 for every Burst level it inflicts.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Thargon Swarm",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/thargoid/thargon-swarm.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "ca08c8ccb6624960",
+      "_key": "!actors.items!3ed1f3f0be57ce18.ca08c8ccb6624960",
+      "name": "Thargon Ballistics",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "Ignores shields; one attack per 8 Hull",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "a28b88c2fd20ce9a",
+  "sort": 1500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

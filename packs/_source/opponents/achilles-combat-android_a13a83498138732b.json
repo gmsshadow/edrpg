@@ -1,0 +1,160 @@
+{
+  "_id": "a13a83498138732b",
+  "_key": "!actors!a13a83498138732b",
+  "name": "Achilles Combat Android",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "competent",
+    "role": "Robot",
+    "robotic": true,
+    "dodge": 4,
+    "parry": 4,
+    "initiative": 4,
+    "perception": 4,
+    "toHit": 4,
+    "speed": "10m",
+    "endurance": {
+      "value": 40,
+      "max": 40
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 4
+      }
+    ],
+    "equipment": "",
+    "notes": "<p>Fighting: 1D10+6 damage. Robot: immune to Toxic damage. Verification protocols: it can't take reaction actions (counterattacks, attacks on an enemy moving away or firing point blank, grenade or missile reactions) and attacks at a flat +4 To Hit (Advanced Design). Secret Sentience: each time it loses Endurance roll a D10; on a 10 it becomes sentient (Deadly): it deactivates its verification protocols and those of every robot within 500km, and its Dodge, Parry, To Hit, Initiative and Perception become 8. Brotherhood of the Machine: robots without verification protocols never target a sentient android.</p><p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Achilles Combat Android",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "117da4ca6094c750",
+      "_key": "!actors.items!a13a83498138732b.117da4ca6094c750",
+      "name": "Armour Plating",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 3,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "d62d22bb8643b971",
+      "_key": "!actors.items!a13a83498138732b.d62d22bb8643b971",
+      "name": "Assault Beamer",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "50cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "70m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "200m",
+            "dn": 10
+          }
+        },
+        "finesse": null,
+        "damage": "5",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "energy",
+          "max": "20"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 4
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "174ff00fdd2e23bd",
+  "sort": 7500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

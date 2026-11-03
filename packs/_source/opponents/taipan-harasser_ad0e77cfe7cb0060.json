@@ -1,0 +1,174 @@
+{
+  "_id": "ad0e77cfe7cb0060",
+  "_key": "!actors!ad0e77cfe7cb0060",
+  "name": "Taipan Harasser",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/pirate/taipan-pirate.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "",
+    "dimensions": "",
+    "landingPad": "",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Novice Criminal. Spaceship: Taipan Rogue G.",
+    "agility": 0,
+    "speed": 0,
+    "maxSpeed": 0,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 25,
+      "max": 25
+    },
+    "shields": {
+      "value": 30,
+      "max": 30,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 14,
+      "dogfighting": 14,
+      "pursuit": 16,
+      "initiative": 3,
+      "critical": 20
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Taipan Harasser",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/pirate/taipan-pirate.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "8451f9f99f1c13d0",
+      "_key": "!actors.items!ad0e77cfe7cb0060.8451f9f99f1c13d0",
+      "name": "Fighter Gimballed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 6,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "f253ce9846064151",
+      "_key": "!actors.items!ad0e77cfe7cb0060.f253ce9846064151",
+      "name": "Fighter Gimballed Pulse Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "gimballed"
+        },
+        "accuracy": 6,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "89237ef66d8dce15",
+  "sort": 3000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

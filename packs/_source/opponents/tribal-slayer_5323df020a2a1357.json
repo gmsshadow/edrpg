@@ -1,0 +1,199 @@
+{
+  "_id": "5323df020a2a1357",
+  "_key": "!actors!5323df020a2a1357",
+  "name": "Tribal Slayer",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "Tribal",
+    "robotic": false,
+    "dodge": 4,
+    "parry": 4,
+    "initiative": 3,
+    "perception": 6,
+    "toHit": 6,
+    "speed": "12m",
+    "endurance": {
+      "value": 35,
+      "max": 35
+    },
+    "otherSkills": [
+      {
+        "skill": "stealth",
+        "bonus": 6
+      },
+      {
+        "skill": "survival",
+        "bonus": 5
+      }
+    ],
+    "equipment": "Spear, Hunting Bow, 12 Arrows",
+    "notes": "<p>Poisoned: the target takes 5 Toxic damage at the start of each of its turns until treated with a Medicine check (difficulty 10).</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Tribal Slayer",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "8188cbe33100f2db",
+      "_key": "!actors.items!5323df020a2a1357.8188cbe33100f2db",
+      "name": "Spear",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>The target is poisoned.</p>",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 6,
+        "damage": "1d10+6",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "One or two handed: +2 damage when used two-handed.",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "0ce3eafcb912dcca",
+      "_key": "!actors.items!5323df020a2a1357.0ce3eafcb912dcca",
+      "name": "Poisoned Hunting Bow",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "50m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "100m",
+            "dn": 11
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "The target is poisoned.",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "440610a0171429c8",
+  "sort": 6800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

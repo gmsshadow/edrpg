@@ -1,0 +1,329 @@
+{
+  "_id": "6b2f91ca33e7f9be",
+  "_key": "!actors!6b2f91ca33e7f9be",
+  "name": "Alliance Heavy Fighter",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/combat/mongoose-red.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Zorgon Peterson",
+    "dimensions": "",
+    "landingPad": "Medium",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Expert Soldier. Spaceship: Mongoose Attack Fighter.",
+    "agility": 8,
+    "speed": 6,
+    "maxSpeed": 6,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 355,
+      "max": 355
+    },
+    "shields": {
+      "value": 145,
+      "max": 145,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 13,
+      "dogfighting": 14,
+      "pursuit": 8,
+      "initiative": 6,
+      "critical": 80
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 10,
+        "max": 10
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": [
+        {
+          "name": "Shield Cell Bank",
+          "boost": 20,
+          "duration": 2,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Espionage Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Alliance Heavy Fighter",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/combat/mongoose-red.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "d93f27eab96226f1",
+      "_key": "!actors.items!6b2f91ca33e7f9be.d93f27eab96226f1",
+      "name": "Medium Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d4b4102b02c5f6c4",
+      "_key": "!actors.items!6b2f91ca33e7f9be.d4b4102b02c5f6c4",
+      "name": "Medium Fixed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "8e5c5d0d8ce7ca79",
+      "_key": "!actors.items!6b2f91ca33e7f9be.8e5c5d0d8ce7ca79",
+      "name": "Medium Fixed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b145e99831f0a7fb",
+      "_key": "!actors.items!6b2f91ca33e7f9be.b145e99831f0a7fb",
+      "name": "Medium Fixed Multi-Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 8,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 30,
+          "max": 30
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "dd9361dbcab0ed11",
+      "_key": "!actors.items!6b2f91ca33e7f9be.dd9361dbcab0ed11",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 10,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b779a6e604a7d6ca",
+      "_key": "!actors.items!6b2f91ca33e7f9be.b779a6e604a7d6ca",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 10,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "53df09c0de617e8e",
+  "sort": 200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

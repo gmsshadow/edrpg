@@ -1,0 +1,155 @@
+{
+  "_id": "3ebfa528e88c15c1",
+  "_key": "!actors!3ebfa528e88c15c1",
+  "name": "Guard Bot",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "competent",
+    "role": "High Threat Robot",
+    "robotic": true,
+    "dodge": 0,
+    "parry": null,
+    "initiative": 3,
+    "perception": 5,
+    "toHit": 3,
+    "speed": "6m",
+    "endurance": {
+      "value": 50,
+      "max": 50
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Hail of Fire: if it doesn't move it fires its Assault Beamer twice in its turn. Continuous Attack (a single attack between each turn). Robot: immune to Toxic damage. Verification protocols: it can't take reaction actions (counterattacks, attacks on an enemy moving away or firing point blank, grenade or missile reactions) and attacks at a flat +3 To Hit. It can deactivate them on command: To Hit +6. Just a gun: no Fighting or Melee attacks. Resist Knockdown 1. Limited Mobility: flat surfaces only; once knocked down it can't get back up.</p><p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Guard Bot",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "2a6f27688d6458a8",
+      "_key": "!actors.items!3ebfa528e88c15c1.2a6f27688d6458a8",
+      "name": "Heavy Plating",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 8,
+          "energy": 5,
+          "explosive": 0,
+          "fighting": 5,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 6,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "e61d81739de3c026",
+      "_key": "!actors.items!3ebfa528e88c15c1.e61d81739de3c026",
+      "name": "Assault Beamer",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "50cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "70m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "200m",
+            "dn": 10
+          }
+        },
+        "finesse": null,
+        "damage": "5",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "energy",
+          "max": "20"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "174ff00fdd2e23bd",
+  "sort": 7400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

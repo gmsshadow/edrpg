@@ -18,6 +18,7 @@ HERE = os.path.dirname(__file__)
 DATA = json.load(open(os.path.join(HERE, "ships-data.json"), encoding="utf-8"))
 # Supplement ships (Espionage, Exploration, Military, Super Traders), each with its "source" book.
 SUPPLEMENT = json.load(open(os.path.join(HERE, "ships-supplements.json"), encoding="utf-8"))["ships"]
+SUPPLEMENT_OPPONENTS = json.load(open(os.path.join(HERE, "ships-supplements.json"), encoding="utf-8"))["opponents"]
 TOK = "systems/edrpg/assets/tokens"
 TOKEN_SIZE = {"small": 1, "medium": 2, "large": 3, "huge": 4}
 
@@ -319,6 +320,118 @@ def write_opponents(root, sort_base=2000):
                                "texture": {"src": img}, "bar1": {"attribute": "hull"}, "bar2": {"attribute": "shields"}},
             "items": [weapon_item(oid, j, w, gm=True) for j, w in enumerate(o["weapons"])],
             "effects": [], "folder": groups[g], "sort": (i + 1) * 100, "ownership": {"default": 0}, "flags": {},
+        }
+        dump(root, doc, slugify(name))
+        n += 1
+    return n + write_supplement_opponents(root)
+
+
+def mines_from(weapons, eq):
+    """Mine Launchers become the ship's mines equipment (several launchers pool their mines)."""
+    out = []
+    for w in weapons:
+        if "Mine Launcher" in w["name"]:
+            prev = eq["mines"]["ammo"] if eq["mines"] else 0
+            eq["mines"] = {"ammo": prev + (w["ammo"] or 6), "dn": (w.get("mine") or {}).get("dn", 15), "damage": w["damage"] or 10}
+        else:
+            out.append(w)
+    return out
+
+
+def write_supplement_opponents(root):
+    """The supplements' spaceship- and vehicle-scale opponents: <Book> / Spaceship-Scale (or Vehicle-Scale) Opponents /
+    <Group>. The book folder is written by tools/opponents.py (same id)."""
+    book_id = lambda book: hashlib.sha1(("edrpg-opponent-folder-" + book).encode()).hexdigest()[:16]
+    pool = DATA["ships"] + SUPPLEMENT  # ties go to the core ship ("Modified Cobra Mk III")
+    folders = {}
+
+    def folder_for(book, scale, group):
+        scale_key = f"{book}/{scale}"
+        if scale_key not in folders:
+            folders[scale_key] = did("folder", scale_key)
+            dump(root, folder_doc(folders[scale_key], scale, 100 if scale.startswith("Spaceship") else 200, book_id(book)), "_folder-" + slugify(scale_key))
+        key = f"{scale_key}/{group}"
+        if key not in folders:
+            folders[key] = did("folder", key)
+            dump(root, folder_doc(folders[key], group, len(folders) * 100, folders[scale_key]), "_folder-" + slugify(key))
+        return folders[key]
+
+    def best_variant(text):
+        want = norm(text)
+        best, score = None, 0
+        for v in pool:
+            sc = len(want & norm(v["name"]))
+            if sc > score:
+                best, score = v, sc
+        return best
+
+    n = 0
+    for i, o in enumerate(SUPPLEMENT_OPPONENTS):
+        st = o["stats"]
+        num = lambda k, d=0: int(re.sub(r"[^\d-]", "", st.get(k, str(d))) or d)
+        name = o["name"]
+        oid = did("opp", name)
+        special = f"<p>{o['special']}</p>" if o.get("special") else ""
+        source = f"<p><em>{o['source']}</em></p>"
+        if o["kind"] == "vehicle":
+            img = f"{TOK}/{o['token']}.webp" if o.get("token") else "icons/svg/wing.svg"
+            doc = {
+                "_id": oid, "_key": f"!actors!{oid}", "name": name, "type": "vehicle", "img": img,
+                "system": {
+                    "category": o["category"], "manufacturer": "", "dimensions": "", "bays": 1, "crewSize": 0, "passengers": 0,
+                    "sensors": o.get("sensors", ""), "cargo": o.get("cargo", ""), "cost": "", "special": f"{o['rank']}. Vehicle: {o['ship']}.",
+                    "agility": 0, "maxSpeed": num("Max Speed"), "accelerate": num("Accelerate"), "decelerate": num("Decelerate"),
+                    "speedTable": o["table"], "hull": {"value": num("Hull"), "max": num("Hull")},
+                    "shields": {"value": num("Shields"), "max": num("Shields"), "recharge": num("Shield Recharge", 5), "down": False},
+                    "drone": {"enabled": True, "defence": num("Defence"), "initiative": num("Initiative"), "pursuit": num("Pursuit"), "perception": num("Perception")},
+                    "flying": False, "bomb": {"damage": 0, "vsShields": 0}, "forwardRam": False,
+                    "speed": 0, "zone": "atDistance", "pilot": "", "description": special + source,
+                },
+                "prototypeToken": {"name": name, "actorLink": False, "disposition": -1, "displayBars": 20, "width": 1, "height": 1,
+                                   "texture": {"src": img}, "bar1": {"attribute": "hull"}, "bar2": {"attribute": "shields"}},
+                "items": [weapon_item(oid, j, w) for j, w in enumerate(o["weapons"])],
+                "effects": [], "folder": folder_for(o["source"], "Vehicle-Scale Opponents", o["group"]), "sort": (i + 1) * 100,
+                "ownership": {"default": 0}, "flags": {},
+            }
+            dump(root, doc, slugify(name))
+            n += 1
+            continue
+        v = None if o.get("noVariant") else best_variant(o["ship"])
+        family = family_name(v["family"]) if v else None
+        cat = o.get("category") or (v["base"]["category"] if v else "small")
+        token = o.get("token") or (token_for(family, o["ship"] + " " + name, i) if family else None)
+        img = f"{TOK}/{token}.webp" if token else "icons/svg/wing.svg"
+        eq = {"chaff": 0, "pd": 0, "ecm": False, "mines": None, "floating": 0, "banks": []}
+        for u in o["utility"]:
+            am = re.search(r"Ammo\s*(\d+)", u)
+            if "Chaff" in u: eq["chaff"] += int(am.group(1)) if am else 6
+            if "Point" in u and "efence" in u: eq["pd"] += int(am.group(1)) if am else 10
+            if re.match(r"^ECM\b", u): eq["ecm"] = True
+        if st.get("Shield Cell Bank"):
+            b, d = (int(x) for x in re.findall(r"\d+", st["Shield Cell Bank"])[:2])
+            eq["banks"].append({"name": "Shield Cell Bank", "boost": b, "duration": d, "uses": 3})
+        weapons = mines_from(o["weapons"], eq)
+        utility = [u for u in o["utility"] if not re.match(r"^(Chaff|Point Defence|ECM)\b", u)]
+        doc = {
+            "_id": oid, "_key": f"!actors!{oid}", "name": name, "type": "ship", "img": img,
+            "system": {
+                "category": cat, "manufacturer": v["base"]["manufacturer"] if v else "", "dimensions": "", "landingPad": v["base"]["landingPad"] if v else "",
+                "crewSize": 1, "passengers": 0, "utilityMounts": "; ".join(utility), "cargo": "", "range": "", "fuel": "", "cost": "",
+                "sensors": "", "bays": 0, "special": f"{o['rank']}. Spaceship: {o['ship']}.",
+                "agility": v["agility"] if v else 0, "speed": v["speed"] if v else 0, "maxSpeed": v["speed"] if v else 0, "accelerate": 0, "decelerate": 0,
+                "hull": {"value": num("Hull"), "max": num("Hull")},
+                "shields": {"value": num("Shields"), "max": num("Shields"), "recharge": num("Shield Recharge", 5), "down": False},
+                "bonuses": {"toHit": 0, "initiative": 0, "dogfighting": 0},
+                "npc": {"enabled": True, "defence": num("Defence"), "dogfighting": num("Dogfighting"), "pursuit": num("Pursuit"),
+                        "initiative": num("Initiative"), "critical": num("Critical", 20)},
+                "components": [], "equipment": equipment(eq),
+                "zone": "atDistance", "pilot": "", "description": special + source,
+            },
+            "prototypeToken": {"name": name, "actorLink": False, "disposition": -1, "displayBars": 20, "width": TOKEN_SIZE[cat], "height": TOKEN_SIZE[cat],
+                               "texture": {"src": img}, "bar1": {"attribute": "hull"}, "bar2": {"attribute": "shields"}},
+            "items": [weapon_item(oid, j, w, gm=True) for j, w in enumerate(weapons)],
+            "effects": [], "folder": folder_for(o["source"], "Spaceship-Scale Opponents", o["group"]), "sort": (i + 1) * 100,
+            "ownership": {"default": 0}, "flags": {},
         }
         dump(root, doc, slugify(name))
         n += 1

@@ -1,0 +1,285 @@
+{
+  "_id": "93327466b3cdd0fd",
+  "_key": "!actors!93327466b3cdd0fd",
+  "name": "Successful Trader",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/transport/type-9.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Lakon Spaceways",
+    "dimensions": "",
+    "landingPad": "Large",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "High Threat Competent Trader. Spaceship: Type-9 Heavy Protected Carrier.",
+    "agility": 0,
+    "speed": 0,
+    "maxSpeed": 0,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 430,
+      "max": 430
+    },
+    "shields": {
+      "value": 230,
+      "max": 230,
+      "recharge": 5,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 4,
+      "dogfighting": 4,
+      "pursuit": 2,
+      "initiative": 4,
+      "critical": 55
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 20,
+        "max": 20
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Successful Trader",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/transport/type-9.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "219068459686b1df",
+      "_key": "!actors.items!93327466b3cdd0fd.219068459686b1df",
+      "name": "Medium Turreted Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 6,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "220b545bd6e55f9c",
+      "_key": "!actors.items!93327466b3cdd0fd.220b545bd6e55f9c",
+      "name": "Medium Turreted Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 6,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b0a833a33b211718",
+      "_key": "!actors.items!93327466b3cdd0fd.b0a833a33b211718",
+      "name": "Medium Turreted Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "turret"
+        },
+        "accuracy": 6,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 10
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "2535fba49d304bfb",
+      "_key": "!actors.items!93327466b3cdd0fd.2535fba49d304bfb",
+      "name": "Small Turreted Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 8,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 5/10/15",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "0a3ea699d5e3fc7b",
+      "_key": "!actors.items!93327466b3cdd0fd.0a3ea699d5e3fc7b",
+      "name": "Small Turreted Fragment Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 8,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "special": "Damage 5/10/15",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "504ad8ef8b7bd6bf",
+  "sort": 3500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

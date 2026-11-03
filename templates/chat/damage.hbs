@@ -36,6 +36,7 @@
             {{else}}<span class="muted">({{a.amount}}{{#if a.shield}} − {{a.shield.absorbed}} {{a.shield.name}}{{/if}}{{#if a.armour}} − {{a.absorbed}} {{a.armour.name}}{{#if a.hardened}}, {{localize "EDRPG.damage.hardenedRoll" roll=a.hardened.roll target=a.hardened.target}}{{#if a.hardened.doubled}} {{localize "EDRPG.damage.doubled"}}{{/if}}{{/if}}{{/if}})</span>{{/if}}
          </div>
          {{#if a.doubled}}<div class="muted">{{localize "EDRPG.damage.doubleRobot"}}</div>{{/if}}
+         {{#if a.immune}}<div class="muted">{{localize "EDRPG.damage.mechanical"}}</div>{{/if}}
          {{#if a.shield}}<div class="muted"><i class="fa-solid fa-shield-halved"></i> {{localize "EDRPG.shield.hit" name=a.shield.name before=a.shield.before after=a.shield.after}}{{#if a.shield.collapsed}} {{localize "EDRPG.shield.collapsed"}}{{/if}}</div>{{/if}}
          {{#if a.armourDestroyed.length}}<div class="ed-vengeful"><i class="fa-solid fa-heart-crack"></i> {{localize "EDRPG.damage.armourDestroyed" items=a.armourDestroyedText}}</div>{{/if}}
          {{#if a.molten}}<div class="muted"><i class="fa-solid fa-fire"></i> {{localize "EDRPG.damage.moltenApplied" dice=a.molten}}</div>{{/if}}

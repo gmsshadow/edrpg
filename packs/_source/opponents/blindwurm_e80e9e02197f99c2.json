@@ -1,0 +1,118 @@
+{
+  "_id": "e80e9e02197f99c2",
+  "_key": "!actors!e80e9e02197f99c2",
+  "name": "Blindwurm",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "expert",
+    "role": "Alien Animal",
+    "robotic": false,
+    "dodge": 5,
+    "parry": null,
+    "initiative": 5,
+    "perception": 3,
+    "toHit": 5,
+    "speed": "12m",
+    "endurance": {
+      "value": 80,
+      "max": 80
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Reeling: the character can take no actions in its next turn and can only Parry incoming attacks. Blind: unaffected by Flashbang grenades and can't Dodge ranged attacks (Defence 0 against them); hearing and smell let it make Melee attacks without penalty.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Blindwurm",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "f3ccb39ff1686e25",
+      "_key": "!actors.items!e80e9e02197f99c2.f3ccb39ff1686e25",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "2d10+2",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "The target is reeling.",
+        "equipped": true,
+        "toHit": 5
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "315a0e2cb8cd02ff",
+  "sort": 6000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

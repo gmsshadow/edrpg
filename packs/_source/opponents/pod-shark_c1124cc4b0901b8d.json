@@ -1,0 +1,155 @@
+{
+  "_id": "c1124cc4b0901b8d",
+  "_key": "!actors!c1124cc4b0901b8d",
+  "name": "Pod Shark",
+  "type": "vehicle",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "medium",
+    "manufacturer": "",
+    "dimensions": "",
+    "bays": 1,
+    "crewSize": 0,
+    "passengers": 0,
+    "sensors": "",
+    "cargo": "",
+    "cost": "",
+    "special": "Novice Alien Animal. Vehicle: Alien animal (aquatic).",
+    "agility": 0,
+    "maxSpeed": 5,
+    "accelerate": 5,
+    "decelerate": 5,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 80,
+      "max": 80
+    },
+    "shields": {
+      "value": 0,
+      "max": 0,
+      "recharge": 0,
+      "down": false
+    },
+    "drone": {
+      "enabled": true,
+      "defence": 8,
+      "initiative": 3,
+      "pursuit": 3,
+      "perception": 3
+    },
+    "flying": false,
+    "bomb": {
+      "damage": 0,
+      "vsShields": 0
+    },
+    "forwardRam": false,
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>Actions: when up-close it can make a Ram action, but bites (Bite, +5 To Hit, 25 Damage) instead of colliding; when at-distance it can swim into the up-close zone as an action, or Pursue a fleeing target. Ignore Obstacles: it never rolls on the Obstacles table. Instinctively hostile to submarines; usually found in groups.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Pod Shark",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "5faa4ff841be7592",
+      "_key": "!actors.items!c1124cc4b0901b8d.5faa4ff841be7592",
+      "name": "Bite",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "Up-close Ram action: bites instead of colliding",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "af4c483059d946df",
+  "sort": 3700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

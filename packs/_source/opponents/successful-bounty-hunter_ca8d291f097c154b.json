@@ -1,0 +1,218 @@
+{
+  "_id": "ca8d291f097c154b",
+  "_key": "!actors!ca8d291f097c154b",
+  "name": "Successful Bounty Hunter",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/empire/imperial-courier-black.webp",
+  "system": {
+    "category": "small",
+    "manufacturer": "Gutamaya",
+    "dimensions": "",
+    "landingPad": "Small",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "0B Shield Booster, Shield Boost 20%",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Master Assassin. Spaceship: Imperial Courier Firestarter.",
+    "agility": 9,
+    "speed": 11,
+    "maxSpeed": 11,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 230,
+      "max": 230
+    },
+    "shields": {
+      "value": 125,
+      "max": 125,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 15,
+      "dogfighting": 17,
+      "pursuit": 13,
+      "initiative": 7,
+      "critical": 45
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": [
+        {
+          "name": "Shield Cell Bank",
+          "boost": 10,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Successful Bounty Hunter",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/empire/imperial-courier-black.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "416d62968afe3215",
+      "_key": "!actors.items!ca8d291f097c154b.416d62968afe3215",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "fae7b75d72039a0b",
+      "_key": "!actors.items!ca8d291f097c154b.fae7b75d72039a0b",
+      "name": "Medium Gimballed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "gimballed"
+        },
+        "accuracy": 9,
+        "damage": 15,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "2e5c0d84461b7ce0",
+      "_key": "!actors.items!ca8d291f097c154b.2e5c0d84461b7ce0",
+      "name": "Medium Fixed Rail Gun",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 6,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 10,
+          "max": 10
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "acb9972b9d6624fb",
+  "sort": 2400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

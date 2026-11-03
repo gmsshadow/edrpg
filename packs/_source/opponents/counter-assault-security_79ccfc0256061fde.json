@@ -1,0 +1,227 @@
+{
+  "_id": "79ccfc0256061fde",
+  "_key": "!actors!79ccfc0256061fde",
+  "name": "Counter Assault Security",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "master",
+    "role": "Security",
+    "robotic": false,
+    "dodge": 6,
+    "parry": 4,
+    "initiative": 6,
+    "perception": 5,
+    "toHit": 6,
+    "speed": "10m",
+    "endurance": {
+      "value": 45,
+      "max": 45
+    },
+    "otherSkills": [],
+    "equipment": "Wrist Com, Medpack",
+    "notes": "<p><em>Espionage Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Counter Assault Security",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "4f0083e4af9f564a",
+      "_key": "!actors.items!79ccfc0256061fde.4f0083e4af9f564a",
+      "name": "Alloyed Breastplate",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 8,
+          "energy": 3,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 3,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 7,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "06f30e37ba83906d",
+      "_key": "!actors.items!79ccfc0256061fde.06f30e37ba83906d",
+      "name": "Assault Beamer",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "50cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "70m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "200m",
+            "dn": 10
+          }
+        },
+        "finesse": null,
+        "damage": "5",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "energy",
+          "max": "20"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "bb0fb7f8bed2e881",
+      "_key": "!actors.items!79ccfc0256061fde.bb0fb7f8bed2e881",
+      "name": "Frag Grenade",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "grenade",
+        "damageType": "explosive",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": 25,
+          "injury": 10,
+          "fatalRadius": 6,
+          "injuryRadius": 16
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "fff34e81dd963465",
+  "sort": 5500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

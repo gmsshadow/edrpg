@@ -1,0 +1,220 @@
+{
+  "_id": "3dfa4b29b1a5c6fa",
+  "_key": "!actors!3dfa4b29b1a5c6fa",
+  "name": "Special Agent",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "dangerous",
+    "role": "Assassin",
+    "robotic": false,
+    "dodge": 7,
+    "parry": 7,
+    "initiative": 9,
+    "perception": 8,
+    "toHit": 7,
+    "speed": "12m",
+    "endurance": {
+      "value": 50,
+      "max": 50
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 7
+      }
+    ],
+    "equipment": "Hand Com, Tailored Business Suit",
+    "notes": "<p>Fighting: 1D10 halved damage +2.</p><p><em>Espionage Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Special Agent",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "50557d9bd0808b20",
+      "_key": "!actors.items!3dfa4b29b1a5c6fa.50557d9bd0808b20",
+      "name": "Bullet Proof Vest",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 0,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "f795e4c172d3f2ef",
+      "_key": "!actors.items!3dfa4b29b1a5c6fa.f795e4c172d3f2ef",
+      "name": "Corvus Inc Devastation Pistol",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "2,900,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "8m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "56m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "110m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "4d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 3,
+          "max": 3
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 15,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 9
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "afb8d2e7e28bcb43",
+      "_key": "!actors.items!3dfa4b29b1a5c6fa.afb8d2e7e28bcb43",
+      "name": "Dive Aside",
+      "type": "karma",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "role": "defensive",
+        "category": "personal",
+        "cost": 5,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 5,
+        "defenceApplies": "dodge",
+        "preventsKnockdown": false,
+        "usesPerBattle": 1,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "76dcd365ddb834d8",
+      "_key": "!actors.items!3dfa4b29b1a5c6fa.76dcd365ddb834d8",
+      "name": "Eat Lead Sucker!",
+      "type": "karma",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "role": "offensive",
+        "category": "personal",
+        "cost": 5,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 0,
+        "attackApplies": "",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": false,
+        "usesPerBattle": 1,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "90cf3f5095b199c6",
+  "sort": 5700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

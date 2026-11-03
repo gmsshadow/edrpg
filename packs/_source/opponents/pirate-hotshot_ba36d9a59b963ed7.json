@@ -1,0 +1,292 @@
+{
+  "_id": "ba36d9a59b963ed7",
+  "_key": "!actors!ba36d9a59b963ed7",
+  "name": "Pirate Hotshot",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "deadly",
+    "role": "Criminal",
+    "robotic": false,
+    "dodge": 8,
+    "parry": 9,
+    "initiative": 7,
+    "perception": 5,
+    "toHit": 8,
+    "speed": "12m",
+    "endurance": {
+      "value": 50,
+      "max": 50
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Pirate Hotshot",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "daa879658dba45a3",
+      "_key": "!actors.items!ba36d9a59b963ed7.daa879658dba45a3",
+      "name": "Reflec Breastplate",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 5,
+          "energy": 5,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 3,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": 7,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "58492d047c332a2d",
+      "_key": "!actors.items!ba36d9a59b963ed7.58492d047c332a2d",
+      "name": "Corvus Inc Devastation Pistol",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "2,900,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "8m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "56m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "110m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "burst",
+          "max": "4d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 4,
+          "max": 4
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 15,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 10
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "8cdf82df728bf115",
+      "_key": "!actors.items!ba36d9a59b963ed7.8cdf82df728bf115",
+      "name": "Neo-Samurai Sword",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "425,000cr",
+        "rarity": "rare",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 4,
+        "damage": "2d10+6",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 15,
+        "skillMods": [
+          {
+            "skill": "parry",
+            "value": 10
+          }
+        ],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 10
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "3d4f6d231dcd88d5",
+      "_key": "!actors.items!ba36d9a59b963ed7.3d4f6d231dcd88d5",
+      "name": "Blur of Steel",
+      "type": "karma",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "role": "offensive",
+        "category": "personal",
+        "cost": 3,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 2,
+        "attackApplies": "melee",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": false,
+        "usesPerBattle": 1,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "767960b46ce778ce",
+      "_key": "!actors.items!ba36d9a59b963ed7.767960b46ce778ce",
+      "name": "Crack Shot",
+      "type": "karma",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "role": "offensive",
+        "category": "personal",
+        "cost": 4,
+        "costAll": false,
+        "free": false,
+        "usedThisTurn": false,
+        "attackBonus": 2,
+        "attackApplies": "ranged",
+        "defenceBonus": 0,
+        "defenceApplies": "",
+        "preventsKnockdown": false,
+        "usesPerBattle": 1,
+        "timesUsed": 0
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "a585fbd13c0620df",
+  "sort": 8000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

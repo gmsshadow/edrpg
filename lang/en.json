@@ -634,7 +634,8 @@
       "destroysArmourNote": "Anti-Material Projector: armour gives no protection, and a hit destroys it.",
       "ignoresArmourNote": "Ignores {type} armour.",
       "doubleRobot": "Double damage against a robot or drone.",
-      "armourDestroyed": "Armour destroyed until repaired: {items}."
+      "armourDestroyed": "Armour destroyed until repaired: {items}.",
+      "mechanical": "Mechanical: immune to Toxic damage."
     },
     "burst": {
       "none": "None",
@@ -728,7 +729,7 @@
       "fightingLine": "Finesse 5, +{toHit} To Hit, Damage 1D10 halved (Fighting is To Hit −1 unless listed)",
       "karmaHint": "Opponents have no Karma points: each capability can be used once per battle.",
       "robotic": "Robot",
-      "roboticHint": "Robots and drones take double damage from Anti-Material Projectors."
+      "roboticHint": "Robots and drones: immune to Toxic damage, and take double damage from Anti-Material Projectors."
     },
     "damageShort": {
       "kinetic": "Kin",

@@ -1,0 +1,255 @@
+{
+  "_id": "51b77213d3d1c029",
+  "_key": "!actors!51b77213d3d1c029",
+  "name": "Imperial Clipper",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/empire/imperial-clipper.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "Gutamaya",
+    "dimensions": "",
+    "landingPad": "Large",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "0E Shield Booster, (+5% Shield Bonus)",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "High Threat Competent Soldier. Spaceship: Imperial Clipper Warhawk.",
+    "agility": 8,
+    "speed": 11,
+    "maxSpeed": 11,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 1145,
+      "max": 1145
+    },
+    "shields": {
+      "value": 370,
+      "max": 370,
+      "recharge": 15,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 12,
+      "dogfighting": 14,
+      "pursuit": 13,
+      "initiative": 5,
+      "critical": 90
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": [
+        {
+          "name": "Shield Cell Bank",
+          "boost": 20,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Imperial Clipper",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/empire/imperial-clipper.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "8fefe27aabdcffb7",
+      "_key": "!actors.items!51b77213d3d1c029.8fefe27aabdcffb7",
+      "name": "Large Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 8,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "05265d2d2d890bef",
+      "_key": "!actors.items!51b77213d3d1c029.05265d2d2d890bef",
+      "name": "Large Gimballed Burst Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "gimballed"
+        },
+        "accuracy": 8,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "da95eed74c068b04",
+      "_key": "!actors.items!51b77213d3d1c029.da95eed74c068b04",
+      "name": "Medium Fixed Rail Gun",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d4b9f49ffe53ac9c",
+      "_key": "!actors.items!51b77213d3d1c029.d4b9f49ffe53ac9c",
+      "name": "Medium Fixed Rail Gun",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "9deb82b930dc6ec2",
+  "sort": 1900,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,190 @@
+{
+  "_id": "f4bc25009ef2bbab",
+  "_key": "!actors!f4bc25009ef2bbab",
+  "name": "Death Spider",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Robot",
+    "robotic": true,
+    "dodge": 4,
+    "parry": null,
+    "initiative": 3,
+    "perception": 2,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 8,
+      "max": 8
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Poisoned: the target takes 3 Toxic damage at the start of each of its turns until treated with a Medicine check (difficulty 8). Robot: immune to Toxic damage. Verification protocols: it can't take reaction actions (counterattacks, attacks on an enemy moving away or firing point blank, grenade or missile reactions) and attacks at a flat +3 To Hit. It can't deactivate its verification protocols. Exceptional Mobility: not slowed by difficult terrain, and climbs sheer walls at full speed.</p><p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Death Spider",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "46855a1f2c2c9b8b",
+      "_key": "!actors.items!f4bc25009ef2bbab.46855a1f2c2c9b8b",
+      "name": "Poison Needle",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "8m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "20m",
+            "dn": 9
+          },
+          "long": {
+            "distance": "40m",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "1",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 6,
+          "max": 6
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "The target is poisoned.",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "668f39244323677d",
+      "_key": "!actors.items!f4bc25009ef2bbab.668f39244323677d",
+      "name": "Needle Jab",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 4,
+        "damage": "1",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "The target is poisoned.",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "174ff00fdd2e23bd",
+  "sort": 7200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

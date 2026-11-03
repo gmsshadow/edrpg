@@ -1,0 +1,203 @@
+{
+  "_id": "e91cda97aa519ed3",
+  "_key": "!actors!e91cda97aa519ed3",
+  "name": "Tribal Hunter",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "competent",
+    "role": "Tribal",
+    "robotic": false,
+    "dodge": 4,
+    "parry": 4,
+    "initiative": 3,
+    "perception": 5,
+    "toHit": 6,
+    "speed": "12m",
+    "endurance": {
+      "value": 30,
+      "max": 30
+    },
+    "otherSkills": [
+      {
+        "skill": "stealth",
+        "bonus": 5
+      },
+      {
+        "skill": "survival",
+        "bonus": 5
+      },
+      {
+        "skill": "intimidate",
+        "bonus": 4
+      }
+    ],
+    "equipment": "Axe, Hunting Bow, 12 Arrows",
+    "notes": "<p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Tribal Hunter",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "2448dde4a7de1744",
+      "_key": "!actors.items!e91cda97aa519ed3.2448dde4a7de1744",
+      "name": "Axe/Hammer",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "cost": "150mcr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 8,
+        "damage": "2d10+4",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "476731645f41c0e4",
+      "_key": "!actors.items!e91cda97aa519ed3.476731645f41c0e4",
+      "name": "Hunting Bow",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "10m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "50m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "100m",
+            "dn": 11
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 6
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "440610a0171429c8",
+  "sort": 6600,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

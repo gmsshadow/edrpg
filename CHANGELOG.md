@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.37
+
+Supplements, step 4: the opponents. 68 stat blocks in the Opponents compendium, under a folder per book, then by scale
+(Individual, Spaceship, Vehicle) and group.
+
+- **Espionage**: 6 individual (security staff, Spy, Special Agent) and 9 spaceship-scale (mercenaries, a pirate,
+  police and security, assassins).
+- **Exploration**: 3 alien animals, 5 Relic AI and 5 Tribals; the Relic AI ships (Ghost Sidewinder, Possessed Krait,
+  Cyber-Cobra, AspWinder), the Thargoid Invader and Thargon Swarm; and the Pod Shark at vehicle scale.
+- **Military**: 6 robots (Sentinel Turret, Death Spider, Eye Bot, Guard Bot, Achilles Combat Android, Dog Mortar) and
+  10 spaceship-scale soldiers, criminals and bounty hunters.
+- **Super Traders**: 4 pirates; 11 spaceship-scale fighters, pirates and traders; the Kumo Dune Raider and Pirate
+  Trash Tank at vehicle scale.
+- Weapons come from the compendiums where they exist, at each stat block's To Hit; natural attacks are built in. Ships
+  take Agility, Speed and size from their supplement ship variant, utility equipment (chaff, point defence, ECM,
+  mines, Shield Cell Banks) from the block, and tokens from the token assets. Special rules (verification
+  protocols, Thargoid Hearts, swarms, poisons, holograms…) are on each card.
+- **Robots**: Relic AI and robots are ticked Robot. Robots and drones are now immune to Toxic damage (the Military
+  Sourcebook's Mechanical rule, which the core drones already listed).
+- Thargoid weapons and immunity (only AX weapons hurt the hull; no critical hits) are on the card rather than
+  automated; the fighters have no Agility or Speed until ship-launched fighters arrive in step 5.
+
 ## 0.1.36
 
 Supplements, step 3: the 56 ship variants, in the Ships compendium under a folder per book with a folder per ship.

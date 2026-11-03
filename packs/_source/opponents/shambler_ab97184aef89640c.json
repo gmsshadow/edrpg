@@ -1,0 +1,190 @@
+{
+  "_id": "ab97184aef89640c",
+  "_key": "!actors!ab97184aef89640c",
+  "name": "Shambler",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Relic AI",
+    "robotic": true,
+    "dodge": 0,
+    "parry": null,
+    "initiative": 1,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "6m",
+    "endurance": {
+      "value": 100,
+      "max": 100
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Slow Witted: it can't take reactions. Resist Knockdown 1. Self-Repair: inside a Relic AI facility it recovers 10 Endurance at the start of its turn, unless it took Explosive damage in the previous turn.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Shambler",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "17b083e6472a8303",
+      "_key": "!actors.items!ab97184aef89640c.17b083e6472a8303",
+      "name": "Spew Shrapnel",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "6m",
+            "dn": 3
+          },
+          "medium": {
+            "distance": "12m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "30m",
+            "dn": 13
+          }
+        },
+        "finesse": null,
+        "damage": "2d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "Ammo unlimited.",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "5da44003cba5020e",
+      "_key": "!actors.items!ab97184aef89640c.5da44003cba5020e",
+      "name": "Shambler Slam",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "2d10+2",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "771f3c9966b2fa2e",
+  "sort": 6100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

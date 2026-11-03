@@ -1,0 +1,190 @@
+{
+  "_id": "f3ef7bf86b5549e3",
+  "_key": "!actors!f3ef7bf86b5549e3",
+  "name": "Spit Viper",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Alien Animal",
+    "robotic": false,
+    "dodge": 2,
+    "parry": null,
+    "initiative": 1,
+    "perception": 2,
+    "toHit": 3,
+    "speed": "8m",
+    "endurance": {
+      "value": 35,
+      "max": 35
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Poisoned: the target takes 5 Toxic damage at the start of each of its turns until treated with a Medicine check (difficulty 7). Blind: unaffected by Flashbang grenades; it can't Dodge ranged attacks made from more than 12m away (Defence 0 against them). Its hearing and smell let it make Melee and Ranged attacks without penalty.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Spit Viper",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "b93acc8d2450e8b2",
+      "_key": "!actors.items!f3ef7bf86b5549e3.b93acc8d2450e8b2",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 2
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "70e0f5d41c99e4fd",
+      "_key": "!actors.items!f3ef7bf86b5549e3.70e0f5d41c99e4fd",
+      "name": "Spit Venom",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "toxic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "2m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "6m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "12m",
+            "dn": 12
+          }
+        },
+        "finesse": null,
+        "damage": "",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "On a hit the target is poisoned.",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "315a0e2cb8cd02ff",
+  "sort": 5800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

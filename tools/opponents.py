@@ -137,9 +137,10 @@ def build_armour(a):
     return doc
 
 
-def from_data():
-    """Every individual-scale opponent in the Core Rules (pp.284–319), from tools/opponents-data.json."""
-    data = json.load(open(os.path.join(HERE, "opponents-data.json"), encoding="utf-8"))
+def from_data(file="opponents-data.json"):
+    """Every individual-scale opponent in the Core Rules (pp.284–319), from tools/opponents-data.json; or the
+    supplements' ones, from tools/opponents-supplements.json (each with its "source" book)."""
+    data = json.load(open(os.path.join(HERE, file), encoding="utf-8"))
     out = []
     for o in data:
         items = []
@@ -150,11 +151,20 @@ def from_data():
         out.append(dict(name=o["name"], rank=o["rank"], role=o["role"], dodge=o["dodge"], parry=o["parry"],
                         endurance=o["endurance"], initiative=o["initiative"], perception=o["perception"], speed=o["speed"],
                         toHit=o["toHit"], equipment=o["equipment"], skills=[tuple(x) for x in o["skills"]], items=items,
-                        notes=notes(o["notes"]) if o["notes"] else "", group=o["group"]))
+                        notes=notes(o["notes"]) if o["notes"] else "", group=o["group"], source=o.get("source")))
     return out
 
 
 OPPONENTS = from_data()
+SUPPLEMENT_OPPONENTS = from_data("opponents-supplements.json")
+MACHINES = {"Drone", "Robot", "Relic AI"}
+
+
+def folder(root, fid, name, parent, sort):
+    with open(os.path.join(root, f"_folder-{re.sub(r'[^a-z0-9]+', '-', name.lower())}_{fid}.json"), "w") as fh:
+        json.dump({"_id": fid, "_key": f"!folders!{fid}", "name": name, "type": "Actor", "folder": parent, "description": "",
+                   "sorting": "m", "sort": sort, "color": None, "flags": {}}, fh, indent=2)
+        fh.write("\n")
 
 
 def main():
@@ -175,7 +185,20 @@ def main():
             json.dump({"_id": fid, "_key": f"!folders!{fid}", "name": g, "type": "Actor", "folder": top, "description": "",
                        "sorting": "m", "sort": (GROUP_ORDER.index(g) + 1) * 100, "color": None, "flags": {}}, fh, indent=2)
             fh.write("\n")
-    for sort, o in enumerate(OPPONENTS):
+    # Supplements: <Book> / Individual-Scale Opponents / <Group>.
+    books = {}
+    for o in SUPPLEMENT_OPPONENTS:
+        book, g = o["source"], o["group"]
+        if book not in books:
+            books[book] = oid("folder", book)
+            folder(root, books[book], book, None, 10000 + len(books) * 100)
+            folder(root, oid("folder", book, "individual"), "Individual-Scale Opponents", books[book], 0)
+        key = f"{book}/{g}"
+        if key not in folders:
+            folders[key] = oid("folder", book, g)
+            folder(root, folders[key], g, oid("folder", book, "individual"), len(folders) * 100)
+        o["group"] = key
+    for sort, o in enumerate(OPPONENTS + SUPPLEMENT_OPPONENTS):
         _id = oid(o["name"])
         items = []
         for i, item in enumerate(o["items"]):
@@ -191,12 +214,13 @@ def main():
             "system": {
                 "rank": o["rank"], "role": o["role"],
                 # Robots and drones (double damage from Anti-Material Projectors).
-                "robotic": bool(re.search(r"\b(drone|robot)s?\b", f"{o['name']} {o['role']}", re.I)),
+                "robotic": o["group"].split("/")[-1] in MACHINES or bool(re.search(r"\b(drone|robot)s?\b", f"{o['name']} {o['role']}", re.I)),
                 "dodge": o["dodge"], "parry": o["parry"],
                 "initiative": o["initiative"], "perception": o["perception"], "toHit": o["toHit"], "speed": o["speed"],
                 "endurance": {"value": o["endurance"], "max": o["endurance"]},
                 "otherSkills": [{"skill": s, "bonus": b} for s, b in o.get("skills", [])],
-                "equipment": o["equipment"], "notes": o.get("notes", ""),
+                "equipment": o["equipment"],
+                "notes": o.get("notes", "") + (f"<p><em>{o['source']}</em></p>" if o.get("source") else ""),
             },
             "prototypeToken": {"name": o["name"], "actorLink": False, "disposition": -1,
                                "displayBars": 20, "bar1": {"attribute": "endurance"}, "bar2": {"attribute": None}},
@@ -209,7 +233,7 @@ def main():
             fh.write("\n")
     drones = load("drones").write(root)
     craft = load("ships").write_opponents(root)
-    print(f"{len(OPPONENTS)} opponents, {drones} vehicle-scale drones and {craft} spaceship/vehicle opponents written to {os.path.normpath(root)}")
+    print(f"{len(OPPONENTS)} + {len(SUPPLEMENT_OPPONENTS)} opponents, {drones} vehicle-scale drones and {craft} spaceship/vehicle opponents written to {os.path.normpath(root)}")
 
 
 if __name__ == "__main__":

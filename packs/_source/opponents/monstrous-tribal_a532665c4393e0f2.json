@@ -1,0 +1,164 @@
+{
+  "_id": "a532665c4393e0f2",
+  "_key": "!actors!a532665c4393e0f2",
+  "name": "Monstrous Tribal",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "dangerous",
+    "role": "Tribal",
+    "robotic": false,
+    "dodge": 4,
+    "parry": 5,
+    "initiative": 3,
+    "perception": 3,
+    "toHit": 7,
+    "speed": "14m",
+    "endurance": {
+      "value": 80,
+      "max": 80
+    },
+    "otherSkills": [
+      {
+        "skill": "stealth",
+        "bonus": 3
+      },
+      {
+        "skill": "survival",
+        "bonus": 3
+      }
+    ],
+    "equipment": "",
+    "notes": "<p>Primal Scream: non-robotic enemies within 14m must pass a Tactics or Insight check (difficulty 11) or drop their weapons and spend their next turn fleeing directly away.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Monstrous Tribal",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "2e36ef68b220525f",
+      "_key": "!actors.items!a532665c4393e0f2.2e36ef68b220525f",
+      "name": "Scaled Hide",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 8,
+          "energy": 5,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 10
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "6f10ff49dc253b94",
+      "_key": "!actors.items!a532665c4393e0f2.6f10ff49dc253b94",
+      "name": "Claws",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "3d10+6",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 7
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "440610a0171429c8",
+  "sort": 7000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

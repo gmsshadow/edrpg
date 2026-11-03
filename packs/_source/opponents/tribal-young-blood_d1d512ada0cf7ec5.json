@@ -1,0 +1,199 @@
+{
+  "_id": "d1d512ada0cf7ec5",
+  "_key": "!actors!d1d512ada0cf7ec5",
+  "name": "Tribal Young Blood",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Tribal",
+    "robotic": false,
+    "dodge": 2,
+    "parry": 3,
+    "initiative": 2,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 20,
+      "max": 20
+    },
+    "otherSkills": [
+      {
+        "skill": "stealth",
+        "bonus": 3
+      },
+      {
+        "skill": "survival",
+        "bonus": 3
+      }
+    ],
+    "equipment": "Spear, three Throwing Spears",
+    "notes": "<p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Tribal Young Blood",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "3c098c12bb0159b8",
+      "_key": "!actors.items!d1d512ada0cf7ec5.3c098c12bb0159b8",
+      "name": "Spear",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>One or two handed: +2 damage when used two-handed.</p>",
+        "cost": "5cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "meleeWeapons",
+        "damageType": "melee",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 6,
+        "damage": "1d10+2",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": true,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "One or two handed: +2 damage when used two-handed.",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "9a949cdaf9e7d2ac",
+      "_key": "!actors.items!d1d512ada0cf7ec5.9a949cdaf9e7d2ac",
+      "name": "Throwing Spear",
+      "type": "weapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "kineticWeapons",
+        "damageType": "kinetic",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "12m",
+            "dn": 4
+          },
+          "medium": {
+            "distance": "40m",
+            "dn": 7
+          },
+          "long": {
+            "distance": "80m",
+            "dn": 13
+          }
+        },
+        "finesse": null,
+        "damage": "1d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 3,
+          "max": 3
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "440610a0171429c8",
+  "sort": 6700,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

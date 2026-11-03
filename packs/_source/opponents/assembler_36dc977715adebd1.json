@@ -1,0 +1,118 @@
+{
+  "_id": "36dc977715adebd1",
+  "_key": "!actors!36dc977715adebd1",
+  "name": "Assembler",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "mostlyHarmless",
+    "role": "Relic AI",
+    "robotic": true,
+    "dodge": 2,
+    "parry": null,
+    "initiative": 2,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "14m",
+    "endurance": {
+      "value": 10,
+      "max": 10
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Reassemble: a destroyed Assembler twitches harmlessly. Once two or more are destroyed the bodies recombine into a new Assembler with 5 Endurance per body, which does an extra 1D10 damage if made of more than two, and can act at once.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Assembler",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "038af6d2928f8c6e",
+      "_key": "!actors.items!36dc977715adebd1.038af6d2928f8c6e",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/combat.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "fighting",
+        "damageType": "fighting",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "",
+            "dn": null
+          },
+          "medium": {
+            "distance": "",
+            "dn": null
+          },
+          "long": {
+            "distance": "",
+            "dn": null
+          }
+        },
+        "finesse": 5,
+        "damage": "1d10+2",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "771f3c9966b2fa2e",
+  "sort": 6300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

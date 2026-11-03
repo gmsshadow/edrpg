@@ -10049,5 +10049,3157 @@
    },
    "source": "Super Traders Supplement"
   }
+ ],
+ "opponents": [
+  {
+   "name": "Mercenary Interceptor",
+   "rank": "Novice Mercenary",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Viper Mk IV Prometheus",
+   "stats": {
+    "Defence": "11",
+    "Dogfighting": "12",
+    "Pursuit": "9",
+    "Initiative": "4",
+    "Hull": "200",
+    "Critical": "35",
+    "Shields": "105",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "15/5"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Medium Fixed Beam Laser",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Beam Laser",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Cannon",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Cannon",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Point Defence, Str 10, Ammo 10"
+   ]
+  },
+  {
+   "name": "Alliance Heavy Fighter",
+   "rank": "Expert Soldier",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Mongoose Attack Fighter",
+   "stats": {
+    "Defence": "13",
+    "Dogfighting": "14",
+    "Pursuit": "8",
+    "Initiative": "6",
+    "Hull": "355",
+    "Critical": "80",
+    "Shields": "145",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "20/2"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Medium Fixed Burst Laser",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Burst Laser",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Multi-Cannon",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Multi-Cannon",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Seeker Missile Rack",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 35,
+     "burst": 0,
+     "vs": 15,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Seeker Missile Rack",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 35,
+     "burst": 0,
+     "vs": 15,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Str 10, Ammo 6",
+    "Point Defence, Str 10, Ammo 10"
+   ]
+  },
+  {
+   "name": "Pirate Mamba",
+   "rank": "Mostly Harmless Criminal",
+   "group": "Criminal",
+   "kind": "ship",
+   "ship": "Mamba Mk II Cargo Thief",
+   "stats": {
+    "Defence": "12",
+    "Dogfighting": "12",
+    "Pursuit": "13",
+    "Initiative": "2",
+    "Hull": "60",
+    "Critical": "20",
+    "Shields": "75",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Small Gimballed Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Gimballed Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Gimballed Cannon",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Gimballed Cannon",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Str 10, Ammo 6"
+   ]
+  },
+  {
+   "name": "Heavy Police Fighter",
+   "rank": "Novice Police",
+   "group": "Police & Security",
+   "kind": "ship",
+   "ship": "Viper Mk IV Heavy Police Fighter",
+   "stats": {
+    "Defence": "8",
+    "Dogfighting": "8",
+    "Pursuit": "7",
+    "Initiative": "4",
+    "Hull": "190",
+    "Critical": "30",
+    "Shields": "130",
+    "Shield Recharge": "5",
+    "Shield Cell Bank": "20/1"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Medium Gimballed Burst Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Burst Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Seeker Missile Rack",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 20,
+     "burst": 0,
+     "vs": 10,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Seeker Missile Rack",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 20,
+     "burst": 0,
+     "vs": 10,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Str 10, Ammo 6",
+    "0E Manifest Scanner, Str 10, no bonus"
+   ]
+  },
+  {
+   "name": "Security Interceptor",
+   "rank": "Mostly Harmless Security",
+   "group": "Police & Security",
+   "kind": "ship",
+   "ship": "Merlin Starpoint",
+   "stats": {
+    "Defence": "11",
+    "Dogfighting": "12",
+    "Pursuit": "11",
+    "Initiative": "3",
+    "Hull": "50",
+    "Critical": "25",
+    "Shields": "75",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Medium Gimbaled Pulse Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Gimbaled Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Gimbaled Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "0E Kill Warrant Scanner, Str 10, No bonuses",
+    "ECM, Str 10"
+   ]
+  },
+  {
+   "name": "Jobbing Trucker",
+   "rank": "Novice Security",
+   "group": "Police & Security",
+   "kind": "ship",
+   "ship": "Type-7 Transport Capacity Max",
+   "stats": {
+    "Defence": "5",
+    "Dogfighting": "5",
+    "Pursuit": "7",
+    "Initiative": "3",
+    "Hull": "200",
+    "Critical": "40",
+    "Shields": "115",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Small Turreted Beam Laser",
+     "size": "small",
+     "kind": "turret",
+     "acc": 4,
+     "damage": 5,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Turreted Beam Laser",
+     "size": "small",
+     "kind": "turret",
+     "acc": 4,
+     "damage": 5,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Gimbaled Cannon",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Gimbaled Cannon",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": []
+  },
+  {
+   "name": "Stylish Assassin",
+   "rank": "Novice Assassin",
+   "group": "Assassin",
+   "kind": "ship",
+   "ship": "Merlin Hunter",
+   "stats": {
+    "Defence": "12",
+    "Dogfighting": "13",
+    "Pursuit": "12",
+    "Initiative": "5",
+    "Hull": "75",
+    "Critical": "30",
+    "Shields": "95",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Medium Fixed Beam Laser",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 7,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Railgun",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 25,
+     "burst": 0,
+     "vs": null,
+     "ammo": 10,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Railgun",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 0,
+     "damage": 25,
+     "burst": 0,
+     "vs": null,
+     "ammo": 10,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "0E Kill Warrant Scanner, Str 10, 20% Bounty bonus",
+    "Point Defence, Str 10, Ammo 10"
+   ]
+  },
+  {
+   "name": "Swift Bounty Hunter",
+   "rank": "Competent Assassin",
+   "group": "Assassin",
+   "kind": "ship",
+   "ship": "Mamba Mk II Stunt Fighter",
+   "stats": {
+    "Defence": "15",
+    "Dogfighting": "17",
+    "Pursuit": "15",
+    "Initiative": "5",
+    "Hull": "215",
+    "Critical": "40",
+    "Shields": "105",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Small Gimbaled Beam Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 5,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Gimbaled Beam Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 5,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Seeker Missile Rack",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 9,
+     "damage": 25,
+     "burst": 0,
+     "vs": 10,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Seeker Missile Rack",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 9,
+     "damage": 25,
+     "burst": 0,
+     "vs": 10,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Point Defence, Str 10, Ammo 10"
+   ]
+  },
+  {
+   "name": "Brutal Assassin",
+   "rank": "Master Assassin",
+   "group": "Assassin",
+   "kind": "ship",
+   "ship": "Mongoose Assault Fighter",
+   "stats": {
+    "Defence": "16",
+    "Dogfighting": "18",
+    "Pursuit": "10",
+    "Initiative": "7",
+    "Hull": "570",
+    "Critical": "70",
+    "Shields": "215",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "20/5"
+   },
+   "special": "",
+   "source": "Espionage Supplement",
+   "weapons": [
+    {
+     "name": "Medium Gimballed Cannon",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 10,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Cannon",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 10,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Cannon",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 10,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Cannon",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 10,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Plasma Accelerator",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 50,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Plasma Accelerator",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 50,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "ECM, Str 30",
+    "Point Defence, Str 30, Ammo 10",
+    "0A Shield Booster, Str 30, 25% Shield Boost",
+    "0D Shield Booster, Str 30, 10% Shield Boost"
+   ]
+  },
+  {
+   "name": "Ghost Sidewinder",
+   "rank": "Mostly Harmless Relic AI",
+   "group": "Relic AI",
+   "kind": "ship",
+   "ship": "Modified Sidewinder",
+   "stats": {
+    "Defence": "13",
+    "Dogfighting": "14",
+    "Pursuit": "10",
+    "Initiative": "2",
+    "Hull": "60",
+    "Critical": "20",
+    "Shields": "100",
+    "Shield Recharge": "10"
+   },
+   "special": "The Ghost Sidewinder constantly produces confusing signals which confuse Gimballed and Turreted weapons. This effect is the same as a Chaff Launcher (Core Rules p.197), except that it consumes no ammo and does not need to be activated each turn.",
+   "source": "Exploration Supplement",
+   "weapons": [
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 6,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 6,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [],
+   "token": "combat/sidewinder-black"
+  },
+  {
+   "name": "Possessed Krait",
+   "rank": "Novice Relic AI",
+   "group": "Relic AI",
+   "kind": "ship",
+   "ship": "Modified Sidewinder",
+   "stats": {
+    "Defence": "15",
+    "Dogfighting": "16",
+    "Pursuit": "9",
+    "Initiative": "3",
+    "Hull": "100",
+    "Critical": "15",
+    "Shields": "90",
+    "Shield Recharge": "5"
+   },
+   "special": "If the Possessed Krait hits with both its Pulse Lasers, it also transmits a signal to the target ship which sends its controls haywire. The affected ship loses its next Combat Action.",
+   "source": "Exploration Supplement",
+   "weapons": [
+    {
+     "name": "Overcharged Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [],
+   "token": "combat/krait-purple"
+  },
+  {
+   "name": "Cyber-Cobra",
+   "rank": "Expert Relic AI",
+   "group": "Relic AI",
+   "kind": "ship",
+   "ship": "Modified Cobra Mk III",
+   "stats": {
+    "Defence": "15",
+    "Dogfighting": "16",
+    "Pursuit": "14",
+    "Initiative": "6",
+    "Hull": "250",
+    "Critical": "35",
+    "Shields": "150",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "10/4"
+   },
+   "special": "If the Cyber-Cobra hits with both of its Pulse Lasers it transmits an override code into the target ship. The override code can do one of the following; jettison the ammo of all the target’s weapons, empty the target’s main fuel tank (one ton of fuel will remain in the emergency tank), jettison the cargo and escape pods of the target’s ship.",
+   "source": "Exploration Supplement",
+   "weapons": [
+    {
+     "name": "Overcharged Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6"
+   ],
+   "token": "combat/cobra-mk-iii-wireframe"
+  },
+  {
+   "name": "AspWinder",
+   "rank": "Master Relic AI",
+   "group": "Relic AI",
+   "kind": "ship",
+   "ship": "Modified Asp/Sidewinder",
+   "stats": {
+    "Defence": "15",
+    "Dogfighting": "15",
+    "Pursuit": "12",
+    "Initiative": "8",
+    "Hull": "700",
+    "Critical": "50",
+    "Shields": "200",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "15/5"
+   },
+   "special": "When destroyed, the AspWinder splits into two Ghost Sidewinders. Roll Initiative for these ships as normal.",
+   "source": "Exploration Supplement",
+   "weapons": [
+    {
+     "name": "Overcharged Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Overcharged Gimballed Burst Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 10,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6"
+   ],
+   "token": "explorer/asp-scout",
+   "category": "medium"
+  },
+  {
+   "name": "Thargoid Invader",
+   "rank": "High Threat Elite Alien",
+   "group": "Thargoid",
+   "kind": "ship",
+   "ship": "Thargoid Cyclops",
+   "stats": {
+    "Defence": "17",
+    "Dogfighting": "19",
+    "Pursuit": "15",
+    "Initiative": "10",
+    "Hull": "1500",
+    "Critical": "0",
+    "Shields": "800",
+    "Shield Recharge": "0",
+    "Thargoid Hearts": "4"
+   },
+   "special": "Thargoid Hearts 4. Impervious: its Hull (not its shields) can't be harmed by standard weapons, only by AX Missile Racks and AX Multi-cannons, and it is immune to critical hits. Shields only activate once a Heart has been exerted, then at full strength (800), and are vulnerable to normal weapons. Shutdown Field: its first action, instead of attacking; ships without a Shutdown Field Neutraliser lose all power until it moves away or is destroyed. Regeneration: as an Equipment action at the start of its turn it exerts a Heart to recover all damage and raise its shields (once). Hearts are impervious until detected by an AX Xeno Scanner and exerted; an exerted Heart has 100 Hull, shares the impervious trait and can be targeted like a component (also by fixed and turreted weapons). With no Hearts left it can't Regenerate. Each time it exerts a Heart it deploys a Thargon Swarm. Thargoid Disruptor: 80 Damage (40 vs Hull and components) and an automatic critical hit, even with the target's shields up. Caustic Missile (used between turns when a Heart is destroyed, two at once): +18 To Hit, 100 Damage, bypasses shields and inflicts three 50-Damage critical hits to components; Point Defence can intercept it.",
+   "source": "Exploration Supplement",
+   "weapons": [
+    {
+     "name": "Thargoid Ballistics",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Thargoid Ballistics",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Thargoid Ballistics",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Thargoid Ballistics",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Thargoid Ballistics",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Thargoid Ballistics",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Thargoid Disruptor",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 80,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": "40 vs Hull and components; automatic critical hit, even through shields"
+    },
+    {
+     "name": "Caustic Missile",
+     "size": "large",
+     "kind": "fixed",
+     "acc": 18,
+     "damage": 100,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": "Between turns when a Heart is destroyed: bypasses shields, three 50-Damage critical hits"
+    }
+   ],
+   "utility": [],
+   "category": "large",
+   "token": "thargoid/thargoid",
+   "noVariant": true
+  },
+  {
+   "name": "Thargon Swarm",
+   "rank": "Elite Alien",
+   "group": "Thargoid",
+   "kind": "ship",
+   "ship": "Thargon Swarm",
+   "stats": {
+    "Defence": "20",
+    "Dogfighting": "22",
+    "Pursuit": "17",
+    "Initiative": "6",
+    "Hull": "32",
+    "Critical": "0",
+    "Shields": "0",
+    "Shield Recharge": "0"
+   },
+   "special": "Multiple Attacks: one Thargon Ballistics attack (ignores shields) for every 8 Hull it has. Swarm Trait: a single hit does at most 1 Damage (one Thargon fighter), plus 1 for every Burst level it inflicts.",
+   "source": "Exploration Supplement",
+   "weapons": [
+    {
+     "name": "Thargon Ballistics",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 14,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": "Ignores shields; one attack per 8 Hull"
+    }
+   ],
+   "utility": [],
+   "category": "small",
+   "token": "thargoid/thargon-swarm",
+   "noVariant": true
+  },
+  {
+   "name": "Imperial Interceptor",
+   "rank": "Novice Soldier",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Imperial Eagle Empire Interdictor",
+   "stats": {
+    "Defence": "13",
+    "Dogfighting": "15",
+    "Pursuit": "12",
+    "Initiative": "5",
+    "Hull": "175",
+    "Critical": "25",
+    "Shields": "105",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Medium Gimballed Pulse Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 6,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Rail Gun",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 3,
+     "damage": 25,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Rail Gun",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 3,
+     "damage": 25,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6"
+   ]
+  },
+  {
+   "name": "Federal Support Ship",
+   "rank": "Competent Soldier",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Federal Dropship Standard Deployment",
+   "stats": {
+    "Defence": "7",
+    "Dogfighting": "7",
+    "Pursuit": "8",
+    "Initiative": "5",
+    "Hull": "445",
+    "Critical": "70",
+    "Shields": "200",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "5/3 Ammo 3"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Large Turreted Beam Laser",
+     "size": "large",
+     "kind": "turret",
+     "acc": 6,
+     "damage": 25,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Multi-cannon",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Multi-cannon",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Multi-cannon",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Multi-cannon",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6"
+   ]
+  },
+  {
+   "name": "Federal Attack Ship",
+   "rank": "Master Soldier",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Federal Gunship Support Craft",
+   "stats": {
+    "Defence": "9",
+    "Dogfighting": "10",
+    "Pursuit": "8",
+    "Initiative": "5",
+    "Hull": "815",
+    "Critical": "60",
+    "Shields": "355",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "20/5 Ammo 3"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Large Fixed Pulse Laser",
+     "size": "large",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Plasma Accelerator",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 50,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Plasma Accelerator",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 50,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Railgun",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": 10,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Railgun",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": 10,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Fragment Cannon",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 5,
+     "burst": 0,
+     "vs": null,
+     "ammo": 20,
+     "hull": 5,
+     "shields": 0,
+     "special": "Damage 5/10/15"
+    },
+    {
+     "name": "Small Fixed Fragment Cannon",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 5,
+     "burst": 0,
+     "vs": null,
+     "ammo": 20,
+     "hull": 5,
+     "shields": 0,
+     "special": "Damage 5/10/15"
+    }
+   ],
+   "utility": [
+    "Point Defence, Ammo 10",
+    "Point Defence, Ammo 10",
+    "0A Shield Booster, 25% Shield Boost"
+   ]
+  },
+  {
+   "name": "Imperial Clipper",
+   "rank": "High Threat Competent Soldier",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Imperial Clipper Warhawk",
+   "stats": {
+    "Defence": "12",
+    "Dogfighting": "14",
+    "Pursuit": "13",
+    "Initiative": "5",
+    "Hull": "1145",
+    "Critical": "90",
+    "Shields": "370",
+    "Shield Recharge": "15",
+    "Shield Cell Bank": "20/5 Ammo 3"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Large Gimballed Burst Laser",
+     "size": "large",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 25,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Large Gimballed Burst Laser",
+     "size": "large",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 25,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Rail Gun",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Rail Gun",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6",
+    "0E Shield Booster, (+5% Shield Bonus)"
+   ]
+  },
+  {
+   "name": "Federal Line Cruiser",
+   "rank": "High Threat Dangerous Soldier",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Federal Corvette Line Cruiser",
+   "stats": {
+    "Defence": "11",
+    "Dogfighting": "12",
+    "Pursuit": "9",
+    "Initiative": "7",
+    "Hull": "1655",
+    "Critical": "125",
+    "Shields": "355",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "35/5 Ammo 3"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Huge Fixed Plasma Accelerator",
+     "size": "huge",
+     "kind": "fixed",
+     "acc": 7,
+     "damage": 70,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Huge Fixed Plasma Accelerator",
+     "size": "huge",
+     "kind": "fixed",
+     "acc": 7,
+     "damage": 70,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Large Turreted Cannon",
+     "size": "large",
+     "kind": "turret",
+     "acc": 10,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Seeker Missile Rack",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 12,
+     "damage": 35,
+     "burst": 0,
+     "vs": 15,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Seeker Missile Rack",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 12,
+     "damage": 35,
+     "burst": 0,
+     "vs": 15,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Turreted Burst Laser",
+     "size": "small",
+     "kind": "turret",
+     "acc": 10,
+     "damage": 5,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Turreted Burst Laser",
+     "size": "small",
+     "kind": "turret",
+     "acc": 10,
+     "damage": 5,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Point Defence, Ammo 10",
+    "Point Defence, Ammo 10",
+    "0D Manifest Scanner (+1 bonus)",
+    "0E Frame Shift Wake Scanner (No bonus)"
+   ]
+  },
+  {
+   "name": "Imperial Cruiser",
+   "rank": "Deadly Soldier",
+   "group": "Soldier & Mercenary",
+   "kind": "ship",
+   "ship": "Imperial Cutter Kestral",
+   "stats": {
+    "Defence": "9",
+    "Dogfighting": "9",
+    "Pursuit": "11",
+    "Initiative": "8",
+    "Hull": "820",
+    "Critical": "100",
+    "Shields": "540",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Huge Fixed Plasma Accelerator",
+     "size": "huge",
+     "kind": "fixed",
+     "acc": 8,
+     "damage": 70,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Large Turreted Beam Laser",
+     "size": "large",
+     "kind": "turret",
+     "acc": 11,
+     "damage": 25,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Large Turreted Beam Laser",
+     "size": "large",
+     "kind": "turret",
+     "acc": 11,
+     "damage": 25,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Turreted Beam Laser",
+     "size": "medium",
+     "kind": "turret",
+     "acc": 11,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Turreted Beam Laser",
+     "size": "medium",
+     "kind": "turret",
+     "acc": 11,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Multi-cannon",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 12,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Multi-cannon",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 12,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "0A Shield Booster, Shield Bonus 25%",
+    "0A Shield Booster, Shield Bonus 25%",
+    "Chaff Launcher, Ammo 6",
+    "Point Defence, Ammo 10",
+    "Point Defence, Ammo 10",
+    "0C Kill Warrant Scanner, Bounty Bonus 60%"
+   ]
+  },
+  {
+   "name": "Empire Privateer",
+   "rank": "Mostly Harmless Criminal",
+   "group": "Criminal",
+   "kind": "ship",
+   "ship": "Imperial Eagle Outreach Omega",
+   "stats": {
+    "Defence": "13",
+    "Dogfighting": "14",
+    "Pursuit": "11",
+    "Initiative": "3",
+    "Hull": "130",
+    "Critical": "25",
+    "Shields": "85",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Medium Fixed Cannon",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Beam Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 5,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Beam Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 5,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "ECM"
+   ]
+  },
+  {
+   "name": "Pirate Ronin",
+   "rank": "Competent Criminal",
+   "group": "Criminal",
+   "kind": "ship",
+   "ship": "Federal Assault Ship Skirmisher",
+   "stats": {
+    "Defence": "12",
+    "Dogfighting": "13",
+    "Pursuit": "10",
+    "Initiative": "4",
+    "Hull": "435",
+    "Critical": "75",
+    "Shields": "180",
+    "Shield Recharge": "5",
+    "Shield Cell Bank": "20/3 Ammo 3"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Large Gimballed Cannon",
+     "size": "large",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Large Gimballed Cannon",
+     "size": "large",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Beam Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Beam Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6",
+    "0C Kill Warrant Scanner, 60% Bounty Bonus",
+    "Point Defence, Ammo 10",
+    "ECM"
+   ]
+  },
+  {
+   "name": "Successful Bounty Hunter",
+   "rank": "Master Assassin",
+   "group": "Assassin",
+   "kind": "ship",
+   "ship": "Imperial Courier Firestarter",
+   "stats": {
+    "Defence": "15",
+    "Dogfighting": "17",
+    "Pursuit": "13",
+    "Initiative": "7",
+    "Hull": "230",
+    "Critical": "45",
+    "Shields": "125",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "10/5 Ammo 3"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Medium Gimballed Beam Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Beam Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 9,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Fixed Railgun",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 40,
+     "burst": 0,
+     "vs": null,
+     "ammo": 10,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6",
+    "0B Shield Booster, Shield Boost 20%"
+   ]
+  },
+  {
+   "name": "Lethal Bounty Hunter",
+   "rank": "Deadly Assassin",
+   "group": "Assassin",
+   "kind": "ship",
+   "ship": "Federal Assault Ship Battleman",
+   "stats": {
+    "Defence": "18",
+    "Dogfighting": "20",
+    "Pursuit": "13",
+    "Initiative": "10",
+    "Hull": "995",
+    "Critical": "90",
+    "Shields": "350",
+    "Shield Recharge": "10",
+    "Shield Cell Bank": "20/5 Ammo 3"
+   },
+   "special": "",
+   "source": "Military Sourcebook",
+   "weapons": [
+    {
+     "name": "Large Fixed Beam Laser",
+     "size": "large",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 25,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Large Fixed Beam Laser",
+     "size": "large",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 25,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Seeker Missile Rack",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 12,
+     "damage": 35,
+     "burst": 0,
+     "vs": 15,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Medium Seeker Missile Rack",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 12,
+     "damage": 35,
+     "burst": 0,
+     "vs": 15,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6",
+    "0A Shield Booster, 25% Shield Boost",
+    "0A Shield Booster, 25% Shield Boost",
+    "0D Shield Booster, 10% Shield Boost"
+   ]
+  },
+  {
+   "name": "Federal Stunt Fighter",
+   "rank": "Harmless Soldier",
+   "group": "Military",
+   "kind": "ship",
+   "ship": "F63 Condor Aegis F",
+   "stats": {
+    "Defence": "13",
+    "Dogfighting": "13",
+    "Pursuit": "18",
+    "Initiative": "2",
+    "Hull": "15",
+    "Critical": "N/A",
+    "Shields": "20",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Fighter Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 4,
+     "damage": 15,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Fighter Fixed Pulse Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 4,
+     "damage": 15,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Point Defence, Ammo 10"
+   ],
+   "category": "small",
+   "token": "fighter/f63-blue",
+   "noVariant": true
+  },
+  {
+   "name": "Imperial Light Fighter",
+   "rank": "Mostly Harmless Soldier",
+   "group": "Military",
+   "kind": "ship",
+   "ship": "GU-97 Fighter Rogue G",
+   "stats": {
+    "Defence": "15",
+    "Dogfighting": "15",
+    "Pursuit": "16",
+    "Initiative": "3",
+    "Hull": "15",
+    "Critical": "N/A",
+    "Shields": "20",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Fighter Gimballed Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Fighter Gimballed Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6"
+   ],
+   "category": "small",
+   "token": "fighter/gu-97-blue",
+   "noVariant": true
+  },
+  {
+   "name": "Imperial Support Fighter",
+   "rank": "Competent Soldier",
+   "group": "Military",
+   "kind": "ship",
+   "ship": "GU-97 Fighter Gelid F",
+   "stats": {
+    "Defence": "16",
+    "Dogfighting": "16",
+    "Pursuit": "17",
+    "Initiative": "4",
+    "Hull": "15",
+    "Critical": "N/A",
+    "Shields": "20",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Fighter Fixed Beam Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 7,
+     "damage": 10,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Fighter Fixed Beam Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 7,
+     "damage": 10,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "ECM"
+   ],
+   "category": "small",
+   "token": "fighter/gu-97-green",
+   "noVariant": true
+  },
+  {
+   "name": "Federal Scrambler",
+   "rank": "Expert Soldier",
+   "group": "Military",
+   "kind": "ship",
+   "ship": "F63 Condor Gelid G",
+   "stats": {
+    "Defence": "16",
+    "Dogfighting": "16",
+    "Pursuit": "19",
+    "Initiative": "5",
+    "Hull": "15",
+    "Critical": "N/A",
+    "Shields": "20",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Fighter Gimballed Beam Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 10,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Fighter Gimballed Beam Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 8,
+     "damage": 10,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "ECM"
+   ],
+   "category": "small",
+   "token": "fighter/f63-red",
+   "noVariant": true
+  },
+  {
+   "name": "Taipan Harasser",
+   "rank": "Novice Criminal",
+   "group": "Pirate",
+   "kind": "ship",
+   "ship": "Taipan Rogue G",
+   "stats": {
+    "Defence": "14",
+    "Dogfighting": "14",
+    "Pursuit": "16",
+    "Initiative": "3",
+    "Hull": "25",
+    "Critical": "N/A",
+    "Shields": "30",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Fighter Gimballed Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Fighter Gimballed Pulse Laser",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 6,
+     "damage": 15,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Chaff Launcher, Ammo 6"
+   ],
+   "category": "small",
+   "token": "pirate/taipan-pirate"
+  },
+  {
+   "name": "Cobra Mk IV Aggressor",
+   "rank": "Master Criminal",
+   "group": "Pirate",
+   "kind": "ship",
+   "ship": "Cobra Mk IV Dragon",
+   "stats": {
+    "Defence": "9",
+    "Dogfighting": "9",
+    "Pursuit": "8",
+    "Initiative": "7",
+    "Hull": "265",
+    "Critical": "45",
+    "Shields": "200",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Medium Gimballed Beam Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 10,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Beam Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 10,
+     "damage": 15,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Seeker Missile Rack",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 11,
+     "damage": 20,
+     "burst": 0,
+     "vs": 10,
+     "ammo": 12,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Railgun",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 25,
+     "burst": 0,
+     "vs": null,
+     "ammo": 10,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Fixed Railgun",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 6,
+     "damage": 25,
+     "burst": 0,
+     "vs": null,
+     "ammo": 10,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Point Defence, Str 25, Ammo 10"
+   ]
+  },
+  {
+   "name": "Taipan Ace",
+   "rank": "Master Criminal",
+   "group": "Pirate",
+   "kind": "ship",
+   "ship": "Taipan Gelid F",
+   "stats": {
+    "Defence": "19",
+    "Dogfighting": "19",
+    "Pursuit": "18",
+    "Initiative": "8",
+    "Hull": "25",
+    "Critical": "N/A",
+    "Shields": "30",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Fighter Fixed Beam Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 10,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Fighter Fixed Beam Laser",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 10,
+     "damage": 10,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "ECM"
+   ],
+   "category": "small",
+   "token": "fighter/taipan-red",
+   "noVariant": true
+  },
+  {
+   "name": "Stalwart Trader",
+   "rank": "Novice Trader",
+   "group": "Trader",
+   "kind": "ship",
+   "ship": "Cobra Mk IV Holdfast",
+   "stats": {
+    "Defence": "7",
+    "Dogfighting": "7",
+    "Pursuit": "7",
+    "Initiative": "4",
+    "Hull": "100",
+    "Critical": "35",
+    "Shields": "115",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Medium Gimballed Pulse Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Gimballed Pulse Laser",
+     "size": "medium",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 20,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Gimballed Multi-Cannon",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 5,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Gimballed Multi-Cannon",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 5,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Gimballed Multi-Cannon",
+     "size": "small",
+     "kind": "gimballed",
+     "acc": 7,
+     "damage": 5,
+     "burst": 10,
+     "vs": null,
+     "ammo": 30,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Point Defence, Str 25, Ammo 10"
+   ]
+  },
+  {
+   "name": "Armoured Transport",
+   "rank": "Competent Trader",
+   "group": "Trader",
+   "kind": "ship",
+   "ship": "Keelback Tunnel Snake",
+   "stats": {
+    "Defence": "6",
+    "Dogfighting": "6",
+    "Pursuit": "8",
+    "Initiative": "4",
+    "Hull": "350",
+    "Critical": "30",
+    "Shields": "130",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Medium Turreted Burst Laser",
+     "size": "medium",
+     "kind": "turret",
+     "acc": 7,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Turreted Burst Laser",
+     "size": "medium",
+     "kind": "turret",
+     "acc": 7,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Turreted Cannon",
+     "size": "small",
+     "kind": "turret",
+     "acc": 7,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Turreted Cannon",
+     "size": "small",
+     "kind": "turret",
+     "acc": 7,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "utility": [
+    "Point Defence, Ammo 10",
+    "Point Defence, Ammo 10"
+   ]
+  },
+  {
+   "name": "Successful Trader",
+   "rank": "High Threat Competent Trader",
+   "group": "Trader",
+   "kind": "ship",
+   "ship": "Type-9 Heavy Protected Carrier",
+   "stats": {
+    "Defence": "4",
+    "Dogfighting": "4",
+    "Pursuit": "2",
+    "Initiative": "4",
+    "Hull": "430",
+    "Critical": "55",
+    "Shields": "230",
+    "Shield Recharge": "5"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Medium Turreted Burst Laser",
+     "size": "medium",
+     "kind": "turret",
+     "acc": 6,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Turreted Burst Laser",
+     "size": "medium",
+     "kind": "turret",
+     "acc": 6,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Medium Turreted Burst Laser",
+     "size": "medium",
+     "kind": "turret",
+     "acc": 6,
+     "damage": 15,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Small Turreted Fragment Cannon",
+     "size": "small",
+     "kind": "turret",
+     "acc": 8,
+     "damage": 5,
+     "burst": 0,
+     "vs": null,
+     "ammo": 20,
+     "hull": 5,
+     "shields": 0,
+     "special": "Damage 5/10/15"
+    },
+    {
+     "name": "Small Turreted Fragment Cannon",
+     "size": "small",
+     "kind": "turret",
+     "acc": 8,
+     "damage": 5,
+     "burst": 0,
+     "vs": null,
+     "ammo": 20,
+     "hull": 5,
+     "shields": 0,
+     "special": "Damage 5/10/15"
+    }
+   ],
+   "utility": [
+    "Point Defence, Ammo 10",
+    "Point Defence, Ammo 10"
+   ]
+  },
+  {
+   "name": "Bulk Cruiser",
+   "rank": "High Threat Dangerous Trader",
+   "group": "Trader",
+   "kind": "ship",
+   "ship": "Boa Mk III Super Trader",
+   "stats": {
+    "Defence": "8",
+    "Dogfighting": "8",
+    "Pursuit": "5",
+    "Initiative": "7",
+    "Hull": "2000",
+    "Critical": "105",
+    "Shields": "540",
+    "Shield Recharge": "10"
+   },
+   "special": "",
+   "source": "Super Traders Supplement",
+   "weapons": [
+    {
+     "name": "Huge Gimballed Beam Laser",
+     "size": "huge",
+     "kind": "gimballed",
+     "acc": 11,
+     "damage": 35,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Huge Gimballed Beam Laser",
+     "size": "huge",
+     "kind": "gimballed",
+     "acc": 11,
+     "damage": 35,
+     "burst": 20,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Large Turreted Burst Laser",
+     "size": "large",
+     "kind": "turret",
+     "acc": 8,
+     "damage": 25,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Large Turreted Burst Laser",
+     "size": "large",
+     "kind": "turret",
+     "acc": 8,
+     "damage": 25,
+     "burst": 10,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 5,
+     "special": ""
+    },
+    {
+     "name": "Large Turreted Cannon",
+     "size": "large",
+     "kind": "turret",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Large Turreted Cannon",
+     "size": "large",
+     "kind": "turret",
+     "acc": 8,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Small Mine Launcher",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 0,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 6,
+     "hull": 0,
+     "shields": 0,
+     "special": "",
+     "mine": {
+      "dn": 15
+     }
+    },
+    {
+     "name": "Small Mine Launcher",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 0,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 6,
+     "hull": 0,
+     "shields": 0,
+     "special": "",
+     "mine": {
+      "dn": 15
+     }
+    }
+   ],
+   "utility": [
+    "Point Defence, Ammo 10",
+    "Point Defence, Ammo 10"
+   ]
+  },
+  {
+   "name": "Pod Shark",
+   "rank": "Novice Alien Animal",
+   "group": "Alien Animal",
+   "kind": "vehicle",
+   "source": "Exploration Supplement",
+   "ship": "Alien animal (aquatic)",
+   "category": "medium",
+   "stats": {
+    "Defence": "8",
+    "Initiative": "3",
+    "Pursuit": "Speed +3",
+    "Perception": "3",
+    "Max Speed": "5",
+    "Accelerate": "5",
+    "Decelerate": "5",
+    "Hull": "80",
+    "Shields": "0",
+    "Shield Recharge": "0"
+   },
+   "table": [
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 1,
+     "attack": 0
+    },
+    {
+     "defence": 1,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    }
+   ],
+   "token": null,
+   "weapons": [
+    {
+     "name": "Bite",
+     "size": "medium",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 25,
+     "burst": 0,
+     "vs": null,
+     "ammo": null,
+     "hull": 0,
+     "shields": 0,
+     "special": "Up-close Ram action: bites instead of colliding"
+    }
+   ],
+   "special": "Actions: when up-close it can make a Ram action, but bites (Bite, +5 To Hit, 25 Damage) instead of colliding; when at-distance it can swim into the up-close zone as an action, or Pursue a fleeing target. Ignore Obstacles: it never rolls on the Obstacles table. Instinctively hostile to submarines; usually found in groups."
+  },
+  {
+   "name": "Kumo Dune Raider",
+   "rank": "Mostly Harmless Criminal",
+   "group": "Pirate",
+   "kind": "vehicle",
+   "source": "Super Traders Supplement",
+   "ship": "Shielded Dune Buggy",
+   "category": "small",
+   "stats": {
+    "Defence": "10",
+    "Initiative": "2",
+    "Pursuit": "Speed +1",
+    "Perception": "2",
+    "Max Speed": "9",
+    "Accelerate": "4",
+    "Decelerate": "2",
+    "Hull": "30",
+    "Shields": "30",
+    "Shield Recharge": "5"
+   },
+   "table": [
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 1,
+     "attack": 0
+    },
+    {
+     "defence": 1,
+     "attack": -1
+    },
+    {
+     "defence": 2,
+     "attack": -1
+    },
+    {
+     "defence": 2,
+     "attack": -1
+    },
+    {
+     "defence": 3,
+     "attack": -1
+    },
+    {
+     "defence": 4,
+     "attack": -2
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    }
+   ],
+   "token": null,
+   "sensors": "1km range",
+   "cargo": "1T",
+   "weapons": [
+    {
+     "name": "Plasma Repeater",
+     "size": "small",
+     "kind": "turret",
+     "acc": 5,
+     "damage": 5,
+     "burst": 15,
+     "vs": null,
+     "ammo": 50,
+     "hull": 0,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Cannon",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 15,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Cannon",
+     "size": "small",
+     "kind": "fixed",
+     "acc": 5,
+     "damage": 10,
+     "burst": 0,
+     "vs": null,
+     "ammo": 15,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "special": "The cannons are on small forward fixed mounts."
+  },
+  {
+   "name": "Pirate Trash Tank",
+   "rank": "High Threat Novice Criminal",
+   "group": "Pirate",
+   "kind": "vehicle",
+   "source": "Super Traders Supplement",
+   "ship": "Trash Tank",
+   "category": "medium",
+   "stats": {
+    "Defence": "4",
+    "Initiative": "3",
+    "Pursuit": "Speed +1",
+    "Perception": "3",
+    "Max Speed": "5",
+    "Accelerate": "2",
+    "Decelerate": "1",
+    "Hull": "200",
+    "Shields": "0",
+    "Shield Recharge": "0"
+   },
+   "table": [
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": -1
+    },
+    {
+     "defence": 0,
+     "attack": -1
+    },
+    {
+     "defence": 1,
+     "attack": -2
+    },
+    {
+     "defence": 1,
+     "attack": -3
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    },
+    {
+     "defence": 0,
+     "attack": 0
+    }
+   ],
+   "token": null,
+   "sensors": "1km range",
+   "cargo": "1T",
+   "weapons": [
+    {
+     "name": "Cannon",
+     "size": "large",
+     "kind": "turret",
+     "acc": 5,
+     "damage": 30,
+     "burst": 0,
+     "vs": null,
+     "ammo": 50,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    },
+    {
+     "name": "Multi-Cannon",
+     "size": "small",
+     "kind": "turret",
+     "acc": 5,
+     "damage": 5,
+     "burst": 10,
+     "vs": null,
+     "ammo": 15,
+     "hull": 5,
+     "shields": 0,
+     "special": ""
+    }
+   ],
+   "special": ""
+  }
  ]
 }

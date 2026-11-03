@@ -1,0 +1,255 @@
+{
+  "_id": "bfbe9f0571620657",
+  "_key": "!actors!bfbe9f0571620657",
+  "name": "Lethal Bounty Hunter",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/federation/federal-assault-ship.webp",
+  "system": {
+    "category": "medium",
+    "manufacturer": "Core Dynamics",
+    "dimensions": "",
+    "landingPad": "Medium",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "0A Shield Booster, 25% Shield Boost; 0A Shield Booster, 25% Shield Boost; 0D Shield Booster, 10% Shield Boost",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "Deadly Assassin. Spaceship: Federal Assault Ship Battleman.",
+    "agility": 9,
+    "speed": 9,
+    "maxSpeed": 9,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 995,
+      "max": 995
+    },
+    "shields": {
+      "value": 350,
+      "max": 350,
+      "recharge": 10,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 18,
+      "dogfighting": 20,
+      "pursuit": 13,
+      "initiative": 10,
+      "critical": 90
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 6,
+        "max": 6
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": [
+        {
+          "name": "Shield Cell Bank",
+          "boost": 20,
+          "duration": 5,
+          "uses": 3
+        }
+      ]
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Lethal Bounty Hunter",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 2,
+    "height": 2,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/federation/federal-assault-ship.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "7cf95838e85c760b",
+      "_key": "!actors.items!bfbe9f0571620657.7cf95838e85c760b",
+      "name": "Large Fixed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "fixed"
+        },
+        "accuracy": 10,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "a6d720b512f2f28d",
+      "_key": "!actors.items!bfbe9f0571620657.a6d720b512f2f28d",
+      "name": "Large Fixed Beam Laser",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "fixed"
+        },
+        "accuracy": 10,
+        "damage": 25,
+        "burst": {
+          "perPoint": 5,
+          "max": 20
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 5,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "6a2f67979ee595d2",
+      "_key": "!actors.items!bfbe9f0571620657.6a2f67979ee595d2",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 12,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "1c21e21f24e66453",
+      "_key": "!actors.items!bfbe9f0571620657.1c21e21f24e66453",
+      "name": "Medium Seeker Missile Rack",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "medium",
+          "kind": "fixed"
+        },
+        "accuracy": 12,
+        "damage": 35,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": 15,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 12,
+          "max": 12
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "acb9972b9d6624fb",
+  "sort": 2500,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

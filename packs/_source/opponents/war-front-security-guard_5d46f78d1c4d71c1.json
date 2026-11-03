@@ -1,0 +1,155 @@
+{
+  "_id": "5d46f78d1c4d71c1",
+  "_key": "!actors!5d46f78d1c4d71c1",
+  "name": "War Front Security Guard",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Security",
+    "robotic": false,
+    "dodge": 3,
+    "parry": 3,
+    "initiative": 4,
+    "perception": 3,
+    "toHit": 3,
+    "speed": "10m",
+    "endurance": {
+      "value": 25,
+      "max": 25
+    },
+    "otherSkills": [],
+    "equipment": "Wrist Com",
+    "notes": "<p><em>Espionage Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "War Front Security Guard",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "fc4ba27af9f12968",
+      "_key": "!actors.items!5d46f78d1c4d71c1.fc4ba27af9f12968",
+      "name": "Reflec Vest",
+      "type": "armour",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "rarity": "common",
+        "location": "carried",
+        "absorb": {
+          "kinetic": 0,
+          "energy": 3,
+          "explosive": 0,
+          "fighting": 0,
+          "melee": 0,
+          "toxic": 0
+        },
+        "toxicAll": false,
+        "hardened": null,
+        "discreet": false,
+        "wornOpenly": false,
+        "socialFactor": 0,
+        "skillMods": [],
+        "enhancement": "",
+        "worn": true,
+        "destroyed": false
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "1a23b6b24f145b99",
+      "_key": "!actors.items!5d46f78d1c4d71c1.1a23b6b24f145b99",
+      "name": "Laser Rifle",
+      "type": "weapon",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "description": "",
+        "cost": "40cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "energyWeapons",
+        "damageType": "energy",
+        "heavy": false,
+        "ranges": {
+          "short": {
+            "distance": "20m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "150m",
+            "dn": 6
+          },
+          "long": {
+            "distance": "500m",
+            "dn": 9
+          }
+        },
+        "finesse": null,
+        "damage": "15",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "none",
+          "max": ""
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "oneHanded": false,
+        "destroyCover": false,
+        "divideFire": false,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "fff34e81dd963465",
+  "sort": 5300,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

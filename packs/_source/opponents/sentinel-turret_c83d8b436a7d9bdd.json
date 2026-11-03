@@ -1,0 +1,118 @@
+{
+  "_id": "c83d8b436a7d9bdd",
+  "_key": "!actors!c83d8b436a7d9bdd",
+  "name": "Sentinel Turret",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "novice",
+    "role": "Robot",
+    "robotic": true,
+    "dodge": 0,
+    "parry": null,
+    "initiative": 10,
+    "perception": 6,
+    "toHit": 3,
+    "speed": "0m",
+    "endurance": {
+      "value": 10,
+      "max": 10
+    },
+    "otherSkills": [],
+    "equipment": "",
+    "notes": "<p>Robot: immune to Toxic damage; no verification protocols. Firing Arc: it can only target opponents in a 180° arc in front of it. Continuous Attack. Just a gun: no Fighting or Melee attacks. Immobile: it can't move or Dodge. Constantly Alert: it always has an action readied before combat to shoot a target that enters its firing arc within 180m.</p><p><em>Military Sourcebook</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Sentinel Turret",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [
+    {
+      "_id": "dc98e0ce6300edd7",
+      "_key": "!actors.items!c83d8b436a7d9bdd.dc98e0ce6300edd7",
+      "name": "Chain Gun",
+      "type": "weapon",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "",
+        "cost": "1000cr",
+        "rarity": "common",
+        "location": "carried",
+        "skill": "heavyWeapons",
+        "damageType": "kinetic",
+        "heavy": true,
+        "ranges": {
+          "short": {
+            "distance": "30m",
+            "dn": 5
+          },
+          "medium": {
+            "distance": "60m",
+            "dn": 8
+          },
+          "long": {
+            "distance": "180m",
+            "dn": 14
+          }
+        },
+        "finesse": null,
+        "damage": "2d10",
+        "rangeDamage": {
+          "medium": "",
+          "long": ""
+        },
+        "burst": {
+          "kind": "heavy",
+          "max": "6d10"
+        },
+        "blast": {
+          "fatal": null,
+          "injury": null,
+          "fatalRadius": null,
+          "injuryRadius": null
+        },
+        "ammo": {
+          "value": 20,
+          "max": 20
+        },
+        "oneHanded": false,
+        "destroyCover": true,
+        "divideFire": true,
+        "attackBonus": 0,
+        "skillMods": [],
+        "special": {
+          "burstType": "",
+          "ignoresArmour": "",
+          "destroysArmour": false,
+          "doubleVsRobots": false,
+          "molten": false
+        },
+        "notes": "",
+        "equipped": true,
+        "toHit": 3
+      },
+      "flags": {},
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "174ff00fdd2e23bd",
+  "sort": 7100,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

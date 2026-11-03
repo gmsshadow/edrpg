@@ -1,0 +1,50 @@
+{
+  "_id": "2d120e023d25869b",
+  "_key": "!actors!2d120e023d25869b",
+  "name": "Office Worker",
+  "type": "opponent",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "rank": "harmless",
+    "role": "Security",
+    "robotic": false,
+    "dodge": 1,
+    "parry": 1,
+    "initiative": 1,
+    "perception": 2,
+    "toHit": 1,
+    "speed": "10m",
+    "endurance": {
+      "value": 15,
+      "max": 15
+    },
+    "otherSkills": [
+      {
+        "skill": "fighting",
+        "bonus": 1
+      }
+    ],
+    "equipment": "Hand Com",
+    "notes": "<p><em>Espionage Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Office Worker",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "endurance"
+    },
+    "bar2": {
+      "attribute": null
+    }
+  },
+  "items": [],
+  "effects": [],
+  "folder": "fff34e81dd963465",
+  "sort": 5200,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

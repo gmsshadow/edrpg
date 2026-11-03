@@ -1,0 +1,229 @@
+{
+  "_id": "30fa20e42e0be0be",
+  "_key": "!actors!30fa20e42e0be0be",
+  "name": "Kumo Dune Raider",
+  "type": "vehicle",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "category": "small",
+    "manufacturer": "",
+    "dimensions": "",
+    "bays": 1,
+    "crewSize": 0,
+    "passengers": 0,
+    "sensors": "1km range",
+    "cargo": "1T",
+    "cost": "",
+    "special": "Mostly Harmless Criminal. Vehicle: Shielded Dune Buggy.",
+    "agility": 0,
+    "maxSpeed": 9,
+    "accelerate": 4,
+    "decelerate": 2,
+    "speedTable": [
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": 0
+      },
+      {
+        "defence": 1,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 2,
+        "attack": -1
+      },
+      {
+        "defence": 3,
+        "attack": -1
+      },
+      {
+        "defence": 4,
+        "attack": -2
+      },
+      {
+        "defence": 0,
+        "attack": 0
+      }
+    ],
+    "hull": {
+      "value": 30,
+      "max": 30
+    },
+    "shields": {
+      "value": 30,
+      "max": 30,
+      "recharge": 5,
+      "down": false
+    },
+    "drone": {
+      "enabled": true,
+      "defence": 10,
+      "initiative": 2,
+      "pursuit": 1,
+      "perception": 2
+    },
+    "flying": false,
+    "bomb": {
+      "damage": 0,
+      "vsShields": 0
+    },
+    "forwardRam": false,
+    "speed": 0,
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>The cannons are on small forward fixed mounts.</p><p><em>Super Traders Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Kumo Dune Raider",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "icons/svg/wing.svg"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "86fa3171a59d7a1a",
+      "_key": "!actors.items!30fa20e42e0be0be.86fa3171a59d7a1a",
+      "name": "Plasma Repeater",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "turret"
+        },
+        "accuracy": 5,
+        "damage": 5,
+        "burst": {
+          "perPoint": 5,
+          "max": 15
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 50,
+          "max": 50
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b20e3a8099e2a620",
+      "_key": "!actors.items!30fa20e42e0be0be.b20e3a8099e2a620",
+      "name": "Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "bc194c9bdf05ddc5",
+      "_key": "!actors.items!30fa20e42e0be0be.bc194c9bdf05ddc5",
+      "name": "Cannon",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 5,
+        "damage": 10,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 5,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 15,
+          "max": 15
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "8b02b32403f14176",
+  "sort": 3800,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

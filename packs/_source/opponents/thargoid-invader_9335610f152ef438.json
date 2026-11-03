@@ -1,0 +1,396 @@
+{
+  "_id": "9335610f152ef438",
+  "_key": "!actors!9335610f152ef438",
+  "name": "Thargoid Invader",
+  "type": "ship",
+  "img": "systems/edrpg/assets/tokens/thargoid/thargoid.webp",
+  "system": {
+    "category": "large",
+    "manufacturer": "",
+    "dimensions": "",
+    "landingPad": "",
+    "crewSize": 1,
+    "passengers": 0,
+    "utilityMounts": "",
+    "cargo": "",
+    "range": "",
+    "fuel": "",
+    "cost": "",
+    "sensors": "",
+    "bays": 0,
+    "special": "High Threat Elite Alien. Spaceship: Thargoid Cyclops.",
+    "agility": 0,
+    "speed": 0,
+    "maxSpeed": 0,
+    "accelerate": 0,
+    "decelerate": 0,
+    "hull": {
+      "value": 1500,
+      "max": 1500
+    },
+    "shields": {
+      "value": 800,
+      "max": 800,
+      "recharge": 0,
+      "down": false
+    },
+    "bonuses": {
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0
+    },
+    "npc": {
+      "enabled": true,
+      "defence": 17,
+      "dogfighting": 19,
+      "pursuit": 15,
+      "initiative": 10,
+      "critical": 0
+    },
+    "components": [],
+    "equipment": {
+      "chaff": {
+        "value": 0,
+        "max": 0
+      },
+      "mines": {
+        "value": 0,
+        "max": 0,
+        "dn": 15,
+        "damage": 10
+      },
+      "pointDefence": {
+        "value": 0,
+        "max": 0
+      },
+      "ecm": false,
+      "floating": 0,
+      "cellBanks": []
+    },
+    "zone": "atDistance",
+    "pilot": "",
+    "description": "<p>Thargoid Hearts 4. Impervious: its Hull (not its shields) can't be harmed by standard weapons, only by AX Missile Racks and AX Multi-cannons, and it is immune to critical hits. Shields only activate once a Heart has been exerted, then at full strength (800), and are vulnerable to normal weapons. Shutdown Field: its first action, instead of attacking; ships without a Shutdown Field Neutraliser lose all power until it moves away or is destroyed. Regeneration: as an Equipment action at the start of its turn it exerts a Heart to recover all damage and raise its shields (once). Hearts are impervious until detected by an AX Xeno Scanner and exerted; an exerted Heart has 100 Hull, shares the impervious trait and can be targeted like a component (also by fixed and turreted weapons). With no Hearts left it can't Regenerate. Each time it exerts a Heart it deploys a Thargon Swarm. Thargoid Disruptor: 80 Damage (40 vs Hull and components) and an automatic critical hit, even with the target's shields up. Caustic Missile (used between turns when a Heart is destroyed, two at once): +18 To Hit, 100 Damage, bypasses shields and inflicts three 50-Damage critical hits to components; Point Defence can intercept it.</p><p><em>Exploration Supplement</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Thargoid Invader",
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 20,
+    "width": 3,
+    "height": 3,
+    "texture": {
+      "src": "systems/edrpg/assets/tokens/thargoid/thargoid.webp"
+    },
+    "bar1": {
+      "attribute": "hull"
+    },
+    "bar2": {
+      "attribute": "shields"
+    }
+  },
+  "items": [
+    {
+      "_id": "7e4842cc512f13f2",
+      "_key": "!actors.items!9335610f152ef438.7e4842cc512f13f2",
+      "name": "Thargoid Ballistics",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "84da91147cb6c146",
+      "_key": "!actors.items!9335610f152ef438.84da91147cb6c146",
+      "name": "Thargoid Ballistics",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "a1ca1320494cf8ad",
+      "_key": "!actors.items!9335610f152ef438.a1ca1320494cf8ad",
+      "name": "Thargoid Ballistics",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "7b962e6c6375bfc5",
+      "_key": "!actors.items!9335610f152ef438.7b962e6c6375bfc5",
+      "name": "Thargoid Ballistics",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "31edfc09cd7528ad",
+      "_key": "!actors.items!9335610f152ef438.31edfc09cd7528ad",
+      "name": "Thargoid Ballistics",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "3e88181ecff9b217",
+      "_key": "!actors.items!9335610f152ef438.3e88181ecff9b217",
+      "name": "Thargoid Ballistics",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 40,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "6c87da8bc495ab97",
+      "_key": "!actors.items!9335610f152ef438.6c87da8bc495ab97",
+      "name": "Thargoid Disruptor",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "small",
+          "kind": "fixed"
+        },
+        "accuracy": 14,
+        "damage": 80,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "40 vs Hull and components; automatic critical hit, even through shields",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "ca0eff36b6c959e5",
+      "_key": "!actors.items!9335610f152ef438.ca0eff36b6c959e5",
+      "name": "Caustic Missile",
+      "type": "craftWeapon",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "description": "",
+        "cost": "",
+        "mount": {
+          "size": "large",
+          "kind": "fixed"
+        },
+        "accuracy": 18,
+        "damage": 100,
+        "burst": {
+          "perPoint": 5,
+          "max": 0
+        },
+        "damageVsShields": null,
+        "bonusVsHull": 0,
+        "bonusVsShields": 0,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "special": "Between turns when a Heart is destroyed: bypasses shields, three 50-Damage critical hits",
+        "gunner": ""
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 800,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [],
+  "folder": "a28b88c2fd20ce9a",
+  "sort": 1400,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

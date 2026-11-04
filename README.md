@@ -5,6 +5,9 @@ Elite: Dangerous Role Playing Game for FoundryVTT
 
 A Foundry VTT game system for the *Elite: Dangerous Role Playing Game*.
 
+Based on [edrpg-fvtt](https://github.com/ElSaico/edrpg-fvtt) by Bruno Marques (ElSaico). See
+[Credits and legal](#credits-and-legal).
+
 **Compatibility:** Foundry VTT v14 (ApplicationV2 sheets, `TypeDataModel` for every document type).
 
 See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patch) with every change so Foundry offers the update.
@@ -99,3 +102,17 @@ lang/        Localisation
 ```
 
 Symlink or copy the folder into `Data/systems/edrpg` and reload Foundry.
+
+## Credits and legal
+
+- **Original system**: this system started from [edrpg-fvtt](https://github.com/ElSaico/edrpg-fvtt) by Bruno Marques
+  ([ElSaico](https://github.com/ElSaico)), released under the Mozilla Public License 2.0. It has since been rewritten
+  for Foundry VTT v14 and extended. The code is still under the MPL 2.0 (see [LICENSE](LICENSE)), and the source of
+  every file is available in this repository.
+- **Unofficial**: this is an unofficial fan project. It is not made, endorsed or approved by Frontier Developments plc
+  or by Spidermind Games.
+- **Trademarks**: Elite and Elite: Dangerous are trademarks of Frontier Developments plc. *Elite: Dangerous* © 1984–2026
+  Frontier Developments plc. All rights reserved. The *Elite: Dangerous Role Playing Game* is published by Spidermind
+  Games under licence from Frontier Developments. All other trademarks belong to their respective owners.
+- **Rules content**: the compendiums hold names, costs and game statistics only, with no rulebook text. You need the
+  *Elite: Dangerous Role Playing Game* books to play.

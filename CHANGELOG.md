@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.51
+
+- **Credits**: Bruno Marques (ElSaico), author of the original edrpg-fvtt system, is now listed as an author in
+  `system.json` and credited in the README.
+- **Legal**: the README has a new "Credits and legal" section with the MPL 2.0 basis, an unofficial-fan-project
+  disclaimer and the Frontier Developments trademark notice.
+
 ## 0.1.50
 
 Combined Scale Combat (Core Rules pp.254–259): individuals, vehicles and spaceships in the same fight.

@@ -121,6 +121,8 @@ export function creationView(actor) {
          label: i18n("EDRPG.creation.step.ship"),
          done: !!sys.creation.ship,
          toggle: "system.creation.ship",
+         action: sys.creation.ship ? null : "creationShip",
+         actionLabel: i18n("EDRPG.fleet.choose"),
          hint: i18n("EDRPG.creation.hint.ship"),
       },
    );

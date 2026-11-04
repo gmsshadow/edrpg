@@ -8,9 +8,24 @@
    </div>
    <div class="ed-vtitle">
       <label class="ed-vfield model">
-         <span class="ed-tag">{{localize "EDRPG.vehicle.model"}}</span>
+         <span class="ed-tag">{{#if source.model}}{{localize "EDRPG.fleet.name"}}{{else}}{{localize "EDRPG.vehicle.model"}}{{/if}}</span>
          <input type="text" name="name" value="{{actor.name}}">
+         {{#if modelLabel}}<span class="ed-vmodel muted">{{modelLabel}}</span>{{/if}}
       </label>
+      {{#unless npcShip}}{{#unless system.drone.enabled}}
+      <div class="ed-vfield owner" data-tooltip="EDRPG.fleet.ownerHint">
+         <span class="ed-tag">{{localize "EDRPG.fleet.owner"}}</span>
+         {{#if craftOwner}}
+         <a class="ed-vpilot" data-action="openActor" data-uuid="{{craftOwner.uuid}}"><img src="{{craftOwner.img}}" alt=""> {{craftOwner.name}}</a>
+         {{#if editable}}<a class="ed-vclear" data-action="clearOwner" data-tooltip="EDRPG.fleet.release"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+         {{else}}
+         <select name="system.owner" {{#unless editable}}disabled{{/unless}}>
+            <option value="">{{localize "EDRPG.fleet.noOwner"}}</option>
+            {{selectOptions ownerChoices sort=true}}
+         </select>
+         {{/if}}
+      </div>
+      {{/unless}}{{/unless}}
       <div class="ed-vfield pilot" data-tooltip="EDRPG.vehicle.pilotHint">
          <span class="ed-tag">{{localize "EDRPG.vehicle.pilot"}}</span>
          {{#if npcShip}}

@@ -74,6 +74,10 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
 - **Mission Generator** (Core Rules pp.338–347): the GM's sidebar button rolls Military, Espionage or Exploration
   missions with their detail and twist, and the rewards for the party's rank. It posts a briefing (and a journal entry)
   and creates the star systems Stellar Cartography calls for.
+- **Fleet**: ships and vehicles belong to a character (an Owner field on the craft). The character sheet lists their
+  fleet; drag a craft onto it to add it, and star the current ship. Character creation offers the eight starting ships
+  (p.38). The chosen ship is copied from the compendium into the fleet under a name of the player's choice, with a
+  Scarab SRV for the Sidewinder Discovery.
 - **Between Adventures** (Core Rules p.272): a character-sheet button for Safe Trading, Asteroid Mining, Exploring or
   Bounty Hunting with one of the character's ships. It reads the ship's fit, rolls, runs the employee risk check, pays
   crew wages and puts the income in the character's cash.

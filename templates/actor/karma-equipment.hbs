@@ -127,4 +127,23 @@
       </div>
       {{/edrpgSection}}
    </div>
+   {{#if isCharacter}}
+   {{#> edrpgSection title="EDRPG.fleet.title" icon="fa-solid fa-shuttle-space" count=fleet.length}}
+   <table class="ed-table ed-fleet">
+      <thead><tr><th class="toggle"></th><th class="name">{{localize "EDRPG.fleet.name"}}</th><th>{{localize "EDRPG.fleet.kind"}}</th><th>{{localize "EDRPG.vehicle.hull"}}</th><th>{{localize "EDRPG.vehicle.pilot"}}</th><th class="controls"></th></tr></thead>
+      <tbody>
+         {{#each fleet as |c|}}
+         <tr data-craft="{{c.uuid}}" class="{{#if c.destroyed}}destroyed{{/if}}">
+            <td class="toggle">{{#if c.isShip}}<a data-action="activeShip" data-tooltip="EDRPG.fleet.activeHint">{{#if c.active}}<i class="fa-solid fa-star"></i>{{else}}<i class="fa-regular fa-star"></i>{{/if}}</a>{{/if}}</td>
+            <th class="name"><a data-action="openCraft"><img src="{{c.img}}" alt=""> {{c.name}}</a>{{#if c.model}} <span class="muted">{{c.model}}</span>{{/if}}</th>
+            <td>{{c.kind}}</td>
+            <td>{{c.hull}}</td>
+            <td>{{c.pilot}}</td>
+            <td class="controls">{{#if @root.editable}}<a data-action="releaseCraft" data-tooltip="EDRPG.fleet.release"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+         </tr>
+         {{else}}<tr class="empty"><td colspan="6">{{localize "EDRPG.fleet.empty"}}</td></tr>{{/each}}
+      </tbody>
+   </table>
+   {{/edrpgSection}}
+   {{/if}}
 </div>

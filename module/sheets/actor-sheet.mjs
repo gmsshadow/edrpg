@@ -16,6 +16,8 @@ import { honoraryRanks } from "../config.mjs";
 import { endAdventure } from "../advancement.mjs";
 import { betweenAdventures } from "../between-adventures.mjs";
 import { openHireCrew } from "../crew.mjs";
+import { promptStartingShip, fleetView, assignCraft, setActiveShip } from "../fleet.mjs";
+import { isCraft } from "../data/vehicle.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
 import { conditionView, conditionAction } from "../dice/damage.mjs";
 import { rankUpView, promptRankUp } from "../rankup.mjs";
@@ -74,6 +76,10 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          creationLearning: EDActorSheet.#onCreationLearning,
          creationEquipment: EDActorSheet.#onCreationEquipment,
          creationFinish: EDActorSheet.#onCreationFinish,
+         creationShip: EDActorSheet.#onCreationShip,
+         openCraft: EDActorSheet.#onOpenCraft,
+         activeShip: EDActorSheet.#onActiveShip,
+         releaseCraft: EDActorSheet.#onReleaseCraft,
          rankUp: EDActorSheet.#onRankUp,
          createPartner: EDActorSheet.#onCreatePartner,
          openActor: EDActorSheet.#onOpenActor,
@@ -135,6 +141,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          rank: system.rank,
          tabs: this._prepareTabs("primary"),
          isCharacter,
+         fleet: isCharacter ? fleetView(actor) : null,
          isPartner,
          partnerInfo: isPartner ? this.#partnerInfo() : null,
          partners: partnersOf(actor).map((p) => ({ uuid: p.uuid, name: p.name })),
@@ -622,6 +629,46 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
    /** @this {EDActorSheet} */
    static async #onRankUp() {
       return promptRankUp(this.document);
+   }
+
+   /** @this {EDActorSheet} Character creation: choose the starting ship (p.38). */
+   static async #onCreationShip() {
+      if (this.isEditable) await promptStartingShip(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onOpenCraft(event, target) {
+      (await fromUuid(target.closest("[data-craft]").dataset.craft))?.sheet.render({ force: true });
+   }
+
+   /** @this {EDActorSheet} Make this the current ship (Between Adventures uses it first). */
+   static async #onActiveShip(event, target) {
+      if (!this.isEditable) return;
+      const craft = await fromUuid(target.closest("[data-craft]").dataset.craft);
+      await setActiveShip(this.document, craft);
+   }
+
+   /** @this {EDActorSheet} Take a craft out of the fleet (it stays in the world). */
+   static async #onReleaseCraft(event, target) {
+      if (!this.isEditable) return;
+      const craft = await fromUuid(target.closest("[data-craft]").dataset.craft);
+      if (!craft) return;
+      const ok = await foundry.applications.api.DialogV2.confirm({
+         window: { title: game.i18n.localize("EDRPG.fleet.release") },
+         content: `<p>${game.i18n.format("EDRPG.fleet.releaseConfirm", { craft: foundry.utils.escapeHTML(craft.name), name: foundry.utils.escapeHTML(this.document.name) })}</p>`,
+         rejectClose: false,
+      });
+      if (ok) await assignCraft(craft, null);
+   }
+
+   /**
+    * Dropping a ship or vehicle on a character adds it to their fleet.
+    *
+    * @override
+    */
+   async _onDropActor(event, actor) {
+      if (this.isEditable && this.document.type === "character" && isCraft(actor)) return assignCraft(actor, this.document);
+      return super._onDropActor?.(event, actor);
    }
 
    /** @this {EDActorSheet} */

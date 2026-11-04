@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.1.52
+
+Ships and vehicles now belong to characters, not just players.
+
+- **Owner and Model fields** on ships and vehicles.
+  - The craft's sheet header has an Owner picker (characters only) next to the Pilot.
+  - Model holds the compendium name, so a renamed ship still shows what it is.
+- **Fleet section** on the character's Karma & Equipment tab: their ships and vehicles with Hull and pilot.
+  - Drag a ship or vehicle from the sidebar onto the sheet to add it.
+  - Star the current ship.
+  - × removes a craft from the fleet; it stays in the world.
+- **Starting ship** (character creation, p.38). The ship step now has a "Choose ship" button with the eight starting
+  ships and a short note on each.
+  - Optional name: it tells apart several ships of the same model, and the model is kept on the sheet.
+  - The ship is copied from the Spaceships compendium into a "Player Ships" folder, with a linked token. The character
+    is set as its owner and pilot and it becomes their current ship. The character's players own it.
+  - The Sidewinder Discovery comes with a Scarab SRV; pick which variant.
+  - A character with a partner can only take a Hauler or an Adder; the single-seaters are greyed out.
+  - "Build my own" ticks the step and notes the 100,000cr budget for you and the GM to sort out.
+- **Between Adventures** uses the character's own ships, current first, labelled with their model. The old rule (ships
+  they pilot, or that their players own) is only a fallback for characters with no fleet.
+- **Hire Crew** can sign the new crew on for one of the employer's ships. Between Adventures shows how many are signed
+  on against the crew the ship needs.
+- Macro: `game.edrpg.promptStartingShip(actor)`.
+
 ## 0.1.51
 
 - **Credits**: Bruno Marques (ElSaico), author of the original edrpg-fvtt system, is now listed as an author in

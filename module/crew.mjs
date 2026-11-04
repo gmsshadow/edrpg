@@ -15,6 +15,7 @@
  * seat, and remember who employs them (flags.edrpg.crew).
  */
 import { die } from "./starsystem.mjs";
+import { fleetOf } from "./fleet.mjs";
 
 const L = (key, data) => (data ? game.i18n.format(key, data) : game.i18n.localize(key));
 const esc = (s) => foundry.utils.escapeHTML(String(s ?? ""));
@@ -92,8 +93,8 @@ export function rollCrew(rng) {
  *
  * @returns {Actor[]}
  */
-export function crewOf(actor) {
-   return game.actors?.filter((a) => a.getFlag?.("edrpg", "crew")?.employer === actor.uuid) ?? [];
+export function crewOf(actor, ship = null) {
+   return game.actors?.filter((a) => a.getFlag?.("edrpg", "crew")?.employer === actor.uuid && (!ship || a.getFlag("edrpg", "crew")?.ship === ship.uuid)) ?? [];
 }
 
 /** A compendium item copied by name, if the system has it. */
@@ -114,7 +115,7 @@ async function itemNamed(packId, re) {
  *
  * @returns {Promise<Actor>}
  */
-export async function createCrewActor(c, employer = null) {
+export async function createCrewActor(c, employer = null, ship = null) {
    let folder = game.folders.find((f) => f.type === "Actor" && f.name === L("EDRPG.crew.folder"));
    folder ??= await Folder.implementation.create({ name: L("EDRPG.crew.folder"), type: "Actor" });
    const items = (await Promise.all([itemNamed("weapons", /^laser pistol$/i), itemNamed("clothing", /^flight suit$/i), itemNamed("gear", /^remlok/i)])).filter(Boolean);
@@ -153,7 +154,7 @@ export async function createCrewActor(c, employer = null) {
          notes,
       },
       items,
-      flags: { edrpg: { crew: { employer: employer?.uuid ?? "", salary: c.salary, morality: c.morality, allegiance: c.allegiance, stats: STATS.map((k) => c[k]) } } },
+      flags: { edrpg: { crew: { employer: employer?.uuid ?? "", ship: ship?.uuid ?? "", salary: c.salary, morality: c.morality, allegiance: c.allegiance, stats: STATS.map((k) => c[k]) } } },
    };
    if (employer) {
       // The employing players own their crew.
@@ -172,13 +173,16 @@ export async function createCrewActor(c, employer = null) {
  */
 export async function openHireCrew(employer = null) {
    const row = (label, field, hint = "") => `<div class="form-group"><label>${label}</label><div class="form-fields">${field}</div>${hint ? `<p class="hint">${hint}</p>` : ""}</div>`;
+   // The employer's ships: crew can be signed on for one of them (Between Adventures needs NPC ships fully crewed).
+   const ships = employer ? fleetOf(employer).filter((a) => a.type === "ship") : [];
    const first = await foundry.applications.api.DialogV2.input({
       window: { title: employer ? L("EDRPG.crew.titleFor", { name: employer.name }) : L("EDRPG.crew.title"), icon: "fa-solid fa-user-astronaut" },
       classes: ["edrpg", "edrpg-dialog"],
       content:
          `<p class="hint">${L("EDRPG.crew.intro")}</p>` +
          row(L("EDRPG.crew.how"), `<select name="how"><option value="hurry">${L("EDRPG.crew.hurry")}</option><option value="interview">${L("EDRPG.crew.interview")}</option></select>`, L("EDRPG.crew.howHint")) +
-         row(L("EDRPG.crew.count"), `<input type="number" name="count" value="1" min="1" max="6" step="1">`),
+         row(L("EDRPG.crew.count"), `<input type="number" name="count" value="1" min="1" max="6" step="1">`) +
+         (ships.length ? row(L("EDRPG.crew.ship"), `<select name="ship"><option value="">—</option>${ships.map((a) => `<option value="${a.uuid}">${esc(a.name)}</option>`).join("")}</select>`, L("EDRPG.crew.shipHint")) : ""),
       ok: { label: "EDRPG.crew.rollButton", icon: "fa-solid fa-dice-d10" },
       rejectClose: false,
    });
@@ -202,7 +206,8 @@ export async function openHireCrew(employer = null) {
       hired = candidates.filter((_, i) => pick[`c${i}`]);
    }
    const actors = [];
-   for (const c of hired) actors.push(await createCrewActor(c, employer));
+   const ship = first.ship ? (ships.find((a) => a.uuid === first.ship) ?? null) : null;
+   for (const c of hired) actors.push(await createCrewActor(c, employer, ship));
    if (actors.length) {
       await ChatMessage.create({
          speaker: employer ? ChatMessage.getSpeaker({ actor: employer }) : ChatMessage.getSpeaker(),

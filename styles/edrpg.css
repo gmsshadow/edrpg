@@ -3853,3 +3853,12 @@ table.ed-ss-installations input {
 .edrpg-crew .ed-crew-list { display: flex; flex-direction: column; gap: 0.35rem; max-height: 26rem; overflow-y: auto; }
 .ed-crew-candidate { display: flex; gap: 0.5rem; align-items: flex-start; padding: 0.3rem; border: 1px solid var(--ed-cell-border); border-radius: 3px; }
 .ed-crew-candidate input { flex: 0 0 auto; margin-top: 0.2rem; }
+
+/* Fleet: a character's ships and vehicles; the craft's owner and model */
+.edrpg .ed-vfield.owner { position: relative; }
+.edrpg .ed-vmodel { font-size: 0.8em; margin-top: 0.1rem; }
+.edrpg .ed-fleet th.name a { display: inline-flex; align-items: center; gap: 0.3rem; }
+.edrpg .ed-fleet th.name img { width: 1.6rem; height: 1.6rem; border: none; object-fit: cover; }
+.edrpg .ed-fleet tr.destroyed th.name a { text-decoration: line-through; opacity: 0.7; }
+.edrpg .ed-fleet .fa-star.fa-solid { color: var(--ed-blue); }
+.edrpg-starting-ship .ed-ship-blurb { min-height: 2.4em; }

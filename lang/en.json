@@ -2129,7 +2129,7 @@
          "employeeHint": "A crew member does the work instead. They may not come back with the ship.",
          "pay": "Pay out to cash",
          "payWages": "Crew wages: {wages} for {count} crew, paid first.",
-         "crewNote": "This ship needs a crew of {crew}.",
+         "crewNote": "This ship needs a crew of {crew}; {aboard} hired crew signed on for it.",
          "roll": "Roll",
          "activityName": {
             "trading": "Safe Trading",
@@ -2252,7 +2252,9 @@
             "empire": "Empire",
             "federation": "Federation",
             "alliance": "Alliance"
-         }
+         },
+         "ship": "For ship",
+         "shipHint": "Optional: sign them on for one of your ships. An NPC-flown ship must be fully crewed to earn Between Adventures income."
       },
       "addiction": {
          "title": "Addiction: {name}",
@@ -2326,6 +2328,45 @@
          "runDownRule": "A Dodge check against {dn}. You can only run down someone out of cover, or behind cover that wouldn't hurt the vehicle.",
          "chickenVehicleRule": "The vehicle rolls D10 + Defence and swerves on {dn} or more.",
          "dodgeRule": "A Dodge check against the ship's Defence ({dn})."
+      },
+      "fleet": {
+         "title": "Fleet",
+         "name": "Name",
+         "kind": "Type",
+         "owner": "Owner",
+         "noOwner": "— Nobody —",
+         "ownerHint": "The character whose craft this is. It appears in their Fleet and is used for their Between Adventures.",
+         "empty": "No ships or vehicles. Drag one from the Actors sidebar onto this sheet to add it to the fleet.",
+         "activeHint": "Current ship: offered first for Between Adventures.",
+         "release": "Remove from fleet",
+         "releaseConfirm": "Take {craft} out of {name}'s fleet? The craft stays in the world.",
+         "noPermission": "You don't have permission to change {craft}.",
+         "notFound": "{name} isn't in the compendium.",
+         "folder": "Player Ships",
+         "choose": "Choose ship",
+         "startTitle": "Starting Ship: {name}",
+         "startIntro": "Choose one of the eight starting ships (Core Rules p.38). It is copied from the compendium into your fleet with you as pilot.",
+         "partnerRule": "You have a partner: Sidewinders and Eagles are single-seaters, so you need a Hauler or an Adder.",
+         "ship": "Ship",
+         "nameHint": "Optional, but recommended: a name of your own tells your ship apart from others of the same model. The model stays on its sheet.",
+         "srv": "SRV",
+         "srvHint": "The Sidewinder Discovery comes with a Scarab SRV.",
+         "buildOwn": "Build my own (up to 100,000cr)",
+         "buildOwnHint": "Buy a basic hull and improvements, spending up to {budget}cr. Any money you don't spend is lost. Build it with your GM; this just ticks the step.",
+         "buildOwnChat": "{name} is building their own starting ship (up to {budget}cr; unspent credits are lost).",
+         "take": "Take this ship",
+         "tookShip": "{name} takes {ship} ({model}) as their starting ship.",
+         "withSrv": "It comes with {srv}.",
+         "blurb": {
+            "sidewinderFd4": "Fighter-trader: good internal upgrades, accurate weapons and solid defences.",
+            "sidewinderWarden": "Attack interceptor for bounty hunters who favour endurance over agility.",
+            "sidewinderDiscovery": "Exploration scout, with a Scarab SRV as standard.",
+            "eagleInterceptor": "Heavily armed gunfighter that can pull small ships out of supercruise.",
+            "eagleDefender": "Short-range dogfighter with balanced weapons and good defences.",
+            "haulerZeta": "Roomy trader: big cargo bay, good range, poor defences. Spare cabin for a partner.",
+            "haulerDrigger": "Small dedicated miner: earns well between adventures, but a liability in a fight. Spare cabin for a partner.",
+            "adderCornucopia": "Mostly unimproved but spacious, with lots of room to upgrade. Two seats: ideal with a partner."
+         }
       }
    }
 }

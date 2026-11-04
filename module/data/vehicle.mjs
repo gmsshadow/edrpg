@@ -142,6 +142,10 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
          forwardRam: new fields.BooleanField({ initial: false }),
          // Crew: the pilot's UUID (any individual actor or opponent).
          pilot: new fields.StringField({ required: true, blank: true, initial: "" }),
+         // Whose craft it is (a character's UUID): their Fleet, and the ships they use Between Adventures.
+         owner: new fields.StringField({ required: true, blank: true, initial: "" }),
+         // The model it was made from (e.g. "Sidewinder – FD-4"), kept when the craft is renamed.
+         model: new fields.StringField({ required: true, blank: true, initial: "" }),
          description: new fields.HTMLField({ initial: "" }),
       };
    }

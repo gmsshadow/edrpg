@@ -39,6 +39,7 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
       actions: {
          setSpeed: EDVehicleSheet.#onSetSpeed,
          clearPilot: EDVehicleSheet.#onClearPilot,
+         clearOwner: EDVehicleSheet.#onClearOwner,
          openActor: EDVehicleSheet.#onOpenActor,
          rollWeapon: EDVehicleSheet.#onRollWeapon,
          reloadWeapon: EDVehicleSheet.#onReloadWeapon,
@@ -101,6 +102,12 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          pilot: pilot ? { uuid: pilot.uuid, name: pilot.name, img: pilot.img } : null,
          pilotMissing: !!system.pilot && !pilot,
          pilotChoices: this.#crewChoices(),
+         craftOwner: (() => {
+            const o = system.owner ? fromUuidSync(system.owner) : null;
+            return o ? { uuid: o.uuid, name: o.name, img: o.img } : null;
+         })(),
+         ownerChoices: Object.fromEntries((game.actors ?? []).filter((a) => a.type === "character" && a.testUserPermission(game.user, "OBSERVER")).map((a) => [a.uuid, a.name])),
+         modelLabel: system.model && system.model !== actor.name ? system.model : "",
          stats: {
             dogfight: system.dogfight,
             defence: system.defence,
@@ -385,6 +392,11 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
    /** @this {EDVehicleSheet} */
    static async #onClearPilot() {
       if (this.isEditable) return this.document.update({ "system.pilot": "" });
+   }
+
+   /** @this {EDVehicleSheet} Take it out of its owner's fleet. */
+   static async #onClearOwner() {
+      if (this.isEditable) return this.document.update({ "system.owner": "" });
    }
 
    /** @this {EDVehicleSheet} */

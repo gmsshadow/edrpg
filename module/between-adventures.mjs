@@ -21,6 +21,7 @@ import { ranks } from "./config.mjs";
 import { judge } from "./dice/resolve.mjs";
 import { addictionPhase } from "./addiction.mjs";
 import { crewOf } from "./crew.mjs";
+import { fleetOf, activeShip } from "./fleet.mjs";
 
 const L = (key, data) => (data ? game.i18n.format(key, data) : game.i18n.localize(key));
 const esc = (s) => foundry.utils.escapeHTML(String(s ?? ""));
@@ -213,13 +214,21 @@ export function workOut({ activity, profile: p, bonus, d100, risk = "low", check
 }
 
 /**
- * The ships a character can use: ones they fly, and ones owned by the same players.
+ * The ships a character can use: their own fleet (current ship first); failing that, ones they fly or that their
+ * players own.
  *
  * @param {Actor} actor
  *
  * @returns {Actor[]}
  */
 export function shipsFor(actor) {
+   // The character's own fleet, the current ship first.
+   const own = fleetOf(actor).filter((a) => a.type === "ship");
+   if (own.length) {
+      const current = activeShip(actor);
+      return current ? [current, ...own.filter((a) => a !== current)] : own;
+   }
+   // Otherwise (older worlds): ships they pilot, or that their players own.
    const players = game.users.filter((u) => !u.isGM && actor.testUserPermission(u, "OWNER"));
    return game.actors.filter((a) => a.type === "ship" && (a.system.pilot === actor.uuid || players.some((u) => a.testUserPermission(u, "OWNER")) || (game.user.isGM && !players.length)));
 }
@@ -245,7 +254,7 @@ export async function betweenAdventures(actor) {
    const wages = crew.reduce((n, c) => n + (c.getFlag("edrpg", "crew")?.salary ?? 0), 0);
 
    const activities = ["trading", "mining", "exploration", "bounty"];
-   const shipOptions = ships.map((s) => `<option value="${s.id}">${esc(s.name)}</option>`).join("");
+   const shipOptions = ships.map((s) => `<option value="${s.id}">${esc(s.name)}${s.system.model && s.system.model !== s.name ? ` (${esc(s.system.model)})` : ""}</option>`).join("");
    const row = (label, field, hint = "", cls = "") => `<div class="form-group ${cls}"><label>${label}</label><div class="form-fields">${field}</div>${hint ? `<p class="hint">${hint}</p>` : ""}</div>`;
    const riskOptions = Object.entries(BOUNTY).map(([k, r]) => `<option value="${k}">${L(`EDRPG.between.risk.${k}`)} (${L("EDRPG.between.riskInfo", { points: r.points, risk: r.risk })})</option>`).join("");
    const content = `
@@ -277,7 +286,9 @@ export async function betweenAdventures(actor) {
             for (const el of root.querySelectorAll(".not-bounty")) el.hidden = activity === "bounty";
             for (const opt of root.querySelectorAll("[name=risk] option")) opt.disabled = BOUNTY[opt.value].points > p.weaponPoints;
             const shortCrew = ["medium", "large", "huge"].includes(p.size) && p.crewSize > 1;
-            info.innerHTML = `<p class="${blocked ? "ed-between-warn" : "hint"}">${blocked ?? summary(p, activity, bonus)}</p>${shortCrew ? `<p class="hint">${L("EDRPG.between.crewNote", { crew: p.crewSize })}</p>` : ""}`;
+            // Crew signed on for this ship (the employer flies it, so one fewer is needed).
+            const aboard = crewOf(actor, ship).length;
+            info.innerHTML = `<p class="${blocked ? "ed-between-warn" : "hint"}">${blocked ?? summary(p, activity, bonus)}</p>${shortCrew ? `<p class="hint">${L("EDRPG.between.crewNote", { crew: p.crewSize, aboard })}</p>` : ""}`;
             root.querySelector("button[data-action=ok]")?.toggleAttribute("disabled", !!blocked);
             dialog.setPosition?.({ height: "auto" });
          };

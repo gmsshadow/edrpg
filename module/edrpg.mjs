@@ -4,6 +4,7 @@ import EDStarSystemSheet, { createStarSystem } from "./sheets/starsystem-sheet.m
 import { openMissionGenerator, rollMission } from "./missions.mjs";
 import { betweenAdventures, openRareItems } from "./between-adventures.mjs";
 import { openHireCrew } from "./crew.mjs";
+import { registerFleetHooks, promptStartingShip } from "./fleet.mjs";
 import { registerTurnPanel, openTurnPanel } from "./turn-panel.mjs";
 import * as EDRPG from "./config.mjs";
 import { CharacterData, NPCIndividualData, OpponentData, PartnerData } from "./data/actor.mjs";
@@ -39,7 +40,7 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, betweenAdventures, openRareItems, openHireCrew, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
+   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, betweenAdventures, openRareItems, openHireCrew, promptStartingShip, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
    registerKarmaHooks();
 
    registerSettings();
@@ -126,6 +127,7 @@ Hooks.once("ready", () => {
    registerGrabSocket();
    registerCraftSocket();
    registerVehicleCombat();
+   registerFleetHooks();
    registerTurnPanel();
    ensureLandingScene();
    // Controlled drones take their controller's Cyber bonus: refresh them once every actor exists, and when a

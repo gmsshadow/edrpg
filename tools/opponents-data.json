@@ -1,0 +1,3024 @@
+[
+ {
+  "name": "Army Soldier",
+  "group": "Soldier & Mercenary",
+  "rank": "novice",
+  "role": "Soldier",
+  "dodge": 3,
+  "parry": 2,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 25,
+  "toHit": 3,
+  "speed": "10m",
+  "equipment": "Med Pac",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Laser Rifle",
+    "compendium": "Laser Rifle",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "15",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "20m(5)/150m(6)/500m(9)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 3,
+    "finesse": 7,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": "Infantry variants: Medic (+3 Medicine); Radio Operator/Drone Pilot (+3 Systems and Cyber); SRV/Tank Driver (+3 Vehicle Piloting); Combat Engineer (+3 Repair)."
+ },
+ {
+  "name": "Conscript",
+  "group": "Soldier & Mercenary",
+  "rank": "harmless",
+  "role": "Soldier",
+  "dodge": 2,
+  "parry": 2,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 15,
+  "toHit": 2,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Laser Rifle",
+    "compendium": "Laser Rifle",
+    "toHit": 2,
+    "finesse": null,
+    "damage": "15",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "20m(5)/150m(6)/500m(9)",
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Slave Soldier",
+  "group": "Soldier & Mercenary",
+  "rank": "mostlyHarmless",
+  "role": "Soldier",
+  "dodge": 2,
+  "parry": 3,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 20,
+  "toHit": 3,
+  "speed": "10m",
+  "equipment": "Med Pac",
+  "skills": [
+   [
+    "fighting",
+    3
+   ]
+  ],
+  "armour": {
+   "name": "Riot Armour",
+   "absorb": {
+    "melee": 5,
+    "fighting": 3
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Laser Rifle",
+    "compendium": "Laser Rifle",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "15",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "20m(5)/150m(6)/500m(9)",
+    "notes": ""
+   }
+  ],
+  "notes": "Variants: Medic (+3 Medicine); Radio Operator/Drone Pilot (+3 Systems and Cyber)."
+ },
+ {
+  "name": "Army Officer",
+  "group": "Soldier & Mercenary",
+  "rank": "novice",
+  "role": "Soldier",
+  "dodge": 3,
+  "parry": 2,
+  "initiative": 4,
+  "perception": 3,
+  "endurance": 25,
+  "toHit": 3,
+  "speed": "10m",
+  "equipment": "Med Pac",
+  "skills": [
+   [
+    "tactics",
+    4
+   ]
+  ],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Autopistol",
+    "compendium": "Autopistol",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "2d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 3,
+    "range": "6m(5)/50m(8)/100m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Mercenary Demolisher",
+  "group": "Soldier & Mercenary",
+  "rank": "novice",
+  "role": "Mercenary",
+  "dodge": 3,
+  "parry": 2,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 25,
+  "toHit": 4,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Bullet Proof Vest",
+   "absorb": {
+    "kinetic": 5,
+    "energy": 3
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Assault Beamer",
+    "compendium": "Assault Beamer",
+    "toHit": 4,
+    "finesse": null,
+    "damage": "5",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "20"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "12m(4)/70m(7)/200m(10)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 4,
+    "finesse": 7,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Special Forces",
+  "group": "Soldier & Mercenary",
+  "rank": "dangerous",
+  "role": "Soldier",
+  "dodge": 7,
+  "parry": 6,
+  "initiative": 6,
+  "perception": 7,
+  "endurance": 50,
+  "toHit": 7,
+  "speed": "12m",
+  "equipment": "Med Pac",
+  "skills": [
+   [
+    "medicine",
+    6
+   ],
+   [
+    "stealth",
+    6
+   ]
+  ],
+  "armour": {
+   "name": "Assault Combat Armour",
+   "absorb": {
+    "kinetic": 10,
+    "energy": 4,
+    "explosive": 6
+   },
+   "hardened": 6,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "GTN 195 Autopistol",
+    "compendium": "GTN 195 Autopistol",
+    "toHit": 7,
+    "finesse": null,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "2d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 3,
+    "range": "8m(5)/55m(8)/110m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Perun Light Machinegun",
+    "compendium": "Perun Light Machinegun",
+    "toHit": 7,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "5d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 4,
+    "range": "18m(6)/140m(7)/600m(10)",
+    "notes": ""
+   },
+   {
+    "name": "Concussion Grenade",
+    "compendium": "Concussion Grenade",
+    "toHit": 6,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     40,
+     5
+    ],
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Sniper",
+  "group": "Soldier & Mercenary",
+  "rank": "master",
+  "role": "Soldier",
+  "dodge": 6,
+  "parry": 4,
+  "initiative": 5,
+  "perception": 6,
+  "endurance": 40,
+  "toHit": 6,
+  "speed": "10m",
+  "equipment": "Med Pac",
+  "skills": [
+   [
+    "stealth",
+    5
+   ]
+  ],
+  "armour": {
+   "name": "Alloyed Breastplate",
+   "absorb": {
+    "kinetic": 8,
+    "energy": 3,
+    "melee": 3
+   },
+   "hardened": 7,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Vortigen Multi-Scope Energy Rifle",
+    "compendium": "Vortigen Multi-Scope Energy Rifle",
+    "toHit": 7,
+    "finesse": null,
+    "damage": "20",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "20m(5)/150m(6)/500m(9)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 4,
+    "finesse": 7,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Assault Trooper",
+  "group": "Soldier & Mercenary",
+  "rank": "expert",
+  "role": "Soldier",
+  "dodge": 5,
+  "parry": 4,
+  "initiative": 3,
+  "perception": 4,
+  "endurance": 35,
+  "toHit": 5,
+  "speed": "12m",
+  "equipment": "Med Pac",
+  "skills": [],
+  "armour": {
+   "name": "Alloyed Breastplate",
+   "absorb": {
+    "kinetic": 8,
+    "energy": 3,
+    "melee": 3
+   },
+   "hardened": 7,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Assault Beamer",
+    "compendium": "Assault Beamer",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "5",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "20"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "12m(4)/70m(7)/200m(10)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 5,
+    "finesse": 7,
+    "damage": "1d10+4",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   },
+   {
+    "name": "Frag Grenade",
+    "compendium": "Frag Grenade",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     25,
+     10
+    ],
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Heavy Weapons Support",
+  "group": "Soldier & Mercenary",
+  "rank": "competent",
+  "role": "Mercenary",
+  "dodge": 4,
+  "parry": 2,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 30,
+  "toHit": 4,
+  "speed": "10m",
+  "equipment": "Two spare missiles",
+  "skills": [],
+  "armour": {
+   "name": "Reflec Breastplate",
+   "absorb": {
+    "kinetic": 5,
+    "energy": 5,
+    "melee": 3
+   },
+   "hardened": 7,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Missile Launcher (Anti-Personnel)",
+    "compendium": "Missile Launcher (Anti-Personnel)",
+    "toHit": 4,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     50,
+     20
+    ],
+    "blastRadius": null,
+    "ammo": null,
+    "range": "Min Range 26m, 200m(9)/2km(12)",
+    "notes": ""
+   },
+   {
+    "name": "Laser Pistol",
+    "compendium": "Laser Pistol",
+    "toHit": 4,
+    "finesse": null,
+    "damage": "8",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "10m(4)/80m(7)/120m(11)",
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Battlescarred Cyber Merc",
+  "group": "Soldier & Mercenary",
+  "rank": "deadly",
+  "role": "High Threat Mercenary",
+  "dodge": 9,
+  "parry": 7,
+  "initiative": 7,
+  "perception": 8,
+  "endurance": 100,
+  "toHit": 9,
+  "speed": "14m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Type 5 Armoured Carapace",
+   "absorb": {
+    "kinetic": 10,
+    "energy": 7,
+    "explosive": 15,
+    "fighting": 6,
+    "melee": 6
+   },
+   "hardened": 5,
+   "toxicAll": true
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "G910 Heavy Repeater",
+    "compendium": "G910 Heavy Repeater",
+    "toHit": 10,
+    "finesse": null,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": [
+     "heavy",
+     "8d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 6,
+    "range": "30m(5)/60m(8)/180m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Cyberclaws (Class 2)",
+    "compendium": "Cyberclaws (Class 2)",
+    "toHit": 9,
+    "finesse": null,
+    "damage": "3d10+6",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": "Continuous Attack."
+ },
+ {
+  "name": "Gang Member",
+  "group": "Criminal",
+  "rank": "harmless",
+  "role": "Criminal",
+  "dodge": 2,
+  "parry": 2,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 15,
+  "toHit": 2,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "bluff",
+    2
+   ],
+   [
+    "streetwise",
+    2
+   ]
+  ],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Shotgun",
+    "compendium": "Shotgun",
+    "toHit": 2,
+    "finesse": null,
+    "damage": "3d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {
+     "medium": "2d10",
+     "long": "1d10"
+    },
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "6m(3)/12m(7)/50m(12)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 2,
+    "finesse": 7,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Street Punk",
+  "group": "Criminal",
+  "rank": "harmless",
+  "role": "Criminal",
+  "dodge": 2,
+  "parry": 1,
+  "initiative": 1,
+  "perception": 3,
+  "endurance": 15,
+  "toHit": 2,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "streetwise",
+    2
+   ],
+   [
+    "sleightOfHand",
+    2
+   ]
+  ],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Autopistol",
+    "compendium": "Autopistol",
+    "toHit": 2,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "2d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 3,
+    "range": "6m(5)/50m(8)/100m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Gang Enforcer",
+  "group": "Criminal",
+  "rank": "mostlyHarmless",
+  "role": "Criminal",
+  "dodge": 3,
+  "parry": 2,
+  "initiative": 1,
+  "perception": 3,
+  "endurance": 20,
+  "toHit": 3,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "bluff",
+    2
+   ],
+   [
+    "streetwise",
+    2
+   ],
+   [
+    "fighting",
+    3
+   ]
+  ],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Sub Machinegun",
+    "compendium": "Sub Machinegun",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "3d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "10m(5)/60m(8)/120m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Wise Guy",
+  "group": "Criminal",
+  "rank": "competent",
+  "role": "Criminal",
+  "dodge": 4,
+  "parry": 4,
+  "initiative": 3,
+  "perception": 4,
+  "endurance": 30,
+  "toHit": 4,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "streetwise",
+    6
+   ]
+  ],
+  "armour": {
+   "name": "Bullet Proof Vest",
+   "absorb": {
+    "kinetic": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Autopistol",
+    "compendium": "Autopistol",
+    "toHit": 4,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "2d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 3,
+    "range": "6m(5)/50m(8)/100m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Axe/Hammer",
+    "compendium": "Axe/Hammer",
+    "toHit": 4,
+    "finesse": 7,
+    "damage": "2d10+4",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "The Don",
+  "group": "Criminal",
+  "rank": "master",
+  "role": "Criminal",
+  "dodge": 6,
+  "parry": 7,
+  "initiative": 6,
+  "perception": 7,
+  "endurance": 40,
+  "toHit": 7,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "intimidate",
+    9
+   ]
+  ],
+  "armour": {
+   "name": "Bullet Proof Vest",
+   "absorb": {
+    "kinetic": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [
+   [
+    "Eat Lead Sucker!",
+    1
+   ]
+  ],
+  "weapons": [
+   {
+    "name": "Ergon Tommygun",
+    "compendium": "Ergon Tommygun",
+    "toHit": 7,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "3d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 8,
+    "range": "12m(5)/64m(8)/128m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": "Eat Lead Sucker!: on a hit with a Burst weapon, inflicts maximum Burst damage."
+ },
+ {
+  "name": "Gang Leader",
+  "group": "Criminal",
+  "rank": "novice",
+  "role": "Criminal",
+  "dodge": 3,
+  "parry": 2,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 25,
+  "toHit": 4,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "streetwise",
+    3
+   ],
+   [
+    "cultureLaw",
+    3
+   ]
+  ],
+  "armour": {
+   "name": "Bullet Proof Vest",
+   "absorb": {
+    "kinetic": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Autopistol",
+    "compendium": "Autopistol",
+    "toHit": 4,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "2d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 3,
+    "range": "6m(5)/50m(8)/100m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Sword",
+    "compendium": "Sword",
+    "toHit": 4,
+    "finesse": 4,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Consigliere",
+  "group": "Criminal",
+  "rank": "master",
+  "role": "Criminal",
+  "dodge": 5,
+  "parry": 5,
+  "initiative": 4,
+  "perception": 4,
+  "endurance": 35,
+  "toHit": 5,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "streetwise",
+    6
+   ]
+  ],
+  "armour": {
+   "name": "Bullet Proof Vest",
+   "absorb": {
+    "kinetic": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [
+   [
+    "Blur of Steel",
+    1
+   ],
+   [
+    "Hard Boiled",
+    1
+   ]
+  ],
+  "weapons": [
+   {
+    "name": "Autopistol",
+    "compendium": "Autopistol",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "2d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 3,
+    "range": "6m(5)/50m(8)/100m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Sword",
+    "compendium": "Sword",
+    "toHit": 5,
+    "finesse": 4,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": "Dual Fire: fires two autopistols simultaneously at no penalty. Blur of Steel: +2 to a Melee attack roll. Hard Boiled: make two ranged attacks; Defence (Dodge) is 10 until the start of its next turn."
+ },
+ {
+  "name": "The Cleaner",
+  "group": "Criminal",
+  "rank": "expert",
+  "role": "Criminal",
+  "dodge": 5,
+  "parry": 4,
+  "initiative": 4,
+  "perception": 4,
+  "endurance": 30,
+  "toHit": 5,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "streetwise",
+    6
+   ]
+  ],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Shotgun",
+    "compendium": "Shotgun",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "3d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {
+     "medium": "2d10",
+     "long": "1d10"
+    },
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "6m(3)/12m(7)/50m(12)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 5,
+    "finesse": 7,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Security Guard",
+  "group": "Police & Security",
+  "rank": "harmless",
+  "role": "Security",
+  "dodge": 2,
+  "parry": 1,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 15,
+  "toHit": 2,
+  "speed": "10m",
+  "equipment": "Wrist Com",
+  "skills": [
+   [
+    "insight",
+    2
+   ]
+  ],
+  "armour": {
+   "name": "Reflec Vest",
+   "absorb": {
+    "energy": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Sub Machinegun",
+    "compendium": "Sub Machinegun",
+    "toHit": 2,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "3d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 4,
+    "range": "10m(5)/60m(8)/120m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Police Officer",
+  "group": "Police & Security",
+  "rank": "mostlyHarmless",
+  "role": "Police",
+  "dodge": 2,
+  "parry": 1,
+  "initiative": 2,
+  "perception": 2,
+  "endurance": 20,
+  "toHit": 3,
+  "speed": "10m",
+  "equipment": "Restraints, Hand Com",
+  "skills": [
+   [
+    "cultureLaw",
+    3
+   ]
+  ],
+  "armour": {
+   "name": "Stab Vest",
+   "absorb": {
+    "melee": 3
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Laser Pistol",
+    "compendium": "Laser Pistol",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "8",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "10m(4)/80m(7)/120m(11)",
+    "notes": ""
+   },
+   {
+    "name": "Club/Baton",
+    "compendium": "Club/Baton",
+    "toHit": 3,
+    "finesse": 6,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Private Military Contractor (PMC)",
+  "group": "Police & Security",
+  "rank": "competent",
+  "role": "Security",
+  "dodge": 4,
+  "parry": 3,
+  "initiative": 3,
+  "perception": 3,
+  "endurance": 35,
+  "toHit": 4,
+  "speed": "10m",
+  "equipment": "Med Pac",
+  "skills": [],
+  "armour": {
+   "name": "Reflec Breastplate",
+   "absorb": {
+    "kinetic": 5,
+    "energy": 5,
+    "melee": 3
+   },
+   "hardened": 7,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Laser Pistol",
+    "compendium": "Laser Pistol",
+    "toHit": 4,
+    "finesse": null,
+    "damage": "8",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "10m(4)/80m(7)/120m(11)",
+    "notes": ""
+   },
+   {
+    "name": "Frag Grenade",
+    "compendium": "Frag Grenade",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     25,
+     10
+    ],
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Police Detective",
+  "group": "Police & Security",
+  "rank": "competent",
+  "role": "Police",
+  "dodge": 4,
+  "parry": 2,
+  "initiative": 4,
+  "perception": 5,
+  "endurance": 30,
+  "toHit": 5,
+  "speed": "10m",
+  "equipment": "Restraints, Hand Com",
+  "skills": [
+   [
+    "streetwise",
+    4
+   ],
+   [
+    "cultureLaw",
+    4
+   ]
+  ],
+  "armour": {
+   "name": "Reflec vest",
+   "absorb": {
+    "energy": 3
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [
+   [
+    "Dive Aside",
+    1
+   ],
+   [
+    "Eat Lead Sucker!",
+    1
+   ]
+  ],
+  "weapons": [
+   {
+    "name": "Autopistol",
+    "compendium": "Autopistol",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "2d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 3,
+    "range": "6m(5)/50m(8)/100m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": "Dive Aside: +5 to Defence (Dodge). Eat Lead Sucker!: inflict maximum Burst damage."
+ },
+ {
+  "name": "Police Raider",
+  "group": "Police & Security",
+  "rank": "expert",
+  "role": "Police",
+  "dodge": 4,
+  "parry": 4,
+  "initiative": 5,
+  "perception": 4,
+  "endurance": 30,
+  "toHit": 5,
+  "speed": "10m",
+  "equipment": "Restraints, Wrist Com",
+  "skills": [
+   [
+    "cultureLaw",
+    4
+   ]
+  ],
+  "armour": {
+   "name": "Bullet Proof Vest",
+   "absorb": {
+    "kinetic": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Shotgun",
+    "compendium": "Shotgun",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "3d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {
+     "medium": "2d10",
+     "long": "1d10"
+    },
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 4,
+    "range": "6m(3)/12m(7)/50m(12)",
+    "notes": ""
+   },
+   {
+    "name": "Assault Rifle",
+    "compendium": "Assault Rifle",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "3d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 4,
+    "range": "16m(6)/100m(7)/400m(10)",
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Bruiser",
+  "group": "Assassin",
+  "rank": "harmless",
+  "role": "Assassin",
+  "dodge": 3,
+  "parry": 3,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 20,
+  "toHit": 2,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "intimidate",
+    2
+   ]
+  ],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Club/Baton",
+    "compendium": "Club/Baton",
+    "toHit": 2,
+    "finesse": 6,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   },
+   {
+    "name": "Chainsaw",
+    "compendium": "Chainsaw",
+    "toHit": 2,
+    "finesse": 9,
+    "damage": "3d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Hired Gun",
+  "group": "Assassin",
+  "rank": "expert",
+  "role": "Assassin",
+  "dodge": 5,
+  "parry": 4,
+  "initiative": 5,
+  "perception": 4,
+  "endurance": 35,
+  "toHit": 5,
+  "speed": "12m",
+  "equipment": "",
+  "skills": [
+   [
+    "stealth",
+    4
+   ]
+  ],
+  "armour": {
+   "name": "Bullet Proof Vest",
+   "absorb": {
+    "kinetic": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [
+   [
+    "Crack Shot",
+    1
+   ]
+  ],
+  "weapons": [
+   {
+    "name": "Sub Machinegun",
+    "compendium": "Sub Machinegun",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "3d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "10m(5)/60m(8)/120m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 5,
+    "finesse": 7,
+    "damage": "1d10+4",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   },
+   {
+    "name": "Frag Grenade",
+    "compendium": "Frag Grenade",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     25,
+     10
+    ],
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": "Crack Shot: +2 to the Kinetic, Energy or Heavy Weapon attack just made."
+ },
+ {
+  "name": "Vigilante",
+  "group": "Assassin",
+  "rank": "mostlyHarmless",
+  "role": "Assassin",
+  "dodge": 3,
+  "parry": 2,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 20,
+  "toHit": 2,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Shotgun",
+    "compendium": "Shotgun",
+    "toHit": 2,
+    "finesse": null,
+    "damage": "3d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "6m(3)/12m(7)/50m(12)",
+    "notes": ""
+   },
+   {
+    "name": "Laser Pistol",
+    "compendium": "Laser Pistol",
+    "toHit": 2,
+    "finesse": null,
+    "damage": "8",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "10m(4)/80m(7)/120m(11)",
+    "notes": ""
+   },
+   {
+    "name": "Knife",
+    "compendium": "Knife",
+    "toHit": 2,
+    "finesse": 7,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": "Shotgun: 2D10 at medium range, 1D10 at long range."
+ },
+ {
+  "name": "Religious Zealot",
+  "group": "Assassin",
+  "rank": "mostlyHarmless",
+  "role": "Assassin",
+  "dodge": 3,
+  "parry": 2,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 30,
+  "toHit": 3,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [
+   [
+    "Stay Standing",
+    1
+   ]
+  ],
+  "weapons": [
+   {
+    "name": "Frag Grenade",
+    "compendium": "Frag Grenade",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     25,
+     10
+    ],
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   },
+   {
+    "name": "Axe/Hammer",
+    "compendium": "Axe/Hammer",
+    "toHit": 3,
+    "finesse": 8,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": "Stay Standing: an attack that just hit does not knock it down."
+ },
+ {
+  "name": "Bounty Hunter",
+  "group": "Assassin",
+  "rank": "master",
+  "role": "Assassin",
+  "dodge": 6,
+  "parry": 4,
+  "initiative": 6,
+  "perception": 7,
+  "endurance": 40,
+  "toHit": 6,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [
+   [
+    "stealth",
+    5
+   ]
+  ],
+  "armour": null,
+  "karma": [
+   [
+    "Hard Boiled",
+    1
+   ]
+  ],
+  "weapons": [
+   {
+    "name": "Autopistol",
+    "compendium": "Autopistol",
+    "toHit": 6,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "6m(5)/50m(8)/100m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": "Dual Fire: fires two autopistols simultaneously at no penalty. Hard Boiled: two ranged attacks, one with each gun, at +2 To Hit; Defence (Dodge) is 10 until its next turn."
+ },
+ {
+  "name": "Unstoppable Assassin",
+  "group": "Assassin",
+  "rank": "elite",
+  "role": "High Threat Assassin",
+  "dodge": 10,
+  "parry": 10,
+  "initiative": 10,
+  "perception": 10,
+  "endurance": 80,
+  "toHit": 10,
+  "speed": "16m",
+  "equipment": "",
+  "skills": [
+   [
+    "stealth",
+    10
+   ],
+   [
+    "fighting",
+    10
+   ]
+  ],
+  "armour": null,
+  "karma": [
+   [
+    "Dive Aside",
+    3
+   ],
+   [
+    "Stay Standing",
+    3
+   ],
+   [
+    "Riposte",
+    2
+   ]
+  ],
+  "weapons": [
+   {
+    "name": "Imperial Sabre",
+    "compendium": "Imperial Sabre",
+    "toHit": 10,
+    "finesse": 4,
+    "damage": "3d10+8",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": ""
+   }
+  ],
+  "notes": "Fighting damage: 1D10 halved +8. Continuous Driving Attack. Dive Aside (×3): +5 Defence (Dodge) against an attack that would hit. Riposte (×2): can counter-attack its enemy's counter-attack. Stay Standing (×3): an attack that just hit does not knock it down."
+ },
+ {
+  "name": "Borchuck",
+  "group": "Alien Animal",
+  "rank": "harmless",
+  "role": "Alien Animal",
+  "dodge": 2,
+  "parry": null,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 15,
+  "toHit": 2,
+  "speed": "12m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Hoof",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 5,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Slam",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 6,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Toxic Vomit",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": null,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "2m(5)/6m(8)/10m(12)",
+    "notes": "",
+    "skill": "kineticWeapons",
+    "dtype": "toxic"
+   }
+  ],
+  "notes": "If its Slam knocks the target over, it can make a free Hoof attack on that target. Toxic Vomit does toxic damage."
+ },
+ {
+  "name": "Narseer",
+  "group": "Alien Animal",
+  "rank": "mostlyHarmless",
+  "role": "Alien Animal",
+  "dodge": 3,
+  "parry": 3,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 20,
+  "toHit": 4,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 5,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Sickle Claw",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": 5,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Sonic Screech",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": null,
+    "damage": "5",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "6m(5)/16m(7)/30m(11)",
+    "notes": "",
+    "skill": "kineticWeapons",
+    "dtype": "kinetic"
+   }
+  ],
+  "notes": "Sickle Claw: knocked-over targets only. Sonic Screech: on a natural 9 or 10 To Hit the target is knocked over and drops whatever it was holding."
+ },
+ {
+  "name": "Gollunk",
+  "group": "Alien Animal",
+  "rank": "mostlyHarmless",
+  "role": "High Threat Alien Animal",
+  "dodge": 1,
+  "parry": null,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 50,
+  "toHit": 2,
+  "speed": "8m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Armoured Scales",
+   "absorb": {
+    "energy": 6,
+    "kinetic": 4,
+    "melee": 4
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Slam",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 6,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Continuous Driving Attack."
+ },
+ {
+  "name": "Frenick",
+  "group": "Alien Animal",
+  "rank": "novice",
+  "role": "Alien Animal",
+  "dodge": 3,
+  "parry": null,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 25,
+  "toHit": 4,
+  "speed": "14m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 3,
+    "finesse": 5,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Claw",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": 4,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Energy Blast",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": null,
+    "damage": "8",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "10m(4)/60m(7)/100m(11)",
+    "notes": "",
+    "skill": "energyWeapons",
+    "dtype": "energy"
+   }
+  ],
+  "notes": "To fire its Energy Blast it must stand still, facing the target."
+ },
+ {
+  "name": "Kai",
+  "group": "Alien Animal",
+  "rank": "competent",
+  "role": "Alien Animal",
+  "dodge": 4,
+  "parry": null,
+  "initiative": 3,
+  "perception": 4,
+  "endurance": 30,
+  "toHit": 4,
+  "speed": "12m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": 5,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Claw",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": 5,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Tail Sting",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": 6,
+    "damage": "0",
+    "dtypeOverride": "toxic",
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "toxic"
+   }
+  ],
+  "notes": "Overwhelming Assault: attacks with Bite, Claw and Tail Sting in the same turn, at the same or different enemies. Tail Sting: on a hit the target takes 5 Toxic damage per round until treated with a Difficulty 9 Medicine check."
+ },
+ {
+  "name": "Stump",
+  "group": "Alien Animal",
+  "rank": "novice",
+  "role": "Alien Animal",
+  "dodge": 3,
+  "parry": 3,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 25,
+  "toHit": 4,
+  "speed": "8m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Claw",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": 4,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 4,
+    "finesse": 5,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "If its Claw hits, it may make an immediate Bite against the same target. Pounce: instead of moving, it can pounce up to 20m and then make a Claw attack, jumping over objects and people if there is room."
+ },
+ {
+  "name": "Rock Runner",
+  "group": "Alien Animal",
+  "rank": "expert",
+  "role": "Alien Animal",
+  "dodge": 5,
+  "parry": 5,
+  "initiative": 4,
+  "perception": 4,
+  "endurance": 35,
+  "toHit": 5,
+  "speed": "18m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 5,
+    "finesse": 5,
+    "damage": "2d10+4",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Bite: 2D10+4 against both individual- and vehicle-scale targets. No disadvantage over uneven ground."
+ },
+ {
+  "name": "Tengoroth",
+  "group": "Alien Animal",
+  "rank": "master",
+  "role": "Alien Animal",
+  "dodge": 2,
+  "parry": null,
+  "initiative": 3,
+  "perception": 2,
+  "endurance": 100,
+  "toHit": 6,
+  "speed": "14m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Thick Hide",
+   "absorb": {
+    "kinetic": 8,
+    "melee": 6,
+    "fighting": 6
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Tusks",
+    "compendium": null,
+    "toHit": 6,
+    "finesse": 5,
+    "damage": "2d10+6",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Acid Globule",
+    "compendium": null,
+    "toHit": 6,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     20,
+     10
+    ],
+    "blastRadius": [
+     "8m",
+     "12m"
+    ],
+    "ammo": 2,
+    "range": "10m(5)/30m(8)/50m(12)",
+    "notes": "",
+    "skill": "kineticWeapons",
+    "dtype": "toxic"
+   }
+  ],
+  "notes": "Tusks: human-sized targets are knocked over. Acid Globule: explodes on impact (Fatal 8m, Injury 12m); two per day."
+ },
+ {
+  "name": "Mordrake Spider",
+  "group": "Alien Animal",
+  "rank": "dangerous",
+  "role": "Alien Animal",
+  "dodge": 7,
+  "parry": 7,
+  "initiative": 6,
+  "perception": 6,
+  "endurance": 50,
+  "toHit": 7,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Armoured Carapace",
+   "absorb": {
+    "kinetic": 10,
+    "energy": 6
+   },
+   "hardened": 5,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Stab",
+    "compendium": null,
+    "toHit": 7,
+    "finesse": 4,
+    "damage": "3d10+6",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Chemical Attack",
+    "compendium": null,
+    "toHit": 7,
+    "finesse": 7,
+    "damage": "2d10",
+    "dtypeOverride": "toxic",
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "Only if target is knocked over.",
+    "skill": "meleeWeapons",
+    "dtype": "toxic"
+   },
+   {
+    "name": "Barbed Hairs",
+    "compendium": null,
+    "toHit": 7,
+    "finesse": null,
+    "damage": "3d10",
+    "dtypeOverride": "toxic",
+    "burst": null,
+    "rangeDamage": {
+     "medium": "2d10",
+     "long": "1d10"
+    },
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "5m(3)/10m(7)/15m(12)",
+    "notes": "",
+    "skill": "kineticWeapons",
+    "dtype": "toxic"
+   }
+  ],
+  "notes": "Stab: on a natural 9 or 10 To Hit the target is knocked over and drops whatever it was holding; the spider then makes a Chemical Attack. Chemical Attack: knocked-over targets only, toxic. Barbed Hairs: 2D10 at medium range, 1D10 at long range; must include up to two adjacent targets within 2m of the enemy if it can, rolling to hit each separately, friend or foe."
+ },
+ {
+  "name": "Mortis Claw",
+  "group": "Alien Animal",
+  "rank": "deadly",
+  "role": "Alien Animal",
+  "dodge": 8,
+  "parry": 8,
+  "initiative": 7,
+  "perception": 7,
+  "endurance": 60,
+  "toHit": 8,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Exoskeleton",
+   "absorb": {
+    "energy": 6,
+    "melee": 6
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Sickle Claw",
+    "compendium": null,
+    "toHit": 8,
+    "finesse": 4,
+    "damage": "2d10+6",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 8,
+    "finesse": 5,
+    "damage": "3d10+6",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Sickle Claw: attacks all targets within 2m."
+ },
+ {
+  "name": "Weaselrat",
+  "group": "Biomod",
+  "rank": "harmless",
+  "role": "Biomod",
+  "dodge": 4,
+  "parry": null,
+  "initiative": 2,
+  "perception": 2,
+  "endurance": 5,
+  "toHit": 1,
+  "speed": "12m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Ripping Bite",
+    "compendium": null,
+    "toHit": 1,
+    "finesse": 5,
+    "damage": "ceil(1d10/2)",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Ripping Bite: damage halved; on an even roll the target bleeds 1 damage per turn until treated with a Difficulty 7 Medicine check."
+ },
+ {
+  "name": "Snakewolf",
+  "group": "Biomod",
+  "rank": "mostlyHarmless",
+  "role": "Biomod",
+  "dodge": 2,
+  "parry": null,
+  "initiative": 1,
+  "perception": 2,
+  "endurance": 15,
+  "toHit": 2,
+  "speed": "12m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 5,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Bite: on an even damage roll the target is poisoned, taking 3 toxic damage at the start of its turn until treated with a Difficulty 8 Medicine check. It flees after biting."
+ },
+ {
+  "name": "Bathawk",
+  "group": "Biomod",
+  "rank": "harmless",
+  "role": "Biomod",
+  "dodge": 5,
+  "parry": null,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 4,
+  "toHit": 2,
+  "speed": "16m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Eye-ripping Beak",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 5,
+    "damage": "ceil(1d10/2)",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Eye-ripping Beak: damage halved; on a 10 the target is blinded (no Skill bonuses to attacks and Skill checks) until treated with a Difficulty 8 Medicine check. Flies: ignores difficult terrain and interposing enemies."
+ },
+ {
+  "name": "Pantherhound",
+  "group": "Biomod",
+  "rank": "harmless",
+  "role": "Biomod",
+  "dodge": 3,
+  "parry": null,
+  "initiative": 2,
+  "perception": 3,
+  "endurance": 10,
+  "toHit": 3,
+  "speed": "14m",
+  "equipment": "",
+  "skills": [
+   [
+    "stealth",
+    4
+   ]
+  ],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Claw",
+    "compendium": null,
+    "toHit": 3,
+    "finesse": 5,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Bite",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 5,
+    "damage": "1d10+2",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": ""
+ },
+ {
+  "name": "Gorillalion",
+  "group": "Biomod",
+  "rank": "novice",
+  "role": "Biomod",
+  "dodge": 3,
+  "parry": 3,
+  "initiative": 3,
+  "perception": 3,
+  "endurance": 40,
+  "toHit": 3,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Pummelling slash",
+    "compendium": null,
+    "toHit": 3,
+    "finesse": 5,
+    "damage": "2d10+4",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Pummelling Slash: if both damage dice are even, the target is grabbed. Gorilla Grab: the target takes 1D10 halved damage at the start of its turn, can't move, and can only use its Action to escape (Athletics, Difficulty 11; Close Combat damage bonuses add to the roll)."
+ },
+ {
+  "name": "Police Herg",
+  "group": "Biomod",
+  "rank": "competent",
+  "role": "Biomod",
+  "dodge": 4,
+  "parry": 0,
+  "initiative": 2,
+  "perception": 2,
+  "endurance": 50,
+  "toHit": 5,
+  "speed": "20m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Reflec Cooler",
+   "absorb": {
+    "energy": 3
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Hoof",
+    "compendium": null,
+    "toHit": 5,
+    "finesse": 5,
+    "damage": "1d10+4",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   },
+   {
+    "name": "Charge",
+    "compendium": null,
+    "toHit": 5,
+    "finesse": 5,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Hoof: it can also move 4m without provoking a free attack. Charge: must move 8m first; if it knocks the target over, it can make a free Hoof attack on that target."
+ },
+ {
+  "name": "T-90 Patrol Drone",
+  "group": "Drone",
+  "rank": "novice",
+  "role": "Drone",
+  "dodge": 3,
+  "parry": null,
+  "initiative": 2,
+  "perception": 4,
+  "endurance": 20,
+  "toHit": 3,
+  "speed": "14m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Sub Machinegun",
+    "compendium": "Sub Machinegun",
+    "toHit": 3,
+    "finesse": null,
+    "damage": "1d10",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "3d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 16,
+    "range": "10m(5)/60m(8)/120m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": "Hail of Fire: if it doesn't move, it can fire its Sub Machinegun twice. Fly: ignores difficult terrain and interposing enemies. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma."
+ },
+ {
+  "name": "Pendragon Support Drone",
+  "group": "Drone",
+  "rank": "deadly",
+  "role": "Drone",
+  "dodge": 8,
+  "parry": null,
+  "initiative": 5,
+  "perception": 4,
+  "endurance": 50,
+  "toHit": 8,
+  "speed": "8m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Plasma Repeater",
+    "compendium": null,
+    "toHit": 8,
+    "finesse": null,
+    "damage": "24",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 20,
+    "range": "22m(5)/170m(6)/600m(9)",
+    "notes": "",
+    "skill": "heavyWeapons",
+    "dtype": "energy"
+   },
+   {
+    "name": "Plasma Cannon",
+    "compendium": "Plasma Cannon",
+    "toHit": 8,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     100,
+     40
+    ],
+    "blastRadius": [
+     "12m",
+     "34m"
+    ],
+    "ammo": 4,
+    "range": "No Short Range/500m(10)/3km(13)",
+    "notes": ""
+   }
+  ],
+  "notes": "Fly: ignores difficult terrain and interposing enemies. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma."
+ },
+ {
+  "name": "Apex-Fire Combat Drone",
+  "group": "Drone",
+  "rank": "expert",
+  "role": "Drone",
+  "dodge": 5,
+  "parry": null,
+  "initiative": 3,
+  "perception": 4,
+  "endurance": 30,
+  "toHit": 5,
+  "speed": "16m",
+  "equipment": "",
+  "skills": [],
+  "armour": null,
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Assault Beamer",
+    "compendium": "Assault Beamer",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "5",
+    "dtypeOverride": null,
+    "burst": [
+     "burst",
+     "20"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": "12m(4)/70m(7)/200m(10)",
+    "notes": ""
+   },
+   {
+    "name": "Underslung Grenade Launcher",
+    "compendium": "Underslung Grenade Launcher",
+    "toHit": 5,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     25,
+     10
+    ],
+    "blastRadius": [
+     "6m",
+     "16m"
+    ],
+    "ammo": 4,
+    "range": "No Short Range/60m(9)/150m(14)",
+    "notes": ""
+   }
+  ],
+  "notes": "Fly: ignores difficult terrain and interposing enemies. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma."
+ },
+ {
+  "name": "Junga Pattern Walker Drone",
+  "group": "Drone",
+  "rank": "mostlyHarmless",
+  "role": "High Threat Drone",
+  "dodge": null,
+  "parry": null,
+  "initiative": 1,
+  "perception": 1,
+  "endurance": 100,
+  "toHit": 2,
+  "speed": "8m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Armour Plating",
+   "absorb": {
+    "kinetic": 5,
+    "energy": 5
+   },
+   "hardened": null,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Chain Gun",
+    "compendium": "Chain Gun",
+    "toHit": 2,
+    "finesse": null,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": [
+     "heavy",
+     "6d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 10,
+    "range": "30m(5)/60m(8)/180m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Walker Punch",
+    "compendium": null,
+    "toHit": 2,
+    "finesse": 7,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma."
+ },
+ {
+  "name": "Manticore HN Walker Drone",
+  "group": "Drone",
+  "rank": "expert",
+  "role": "High Threat Drone",
+  "dodge": null,
+  "parry": null,
+  "initiative": 3,
+  "perception": 1,
+  "endurance": 130,
+  "toHit": 6,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Heavy Plating",
+   "absorb": {
+    "kinetic": 8,
+    "energy": 5,
+    "fighting": 5
+   },
+   "hardened": 6,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "Chain Gun",
+    "compendium": "Chain Gun",
+    "toHit": 6,
+    "finesse": null,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": [
+     "heavy",
+     "6d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 10,
+    "range": "30m(5)/60m(8)/180m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Walker Punch",
+    "compendium": null,
+    "toHit": 6,
+    "finesse": 7,
+    "damage": "2d10+4",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Continuous Attack (Chain Gun only). Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma."
+ },
+ {
+  "name": "Type X Walker Drone",
+  "group": "Drone",
+  "rank": "dangerous",
+  "role": "High Threat Drone",
+  "dodge": null,
+  "parry": null,
+  "initiative": 4,
+  "perception": 2,
+  "endurance": 180,
+  "toHit": 7,
+  "speed": "10m",
+  "equipment": "",
+  "skills": [],
+  "armour": {
+   "name": "Super Heavy Plating",
+   "absorb": {
+    "kinetic": 12,
+    "energy": 8,
+    "fighting": 10
+   },
+   "hardened": 5,
+   "toxicAll": false
+  },
+  "karma": [],
+  "weapons": [
+   {
+    "name": "G910 Heavy Repeater",
+    "compendium": "G910 Heavy Repeater",
+    "toHit": 7,
+    "finesse": null,
+    "damage": "2d10",
+    "dtypeOverride": null,
+    "burst": [
+     "heavy",
+     "8d10"
+    ],
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": 12,
+    "range": "30m(5)/60m(8)/180m(14)",
+    "notes": ""
+   },
+   {
+    "name": "Plasma Cannon",
+    "compendium": "Plasma Cannon",
+    "toHit": 8,
+    "finesse": null,
+    "damage": "0",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": [
+     100,
+     40
+    ],
+    "blastRadius": [
+     "12m",
+     "34m"
+    ],
+    "ammo": 4,
+    "range": "No Short Range/500m(10)/3km(13)",
+    "notes": ""
+   },
+   {
+    "name": "Walker Punch",
+    "compendium": null,
+    "toHit": 7,
+    "finesse": 7,
+    "damage": "3d10+6",
+    "dtypeOverride": null,
+    "burst": null,
+    "rangeDamage": {},
+    "blast": null,
+    "blastRadius": null,
+    "ammo": null,
+    "range": null,
+    "notes": "",
+    "skill": "fighting",
+    "dtype": "fighting"
+   }
+  ],
+  "notes": "Continuous Attack (Chain Gun only). Auto-loader: one spare clip; the Chain Gun reloads without spending an action. Slow Witted: cannot take reactions. Mechanical: immune to toxic damage. No Karma."
+ }
+]

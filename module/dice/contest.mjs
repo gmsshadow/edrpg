@@ -1,5 +1,5 @@
 import { rollSkillDice, rollFlatDice, skillLabel } from "./skill-check.mjs";
-import { opposed, karmaRerollable, isD100, d100Label, judge100 } from "./resolve.mjs";
+import { opposed, karmaRerollable } from "./resolve.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/contest.hbs";
 const SOCKET = "system.edrpg";
@@ -35,11 +35,8 @@ export function contestWinner(a, d, ties) {
  *
  * @returns {object}
  */
-function storeResult({ roll, natural, total, bonus, socialFactor, modifier, target, score }) {
-   const r = { natural, total, bonus, socialFactor, modifier, roll: roll.toJSON(), karma: false };
-   // d100: the target (and score) decide the contest.
-   if (target !== undefined) Object.assign(r, { target, score });
-   return r;
+function storeResult({ roll, natural, total, bonus, socialFactor, modifier }) {
+   return { natural, total, bonus, socialFactor, modifier, roll: roll.toJSON(), karma: false };
 }
 
 /**
@@ -97,11 +94,6 @@ export async function startContest(actor, skill, opts) {
  * @returns {Promise<string>}
  */
 export async function renderContestCard(contest, { reveal }) {
-   // d100: show the SL of a success, or that it failed.
-   const d100Total = (r) => {
-      const j = judge100(r.natural, r.target);
-      return j.success ? game.i18n.format("EDRPG.d100.slShort", { sl: j.sl }) : game.i18n.localize(j.fumble ? "EDRPG.d100.autoFailed" : "EDRPG.d100.failed");
-   };
    const side = (key) => {
       const s = contest[key];
       const masked = key === "defender" && contest.hidden && !reveal;
@@ -112,9 +104,8 @@ export async function renderContestCard(contest, { reveal }) {
          what: skillLabel(s.skill),
          rolled: !!r,
          masked: masked && !!r,
-         natural: r?.target !== undefined ? d100Label(r.natural) : r?.natural,
-         total: r?.target !== undefined ? d100Total(r) : r?.total,
-         d100: r?.target !== undefined ? { target: r.target, score: r.score, sf: (r.socialFactor ?? 0) * 10 } : null,
+         natural: r?.natural,
+         total: r?.total,
          bonus: r?.bonus,
          socialFactor: r?.socialFactor,
          modifier: r?.modifier,
@@ -219,8 +210,8 @@ async function rollDefender(message, prompt) {
       const input = await foundry.applications.api.DialogV2.input({
          window: { title: side.name, icon: "fa-solid fa-dice-d10" },
          classes: ["edrpg", "edrpg-dialog"],
-         content: `<div class="form-group"><label>${game.i18n.localize(isD100() ? "EDRPG.d100.modifier" : "EDRPG.test.BonusModifier")}</label>
-            <div class="form-fields"><input type="number" name="modifier" value="0" step="${isD100() ? 5 : 1}" autofocus></div></div>`,
+         content: `<div class="form-group"><label>${game.i18n.localize("EDRPG.test.BonusModifier")}</label>
+            <div class="form-fields"><input type="number" name="modifier" value="0" step="1" autofocus></div></div>`,
          ok: { label: "EDRPG.test.Roll", icon: "fa-solid fa-dice-d10" },
          rejectClose: false,
       });
@@ -275,7 +266,7 @@ function canKarmaReroll(side) {
    // re-roll", Core Rules p.31). The house rule allowing any reroll permits one per side.
    const allowAll = game.settings.get("edrpg", "allowToRerollAllTests") && !r.karma;
    const actor = fromUuidSync(side.actorUuid);
-   return (karmaRerollable(r.natural, r.target !== undefined) || allowAll) && (actor?.system.karma.standard.value ?? 0) > 0;
+   return (karmaRerollable(r.natural) || allowAll) && (actor?.system.karma.standard.value ?? 0) > 0;
 }
 
 /**

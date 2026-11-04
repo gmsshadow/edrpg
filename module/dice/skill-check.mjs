@@ -1,6 +1,6 @@
 import { skillCategory, socialFactorSkills, contestPairs, DEFAULT_CONTEST_TIES } from "../config.mjs";
 import { startContest } from "./contest.mjs";
-import { isD100, judge, karmaRerollable, rollD100, scoreFor, dnModifier, D100_BANDS, d100Label, tensAsD10 } from "./resolve.mjs";
+import { judge, karmaRerollable } from "./resolve.mjs";
 
 const CHAT_TEMPLATE = "systems/edrpg/templates/chat/skill-check.hbs";
 
@@ -40,44 +40,20 @@ export function signed(n) {
  *
  * @returns {Promise<object>}  { roll, natural, total, bonus, socialFactor, modifier }
  */
-export async function rollSkillDice(actor, skill, { modifier = 0, points = 0, socialFactor = true, bonus, score, equipment = 0, equipment100, dn = 11 } = {}) {
+export async function rollSkillDice(actor, skill, { modifier = 0, socialFactor = true, bonus, equipment = 0 } = {}) {
    const category = skillCategory[skill];
    // Characters have full skills; opponents give a bonus from their stat block. A weapon attack may override it.
-   const override = bonus !== undefined && bonus !== null;
    bonus ??= actor.system.skillBonus?.(skill) ?? 0;
    const sfBonus = socialFactor && socialFactorSkills.includes(skill) ? (actor.system.socialFactor?.value ?? 0) : 0;
-   let result;
-   if (isD100()) {
-      // d100: roll under Skill score + Social Factor × 10 + equipment + modifiers + the difficulty's modifier.
-      score ??= override ? bonus * 10 : scoreFor(actor, skill, bonus);
-      const { roll, natural } = await rollD100();
-      const equip = equipment100 ?? equipment * 10;
-      const target = score + sfBonus * 10 + equip + points * 10 + modifier + dnModifier(dn);
-      result = { roll, natural, total: natural, target, score, bonus, socialFactor: sfBonus, modifier, points, equipment: equip, dn, d100: true };
-   } else {
-      let formula = sfBonus ? "1d10 + @bonus + @socialFactor + @modifier" : "1d10 + @bonus + @modifier";
-      if (equipment) formula += " + @equipment";
-      const roll = await new Roll(formula, { bonus, socialFactor: sfBonus, modifier: modifier + points, equipment }).evaluate();
-      result = { roll, natural: roll.dice[0].total, total: roll.total, bonus, socialFactor: sfBonus, modifier: modifier + points, equipment };
-   }
+   let formula = sfBonus ? "1d10 + @bonus + @socialFactor + @modifier" : "1d10 + @bonus + @modifier";
+   if (equipment) formula += " + @equipment";
+   const roll = await new Roll(formula, { bonus, socialFactor: sfBonus, modifier, equipment }).evaluate();
 
    const skillData = actor.system.skills?.[category]?.[skill];
    if (skillData && !skillData.used && actor.isOwner) {
       await actor.update({ [`system.skills.${category}.${skill}.used`]: true });
    }
-   return result;
-}
-
-/**
- * An equipment bonus in the current mode: as listed (d10), or in d100 the Skill score bonus itself or the bonus × 10.
- *
- * @param {{kind: string, value: number, raw: number}} b
- *
- * @returns {number}
- */
-export function equipmentValue(b) {
-   if (!isD100()) return b.value;
-   return b.kind === "score" ? b.raw : b.value * 10;
+   return { roll, natural: roll.dice[0].total, total: roll.total, bonus, socialFactor: sfBonus, modifier, equipment };
 }
 
 /**
@@ -108,11 +84,6 @@ function defaultItemBonuses(bonuses, followUp) {
  * @returns {Promise<object>}  Same shape as {@link rollSkillDice}.
  */
 export async function rollFlatDice(bonus, modifier = 0) {
-   if (isD100()) {
-      // The "other" opponent of a contest gives a Skill score in d100.
-      const { roll, natural } = await rollD100();
-      return { roll, natural, total: natural, target: bonus + modifier, score: bonus, bonus, socialFactor: 0, modifier, d100: true };
-   }
    const roll = await new Roll("1d10 + @bonus + @modifier", { bonus, modifier }).evaluate();
    return { roll, natural: roll.dice[0].total, total: roll.total, bonus, socialFactor: 0, modifier };
 }
@@ -155,11 +126,7 @@ export async function rollSkillCheck(actor, skill, options = {}) {
    const itemBonuses = actor.system.itemSkillBonuses?.(skill) ?? [];
    let itemBonusKeys = options.itemBonusKeys ?? defaultItemBonuses(itemBonuses, followUp);
    const title = label ?? game.i18n.format("EDRPG.test.SkillCheck", { skill: skillName });
-   if (difficulty === undefined || difficulty === null) {
-      difficulty = game.settings.get("edrpg", "defaultDifficultyNumber");
-      // d100 uses fixed bands: a world default that isn't one starts the dialog at Average.
-      if (isD100() && !D100_BANDS.some((b) => b.dn === difficulty)) difficulty = 11;
-   }
+   difficulty ??= game.settings.get("edrpg", "defaultDifficultyNumber");
    socialFactor &&= sfEligible;
 
    if (prompt) {
@@ -182,42 +149,26 @@ export async function rollSkillCheck(actor, skill, options = {}) {
 
    const chosen = itemBonuses.filter((b) => itemBonusKeys.includes(b.key));
    const equipment = chosen.reduce((n, b) => n + b.value, 0);
-   const d100 = isD100();
-   const result = await rollSkillDice(actor, skill, {
+   const { roll, natural, bonus, socialFactor: sfBonus } = await rollSkillDice(actor, skill, {
       modifier,
       socialFactor,
       bonus: bonusOverride,
       equipment,
-      equipment100: d100 ? chosen.reduce((n, b) => n + equipmentValue(b), 0) : undefined,
-      dn: difficulty,
    });
-   const { roll, natural, bonus, socialFactor: sfBonus } = result;
-   const judged = judge({ natural, total: roll.total, dn: difficulty, target: result.target, d100 });
-   const outcome = judged.outcome;
+   const outcome = judge({ natural, total: roll.total, dn: difficulty }).outcome;
 
    const canReroll =
-      (karmaRerollable(natural, d100) || game.settings.get("edrpg", "allowToRerollAllTests")) &&
+      (karmaRerollable(natural) || game.settings.get("edrpg", "allowToRerollAllTests")) &&
       (actor.system.karma?.standard.value ?? 0) > 0;
 
    const content = await foundry.applications.handlebars.renderTemplate(CHAT_TEMPLATE, {
       skillName,
-      natural: d100 ? d100Label(natural) : natural,
+      natural,
       skillBonus: bonus,
-      socialFactor: d100 ? sfBonus * 10 : sfBonus,
+      socialFactor: sfBonus,
       modifier,
-      equipment: chosen.map((b) => ({ label: b.label, value: signed(equipmentValue(b)) })),
+      equipment: chosen.map((b) => ({ label: b.label, value: signed(b.value) })),
       difficulty,
-      d100: d100
-         ? {
-              score: result.score,
-              difficulty: signed(dnModifier(difficulty)),
-              band: D100_BANDS.find((b) => b.dn === difficulty)?.key ?? null,
-              target: result.target,
-              sl: judged.margin,
-              critical: judged.critical,
-              auto: judged.reason,
-           }
-         : null,
       total: roll.total,
       outcome,
       outcomeLabel: {
@@ -260,28 +211,8 @@ export async function rollSkillCheck(actor, skill, options = {}) {
    ChatMessage.applyMode(messageData, mode || undefined);
    const message = await ChatMessage.create(messageData);
    // Lets other parts of the system act on the result, e.g. a Medicine check to stabilise someone.
-   // In d100, rules that need a d10 total (Treat wounds) read the tens die as the d10 and add the d10 bonuses.
-   const total = d100 ? tensAsD10(natural) + bonus + sfBonus + equipment + Math.trunc(modifier / 10) : roll.total;
-   if (message) Hooks.callAll("edrpg.skillCheck", message, { actor, skill, outcome, natural, total, sl: judged.margin, critical: judged.critical, followUp });
+   if (message) Hooks.callAll("edrpg.skillCheck", message, { actor, skill, outcome, natural, total: roll.total, followUp });
    return message;
-}
-
-/**
- * The d100 variant's difficulty bands as a select (a published d10 difficulty that isn't a band is kept as its own
- * option, at (11 − number) × 10).
- *
- * @param {number} dn  The d10 difficulty to select.
- *
- * @param {string} [name="difficulty"]
- *
- * @returns {string}
- */
-export function difficultySelect(dn, name = "difficulty") {
-   const i18n = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
-   const bands = D100_BANDS.map((b) => ({ dn: b.dn, label: `${i18n(`EDRPG.d100.band.${b.key}`)} (${signed(dnModifier(b.dn))})` }));
-   if (!D100_BANDS.some((b) => b.dn === dn)) bands.push({ dn, label: i18n("EDRPG.d100.customBand", { dn, modifier: signed(dnModifier(dn)) }) });
-   bands.sort((a, b) => a.dn - b.dn);
-   return `<select name="${name}" data-dtype="Number" data-edrpg-dn>${bands.map((b) => `<option value="${b.dn}"${b.dn === dn ? " selected" : ""}>${b.label}</option>`).join("")}</select>`;
 }
 
 /**
@@ -298,7 +229,6 @@ export function difficultySelect(dn, name = "difficulty") {
  */
 async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, socialFactor, title, allowContest = true, itemBonuses = [], itemBonusKeys = [] }) {
    const i18n = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
-   const d100 = isD100();
    const esc = foundry.utils.escapeHTML;
    const modeOptions = Object.entries(CONFIG.ChatMessage.modes ?? {})
       .map(([key, cfg]) => `<option value="${key}"${key === mode ? " selected" : ""}>${i18n(cfg.label)}</option>`)
@@ -329,17 +259,17 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
          </div>
       </div>
       <div class="form-group" data-against="dn">
-         <label>${i18n(d100 ? "EDRPG.d100.difficulty" : "EDRPG.test.DifficultyNumber")}</label>
-         <div class="form-fields">${d100 ? difficultySelect(difficulty) : `<input type="number" name="difficulty" value="${difficulty}" step="1" data-edrpg-dn>`}</div>
+         <label>${i18n("EDRPG.test.DifficultyNumber")}</label>
+         <div class="form-fields"><input type="number" name="difficulty" value="${difficulty}" step="1" data-edrpg-dn></div>
       </div>
       <div class="form-group" data-against="other" hidden>
          <label>${i18n("EDRPG.contest.opponentName")}</label>
          <div class="form-fields"><input type="text" name="opponentName" placeholder="${i18n("EDRPG.contest.opponent")}"></div>
       </div>
       <div class="form-group" data-against="other" hidden>
-         <label>${i18n(d100 ? "EDRPG.d100.opponentScore" : "EDRPG.contest.opponentBonus")}</label>
-         <div class="form-fields"><input type="number" name="opponentBonus" value="${d100 ? 10 : 1}" step="1"></div>
-         <p class="hint">${i18n(d100 ? "EDRPG.d100.opponentScoreHint" : "EDRPG.contest.opponentBonusHint")}</p>
+         <label>${i18n("EDRPG.contest.opponentBonus")}</label>
+         <div class="form-fields"><input type="number" name="opponentBonus" value="1" step="1"></div>
+         <p class="hint">${i18n("EDRPG.contest.opponentBonusHint")}</p>
       </div>
       <div class="form-group" data-against="target other" hidden>
          <label>${i18n("EDRPG.contest.opposingSkill")}</label>
@@ -355,13 +285,13 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
          <div class="form-fields"><input type="checkbox" name="hidden" ${pair?.hidden ? "checked" : ""}></div>
       </div>
       <div class="form-group">
-         <label>${i18n(d100 ? "EDRPG.d100.modifier" : "EDRPG.test.BonusModifier")}</label>
-         <div class="form-fields"><input type="number" name="modifier" value="${modifier}" step="${d100 ? 5 : 1}"></div>
+         <label>${i18n("EDRPG.test.BonusModifier")}</label>
+         <div class="form-fields"><input type="number" name="modifier" value="${modifier}" step="1"></div>
       </div>
       ${
          socialFactor
             ? `<div class="form-group">
-         <label>${i18n("EDRPG.test.ApplySocialFactor", { value: signed(d100 ? socialFactor.value * 10 : socialFactor.value) })}</label>
+         <label>${i18n("EDRPG.test.ApplySocialFactor", { value: signed(socialFactor.value) })}</label>
          <div class="form-fields"><input type="checkbox" name="socialFactor" ${socialFactor.apply ? "checked" : ""}></div>
       </div>`
             : ""
@@ -369,7 +299,7 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
       ${itemBonuses
          .map(
             (b) => `<div class="form-group">
-         <label>${esc(b.label)}: ${signed(equipmentValue(b))}${b.kind === "score" && !d100 ? ` <span class="hint">(${i18n("EDRPG.bonusKind.scoreShort", { value: signed(b.raw) })})</span>` : ""}${
+         <label>${esc(b.label)}: ${signed(b.value)}${b.kind === "score" ? ` <span class="hint">(${i18n("EDRPG.bonusKind.scoreShort", { value: signed(b.raw) })})</span>` : ""}${
             b.when !== "always" ? ` <span class="hint">— ${i18n(`EDRPG.bonusWhen.${b.when}`)}</span>` : ""
          }</label>
          <div class="form-fields"><input type="checkbox" name="item.${b.key}" ${itemBonusKeys.includes(b.key) ? "checked" : ""}></div>
@@ -401,8 +331,8 @@ async function promptSkillCheck(actor, skill, { difficulty, modifier, mode, soci
          // Focus and select the difficulty so the GM can just type over the default.
          const dn = root.querySelector("[data-edrpg-dn]");
          setTimeout(() => {
-            dn?.focus();
-            dn?.select?.();
+            dn.focus();
+            dn.select();
          }, 0);
       },
       rejectClose: false,

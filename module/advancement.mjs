@@ -1,4 +1,5 @@
 import { skills } from "./config.mjs";
+import { resetStimUses } from "./addiction.mjs";
 
 /**
  * Work out what the end of an adventure does to an actor's ticked skills (Core Rules p.49,
@@ -52,6 +53,7 @@ export async function endAdventure(actor, { confirm = true, restoreKarma = true 
    const karma = actor.system.karma.standard;
    const karmaMissing = karma.value < karma.max;
    if (!plan.improved.length && !plan.atCap.length && !karmaMissing) {
+      await resetStimUses(actor);
       ui.notifications.info(game.i18n.format("EDRPG.endAdventure.nothing", { name: actor.name }));
       return false;
    }
@@ -81,6 +83,7 @@ export async function endAdventure(actor, { confirm = true, restoreKarma = true 
    const update = { ...plan.update };
    const karmaRestored = restoreKarma && karmaMissing;
    if (karmaRestored) update["system.karma.standard.value"] = karma.max;
+   await resetStimUses(actor);
    if (!Object.keys(update).length) return false;
 
    await actor.update(update);

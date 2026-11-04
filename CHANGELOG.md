@@ -1,5 +1,65 @@
 # Changelog
 
+## 0.1.49
+
+GM procedures from the Core Rules: Between Adventures income, crew, rare items and addiction.
+
+- **Between Adventures** (p.272). A new button on the character datasheet opens a dialog: pick one of the character's
+  ships and an activity.
+  - The dialog reads the ship's components (cargo racks, mining lasers, refinery and limpet controllers, FSD range,
+    discovery and surface scanners, SRV hangar, fuel scoop, weapons and Kill Warrant Scanner). It says what the ship
+    brings, or why it can't do that activity.
+  - **Safe Trading**: profit per ton × Trading bonus × cargo.
+  - **Asteroid Mining**: (mining bonuses + cargo) × Planetary Knowledge bonus × yield.
+  - **Exploring**: Exploration Value to Discovery Yield.
+  - **Bounty Hunting**: four risk levels, limited by weapon points (mining lasers don't count).
+    - Spaceship Piloting and Weapons checks are made against the risk DN.
+    - Both pass: bounties plus the Kill Warrant Scanner bonus. One pass: nothing.
+    - Both fail: repairs, or write the ship off. Both fail by more than 3: the ship is destroyed.
+  - **Employees**: send one instead, with the employee risk check (10, 9 or 8).
+  - Crew wages are taken first and the result is paid into the character's cash. The card goes to chat with the
+    rolls.
+  - The rank's income guide (p.322) is shown for reference.
+- **Employing Crew** (pp.260–263).
+  - "Hire Crew" on the character datasheet, and a "Crew" button in the GM's Actors sidebar.
+  - Names come from the Random Crew Name Generator (titles and nicknames on 91+).
+  - Skills, Morality and Allegiance come from the Crew Skill Table. Allegiance is rolled only for Principled crew, and
+    salary goes up one step for each score of 4 or more.
+  - Hire in a hurry, or interview up to six and tick the ones you want.
+  - Each hire becomes an opponent actor in a "Crew" folder:
+    - Combat Skill is used for Energy Weapons, Fighting and Dodge;
+    - Endurance 20;
+    - a laser pistol, flight suit and Remlok from the compendium;
+    - owned by the employer's players.
+- **Rare Item Availability** (p.324). A "Rare Items" button in the GM's Actors sidebar rolls the value table for the
+  party's rank (it defaults to the most common rank), then the item and how many there are. The card links each item
+  to the compendium where it exists, and can be whispered.
+- **Addiction** (p.253).
+  - Every Combat Stim injection (by hand or by an automatic dispenser) counts for characters, full NPCs and partners.
+  - From the second use in an adventure, the system rolls a D10 and the user is addicted on (uses − 1) or less. The
+    result is whispered to the GM and the owner.
+  - End of Adventure resets the count.
+  - At Between Adventures, an addict first chooses:
+    - **Clinic** (10,000cr): cured, −5 Endurance for good, no income roll.
+    - **Keep using** (100,000cr): a D10 of 10 kills them.
+    - **Neither**: crippled.
+- Macros: `game.edrpg.betweenAdventures(actor)`, `game.edrpg.openRareItems()`, `game.edrpg.openHireCrew(actor)`.
+
+## 0.1.48
+
+The d100 roll-under variant has been removed. The system uses the Core Rules' D10 + bonus throughout.
+
+- **Removed**:
+  - the "Check resolution" setting;
+  - d100 difficulty bands, Success Levels, d100 criticals and the 01–05 / 96–00 bands;
+  - the d100 card layouts, the d100 figures on opponent, ship and vehicle sheets, and the d100 engineering lookup.
+- **Kept, as they help the Core game too**:
+  - **One resolver** (`module/dice/resolve.mjs`): a single place for the Rule of 1 and 10, the Burst margin, opposed
+    checks and Karma reroll eligibility. Skill checks, contests, attacks, grabs, driving checks and craft attacks all
+    use it.
+  - **Destroy Cover**: the note that cover is destroyed appears only when the attack missed because of the cover.
+- The 0.1.40–0.1.43 entries below describe the variant as it was. None of it applies any more.
+
 ## 0.1.47
 
 The turn panel's Combat Action step now starts with the target.

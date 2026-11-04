@@ -7,18 +7,11 @@
       <div class="side-total masked"><i class="fa-solid fa-eye-slash"></i> {{localize "EDRPG.contest.rolledHidden"}}</div>
       {{else}}
       <div class="side-total">{{side.total}}</div>
-      {{#if side.d100}}
-      <div class="side-breakdown">
-         {{localize "EDRPG.d100.roll"}} {{side.natural}} · {{localize "EDRPG.d100.target"}} {{side.d100.target}}
-         <span class="muted">({{localize "EDRPG.d100.score"}} {{side.d100.score}}{{#if side.d100.sf}} · {{localize "EDRPG.contest.sf"}} +{{side.d100.sf}}{{/if}}{{#if side.modifier}} · {{localize "EDRPG.contest.mod"}} {{side.modifier}}{{/if}})</span>
-      </div>
-      {{else}}
       <div class="side-breakdown">
          {{localize "EDRPG.contest.d10"}} {{side.natural}} · {{localize "EDRPG.contest.bonus"}} {{side.bonus}}
          {{#if side.socialFactor}} · {{localize "EDRPG.contest.sf"}} {{side.socialFactor}}{{/if}}
          {{#if side.modifier}} · {{localize "EDRPG.contest.mod"}} {{side.modifier}}{{/if}}
       </div>
-      {{/if}}
       {{#if side.karma}}<div class="side-karma"><i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.chat.KarmaReroll"}}</div>{{/if}}
       {{/if}}
       <button type="button" data-contest-action="karma" data-side="{{side.key}}">

@@ -1,5 +1,5 @@
 import { isCraft } from "../data/vehicle.mjs";
-import { isD100, judge, rollD100, scoreFor, dnModifier, d100Label } from "./resolve.mjs";
+import { judge } from "./resolve.mjs";
 import { rollCritical, damageComponent, targetableComponents, FIXED_KINDS } from "./ship-damage.mjs";
 import { zoneOf } from "../zones.mjs";
 import { activationFaults, flashpoint, aStar } from "../engineering.mjs";
@@ -92,7 +92,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
          ? `<p class="ed-attack-target">${i18n("EDRPG.vehicle.targetLine", { name: foundry.utils.escapeHTML(target.name), defence: target.system.defence, speed: target.system.speed })}</p>`
          : `<p class="hint">${i18n("EDRPG.vehicle.noTarget")}</p>`;
       content += row(i18n("EDRPG.vehicle.targetDefence"), `<input type="number" name="defence" value="${opts.defence}" step="1">`, i18n("EDRPG.vehicle.targetDefenceHint"));
-      content += row(i18n(isD100() ? "EDRPG.d100.modifier" : "EDRPG.test.BonusModifier"), `<input type="number" name="modifier" value="0" step="1">`);
+      content += row(i18n("EDRPG.test.BonusModifier"), `<input type="number" name="modifier" value="0" step="1">`);
       const aimChoices = canAim ? targetableComponents(target) : [];
       if (aimChoices.length) {
          const options = aimChoices.map((c) => `<option value="${c.key}">${foundry.utils.escapeHTML(c.name)}</option>`).join("");
@@ -125,34 +125,15 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
    if (sys.weaponPenalty) parts.push({ label: "EDRPG.ship.part.modifiers", value: sys.weaponPenalty });
    if (sys.speedRow.attack) parts.push({ label: "EDRPG.vehicle.part.speed", value: sys.speedRow.attack, note: game.i18n.format("EDRPG.vehicle.speedNow", { speed: sys.speed }) });
    if (extra) parts.push({ label: note ?? "EDRPG.attack.part.modifier", value: extra });
-   const d100 = isD100();
-   // d100: the typed modifier is already in d100 points.
-   if (opts.modifier) parts.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier, flat: d100 });
+   if (opts.modifier) parts.push({ label: "EDRPG.attack.part.modifier", value: opts.modifier });
    const bonus = parts.reduce((n, p) => n + p.value, 0);
+   const roll = await new Roll("1d10 + @bonus", { bonus }).evaluate();
+   const natural = roll.dice[0].total;
+   const total = roll.total;
+   const j = judge({ natural, total, dn: opts.defence });
    // A Sniping target is hit automatically (Core Rules p.67).
    const sniping = !!target?.system.combat?.sniping;
-   let roll, natural, total, j, target100 = null;
-   if (d100) {
-      // Target = Weapons score (automatic turrets 30; a stat block's To Hit × 10) + Accuracy and the other
-      // modifiers × 10 + (11 − Defence) × 10.
-      const score = gun.drone ? (s.accuracy ?? 0) * 10 : gun.auto ? gun.bonus * 10 : scoreFor(gun.gunner, sys.constructor.WEAPONS, gun.bonus);
-      parts[0].score = score;
-      const points = parts.slice(1).filter((p) => !p.flat).reduce((n, p) => n + p.value, 0);
-      const flat = parts.filter((p) => p.flat).reduce((n, p) => n + p.value, 0);
-      target100 = score + points * 10 + flat + dnModifier(opts.defence);
-      ({ roll, natural } = await rollD100());
-      total = natural;
-      // Defence 0 (Sniping, stationary or immobilised) gives a target of 110 or more, so it hits on anything but a
-      // 96–00, which always misses.
-      j = judge({ natural, target: target100, d100: true });
-   } else {
-      roll = await new Roll("1d10 + @bonus", { bonus }).evaluate();
-      natural = roll.dice[0].total;
-      total = roll.total;
-      j = judge({ natural, total, dn: opts.defence, d100: false });
-   }
-   // A Sniping target is always hit in the Core Rules; in d100 a 96–00 still misses.
-   let hit = (sniping && !d100) || j.success;
+   let hit = sniping || j.success;
    // Point Defence: an incoming missile or torpedo is shot down on an even D10 (p.198).
    let pointDefence = null;
    if (hit && isMissile(weapon) && (ts?.equipment?.pointDefence?.value ?? 0) > 0) {
@@ -163,7 +144,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       if (pointDefence.destroyed) hit = false;
       await spendPointDefence(target);
    }
-   const margin = hit ? (d100 ? j.margin : Math.max(0, total - opts.defence)) : 0;
+   const margin = hit ? Math.max(0, total - opts.defence) : 0;
    const burst = s.burst.max ? Math.min(margin * (s.burst.perPoint || 5), s.burst.max) : 0;
 
    let ammo = null;
@@ -178,14 +159,9 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       weaponName: weapon.name,
       targetUuid: target?.uuid ?? null,
       targetName: target?.name ?? null,
-      parts: parts.map((p) => {
-         // d100: each d10 number as its d100 modifier (the first row is the Weapons score).
-         const v = d100 ? (p.score !== undefined ? p.score : p.flat ? p.value : p.value * 10) : p.value;
-         return { ...p, signed: p.score !== undefined && d100 ? `${v}` : v >= 0 ? `+${v}` : `${v}` };
-      }),
-      natural: d100 ? d100Label(natural) : natural,
+      parts: parts.map((p) => ({ ...p, signed: p.value >= 0 ? `+${p.value}` : `${p.value}` })),
+      natural,
       total,
-      d100: d100 ? { target: target100, defence: dnModifier(opts.defence) > 0 ? `+${dnModifier(opts.defence)}` : `${dnModifier(opts.defence)}`, critical: j.critical } : null,
       defence: opts.defence,
       hit,
       margin,
@@ -196,7 +172,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       pointDefence,
       // Critical hits only matter against ships (vehicles have no components).
       shipTarget: !!ts?.isShip,
-      reason: sniping && !d100 ? null : j.reason,
+      reason: sniping ? null : j.reason,
       damage: hit
          ? {
               base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields,
@@ -204,7 +180,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
               ax: !!s.ax, flak: !!s.flak, burstLevels: burst ? Math.round(burst / (s.burst.perPoint || 5)) : 0,
            }
          : null,
-      // A natural 10, or in d100 a critical (a double or exactly the target).
+      // A natural 10.
       critical: j.critical,
       destabilise: !!s.destabilise,
       ammo,

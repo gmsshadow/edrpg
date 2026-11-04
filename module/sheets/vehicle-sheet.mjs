@@ -1,6 +1,5 @@
 import { craftSizes, mountKinds, mountSizes, combatZones } from "../data/vehicle.mjs";
 import { zoneOfToken } from "../zones.mjs";
-import { isD100, dnModifier } from "../dice/resolve.mjs";
 import { componentKinds } from "../data/vehicle.mjs";
 import { equipmentAction } from "../vehicle-combat.mjs";
 import { engineerDialog, labels as engLabels } from "../engineering.mjs";
@@ -9,7 +8,7 @@ import { openTurnPanel } from "../turn-panel.mjs";
 import { actionsFor, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
 
 /** A signed number. */
-const signed100 = (n) => (n > 0 ? `+${n}` : `${n}`);
+const signed = (n) => (n >= 0 ? `+${n}` : `${n}`);
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -110,13 +109,6 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
             piloting: system.piloting,
          },
          shieldState: !system.shields.max ? "none" : system.shields.down ? "down" : "up",
-         // d100: Defence is shown as the modifier it gives attackers, (11 − Defence) × 10.
-         d100: isD100()
-            ? {
-                 defence: signed100(dnModifier(system.defence)),
-                 defenceHint: game.i18n.format("EDRPG.d100.defenceHint", { defence: system.defence, modifier: signed100(dnModifier(system.defence)) }),
-              }
-            : null,
          zone: mapZone ?? system.zone,
          zoneFromMap: !!mapZone,
       });
@@ -183,11 +175,8 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
       }));
       context.lastAction = c.action ? game.i18n.localize(`EDRPG.vcombat.action.${c.action}`) : "";
 
-      const x = context.d100 ? 10 : 1;
       context.speedCells = Array.from({ length: 10 }, (_, i) => {
-         const raw = system.speedTable[i] ?? { defence: 0, attack: 0 };
-         // d100: the Speed Track's Defence bonuses and Attack penalties × 10.
-         const row = { defence: raw.defence * x, attack: raw.attack * x };
+         const row = system.speedTable[i] ?? { defence: 0, attack: 0 };
          return {
             locked: !!range && (i + 1 < range.min || i + 1 > range.max),
             speed: i + 1,
@@ -207,15 +196,15 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
             id: w.id,
             name: w.name,
             mount: `${game.i18n.localize(mountSizes[s.mount.size])} ${game.i18n.localize(mountKinds[s.mount.kind])}`,
-            toHit: context.d100 ? system.toHit100(w) : system.toHit(w),
-            toHitText: context.d100 ? String(system.toHit100(w)) : signed100(system.toHit(w)),
+            toHit: system.toHit(w),
+            toHitText: signed(system.toHit(w)),
             damage: s.damageLabel,
             usesAmmo: s.usesAmmo,
             ammo: s.ammo,
             special: [s.specialLabel, engText(s.engineered)].filter(Boolean).join(". "),
             turret: s.mount.kind === "turret",
             gunner: s.gunner,
-            gunnerLabel: gun.auto ? game.i18n.format(context.d100 ? "EDRPG.d100.autoTurret" : "EDRPG.vehicle.autoTurret", { bonus: gun.bonus * x }) : (gun.gunner?.name ?? ""),
+            gunnerLabel: gun.auto ? game.i18n.format("EDRPG.vehicle.autoTurret", { bonus: gun.bonus }) : (gun.gunner?.name ?? ""),
          };
       });
 

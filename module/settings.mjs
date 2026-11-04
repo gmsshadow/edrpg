@@ -2,17 +2,6 @@
  * Register world settings for the EDRPG system.
  */
 export default function registerSettings() {
-   // How checks are resolved: the Core Rules' D10 + bonus, or the d100 roll-under variant (module/dice/resolve.mjs).
-   game.settings.register("edrpg", "resolution", {
-      name: "EDRPG.settings.resolution.name",
-      hint: "EDRPG.settings.resolution.hint",
-      scope: "world",
-      config: true,
-      default: "core",
-      type: String,
-      choices: { core: "EDRPG.settings.resolution.core", d100: "EDRPG.settings.resolution.d100" },
-      requiresReload: true,
-   });
    const settings = {
       systemMaxBackgrounds: { default: 4, type: Number },
       defaultDifficultyNumber: { default: 9, type: Number },

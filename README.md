@@ -71,9 +71,16 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
 - **Mission Generator** (Core Rules pp.338–347): the GM's sidebar button rolls Military, Espionage or Exploration
   missions with their detail and twist, and the rewards for the party's rank. It posts a briefing (and a journal entry)
   and creates the star systems Stellar Cartography calls for.
-- **d100 variant**: a world setting switches every check to d100 roll-under against the Skill score, with Success
-  Levels from the tens die, criticals on doubles or the exact target, and 01–05 / 96–00 automatic results.
-  Manoeuvre contests, Initiative and damage stay on d10.
+- **Between Adventures** (Core Rules p.272): a character-sheet button for Safe Trading, Asteroid Mining, Exploring or
+  Bounty Hunting with one of the character's ships. It reads the ship's fit, rolls, runs the employee risk check, pays
+  crew wages and puts the income in the character's cash.
+- **Employing Crew** (Core Rules pp.260–263): roll crew in a hurry or interview up to six. Each becomes an opponent
+  actor in a Crew folder, owned by the employing player, with wages charged at Between Adventures.
+- **Rare Item Availability** (Core Rules p.324): the GM's sidebar button rolls rare items on sale for the party's rank,
+  linked to the compendium.
+- **Addiction** (Core Rules p.253): Combat Stim uses are counted per adventure, with the addiction roll from the second
+  use on. An addict picks clinic, keep using or neither before their Between Adventures roll.
+
 - Initiative: `1d10 + Tactics bonus`.
 
 ## Development

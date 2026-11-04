@@ -2,6 +2,8 @@ import { openMarket } from "./trading.mjs";
 import { StarSystemData } from "./data/starsystem.mjs";
 import EDStarSystemSheet, { createStarSystem } from "./sheets/starsystem-sheet.mjs";
 import { openMissionGenerator, rollMission } from "./missions.mjs";
+import { betweenAdventures, openRareItems } from "./between-adventures.mjs";
+import { openHireCrew } from "./crew.mjs";
 import { registerTurnPanel, openTurnPanel } from "./turn-panel.mjs";
 import * as EDRPG from "./config.mjs";
 import { CharacterData, NPCIndividualData, OpponentData, PartnerData } from "./data/actor.mjs";
@@ -37,7 +39,7 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
+   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, betweenAdventures, openRareItems, openHireCrew, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
    registerKarmaHooks();
 
    registerSettings();
@@ -166,6 +168,20 @@ Hooks.on("renderActorDirectory", (app, html) => {
    mission.innerHTML = `<i class="fa-solid fa-clipboard-list"></i> ${game.i18n.localize("EDRPG.mission.button")}`;
    mission.addEventListener("click", () => openMissionGenerator());
    actions.append(mission);
+   // Rare Item Availability (Core Rules p.324).
+   const rare = document.createElement("button");
+   rare.type = "button";
+   rare.className = "edrpg-rare-button";
+   rare.innerHTML = `<i class="fa-solid fa-gem"></i> ${game.i18n.localize("EDRPG.rare.button")}`;
+   rare.addEventListener("click", () => openRareItems());
+   actions.append(rare);
+   // Crew generator (Core Rules p.260).
+   const crew = document.createElement("button");
+   crew.type = "button";
+   crew.className = "edrpg-crew-button";
+   crew.innerHTML = `<i class="fa-solid fa-user-plus"></i> ${game.i18n.localize("EDRPG.crew.button")}`;
+   crew.addEventListener("click", () => openHireCrew());
+   actions.append(crew);
 });
 
 Hooks.on("renderChatMessageHTML", (message, html) => {

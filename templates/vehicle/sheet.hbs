@@ -1,10 +1,10 @@
 <div class="tab vehicle-sheet {{tab.cssClass}}" data-group="primary" data-tab="sheet">
    <div class="ed-vstats">
       <div class="ed-vchevrons">
-         <div class="ed-chevron defence" data-tooltip="{{#if d100}}{{d100.defenceHint}}{{else if isShip}}EDRPG.ship.defenceHint{{else}}EDRPG.vehicle.defenceHint{{/if}}">
+         <div class="ed-chevron defence" data-tooltip="{{#if isShip}}EDRPG.ship.defenceHint{{else}}EDRPG.vehicle.defenceHint{{/if}}">
             <span class="over">{{#if npcShip}}{{localize "EDRPG.ship.statBlock"}}{{else if isShip}}{{localize "EDRPG.ship.defenceOver"}}{{else}}{{localize "EDRPG.vehicle.defenceOver"}}{{/if}}</span>
             <span class="label">{{localize "EDRPG.vehicle.defence"}}</span>
-            <span class="value">{{#if d100}}{{d100.defence}}{{else}}{{stats.defence}}{{/if}}</span>
+            <span class="value">{{stats.defence}}</span>
          </div>
          <div class="ed-chevron initiative">
             <span class="over">{{localize "EDRPG.vehicle.initiativeOver"}}</span>
@@ -104,7 +104,7 @@
       <thead>
          <tr>
             <th class="name">{{localize "EDRPG.vehicle.weaponName"}}</th>
-            <th{{#if d100}} data-tooltip="EDRPG.d100.toHitHint"{{/if}}>{{#if d100}}{{localize "EDRPG.d100.toHitColumn"}}{{else}}{{localize "EDRPG.sheet.toHit"}}{{/if}}</th>
+            <th>{{localize "EDRPG.sheet.toHit"}}</th>
             <th class="damage">{{localize "EDRPG.sheet.damage"}}</th>
             <th class="damage">{{localize "EDRPG.sheet.ammo"}}</th>
             <th class="notes">{{localize "EDRPG.vehicle.special"}}</th>
@@ -127,7 +127,7 @@
                <div class="ed-vgunner">
                   <span>{{localize "EDRPG.vehicle.gunner"}}</span>
                   <select data-gunner-select {{#unless @root.editable}}disabled{{/unless}}>
-                     <option value="">{{#if @root.d100}}{{localize "EDRPG.d100.automatic"}}{{else}}{{localize "EDRPG.vehicle.automatic"}}{{/if}}</option>
+                     <option value="">{{localize "EDRPG.vehicle.automatic"}}</option>
                      {{selectOptions @root.pilotChoices selected=w.gunner sort=true}}
                   </select>
                </div>

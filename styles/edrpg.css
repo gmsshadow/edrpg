@@ -3038,38 +3038,6 @@ li:hover > .ed-row-delete {
 .edrpg-chat.edrpg-market tr.muted { opacity: 0.5; }
 .edrpg-chat.edrpg-market .ed-market-note { font-weight: bold; }
 
-/* d100 variant: what the stat block's numbers roll as, beside the printed value. */
-.ed-op-table .ed-d100-cell {
-   display: flex;
-   align-items: center;
-   gap: 0.25rem;
-}
-
-.ed-op-table .ed-d100-cell input {
-   flex: 1 1 auto;
-   min-width: 0;
-}
-
-.edrpg-sheet .ed-d100 {
-   flex: none;
-   padding: 0 0.3rem;
-   border-radius: 3px;
-   background: var(--ed-blue, #1f5f99);
-   color: #fff;
-   font-size: 0.8rem;
-   font-weight: 600;
-   line-height: 1.4;
-   white-space: nowrap;
-}
-
-.edrpg-sheet .ed-op-skill .ed-d100 {
-   margin-right: 0.2rem;
-}
-
-.ed-d100-note {
-   margin: 0.2rem 0.4rem;
-}
-
 /* ============================================================
    Star System sheet (Core Rules pp.330–337)
    ============================================================ */
@@ -3867,3 +3835,21 @@ table.ed-ss-installations input {
    font-size: 0.72rem !important;
    color: var(--ed-text-soft);
 }
+
+/* Between Adventures, Rare Items, Crew (Core Rules pp.260, 272, 324) */
+#actors .header-actions .edrpg-rare-button,
+#actors .header-actions .edrpg-crew-button { flex: 1 1 45%; }
+.edrpg-between .ed-between-warn,
+.ed-between-warn { color: var(--ed-red); font-weight: bold; }
+.edrpg-between .ed-between-info p { margin: 0.25rem 0; }
+.edrpg-chat.edrpg-between-card .outcome { margin-top: 0.4rem; padding: 0.2rem 0.3rem; font-weight: bold; }
+.edrpg-chat.edrpg-between-card .outcome.success { background: rgba(104, 215, 186, 0.25); }
+.edrpg-chat.edrpg-between-card .outcome.failure { background: var(--ed-damage); }
+.edrpg-chat .muted, .edrpg-crew .muted { opacity: 0.75; font-size: 0.9em; }
+.edrpg-chat.edrpg-rare ul, .edrpg-chat.edrpg-crew-card ul { padding-left: 1rem; margin: 0.3rem 0; }
+.ed-rare-tier { display: inline-block; min-width: 3.6rem; padding: 0 0.25rem; border-radius: 3px; font-size: 0.8em; text-align: center; color: var(--ed-white); background: var(--ed-blue-mid); }
+.ed-rare-tier.medium { background: var(--ed-karma-2); }
+.ed-rare-tier.high { background: var(--ed-damage-border); }
+.edrpg-crew .ed-crew-list { display: flex; flex-direction: column; gap: 0.35rem; max-height: 26rem; overflow-y: auto; }
+.ed-crew-candidate { display: flex; gap: 0.5rem; align-items: flex-start; padding: 0.3rem; border: 1px solid var(--ed-cell-border); border-radius: 3px; }
+.ed-crew-candidate input { flex: 0 0 auto; margin-top: 0.2rem; }

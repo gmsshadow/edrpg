@@ -1,5 +1,4 @@
 import { skillCategory } from "../config.mjs";
-import { scoreFor } from "../dice/resolve.mjs";
 
 const fields = foundry.data.fields;
 const int = (initial = 0, options = {}) => new fields.NumberField({ required: true, nullable: false, integer: true, initial, ...options });
@@ -287,22 +286,6 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
     */
    toHit(weapon) {
       return this.gunnery(weapon).bonus + (weapon.system.accuracy ?? 0) + this.speedRow.attack + (this.weaponPenalty ?? 0);
-   }
-
-   /**
-    * The d100 variant's target for a weapon against Defence 11 (each point of Defence above 11 is −10, below it +10):
-    * Weapons score (automatic turrets 30, a stat block's To Hit × 10) + Accuracy, speed and other modifiers × 10.
-    *
-    * @param {Item} weapon
-    *
-    * @returns {number}
-    */
-   toHit100(weapon) {
-      const gun = this.gunnery(weapon);
-      const mods = (this.speedRow.attack + (this.weaponPenalty ?? 0)) * 10;
-      if (gun.drone) return (weapon.system.accuracy ?? 0) * 10 + mods;
-      const score = gun.auto ? gun.bonus * 10 : scoreFor(gun.gunner, this.constructor.WEAPONS, gun.bonus);
-      return score + (weapon.system.accuracy ?? 0) * 10 + mods;
    }
 
    /** @returns {object} Roll data: initiative from the pilot. */

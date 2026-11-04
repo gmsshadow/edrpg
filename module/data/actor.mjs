@@ -174,17 +174,6 @@ export class IndividualData extends foundry.abstract.TypeDataModel {
    }
 
    /**
-    * Skill score, for the d100 variant's checks (0 to the cap).
-    *
-    * @param {string} skill
-    *
-    * @returns {number}
-    */
-   skillScore(skill) {
-      return this.skills[skillCategory[skill]]?.[skill]?.score ?? 0;
-   }
-
-   /**
     * Equipment bonuses to checks with a Skill: worn clothing and carried gear (e.g. Studded Thug Outfit +1
     * Intimidate, Medpack +2 Medicine when stabilising or healing). Score bonuses are converted to the change in
     * Skill bonus they make.

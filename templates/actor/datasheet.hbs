@@ -50,6 +50,14 @@
          <i class="fa-solid fa-flag-checkered"></i> {{localize "EDRPG.endAdventure.button"}}
          <span class="ed-button-count">{{localize "EDRPG.endAdventure.ticked" count=tickedCount}}</span>
       </button>
+      {{#if isCharacter}}
+      <button type="button" class="ed-button" data-action="betweenAdventures" data-tooltip="EDRPG.between.buttonHint">
+         <i class="fa-solid fa-coins"></i> {{localize "EDRPG.between.button"}}
+      </button>
+      <button type="button" class="ed-button" data-action="hireCrew" data-tooltip="EDRPG.crew.buttonHint">
+         <i class="fa-solid fa-user-plus"></i> {{localize "EDRPG.crew.hire"}}
+      </button>
+      {{/if}}
    </div>
    {{/if}}
 

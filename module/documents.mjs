@@ -97,21 +97,6 @@ export class EDActor extends foundry.documents.Actor {
    }
 
    /**
-    * The d100 variant's score for a weapon attack: the weapon Skill score with a rare weapon's bonus (capped at 100);
-    * an opponent's To Hit × 10.
-    *
-    * @param {Item} weapon
-    *
-    * @returns {number}
-    */
-   weaponScore(weapon) {
-      if (this.type === "opponent") return this.weaponBonus(weapon) * 10;
-      const s = weapon.system;
-      const skill = this.system.skills[skillCategory[s.skill]][s.skill];
-      return Math.min(skill.score + s.attackBonus, MAX_SKILL_SCORE);
-   }
-
-   /**
     * Roll an attack with a weapon (or Fighting): see module/dice/attack.mjs.
     *
     * @param {Item|object} weapon

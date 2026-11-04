@@ -1,6 +1,7 @@
 import { useKarmaCapability, builtInEscapeDeath } from "../karma.mjs";
 import { karmaPayer } from "../partner.mjs";
 import { rollSkillCheck } from "./skill-check.mjs";
+import { recordStimUse } from "../addiction.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/damage.hbs";
 const SOCKET = "system.edrpg";
@@ -1110,6 +1111,8 @@ async function injectStim(actor, drug, { automatic = false } = {}) {
       await actor.toggleStatusEffect(STATUS.unconscious, { active: false });
       if (!automatic && !has(actor, STATUS.knockedOver)) await actor.toggleStatusEffect(STATUS.knockedOver, { active: true });
    }
+   // Combat Stims are addictive (Core Rules pp.129, 253).
+   await recordStimUse(actor);
 }
 
 /**

@@ -14,6 +14,8 @@ import {
 import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs";
 import { honoraryRanks } from "../config.mjs";
 import { endAdventure } from "../advancement.mjs";
+import { betweenAdventures } from "../between-adventures.mjs";
+import { openHireCrew } from "../crew.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
 import { conditionView, conditionAction } from "../dice/damage.mjs";
 import { rankUpView, promptRankUp } from "../rankup.mjs";
@@ -67,6 +69,8 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          configureSocialFactor: EDActorSheet.#onConfigureSocialFactor,
          toggleSkillUsed: EDActorSheet.#onToggleSkillUsed,
          endAdventure: EDActorSheet.#onEndAdventure,
+         betweenAdventures: EDActorSheet.#onBetweenAdventures,
+         hireCrew: EDActorSheet.#onHireCrew,
          creationLearning: EDActorSheet.#onCreationLearning,
          creationEquipment: EDActorSheet.#onCreationEquipment,
          creationFinish: EDActorSheet.#onCreationFinish,
@@ -631,6 +635,16 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
       await endAdventure(this.document);
       // Rank up straight after the adventure, before any Between Adventures checks (Core Rules p.49).
       if (this.document.system.pendingRanks?.length) return promptRankUp(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onBetweenAdventures() {
+      if (this.isEditable) await betweenAdventures(this.document);
+   }
+
+   /** @this {EDActorSheet} */
+   static async #onHireCrew() {
+      if (this.isEditable) await openHireCrew(this.document);
    }
 
    /** @this {EDActorSheet} */

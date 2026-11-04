@@ -31,15 +31,15 @@
       <tbody>
          <tr>
             <th>{{localize "EDRPG.opponent.dodge"}}</th>
-            <td><input type="number" name="system.dodge" value="{{source.dodge}}" step="1" placeholder="—"></td>
+            <td><div class="ed-d100-cell"><input type="number" name="system.dodge" value="{{source.dodge}}" step="1" placeholder="—">{{#if d100}}<span class="ed-d100" data-tooltip="{{d100.defenceHint}}">{{d100.dodge}}</span>{{/if}}</div></td>
             <th><a data-action="rollInitiative" data-tooltip="EDRPG.sheet.rollInitiative">{{localize "EDRPG.sheet.initiative"}}:</a></th>
             <td><input type="number" name="system.initiative" value="{{source.initiative}}" step="1"></td>
          </tr>
          <tr>
             <th>{{localize "EDRPG.opponent.parry"}}</th>
-            <td><input type="number" name="system.parry" value="{{source.parry}}" step="1" placeholder="—"></td>
+            <td><div class="ed-d100-cell"><input type="number" name="system.parry" value="{{source.parry}}" step="1" placeholder="—">{{#if d100}}<span class="ed-d100" data-tooltip="{{d100.defenceHint}}">{{d100.parry}}</span>{{/if}}</div></td>
             <th data-skill="perception"><a data-action="rollSkill">{{localize "EDRPG.sheet.skills.espionage.perception.name"}}:</a></th>
-            <td><input type="number" name="system.perception" value="{{source.perception}}" step="1"></td>
+            <td><div class="ed-d100-cell"><input type="number" name="system.perception" value="{{source.perception}}" step="1">{{#if d100}}<span class="ed-d100" data-tooltip="EDRPG.d100.scoreHint">{{d100.perception}}</span>{{/if}}</div></td>
          </tr>
          <tr>
             <td class="endurance" colspan="2" rowspan="2">
@@ -53,11 +53,12 @@
          </tr>
          <tr>
             <th>{{localize "EDRPG.opponent.toHitLabel"}}</th>
-            <td><input type="number" name="system.toHit" value="{{source.toHit}}" step="1"></td>
+            <td><div class="ed-d100-cell"><input type="number" name="system.toHit" value="{{source.toHit}}" step="1">{{#if d100}}<span class="ed-d100" data-tooltip="EDRPG.d100.scoreHint">{{d100.toHit}}</span>{{/if}}</div></td>
          </tr>
       </tbody>
    </table>
 
+   {{#if d100}}{{#if editable}}<p class="hint ed-d100-note">{{localize "EDRPG.d100.opponentNote"}}</p>{{/if}}{{/if}}
    {{> edrpgCondition}}
 
    <table class="ed-op-table ed-op-rows">
@@ -98,7 +99,7 @@
                {{/each}}
                <div class="ed-op-entry attack fighting">
                   <a class="entry-name" data-action="rollFighting">{{localize "EDRPG.sheet.skills.combat.fighting.name"}}</a>
-                  <div class="entry-line">{{localize "EDRPG.opponent.fightingLine" toHit=fighting}}</div>
+                  <div class="entry-line">{{fightingLine}}</div>
                </div>
             </td>
          </tr>
@@ -113,10 +114,11 @@
                   {{#if @root.editable}}
                   <select name="system.otherSkills.{{s.index}}.skill">{{selectOptions @root.skillChoices selected=s.skill blank="" localize=true sort=true}}</select>
                   <input type="number" name="system.otherSkills.{{s.index}}.bonus" value="{{s.bonus}}" step="1">
+                  {{#if @root.d100}}<span class="ed-d100" data-tooltip="EDRPG.d100.scoreHint">{{s.score}}</span>{{/if}}
                   <a data-action="rollSkill" data-tooltip="EDRPG.test.Roll"><i class="fa-solid fa-dice-d10"></i></a>
                   <a data-action="removeSkill" data-tooltip="EDRPG.item.removeSkillBonus"><i class="fa-solid fa-xmark"></i></a>
                   {{else}}
-                  <a data-action="rollSkill">{{localize s.label}} +{{s.bonus}}</a>
+                  <a data-action="rollSkill">{{localize s.label}} {{#if @root.d100}}{{s.score}}{{else}}+{{s.bonus}}{{/if}}</a>
                   {{/if}}
                </div>
                {{else}}<span class="muted">{{localize "EDRPG.opponent.none"}}</span>{{/each}}

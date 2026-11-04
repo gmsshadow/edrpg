@@ -202,6 +202,118 @@ const update = (actor, data) => op("update", { uuid: actor.uuid, data });
 const setZone = (actor, zone, near = null) => op("zone", { uuid: actor.uuid, zone, nearUuid: near?.uuid ?? null });
 const damage = (actor, amount, message, extra = null) => op("damage", { uuid: actor.uuid, amount, messageId: message?.id ?? null, extra });
 
+/* -------------------------------------------- */
+/*  Turn steps                                  */
+/* -------------------------------------------- */
+
+/** Is the step-by-step turn panel in use (world setting)? */
+export function panelEnabled() {
+   try {
+      return game.settings.get("edrpg", "vehicleTurnPanel") !== false;
+   } catch {
+      return false;
+   }
+}
+
+/**
+ * The steps of a craft's turn, in the book's order (Core Rules p.64 ships, p.72 vehicles).
+ *
+ * @param {Actor} actor
+ *
+ * @returns {string[]}
+ */
+export function turnSteps(actor) {
+   return actor.system.isShip ? ["equipment", "recharge", "action"] : ["speed", "equipment", "recharge", "obstacle", "action"];
+}
+
+/**
+ * This turn's progress for a craft, if it belongs to the current turn of a combat.
+ *
+ * @param {Actor} actor
+ *
+ * @param {Combat} [combat]
+ *
+ * @returns {object|null}  {combat, round, turn, notes[], speed, equipment, recharge, obstacle, action, rechargeNotes[]}
+ */
+export function turnState(actor, combat = game.combat) {
+   const t = actor?.getFlag?.("edrpg", "turn");
+   if (!t || !combat || t.combat !== combat.id || t.round !== combat.round || t.turn !== combat.turn) return null;
+   return t;
+}
+
+/**
+ * Mark a step of this turn (done = true, or a value such as an obstacle's state).
+ *
+ * @param {Actor} actor
+ *
+ * @param {string} step
+ *
+ * @param {*} [value=true]
+ */
+export async function markStep(actor, step, value = true) {
+   if (!turnState(actor)) return;
+   return update(actor, { [`flags.edrpg.turn.${step}`]: value });
+}
+
+/**
+ * End this craft's turn: the combat moves to the next combatant.
+ *
+ * @param {Actor} actor
+ */
+export async function endVehicleTurn(actor) {
+   const combat = game.combat;
+   if (!combat?.started || combat.combatant?.actor?.uuid !== actor.uuid) return;
+   return combat.nextTurn();
+}
+
+/**
+ * Recharge Shields (after Equipment, so a Shield Cell Bank or a floating bonus chosen this turn counts): +recharge
+ * while up; while down they charge and come back at half (p.65). A destroyed Power Distributor or Shield Generator
+ * stops it (p.69). A running Shield Cell Bank then counts down a round.
+ *
+ * @param {Actor} actor
+ *
+ * @param {object} [options]
+ *
+ * @param {boolean} [options.post=true]  Post a card with the result.
+ *
+ * @returns {Promise<string[]>}  Notes.
+ */
+export async function rechargeShields(actor, { post = true } = {}) {
+   const sys = actor.system;
+   const sh = sys.shields;
+   const data = {};
+   const notes = [];
+   const rate = sys.isShip ? sys.rechargeNow : sh.recharge;
+   if (sys.isShip && (sys.damaged?.powerDistributor || sys.damaged?.shieldGenerator) && sh.max > 0) notes.push(L("EDRPG.ship.noRecharge"));
+   else if (sh.max > 0) {
+      const value = Math.min(sh.max, sh.value + rate);
+      if (sh.down) {
+         data["system.shields.value"] = value;
+         if (value >= sys.shields.halfway) {
+            data["system.shields.down"] = false;
+            notes.push(L("EDRPG.vcombat.shieldsBack", { value }));
+         } else notes.push(L("EDRPG.vcombat.shieldsCharging", { value, need: sys.shields.halfway }));
+      } else if (value !== sh.value) {
+         data["system.shields.value"] = value;
+         notes.push(L("EDRPG.vcombat.shieldsRecharge", { before: sh.value, value }));
+      } else notes.push(L("EDRPG.turn.shieldsFull", { value }));
+   } else notes.push(L("EDRPG.turn.noShields"));
+   const bank = sys.isShip ? sys.combat.cellBank : null;
+   if (bank && bank.index >= 0 && bank.rounds > 0) {
+      const left = bank.rounds - 1;
+      data["system.combat.cellBank"] = left > 0 ? { index: bank.index, rounds: left } : { index: -1, rounds: 0 };
+      notes.push(L(left > 0 ? "EDRPG.equip.bankRunning" : "EDRPG.equip.bankDone", { rounds: left }));
+   }
+   if (turnState(actor)) {
+      data["flags.edrpg.turn.recharge"] = true;
+      data["flags.edrpg.turn.rechargeNotes"] = notes;
+   }
+   if (Object.keys(data).length) await update(actor, data);
+   if (post && sh.max > 0) await postEvent(actor, { kind: "recharge", title: L("EDRPG.turn.rechargeTitle"), subtitle: actor.name, notes });
+   return notes;
+}
+
 /** Socket listener and combat hooks (call once, at `ready`). */
 export function registerVehicleCombat() {
    game.socket.on(SOCKET, (data) => {
@@ -401,8 +513,10 @@ export async function startVehicleTurn(actor, combat = null) {
       notes.push(L("EDRPG.vcombat.noOneUpClose", { name: esc(actor.name) }));
       zone = "atDistance";
    }
-   // Shields: +recharge while up; while down they charge up and come back at half (p.65).
-   const sh = sys.shields;
+   // Shields: +recharge while up; while down they charge up and come back at half (p.65). With the turn panel this
+   // waits for its own step, after Equipment, as the book orders it.
+   const panel = panelEnabled() && !!combat;
+   const sh = panel ? { max: 0 } : sys.shields;
    // A destroyed Power Distributor (or Shield Generator) stops shield recharge (p.69).
    const rate = sys.isShip ? sys.rechargeNow : sh.recharge;
    if (sys.isShip && (sys.damaged?.powerDistributor || sys.damaged?.shieldGenerator) && sh.max > 0) notes.push(L("EDRPG.ship.noRecharge"));
@@ -420,11 +534,27 @@ export async function startVehicleTurn(actor, combat = null) {
       }
    }
    // A running Shield Cell Bank counts down its rounds.
-   const bank = sys.isShip ? c.cellBank : null;
+   const bank = sys.isShip && !panel ? c.cellBank : null;
    if (bank && bank.index >= 0 && bank.rounds > 0) {
       const left = bank.rounds - 1;
       data["system.combat.cellBank"] = left > 0 ? { index: bank.index, rounds: left } : { index: -1, rounds: 0 };
       notes.push(L(left > 0 ? "EDRPG.equip.bankRunning" : "EDRPG.equip.bankDone", { rounds: left }));
+   }
+   // This turn's progress, shared by everyone's turn panel. Without the panel the recharge has already happened.
+   if (combat) {
+      const noObstacles = sys.flying || sys.isShip;
+      data["flags.edrpg.turn"] = {
+         combat: combat.id,
+         round: combat.round,
+         turn: combat.turn,
+         notes: [...notes],
+         speed: !!sys.isShip,
+         equipment: false,
+         recharge: !panel,
+         rechargeNotes: [],
+         obstacle: noObstacles ? "skip" : "",
+         action: false,
+      };
    }
    await actor.update(data);
    if (zone !== zoneOf(actor)) await moveToZone(actor, zone);
@@ -435,11 +565,11 @@ export async function startVehicleTurn(actor, combat = null) {
    if (range) notes.unshift(L("EDRPG.vcombat.speedRange", { speed: sys.speed, min: range.min, max: range.max }));
    if (sys.isShip && sys.immobilised) notes.push(L("EDRPG.ship.immobilisedNote", { name: esc(actor.name) }));
    if ((actor.system.combat.outOfControl ?? 0) === 1) notes.push(L("EDRPG.ship.outOfControlNote", { name: esc(actor.name) }));
-   const noObstacles = sys.flying || sys.isShip;
+   const noObstacles = sys.flying || sys.isShip || panel;
    return postEvent(actor, {
       kind: "turn",
       title: L("EDRPG.vcombat.turnStart", { name: actor.name }),
-      subtitle: L(sys.isShip ? "EDRPG.ship.turnOrder" : "EDRPG.vcombat.turnOrder"),
+      subtitle: panel ? L("EDRPG.turn.cardHint") : L(sys.isShip ? "EDRPG.ship.turnOrder" : "EDRPG.vcombat.turnOrder"),
       notes: sys.flying ? [...notes, L("EDRPG.drone.flyingNoObstacles", { name: esc(actor.name) })] : notes,
       obstacle: noObstacles ? null : { vehicleUuid: actor.uuid, done: false },
    });
@@ -539,7 +669,7 @@ export async function checkObstacles(actor, fromMessage = null) {
    const check = obstacleCheck(actor, result, input.gravity);
    const notes = [L(`EDRPG.vcombat.obstacleText.${result}`)];
    if (check?.note) notes.push(check.note);
-   return postEvent(
+   const card = await postEvent(
       actor,
       {
          kind: "obstacle",
@@ -552,6 +682,9 @@ export async function checkObstacles(actor, fromMessage = null) {
       },
       rolls,
    );
+   // Turn panel: a pilot check still to roll, or done.
+   await markStep(actor, "obstacle", check?.dn ? `pending:${card.id}` : "done");
+   return card;
 }
 
 /**
@@ -583,7 +716,7 @@ export function obstacleCheck(actor, result, gravity) {
  *
  * @param {ChatMessage} message  The obstacle card.
  */
-async function rollPilotCheck(message) {
+export async function rollPilotCheck(message) {
    const state = message.getFlag("edrpg", "vehicleEvent");
    const check = state?.pilotCheck;
    const actor = check ? await fromUuid(check.vehicleUuid) : null;
@@ -647,11 +780,85 @@ async function rollPilotCheck(message) {
    );
    if (hurt) await damage(actor, hurt, card, Object.keys(extra).length ? extra : null);
    else if (Object.keys(extra).length) await update(actor, extra);
+   await markStep(actor, "obstacle", "done");
 }
 
 /* -------------------------------------------- */
 /*  Targets and firing                          */
 /* -------------------------------------------- */
+
+/** Actions that need a target craft (Rescue needs a wreck instead). */
+export const TARGETED_ACTIONS = ["joust", "snipe", "strafe", "chicken", "tail", "dogfight", "faOff", "broadsides", "ram"];
+
+/** Actions that must target a craft in the up-close zone (Core Rules pp.66–67, 74). */
+const UP_CLOSE_ONLY = ["tail", "dogfight", "faOff", "broadsides", "ram"];
+
+/**
+ * Craft that can be targeted: the other craft on the scene still in the fight (or, with wrecks, the destroyed ones).
+ *
+ * @param {Actor} actor
+ *
+ * @param {object} [options]
+ *
+ * @param {boolean} [options.wrecks=false]
+ *
+ * @returns {Actor[]}
+ */
+export function targetCandidates(actor, { wrecks = false } = {}) {
+   const seen = new Set();
+   return (canvas?.scene?.tokens ?? [])
+      .map((t) => t.actor)
+      .filter((a) => isCraft(a) && a !== actor && a.uuid !== actor.uuid && !seen.has(a.uuid) && seen.add(a.uuid))
+      .filter((a) => (wrecks ? a.system.destroyed : !a.system.combat.escaped && !a.system.destroyed));
+}
+
+/**
+ * Why this craft can't take an action at all right now (null: it can), whatever the target.
+ *
+ * @param {Actor} actor
+ *
+ * @param {string} action
+ *
+ * @returns {string|null}  A localised reason.
+ */
+export function actionBlocked(actor, action) {
+   const sys = actor.system;
+   if (action === "broadsides" && !turrets(actor).length) return L("EDRPG.vcombat.noTurrets", { name: actor.name });
+   if (action === "dogfight" && (sys.combat.outOfControl ?? 0) === 1) return L("EDRPG.ship.outOfControl", { name: actor.name });
+   if (action === "flee" && sys.isShip && sys.damaged?.fsd) return L("EDRPG.ship.noFsd", { name: actor.name });
+   if (action === "rescue" && sys.speed !== 0) return L("EDRPG.vdestroy.mustStop", { name: actor.name });
+   return null;
+}
+
+/**
+ * Why an action can't be taken against this target (null: it can). Mirrors each action's own checks: Strafe can't
+ * target a Fleeing or Disengaging craft, Chicken needs a higher Pursuit and a target that isn't Disengaging, and Tail
+ * (Dogfight), Flight Assist Off, Broadsides and Ram need the target up-close.
+ *
+ * @param {Actor} actor
+ *
+ * @param {string} action
+ *
+ * @param {Actor} target
+ *
+ * @returns {string|null}  A localised reason.
+ */
+export function actionTargetBlocked(actor, action, target) {
+   const ts = target?.system;
+   if (!ts) return L("EDRPG.vcombat.noTarget");
+   if (action === "rescue") return ts.destroyed && ts.stranded?.length ? null : L("EDRPG.turn.reason.noStranded", { target: target.name });
+   if (ts.destroyed || ts.combat.escaped) return L("EDRPG.turn.reason.gone", { target: target.name });
+   if (UP_CLOSE_ONLY.includes(action) && zoneOf(target) !== "upClose") return L("EDRPG.turn.reason.notUpClose", { target: target.name });
+   if (action === "strafe" && (ts.combat.disengaging || ts.combat.fleeing)) return L("EDRPG.turn.reason.running", { target: target.name });
+   if (action === "chicken") {
+      if (ts.combat.disengaging) return L("EDRPG.turn.reason.disengaging", { target: target.name });
+      if (actor.system.pursuit <= ts.pursuit) return L("EDRPG.vcombat.chickenPursuit", { mine: actor.system.pursuit, theirs: ts.pursuit, target: target.name });
+   }
+   return null;
+}
+
+/** A target chosen in advance (the turn panel), used by the next target picker. */
+let presetTarget = null;
 
 /**
  * Choose a target vehicle: the user's single valid target, the only candidate, or one picked from a list.
@@ -669,13 +876,17 @@ async function rollPilotCheck(message) {
  * @returns {Promise<Actor|null>}
  */
 async function pickTarget(actor, { zone = null, filter = () => true, title, wrecks = false }) {
-   const seen = new Set();
-   const candidates = (canvas?.scene?.tokens ?? [])
-      .map((t) => t.actor)
-      .filter((a) => isCraft(a) && a !== actor && a.uuid !== actor.uuid && !seen.has(a.uuid) && seen.add(a.uuid))
-      .filter((a) => (wrecks ? a.system.destroyed : !a.system.combat.escaped && !a.system.destroyed))
+   const candidates = targetCandidates(actor, { wrecks })
       .filter((a) => !zone || zoneOf(a) === zone)
       .filter(filter);
+   // A target chosen in advance: use it if it qualifies, never swap in another.
+   if (presetTarget) {
+      const chosen = presetTarget;
+      presetTarget = null;
+      const ok = candidates.find((a) => a.uuid === chosen.uuid);
+      if (!ok) ui.notifications.warn(L("EDRPG.turn.reason.invalid", { target: chosen.name }));
+      return ok ?? null;
+   }
    if (!candidates.length) {
       ui.notifications.warn(L(wrecks ? "EDRPG.vdestroy.noStranded" : zone === "upClose" ? "EDRPG.vcombat.noTargetUpClose" : "EDRPG.vcombat.noTarget"));
       return null;
@@ -796,7 +1007,7 @@ async function pursuit(chaser, runner, kind) {
  *
  * @param {string} action  A key of {@link ACTION_ICONS}.
  */
-export async function vehicleAction(actor, action) {
+export async function vehicleAction(actor, action, { target = null } = {}) {
    const sys = actor.system;
    const zone = zoneOf(actor);
    if (sys.combat.escaped) return void ui.notifications.warn(L("EDRPG.vcombat.hasEscaped", { name: actor.name }));
@@ -816,7 +1027,14 @@ export async function vehicleAction(actor, action) {
    }
    const handler = ACTIONS[action];
    if (!handler) return;
-   const done = await handler(actor);
+   // A target picked in the turn panel goes straight to the action's target picker.
+   presetTarget = target && (TARGETED_ACTIONS.includes(action) || action === "rescue") ? target : null;
+   let done;
+   try {
+      done = await handler(actor);
+   } finally {
+      presetTarget = null;
+   }
    if (done !== false) await update(actor, { "system.combat.action": action });
 }
 
@@ -1304,7 +1522,13 @@ export async function equipmentAction(actor, which) {
       if (await faultCheck(new RegExp(bank.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"))) return;
       const cellBanks = foundry.utils.deepClone(sys._source.equipment.cellBanks);
       cellBanks[bank.i].uses -= 1;
-      // It boosts this turn's recharge straight away (the recharge already ran at turn start), then the next rounds.
+      // Before this turn's Recharge Shields step, the bank simply joins that recharge (and the next ones).
+      const turn = turnState(actor);
+      if (turn && !turn.recharge) {
+         await actor.update({ "system.equipment.cellBanks": cellBanks, "system.combat.cellBank": { index: bank.i, rounds: bank.duration } });
+         return say("EDRPG.equip.bankArmed", { bank: esc(bank.name), boost: bank.boost, rounds: bank.duration, uses: bank.uses - 1 });
+      }
+      // Otherwise the recharge already ran: it boosts the shields straight away, then the next rounds.
       const sh = sys.shields;
       const value = Math.min(sh.max, sh.value + bank.boost);
       const update = { "system.equipment.cellBanks": cellBanks, "system.combat.cellBank": { index: bank.i, rounds: bank.duration - 1 }, "system.shields.value": value };

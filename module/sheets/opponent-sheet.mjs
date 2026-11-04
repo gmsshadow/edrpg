@@ -2,6 +2,10 @@ import { ranks, skillChoices, skillCategory, karmaCategories } from "../config.m
 import { useKarmaCapability } from "../karma.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
 import { conditionView, conditionAction } from "../dice/damage.mjs";
+import { isD100, dnModifier } from "../dice/resolve.mjs";
+
+/** A signed number. */
+const signed = (n) => (n > 0 ? `+${n}` : `${n}`);
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -57,11 +61,27 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
          rankChoices: Object.fromEntries(ranks.map((r) => [r.key, r.name])),
          skillChoices: labels,
          fighting: system.fighting,
-         controller: system.controller ? { name: system.controllerName || game.i18n.localize("EDRPG.drone.controllerMissing"), bonus: system.controllerBonus } : null,
+         fightingLine: isD100()
+            ? game.i18n.format("EDRPG.d100.fightingLine", { finesse: signed(dnModifier(5)), toHit: (system.fighting ?? 0) * 10 })
+            : game.i18n.format("EDRPG.opponent.fightingLine", { toHit: system.fighting }),
+         controller: system.controller ? { name: system.controllerName || game.i18n.localize("EDRPG.drone.controllerMissing"), bonus: system.controllerBonus * (isD100() ? 10 : 1) } : null,
          subtitle: [system.rankData ? game.i18n.localize(system.rankData.name) : "", system.role].filter(Boolean).join(" "),
       });
 
-      context.otherSkills = source.otherSkills.map((s, index) => ({ ...s, index, label: labels[s.skill] ?? "" }));
+      // d100: the stat block stays as printed; beside each number is what the variant rolls with. Skills and To Hit
+      // become scores (× 10); Dodge and Parry are what an attacker gets against them (− Defence × 10).
+      const d100 = isD100();
+      const def = (v) => (v === null || v === undefined ? "—" : signed(-v * 10));
+      context.d100 = d100
+         ? {
+              dodge: def(system.dodge),
+              parry: def(system.parry),
+              perception: (system.perception ?? 0) * 10,
+              toHit: (system.toHit ?? 0) * 10,
+              defenceHint: game.i18n.localize("EDRPG.d100.opponentDefenceHint"),
+           }
+         : null;
+      context.otherSkills = source.otherSkills.map((s, index) => ({ ...s, index, label: labels[s.skill] ?? "", score: d100 ? (s.bonus ?? 0) * 10 : null }));
 
       const items = (type) => [...actor.itemTypes[type]].sort((a, b) => (a.sort || 0) - (b.sort || 0));
       context.armour = items("armour").map((a) => ({
@@ -101,17 +121,20 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
     */
    #attackView(weapon) {
       const s = weapon.system;
+      const d100 = isD100();
       const toHit = s.toHit ?? (s.skill === "fighting" ? this.document.system.fighting : this.document.system.toHit);
+      // d100: Range and Finesse as their modifiers ((11 − n) × 10) and To Hit as a score (with any controller's Cyber).
+      const dn = (n) => (d100 ? signed(dnModifier(n)) : n);
       const parts = [];
       if (s.isMelee) {
-         if (s.finesse !== null) parts.push(game.i18n.format("EDRPG.opponent.finesse", { value: s.finesse }));
+         if (s.finesse !== null) parts.push(game.i18n.format("EDRPG.opponent.finesse", { value: dn(s.finesse) }));
       } else {
          const bands = ["short", "medium", "long"].map((k) => s.ranges[k]).filter((b) => b.distance);
-         const usable = bands.filter((b) => b.dn !== null).map((b) => `${b.distance} (${b.dn})`);
+         const usable = bands.filter((b) => b.dn !== null).map((b) => `${b.distance} (${dn(b.dn)})`);
          const min = bands.find((b) => b.dn === null);
          if (usable.length) parts.push(`${min ? `${min.distance}, ` : ""}${usable.join("/")}`);
       }
-      const hit = game.i18n.format("EDRPG.opponent.toHit", { value: toHit });
+      const hit = d100 ? game.i18n.format("EDRPG.d100.toHitScore", { value: this.document.weaponScore(weapon) }) : game.i18n.format("EDRPG.opponent.toHit", { value: toHit });
       if (s.blast.fatal !== null) {
          parts.push(
             `${hit}, ${game.i18n.format("EDRPG.opponent.blast", {
@@ -124,7 +147,7 @@ export default class EDOpponentSheet extends HandlebarsApplicationMixin(ActorShe
       } else {
          parts.push(`${hit}, ${game.i18n.format("EDRPG.opponent.damage", { value: s.damageLabel })}`);
       }
-      if (s.burstLabel) parts.push(s.burstLabel);
+      if (s.burstLabel) parts.push(d100 ? game.i18n.format("EDRPG.d100.burstPerSL", { burst: s.burstLabel }) : s.burstLabel);
       if (s.usesAmmo) parts.push(game.i18n.format("EDRPG.opponent.ammo", { value: s.ammo.value, max: s.ammo.max }));
       if (s.notes) parts.push(s.notes);
       return { id: weapon.id, name: weapon.name, line: parts.join(". ").replace(/\.\./g, ".") };

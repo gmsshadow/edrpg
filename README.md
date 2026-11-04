@@ -58,11 +58,19 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   (Exploration): AX and flak weapons against impervious Thargoid hulls and Thargon swarms.
 - **Ships compendium**: all 63 ship variants from the Spaceships chapter, plus the 56 from the supplements (in a folder
   per book), with weapons, components, equipment, bonuses and tokens; the GM's spaceship- and vehicle-scale opponents in the Opponents compendium.
+- **Turn panel** for spaceship and vehicle combat: the GM and the craft's owners step through Adjust Speed,
+  Equipment, Recharge Shields, Check for Obstacles and the Combat Action, then End Turn.
 - **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until
   another vehicle stops to Rescue them. Vehicle-scale drones (the four skimmers) in the Opponents compendium, with
   flying and flying-bomb rules.
 - **Assets**: combat map scenes (Scenes & Combat Maps compendium) and ship/vehicle tokens under `systems/edrpg/assets/tokens/`.
 - **Item sheets** for Backgrounds (choices used, skill bonuses), Karma Capabilities (category, cost) and Enhancements.
+- **Star System Generator** (Core Rules pp.330–337): a Star System actor and sheet. The GM's sidebar button rolls
+  stars, planets, rings, moons and civilisation by the book. Everything is editable and rerollable, and links to the
+  Commodity Market and the Space Lane and Planet Encounter tables.
+- **Mission Generator** (Core Rules pp.338–347): the GM's sidebar button rolls Military, Espionage or Exploration
+  missions with their detail and twist, and the rewards for the party's rank. It posts a briefing (and a journal entry)
+  and creates the star systems Stellar Cartography calls for.
 - **d100 variant**: a world setting switches every check to d100 roll-under against the Skill score, with Success
   Levels from the tens die, criticals on doubles or the exact target, and 01–05 / 96–00 automatic results.
   Manoeuvre contests, Initiative and damage stay on d10.

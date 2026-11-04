@@ -53,16 +53,16 @@ export function priceList(index, column) {
 }
 
 /** Open the market dialog (GM): roll or choose the column and post the price list. */
-export async function openMarket() {
+export async function openMarket({ port: presetPort = "", economy = "" } = {}) {
    const visits = game.settings.get("edrpg", "marketVisits") ?? {};
-   const econ = Object.keys(ECONOMIES).map((k) => `<option value="${k}">${L(`EDRPG.trade.economy.${k}`)}</option>`).join("");
+   const econ = Object.keys(ECONOMIES).map((k) => `<option value="${k}"${k === economy ? " selected" : ""}>${L(`EDRPG.trade.economy.${k}`)}</option>`).join("");
    const cols = Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}">${i + 1}${COLUMN_NOTES[i + 1] ? ` — ${L(`EDRPG.trade.column.${COLUMN_NOTES[i + 1]}`)}` : ""}</option>`).join("");
    const known = Object.keys(visits).map((n) => `<option value="${esc(n)}"></option>`).join("");
    const input = await foundry.applications.api.DialogV2.input({
       window: { title: L("EDRPG.trade.title") },
       classes: ["edrpg", "edrpg-dialog"],
       content: `
-         <div class="form-group"><label>${L("EDRPG.trade.port")}</label><div class="form-fields"><input type="text" name="port" list="edrpg-ports" placeholder="${L("EDRPG.trade.portHint")}"><datalist id="edrpg-ports">${known}</datalist></div></div>
+         <div class="form-group"><label>${L("EDRPG.trade.port")}</label><div class="form-fields"><input type="text" name="port" value="${esc(presetPort)}" list="edrpg-ports" placeholder="${L("EDRPG.trade.portHint")}"><datalist id="edrpg-ports">${known}</datalist></div></div>
          <div class="form-group"><label>${L("EDRPG.trade.economyLabel")}</label><div class="form-fields"><select name="economy">${econ}</select></div></div>
          <div class="form-group"><label>${L("EDRPG.trade.columnLabel")}</label><div class="form-fields"><select name="column"><option value="roll">${L("EDRPG.trade.roll")}</option>${cols}</select></div></div>
          <div class="form-group"><label>${L("EDRPG.trade.reset")}</label><div class="form-fields"><input type="checkbox" name="reset"></div></div>

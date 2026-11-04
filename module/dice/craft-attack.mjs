@@ -142,19 +142,17 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       target100 = score + points * 10 + flat + dnModifier(opts.defence);
       ({ roll, natural } = await rollD100());
       total = natural;
+      // Defence 0 (Sniping, stationary or immobilised) gives a target of 110 or more, so it hits on anything but a
+      // 96–00, which always misses.
       j = judge({ natural, target: target100, d100: true });
-      // Defence 0 (Sniping, stationary or immobilised): a hit, rolled only for its SL.
-      if (sniping || opts.defence <= 0) {
-         const over = target100 > 100 ? Math.floor((target100 - 100) / 10) : 0;
-         j = { ...j, success: true, margin: Math.floor((natural % 100) / 10) + over, reason: null };
-      }
    } else {
       roll = await new Roll("1d10 + @bonus", { bonus }).evaluate();
       natural = roll.dice[0].total;
       total = roll.total;
       j = judge({ natural, total, dn: opts.defence, d100: false });
    }
-   let hit = sniping || j.success;
+   // A Sniping target is always hit in the Core Rules; in d100 a 96–00 still misses.
+   let hit = (sniping && !d100) || j.success;
    // Point Defence: an incoming missile or torpedo is shot down on an even D10 (p.198).
    let pointDefence = null;
    if (hit && isMissile(weapon) && (ts?.equipment?.pointDefence?.value ?? 0) > 0) {
@@ -198,7 +196,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       pointDefence,
       // Critical hits only matter against ships (vehicles have no components).
       shipTarget: !!ts?.isShip,
-      reason: sniping ? null : j.reason,
+      reason: sniping && !d100 ? null : j.reason,
       damage: hit
          ? {
               base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields,

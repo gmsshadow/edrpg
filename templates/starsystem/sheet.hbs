@@ -1,0 +1,186 @@
+<section class="ed-starsystem">
+   <header class="ed-ss-head">
+      <img class="ed-ss-img" src="{{actor.img}}" alt="{{actor.name}}" data-action="editImage" data-edit="img">
+      <div class="ed-ss-title">
+         <div class="ed-ss-kicker">{{localize "EDRPG.star.sheetTitle"}}</div>
+         <input class="ed-ss-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'EDRPG.star.systemName'}}">
+         <div class="ed-ss-summary">
+            <span class="ed-chip">{{localize "EDRPG.star.starsCount" count=stars.length}}</span>
+            <span class="ed-chip">{{localize "EDRPG.star.bodiesCount" count=bodyCount}}</span>
+            <span class="ed-chip">{{localize "EDRPG.star.moonsCount" count=moonCount}}</span>
+            <span class="ed-chip ed-ss-reward" data-tooltip="EDRPG.star.rewardHint">{{localize "EDRPG.star.discovery"}} {{reward}}</span>
+         </div>
+      </div>
+      {{#if editable}}
+      <div class="ed-ss-buttons">
+         <button type="button" data-action="generate"><i class="fa-solid fa-dice-d20"></i> {{localize "EDRPG.star.regenerate"}}</button>
+      </div>
+      {{/if}}
+   </header>
+
+   {{#each stars as |s|}}
+   <section class="ed-ss-star {{#if s.primary}}primary{{/if}}" data-si="{{s.si}}">
+      <div class="ed-ss-starhead">
+         <i class="fa-solid fa-sun ed-ss-staricon star-{{s.type}}"></i>
+         <div class="ed-ss-starname">
+            <input type="text" value="{{s.custom}}" placeholder="{{s.name}}" data-path="stars.{{s.si}}.name" {{#unless @root.editable}}disabled{{/unless}}>
+            <span class="ed-ss-role">{{#if s.primary}}{{localize "EDRPG.star.primaryStar"}}{{else}}{{localize "EDRPG.star.companionStar"}}{{/if}}</span>
+         </div>
+         <label class="ed-ss-field">{{localize "EDRPG.star.typeLabel"}}
+            <select data-path="stars.{{s.si}}.type" {{#unless @root.editable}}disabled{{/unless}}>{{#each s.typeOptions as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
+         </label>
+         <label class="ed-ss-field short">{{localize "EDRPG.star.mass"}}
+            <input type="number" value="{{s.mass}}" step="any" min="0" data-dtype="Number" data-path="stars.{{s.si}}.mass" {{#unless @root.editable}}disabled{{/unless}}>
+         </label>
+         <div class="ed-ss-facts">
+            <span data-tooltip="EDRPG.star.gzHint">{{localize "EDRPG.star.gz"}} <b>{{s.gz}}</b></span>
+            <span>{{localize "EDRPG.star.scoop"}} <b>{{s.scoop}}</b></span>
+            <span>{{localize "EDRPG.star.reward"}} <b>{{s.reward}}</b></span>
+         </div>
+         {{#if @root.editable}}
+         <div class="ed-ss-controls">
+            <a data-action="rerollStar" data-tooltip="EDRPG.star.rerollStar"><i class="fa-solid fa-dice"></i></a>
+            {{#unless s.primary}}<a data-action="deleteStar" data-tooltip="EDRPG.star.deleteStar"><i class="fa-solid fa-xmark"></i></a>{{/unless}}
+         </div>
+         {{/if}}
+      </div>
+
+      <table class="ed-ss-bodies">
+         <thead>
+            <tr>
+               <th class="dist">{{localize "EDRPG.star.distance"}}</th>
+               <th class="name">{{localize "EDRPG.star.body.title"}}</th>
+               <th class="type">{{localize "EDRPG.star.typeLabel"}}</th>
+               <th class="rings">{{localize "EDRPG.star.ringsLabel"}}</th>
+               <th class="reward">{{localize "EDRPG.star.reward"}}</th>
+               <th class="ctl"></th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each s.bodies as |b|}}
+            <tr class="ed-ss-body zone-{{b.zone}} body-{{b.type}}" data-si="{{b.si}}" data-bi="{{b.bi}}">
+               <td class="dist"><input type="number" value="{{b.distance}}" min="0" step="100" data-dtype="Number" data-path="stars.{{b.si}}.bodies.{{b.bi}}.distance" {{#unless @root.editable}}disabled{{/unless}}><span class="unit">ls</span></td>
+               <td class="name">
+                  <input type="text" value="{{b.custom}}" placeholder="{{b.name}}" data-path="stars.{{b.si}}.bodies.{{b.bi}}.name" {{#unless @root.editable}}disabled{{/unless}}>
+                  {{#each b.here as |x|}}<span class="ed-ss-inst" data-tooltip="{{x.kindLabel}}"><i class="fa-solid {{#if (eq x.kind 'station')}}fa-satellite{{else if (eq x.kind 'outpost')}}fa-tower-broadcast{{else}}fa-city{{/if}}"></i> {{x.name}}</span>{{/each}}
+               </td>
+               <td class="type">
+                  <select data-path="stars.{{b.si}}.bodies.{{b.bi}}.type" {{#unless @root.editable}}disabled{{/unless}}>{{#each b.typeOptions as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
+                  {{#if b.isStar}}
+                  <div class="ed-ss-orbstar">
+                     <select data-path="stars.{{b.si}}.bodies.{{b.bi}}.starType" {{#unless @root.editable}}disabled{{/unless}}>{{#each b.starTypeOptions as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
+                     <input type="number" value="{{b.mass}}" step="any" min="0" data-dtype="Number" data-path="stars.{{b.si}}.bodies.{{b.bi}}.mass" data-tooltip="EDRPG.star.mass" {{#unless @root.editable}}disabled{{/unless}}>
+                  </div>
+                  {{/if}}
+               </td>
+               <td class="rings">
+                  {{#if b.canRing}}
+                  <select data-path="stars.{{b.si}}.bodies.{{b.bi}}.rings" {{#unless @root.editable}}disabled{{/unless}}>{{#each b.ringOptions as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
+                  {{else}}<span class="muted">—</span>{{/if}}
+               </td>
+               <td class="reward">{{b.reward}}</td>
+               <td class="ctl">
+                  <a data-action="planetEncounter" data-tooltip="EDRPG.star.planetEncounter"><i class="fa-solid fa-person-hiking"></i></a>
+                  {{#if @root.editable}}
+                  <a data-action="addMoon" data-tooltip="EDRPG.star.addMoon"><i class="fa-solid fa-moon"></i></a>
+                  {{#if b.moons.length}}<a data-action="rerollMoons" data-tooltip="EDRPG.star.rerollMoons"><i class="fa-solid fa-dice-d6"></i></a>{{/if}}
+                  <a data-action="rerollBody" data-tooltip="EDRPG.star.rerollBody"><i class="fa-solid fa-dice"></i></a>
+                  <a data-action="deleteBody" data-tooltip="EDRPG.star.deleteBody"><i class="fa-solid fa-xmark"></i></a>
+                  {{/if}}
+               </td>
+            </tr>
+            {{#if b.moons.length}}
+            <tr class="ed-ss-moonrow" data-si="{{b.si}}" data-bi="{{b.bi}}">
+               <td></td>
+               <td colspan="5">
+                  <div class="ed-ss-moons">
+                     {{#each b.moons as |m|}}
+                     <span class="ed-ss-moon" data-mi="{{m.mi}}">
+                        <i class="fa-solid fa-moon"></i> {{m.name}}
+                        <select data-path="stars.{{b.si}}.bodies.{{b.bi}}.moons.{{m.mi}}" {{#unless @root.editable}}disabled{{/unless}}>{{#each m.options as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
+                        {{#each m.here as |x|}}<span class="ed-ss-inst"><i class="fa-solid fa-city"></i> {{x.name}}</span>{{/each}}
+                        {{#if @root.editable}}<a data-action="deleteMoon" data-tooltip="EDRPG.star.deleteMoon"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+                     </span>
+                     {{/each}}
+
+                  </div>
+               </td>
+            </tr>
+            {{/if}}
+            {{else}}
+            <tr><td colspan="6" class="muted">{{localize "EDRPG.star.noBodies"}}</td></tr>
+            {{/each}}
+         </tbody>
+      </table>
+      {{#if @root.editable}}<a class="ed-ss-add" data-action="addBody"><i class="fa-solid fa-plus"></i> {{localize "EDRPG.star.addBody"}}</a>{{/if}}
+   </section>
+   {{/each}}
+   {{#if editable}}{{#if canAddStar}}<a class="ed-ss-add star" data-action="addStar"><i class="fa-solid fa-plus"></i> {{localize "EDRPG.star.addStar"}}</a>{{/if}}{{/if}}
+
+   <section class="ed-ss-civ">
+      <h3>
+         {{localize "EDRPG.star.civilisation"}}
+         {{#if editable}}<a data-action="rerollCiv" data-tooltip="EDRPG.star.rerollCiv"><i class="fa-solid fa-dice"></i></a>{{/if}}
+         <label class="ed-ss-inhabited"><input type="checkbox" data-path="civ.inhabited" {{#if civ.inhabited}}checked{{/if}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.star.inhabited"}}</label>
+      </h3>
+      {{#if civ.inhabited}}
+      <div class="ed-ss-civgrid">
+         <div class="ed-ss-economies">
+            <span class="ed-ss-label">{{localize "EDRPG.star.economy"}}</span>
+            {{#each civ.economies as |e|}}
+            <span class="ed-chip ed-ss-econ" data-ei="{{e.index}}">
+               <a data-action="market" data-economy="{{e.key}}" data-tooltip="EDRPG.star.openMarket"><i class="fa-solid fa-scale-balanced"></i> {{e.label}}</a>
+               {{#if @root.editable}}<a data-action="deleteEconomy"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+            </span>
+            {{/each}}
+            {{#if editable}}
+            <select class="ed-ss-addecon"><option value=""></option>{{#each civ.economyOptions as |o|}}<option value="{{o.value}}">{{o.label}}</option>{{/each}}</select>
+            <a data-action="addEconomy" data-tooltip="EDRPG.star.addEconomy"><i class="fa-solid fa-plus"></i></a>
+            {{/if}}
+         </div>
+         <label class="ed-ss-field">{{localize "EDRPG.star.governmentLabel"}}
+            <select data-path="civ.government" {{#unless editable}}disabled{{/unless}}>{{#each civ.governmentOptions as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
+         </label>
+         <div class="ed-ss-field">{{localize "EDRPG.star.securityLabel"}}
+            <span class="ed-ss-security sec-{{civ.security}}">{{civ.securityLabel}}</span>
+            <a data-action="spaceLane" data-tooltip="EDRPG.star.spaceLaneHint"><i class="fa-solid fa-route"></i> {{localize "EDRPG.star.spaceLane"}}</a>
+         </div>
+         <label class="ed-ss-field">{{localize "EDRPG.star.allegianceLabel"}}
+            <select data-path="civ.allegiance" {{#unless editable}}disabled{{/unless}}>{{#each civ.allegianceOptions as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
+         </label>
+      </div>
+
+      <table class="ed-ss-installations">
+         <thead><tr><th></th><th>{{localize "EDRPG.star.installationName"}}</th><th>{{localize "EDRPG.star.location"}}</th><th></th></tr></thead>
+         <tbody>
+            {{#each civ.installations as |x|}}
+            <tr data-xi="{{x.index}}">
+               <td class="kind"><i class="fa-solid {{x.icon}}"></i>
+                  <select data-path="civ.installations.{{x.index}}.kind" {{#unless @root.editable}}disabled{{/unless}}>{{#each @root.civ.kinds as |k|}}<option value="{{k.value}}" {{#if (eq k.value x.kind)}}selected{{/if}}>{{k.label}}</option>{{/each}}</select>
+               </td>
+               <td><input type="text" value="{{x.name}}" data-path="civ.installations.{{x.index}}.name" {{#unless @root.editable}}disabled{{/unless}}></td>
+               <td><select data-path="civ.installations.{{x.index}}.at" {{#unless @root.editable}}disabled{{/unless}}>{{#each x.places as |p|}}<option value="{{p.value}}" {{#if p.selected}}selected{{/if}}>{{p.label}}</option>{{/each}}</select></td>
+               <td class="ctl">{{#if @root.editable}}<a data-action="deleteInstallation"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            </tr>
+            {{else}}
+            <tr><td colspan="4" class="muted">{{localize "EDRPG.star.noInstallations"}}</td></tr>
+            {{/each}}
+         </tbody>
+      </table>
+      {{#if editable}}
+      <div class="ed-ss-addinst">
+         <a data-action="addInstallation" data-kind="station"><i class="fa-solid fa-plus"></i> {{localize "EDRPG.star.installation.station"}}</a>
+         <a data-action="addInstallation" data-kind="outpost"><i class="fa-solid fa-plus"></i> {{localize "EDRPG.star.installation.outpost"}}</a>
+         <a data-action="addInstallation" data-kind="settlement"><i class="fa-solid fa-plus"></i> {{localize "EDRPG.star.installation.settlement"}}</a>
+      </div>
+      {{/if}}
+      {{else}}
+      <p class="muted">{{localize "EDRPG.star.uninhabited"}}</p>
+      {{/if}}
+   </section>
+
+   <section class="ed-ss-notes">
+      <h3>{{localize "EDRPG.star.notes"}}</h3>
+      {{formInput notesField value=source.notes enriched=enrichedNotes toggled=true name="system.notes"}}
+   </section>
+</section>

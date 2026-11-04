@@ -1,0 +1,124 @@
+<section class="ed-turn">
+   <header class="ed-turn-head">
+      <img src="{{img}}" alt="{{actor.name}}" data-action="openSheet" data-tooltip="EDRPG.turn.openSheet">
+      <div class="ed-turn-who">
+         <a class="ed-turn-name" data-action="openSheet">{{actor.name}}</a>
+         <div class="ed-turn-stats">
+            <span>{{zone}}</span>
+            {{#unless isShip}}<span>{{localize "EDRPG.turn.speedShort"}} <b>{{speed}}</b></span>{{/unless}}
+            <span>{{localize "EDRPG.turn.hullShort"}} <b>{{hull}}</b></span>
+            <span>{{localize "EDRPG.turn.shieldsShort"}} <b>{{shields}}</b></span>
+         </div>
+      </div>
+      <div class="ed-turn-round">{{localize "EDRPG.turn.round" round=round}}</div>
+   </header>
+
+   {{#if out}}
+   <p class="ed-turn-out">{{out}}</p>
+   {{else if waiting}}
+   <p class="ed-turn-wait"><i class="fa-solid fa-hourglass-half"></i> {{localize "EDRPG.turn.starting"}}</p>
+   {{#if isGM}}<button type="button" data-action="startTurn"><i class="fa-solid fa-play"></i> {{localize "EDRPG.turn.startTurn"}}</button>{{/if}}
+   {{else}}
+   {{#if notes.length}}<ul class="ed-turn-notes">{{#each notes as |n|}}<li>{{{n}}}</li>{{/each}}</ul>{{/if}}
+
+   <ol class="ed-turn-steps">
+      {{#each steps as |s|}}
+      <li class="ed-turn-step {{s.status}}">
+         <div class="ed-turn-stephead">
+            <span class="ed-turn-n">{{#if s.done}}<i class="fa-solid fa-check"></i>{{else}}{{s.n}}{{/if}}</span>
+            <span class="ed-turn-label">{{s.label}}</span>
+            {{#if s.done}}<span class="ed-turn-sum">{{s.summary}}</span>{{/if}}
+         </div>
+         {{#if s.current}}
+         <div class="ed-turn-body">
+            <p class="ed-turn-summary">{{s.summary}}</p>
+
+            {{#if (eq s.key "speed")}}
+            {{#if s.rangeText}}<p class="hint">{{s.rangeText}}</p>{{/if}}
+            <div class="ed-turn-speeds">
+               {{#each s.speeds as |v|}}<button type="button" class="{{#if v.current}}active{{/if}}" data-action="speed" data-speed="{{v.n}}" data-tooltip="{{v.hint}}" {{#unless @root.canAct}}disabled{{/unless}}>{{v.n}}</button>{{/each}}
+            </div>
+            {{#if @root.canAct}}<button type="button" class="ed-turn-confirm" data-action="confirm" data-step="speed"><i class="fa-solid fa-check"></i> {{localize "EDRPG.turn.confirmSpeed" speed=@root.speed}}</button>{{/if}}
+            {{/if}}
+
+            {{#if (eq s.key "equipment")}}
+            {{#each s.equipment as |e|}}
+            <button type="button" class="ed-turn-option {{#if e.active}}active{{/if}}" data-action="equip" data-which="{{e.which}}" {{#if (or e.disabled (not @root.canAct))}}disabled{{/if}}>
+               <i class="{{e.icon}}"></i> {{e.label}} {{#if e.info}}<span class="muted">{{e.info}}</span>{{/if}}
+            </button>
+            {{/each}}
+            {{#if @root.canAct}}<button type="button" class="ed-turn-confirm" data-action="confirm" data-step="equipment"><i class="fa-solid fa-check"></i> {{#if s.none}}{{localize "EDRPG.turn.next"}}{{else}}{{localize "EDRPG.turn.equipmentDone"}}{{/if}}</button>{{/if}}
+            {{/if}}
+
+            {{#if (eq s.key "recharge")}}
+            {{#if s.rateText}}<p class="hint">{{s.rateText}}</p>{{/if}}
+            {{#if @root.canAct}}<button type="button" class="ed-turn-confirm" data-action="recharge"><i class="fa-solid fa-bolt"></i> {{#if s.noShields}}{{localize "EDRPG.turn.next"}}{{else}}{{localize "EDRPG.turn.rechargeButton"}}{{/if}}</button>{{/if}}
+            {{/if}}
+
+            {{#if (eq s.key "obstacle")}}
+            {{#if s.pilotCheck}}
+            {{#if @root.canAct}}<button type="button" class="ed-turn-confirm" data-action="pilotCheck" data-message="{{s.pilotCheck}}"><i class="fa-solid fa-dice-d10"></i> {{localize "EDRPG.turn.rollPilot"}}</button>{{/if}}
+            {{else if s.gmCheck}}
+            {{#if @root.isGM}}
+            <div class="ed-turn-row">
+               <button type="button" class="ed-turn-confirm" data-action="obstacles"><i class="fa-solid fa-mountain"></i> {{localize "EDRPG.vcombat.checkObstacles"}}</button>
+               <button type="button" data-action="noObstacles" data-tooltip="EDRPG.turn.noObstaclesHint"><i class="fa-solid fa-road"></i> {{localize "EDRPG.turn.noObstacles"}}</button>
+            </div>
+            {{/if}}
+            {{/if}}
+            {{/if}}
+
+            {{#if (eq s.key "action")}}
+            {{#if s.lost}}
+            {{#if @root.canAct}}<button type="button" class="ed-turn-confirm" data-action="skipAction"><i class="fa-solid fa-forward"></i> {{localize "EDRPG.turn.next"}}</button>{{/if}}
+            {{else}}
+            <div class="ed-turn-sub">{{localize "EDRPG.turn.chooseTarget"}}</div>
+            {{#if s.noTargets}}<p class="hint">{{localize "EDRPG.turn.noTargets"}}</p>{{/if}}
+            <ul class="ed-turn-targets">
+               {{#each s.targets as |tg|}}
+               <li class="ed-turn-target {{#if tg.selected}}selected{{/if}} {{#if tg.hostile}}hostile{{else}}friendly{{/if}} {{#if tg.wreck}}wreck{{/if}}" data-action="selectTarget" data-uuid="{{tg.uuid}}">
+                  <img src="{{tg.img}}" alt="">
+                  <div class="ed-turn-tinfo">
+                     <span class="ed-turn-tname">{{tg.name}}</span>
+                     <span class="ed-turn-tstats"><span class="ed-turn-zone {{#if tg.upClose}}close{{/if}}">{{tg.zone}}</span> {{tg.stats}}</span>
+                  </div>
+                  {{#each tg.states as |st|}}<span class="ed-turn-state {{st.key}}">{{st.label}}</span>{{/each}}
+               </li>
+               {{/each}}
+            </ul>
+            {{#if s.target}}
+            <div class="ed-turn-sub">{{localize "EDRPG.turn.against" target=s.target.name}}</div>
+            <div class="ed-turn-actions">
+               {{#each s.against as |a|}}
+               <button type="button" class="ed-turn-option {{#unless a.ok}}blocked{{/unless}}" data-action="action" data-vaction="{{a.key}}" data-targeted="1" data-tooltip="{{#if a.ok}}{{a.hint}}{{else}}{{a.reason}}{{/if}}" {{#if (or (not a.ok) (not @root.canAct))}}disabled{{/if}}><i class="{{a.icon}}"></i> {{a.label}}</button>
+               {{/each}}
+            </div>
+            {{#each s.against as |a|}}{{#unless a.ok}}<p class="ed-turn-why"><b>{{a.label}}:</b> {{a.reason}}</p>{{/unless}}{{/each}}
+            {{else}}
+            {{#unless s.noTargets}}<p class="hint">{{localize "EDRPG.turn.pickTargetHint"}}</p>{{/unless}}
+            {{/if}}
+            {{#if s.untargeted.length}}
+            <div class="ed-turn-sub">{{localize "EDRPG.turn.noTargetActions"}}</div>
+            <div class="ed-turn-actions">
+               {{#each s.untargeted as |a|}}
+               <button type="button" class="ed-turn-option {{#unless a.ok}}blocked{{/unless}}" data-action="action" data-vaction="{{a.key}}" data-tooltip="{{#if a.ok}}{{a.hint}}{{else}}{{a.reason}}{{/if}}" {{#if (or (not a.ok) (not @root.canAct))}}disabled{{/if}}><i class="{{a.icon}}"></i> {{a.label}}</button>
+               {{/each}}
+            </div>
+            {{/if}}
+            {{/if}}
+            {{/if}}
+         </div>
+         {{/if}}
+      </li>
+      {{/each}}
+   </ol>
+   {{/if}}
+
+   <footer class="ed-turn-foot">
+      {{#if canAct}}
+      <button type="button" class="ed-turn-end {{#if allDone}}ready{{/if}}" data-action="endTurn" {{#unless isCurrent}}disabled{{/unless}}><i class="fa-solid fa-flag-checkered"></i> {{localize "EDRPG.turn.endTurn"}}</button>
+      {{else}}
+      <p class="hint">{{localize "EDRPG.turn.watching"}}</p>
+      {{/if}}
+   </footer>
+</section>

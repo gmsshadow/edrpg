@@ -1,10 +1,10 @@
 <div class="tab vehicle-sheet {{tab.cssClass}}" data-group="primary" data-tab="sheet">
    <div class="ed-vstats">
       <div class="ed-vchevrons">
-         <div class="ed-chevron defence" data-tooltip="{{#if isShip}}EDRPG.ship.defenceHint{{else}}EDRPG.vehicle.defenceHint{{/if}}">
+         <div class="ed-chevron defence" data-tooltip="{{#if d100}}{{d100.defenceHint}}{{else if isShip}}EDRPG.ship.defenceHint{{else}}EDRPG.vehicle.defenceHint{{/if}}">
             <span class="over">{{#if npcShip}}{{localize "EDRPG.ship.statBlock"}}{{else if isShip}}{{localize "EDRPG.ship.defenceOver"}}{{else}}{{localize "EDRPG.vehicle.defenceOver"}}{{/if}}</span>
             <span class="label">{{localize "EDRPG.vehicle.defence"}}</span>
-            <span class="value">{{stats.defence}}</span>
+            <span class="value">{{#if d100}}{{d100.defence}}{{else}}{{stats.defence}}{{/if}}</span>
          </div>
          <div class="ed-chevron initiative">
             <span class="over">{{localize "EDRPG.vehicle.initiativeOver"}}</span>
@@ -63,6 +63,7 @@
          {{#if (eq system.combat.outOfControl 1)}}<span class="ed-chip ed-vstate rammed" data-tooltip="EDRPG.ship.outOfControlHint">{{localize "EDRPG.ship.outOfControlChip"}}</span>{{/if}}
          {{#if system.flying}}<span class="ed-chip ed-vstate flying" data-tooltip="EDRPG.drone.flyingHint">{{localize "EDRPG.drone.flying"}}</span>{{/if}}
          {{#each combatChips as |chip|}}<span class="ed-chip ed-vstate {{chip.key}}" data-tooltip="{{chip.hint}}">{{chip.label}}</span>{{/each}}
+         {{#if owner}}<a class="ed-vturn-panel" data-action="openTurnPanel" data-tooltip="EDRPG.turn.openHint"><i class="fa-solid fa-list-check"></i> {{localize "EDRPG.turn.open"}}</a>{{/if}}
          {{#if isGM}}
          <span class="ed-vturn-gm">
             <a data-action="startTurn" data-tooltip="EDRPG.vcombat.startTurnHint"><i class="fa-solid fa-play"></i></a>
@@ -103,7 +104,7 @@
       <thead>
          <tr>
             <th class="name">{{localize "EDRPG.vehicle.weaponName"}}</th>
-            <th>{{localize "EDRPG.sheet.toHit"}}</th>
+            <th{{#if d100}} data-tooltip="EDRPG.d100.toHitHint"{{/if}}>{{#if d100}}{{localize "EDRPG.d100.toHitColumn"}}{{else}}{{localize "EDRPG.sheet.toHit"}}{{/if}}</th>
             <th class="damage">{{localize "EDRPG.sheet.damage"}}</th>
             <th class="damage">{{localize "EDRPG.sheet.ammo"}}</th>
             <th class="notes">{{localize "EDRPG.vehicle.special"}}</th>
@@ -117,7 +118,7 @@
                <a data-action="rollWeapon" data-tooltip="EDRPG.vehicle.fireHint">{{w.name}}</a>
                <span class="ed-vmount">{{w.mount}}</span>
             </th>
-            <td>{{#if (gte w.toHit 0)}}+{{/if}}{{w.toHit}}</td>
+            <td>{{w.toHitText}}</td>
             <td class="damage">{{w.damage}}</td>
             <td class="damage ammo">{{#if w.usesAmmo}}<input type="number" data-item-field="system.ammo.value" value="{{w.ammo.value}}" min="0" step="1">/{{w.ammo.max}} <a data-action="reloadWeapon" data-tooltip="EDRPG.weapon.reload"><i class="fa-solid fa-rotate"></i></a>{{else}}—{{/if}}</td>
             <td class="notes">
@@ -126,7 +127,7 @@
                <div class="ed-vgunner">
                   <span>{{localize "EDRPG.vehicle.gunner"}}</span>
                   <select data-gunner-select {{#unless @root.editable}}disabled{{/unless}}>
-                     <option value="">{{localize "EDRPG.vehicle.automatic"}}</option>
+                     <option value="">{{#if @root.d100}}{{localize "EDRPG.d100.automatic"}}{{else}}{{localize "EDRPG.vehicle.automatic"}}{{/if}}</option>
                      {{selectOptions @root.pilotChoices selected=w.gunner sort=true}}
                   </select>
                </div>

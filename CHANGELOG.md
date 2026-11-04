@@ -1,5 +1,162 @@
 # Changelog
 
+## 0.1.47
+
+The turn panel's Combat Action step now starts with the target.
+
+- **Target list**: every other craft in the fight, showing its zone (up-close craft highlighted), Defence, Pursuit and
+  Speed, and states such as Fleeing, Disengaging, Sniping or Rammed.
+  - Hostile craft are marked red and friendly ones green, by token disposition.
+  - Hostile craft in your own zone come first.
+  - Wrecks with stranded crew are listed when Rescue is open.
+- **Choosing a target** shows every action open from your zone against it. Each one is either available or greyed out
+  with the reason:
+  - Ram, Tail/Dogfight, Broadsides and Flight Assist Off need the target up-close.
+  - Strafe can't target a Fleeing or Disengaging craft.
+  - Chicken needs a higher Pursuit and a target that isn't Disengaging.
+  - Broadsides needs turrets.
+  - Dogfight can't be started while out of control.
+- Actions with no target (Flee, Pass, Disengage) are listed separately.
+- **Default target**: your single targeted token, or the only enemy.
+- **Taking the action**: the action goes straight against the chosen target, with no second picker. If the target no
+  longer qualifies (it moved or fled), the action is refused rather than switched to another craft.
+- The targeting rules now live in one place in `module/vehicle-combat.mjs` (`actionBlocked`, `actionTargetBlocked`,
+  `targetCandidates`), shared by the panel and the actions.
+
+## 0.1.46
+
+A step-by-step **turn panel** for spaceship and vehicle combat.
+
+- When a ship or vehicle's turn starts, the GM and the craft's owners get a panel that walks through the turn in the
+  book's order, one confirmed step at a time:
+  - **Vehicles** (p.72): Adjust Speed → Equipment → Recharge Shields → Check for Obstacles → Combat Action.
+  - **Ships** (p.64): Equipment → Recharge Shields → Combat Action.
+
+  Every turn finishes with **End Turn**, which moves the combat on.
+- **The steps**:
+  - **Adjust Speed** shows only the speeds Accelerate and Decelerate allow, each with its Speed Track Defence and
+    Attack.
+  - **Equipment** offers chaff, mines, a Shield Cell Bank, floating bonuses and launches, as many as you like.
+  - **Recharge Shields** previews the recharge (base, floating bonus, cell bank) before applying it.
+  - **Check for Obstacles** is the GM's: roll or choose, or "Nothing in the way". The player sees that the GM is
+    checking, then gets the Piloting check button.
+  - **Combat Action** lists the actions open in the current zone.
+- Progress is kept on the craft, so the GM's and the player's panels always show the same step. Finished steps show
+  what happened.
+- **Skipped steps**: steps that don't apply are skipped (a stopped or flying vehicle has no obstacles), and a lost
+  action is shown. Ending the turn early asks first.
+- **Reopening**: the panel reopens after a reload. Each ship and vehicle sheet has a **Turn** button to reopen it.
+- **Fix (rules order)**: shields now recharge at their own step, after Equipment, as the book orders it. A Shield Cell
+  Bank or floating bonus chosen this turn now counts towards this turn's recharge. Before, the recharge ran at the
+  very start of the turn and a new cell bank boosted the shields at once to make up for it.
+- **Setting**: the panel can be switched off ("Spaceship and vehicle turn panel"). With it off, turns work as before.
+
+## 0.1.45
+
+The Mission Generator (Core Rules pp.338–347).
+
+- **Generating**: the GM's **Mission** button at the top of the Actors sidebar (or `game.edrpg.generateMission()`).
+  Choose the options and it rolls the rest:
+  - Theme (Military, Espionage or Exploration), or roll it.
+  - How many missions to combine into a "super mission".
+  - Whether to roll a twist.
+  - The party's rank (it defaults to the players' most common rank).
+  - Whether to save a journal entry, and whether to whisper the card to the GM.
+- **Rolls**: D10 for the mission, D10 for its detail (where it happens) and D10 for its twist, on all 26 missions.
+  The card gives each mission's name, page, and the detail and twist rolled, with the suggested Mission Income and
+  Treasure Income per player for the rank.
+- **Stellar Cartography** creates the star systems it calls for in the Actors sidebar, uninhabited:
+  - a G-type system with at least one Earth-like world;
+  - D10 systems, with the D10 rolled for you;
+  - or a Special Spectral star.
+
+  The card and journal entry link to them.
+- **Content**: the entries are short summaries for the GM, and the book has the full scenes. Mechanical text is kept
+  whole, such as the magnetic world's Spaceship Piloting check and 2D10 Hull damage, and the radiation's Intelligence
+  check.
+- **Rulings**:
+  - The book gives no roll for the theme, so a rolled theme is equally likely to be any of the three.
+  - A super mission keeps one theme.
+- Star systems can now be created from a Special Spectral roll, and without a dialog
+  (`makeStarSystem` in `module/sheets/starsystem-sheet.mjs`).
+
+## 0.1.44
+
+The Star System Generator (Core Rules pp.330–337), with a new **Star System** actor type.
+
+- **Generating**: the GM's **Star System** button at the top of the Actors sidebar (or
+  `game.edrpg.generateStarSystem()`). Name the system, roll or choose the Primary star, and choose whether to roll for
+  Companion stars, whether it is inhabited and its allegiance. The generator follows the book step by step:
+  - Primary and Companion stars from the Primary, Rare Main Sequence and Special Spectral tables, with masses (at
+    most five companions).
+  - Inner planets every 100ls out to 1,000ls (2,000ls for O, B and A stars). Water, Earth-like and Ammonia worlds
+    only form at the Goldilocks distance.
+  - Outer planets every 1,000ls from 2,000ls to 10,000ls (3,000ls to 20,000ls).
+  - Each star's inner and outer orbits stop after two No Planet results in a row.
+  - Orbiting stars that never outweigh what they orbit, gas giant and star rings, and moons with their types.
+  - Space Stations, Outposts and Ground Settlements (with the +5/+10 bonuses), each named from the Random Settlement
+    Name table and placed on a body or moon. Settlements only go on solid ground.
+  - Economy from the planets (Agricultural, Extraction) or the Economy table.
+  - Government and security rating, with the Empire and Federation restrictions, and allegiance.
+- **The sheet**:
+  - Each star with its type, mass, Goldilocks distance, fuel scooping and Discovery Reward.
+  - Everything in orbit by distance, named by the book's convention (Wyrd A 1, belts Wyrd A A, moons Wyrd A 1 A).
+  - The system's total Discovery Reward.
+  - Every value can be edited, and any star's planets, single orbit, moons, or the whole civilisation can be
+    rerolled. Bodies, moons, companion stars, economies and installations can be added and removed.
+- **Links**:
+  - Each economy opens the Commodity Market with the port and economy filled in (a Prison Colony opens the Prison
+    index).
+  - **Space Lane** draws from the Space Lane Encounters table for the system's security rating.
+  - Each body draws a Planet Encounter, using the Life-Bearing table for Water, Earth-like and Ammonia worlds and for
+    gas giants with life, and the Lifeless table otherwise.
+- **Rulings**:
+  - The Economy table skips 72–76: reroll.
+  - The Space Outposts table skips 95: it counts as 91–95 (5 outposts).
+  - Overlapping A-type ranges start the next column one higher.
+  - Special spectral stars use their Planet Generation row's Goldilocks distance (T-Tauri: 200ls, as K-type).
+  - A Metal Rich world from the Ammonia column is worth 2,000cr, not the 700cr printed.
+  - Moons for worlds other than gas giants and stars are checked one world at a time, in a random order, until one
+    has none. Outer ice worlds are included.
+  - The Black Hole's lightest mass is 0.1, as printed.
+
+## 0.1.43
+
+- d100: a ship or vehicle at Defence 0 (stationary, immobilised or Sniping) is no longer hit automatically. Its target
+  is 110 or more, so it is hit on 01–95 with the usual SL; a 96–00 always misses. This caps the hit chance at 95%,
+  as for any other d100 roll. The Core Rules are unchanged: a Sniping target is hit automatically, and a stationary
+  one at Defence 0 can still be missed on a natural 1.
+
+## 0.1.42
+
+Opponent sheets show the d100 numbers when the world uses the d100 variant.
+
+- **Stat block**: the stat block's numbers stay editable as printed in the book. Beside each one, a blue figure shows
+  what the d100 variant rolls with:
+  - Perception and To Hit as scores (bonus × 10).
+  - Dodge and Parry as what they take off an attacker's target (Defence 6 is −60).
+  - Initiative stays on d10.
+- **Other skills**: scores (× 10).
+- **Attack lines**: range bands and Finesse as their modifiers (Range 4 is +70), To Hit as a score (including a drone
+  controller's Cyber), and Burst per SL. The Fighting line does the same.
+- **Drone controller line**: the controller's Cyber bonus × 10.
+- Free-text abilities and notes (such as "+2 To Hit") are left as written.
+
+## 0.1.41
+
+Ship and vehicle sheets show the d100 numbers when the world uses the d100 variant.
+
+- **Defence** shows the modifier it gives attackers, (11 − Defence) × 10 (Defence 12 is −10). Its tooltip gives the
+  Defence and the sum.
+- **Weapons**: the To Hit column becomes **Target**, the d100 target against Defence 11. That's the Weapons score
+  (automatic turrets 30, a stat block's listed To Hit × 10) + Accuracy, the speed penalty and other modifiers × 10.
+  It matches the target the attack card shows before the defender's Defence is applied.
+- **Speed Track**: the Defence bonuses and Attack penalties are × 10.
+- **Automatic turrets** read "Weapons 30".
+- **Specifications tab**: the stat block and Speed Table inputs stay as printed in the book, with a note that the d100
+  variant converts them when it rolls.
+- Initiative, Pursuit and Dogfighting stay on d10, since the manoeuvre contests do.
+
 ## 0.1.40
 
 The d100 roll-under variant, as a world setting ("Check resolution": Core Rules or d100). It needs a reload; the two

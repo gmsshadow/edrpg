@@ -36,7 +36,7 @@
    {{#each defenceNotes as |n|}}<div class="attack-note muted">{{localize n}}</div>{{/each}}
    {{#if aim}}<div class="attack-note">{{localize "EDRPG.crit.aimed" name=aim.name}}</div>{{/if}}
    {{#if pointDefence}}<div class="attack-note">{{#if pointDefence.destroyed}}{{localize "EDRPG.equip.pdHit" roll=pointDefence.roll}}{{else}}{{localize "EDRPG.equip.pdMiss" roll=pointDefence.roll}}{{/if}}</div>{{/if}}
-   {{#if sniping}}<div class="attack-note">{{localize "EDRPG.vcombat.snipingTarget"}}</div>{{/if}}
+   {{#if sniping}}<div class="attack-note">{{#if d100}}{{localize "EDRPG.d100.snipingTarget"}}{{else}}{{localize "EDRPG.vcombat.snipingTarget"}}{{/if}}</div>{{/if}}
    {{#if reason}}<div class="attack-note">{{localize (concat "EDRPG.contest.reason." reason)}}</div>{{/if}}
    {{#if (and critical hit)}}{{#unless aim}}<div class="attack-note">{{#if d100}}{{#if shipTarget}}{{localize "EDRPG.d100.critShip"}}{{else}}{{localize "EDRPG.d100.critVehicle"}}{{/if}}{{else}}{{#if shipTarget}}{{localize "EDRPG.crit.naturalTen"}}{{else}}{{localize "EDRPG.vehicle.naturalTen"}}{{/if}}{{/if}}</div>{{/unless}}{{/if}}
    {{#if ammo}}<div class="attack-note muted">{{localize "EDRPG.attack.ammoLeft" left=ammo.left max=ammo.max}}</div>{{/if}}

@@ -33,6 +33,15 @@ export default function registerSettings() {
          mapless: "EDRPG.settings.explosiveMode.mapless",
       },
    });
+   // Spaceship and vehicle turns: a step-by-step panel for the GM and the craft's owners.
+   game.settings.register("edrpg", "vehicleTurnPanel", {
+      name: "EDRPG.settings.vehicleTurnPanel.name",
+      hint: "EDRPG.settings.vehicleTurnPanel.hint",
+      scope: "world",
+      config: true,
+      default: true,
+      type: Boolean,
+   });
    // Remembered choices for the GM's vehicle obstacle checks (Core Rules pp.73–74).
    game.settings.register("edrpg", "vehicleObstacleTable", { scope: "world", config: false, type: String, default: "light" });
    // Advanced Trading (Super Traders Supplement): how many times the players have traded at each star port.

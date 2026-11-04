@@ -1,4 +1,8 @@
 import { openMarket } from "./trading.mjs";
+import { StarSystemData } from "./data/starsystem.mjs";
+import EDStarSystemSheet, { createStarSystem } from "./sheets/starsystem-sheet.mjs";
+import { openMissionGenerator, rollMission } from "./missions.mjs";
+import { registerTurnPanel, openTurnPanel } from "./turn-panel.mjs";
 import * as EDRPG from "./config.mjs";
 import { CharacterData, NPCIndividualData, OpponentData, PartnerData } from "./data/actor.mjs";
 import {
@@ -33,7 +37,7 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, openMarket, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
+   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
    registerKarmaHooks();
 
    registerSettings();
@@ -49,6 +53,7 @@ Hooks.once("init", () => {
       opponent: OpponentData,
       vehicle: VehicleData,
       ship: ShipData,
+      starSystem: StarSystemData,
    });
    Object.assign(CONFIG.Item.dataModels, {
       background: BackgroundData,
@@ -92,6 +97,11 @@ Hooks.once("init", () => {
       makeDefault: true,
       label: "EDRPG.sheet.labels.vehicle",
    });
+   DocumentSheetConfig.registerSheet(foundry.documents.Actor, "edrpg", EDStarSystemSheet, {
+      types: ["starSystem"],
+      makeDefault: true,
+      label: "EDRPG.sheet.labels.starSystem",
+   });
    DocumentSheetConfig.registerSheet(foundry.documents.Item, "edrpg", EDItemSheet, {
       types: ["background", "enhancement", "karma", "weapon", "armour", "cybernetic", "clothing", "gear", "craftWeapon"],
       makeDefault: true,
@@ -114,6 +124,7 @@ Hooks.once("ready", () => {
    registerGrabSocket();
    registerCraftSocket();
    registerVehicleCombat();
+   registerTurnPanel();
    ensureLandingScene();
    // Controlled drones take their controller's Cyber bonus: refresh them once every actor exists, and when a
    // controller changes.
@@ -141,6 +152,20 @@ Hooks.on("renderActorDirectory", (app, html) => {
    button.innerHTML = `<i class="fa-solid fa-scale-balanced"></i> ${game.i18n.localize("EDRPG.trade.button")}`;
    button.addEventListener("click", () => openMarket());
    actions.append(button);
+   // Star System Generator (Core Rules pp.330–337).
+   const gen = document.createElement("button");
+   gen.type = "button";
+   gen.className = "edrpg-starsystem";
+   gen.innerHTML = `<i class="fa-solid fa-sun"></i> ${game.i18n.localize("EDRPG.star.button")}`;
+   gen.addEventListener("click", () => createStarSystem());
+   actions.append(gen);
+   // Mission Generator (Core Rules pp.338–347).
+   const mission = document.createElement("button");
+   mission.type = "button";
+   mission.className = "edrpg-mission-button";
+   mission.innerHTML = `<i class="fa-solid fa-clipboard-list"></i> ${game.i18n.localize("EDRPG.mission.button")}`;
+   mission.addEventListener("click", () => openMissionGenerator());
+   actions.append(mission);
 });
 
 Hooks.on("renderChatMessageHTML", (message, html) => {

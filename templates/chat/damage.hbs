@@ -30,6 +30,15 @@
    {{#if applied.length}}
    <ul class="damage-applied">
       {{#each applied as |a|}}
+      {{#if a.craft}}
+      <li>
+         <div><strong>{{a.name}}</strong>: {{localize "EDRPG.combined.craftTook" amount=a.amount factor=a.factor scaled=a.scaled}}</div>
+         <div>{{#if a.toShields}}{{localize "EDRPG.vehicle.shieldsHit" before=a.shieldsBefore after=a.shieldsAfter}}{{#if a.collapsed}} <span class="ed-chip">{{localize "EDRPG.vehicle.shieldsCollapse"}}</span>{{/if}}{{/if}}
+            {{#if a.toHull}} {{localize "EDRPG.vehicle.hullHit" damage=a.toHull before=a.hullBefore after=a.hullAfter}}{{/if}}
+            {{#if a.destroyed}} <span class="ed-chip">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}</div>
+         {{#if a.crit}}<div class="ed-crit">{{#if a.crit.nothing}}{{localize "EDRPG.crit.nothing" roll=a.crit.table kind=a.crit.kindLabel}}{{else}}{{localize "EDRPG.crit.result" roll=a.crit.table kind=a.crit.kindLabel name=a.crit.name before=a.crit.before after=a.crit.after}}{{#if a.crit.destroyed}} <span class="ed-chip">{{localize "EDRPG.crit.destroyed"}}</span> {{a.crit.effect}}{{/if}}{{/if}}</div>{{/if}}
+      </li>
+      {{else}}
       <li class="{{#if a.escaped}}escaped{{/if}}">
          <div><strong>{{a.name}}</strong>: {{localize "EDRPG.damage.took" taken=a.taken}}
             {{#if a.parts}}<span class="muted">({{#each a.parts as |p|}}{{#unless @first}}; {{/unless}}{{localize p.typeLabel}} {{p.value}}{{#if p.armour}} − {{p.absorbed}} {{p.armour.name}}{{#if p.hardened.doubled}} {{localize "EDRPG.damage.doubled"}}{{/if}}{{/if}} → {{p.taken}}{{/each}}{{#if a.hardened}}, {{localize "EDRPG.damage.hardenedRoll" roll=a.hardened.roll target=a.hardened.target}}{{/if}})</span>
@@ -46,6 +55,7 @@
          {{#if a.stimText}}<div class="muted"><i class="fa-solid fa-syringe"></i> {{{a.stimText}}}</div>{{/if}}
          {{#if (and a.vengeful (not a.escaped))}}<div class="ed-vengeful"><i class="fa-solid fa-hand-fist"></i> {{localize "EDRPG.damage.vengeful" name=a.name attacker=a.vengeful}}</div>{{/if}}
       </li>
+      {{/if}}
       {{/each}}
    </ul>
    {{/if}}

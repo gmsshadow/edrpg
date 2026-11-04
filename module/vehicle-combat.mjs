@@ -6,6 +6,9 @@ import { zoneOf, moveToZone } from "./zones.mjs";
 import { isCraft } from "./data/vehicle.mjs";
 import { activationFaults } from "./engineering.mjs";
 import { chooseLaunch, performLaunch } from "./hangar.mjs";
+import { applyDamage } from "./dice/damage.mjs";
+import { defenceOf } from "./dice/attack.mjs";
+import { scaleOf, bigger, crossScale, effectiveZone, combinedActionBlocked, craftWeaponBlocked, scaleDamage, factorLabel, individualsOnScene, shipsInFight, INDIVIDUAL_COVER } from "./combined.mjs";
 
 /**
  * Vehicle combat turn (Core Rules pp.65–68 for Space Combat, 72–75 for the vehicle differences).
@@ -44,7 +47,15 @@ export const SHIP_ACTIONS = {
  * @returns {string[]}
  */
 export function actionsFor(actor, zone) {
-   return (actor.system.isShip ? SHIP_ACTIONS : VEHICLE_ACTIONS)[zone] ?? [];
+   const list = [...((actor.system.isShip ? SHIP_ACTIONS : VEHICLE_ACTIONS)[zone] ?? [])];
+   // Combined Scale Combat (pp.255–256): Hover for ships and Crawl for vehicles over smaller units; at-distance
+   // vehicles can Broadside spacecraft that are up-close.
+   const others = targetCandidates(actor).map(scaleOf);
+   const insert = (key) => list.splice(Math.max(0, list.indexOf("pass")), 0, key);
+   if (actor.system.isShip && zone === "upClose" && others.some((sc) => sc === "individual" || sc === "vehicle")) insert("hover");
+   if (!actor.system.isShip && zone === "upClose" && others.includes("individual")) insert("crawl");
+   if (!actor.system.isShip && zone === "atDistance" && others.includes("ship")) insert("broadsides");
+   return list;
 }
 
 /** Ship collision Damage by size: Chicken (each ship inflicts on the other) and Ram (p.66–67). */
@@ -68,6 +79,8 @@ export const ACTION_ICONS = {
    rescue: "fa-solid fa-hand-holding-medical",
    dogfight: "fa-solid fa-jet-fighter",
    faOff: "fa-solid fa-arrows-spin",
+   hover: "fa-solid fa-helicopter",
+   crawl: "fa-solid fa-truck-ramp-box",
 };
 
 /** Obstacle tables: [highest roll, result] (Core Rules p.73). */
@@ -121,6 +134,12 @@ const OPS = {
    async damage({ uuid, amount, messageId, extra }) {
       const actor = await fromUuid(uuid);
       if (!actor || amount <= 0) return;
+      // Combined Scale Combat: a person run down by a vehicle or ship (already scaled), knocked over (p.257).
+      if (scaleOf(actor) === "individual") {
+         const record = await applyDamage(actor, { amount, damageType: "kinetic", knock: true });
+         if (messageId) await editEvent(game.messages.get(messageId), (s) => s.applied.push({ ...record, individual: true, conditionLabels: record.conditions.map((c) => `EDRPG.status.${c}`) }));
+         return;
+      }
       const applied = await applyCraftDamage(actor, { total: amount });
       if (extra) await actor.update(extra);
       if (messageId) await editEvent(game.messages.get(messageId), (s) => s.applied.push(applied));
@@ -492,6 +511,7 @@ export async function startVehicleTurn(actor, combat = null) {
       "system.combat.lostAction": false,
       "system.combat.pass": Math.max(0, c.pass - 1),
       "system.combat.faOff": false,
+      "system.combat.hovering": false,
       "system.combat.chaff": false,
       "system.combat.mines": false,
       "system.combat.outOfControl": Math.max(0, (c.outOfControl ?? 0) - 1),
@@ -586,11 +606,13 @@ export async function startVehicleTurn(actor, combat = null) {
  */
 function enemiesUpClose(actor, combat) {
    const mine = actor.getActiveTokens?.()[0]?.document.disposition ?? actor.prototypeToken?.disposition;
+   const mySize = scaleOf(actor);
    return combat.combatants
-      .filter((cb) => isCraft(cb.actor) && cb.actor !== actor && !cb.defeated)
+      .filter((cb) => scaleOf(cb.actor) && cb.actor !== actor && !cb.defeated)
       .filter((cb) => (cb.token?.disposition ?? cb.actor.prototypeToken?.disposition) !== mine)
       .map((cb) => cb.actor)
-      .filter((a) => !a.system.combat.escaped && a.system.hull.value > 0 && zoneOf(a) === "upClose");
+      // Smaller units (people, or vehicles under a ship) are always within this craft's up-close zone (p.255).
+      .filter((a) => (bigger(mySize, scaleOf(a)) ? !a.statuses?.has?.("dead") && !a.system.destroyed : isCraft(a) && !a.system.combat.escaped && a.system.hull.value > 0 && zoneOf(a) === "upClose"));
 }
 
 /* -------------------------------------------- */
@@ -765,7 +787,7 @@ export async function rollPilotCheck(message) {
 /* -------------------------------------------- */
 
 /** Actions that need a target craft (Rescue needs a wreck instead). */
-export const TARGETED_ACTIONS = ["joust", "snipe", "strafe", "chicken", "tail", "dogfight", "faOff", "broadsides", "ram"];
+export const TARGETED_ACTIONS = ["joust", "snipe", "strafe", "chicken", "tail", "dogfight", "faOff", "broadsides", "ram", "hover", "crawl"];
 
 /** Actions that must target a craft in the up-close zone (Core Rules pp.66–67, 74). */
 const UP_CLOSE_ONLY = ["tail", "dogfight", "faOff", "broadsides", "ram"];
@@ -783,10 +805,12 @@ const UP_CLOSE_ONLY = ["tail", "dogfight", "faOff", "broadsides", "ram"];
  */
 export function targetCandidates(actor, { wrecks = false } = {}) {
    const seen = new Set();
-   return (canvas?.scene?.tokens ?? [])
+   const craft = (globalThis.canvas?.scene?.tokens ?? [])
       .map((t) => t.actor)
       .filter((a) => isCraft(a) && a !== actor && a.uuid !== actor.uuid && !seen.has(a.uuid) && seen.add(a.uuid))
       .filter((a) => (wrecks ? a.system.destroyed : !a.system.combat.escaped && !a.system.destroyed));
+   // Combined Scale Combat: people on the scene can be targeted too (p.255).
+   return wrecks ? craft : [...craft, ...individualsOnScene(actor)];
 }
 
 /**
@@ -804,6 +828,9 @@ export function actionBlocked(actor, action) {
    if (action === "dogfight" && (sys.combat.outOfControl ?? 0) === 1) return L("EDRPG.ship.outOfControl", { name: actor.name });
    if (action === "flee" && sys.isShip && sys.damaged?.fsd) return L("EDRPG.ship.noFsd", { name: actor.name });
    if (action === "rescue" && sys.speed !== 0) return L("EDRPG.vdestroy.mustStop", { name: actor.name });
+   // Combined Scale Combat (pp.254–256).
+   if (action === "flee" && !sys.isShip && shipsInFight(actor)) return L("EDRPG.combined.noFlee", { name: actor.name });
+   if (action === "crawl" && sys.speed !== 0) return L("EDRPG.combined.crawlStop", { name: actor.name });
    return null;
 }
 
@@ -824,8 +851,13 @@ export function actionTargetBlocked(actor, action, target) {
    const ts = target?.system;
    if (!ts) return L("EDRPG.vcombat.noTarget");
    if (action === "rescue") return ts.destroyed && ts.stranded?.length ? null : L("EDRPG.turn.reason.noStranded", { target: target.name });
+   const cross = combinedActionBlocked(actor, action, target);
+   if (cross) return L(cross, { target: target.name, name: actor.name });
+   if (scaleOf(target) === "individual") return target.statuses?.has?.("dead") ? L("EDRPG.turn.reason.gone", { target: target.name }) : null;
    if (ts.destroyed || ts.combat.escaped) return L("EDRPG.turn.reason.gone", { target: target.name });
-   if (UP_CLOSE_ONLY.includes(action) && zoneOf(target) !== "upClose") return L("EDRPG.turn.reason.notUpClose", { target: target.name });
+   if (UP_CLOSE_ONLY.includes(action) && effectiveZone(actor, target) !== "upClose") return L("EDRPG.turn.reason.notUpClose", { target: target.name });
+   // No pursuits across scales (p.254).
+   if (crossScale(actor, target)) return null;
    if (action === "strafe" && (ts.combat.disengaging || ts.combat.fleeing)) return L("EDRPG.turn.reason.running", { target: target.name });
    if (action === "chicken") {
       if (ts.combat.disengaging) return L("EDRPG.turn.reason.disengaging", { target: target.name });
@@ -854,7 +886,7 @@ let presetTarget = null;
  */
 async function pickTarget(actor, { zone = null, filter = () => true, title, wrecks = false }) {
    const candidates = targetCandidates(actor, { wrecks })
-      .filter((a) => !zone || zoneOf(a) === zone)
+      .filter((a) => !zone || effectiveZone(actor, a) === zone)
       .filter(filter);
    // A target chosen in advance: use it if it qualifies, never swap in another.
    if (presetTarget) {
@@ -871,7 +903,8 @@ async function pickTarget(actor, { zone = null, filter = () => true, title, wrec
    const targeted = [...game.user.targets].map((t) => t.actor).filter((a) => candidates.some((c) => c.uuid === a?.uuid));
    if (targeted.length === 1) return targeted[0];
    if (candidates.length === 1) return candidates[0];
-   const options = candidates.map((a) => `<option value="${a.uuid}">${esc(a.name)} — ${L(`EDRPG.craft.zone.${zoneOf(a)}`)}</option>`).join("");
+   const where = (a) => (scaleOf(a) === "individual" ? L("EDRPG.combined.scale.individual") : L(`EDRPG.craft.zone.${zoneOf(a)}`));
+   const options = candidates.map((a) => `<option value="${a.uuid}">${esc(a.name)} — ${where(a)}</option>`).join("");
    const input = await foundry.applications.api.DialogV2.input({
       window: { title, icon: "fa-solid fa-crosshairs" },
       classes: ["edrpg", "edrpg-dialog"],
@@ -903,12 +936,21 @@ async function pickTarget(actor, { zone = null, filter = () => true, title, wrec
  *
  * @returns {Promise<{fired: number, missed: boolean, left: Item[]}>}
  */
-async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifier = 0, note = null, action = null, forward = false } = {}) {
+async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifier = 0, note = null, action = null, forward = false, cover = undefined } = {}) {
    weapons ??= sortedWeapons(actor);
+   // Combined Scale Combat: a vehicle's fixed and gimballed weapons can't reach a spaceship (p.255).
+   const unable = weapons.filter((w) => craftWeaponBlocked(actor, w, target));
+   if (unable.length) {
+      weapons = weapons.filter((w) => !unable.includes(w));
+      await postEvent(actor, { kind: "action", title: L(action ?? "EDRPG.vcombat.target"), subtitle: actor.name, notes: [L("EDRPG.combined.cantFire", { weapons: unable.map((w) => esc(w.name)).join(", "), target: esc(target.name) })] });
+   }
+   // A person on the ground may be in cover from vehicle and ship weapons (asked once for the action, p.257).
+   if (cover === undefined && scaleOf(target) === "individual" && weapons.length) cover = await askCover(target);
+   if (cover === null) return { fired: 0, missed: false, left: weapons };
    let fired = 0;
    let missed = false;
    for (const [i, weapon] of weapons.entries()) {
-      const message = await rollCraftAttack(actor, weapon, { prompt: false, target, modifier, note, action, forward });
+      const message = await rollCraftAttack(actor, weapon, { prompt: false, target, modifier, note, action, forward, cover: cover || null });
       if (!message) continue;
       fired++;
       if (!message.getFlag("edrpg", "craftAttack")?.hit && stopOnMiss) {
@@ -918,6 +960,28 @@ async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifie
    }
    if (!weapons.length) ui.notifications.warn("EDRPG.vcombat.noWeapons", { localize: true });
    return { fired, missed, left: [] };
+}
+
+/**
+ * Ask how much cover a person has against a vehicle or ship (p.257).
+ *
+ * @param {Actor} target
+ *
+ * @returns {Promise<string|null>}  none | obscuring | hard; null if cancelled.
+ */
+async function askCover(target) {
+   const current = target.getFlag?.("edrpg", "cover") ?? "none";
+   const options = Object.entries(INDIVIDUAL_COVER)
+      .map(([k, v]) => `<option value="${k}"${k === current ? " selected" : ""}>${L(`EDRPG.combined.cover.${k}`)} (+${v})</option>`)
+      .join("");
+   const input = await foundry.applications.api.DialogV2.input({
+      window: { title: L("EDRPG.combined.coverTitle", { name: target.name }), icon: "fa-solid fa-house-chimney-crack" },
+      classes: ["edrpg", "edrpg-dialog"],
+      content: `<div class="form-group"><label>${L("EDRPG.combined.coverLabel")}</label><div class="form-fields"><select name="cover">${options}</select></div><p class="hint">${L("EDRPG.combined.coverHintIndividual")}</p></div>`,
+      ok: { label: "EDRPG.vcombat.choose" },
+      rejectClose: false,
+   });
+   return input ? input.cover : null;
 }
 
 /**
@@ -1036,6 +1100,12 @@ const ACTIONS = {
       const target = await pickTarget(actor, { title: pickTitle("joust") });
       if (!target) return false;
       await announce(actor, "joust", target);
+      // Across scales: no pursuit, and nobody is drawn up-close (p.254).
+      if (crossScale(actor, target)) {
+         await fireWeapons(actor, target, { action: "EDRPG.vcombat.action.joust", forward: true });
+         await setZone(actor, "upClose");
+         return;
+      }
       if (target.system.combat.fleeing) {
          const winner = await pursuit(actor, target, "flee");
          if (winner !== "chaser") return;
@@ -1052,16 +1122,18 @@ const ACTIONS = {
 
    /** Snipe: Defence 0 until the next turn, +1 To Hit with every weapon; stay at-distance. */
    async snipe(actor) {
-      const target = await pickTarget(actor, { title: pickTitle("snipe") });
+      const target = await pickTarget(actor, { title: pickTitle("snipe"), filter: (a) => !combinedActionBlocked(actor, "snipe", a) });
       if (!target) return false;
       await update(actor, { "system.combat.sniping": true });
       await announce(actor, "snipe", target);
-      await fireWeapons(actor, target, { modifier: 1, note: "EDRPG.vcombat.snipeBonus", action: "EDRPG.vcombat.action.snipe", forward: true });
+      // A ship Sniping a vehicle gets no +1 (p.256).
+      const plus = actor.system.isShip && scaleOf(target) !== "ship" ? 0 : 1;
+      await fireWeapons(actor, target, { modifier: plus, note: plus ? "EDRPG.vcombat.snipeBonus" : null, action: "EDRPG.vcombat.action.snipe", forward: true });
    },
 
    /** Strafe: fire weapons one at a time until one misses, then move up-close and Disengage. */
    async strafe(actor) {
-      const target = await pickTarget(actor, { title: pickTitle("strafe"), filter: (a) => !a.system.combat.disengaging && !a.system.combat.fleeing });
+      const target = await pickTarget(actor, { title: pickTitle("strafe"), filter: (a) => crossScale(actor, a) || (!a.system.combat.disengaging && !a.system.combat.fleeing) });
       if (!target) return false;
       await announce(actor, "strafe", target);
       await fireWeapons(actor, target, { stopOnMiss: true, action: "EDRPG.vcombat.action.strafe", forward: true });
@@ -1093,8 +1165,9 @@ const ACTIONS = {
 
    /** Chicken: needs a higher Pursuit than the target; both secretly choose impact or evade. */
    async chicken(actor) {
-      const target = await pickTarget(actor, { title: pickTitle("chicken"), filter: (a) => !a.system.combat.disengaging });
+      const target = await pickTarget(actor, { title: pickTitle("chicken"), filter: (a) => (crossScale(actor, a) ? !combinedActionBlocked(actor, "chicken", a) : !a.system.combat.disengaging) });
       if (!target) return false;
+      if (crossScale(actor, target)) return runDown(actor, target, "chicken");
       if (actor.system.pursuit <= target.system.pursuit) {
          ui.notifications.warn(L("EDRPG.vcombat.chickenPursuit", { mine: actor.system.pursuit, theirs: target.system.pursuit, target: target.name }));
          return false;
@@ -1113,7 +1186,7 @@ const ACTIONS = {
    /** Tail (the vehicle Dogfight): D10 + Defence each; whoever gets behind fires everything. */
    async tail(actor, { target = null, bonus = 0 } = {}) {
       const key = tailKey(actor);
-      target ??= await pickTarget(actor, { zone: "upClose", title: pickTitle(key) });
+      target ??= await pickTarget(actor, { zone: "upClose", title: pickTitle(key), filter: (a) => !crossScale(actor, a) });
       if (!target) return false;
       if (target.system.combat.disengaging) {
          await announce(actor, key, target);
@@ -1156,7 +1229,9 @@ const ACTIONS = {
          ui.notifications.warn(L("EDRPG.vcombat.noTurrets", { name: actor.name }));
          return false;
       }
-      const target = await pickTarget(actor, { zone: "upClose", title: pickTitle("broadsides") });
+      // At-distance vehicles may only Broadside spacecraft (p.256).
+      const far = !actor.system.isShip && zoneOf(actor) === "atDistance";
+      const target = await pickTarget(actor, { zone: "upClose", title: pickTitle("broadsides"), filter: (a) => (far ? scaleOf(a) === "ship" : true) && !combinedActionBlocked(actor, "broadsides", a) });
       if (!target) return false;
       await announce(actor, "broadsides", target);
       const { missed, left } = await fireWeapons(actor, target, { weapons: guns, stopOnMiss: true, action: "EDRPG.vcombat.action.broadsides" });
@@ -1172,8 +1247,9 @@ const ACTIONS = {
 
    /** Ram: D10 + Defence against D10 + the target's Defence or Pursuit. */
    async ram(actor) {
-      const target = await pickTarget(actor, { zone: "upClose", title: pickTitle("ram") });
+      const target = await pickTarget(actor, { zone: "upClose", title: pickTitle("ram"), filter: (a) => !combinedActionBlocked(actor, "ram", a) });
       if (!target) return false;
+      if (crossScale(actor, target)) return runDown(actor, target, "ram");
       const ts = target.system;
       const useP = ts.pursuit > ts.defence;
       const a = await rollWith(actor.name, [{ label: L("EDRPG.vehicle.defence"), value: actor.system.defence, always: true }]);
@@ -1238,6 +1314,50 @@ const ACTIONS = {
       if (bomb && a.total > b.total) await op("bomb", { uuid: target.uuid, bomberUuid: actor.uuid, messageId: card.id });
    },
 
+   /**
+    * Hover (ships, Combined Scale Combat p.256): stop over the battlefield, Defence 0 until the next action. Fixed and
+    * gimballed weapons fire at one smaller target; each turret may pick its own target.
+    */
+   async hover(actor) {
+      const target = await pickTarget(actor, { title: pickTitle("hover"), filter: (a) => !combinedActionBlocked(actor, "hover", a) });
+      if (!target) return false;
+      const all = sortedWeapons(actor);
+      const guns = all.filter((w) => w.system.mount.kind !== "turret");
+      const turretGuns = all.filter((w) => w.system.mount.kind === "turret");
+      let aims = turretGuns.map(() => target);
+      if (turretGuns.length) {
+         const choices = targetCandidates(actor).filter((a) => effectiveZone(actor, a) === "upClose");
+         const select = (w, i) =>
+            `<div class="form-group"><label>${esc(w.name)}</label><div class="form-fields"><select name="t${i}">${choices
+               .map((a) => `<option value="${a.uuid}"${a.uuid === target.uuid ? " selected" : ""}>${esc(a.name)}</option>`)
+               .join("")}</select></div></div>`;
+         const input = await foundry.applications.api.DialogV2.input({
+            window: { title: L("EDRPG.combined.turretTargets"), icon: ACTION_ICONS.hover },
+            classes: ["edrpg", "edrpg-dialog"],
+            content: `<p class="hint">${L("EDRPG.combined.turretTargetsHint")}</p>${turretGuns.map(select).join("")}`,
+            rejectClose: false,
+         });
+         if (!input) return false;
+         aims = turretGuns.map((_, i) => choices.find((a) => a.uuid === input[`t${i}`]) ?? target);
+      }
+      await update(actor, { "system.combat.hovering": true });
+      await announce(actor, "hover", target);
+      if (guns.length) await fireWeapons(actor, target, { weapons: guns, action: "EDRPG.vcombat.action.hover" });
+      for (const [i, w] of turretGuns.entries()) await fireWeapons(actor, aims[i], { weapons: [w], action: "EDRPG.vcombat.action.hover" });
+   },
+
+   /** Crawl (vehicles, Combined Scale Combat p.256): at speed 0, stay up-close and fire everything at one person. */
+   async crawl(actor) {
+      if (actor.system.speed !== 0) {
+         ui.notifications.warn(L("EDRPG.combined.crawlStop", { name: actor.name }));
+         return false;
+      }
+      const target = await pickTarget(actor, { title: pickTitle("crawl"), filter: (a) => scaleOf(a) === "individual" });
+      if (!target) return false;
+      await announce(actor, "crawl", target);
+      await fireWeapons(actor, target, { action: "EDRPG.vcombat.action.crawl" });
+   },
+
    /** Rescue: stop (speed 0) and pick up crew stranded by a destroyed vehicle (Core Rules p.75). */
    async rescue(actor) {
       if (actor.system.speed !== 0) {
@@ -1272,6 +1392,50 @@ const ACTIONS = {
       });
    },
 };
+
+/**
+ * A larger unit runs down a smaller one (Combined Scale Combat, p.258).
+ * - A vehicle Ramming or playing Chicken with a person: they make a Dodge check against the vehicle's Speed.
+ * - A ship playing Chicken with a person: a Dodge check against the ship's Defence.
+ * - A ship playing Chicken with a vehicle: the vehicle rolls D10 + Defence, and swerves on the ship's Defence or more.
+ * On a failure the smaller unit takes the collision Damage, scaled; the larger takes none.
+ *
+ * @param {Actor} actor
+ *
+ * @param {Actor} target
+ *
+ * @param {"ram"|"chicken"} kind
+ */
+async function runDown(actor, target, kind) {
+   const from = scaleOf(actor);
+   const to = scaleOf(target);
+   const ship = from === "ship";
+   const dn = ship ? actor.system.defence : actor.system.speed;
+   const parts =
+      to === "individual"
+         ? [{ label: L("EDRPG.combined.dodge"), value: defenceOf(target, "dodge").value, always: true }]
+         : [{ label: L("EDRPG.vehicle.defence"), value: target.system.defence, always: true }];
+   const r = await rollWith(target.name, parts);
+   const j = judge({ natural: r.natural, total: r.total, dn });
+   const base = ship ? (SHIP_CHICKEN_DAMAGE[actor.system.category] ?? 25) : kind === "ram" ? 10 * actor.system.speed : 5 * actor.system.speed;
+   const amount = j.success ? 0 : scaleDamage(base, from, to);
+   const names = { name: esc(actor.name), target: esc(target.name) };
+   const card = await postEvent(
+      actor,
+      {
+         kind,
+         title: L(`EDRPG.vcombat.action.${kind}`),
+         subtitle: L("EDRPG.vcombat.versus", { name: actor.name, target: target.name }),
+         rolls: [r.view],
+         outcome: j.success ? L("EDRPG.combined.dived", { ...names, dn }) : L("EDRPG.combined.runDown", { ...names, dn, base, factor: factorLabel(from, to), damage: amount }),
+         outcomeClass: j.success ? "failure" : "success",
+         notes: [L(to !== "individual" ? "EDRPG.combined.chickenVehicleRule" : ship ? "EDRPG.combined.dodgeRule" : "EDRPG.combined.runDownRule", { dn })],
+      },
+      [r.roll],
+   );
+   if (amount) await damage(target, amount, card);
+   await setZone(actor, "upClose");
+}
 
 /**
  * Tailing contest: D10 + Defence each (+bonus to the initiator after a Chicken). The winner fires all weapons; the

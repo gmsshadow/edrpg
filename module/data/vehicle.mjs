@@ -107,6 +107,8 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
             escaped: new fields.BooleanField({ initial: false }),
             // Ships: Flight Assist off (no Agility in Defence until the next turn).
             faOff: new fields.BooleanField({ initial: false }),
+            // Ships: Hovering over smaller units (Combined Scale Combat, p.256): Defence 0 until the next action.
+            hovering: new fields.BooleanField({ initial: false }),
             // Ships: spun out of control by a Ram (2 = until its next turn ends; it can't start a Dogfight then).
             outOfControl: int(0, { min: 0 }),
             // Ships' equipment actions, active until the start of the next turn.
@@ -551,7 +553,7 @@ export class ShipData extends VehicleData {
 
    /** @override */
    get defence() {
-      if (this.immobilised || this.combat?.sniping) return 0;
+      if (this.immobilised || this.combat?.sniping || this.combat?.hovering) return 0;
       const sensors = this.damaged?.sensors ? 1 : 0;
       const agility = this.combat?.faOff ? 0 : this.effectiveAgility;
       if (this.npc.enabled) return Math.max(0, this.npc.defence - (this.combat?.faOff ? this.agility : 0) - (this.agilityPenalty ?? 0) - sensors);

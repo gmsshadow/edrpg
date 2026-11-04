@@ -2,6 +2,8 @@ import { useKarmaCapability, builtInEscapeDeath } from "../karma.mjs";
 import { karmaPayer } from "../partner.mjs";
 import { rollSkillCheck } from "./skill-check.mjs";
 import { recordStimUse } from "../addiction.mjs";
+import { scaleOf, scaleDamage, factorLabel } from "../combined.mjs";
+import { damageCraftFromIndividual } from "./craft-attack.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/damage.hbs";
 const SOCKET = "system.edrpg";
@@ -152,6 +154,8 @@ export async function rollDamage(attack, attacker) {
       // A free attack (point blank / running away) that knocks the target over ends their turn (p.60).
       free: !!attack.free,
       special: attack.special ? { ...attack.special } : null,
+      // A natural 10: a critical hit on a ship with its shields down (Combined Scale Combat, p.256).
+      critical: !!attack.critical,
       amounts: [],
       applied: [],
    };
@@ -244,7 +248,7 @@ export async function renderDamageCard(state) {
       ...state,
       damageTypeLabel: `EDRPG.damage.${state.damageType}`,
       main: state.amounts.length === 1 ? state.amounts[0] : null,
-      applied: state.applied.map((a) => ({
+      applied: state.applied.map((a) => a.craft ? a : ({
          ...a,
          stimText: a.stim ? stimText(a.name, a.stim) : null,
          armourDestroyedText: (a.armourDestroyed ?? []).join(", "),
@@ -692,6 +696,14 @@ async function execute(action) {
       if (!amount) return;
       for (const uuid of action.targetUuids) {
          const actor = await fromUuid(uuid);
+         // Combined Scale Combat: personal weapons do ½ to vehicles and ⅛ to ships, on Shields then Hull (p.257).
+         const scale = scaleOf(actor);
+         if (scale === "vehicle" || scale === "ship") {
+            const scaled = scaleDamage(amount.value, "individual", scale);
+            const record = await damageCraftFromIndividual(actor, scaled, state.critical && !state.explosive);
+            state.applied.push({ ...record, craft: true, amount: amount.value, scaled, factor: factorLabel("individual", scale), amountKey: amount.key });
+            continue;
+         }
          if (!actor?.system?.endurance) continue;
          // Resist Knockdown (N): ignore the first N tens on the damage dice (Core Rules p.125).
          const resist = actor.system.resistKnockdown ?? 0;

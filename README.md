@@ -78,6 +78,9 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   actor in a Crew folder, owned by the employing player, with wages charged at Between Adventures.
 - **Rare Item Availability** (Core Rules p.324): the GM's sidebar button rolls rare items on sale for the party's rank,
   linked to the compendium.
+- **Combined Scale Combat** (Core Rules pp.254–259): people, vehicles and spaceships can target each other. Defence
+  bonuses for being smaller, damage scaling (×8 down to ⅛), weapon reach, cover, and the Hover and Crawl actions are
+  applied automatically.
 - **Addiction** (Core Rules p.253): Combat Stim uses are counted per adventure, with the addiction roll from the second
   use on. An addict picks clinic, keep using or neither before their Between Adventures roll.
 

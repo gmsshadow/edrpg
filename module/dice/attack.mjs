@@ -6,6 +6,7 @@ import { rollDamage, STATUS } from "./damage.mjs";
 import { rollGrabCheck, performGrab, beats } from "./grab.mjs";
 import { karmaPayer } from "../partner.mjs";
 import { judge, karmaRerollable } from "./resolve.mjs";
+import { scaleOf, individualBlocked, bandFor, ASSUMED_RANGE, factorLabel } from "../combined.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/attack.hbs";
 const SOCKET = "system.edrpg";
@@ -124,9 +125,21 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
    const target = forcedTarget ?? [...game.user.targets].map((t) => t.actor).find((a) => a && a !== actor) ?? null;
    const isGrenade = s.skill === "grenade" && !firstBand(weapon);
    const isExplosive = s.blast?.fatal !== null && s.blast?.fatal !== undefined;
+   // Combined Scale Combat (p.255): a vehicle or ship can only be attacked in its up-close zone, at an assumed 50m or
+   // 400m, against its Defence.
+   const targetScale = scaleOf(target);
+   const craftTarget = targetScale === "vehicle" || targetScale === "ship";
+   if (craftTarget) {
+      const blocked = individualBlocked(target);
+      if (blocked) {
+         ui.notifications.warn(game.i18n.format(blocked, { weapon: weapon.name, target: target.name }));
+         return null;
+      }
+   }
+   const assumedBand = craftTarget && !s.isMelee ? bandFor(s.ranges, ASSUMED_RANGE[targetScale]) : null;
 
    let opts = {
-      band: firstBand(weapon),
+      band: assumedBand ?? firstBand(weapon),
       defence: "dodge",
       cover: false,
       // Aiming last turn (the Aiming status) gives +5; it is used up by the attack (p.61).
@@ -148,7 +161,7 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       mode: undefined,
    };
    if (prompt) {
-      const result = await promptAttack(actor, weapon, target, { isGrenade, isExplosive, counter, ...opts });
+      const result = await promptAttack(actor, weapon, target, { isGrenade, isExplosive, counter, craftTarget, targetScale, assumedBand, ...opts });
       if (!result) return null;
       opts = { ...opts, ...result };
    }
@@ -188,14 +201,16 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       }
    }
    const targeted = !isGrenade && !opts.groundTarget;
-   if (targeted && target) {
+   if (targeted && craftTarget) {
+      parts.push({ label: "EDRPG.combined.part.craftDefence", value: target.system.defence ?? 0 });
+   } else if (targeted && target) {
       const def = defenceOf(target, opts.defence);
       if (def.available) parts.push({ label: `EDRPG.attack.part.${opts.defence}`, value: def.value });
       else cantEvade = true;
    } else if (targeted && opts.targetDefence) {
       parts.push({ label: `EDRPG.attack.part.${opts.defence}`, value: opts.targetDefence });
    }
-   if (targeted && opts.cover && !s.isMelee) parts.push({ label: "EDRPG.attack.part.cover", value: attackRules.cover });
+   if (targeted && opts.cover && !s.isMelee && !craftTarget) parts.push({ label: "EDRPG.attack.part.cover", value: attackRules.cover });
    if (opts.adjust) parts.push({ label: "EDRPG.attack.part.adjust", value: opts.adjust });
    const dn = parts.reduce((n, p) => n + p.value, 0);
 
@@ -252,6 +267,7 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       destroyCover: !!s.destroyCover && targeted && opts.cover,
       targetUuid: targeted ? (target?.uuid ?? null) : null,
       targetName: targeted ? (target?.name ?? null) : null,
+      scale: craftTarget ? { to: targetScale, factor: factorLabel("individual", targetScale) } : null,
       cantEvade,
       defence: opts.defence,
       parts,
@@ -329,7 +345,10 @@ async function promptAttack(actor, weapon, target, defaults) {
    let html = "";
    const dodge = defenceOf(target, "dodge");
    const parry = defenceOf(target, "parry");
-   if (target) {
+   if (target && defaults.craftTarget) {
+      html += `<p class="ed-attack-target">${i18n("EDRPG.combined.craftTargetLine", { name: esc(target.name), defence: target.system.defence ?? 0 })}</p>`;
+      html += `<p class="hint">${i18n("EDRPG.combined.individualHint", { range: ASSUMED_RANGE[defaults.targetScale], factor: factorLabel("individual", defaults.targetScale) })}${!s.isMelee && !defaults.assumedBand ? ` ${i18n("EDRPG.combined.outOfRange", { range: ASSUMED_RANGE[defaults.targetScale] })}` : ""}</p>`;
+   } else if (target) {
       const show = (d) => (d.available ? d.value : i18n("EDRPG.attack.cantUse"));
       html += `<p class="ed-attack-target">${i18n("EDRPG.attack.targetLine", {
          name: esc(target.name),
@@ -371,7 +390,7 @@ async function promptAttack(actor, weapon, target, defaults) {
          html += row(i18n("EDRPG.attack.groundTarget"), check("groundTarget"), i18n("EDRPG.attack.groundTargetHint"));
          html += row(i18n("EDRPG.attack.interposingCover"), num("coverPieces", 0));
       }
-      html += row(i18n("EDRPG.attack.cover"), check("cover"), i18n("EDRPG.attack.coverHint"));
+      if (!defaults.craftTarget) html += row(i18n("EDRPG.attack.cover"), check("cover"), i18n("EDRPG.attack.coverHint"));
    } else {
       const best = parry.available && parry.value > dodge.value ? "parry" : "dodge";
       const opt = (k, d) =>

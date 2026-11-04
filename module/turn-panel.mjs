@@ -30,6 +30,8 @@ import {
 } from "./vehicle-combat.mjs";
 import { isCraft } from "./data/vehicle.mjs";
 import { zoneOf } from "./zones.mjs";
+import { scaleOf, effectiveZone } from "./combined.mjs";
+import { defenceOf } from "./dice/attack.mjs";
 
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 const L = (key, data) => (data ? game.i18n.format(key, data) : game.i18n.localize(key));
@@ -267,16 +269,24 @@ export class VehicleTurnPanel extends HandlebarsApplicationMixin(ApplicationV2) 
          .map((a) => {
             const ts = a.system;
             const hostile = dispositionOf(a) !== mine;
-            const states = ts.destroyed ? [{ key: "destroyed", label: L("EDRPG.turn.wreck") }] : ["fleeing", "disengaging", "sniping", "rammed"].filter((k) => ts.combat?.[k]).map(chip);
+            // Combined Scale Combat: people (and smaller craft) count as up-close for bigger craft.
+            const scale = scaleOf(a);
+            const person = scale === "individual";
+            const states = ts.destroyed ? [{ key: "destroyed", label: L("EDRPG.turn.wreck") }] : ["fleeing", "disengaging", "sniping", "rammed", "hovering"].filter((k) => ts.combat?.[k]).map(chip);
+            if (scale !== scaleOf(actor)) states.unshift({ key: "scale", label: L(`EDRPG.combined.scale.${scale}`) });
             return {
                uuid: a.uuid,
                name: a.name,
                img: a.img,
                hostile,
                selected: a.uuid === this.targetUuid,
-               zone: L(`EDRPG.craft.zone.${zoneOf(a)}`),
-               upClose: zoneOf(a) === "upClose",
-               stats: ts.destroyed ? L("EDRPG.turn.stranded", { n: ts.stranded.length }) : L("EDRPG.turn.targetStats", { defence: ts.defence, pursuit: ts.pursuit, speed: ts.speed }),
+               zone: person ? L("EDRPG.combined.groundZone") : L(`EDRPG.craft.zone.${zoneOf(a)}`),
+               upClose: effectiveZone(actor, a) === "upClose",
+               stats: person
+                  ? L("EDRPG.combined.personStats", { dodge: defenceOf(a, "dodge").value, endurance: ts.endurance?.value ?? 0 })
+                  : ts.destroyed
+                    ? L("EDRPG.turn.stranded", { n: ts.stranded.length })
+                    : L("EDRPG.turn.targetStats", { defence: ts.defence, pursuit: ts.pursuit, speed: ts.speed }),
                states,
                wreck: !!ts.destroyed,
             };

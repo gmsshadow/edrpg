@@ -4,6 +4,9 @@ import { rollCritical, damageComponent, targetableComponents, FIXED_KINDS } from
 import { zoneOf } from "../zones.mjs";
 import { activationFaults, flashpoint, aStar } from "../engineering.mjs";
 import { hangarCritical } from "../hangar.mjs";
+import { scaleOf, scaleDefence, craftWeaponBlocked, scaleCraftDamage, craftDamageType, factorLabel, INDIVIDUAL_COVER, VEHICLE_COVER } from "../combined.mjs";
+import { defenceOf } from "./attack.mjs";
+import { applyDamage } from "./damage.mjs";
 
 /** Missiles, torpedoes (and mines) can be shot down by Point Defence; seekers are jammed by ECM. */
 const isMissile = (weapon) => /missile|torpedo/i.test(weapon.name);
@@ -42,14 +45,22 @@ const SOCKET = "system.edrpg";
  *
  * @returns {Promise<ChatMessage|null>}
  */
-export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: forced = null, modifier: extra = 0, note = null, action = null, forward = false } = {}) {
+export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: forced = null, modifier: extra = 0, note = null, action = null, forward = false, cover = null } = {}) {
    const s = weapon.system;
    const sys = vehicle.system;
    if (s.usesAmmo && s.ammo.value < 1) {
       ui.notifications.warn(game.i18n.format("EDRPG.attack.noAmmo", { weapon: weapon.name }));
       return null;
    }
-   const target = forced ?? [...game.user.targets].map((t) => t.actor).find((a) => a && a !== vehicle && isCraft(a)) ?? null;
+   const target = forced ?? [...game.user.targets].map((t) => t.actor).find((a) => a && a !== vehicle && scaleOf(a)) ?? null;
+   // Combined Scale Combat (Core Rules pp.254–259).
+   const myScale = scaleOf(vehicle);
+   const targetScale = scaleOf(target) ?? myScale;
+   const blocked = target ? craftWeaponBlocked(vehicle, weapon, target) : null;
+   if (blocked) {
+      ui.notifications.warn(game.i18n.format(blocked, { weapon: weapon.name, target: target.name }));
+      return null;
+   }
    // Fixed-mount vehicle weapons can't target a flying vehicle (skimmers, Core Rules p.318).
    if (target?.system.flying && s.mount?.kind === "fixed") {
       ui.notifications.warn(game.i18n.format("EDRPG.drone.fixedVsFlying", { weapon: weapon.name, target: target.name }));
@@ -70,7 +81,17 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
    // Defence modifiers from the target's equipment (Core Rules pp.197–198).
    const defenceNotes = [];
    let defenceMods = 0;
-   const ts = target?.system;
+   const ts = isCraft(target) ? target.system : null;
+   // Smaller units are harder to hit, and may be in cover (pp.254–258).
+   const sizeBonus = scaleDefence(myScale, targetScale);
+   if (sizeBonus) {
+      defenceMods += sizeBonus;
+      defenceNotes.push(game.i18n.format("EDRPG.combined.sizeNote", { bonus: sizeBonus }));
+   }
+   const coverTable = targetScale === "individual" && myScale !== "individual" ? INDIVIDUAL_COVER : targetScale === "vehicle" && myScale === "ship" ? VEHICLE_COVER : null;
+   if (coverTable && !cover) cover = targetScale === "individual" ? (target?.getFlag?.("edrpg", "cover") ?? "none") : (game.settings.get("edrpg", "vehicleObstacleTable") ?? "light");
+   // A ship's gimballed weapons lose their Accuracy against anything but ships (p.256).
+   const noGimbal = myScale === "ship" && targetScale !== "ship" && s.mount?.kind === "gimballed" && (s.accuracy ?? 0) !== 0;
    // A* grade (engineered, Magnified) chaff and ECM give +6 instead of +4.
    if (ts?.combat?.chaff && (s.mount?.kind === "gimballed" || gun.auto)) {
       defenceMods += aStar(target, /chaff/i) ? 6 : 4;
@@ -83,15 +104,26 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
    // A targeted component: shields down, both up-close, a gimballed weapon (p.70).
    const canAim = !!ts?.isShip && !ts.isFighter && s.mount?.kind === "gimballed" && (ts.shields.max === 0 || ts.shields.down || ts.shields.value <= 0) && zoneOf(target) === "upClose" && zoneOf(vehicle) === "upClose";
    let aim = null;
-   let opts = { defence: (ts?.defence ?? 0) + defenceMods, modifier: 0, mode: undefined };
+   const baseDefence = ts ? ts.defence : targetScale === "individual" && target ? defenceOf(target, "dodge").value : 0;
+   let opts = { defence: baseDefence + defenceMods, modifier: 0, mode: undefined };
    if (prompt) {
       const i18n = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
       const row = (label, field, hint = "") =>
          `<div class="form-group"><label>${label}</label><div class="form-fields">${field}</div>${hint ? `<p class="hint">${hint}</p>` : ""}</div>`;
-      let content = target
-         ? `<p class="ed-attack-target">${i18n("EDRPG.vehicle.targetLine", { name: foundry.utils.escapeHTML(target.name), defence: target.system.defence, speed: target.system.speed })}</p>`
-         : `<p class="hint">${i18n("EDRPG.vehicle.noTarget")}</p>`;
-      content += row(i18n("EDRPG.vehicle.targetDefence"), `<input type="number" name="defence" value="${opts.defence}" step="1">`, i18n("EDRPG.vehicle.targetDefenceHint"));
+      let content = !target
+         ? `<p class="hint">${i18n("EDRPG.vehicle.noTarget")}</p>`
+         : ts
+           ? `<p class="ed-attack-target">${i18n("EDRPG.vehicle.targetLine", { name: foundry.utils.escapeHTML(target.name), defence: target.system.defence, speed: target.system.speed })}</p>`
+           : `<p class="ed-attack-target">${i18n("EDRPG.combined.targetLine", { name: foundry.utils.escapeHTML(target.name), dodge: baseDefence })}</p>`;
+      if (target && targetScale !== myScale) content += `<p class="hint">${i18n("EDRPG.combined.scaleHint", { scale: i18n(`EDRPG.combined.scale.${targetScale}`), factor: factorLabel(myScale, targetScale), bonus: sizeBonus })}</p>`;
+      content += row(i18n("EDRPG.vehicle.targetDefence"), `<input type="number" name="defence" value="${opts.defence}" step="1">`, i18n(coverTable ? "EDRPG.combined.defenceHint" : "EDRPG.vehicle.targetDefenceHint"));
+      if (coverTable) {
+         const options = Object.entries(coverTable)
+            .filter(([k]) => k !== "none" || coverTable === INDIVIDUAL_COVER)
+            .map(([k, v]) => `<option value="${k}"${k === cover ? " selected" : ""}>${i18n(`EDRPG.combined.cover.${k}`)} (+${v})</option>`)
+            .join("");
+         content += row(i18n("EDRPG.combined.coverLabel"), `<select name="cover">${options}</select>`, i18n(coverTable === INDIVIDUAL_COVER ? "EDRPG.combined.coverHintIndividual" : "EDRPG.combined.coverHintVehicle"));
+      }
       content += row(i18n("EDRPG.test.BonusModifier"), `<input type="number" name="modifier" value="0" step="1">`);
       const aimChoices = canAim ? targetableComponents(target) : [];
       if (aimChoices.length) {
@@ -107,6 +139,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       });
       if (!result) return null;
       opts = { defence: Number(result.defence) || 0, modifier: Number(result.modifier) || 0 };
+      if (result.cover !== undefined) cover = result.cover;
       const chosen = result.aim ? aimChoices.find((c) => c.key === result.aim) : null;
       if (chosen) {
          aim = { kind: chosen.kind, name: chosen.name, item: chosen.item ?? null };
@@ -115,12 +148,19 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       }
    }
 
+   // Cover on top of the Defence entered.
+   const coverBonus = coverTable ? (coverTable[cover] ?? 0) : 0;
+   if (coverBonus) {
+      opts.defence += coverBonus;
+      defenceNotes.push(game.i18n.format("EDRPG.combined.coverNote", { cover: game.i18n.localize(`EDRPG.combined.cover.${cover}`), bonus: coverBonus }));
+   }
+   if (noGimbal) defenceNotes.push("EDRPG.combined.noGimbal");
    const ship = !!sys.isShip;
    const parts = gun.drone
       ? [{ label: ship ? "EDRPG.ship.part.listed" : "EDRPG.drone.toHit", value: s.accuracy ?? 0 }]
       : [
            { label: gun.auto ? "EDRPG.vehicle.part.autoTurret" : ship ? "EDRPG.ship.part.gunnery" : "EDRPG.vehicle.part.gunnery", value: gun.bonus, note: gun.gunner?.name ?? "" },
-           { label: "EDRPG.craft.accuracy", value: s.accuracy ?? 0 },
+           { label: "EDRPG.craft.accuracy", value: noGimbal ? 0 : (s.accuracy ?? 0) },
         ];
    if (sys.weaponPenalty) parts.push({ label: "EDRPG.ship.part.modifiers", value: sys.weaponPenalty });
    if (sys.speedRow.attack) parts.push({ label: "EDRPG.vehicle.part.speed", value: sys.speedRow.attack, note: game.i18n.format("EDRPG.vehicle.speedNow", { speed: sys.speed }) });
@@ -132,7 +172,7 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
    const total = roll.total;
    const j = judge({ natural, total, dn: opts.defence });
    // A Sniping target is hit automatically (Core Rules p.67).
-   const sniping = !!target?.system.combat?.sniping;
+   const sniping = !!ts?.combat?.sniping;
    let hit = sniping || j.success;
    // Point Defence: an incoming missile or torpedo is shot down on an even D10 (p.198).
    let pointDefence = null;
@@ -145,6 +185,8 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       await spendPointDefence(target);
    }
    const margin = hit ? Math.max(0, total - opts.defence) : 0;
+   // Individual cover is blown away by a shot that misses only because of it (p.257).
+   const coverBlown = !hit && !pointDefence && coverTable === INDIVIDUAL_COVER && coverBonus > 0 && judge({ natural, total, dn: opts.defence - coverBonus }).success;
    const burst = s.burst.max ? Math.min(margin * (s.burst.perPoint || 5), s.burst.max) : 0;
 
    let ammo = null;
@@ -153,6 +195,13 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       await weapon.update({ "system.ammo.value": ammo.left });
    }
 
+   const rawDamage = hit
+      ? {
+           base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields,
+           // Aegis weapons (Exploration Supplement): AX harms Thargoid hulls; flak does full damage to swarms.
+           ax: !!s.ax, flak: !!s.flak, burstLevels: burst ? Math.round(burst / (s.burst.perPoint || 5)) : 0,
+        }
+      : null;
    const state = {
       vehicleUuid: vehicle.uuid,
       vehicleName: vehicle.name,
@@ -173,13 +222,13 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       // Critical hits only matter against ships (vehicles have no components).
       shipTarget: !!ts?.isShip,
       reason: sniping ? null : j.reason,
-      damage: hit
-         ? {
-              base: s.damage, burst, total: s.damage + burst, vsShields: s.damageVsShields, bonusVsHull: s.bonusVsHull, bonusVsShields: s.bonusVsShields,
-              // Aegis weapons (Exploration Supplement): AX harms Thargoid hulls; flak does full damage to swarms.
-              ax: !!s.ax, flak: !!s.flak, burstLevels: burst ? Math.round(burst / (s.burst.perPoint || 5)) : 0,
-           }
-         : null,
+      damage: rawDamage ? scaleCraftDamage(rawDamage, myScale, targetScale) : null,
+      // Combined Scale: the unscaled Damage, rescaled for each unit it is applied to.
+      rawDamage,
+      fromScale: myScale,
+      scale: target && targetScale !== myScale ? { to: targetScale, factor: factorLabel(myScale, targetScale), label: `EDRPG.combined.scale.${targetScale}` } : null,
+      damageType: craftDamageType(weapon),
+      coverBlown,
       // A natural 10.
       critical: j.critical,
       destabilise: !!s.destabilise,
@@ -265,6 +314,30 @@ export async function applyCraftDamage(target, damage) {
 }
 
 /**
+ * An individual's hit on a vehicle or ship (Combined Scale Combat, p.257): the scaled Damage on Shields then Hull,
+ * and a critical hit on a natural 10 against a ship whose shields were down.
+ *
+ * @param {Actor} target
+ *
+ * @param {number} amount    Already scaled.
+ *
+ * @param {boolean} critical
+ *
+ * @returns {Promise<object>}
+ */
+export async function damageCraftFromIndividual(target, amount, critical = false) {
+   const sh = target.system.shields;
+   const shieldsUp = sh.max > 0 && !sh.down && sh.value > 0;
+   const record = await applyCraftDamage(target, { total: amount });
+   const ts = target.system;
+   if (critical && amount > 0 && ts.isShip && !ts.isFighter && !ts.impervious && !ts.swarm && !shieldsUp && !record.destroyed) {
+      record.crit = await rollCritical(target, amount);
+      if (record.crit && !record.crit.nothing) record.crit.hangar = await hangarCritical(target, record.crit);
+   }
+   return record;
+}
+
+/**
  * Apply on this client if allowed, otherwise through the active GM.
  *
  * @param {object} action  { messageId, targetUuid }
@@ -280,7 +353,17 @@ async function execute({ messageId, targetUuid }) {
    const message = game.messages.get(messageId);
    const state = foundry.utils.deepClone(message?.getFlag("edrpg", "craftAttack"));
    const target = targetUuid ? await fromUuid(targetUuid) : null;
-   if (!state?.damage || !isCraft(target)) return;
+   const to = scaleOf(target);
+   if (!state?.damage || !to) return;
+   // Combined Scale: rescale the hit for this unit (older cards have no raw figures).
+   if (state.rawDamage) state.damage = scaleCraftDamage(state.rawDamage, state.fromScale ?? to, to);
+   if (to === "individual") {
+      // Knocked over by any vehicle or ship weapon that damages them (p.257).
+      const record = await applyDamage(target, { amount: state.damage.total, damageType: state.damageType ?? "kinetic", knock: true });
+      state.applied.push({ ...record, individual: true, conditionLabels: record.conditions.map((c) => `EDRPG.status.${c}`) });
+      await message.update({ content: await renderCraftAttack(state), "flags.edrpg.craftAttack": state });
+      return;
+   }
    // An aimed shot puts all its Damage on the component (p.70).
    if (state.aim && target.system.isShip) {
       const comp = await damageComponent(target, state.aim, state.damage.total);
@@ -394,7 +477,7 @@ export function onRenderCraftAttack(message, html) {
       );
    }
    add(`<i class="fa-solid fa-users"></i> ${game.i18n.localize("EDRPG.damage.applySelected")}`, async () => {
-      const targets = (canvas?.tokens?.controlled ?? []).map((t) => t.actor).filter((a) => isCraft(a));
+      const targets = (canvas?.tokens?.controlled ?? []).map((t) => t.actor).filter((a) => scaleOf(a));
       if (!targets.length) return ui.notifications.warn("EDRPG.vehicle.selectVehicles", { localize: true });
       for (const t of targets) await perform({ messageId: message.id, targetUuid: t.uuid });
    });

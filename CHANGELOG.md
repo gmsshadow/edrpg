@@ -1,5 +1,56 @@
 # Changelog
 
+## 0.1.50
+
+Combined Scale Combat (Core Rules pp.254–259): individuals, vehicles and spaceships in the same fight.
+
+- **Targets**: vehicle and ship attacks, combat actions and the turn panel can now target people on the scene.
+  - People show their Dodge and Endurance in the turn panel.
+  - Smaller units count as up-close for a larger craft.
+- **Defence**:
+  - People get +5 against vehicles and +10 against ships.
+  - Vehicles get +5 against ships.
+- **Cover**:
+  - People: obscuring cover +2, hard protection +4 against vehicle and ship weapons. You're asked once per action.
+    A shot that misses only because of the cover blows it away, and the card says so.
+  - Vehicles: +2 or +4 against ships on the Medium or Heavy obstacle table (the GM's current table), never blown away.
+- **Damage scaling**, rounded down, with the factor shown on the cards:
+  - vehicle → person ×2, ship → person ×8, ship → vehicle ×4;
+  - person → vehicle ½, person → ship ⅛, vehicle → ship ¼.
+  - People take only the weapon's base Damage (no Burst or shield/hull bonuses) and are knocked over.
+  - Craft take scaled hits on Shields, then Hull.
+- **People shooting at craft**:
+  - Only at a vehicle or ship in its up-close zone.
+  - The range band defaults to the book's assumed 50m (vehicle) or 400m (ship), plus the craft's Defence.
+  - The damage card applies ½ or ⅛ to the craft, and a natural 10 can cause a critical hit on a ship whose shields are
+    down.
+- **Vehicles against ships**:
+  - Only turrets can fire at ships (fixed and gimballed weapons are skipped, with a note), and only by Snipe or
+    Broadsides.
+  - Broadsides is open from at-distance against up-close ships.
+  - Missiles reach ships in either zone.
+  - Vehicles can't Flee while spacecraft are still in the fight.
+- **Ships against smaller units**:
+  - No Dogfight, and no Snipe at people.
+  - Sniping a vehicle gets no +1.
+  - Gimballed weapons lose their Accuracy.
+  - Chicken but never Ram.
+- **New actions**:
+  - **Hover** (ships, up-close): Defence 0 until the next action. Fixed and gimballed weapons fire at one target; each
+    turret picks its own.
+  - **Crawl** (vehicles, up-close at Speed 0): every weapon at one person.
+- **Running people down**:
+  - A vehicle's Ram or Chicken: the person makes a Dodge check against its Speed. On a failure they take 10× (Ram) or
+    5× (Chicken) Speed, ×2.
+  - A ship's Chicken against a person: a Dodge check against the ship's Defence.
+  - A ship's Chicken against a vehicle: the vehicle rolls D10 + Defence and swerves on the ship's Defence or more.
+    Otherwise it takes 25/50/75 by the ship's size, ×4.
+  - The larger unit takes no damage.
+- **Zones and pursuit**:
+  - No pursuit checks across scales.
+  - A Joust by another scale doesn't draw its target up-close.
+  - A craft stays up-close while smaller enemies are around it.
+
 ## 0.1.49
 
 GM procedures from the Core Rules: Between Adventures income, crew, rare items and addiction.

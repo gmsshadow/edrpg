@@ -18,6 +18,7 @@
    <ul class="damage-applied">
       {{#each applied as |a|}}
       <li><strong>{{a.name}}</strong>:
+         {{#if a.individual}}{{localize "EDRPG.damage.took" taken=a.taken}} <span class="muted">({{a.amount}}{{#if a.armour}} − {{a.absorbed}} {{a.armour.name}}{{/if}})</span> {{localize "EDRPG.damage.enduranceFromTo" before=a.before after=a.after max=a.max}}{{#if a.knocked}} <span class="ed-chip">{{localize "EDRPG.status.knockedOver"}}</span>{{/if}}{{#each a.conditionLabels as |c|}} <span class="ed-chip">{{localize c}}</span>{{/each}}{{/if}}
          {{#if a.toShields}}{{localize "EDRPG.vehicle.shieldsHit" before=a.shieldsBefore after=a.shieldsAfter}}{{#if a.collapsed}} <span class="ed-chip">{{localize "EDRPG.vehicle.shieldsCollapse"}}</span>{{/if}}{{/if}}
          {{#if a.toHull}} {{localize "EDRPG.vehicle.hullHit" damage=a.toHull before=a.hullBefore after=a.hullAfter}}{{/if}}
          {{#if a.destroyed}} <span class="ed-chip">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}

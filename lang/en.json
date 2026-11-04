@@ -1369,7 +1369,9 @@
             "disengage": "Disengage",
             "rescue": "Rescue",
             "dogfight": "Dogfight",
-            "faOff": "Flight Assist Off"
+            "faOff": "Flight Assist Off",
+            "hover": "Hover",
+            "crawl": "Crawl"
          },
          "actionHint": {
             "joust": "Fire all weapons at a target in either zone, then move up-close (a Sniping target comes too). Jousting a Fleeing vehicle starts a Pursuit.",
@@ -1384,7 +1386,9 @@
             "disengage": "Move at-distance at the start of your next turn unless an enemy Tails you and wins a Pursuit. No attack.",
             "rescue": "Stop (Speed 0) beside a wreck and pick up its stranded crew.",
             "dogfight": "D10 + Defence against the target's: whoever gets behind fires everything, the other one turret. Dogfighting a Disengaging ship starts a Pursuit.",
-            "faOff": "Fire at an up-close target, weapon after weapon, until one misses. No Agility in your Defence until your next turn."
+            "faOff": "Fire at an up-close target, weapon after weapon, until one misses. No Agility in your Defence until your next turn.",
+            "hover": "Combined combat: come to a halt over vehicles and people. Fixed and gimballed weapons fire at one target; each turret can pick its own. Your Defence is 0 until your next action.",
+            "crawl": "Combined combat: at Speed 0, stay up-close and fire all weapons at one person."
          },
          "actionText": {
             "joust": "<strong>{name}</strong> jousts <strong>{target}</strong>, weapons blazing.",
@@ -1399,7 +1403,9 @@
             "disengage": "<strong>{name}</strong> pulls away to disengage. It reaches at-distance at the start of its next turn unless Tailed and caught.",
             "rescue": "<strong>{name}</strong> stops to pick up stranded crew.",
             "dogfight": "<strong>{name}</strong> tries to get behind <strong>{target}</strong>.",
-            "faOff": "<strong>{name}</strong> switches Flight Assist off to line up on <strong>{target}</strong>. No Agility in its Defence until its next turn."
+            "faOff": "<strong>{name}</strong> switches Flight Assist off to line up on <strong>{target}</strong>. No Agility in its Defence until its next turn.",
+            "hover": "<strong>{name}</strong> hovers over the battlefield, guns trained on <strong>{target}</strong>. Its Defence is 0 until its next action.",
+            "crawl": "<strong>{name}</strong> slows to a crawl and turns every weapon on <strong>{target}</strong>."
          },
          "broadsidesLeft": "Missed. The remaining turrets ({weapons}) must pick a different up-close target; fire them from the sheet.",
          "pursuitTitle": "Pursuit",
@@ -1456,7 +1462,8 @@
             "sniping": "Sniping",
             "rammed": "Rammed",
             "lostAction": "No action",
-            "pass": "Re-roll"
+            "pass": "Re-roll",
+            "hovering": "Hovering"
          },
          "stateHint": {
             "escaped": "Fled the battlefield. The GM decides what happens next.",
@@ -2259,6 +2266,66 @@
          "crippled": "{name} can't feed the habit: they are permanently crippled. Only cybernetic surgery can help.",
          "safe": "{name} has used Combat Stims {uses} times this mission. D10 {roll} (addicted on {need} or less): not addicted.",
          "became": "{name} has used Combat Stims {uses} times this mission. D10 {roll} (addicted on {need} or less): addicted!"
+      },
+      "combined": {
+         "scale": {
+            "individual": "Individual",
+            "vehicle": "Vehicle",
+            "ship": "Spaceship"
+         },
+         "groundZone": "On the ground",
+         "personStats": "Dodge {dodge} · Endurance {endurance}",
+         "targetLine": "Target: {name} (Dodge {dodge})",
+         "craftTargetLine": "Target: {name} (Defence {defence})",
+         "scaleHint": "Combined scale: the target is {scale} scale. Defence +{bonus} for its size; Damage {factor}.",
+         "individualHint": "Combined scale: assume the target is {range}m away unless the GM says otherwise. Damage {factor}; a natural 10 can cause a critical hit on a ship with its shields down.",
+         "outOfRange": "This weapon doesn't reach {range}m.",
+         "attackNote": "Against a craft: Damage {factor}, on Shields then Hull.",
+         "part": {
+            "craftDefence": "Target's Defence"
+         },
+         "defenceHint": "Includes the bonus for the target's smaller size. Cover is added separately.",
+         "coverLabel": "Cover",
+         "coverTitle": "Cover: {name}",
+         "cover": {
+            "none": "In the open",
+            "obscuring": "Obscuring cover",
+            "hard": "Hard protection",
+            "light": "Light or no obstacles",
+            "medium": "Medium obstacles",
+            "heavy": "Heavy obstacles"
+         },
+         "coverHintIndividual": "Against vehicle and ship weapons: foliage +2, buildings or rocks +4. A shot that misses only because of the cover blows it away.",
+         "coverHintVehicle": "Against ships, by the obstacle table the vehicle drives on. This cover is never blown away.",
+         "coverNote": "{cover}: Defence +{bonus}.",
+         "sizeNote": "Smaller scale: Defence +{bonus}.",
+         "noGimbal": "Gimballed weapons get no Accuracy bonus against anything but spaceships.",
+         "coverBlown": "Missed only because of the cover: {name}'s cover is blown away.",
+         "noBonuses": "Against people: base Damage only, with no Burst or other bonuses.",
+         "scaled": "Scaled ({scale})",
+         "craftTook": "{amount} Damage {factor} = {scaled}",
+         "turretsOnly": "{weapon}: a vehicle can only fire turrets (or missiles) at spacecraft.",
+         "shipNotClose": "{target} isn't in the up-close zone, so it can't be reached from the ground.",
+         "vehicleNotClose": "{target} isn't in its up-close zone, so it can't be attacked by people.",
+         "cantFire": "{weapons} can't fire at {target} (only turrets and missiles reach spacecraft).",
+         "noTail": "No Tailing or Dogfighting across scales.",
+         "smallerOnly": "Only against smaller units: vehicles or people for a ship.",
+         "individualsOnly": "Only against people.",
+         "noRamUp": "Only a larger unit can Ram or play Chicken with a smaller one.",
+         "shipNoRam": "A ship moves too fast to Ram vehicles or people. Use Chicken instead.",
+         "noSnipeIndividual": "A ship can't Snipe at people.",
+         "vehicleVsShip": "A vehicle can only attack spacecraft by Snipe or Broadsides.",
+         "individualAction": "People don't take vehicle actions.",
+         "noFlee": "{name} can't Flee while spacecraft are still in the fight.",
+         "crawlStop": "{name} must be at Speed 0 to Crawl.",
+         "turretTargets": "Turret targets",
+         "turretTargetsHint": "Fixed and gimballed weapons all fire at the chosen target. Each turret can fire at any vehicle or ship in its up-close zone, or any person.",
+         "dodge": "Dodge",
+         "dived": "{target} gets out of the way (DN {dn}).",
+         "runDown": "{target} is hit (DN {dn}): {base} {factor} = {damage} Damage. {name} takes none.",
+         "runDownRule": "A Dodge check against {dn}. You can only run down someone out of cover, or behind cover that wouldn't hurt the vehicle.",
+         "chickenVehicleRule": "The vehicle rolls D10 + Defence and swerves on {dn} or more.",
+         "dodgeRule": "A Dodge check against the ship's Defence ({dn})."
       }
    }
 }

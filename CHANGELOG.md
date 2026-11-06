@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.57
+
+- **Fixed:** the system failed to load in Foundry (sheets opened as Foundry's default name-and-portrait sheet).
+  The Space Lane encounter table built its tool links while the script was loading, before `game.i18n` exists; they
+  are now built when a card is drawn.
+
 ## 0.1.56
 
 Space Lane Encounters, Travel (Military), Interdiction and Hostage Release.

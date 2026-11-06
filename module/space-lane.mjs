@@ -23,8 +23,8 @@ const heistNote = () => {
    return L("EDRPG.lane.heistNote", { small: row("small"), medium: row("medium"), large: row("large") });
 };
 const interdict = (attacker) => toolLink("interdict", { attacker }, "EDRPG.lane.interdict", "fa-solid fa-magnet");
-const sneak = toolLink("sneak", {}, "EDRPG.lane.sneak", "fa-solid fa-user-secret");
-const market = toolLink("market", {}, "EDRPG.lane.market", "fa-solid fa-scale-balanced");
+const sneak = () => toolLink("sneak", {}, "EDRPG.lane.sneak", "fa-solid fa-user-secret");
+const market = () => toolLink("market", {}, "EDRPG.lane.market", "fa-solid fa-scale-balanced");
 const person = (name) => toolLink("person", { name }, name, "fa-solid fa-user");
 const cargoRoll = (column = 0) => {
    const roll = d(100);
@@ -33,41 +33,41 @@ const cargoRoll = (column = 0) => {
 const pirates = (difficulty) => ({
    text: `An ${difficulty === "easy" ? "Easy" : difficulty === "medium" ? "Medium" : "Hard"} Criminal group tries to interdict the group, then performs a Heist.`,
    fights: [["criminal", "spaceship", difficulty]],
-   tools: [interdict("Pirates")],
+   tools: [() => interdict("Pirates")],
    note: heistNote,
 });
 
 export const SPACE_LANE_EVENTS = {
    "A Better Offer": { tag: "mission", actions: ["betterOffer"], text: "A rival offers better pay to fail the current mission on purpose: paid as if a rank higher and the mission were done. If they accept, roll a D10: even, the old employer sends Bounty Hunters." },
    "Abandoned Ship": { auto: ["derelict"], actions: ["board"], text: "A powerless ship drifts in deep space. Board it and roll a D10 for what's inside. A salvaged ship needs a pilot (crew, or a player leaving their own ship)." },
-   "Agency Assault": { tag: "mission", fights: [["security", "spaceship", "medium"]], tools: [interdict("Agency")], text: "An espionage agency wants the mission to fail: a Medium Security group interdicts a ship and tries to destroy as many as it can. If it fails one interdiction it tries one other player before giving up." },
+   "Agency Assault": { tag: "mission", fights: [["security", "spaceship", "medium"]], tools: [() => interdict("Agency")], text: "An espionage agency wants the mission to fail: a Medium Security group interdicts a ship and tries to destroy as many as it can. If it fails one interdiction it tries one other player before giving up." },
    "Asteroid Base": { actions: ["investigate"], text: "A hidden asteroid base. Bypass it, or investigate and roll a D10." },
    "Attacked near Star Port": { tag: "port", fights: [["criminal", "spaceship", "medium"]], note: heistNote, text: "A Medium Criminal group jumps in as they approach to dock: a Heist, with no interdiction needed. After six rounds the station's Vipers arrive and the pirates flee." },
-   "Bounty Hunters": { tag: "missionBounty", fights: [["criminal", "spaceship", "medium", null, { title: "Bounty hunters" }]], tools: [interdict("Bounty hunters")], text: "A Medium Criminal group of bounty hunters tries to interdict the players, then to destroy as many ships as it can." },
+   "Bounty Hunters": { tag: "missionBounty", fights: [["criminal", "spaceship", "medium", null, { title: "Bounty hunters" }]], tools: [() => interdict("Bounty hunters")], text: "A Medium Criminal group of bounty hunters tries to interdict the players, then to destroy as many ships as it can." },
    "Bull Market": { tag: "port", tools: [market], text: "Excellent conditions: roll on the Advanced Trading Table as if it were the first visit, twice, and take the better." },
    "Cargo Illegal": { random: true, tools: [sneak], text: "A recent scandal makes this player's cargo illegal here: they must Sneak into Port." },
    "Cargo Switch": { random: true, auto: ["switch"], tools: [sneak], text: "A mix-up at the last stop: this player's whole hold is a different cargo. Go back and demand an exchange (Sneak into Port if it's illegal), or keep it." },
    "Cargo Thieves": { tag: "port", random: true, fights: [["criminal", "personal", "easy"]], text: "An Easy Criminal group boards this player's ship; security has been bribed. Surrender the cargo (tied up, unhurt), or fight: every three rounds another player (at random) arrives to help." },
-   "Corrupt Cops": { tools: [person("Patrol Viper"), interdict("Corrupt police")], text: "Four Police Vipers demand 20,000cr from each player (or all they have). Defy them and they try to interdict; escape and they give up. Interdicted: arrested. Resisting means a fight and a bounty; going quietly means jail and a failed mission (released without charge)." },
+   "Corrupt Cops": { tools: [() => person("Patrol Viper"), () => interdict("Corrupt police")], text: "Four Police Vipers demand 20,000cr from each player (or all they have). Defy them and they try to interdict; escape and they give up. Interdicted: arrested. Resisting means a fight and a bounty; going quietly means jail and a failed mission (released without charge)." },
    "Dangerous Cargo": { random: true, auto: ["animal"], actions: ["lockBridge"], text: "Something is loose in this player's ship, chewing the power cables. Hunt it down, or lock the bridge and roll a D10." },
    "Drifting Salvage": { auto: ["salvage"], actions: ["scoop"], text: "3D10 canisters of cargo drifting in space. Scoop them up and roll a D10." },
    "Frame Shift Drive Failure": { random: true, checks: [{ lv: "average", skills: ["repair"], note: "Others can dock and help." }], text: "This player's FSD gives out and drops them into realspace. Average Repair to fix it. If no one can, a tow to dock costs a tenth of the ship's value and fails any mission." },
    "Gambling Opportunity": { tag: "port", checks: [{ lv: "easy", skills: ["gambling"], note: "Stake back" }, { lv: "average", skills: ["gambling"], note: "×2" }, { lv: "hard", skills: ["gambling"], note: "×3" }], note: (s) => L("EDRPG.lane.stake", { amount: cr(MISSION_REWARDS[s.rank]?.[1] ?? 0) }), text: "After any trades: high-stakes gambling. Stake the Treasure Income for your rank and make a Gambling check: Easy gets the stake back, Average doubles it, Hard triples it; failure loses it." },
    "Market Glut": { tag: "port", tools: [market], text: "Terrible conditions: treat any Advanced Trading roll here as a 1." },
-   "Military Checkpoint": { fights: [["military", "spaceship", "medium"]], tools: [interdict("Military patrol")], actions: ["scan"], text: "A Medium Military group interdicts the players. Anyone who submits or is pulled out is scanned: roll a D10. Attacked players gain a bounty; with one, they must Sneak into Port or be attacked." },
+   "Military Checkpoint": { fights: [["military", "spaceship", "medium"]], tools: [() => interdict("Military patrol")], actions: ["scan"], text: "A Medium Military group interdicts the players. Anyone who submits or is pulled out is scanned: roll a D10. Attacked players gain a bounty; with one, they must Sneak into Port or be attacked." },
    "No Event": { text: "Nothing happens." },
    "Pirate Attack – Easy": pirates("easy"),
    "Pirate Attack – Medium": pirates("medium"),
    "Pirate Attack – Hard": pirates("hard"),
-   Saboteur: { random: true, tools: [person("Saboteur")], fights: [["criminal", "personal", "medium", "Medium group of Saboteurs (large ship)", { only: "Saboteur" }]], text: "Power and life support fail: a Saboteur is aboard this player's ship to steal it. Defeat him (a Medium group of Saboteurs on a large ship); the crew can help." },
+   Saboteur: { random: true, tools: [() => person("Saboteur")], fights: [["criminal", "personal", "medium", "Medium group of Saboteurs (large ship)", { only: "Saboteur" }]], text: "Power and life support fail: a Saboteur is aboard this player's ship to steal it. Defeat him (a Medium group of Saboteurs on a large ship); the crew can help." },
    "Ship in danger": { actions: (st) => (st.extra.orphansLeft ? ["orphans"] : ["distress"]), text: "A distress beacon. Investigate and roll a D10." },
    Stowaway: { actions: ["confront"], text: "A stowaway is eating a sandwich in the hold. Jettison them (illegal, but who's to know), or confront them and roll a D10." },
-   "Surprise Inspection": { random: true, tools: [person("Patrol Viper"), interdict("Police inspection")], text: "Five Police Vipers interdict this player. If they escape, everyone does. Otherwise they and anyone dropping out with them are scanned: a bounty or illegal cargo means an attack. Attacking the police earns a bounty." },
+   "Surprise Inspection": { random: true, tools: [() => person("Patrol Viper"), () => interdict("Police inspection")], text: "Five Police Vipers interdict this player. If they escape, everyone does. Otherwise they and anyone dropping out with them are scanned: a bounty or illegal cargo means an attack. Attacking the police earns a bounty." },
    "Tip Off": { tools: [market], text: "A trader sells trading tips for 50,000cr: if paid, roll twice on the Advanced Trading Table here and take the better." },
    "Tricky Docking Manoeuvre": { tag: "port", checks: [{ lv: "easy", skills: ["shipPiloting"], note: "each player" }], tools: [() => damageHtml(0, "", false, true)], text: "Busy space dock: each player makes an Easy Spaceship Piloting check or is crushed between freighters for 1D10×10 Hull." },
    "Unofficial Docking Tax": { tag: "port", actions: ["two"], text: "Corrupt customs demand 80,000cr from each player to unload. Otherwise go to another star port across the system: roll twice more on this table." },
    // Not on the table: the Sneak into Port effect (p.46), for the links above.
-   "Sneak into Port": { checks: [{ lv: "easy", skills: ["systems"], note: "small ship" }, { lv: "average", skills: ["systems"], note: "medium ship" }, { lv: "hard", skills: ["systems"], note: "large ship" }], tools: [person("Patrol Viper")], text: "Silent Running past security (Core p.268) with a Systems check by ship size. Detected: a fine of twice the illegal cargo's value and the cargo seized (Federation slavers may be arrested). Resisting means six Patrol Vipers, and firing on police brings a bounty (Core p.323)." },
+   "Sneak into Port": { checks: [{ lv: "easy", skills: ["systems"], note: "small ship" }, { lv: "average", skills: ["systems"], note: "medium ship" }, { lv: "hard", skills: ["systems"], note: "large ship" }], tools: [() => person("Patrol Viper")], text: "Silent Running past security (Core p.268) with a Systems check by ship size. Detected: a fine of twice the illegal cargo's value and the cargo seized (Federation slavers may be arrested). Resisting means six Patrol Vipers, and firing on police brings a bounty (Core p.323)." },
 };
 
 /** D10 sub-tables for the actions. */
@@ -109,7 +109,7 @@ const ACTIONS = {
       const { roll, out } = sub("investigate");
       let line = L(`EDRPG.lane.r.${out}`, { roll });
       if (out === "base1") line += ` ${checkLine("average", "repair")} ${partyActors().map((a) => `${esc(a.name)}: ${esc(cargoRoll(2).name)}`).join(", ")}`;
-      if (out === "base2") line += ` ${market}`;
+      if (out === "base2") line += ` ${market()}`;
       if (out === "base3") {
          const rare = await rollRareItem(s.rank);
          line += ` ${fightHtml(["criminal", "personal", "medium"])} ${partyActors().map((a) => `${esc(a.name)}: ${d(10) + d(10) + d(10)} × ${esc(cargoRoll(1).name)}`).join(", ")}. ${L("EDRPG.planet.rareItem", { item: link(rare), cost: cr(rare.cost) })}`;

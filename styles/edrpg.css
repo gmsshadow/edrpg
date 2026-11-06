@@ -3862,3 +3862,50 @@ table.ed-ss-installations input {
 .edrpg .ed-fleet tr.destroyed th.name a { text-decoration: line-through; opacity: 0.7; }
 .edrpg .ed-fleet .fa-star.fa-solid { color: var(--ed-blue); }
 .edrpg-starting-ship .ed-ship-blurb { min-height: 2.4em; }
+
+/* Generators: encounters, Infiltration, bases, mission notes (supplement Random Generation Systems) */
+#actors .header-actions .edrpg-generators-button { flex: 1 1 100%; }
+a.edrpg-tool { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0 0.35rem; margin: 0.1rem 0.15rem 0.1rem 0; border: 1px solid var(--ed-highlight-border); border-radius: 3px; background: var(--ed-highlight); color: var(--ed-navy); font-size: 0.9em; white-space: nowrap; cursor: pointer; }
+a.edrpg-tool:hover { background: var(--ed-header); color: var(--ed-white); }
+.edrpg .ed-tool-row { display: flex; flex-wrap: wrap; gap: 0.2rem; margin-top: 0.3rem; }
+.edrpg-chat.edrpg-encounter ul, .edrpg-chat.edrpg-encounter ol { margin: 0.3rem 0; padding-left: 1.2rem; }
+.ed-mission-notes { margin-top: 0.4rem; padding: 0.3rem 0.4rem; border-left: 3px solid var(--ed-blue-mid); background: rgba(117, 156, 199, 0.12); }
+.ed-mission-notes ul { margin: 0.2rem 0; padding-left: 1rem; }
+.ed-mission-notes li { margin-bottom: 0.3rem; }
+.edrpg-infiltration .ed-infil-status { display: flex; gap: 0.5rem; align-items: center; justify-content: space-between; margin-bottom: 0.3rem; }
+.edrpg-infiltration .ed-infil-status .ok { color: #1d7d4f; font-weight: bold; }
+.edrpg-infiltration.alert { border-left: 3px solid var(--ed-red); padding-left: 0.3rem; }
+.edrpg-infiltration .ed-chip.warn { background: var(--ed-damage); border-color: var(--ed-damage-border); }
+.edrpg-infiltration .ed-infil-list { margin: 0; padding-left: 1.1rem; }
+.edrpg-infiltration .ed-infil-list > li { margin-bottom: 0.35rem; }
+.edrpg-infiltration li.passed .ed-infil-name b { color: #1d7d4f; }
+.edrpg-infiltration li.failed .ed-infil-name b { text-decoration: line-through; opacity: 0.7; }
+.edrpg-infiltration .ed-infil-gm { float: right; display: inline-flex; gap: 0.35rem; }
+.edrpg-infiltration .ed-infil-checks { margin: 0.1rem 0; padding-left: 0.8rem; list-style: none; }
+.edrpg-infiltration .ed-infil-roll { margin-right: 0.35rem; white-space: nowrap; }
+.edrpg-infiltration .ed-infil-reward, .edrpg-infiltration .ed-infil-penalty { font-size: 0.85em; }
+.edrpg-infiltration .ed-infil-penalty { color: var(--ed-damage-border); }
+.edrpg-infil-dialog .ed-infil-pick { display: grid; grid-template-columns: 1fr 1fr; gap: 0.1rem 0.5rem; max-height: 14rem; overflow-y: auto; }
+.edrpg-base-explorer .ed-base { display: flex; flex-direction: column; gap: 0.4rem; height: 100%; }
+.edrpg-base-explorer .ed-base-head { display: flex; flex-direction: column; gap: 0.15rem; }
+.edrpg-base-explorer .ed-base-alert { color: var(--ed-red); font-weight: bold; }
+.edrpg-base-explorer .ed-base-actions { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.edrpg-base-explorer .ed-base-actions button { flex: 1 1 45%; }
+.edrpg-base-explorer .ed-base-log { flex: 1; overflow-y: auto; margin: 0; padding-left: 0; list-style: none; }
+.edrpg-base-explorer .ed-base-log > li { padding: 0.3rem 0.2rem; border-bottom: 1px solid var(--ed-cell-border); }
+.edrpg-generators .form-footer, .edrpg-generators footer { flex-wrap: wrap; }
+
+/* Planet exploration (Exploration Supplement pp.43–46) */
+.edrpg-planet .ed-pe-checks { margin: 0.2rem 0; padding-left: 1rem; }
+.edrpg-planet .ed-pe-check, .edrpg-planet .ed-pe-damage, .edrpg-planet .ed-pe-action { white-space: nowrap; margin-right: 0.35rem; cursor: pointer; }
+.edrpg-planet .ed-pe-damage { color: var(--ed-damage-border); }
+.edrpg-planet .ed-pe-action { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0 0.35rem; border: 1px solid var(--ed-highlight-border); border-radius: 3px; background: var(--ed-highlight); }
+.edrpg-planet .ed-pe-log { margin: 0.3rem 0; padding-left: 1.1rem; }
+.edrpg-planet .ed-pe-log li { margin-bottom: 0.25rem; }
+.ed-starsystem .ed-ss-explore.explored { color: #1d7d4f; }
+.ed-starsystem .ed-ss-buttons button.active { background: var(--ed-highlight); }
+.edrpg-event.alert, .edrpg-hostages.alert { border-left: 3px solid var(--ed-red); padding-left: 0.3rem; }
+.edrpg-hostages .ed-hostage-groups { margin: 0.3rem 0; padding-left: 1.1rem; }
+.edrpg-hostages .ed-hostage-groups li.defeated > b { color: #1d7d4f; }
+.edrpg-interdiction ol { margin: 0.3rem 0; padding-left: 1.1rem; }
+.edrpg .ed-tool-row [data-int], .edrpg .ed-tool-row [data-host], .edrpg-hostages [data-host] { cursor: pointer; margin-right: 0.4rem; }

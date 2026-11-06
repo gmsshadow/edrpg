@@ -18,6 +18,7 @@ import {
    metallic,
 } from "../starsystem.mjs";
 import { openMarket } from "../trading.mjs";
+import { columnFor, exploreBody } from "../planet.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -113,6 +114,9 @@ export default class EDStarSystemSheet extends HandlebarsApplicationMixin(ActorS
          market: EDStarSystemSheet.#onMarket,
          spaceLane: EDStarSystemSheet.#onSpaceLane,
          planetEncounter: EDStarSystemSheet.#onPlanetEncounter,
+         exploreMoon: EDStarSystemSheet.#onExploreMoon,
+         survey: EDStarSystemSheet.#onSurvey,
+         resetExplored: EDStarSystemSheet.#onResetExplored,
       },
    };
 
@@ -134,6 +138,8 @@ export default class EDStarSystemSheet extends HandlebarsApplicationMixin(ActorS
       const bodyTypes = Object.keys(BODY_TYPES);
       const starTypes = Object.keys(STAR_TYPES);
 
+      // Exploration (Exploration Supplement pp.43–46): landable bodies, and which have been explored.
+      const explored = new Set(actor.getFlag("edrpg", "explored") ?? []);
       const starViews = stars.map((s, si) => {
          const t = STAR_TYPES[s.type] ?? {};
          const bodies = s.bodies
@@ -156,7 +162,10 @@ export default class EDStarSystemSheet extends HandlebarsApplicationMixin(ActorS
                   ringOptions: RINGS.map((r) => ({ value: r, label: L(`EDRPG.star.rings.${r || "none"}`), selected: r === b.rings })),
                   canRing: bt.kind === "gasGiant" || b.type === "star",
                   metallicRings: metallic(b.rings),
-                  moons: b.moons.map((m, mi) => ({ mi, name: n.moons[si][bi][mi], type: m, options: opts(MOON_TYPES, "EDRPG.star.body", m), here: at[`${si}.${bi}.${mi}`] ?? [] })),
+                  moons: b.moons.map((m, mi) => ({ mi, name: n.moons[si][bi][mi], type: m, options: opts(MOON_TYPES, "EDRPG.star.body", m), here: at[`${si}.${bi}.${mi}`] ?? [], landable: columnFor(m) !== null, explored: explored.has(`${si}.${bi}.${mi}`) })),
+                  landable: columnFor(b.type) !== null,
+                  lifeBearing: columnFor(b.type) === 0,
+                  explored: explored.has(`${si}.${bi}`),
                   reward: cr(bodyReward(b)),
                   life: !!bt.life,
                   here: at[`${si}.${bi}`] ?? [],
@@ -194,6 +203,8 @@ export default class EDStarSystemSheet extends HandlebarsApplicationMixin(ActorS
          source: src,
          editable: this.isEditable,
          isGM: game.user.isGM,
+         survey: !!actor.getFlag("edrpg", "survey"),
+         exploredCount: explored.size,
          stars: starViews,
          canAddStar: stars.length < 6,
          reward: cr(systemReward(stars)),
@@ -447,14 +458,36 @@ export default class EDStarSystemSheet extends HandlebarsApplicationMixin(ActorS
    /** @this {EDStarSystemSheet} Draw a Space Lane Encounter for the system's security rating. */
    static async #onSpaceLane() {
       const security = securityOf(this.document.system.civ.government) || "low";
-      return drawTable(`Space Lane Encounters – ${{ high: "High", average: "Average", low: "Low" }[security]} Security`);
+      const { rollSpaceLane, securityColumn } = await import("../space-lane.mjs");
+      return rollSpaceLane({ column: securityColumn(security), count: 1, place: this.document.name });
    }
 
-   /** @this {EDStarSystemSheet} Draw a Planet Encounter (life-bearing or lifeless). */
+   /** @this {EDStarSystemSheet} Explore a planet: its Planet Encounter (Exploration Supplement pp.43–46). */
    static async #onPlanetEncounter(event, target) {
       const { si, bi } = EDStarSystemSheet.#idx(target);
       const b = this.document.system.stars[si]?.bodies[bi];
-      return drawTable(`Planet Encounters – ${BODY_TYPES[b?.type]?.life ? "Life-Bearing Planet" : "Lifeless Planet"}`);
+      if (!b) return;
+      const n = names(this.document.name, this.document.system._source.stars);
+      return exploreBody(this.document, `${si}.${bi}`, { type: b.type, name: n.bodies[si][bi] });
+   }
+
+   /** @this {EDStarSystemSheet} Explore a moon. */
+   static async #onExploreMoon(event, target) {
+      const { si, bi, mi } = EDStarSystemSheet.#idx(target);
+      const m = this.document.system.stars[si]?.bodies[bi]?.moons[mi];
+      if (!m) return;
+      const n = names(this.document.name, this.document.system._source.stars);
+      return exploreBody(this.document, `${si}.${bi}.${mi}`, { type: m, name: n.moons[si][bi][mi] });
+   }
+
+   /** @this {EDStarSystemSheet} Survey mode: only every fourth lifeless world has an encounter (Stellar Cartography). */
+   static async #onSurvey() {
+      if (this.isEditable) await this.document.setFlag("edrpg", "survey", !this.document.getFlag("edrpg", "survey"));
+   }
+
+   /** @this {EDStarSystemSheet} Forget which worlds were explored. */
+   static async #onResetExplored() {
+      if (this.isEditable) await this.document.update({ "flags.edrpg.explored": [], "flags.edrpg.lifeless": 0 });
    }
 }
 

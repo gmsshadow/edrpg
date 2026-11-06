@@ -78,6 +78,19 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   fleet; drag a craft onto it to add it, and star the current ship. Character creation offers the eight starting ships
   (p.38). The chosen ship is copied from the compendium into the fleet under a name of the player's choice, with a
   Scarab SRV for the Sidewinder Discovery.
+- **Supplement generators** (Espionage, Exploration, Military, Super Traders): the GM's Generators button rolls
+  opponent groups by faction, difficulty and Tier (and places their tokens), tracks reinforcements and base Alerts
+  in combat, and runs Infiltration challenges, corporate and military bases room by room, and Space Lane, Planet and
+  Travel encounters. The Mission Generator adds the Trade Missions and each supplement's notes on running every mission,
+  with one-click links to the right generator. Journals can use the same links: `@EDRPG[encounter faction=military
+  difficulty=hard]{Hard Military group}`.
+- **Planet exploration** (Exploration Supplement pp.43–46): an Explore button on each landable planet and moon of a Star
+  System rolls its Planet Encounter (Life-bearing for Earth-like and Water worlds) as a card with the checks, damage,
+  groups to fight and treasure. The Alien Ruins traps and Relic AI Base are played step by step, and Alien Items and
+  Rare items are rolled and linked.
+- **Space Lane and Travel encounters** (Super Traders pp.44–49, Military Sourcebook p.59): each result is a card with
+  its checks, fights and sub-tables, plus Interdiction contests (Core p.209), Heists, Sneak into Port and a Hostage
+  Release tracker.
 - **Between Adventures** (Core Rules p.272): a character-sheet button for Safe Trading, Asteroid Mining, Exploring or
   Bounty Hunting with one of the character's ships. It reads the ship's fit, rolls, runs the employee risk check, pays
   crew wages and puts the income in the character's cash.

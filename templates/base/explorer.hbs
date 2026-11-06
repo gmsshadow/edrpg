@@ -1,0 +1,24 @@
+<section class="ed-base">
+   <header class="ed-base-head">
+      <div><b>{{typeLabel}}</b> · {{sizeLabel}} · {{localize "EDRPG.base.roomsUsed" used=used max=s.max}}</div>
+      {{#if hasTarget}}<div>{{localize "EDRPG.base.targetIs" room=target}} {{#if s.found}}<span class="ed-chip">{{localize "EDRPG.base.found"}}</span>{{else}}<span class="muted">{{localize "EDRPG.base.bonus" bonus=s.bonus}}</span>{{/if}}</div>{{/if}}
+      <div class="{{#if s.alert}}ed-base-alert{{/if}}"><i class="fa-solid fa-bell"></i> {{#if s.alert}}{{localize "EDRPG.base.alertOn"}}{{else}}{{localize "EDRPG.base.noAlert"}}{{/if}}</div>
+   </header>
+   <div class="ed-base-actions">
+      {{#unless started}}
+      <button type="button" data-action="enterFront"><i class="fa-solid fa-door-open"></i> {{localize "EDRPG.base.enterFront" room=front}}</button>
+      <button type="button" data-action="enterSide"><i class="fa-solid fa-user-ninja"></i> {{localize "EDRPG.base.enterSide"}}</button>
+      {{else}}
+      <button type="button" data-action="door" data-tooltip="EDRPG.base.doorHint"><i class="fa-solid fa-door-closed"></i> {{localize "EDRPG.base.openDoor"}}</button>
+      <button type="button" data-action="corridorDoor" data-tooltip="EDRPG.base.corridorDoorHint"><i class="fa-solid fa-door-open"></i> {{localize "EDRPG.base.corridorDoor"}}</button>
+      <button type="button" data-action="corridor"><i class="fa-solid fa-road"></i> {{localize "EDRPG.base.newCorridor"}}</button>
+      {{/unless}}
+      <button type="button" data-action="alert"><i class="fa-solid fa-bell"></i> {{#if s.alert}}{{localize "EDRPG.base.cancelAlert"}}{{else}}{{localize "EDRPG.base.raiseAlert"}}{{/if}}</button>
+      <button type="button" data-action="track" data-tooltip="EDRPG.base.trackHint"><i class="fa-solid fa-person-military-pointing"></i> {{localize "EDRPG.base.track"}}</button>
+      <button type="button" data-action="openLog"><i class="fa-solid fa-book-open"></i> {{localize "EDRPG.base.log"}}</button>
+   </div>
+   <p class="hint">{{localize "EDRPG.base.rules"}}</p>
+   <ol class="ed-base-log">
+      {{#each log as |l|}}<li>{{{l}}}</li>{{else}}<li class="muted">{{localize "EDRPG.base.empty"}}</li>{{/each}}
+   </ol>
+</section>

@@ -14,6 +14,8 @@
       {{#if editable}}
       <div class="ed-ss-buttons">
          <button type="button" data-action="generate"><i class="fa-solid fa-dice-d20"></i> {{localize "EDRPG.star.regenerate"}}</button>
+         <button type="button" data-action="survey" class="{{#if survey}}active{{/if}}" data-tooltip="EDRPG.planet.surveyHint"><i class="fa-solid {{#if survey}}fa-square-check{{else}}fa-square{{/if}}"></i> {{localize "EDRPG.planet.survey"}}</button>
+         {{#if exploredCount}}<button type="button" data-action="resetExplored" data-tooltip="EDRPG.planet.resetHint"><i class="fa-solid fa-flag"></i> {{localize "EDRPG.planet.explored" count=exploredCount}}</button>{{/if}}
       </div>
       {{/if}}
    </header>
@@ -80,7 +82,7 @@
                </td>
                <td class="reward">{{b.reward}}</td>
                <td class="ctl">
-                  <a data-action="planetEncounter" data-tooltip="EDRPG.star.planetEncounter"><i class="fa-solid fa-person-hiking"></i></a>
+                  {{#if b.landable}}<a class="ed-ss-explore {{#if b.explored}}explored{{/if}}" data-action="planetEncounter" data-tooltip="{{#if b.lifeBearing}}EDRPG.planet.exploreLife{{else}}EDRPG.planet.exploreLifeless{{/if}}"><i class="fa-solid {{#if b.explored}}fa-flag{{else}}fa-person-hiking{{/if}}"></i></a>{{/if}}
                   {{#if @root.editable}}
                   <a data-action="addMoon" data-tooltip="EDRPG.star.addMoon"><i class="fa-solid fa-moon"></i></a>
                   {{#if b.moons.length}}<a data-action="rerollMoons" data-tooltip="EDRPG.star.rerollMoons"><i class="fa-solid fa-dice-d6"></i></a>{{/if}}
@@ -99,6 +101,7 @@
                         <i class="fa-solid fa-moon"></i> {{m.name}}
                         <select data-path="stars.{{b.si}}.bodies.{{b.bi}}.moons.{{m.mi}}" {{#unless @root.editable}}disabled{{/unless}}>{{#each m.options as |o|}}<option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>{{/each}}</select>
                         {{#each m.here as |x|}}<span class="ed-ss-inst"><i class="fa-solid fa-city"></i> {{x.name}}</span>{{/each}}
+                        {{#if m.landable}}<a class="ed-ss-explore {{#if m.explored}}explored{{/if}}" data-action="exploreMoon" data-tooltip="EDRPG.planet.exploreLifeless"><i class="fa-solid {{#if m.explored}}fa-flag{{else}}fa-person-hiking{{/if}}"></i></a>{{/if}}
                         {{#if @root.editable}}<a data-action="deleteMoon" data-tooltip="EDRPG.star.deleteMoon"><i class="fa-solid fa-xmark"></i></a>{{/if}}
                      </span>
                      {{/each}}

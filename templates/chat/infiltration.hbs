@@ -1,0 +1,39 @@
+<div class="edrpg edrpg-chat edrpg-infiltration {{#if alert}}alert{{/if}}">
+   <h3><i class="fa-solid fa-user-secret"></i> {{title}}</h3>
+   <div class="ed-infil-status">
+      <span class="{{#if enough}}ok{{/if}}">{{localize "EDRPG.infil.progress" done=done need=need}}</span>
+      {{#if alert}}<span class="ed-chip warn">{{localize "EDRPG.infil.alertOn"}}</span>{{/if}}
+      <a data-infil="alert" data-gm data-tooltip="EDRPG.infil.alertHint"><i class="fa-solid fa-bell"></i></a>
+   </div>
+   <ol class="ed-infil-list">
+      {{#each challenges as |c|}}
+      <li class="{{#if c.passed}}passed{{else if c.failed}}failed{{/if}}">
+         <div class="ed-infil-name"><b>{{c.name}}</b>{{#if c.counts}} <span class="ed-chip">×{{c.counts}}</span>{{/if}}{{#if c.special}} <span class="ed-chip">{{localize "EDRPG.infil.special"}}</span>{{/if}}
+            {{#if c.by}}<span class="muted">— {{c.by}}</span>{{/if}}
+            <span class="ed-infil-gm" data-gm>
+               {{#if c.open}}<a data-infil="pass" data-index="{{c.index}}" data-tooltip="EDRPG.infil.pass"><i class="fa-solid fa-check"></i></a><a data-infil="fail" data-index="{{c.index}}" data-tooltip="EDRPG.infil.fail"><i class="fa-solid fa-xmark"></i></a>
+               {{else}}<a data-infil="reopen" data-index="{{c.index}}" data-tooltip="EDRPG.infil.reopen"><i class="fa-solid fa-rotate-left"></i></a>{{/if}}
+            </span>
+         </div>
+         {{#if c.open}}
+         <ul class="ed-infil-checks">
+            {{#each c.checks as |k|}}
+            <li>{{k.level}} ({{k.dn}}):
+               {{#each k.skills as |s|}}<a class="ed-infil-roll" data-infil="roll" data-index="{{c.index}}" data-check="{{k.ci}}" data-skill="{{s.key}}"><i class="fa-solid fa-dice-d10"></i> {{s.label}}</a>{{/each}}
+               {{#if k.note}}<span class="muted">({{k.note}})</span>{{/if}}
+            </li>
+            {{/each}}
+         </ul>
+         {{#if c.cost}}<div class="muted">{{localize "EDRPG.infil.bribeCost"}}</div>{{/if}}
+         {{/if}}
+         {{#if c.reward}}<div class="ed-infil-reward"><i class="fa-solid fa-gift"></i> {{c.reward}}</div>{{/if}}
+         {{#if c.penalty}}<div class="ed-infil-penalty"><i class="fa-solid fa-triangle-exclamation"></i> {{c.penalty}}</div>{{/if}}
+      </li>
+      {{/each}}
+   </ol>
+   <p class="hint">{{localize "EDRPG.infil.howTo"}}</p>
+   <div class="ed-tool-row" data-gm>
+      <a data-infil="draw"><i class="fa-solid fa-plus"></i> {{localize "EDRPG.infil.drawOne"}}</a>
+      <a data-infil="drawTwo"><i class="fa-solid fa-plus"></i> {{localize "EDRPG.infil.drawTwo"}}</a>
+   </div>
+</div>

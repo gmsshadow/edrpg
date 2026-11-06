@@ -5,6 +5,16 @@ import { openMissionGenerator, rollMission } from "./missions.mjs";
 import { betweenAdventures, openRareItems } from "./between-adventures.mjs";
 import { openHireCrew } from "./crew.mjs";
 import { registerFleetHooks, promptStartingShip } from "./fleet.mjs";
+import { registerTools, runTool } from "./tools.mjs";
+import { openEncounterGenerator, trackCombat, registerEncounterHooks } from "./encounters.mjs";
+import { openInfiltration, onRenderInfiltration } from "./infiltration.mjs";
+import { openBaseGenerator, openBase } from "./bases.mjs";
+import { onRenderPlanet, explore as explorePlanet } from "./planet.mjs";
+import { onRenderEventCard } from "./event-cards.mjs";
+import { onRenderInterdiction, openInterdiction } from "./interdiction.mjs";
+import { onRenderHostages } from "./hostage.mjs";
+import { rollSpaceLane } from "./space-lane.mjs";
+import "./travel.mjs";
 import { registerTurnPanel, openTurnPanel } from "./turn-panel.mjs";
 import * as EDRPG from "./config.mjs";
 import { CharacterData, NPCIndividualData, OpponentData, PartnerData } from "./data/actor.mjs";
@@ -40,8 +50,9 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, betweenAdventures, openRareItems, openHireCrew, promptStartingShip, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
+   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, betweenAdventures, openRareItems, openHireCrew, promptStartingShip, openEncounterGenerator, openInfiltration, openBaseGenerator, openBase, trackCombat, runTool, explorePlanet, rollSpaceLane, openInterdiction, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
    registerKarmaHooks();
+   registerTools();
 
    registerSettings();
    registerLandingSetting();
@@ -129,6 +140,7 @@ Hooks.once("ready", () => {
    registerVehicleCombat();
    registerFleetHooks();
    registerTurnPanel();
+   registerEncounterHooks();
    ensureLandingScene();
    // Controlled drones take their controller's Cyber bonus: refresh them once every actor exists, and when a
    // controller changes.
@@ -184,6 +196,13 @@ Hooks.on("renderActorDirectory", (app, html) => {
    crew.innerHTML = `<i class="fa-solid fa-user-plus"></i> ${game.i18n.localize("EDRPG.crew.button")}`;
    crew.addEventListener("click", () => openHireCrew());
    actions.append(crew);
+   // The supplements' Random Generation Systems: encounters, Infiltration, bases and travel tables.
+   const tools = document.createElement("button");
+   tools.type = "button";
+   tools.className = "edrpg-generators-button";
+   tools.innerHTML = `<i class="fa-solid fa-dice"></i> ${game.i18n.localize("EDRPG.tools.button")}`;
+   tools.addEventListener("click", () => openGenerators());
+   actions.append(tools);
 });
 
 Hooks.on("renderChatMessageHTML", (message, html) => {
@@ -193,4 +212,43 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
    onRenderDamage(message, html);
    onRenderCraftAttack(message, html);
    onRenderVehicleEvent(message, html);
+   onRenderInfiltration(message, html);
+   onRenderPlanet(message, html);
+   onRenderEventCard(message, html);
+   onRenderInterdiction(message, html);
+   onRenderHostages(message, html);
 });
+
+/** The GM's generators menu (supplement Random Generation Systems). */
+async function openGenerators() {
+   const L = (k) => game.i18n.localize(k);
+   const pickTool = await foundry.applications.api.DialogV2.wait({
+      window: { title: L("EDRPG.tools.button"), icon: "fa-solid fa-dice" },
+      classes: ["edrpg", "edrpg-dialog", "edrpg-generators"],
+      content: `<p class="hint">${L("EDRPG.tools.menuHint")}</p>`,
+      buttons: [
+         { action: "encounter", label: L("EDRPG.tools.encounter"), icon: "fa-solid fa-users-viewfinder" },
+         { action: "infiltration", label: L("EDRPG.tools.infiltration"), icon: "fa-solid fa-user-secret" },
+         { action: "base", label: L("EDRPG.tools.base"), icon: "fa-solid fa-building-shield" },
+         { action: "spaceLane", label: L("EDRPG.tools.spaceLane"), icon: "fa-solid fa-route" },
+         { action: "planet", label: L("EDRPG.tools.planet"), icon: "fa-solid fa-earth-americas" },
+         { action: "travel", label: L("EDRPG.tools.travel"), icon: "fa-solid fa-person-hiking" },
+         { action: "assassin", label: L("EDRPG.tools.assassin"), icon: "fa-solid fa-user-ninja" },
+         { action: "alienItem", label: L("EDRPG.tools.alienItem"), icon: "fa-solid fa-atom" },
+         { action: "interdict", label: L("EDRPG.tools.interdict"), icon: "fa-solid fa-magnet" },
+         { action: "sneak", label: L("EDRPG.tools.sneak"), icon: "fa-solid fa-user-secret" },
+         { action: "hostages", label: L("EDRPG.tools.hostages"), icon: "fa-solid fa-people-group" },
+         { action: "journey", label: L("EDRPG.tools.journey"), icon: "fa-solid fa-shuttle-space" },
+      ],
+      rejectClose: false,
+   });
+   if (!pickTool) return;
+   if (pickTool === "infiltration") return openInfiltration();
+   if (pickTool === "spaceLane" || pickTool === "planet") return runTool(pickTool, { count: 1 });
+   if (pickTool === "travel") {
+      const n = await foundry.applications.api.DialogV2.input({ window: { title: L("EDRPG.tools.travel") }, content: `<div class="form-group"><label>${L("EDRPG.tools.count")}</label><div class="form-fields"><input type="number" name="count" value="1" min="1"></div></div><div class="form-group"><label>${L("EDRPG.infil.alert")}</label><div class="form-fields"><input type="checkbox" name="alert"></div></div>`, rejectClose: false });
+      return n ? runTool("travel", { count: Number(n.count) || 1, alert: !!n.alert }) : null;
+   }
+   return runTool(pickTool, {});
+}
+

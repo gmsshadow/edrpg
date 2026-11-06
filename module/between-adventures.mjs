@@ -445,7 +445,7 @@ export function rareItem(rank, tierRoll, itemRoll) {
 }
 
 /** Find an item in the system's compendiums by name (ignoring the bracketed type). */
-async function findItem(name) {
+export async function findItem(name) {
    const base = name.replace(/\s*\(.*\)\s*$/, "").replace(/[‘’]/g, "'").toLowerCase();
    for (const id of ["weapons", "armour", "cybernetics", "clothing", "gear"]) {
       const pack = game.packs.get(`edrpg.${id}`);
@@ -453,6 +453,24 @@ async function findItem(name) {
       if (hit) return `Compendium.edrpg.${id}.Item.${hit._id}`;
    }
    return null;
+}
+
+/**
+ * One random Rare item for a rank, linked to the compendium where it exists (for treasure finds).
+ *
+ * @param {string} rank
+ *
+ * @returns {Promise<{tier: string, name: string, cost: number, each: boolean, uuid: string|null, weapon: boolean, qty: number|null}>}
+ */
+export async function rollRareItem(rank) {
+   const a = await new Roll("1d100").evaluate();
+   const b = await new Roll("1d100").evaluate();
+   const item = rareItem(rank, a.total, b.total);
+   item.qty = item.each ? (await new Roll("1d10").evaluate()).total : null;
+   item.uuid = await findItem(item.name);
+   // Weapons: in the Weapons compendium, or a bracketed weapon type.
+   item.weapon = !!item.uuid?.includes(".weapons.") || /\((?:[^)]*(?:pistol|rifle|gun|shotgun|smg|launcher|beamer|carbine|chain gun|accelerator|cannon))\)/i.test(item.name) || /grenade|sword|sabre|pistol|rifle|shotgun|smg|autopistol|launcher/i.test(item.name);
+   return item;
 }
 
 /**

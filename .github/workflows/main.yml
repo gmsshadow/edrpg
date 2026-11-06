@@ -22,7 +22,8 @@ jobs:
           download: https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/system.zip
 
       # No build step: the system ships as native ES modules, Handlebars templates and plain CSS.
-      - run: zip -r ./system.zip system.json LICENSE README.md CHANGELOG.md module/ templates/ styles/ lang/ fonts/ packs/ -x "packs/_source/*"
+      # assets/ holds the cover art, combat map scenes' backgrounds and ship/vehicle tokens.
+      - run: zip -r ./system.zip system.json LICENSE README.md CHANGELOG.md module/ templates/ styles/ lang/ fonts/ assets/ packs/ -x "packs/_source/*" "packs/*/LOCK" "packs/*/LOG*"
 
       - name: Update Release with Files
         uses: ncipollo/release-action@v1

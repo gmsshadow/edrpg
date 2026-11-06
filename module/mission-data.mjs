@@ -180,4 +180,67 @@ export const MISSIONS = {
          twists: [[2, "The colony's leader becomes a tyrant."], [5, "A rival colony wants them gone."], [8, "The wildlife is ferocious and organised."], [10, "A disaster: lead the survivors out before the reactor goes critical."]],
       },
    ],
+   // Super Traders Supplement pp.50–52.
+   trade: [
+      {
+         max: 1, name: "Special Delivery", page: 50, book: "Super Traders",
+         brief: "Deliver cargo for a company to a distant civilised system, with a long run in supercruise.",
+         details: [[3, "60 tons of Auto Fabricators to Urata City, Bhatas."], [6, "100 tons of Crop Harvesters to Khayyam Gateway, LTT 8517."], [8, "80 tons of Gallite to Katzenstein Dock, 36 Ophiuchi."], [10, "40 tons of Advanced Catalysers to Hutton Orbital, Alpha Centauri."]],
+         twists: [[3, "The delivery contact has been kidnapped and must be rescued to sign off."], [6, "The goods have just been banned here: sneak past the police and sell on the black market."], [8, "A tracking beacon in one canister brings a pirate gang after them; metallic asteroids might hide the signal while they search."], [10, "The canisters hold armed mercenaries who mean to take the station, or the players' ships."]],
+      },
+      {
+         max: 2, name: "Drop Point Delivery", page: 50, book: "Super Traders",
+         brief: "Deliver cargo to a planetary star port, then escort the truck overland to an isolated research base.",
+         details: [[2, "12 tons of Titanium to the barren moon Merope 5C."], [5, "12 tons of Explosives to the metal-rich planetoid Taygeta 4."], [8, "12 tons of Mineral Extractors to the ice world Mukun A3A."], [10, "12 tons of Robotics to war-torn Waterloo, Reidquat."]],
+         twists: [[3, "The Longhaul Truck is a wreck: patch it up, with breakdowns all the way."], [6, "Truck gangs demand a cut from anyone trading here."], [10, "The research base is deserted."]],
+      },
+      {
+         max: 3, name: "Too Good to Pass Up", page: 50, book: "Super Traders",
+         brief: "A rare good on sale at 1,000cr a ton sells for 20,000cr a ton on a certain world, if you get there first.",
+         details: [[2, "Tauri Chimes to Snider Terminal, Rajukru."], [4, "Damna Carapaces to George Lucas Station, Zaonce."], [6, "Chateau De Aegaeon to Weaver Vision, Cubeo."], [8, "CD-75 Kitten Brand Coffee to Solo Orbiter, Altair."], [10, "Lavian Brandy to Azeban City, Eranin."]],
+         twists: [[3, "Rival traders are racing to the same world: cut through pirate space, or stop them."], [6, "Only enough for half the holds; there's a store on the planet below, if it were raided."], [10, "The market has collapsed; a nearby system pays well, but the good is illegal there."]],
+      },
+      {
+         max: 4, name: "Much in Demand", page: 51, book: "Super Traders",
+         brief: "Fetch a quantity of a commodity from another world and bring it back to the employer.",
+         details: [[3, "50 tons of Gold for Li Qing Jao, Sol."], [6, "80 tons of Superconductors for Chango Dock, I Bootis."], [10, "100 tons of Resonating Separators for Henke Orbital, Sorbago."]],
+         twists: [[3, "In short supply at twice the average price, but a freighter full of it is just leaving."], [6, "Strikers blockade the star port on the way back."], [10, "Rival 'traders' plan to steal the players' cargo."]],
+      },
+      {
+         max: 5, name: "Hell’s Space Trip", page: 51, book: "Super Traders",
+         brief: "A standard delivery, hunted all the way by a ruthless agency of assassins.",
+         details: [[3, "They hunt you in the space lanes, not near the station."], [6, "Space lanes, and an ambush at the star port."], [10, "Space lanes, the star port, and hired thugs while you load."]],
+         twists: [[3, "The cargo is ethically dubious: maybe the assassins have a point."], [7, "One of the ships has been compromised: an attack mid-flight."], [10, "A bomb aboard goes off below 100m/s, with landing gear down, or with shields raised."]],
+      },
+      {
+         max: 6, name: "It’s Legal if They Don’t See It", page: 51, book: "Super Traders",
+         brief: "Smuggle illegal cargo into a station for a lot of money.",
+         details: [[3, "10 tons of Narcotics into Freeholm, Artemis."], [6, "20 tons of Battle Weapons into Massimino Settlement, Wolf 393."], [8, "30 tons of Slaves into Ricardo Orbital, Kokomi."], [10, "40 tons of Combat Stims into Serre Point, Katta."]],
+         twists: [[3, "Security has been tipped off and is hunting their ships: find another way in."], [6, "The contact is held hostage by a rival gang on an asteroid station."], [10, "Bounty hunters raid the handover."]],
+      },
+      {
+         max: 7, name: "Second Hand Goods", page: 51, book: "Super Traders",
+         brief: "Collect Imperial surplus from a freighter and deliver it to a Federation market.",
+         details: [[3, "A Stalwart Trader with 72 tons of Liquor for Bates Horizons, Carener."], [6, "An Armoured Transport with 80 tons of Advanced Catalysers for Elder Works, Ross 154."], [8, "A Successful Trader with 300 tons of Fruit & Vegetables for Ford City, Groombridge 34."], [10, "A Bulk Cruiser with 600 tons of Consumer Goods for Paradiso Outpost, 17 Draconis."]],
+         twists: [[3, "Pirates attack during the transfer; the trader helps, and the mission fails if it's destroyed."], [6, "Some canisters hold saboteurs (see the Saboteur encounter)."], [10, "Trackers lead Federation pirates to them."]],
+      },
+      {
+         max: 8, name: "Traders’ Instincts", page: 51, book: "Super Traders",
+         brief: "A hold full of rare goods and three possible markets: the longer it takes to find the right one, the less it pays.",
+         details: [[3, "Ultra Compact Processors: CE Bootis, Wolf 406 or Leesti."], [6, "Centauri Mega Gin: Baldr, Summerland or Thule."], [8, "Altarian Skin: Trakath, Los or van Maanen's Star."], [10, "Shans Charis Orchids: Gamma Leporis, Tupa or Banki."]],
+         twists: [[3, "Old Joe, a famous trader, is leaving with the same cargo: follow him?"], [6, "The first star port is blockaded by striking traders."], [10, "A passing trader offers a fair price for the lot. Is he what he seems?"]],
+      },
+      {
+         max: 9, name: "Helping Old Joe", page: 52, book: "Super Traders",
+         brief: "Old Joe, a much-loved trader, vanished on his last delivery. Find him.",
+         details: [[3, "He was heard arguing with a corrupt docking official."], [6, "His Cobra sits intact on an airless moon; vehicle tracks lead away."], [10, "A cryptic message behind the bar in his hand."]],
+         twists: [[3, "Federal authorities don't want him found, and act on it."], [6, "Other traders join the search; he must be freed from a criminal stronghold."], [10, "He faked his death to escape an Imperial assassin, and the players have led the assassin to him."]],
+      },
+      {
+         max: 10, name: "Copycat Traders", page: 52, book: "Super Traders",
+         brief: "Someone with the same ship and clothes trades in your name, just ahead of you.",
+         details: [[10, "Wherever the players trade next."]],
+         twists: [[3, "Revenge: the players ruined their earlier deals."], [6, "Newcomers borrowing a reputation; they might stop without violence."], [10, "A trap set by a crime boss the players offended."]],
+      },
+   ],
 };

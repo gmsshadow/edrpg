@@ -1,5 +1,134 @@
 # Changelog
 
+## 0.1.56
+
+Space Lane Encounters, Travel (Military), Interdiction and Hostage Release.
+
+- **Space Lane Encounters** (Super Traders Supplement pp.44–49): all 28 results are now cards, from the Generators
+  menu, the Star System sheet's Space Lane button (by the system's security rating) and the Trade mission notes.
+  - Each card has the event in brief, its checks (Relative Difficulty Numbers for the party's rank), the groups to
+    fight, Interdiction and market links, and Hull or Endurance damage buttons.
+  - Results that hit one player pick a random player.
+  - Star Port encounters come last when several are rolled.
+  - The D10 sub-tables roll from a button and log on the card: Abandoned Ship (the derelict and what's aboard,
+    including the creature), Asteroid Base (salvage, black market, the illicit store with cargo and a Rare item,
+    repairs), Dangerous Cargo (the animal at the party's Tier, then locking the bridge), Drifting Salvage, Military
+    Checkpoint scans, Ship in Danger and Stowaway.
+  - Ship in Danger's burning Type-7 is played round by round: D10 orphans unloaded per ship, then the D10 for the
+    explosion, then the reward.
+  - Gambling shows the stake for the rank and the Easy, Average and Hard results. Tricky Docking rolls 1D10×10 Hull.
+    Unofficial Docking Tax rolls two more encounters.
+  - **Heist** rules (limpets by heist ship size, withdrawal, submitting) are on every pirate card.
+  - **Sneak into Port** card: a Systems check by ship size, with the fine and the Patrol Vipers.
+- **Interdiction** (Core p.209, Super Traders p.45), from the cards or the Generators menu:
+  - Suggests the target in the book's order (cargo ships, then multi-role, then combat ships), from the party's
+    current ships.
+  - The interdictor's piloting comes from the party's rank.
+  - The GM rolls opposed rounds; two wins in a row decides it, ties change nothing, or the target submits.
+  - A pulled-out ship takes the 10 Hull drop-out damage at a click, with the D10 for component damage.
+- **Travel (Military)** (Military Sourcebook p.59): the seven results as cards, with on-foot and vehicle options.
+  - An Alert toggle makes the marked checks harder.
+  - Minefield's detour rolls three more; unique results happen once per roll.
+  - Spacecraft Sweep names the ship.
+- **Hostage Release tracker** (Military Sourcebook pp.56–57), from the mission notes or the Generators menu:
+  - Rolls 2D10 hostages and shows the pay (double, normal or none).
+  - Shows the terrorist groups in order with the ways each can be beaten: hand-to-hand, Stealth (never the last
+    group), technical (after the first group, never the last) and ambush (the last group only).
+  - Alert toggle and a hostage-dies button.
+  - Negotiator toggle: every check one step easier.
+- Ruling: the book prints Surprise Inspection's High security range as 97–92; it's taken as 87–92.
+
+## 0.1.55
+
+Planet exploration (Exploration Supplement pp.38, 43–46).
+
+- **Explore** on the Star System sheet, for each landable planet and moon (gas giants, belts and stars can't be
+  landed on).
+  - Earth-like and Water worlds use the Life-bearing column; other solid worlds and moons use the Lifeless column.
+  - Explored worlds are flagged; a header button shows how many and clears the marks.
+  - **Survey mode** (Stellar Cartography, details 5–8): only every fourth lifeless world explored has an encounter.
+- **Encounter cards** for all 24 Planet Encounter results. Each card shows:
+  - what happens, in brief;
+  - the checks, as roll links at the Relative Difficulty Number for the party's rank (anyone rolls for their token,
+    or for the named player);
+  - damage buttons for the GM, for the named player, the selected tokens or the whole team;
+  - the group to fight, through the encounter roller;
+  - the treasure value.
+  - Hazards that strike one character pick a random player.
+- **Step by step**:
+  - **Alien Ruins**: a random player rolls the trap D10 each time (wall collapse, energy wave, yellow beam, with their
+    Dodge checks and damage) until a 9–10. Then two Alien Items and treasure.
+  - **Relic AI Base**: Go deeper rolls the next discovery (blades, exploding coms, Relic AI groups, hypnotic screens,
+    a relic, the magma floor, preserved explorers, lost tunnels, the central processors), never repeating. A repeat
+    finds the storeroom (treasure and a Rare item), and the base is done.
+  - **Alien Spawning Ground** rolls the animal at the party's Tier, then a Hard group of that animal.
+  - **Crashed Ship** rolls the Asp Scout – Voyager or Diamondback Explorer – Probe (linked) and its Random Cargo.
+  - **Lost** rolls two more encounters.
+  - **Pirate Attack** can track the pirates to their **Pirate Outpost**.
+  - **Tribal Village** trades a Rare item for a weapon (or artwork, if the item is a weapon).
+- **Alien Items** (p.38) are rolled and linked to the compendiums. Drained power cells come as 1D10; every other item
+  comes with a charged cell. There's an Alien Item button in the Generators menu too.
+- The Generators' Planet Encounters and the Exploration mission notes now post these cards.
+- Macro: `game.edrpg.explorePlanet({ column: 0 | 1, place, event })`.
+- Rulings: Ammonia worlds use the Lifeless column (the book names only Earth-like and Water worlds as life-bearing).
+
+## 0.1.54
+
+The supplements' Random Generation Systems: missions, encounters, Infiltration and bases.
+
+- **Generators** button (GM, Actors sidebar), also usable as links in journals and chat:
+  `@EDRPG[tool key=value …]{Label}`.
+- **Encounters** (each supplement's opponent tables):
+  - Choose the faction (Security, Military, Criminal, Alien Animals, Tribals, Relic AI), scale and difficulty. The
+    number of opponents is players −2 to +5 by D10, and each opponent is a D100 on the party's Tier, from their
+    highest rank. Security groups stop at Tier 3. High Threat opponents count as three.
+  - The card links each opponent to the compendium and gives personal-scale opponents their behaviour (thoughtless,
+    brute or cunning).
+  - **Place tokens** puts the group on the scene, hidden.
+  - **Track reinforcements**: at the end of each combat round the GM is whispered the D10 (+1 per round since the
+    last group). On 10+ an Easy group arrives, with a button to roll it. In a base without an Alert, it also makes the
+    D10 Alert check (a 10 raises it).
+  - "Humans only" re-rolls drones, robots and animals, for soldiers or unarmed staff.
+  - **Rank Appropriate Assassin** by the party's rank.
+- **Infiltration challenges** (Espionage). A tracker card holds a random draw or a chosen list, with how many are
+  needed.
+  - Each challenge shows its checks at the Relative Difficulty Number for the party's rank (Core p.242), one step
+    harder once the Alert is raised.
+  - Anyone can click a skill to roll it for their token. Invite to Party doubles the Social Factor.
+  - The GM marks each challenge completed or failed (Bribe counts two), raises the Alert, and draws more.
+  - Rewards and penalties are summarised; Interrogate is included for Determining Who the Mole Is.
+- **Bases** (Espionage corporate bases, Military Sourcebook military bases). A Base Explorer window with the base
+  saved as a journal entry (state and a running log):
+  - Size and maximum rooms.
+  - Enter by the front (Reception / Guard Room) or a Side Room, which is locked 80% of the time.
+  - Each door: D10, even a room and odd a corridor; corridor doors always open into rooms.
+  - Rooms by D100. With a target room, each room adds +5 to the next roll, and 101+ (or the last room) is the target.
+    Regimental HQ appears in large bases only.
+  - For each room: its size, doors by size, and who is there now. Chances are rolled, and the Alert changes the
+    occupants. Groups have a button to roll them. The room's locks, checks and rewards are summarised.
+  - Corridors: length, doors and what's at the end.
+  - Raise or cancel the Alert, and track it in combat.
+- **Space Lane** (by security rating), **Planet** (life-bearing or lifeless) and **Travel (Military)** encounters
+  roll any number at once. A unique Travel event happens once; Star Port encounters come last. Fights link to the
+  encounter generator. There is also the Exploration Supplement's long journey table, for every 100 jumps.
+- **Mission Generator**:
+  - **Trade** theme: the Super Traders Supplement's ten Trade Missions with their details and twists. A random theme
+    still picks from the Core Rules' three.
+  - Every mission's briefing includes the supplement's Mission Notes for the rolled detail (and twist): the
+    challenges needed, the base and target room, the encounters, the travel and Space Lane rolls. Each comes with a
+    link to the generator. The notes are in the journal entry too.
+- Data: `module/generation-data.mjs` is generated from the roll table data by `tools/rolltables.py`. Each "X or Y"
+  opponent result links to the supplement's own opponent.
+- Rulings:
+  - The book prints Break into Deposit Box as 16–20, overlapping the previous result; it's taken as 17–20.
+  - Corporate rooms use the Military Sourcebook's doors-per-room table (the Espionage Supplement prints none).
+  - "Unique" opponents (italics in the books) aren't limited to one per group.
+
+## 0.1.53
+
+- Fix: the GitHub release workflow left out the `assets` folder, so released zips had no cover art, map backgrounds
+  or ship and vehicle tokens. It's now included. Compendium LOCK and LOG files are left out.
+
 ## 0.1.52
 
 Ships and vehicles now belong to characters, not just players.

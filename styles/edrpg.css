@@ -3909,3 +3909,30 @@ a.edrpg-tool:hover { background: var(--ed-header); color: var(--ed-white); }
 .edrpg-hostages .ed-hostage-groups li.defeated > b { color: #1d7d4f; }
 .edrpg-interdiction ol { margin: 0.3rem 0; padding-left: 1.1rem; }
 .edrpg .ed-tool-row [data-int], .edrpg .ed-tool-row [data-host], .edrpg-hostages [data-host] { cursor: pointer; margin-right: 0.4rem; }
+
+/* Ship Component item sheet: the roster note takes the full width. */
+.edrpg.edrpg-sheet .form-group.ed-wide .form-fields { flex: 1 1 100%; }
+.edrpg.edrpg-sheet .form-group.ed-wide input[type="text"] { width: 100%; }
+
+/* Outfitting tab (ships). */
+.edrpg .vehicle-outfit .ed-outfit-head { margin-bottom: 0.5rem; }
+.edrpg .ed-outfit-power { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; }
+.edrpg .ed-outfit-power .bar { flex: 1; height: 0.6rem; border-radius: 3px; background: rgba(127, 127, 127, 0.25); overflow: hidden; }
+.edrpg .ed-outfit-power .bar > span { display: block; height: 100%; background: #2a8fd6; }
+.edrpg .ed-outfit-power.over .bar > span { background: #c0392b; }
+.edrpg .ed-outfit-power.over .value { color: #c0392b; }
+.edrpg .ed-outfit-summary { margin: 0.25rem 0; }
+.edrpg .ed-outfit-slots { list-style: none; margin: 0 0 0.5rem; padding: 0; }
+.edrpg .ed-outfit-slots li { display: grid; grid-template-columns: 9.5rem 1fr 3.2rem 3.6rem 1.5rem; gap: 0.4rem; align-items: baseline; padding: 0.15rem 0.25rem; border-bottom: 1px solid rgba(127, 127, 127, 0.2); }
+.edrpg .ed-outfit-slots li.empty .name { opacity: 0.6; }
+.edrpg .ed-outfit-slots li.unlinked .name { font-style: italic; }
+.edrpg .ed-outfit-slots .slot { opacity: 0.8; }
+.edrpg .ed-outfit-slots .note { opacity: 0.7; font-size: 0.85em; }
+.edrpg .ed-outfit-slots .num { text-align: right; font-variant-numeric: tabular-nums; }
+.edrpg .ed-outfit-dialog .ed-outfit-option { display: block; margin: 0.2rem 0; }
+
+/* Optional Rules window. */
+.edrpg.edrpg-rules .ed-rules-group { margin-bottom: 0.75rem; }
+.edrpg.edrpg-rules .ed-rule { margin: 0.35rem 0; }
+.edrpg.edrpg-rules .ed-rule .hint { margin: 0.1rem 0 0 1.6rem; }
+.edrpg.edrpg-rules .ed-rules-master { display: block; margin-bottom: 0.4rem; }

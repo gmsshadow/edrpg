@@ -1,5 +1,112 @@
 # Changelog
 
+## 0.1.62
+
+- **Optional Rules window** (Game Settings → Configure Settings → Optional Rules, GM only): every optional rule has its
+  own switch, grouped by book, and they're all off by default, so a world plays the rules as written until the GM
+  turns something on. A group can also have a master switch, for a whole optional package; the Evolution rules will
+  go here as their own group.
+- **Core Rules Rule Variants** (pp.263–265), each a separate switch:
+  - **One interrupting action per round.** In personal combat a character can take one Counter-attack or free attack
+    (point blank, or at someone running away) between their turns; a second is refused, and the Counter button is
+    hidden until their turn starts. In ship and vehicle combat, a craft that has already rolled a Dogfight (Tail)
+    outside its turn loses any further one automatically: the attacker gets behind it and fires, with no roll.
+  - **Playing the Decimals.** Skill check and attack cards gain a "Playing the Decimals" button for characters with
+    Karma: 1 Karma, a D10 plus the unit digit of the Skill score (a rare weapon's Skill score bonus counts); on 10 or
+    more, +1 to the roll, and the result is judged again. Once per roll; a partner pays with their host's Karma.
+    A +1 that turns a Medicine check into a success stabilises the patient; on a treatment it heals the extra point.
+  - **Defence Tokens.** Each ship or vehicle that attacks a craft gives it a token: +2 Defence per token against
+    everyone else, shown on the attack card. They're discarded at the start of the craft's turn.
+  - **Group Fire.** A craft's identical weapons (same name and mount, working, with ammunition) fire as one: one
+    Attack roll and one card marked ×2, ×3…, ammunition spent from each, and the Damage applied once per weapon. A
+    critical hit damages the component only once. Firing everything (Tail, Joust and so on) skips the weapons
+    already fired as part of a group.
+  - **Avoidable Explosives.** When a grenade or missile lands, anyone in the blast can react from the attack card
+    before the Damage is rolled, as their selected token or their own character: **Run for cover** (a Dodge check:
+    that many metres, +2 per Quick Runner; a natural 1 and they don't get away), **Throw it back** (grenades only: a
+    D10 of 8 or more and it explodes where they throw it; otherwise it goes off at once) or **Jump on it** (grenades
+    only: they take double the fatal Damage and the fatal radius takes the injury Damage; the injury radius takes
+    nothing). Missiles and grenade launchers only allow running for cover.
+
+## 0.1.61
+
+- **Silent Running** (Core Rules p.268): a new Equipment action for ships, on the sheet and the turn panel. The ship
+  drops its shields (they stay off, and recharge as normal once it stops) and is invisible to sensors: it isn't
+  offered as a target and can't be attacked. **Scan** is the other side: an opposed check of the sensor operator's
+  Systems plus the ship's General Scan against the hidden ship's Systems + 4 (small) or + 2 (medium); ties keep it
+  hidden. A ship that finds it can target it, but gimballed weapons and automated turrets are at -4, and seekers and
+  torpedoes can't be fired at it. It's safe for a minute; after that, each round its crew take 1D10 Damage and three
+  random components 1D10 each. **Heat Sinks** (Heat Sink Launchers hold 4) buy another minute and give +2 Systems
+  against scans that turn; fitting or removing a launcher changes the count. The book never says how long a round
+  lasts: a new world setting, "Silent Running: rounds per minute", defaults to six (its overheating damage comes
+  every ten seconds). Shield cell banks can't be used while silent.
+- **Award Rank Points** (Core Rules p.326): a GM button in the Actors sidebar. Pick who earns them and what for:
+  a quick mission (4), a couple of sessions (8), a very tough mission (12–20), overcoming a challenge (1), defeating
+  an enemy of the party's Tier or higher (1), or any other amount. The chat card shows each character's points before
+  and after and calls out rank-ups, which then wait on their Data Sheet as usual.
+
+## 0.1.60
+
+- **Hangars:** the Super Traders Supplement's Fighter Hangars (5D, 6D, 7D) and Spaceship Hangar (8D) are in the Ship
+  Components compendium (New Internal Components, pp.29–30). Fighter Hangars fit only the ships designed to carry
+  fighters (Anaconda, Beluga Liner, Boa Mk III, Federal Corvette, Federal Gunship, Imperial Cutter, Imperial Explorer,
+  Keelback, Type-9 Heavy, Type-10 Transport); Spaceship Hangars only Huge ships. A fitted hangar sets how many craft
+  can dock. The hangars aboard the Boa Mk III, Imperial Explorer and Keelback variants are now linked like every other
+  component.
+- **Bulkheads for the supplements' hulls:** Reinforced Alloys and Military Grade Composites for all 18 supplement hulls,
+  at each book's prices, in a folder per book. Supplement ships fitted with them now carry their real price (for
+  resale at 70%).
+- The Imperial Explorer – Regional Battleship now also shows as drawing slightly more power than its plant makes
+  (36.08 of 36 MW, with its hangars counted), as printed.
+
+## 0.1.59
+
+Ship outfitting (Core Rules, Modifying Spacecraft, pp.192–193).
+
+- **Hull layouts:** every ship in the Ships compendium (the 63 core ships and the supplements' 56) now knows its hull's
+  slots from its Basic Specifications page: hardpoints by size, utility mounts, the class of each fixed component, and
+  its internal slots (military ones marked), plus its starting Hull and the Explorer trait. Its components are Ship
+  Component items in those slots, linked to the component roster, with the bulkhead each variant is printed with; its
+  weapons sit on hardpoints and know their power draw.
+- **Outfitting tab** on ships: the power budget (draw against the power plant's output) and every slot with what's in
+  it. Drop a component or ship weapon from the compendia on the sheet and choose a slot. The rules are checked: fixed
+  components must be the hull's class; internal components can't be larger than their slot; military slots take only
+  reinforcement packages and shield cell banks; weapons can't be larger than their hardpoint; one shield generator,
+  collector, prospector, refinery, discovery scanner and surface scanner per ship; and nothing may draw more power than
+  the plant produces. Empty a slot to sell what was in it.
+- **Ratings follow the components:** each swap changes the ship by what it adds or takes away: Agility, Speed, Hull
+  (bulkheads on the hull's starting value, Hull Reinforcement Packages), Shields (generator, and boosters each a % of
+  it rounded up to 5), recharge, To Hit, Initiative, Dogfighting, Floating bonuses, chaff, point defence, ECM, shield
+  cell banks, cargo capacity, jump range (+50% for Explorer hulls) and, for E-grade Module Reinforcement Packages, every
+  roster component's Strength. The book's printed figures and Engineering bonuses are kept as the starting point.
+- **Buying and selling:** if the ship has an owner, the fitting dialog can take the price from their credits and pay
+  70% of the old part's value back (Upgrading your Ship, p.193).
+- Ship weapons have a Power (MW) field.
+- Book oddities kept as printed: the Federal Assault Ship – Patriot Edition's fixed components are smaller than its
+  hull's classes; the Keelback – Tunnel Snake's Large Turreted Beam Laser has no large hardpoint (it's listed as not
+  on a hardpoint); the Eagle Mk II – Defender 3400 and Imperial Cutter – Kestral draw a fraction more power than their
+  plants make (changes that don't add to that are allowed).
+
+## 0.1.58
+
+Ship Weapons and Ship Components compendia (Core Rules, Modifying Spacecraft, pp.192–216).
+
+- **Ship Weapons compendium:** all 78 weapons in the Spacecraft Weapon List, in folders by size, with their mount,
+  To Hit, damage, Burst, ammunition and cost. The descriptions give each weapon's power draw and its ammunition costs
+  (p.197). The +5 against shields for lasers, the +5 against unshielded hulls for cannons, and the fragment cannons'
+  damage by target size follow the book's markers. The Exploration Supplement's ship weapons (Destabilisation Beam,
+  Aegis weapons) have moved here from the Weapons compendium.
+- **Ship Components compendium:** 582 components as a new **Ship Component** item type: bulkheads (per hull), power
+  plants, thrusters, frame shift drives, life support, power distributors, sensors, fuel tanks, the cargo hatch,
+  every utility mount, shield generators, shield cell banks, hull and module reinforcement packages, cargo racks,
+  AFM units, limpet controllers (collector, prospector, hatch breaker), docking computers, FSD interdictors, fuel
+  scoops, planetary scanners, refineries and vehicle hangars. Each has its size, grade, power, Strength, cost, whether
+  it fits a military slot, and the numbers it adds to a ship (Speed, Agility, shields, range, bonuses and so on).
+- **Fitting a component:** drop one on a spaceship's sheet and it goes on the ship's component roster. Fixed components
+  and the Shield Generator replace the one fitted; utility mounts and internal components are added. Components that
+  can't take critical hits (bulkheads, reinforcement packages, fuel tanks) stay off the roster. The ship's ratings
+  aren't recalculated from its components yet.
+
 ## 0.1.57
 
 - **Fixed:** the system failed to load in Foundry (sheets opened as Foundry's default name-and-portrait sheet).

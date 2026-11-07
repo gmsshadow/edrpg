@@ -19,6 +19,8 @@
    </dl>
    {{/if}}
    {{#if dice.length}}<div class="damage-dice">{{#each dice as |d|}}<span class="die {{#if (eq d 10)}}ten{{/if}}">{{d}}</span>{{/each}}</div>{{/if}}
+   {{#if jumped}}<div class="attack-note"><i class="fa-solid fa-person-falling-burst"></i> {{localize "EDRPG.reaction.jumpedNote" name=jumped.name}}</div>{{/if}}
+   {{#if thrownBack}}<div class="attack-note"><i class="fa-solid fa-baseball"></i> {{localize "EDRPG.reaction.thrownNote"}}</div>{{/if}}
    {{#if explosive}}<div class="attack-note">{{localize "EDRPG.damage.explosiveKnock"}}</div>
    {{else if knock}}<div class="attack-note knock"><i class="fa-solid fa-person-falling"></i> {{localize "EDRPG.damage.knock"}}{{#if free}} {{localize "EDRPG.damage.freeKnock"}}{{/if}}</div>{{/if}}
    {{#if disarm}}<div class="attack-note knock"><i class="fa-solid fa-hand"></i> {{localize "EDRPG.damage.disarm"}}</div>{{/if}}

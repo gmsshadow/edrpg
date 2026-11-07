@@ -31,6 +31,7 @@
    </div>
    {{#if scale}}<div class="attack-note muted"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> {{localize "EDRPG.combined.attackNote" factor=scale.factor}}</div>{{/if}}
    {{#if reason}}<div class="attack-note">{{localize (concat "EDRPG.contest.reason." reason)}}</div>{{/if}}
+   {{#if decimals}}<div class="attack-note karma"><i class="fa-solid fa-yin-yang"></i> {{#if decimals.ok}}{{localize "EDRPG.decimals.ok" die=decimals.die digit=decimals.digit sum=decimals.sum}}{{else}}{{localize "EDRPG.decimals.no" die=decimals.die digit=decimals.digit sum=decimals.sum}}{{/if}}</div>{{/if}}
    {{#if rerolls}}<div class="attack-note"><i class="fa-solid fa-yin-yang"></i> {{localize "EDRPG.attack.rerolled" count=rerolls}}</div>{{/if}}
    {{#if burstNote}}<div class="attack-note">{{burstNote}}</div>{{/if}}
    {{#if divideFire}}<div class="attack-note">{{localize "EDRPG.attack.divideFireNote"}}</div>{{/if}}
@@ -56,6 +57,7 @@
       {{/if}}
    </div>
    {{/if}}
+   {{#each reactionLines as |line|}}<div class="attack-note reaction"><i class="fa-solid fa-person-running"></i> {{{line}}}</div>{{/each}}
    {{#if caught}}<div class="attack-note"><i class="fa-solid fa-users"></i> {{localize "EDRPG.scatter.caughtResult" roll=caught.roll people=caught.people}}</div>{{/if}}
    {{#if (and isExplosive explosiveMode)}}<div class="attack-note muted">{{localize (concat "EDRPG.scatter.modeNote." explosiveMode)}}</div>{{/if}}
    {{#if ammo}}<div class="attack-note muted">{{localize "EDRPG.attack.ammoLeft" left=ammo.left max=ammo.max}}</div>{{/if}}

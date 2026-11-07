@@ -11,12 +11,34 @@
       <div class="form-group"><label>{{localize "EDRPG.craft.bonusVsShieldsLabel"}}</label><div class="form-fields"><input type="number" name="system.bonusVsShields" value="{{source.bonusVsShields}}" step="1" {{#unless editable}}disabled{{/unless}}></div></div>
       <div class="form-group"><label>{{localize "EDRPG.sheet.ammo"}}</label><div class="form-fields"><input type="number" name="system.ammo.value" value="{{source.ammo.value}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}> <span>/</span> <input type="number" name="system.ammo.max" value="{{source.ammo.max}}" min="0" step="1" placeholder="—" {{#unless editable}}disabled{{/unless}}></div></div>
       <div class="form-group"><label>{{localize "EDRPG.item.price"}}</label><div class="form-fields"><input type="text" name="system.cost" value="{{source.cost}}" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.outfit.powerMW"}}</label><div class="form-fields"><input type="number" name="system.power" value="{{source.power}}" min="0" step="0.01" placeholder="—" {{#unless editable}}disabled{{/unless}}></div></div>
    </div>
    <div class="form-group"><label>{{localize "EDRPG.vehicle.special"}}</label><div class="form-fields"><input type="text" name="system.special" value="{{source.special}}" {{#unless editable}}disabled{{/unless}}></div></div>
    <label class="ed-check" data-tooltip="EDRPG.aegis.axHint"><input type="checkbox" name="system.ax" {{checked source.ax}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.aegis.ax"}}</label>
    <label class="ed-check" data-tooltip="EDRPG.aegis.flakHint"><input type="checkbox" name="system.flak" {{checked source.flak}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.aegis.flak"}}</label>
    <label class="ed-check" data-tooltip="EDRPG.destab.hint"><input type="checkbox" name="system.destabilise" {{checked source.destabilise}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.destab.label"}}</label>
    <p class="hint">{{localize "EDRPG.craft.weaponHint"}}</p>
+   {{/if}}
+   {{#if isShipComponent}}
+   <div class="ed-item-grid">
+      <div class="form-group"><label>{{localize "EDRPG.outfit.category"}}</label><div class="form-fields"><select name="system.category" {{#unless editable}}disabled{{/unless}}>{{selectOptions componentCategories selected=source.category localize=true}}</select></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.outfit.slotLabel"}}</label><div class="form-fields"><select name="system.slot" {{#unless editable}}disabled{{/unless}}>{{selectOptions componentSlots selected=source.slot localize=true}}</select></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.outfit.size"}}</label><div class="form-fields"><input type="number" name="system.size" value="{{source.size}}" min="0" max="8" step="1" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.outfit.grade"}}</label><div class="form-fields"><input type="text" name="system.grade" value="{{source.grade}}" maxlength="1" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.outfit.power"}}</label><div class="form-fields"><input type="number" name="system.power" value="{{source.power}}" min="0" step="0.01" placeholder="—" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group" data-tooltip="EDRPG.outfit.strengthHint"><label>{{localize "EDRPG.outfit.strength"}}</label><div class="form-fields"><input type="number" name="system.strength" value="{{source.strength}}" min="0" step="1" placeholder="—" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.sheet.ammo"}}</label><div class="form-fields"><input type="number" name="system.ammo.value" value="{{source.ammo.value}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}> <span>/</span> <input type="number" name="system.ammo.max" value="{{source.ammo.max}}" min="0" step="1" placeholder="—" {{#unless editable}}disabled{{/unless}}></div></div>
+      <div class="form-group"><label>{{localize "EDRPG.item.price"}}</label><div class="form-fields"><input type="text" name="system.cost" value="{{source.cost}}" {{#unless editable}}disabled{{/unless}}></div></div>
+   </div>
+   <label class="ed-check" data-tooltip="EDRPG.outfit.militaryHint"><input type="checkbox" name="system.military" {{checked source.military}} {{#unless editable}}disabled{{/unless}}> {{localize "EDRPG.outfit.military"}}</label>
+   <div class="form-group ed-wide"><label>{{localize "EDRPG.outfit.special"}}</label><div class="form-fields"><input type="text" name="system.special" value="{{source.special}}" {{#unless editable}}disabled{{/unless}}></div></div>
+   <h2 class="section-title"><span>{{localize "EDRPG.outfit.stats"}}</span></h2>
+   <div class="ed-item-grid">
+      {{#each componentStatRows as |row|}}
+      <div class="form-group"><label>{{localize row.label}}</label><div class="form-fields"><input type="number" name="system.stats.{{row.key}}" value="{{row.value}}" step="any" {{#unless @root.editable}}disabled{{/unless}}></div></div>
+      {{/each}}
+   </div>
+   <p class="hint">{{localize "EDRPG.outfit.hint"}}</p>
    {{/if}}
    {{#if isEquipment}}{{> edrpgEquipmentDetails}}{{/if}}
    {{#if isBackground}}

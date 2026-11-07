@@ -3,7 +3,7 @@
       <span class="attack-who">{{vehicleName}}</span>
       {{#if targetName}}<i class="fa-solid fa-angles-right"></i> <span class="attack-who">{{targetName}}</span>{{/if}}
    </div>
-   <div class="attack-weapon">{{weaponName}}{{#if action}} <span class="ed-chip">{{localize action}}</span>{{/if}}</div>
+   <div class="attack-weapon">{{weaponName}}{{#if (gt count 1)}} <span class="ed-chip" title="{{localize "EDRPG.rules.groupFire.name"}}">×{{count}}</span>{{/if}}{{#if action}} <span class="ed-chip">{{localize action}}</span>{{/if}}</div>
    <div class="attack-columns">
       <dl class="breakdown">
          <dt class="head">{{localize "EDRPG.attack.toHit"}}</dt><dd class="head">{{total}}</dd>

@@ -2,7 +2,7 @@
   "id": "edrpg",
   "title": "Elite: Dangerous Role Playing Game",
   "description": "A space RPG set in the Elite: Dangerous universe.",
-  "version": "0.1.57",
+  "version": "0.1.62",
   "authors": [
     {
       "name": "gmsshadow",
@@ -11,7 +11,9 @@
     {
       "name": "Bruno Marques (ElSaico)",
       "url": "https://github.com/ElSaico",
-      "flags": { "role": "Original edrpg-fvtt system" }
+      "flags": {
+        "role": "Original edrpg-fvtt system"
+      }
     }
   ],
   "compatibility": {
@@ -111,6 +113,11 @@
         ]
       },
       "craftWeapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "shipComponent": {
         "htmlFields": [
           "description"
         ]
@@ -230,6 +237,28 @@
       "flags": {}
     },
     {
+      "name": "ship-weapons",
+      "label": "Ship Weapons",
+      "path": "packs/ship-weapons",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "ship-components",
+      "label": "Ship Components",
+      "path": "packs/ship-components",
+      "type": "Item",
+      "system": "edrpg",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "opponents",
       "label": "Opponents (sample)",
       "path": "packs/opponents",
@@ -279,6 +308,8 @@
         "gear",
         "vehicles",
         "ships",
+        "ship-weapons",
+        "ship-components",
         "opponents",
         "combat-maps",
         "roll-tables"

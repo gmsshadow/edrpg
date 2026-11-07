@@ -1,0 +1,56 @@
+{
+  "_id": "4fc855122d14827e",
+  "_key": "!items!4fc855122d14827e",
+  "name": "4H Planetary Vehicle Hangar",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "64,800cr",
+    "category": "vehicleHangar",
+    "slot": "internal",
+    "military": false,
+    "size": 4,
+    "grade": "H",
+    "power": 0.4,
+    "strength": 45,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 2,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "2 Vehicle Bays"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Planetary Vehicle Hangars"
+    }
+  },
+  "sort": 61700,
+  "effects": [],
+  "folder": "dc02b3d4ffeaece7",
+  "ownership": {
+    "default": 0
+  }
+}

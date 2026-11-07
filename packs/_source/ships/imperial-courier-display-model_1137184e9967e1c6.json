@@ -56,7 +56,12 @@
           "max": 40
         },
         "notes": "10.4MW output",
-        "item": ""
+        "item": "613d48d1e25749b6",
+        "slot": "fixed.powerPlant",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Thrusters 3E",
@@ -66,7 +71,12 @@
           "max": 30
         },
         "notes": "No bonuses",
-        "item": ""
+        "item": "1ee45a0b374b9568",
+        "slot": "fixed.thrusters",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Frame Shift Drive 3E",
@@ -76,7 +86,12 @@
           "max": 25
         },
         "notes": "Range 9LY",
-        "item": ""
+        "item": "458a40966d7b11e8",
+        "slot": "fixed.fsd",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Life Support 1E",
@@ -86,7 +101,12 @@
           "max": 15
         },
         "notes": "Emergency Life Support 5 minutes",
-        "item": ""
+        "item": "7327929c4bf3d7ac",
+        "slot": "fixed.lifeSupport",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Power Distributor 3E",
@@ -96,7 +116,12 @@
           "max": 30
         },
         "notes": "No bonus",
-        "item": ""
+        "item": "b6c8398a1d5bc576",
+        "slot": "fixed.powerDistributor",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Sensors 2E",
@@ -106,7 +131,12 @@
           "max": 15
         },
         "notes": "+1 General Scan",
-        "item": ""
+        "item": "3ff44cf8c5ac7358",
+        "slot": "fixed.sensors",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "2E Cargo Rack",
@@ -116,7 +146,12 @@
           "max": 20
         },
         "notes": "Capacity 4",
-        "item": ""
+        "item": "8df1c00d90a3562b",
+        "slot": "internal.2",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "2E Cargo Rack",
@@ -126,7 +161,12 @@
           "max": 20
         },
         "notes": "Capacity 4",
-        "item": ""
+        "item": "1b8b70f4d4ae720d",
+        "slot": "internal.3",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "2E Shield Generator",
@@ -136,7 +176,12 @@
           "max": 10
         },
         "notes": "Shield Power 35",
-        "item": ""
+        "item": "703bba70b37ac5bc",
+        "slot": "internal.4",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "1E Cargo Rack",
@@ -146,7 +191,12 @@
           "max": 10
         },
         "notes": "Capacity 2",
-        "item": ""
+        "item": "260d334dd85efc7e",
+        "slot": "internal.5",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "1E Cargo Rack",
@@ -156,7 +206,12 @@
           "max": 10
         },
         "notes": "Capacity 2",
-        "item": ""
+        "item": "cb3cc60813955c6e",
+        "slot": "internal.0",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "1E Basic Discovery Scanner",
@@ -166,7 +221,12 @@
           "max": 10
         },
         "notes": "500 LS range",
-        "item": ""
+        "item": "a2057576e04d8ea6",
+        "slot": "internal.1",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       }
     ],
     "equipment": {
@@ -184,13 +244,63 @@
         "value": 0,
         "max": 0
       },
+      "heatSinks": {
+        "value": 0,
+        "max": 0
+      },
       "ecm": false,
       "floating": 0,
       "cellBanks": []
     },
     "zone": "atDistance",
     "pilot": "",
-    "description": "<p><em>Military Sourcebook</em></p>"
+    "description": "<p><em>Military Sourcebook</em></p>",
+    "outfit": {
+      "enabled": true,
+      "hull": "Imperial Courier",
+      "baseHull": 70,
+      "explorer": false,
+      "hardpoints": [
+        "medium",
+        "medium",
+        "medium"
+      ],
+      "utility": 4,
+      "fixed": {
+        "powerPlant": 4,
+        "thrusters": 3,
+        "fsd": 3,
+        "lifeSupport": 1,
+        "powerDistributor": 3,
+        "sensors": 2
+      },
+      "internal": [
+        {
+          "size": 3,
+          "military": false
+        },
+        {
+          "size": 3,
+          "military": false
+        },
+        {
+          "size": 2,
+          "military": false
+        },
+        {
+          "size": 2,
+          "military": false
+        },
+        {
+          "size": 2,
+          "military": false
+        },
+        {
+          "size": 1,
+          "military": false
+        }
+      ]
+    }
   },
   "prototypeToken": {
     "name": "Imperial Courier – Display Model",
@@ -218,7 +328,7 @@
       "img": "icons/svg/target.svg",
       "system": {
         "description": "",
-        "cost": "",
+        "cost": "2,200cr",
         "mount": {
           "size": "small",
           "kind": "fixed"
@@ -237,7 +347,13 @@
           "max": null
         },
         "special": "",
-        "gunner": ""
+        "gunner": "",
+        "power": 0.39,
+        "hardpoint": 0,
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       "effects": [],
       "folder": null,
@@ -255,7 +371,7 @@
       "img": "icons/svg/target.svg",
       "system": {
         "description": "",
-        "cost": "",
+        "cost": "2,200cr",
         "mount": {
           "size": "small",
           "kind": "fixed"
@@ -274,11 +390,706 @@
           "max": null
         },
         "special": "",
-        "gunner": ""
+        "gunner": "",
+        "power": 0.39,
+        "hardpoint": 1,
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       "effects": [],
       "folder": null,
       "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "613d48d1e25749b6",
+      "_key": "!actors.items!1137184e9967e1c6.613d48d1e25749b6",
+      "name": "Power Plant 4E",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "19,880cr",
+        "category": "powerPlant",
+        "slot": "fixed",
+        "military": false,
+        "size": 4,
+        "grade": "E",
+        "power": null,
+        "strength": 40,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 10.4,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "10.4MW output",
+        "fitted": "fixed.powerPlant"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "1ee45a0b374b9568",
+      "_key": "!actors.items!1137184e9967e1c6.1ee45a0b374b9568",
+      "name": "Thrusters 3E",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "6,270cr",
+        "category": "thrusters",
+        "slot": "fixed",
+        "military": false,
+        "size": 3,
+        "grade": "E",
+        "power": 2.48,
+        "strength": 30,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "No bonuses",
+        "fitted": "fixed.thrusters"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "458a40966d7b11e8",
+      "_key": "!actors.items!1137184e9967e1c6.458a40966d7b11e8",
+      "name": "Frame Shift Drive 3E",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "6,270cr",
+        "category": "fsd",
+        "slot": "fixed",
+        "military": false,
+        "size": 3,
+        "grade": "E",
+        "power": 0.24,
+        "strength": 25,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 9,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Range 9LY",
+        "fitted": "fixed.fsd"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "7327929c4bf3d7ac",
+      "_key": "!actors.items!1137184e9967e1c6.7327929c4bf3d7ac",
+      "name": "Life Support 1E",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
+        "cost": "520cr",
+        "category": "lifeSupport",
+        "slot": "fixed",
+        "military": false,
+        "size": 1,
+        "grade": "E",
+        "power": 0.32,
+        "strength": 15,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Emergency Life Support 5 minutes",
+        "fitted": "fixed.lifeSupport"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b6c8398a1d5bc576",
+      "_key": "!actors.items!1137184e9967e1c6.b6c8398a1d5bc576",
+      "name": "Power Distributor 3E",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "4,050cr",
+        "category": "powerDistributor",
+        "slot": "fixed",
+        "military": false,
+        "size": 3,
+        "grade": "E",
+        "power": 0.4,
+        "strength": 30,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "No bonuses",
+        "fitted": "fixed.powerDistributor"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "3ff44cf8c5ac7358",
+      "_key": "!actors.items!1137184e9967e1c6.3ff44cf8c5ac7358",
+      "name": "Sensors 2E",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "1,450cr",
+        "category": "sensors",
+        "slot": "fixed",
+        "military": false,
+        "size": 2,
+        "grade": "E",
+        "power": 0.18,
+        "strength": 15,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 1,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "+1 General Scan",
+        "fitted": "fixed.sensors"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "8df1c00d90a3562b",
+      "_key": "!actors.items!1137184e9967e1c6.8df1c00d90a3562b",
+      "name": "2E Cargo Rack",
+      "type": "shipComponent",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "3,250cr",
+        "category": "cargoRack",
+        "slot": "internal",
+        "military": false,
+        "size": 2,
+        "grade": "E",
+        "power": 0,
+        "strength": 20,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 4,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Capacity 4",
+        "fitted": "internal.2"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "1b8b70f4d4ae720d",
+      "_key": "!actors.items!1137184e9967e1c6.1b8b70f4d4ae720d",
+      "name": "2E Cargo Rack",
+      "type": "shipComponent",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "3,250cr",
+        "category": "cargoRack",
+        "slot": "internal",
+        "military": false,
+        "size": 2,
+        "grade": "E",
+        "power": 0,
+        "strength": 20,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 4,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Capacity 4",
+        "fitted": "internal.3"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 800,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "703bba70b37ac5bc",
+      "_key": "!actors.items!1137184e9967e1c6.703bba70b37ac5bc",
+      "name": "2E Shield Generator",
+      "type": "shipComponent",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "1,980cr",
+        "category": "shieldGenerator",
+        "slot": "internal",
+        "military": false,
+        "size": 2,
+        "grade": "E",
+        "power": 0.9,
+        "strength": 10,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 35,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Shield Power 35",
+        "fitted": "internal.4"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 900,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "260d334dd85efc7e",
+      "_key": "!actors.items!1137184e9967e1c6.260d334dd85efc7e",
+      "name": "1E Cargo Rack",
+      "type": "shipComponent",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "1,000cr",
+        "category": "cargoRack",
+        "slot": "internal",
+        "military": false,
+        "size": 1,
+        "grade": "E",
+        "power": 0,
+        "strength": 10,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 2,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Capacity 2",
+        "fitted": "internal.5"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "cb3cc60813955c6e",
+      "_key": "!actors.items!1137184e9967e1c6.cb3cc60813955c6e",
+      "name": "1E Cargo Rack",
+      "type": "shipComponent",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "1,000cr",
+        "category": "cargoRack",
+        "slot": "internal",
+        "military": false,
+        "size": 1,
+        "grade": "E",
+        "power": 0,
+        "strength": 10,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 2,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Capacity 2",
+        "fitted": "internal.0"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "a2057576e04d8ea6",
+      "_key": "!actors.items!1137184e9967e1c6.a2057576e04d8ea6",
+      "name": "1E Basic Discovery Scanner",
+      "type": "shipComponent",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "<p>One Discovery Scanner (Basic, Intermediate or Advanced) and one Detailed Surface Scanner per ship.</p><p><em>Core Rules</em></p>",
+        "cost": "1,000cr",
+        "category": "planetaryScanner",
+        "slot": "internal",
+        "military": false,
+        "size": 1,
+        "grade": "E",
+        "power": null,
+        "strength": 10,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Detects all planetary bodies within 500 LS",
+        "fitted": "internal.1"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "a498bc18b0228390",
+      "_key": "!actors.items!1137184e9967e1c6.a498bc18b0228390",
+      "name": "Lightweight Alloys",
+      "type": "shipComponent",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "",
+        "category": "bulkhead",
+        "slot": "fixed",
+        "military": false,
+        "size": 0,
+        "grade": "",
+        "power": null,
+        "strength": null,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "No bonus",
+        "fitted": "bulkhead"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 50,
       "ownership": {
         "default": 0
       },

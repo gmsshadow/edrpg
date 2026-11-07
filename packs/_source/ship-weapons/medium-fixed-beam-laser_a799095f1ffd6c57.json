@@ -1,0 +1,50 @@
+{
+  "_id": "a799095f1ffd6c57",
+  "_key": "!items!a799095f1ffd6c57",
+  "name": "Medium Fixed Beam Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 1.12MW.</p><p><em>Core Rules</em></p>",
+    "cost": "299,520cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 2,
+    "damage": 15,
+    "burst": {
+      "perPoint": 5,
+      "max": 20
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 1.12,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 3100,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

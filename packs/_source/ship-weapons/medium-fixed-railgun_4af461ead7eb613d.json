@@ -1,0 +1,50 @@
+{
+  "_id": "4af461ead7eb613d",
+  "_key": "!items!4af461ead7eb613d",
+  "name": "Medium Fixed Railgun",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.63MW.</p><p>Ammunition: 12,000cr per reload (1,200cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "412,800cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 0,
+    "damage": 40,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "special": "",
+    "power": 1.63,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4900,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

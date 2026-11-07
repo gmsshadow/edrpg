@@ -1,0 +1,56 @@
+{
+  "_id": "786b87cb4f8e7c7f",
+  "_key": "!items!786b87cb4f8e7c7f",
+  "name": "Military Grade Composites (Keelback)",
+  "type": "shipComponent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><em>Super Traders Supplement</em></p>",
+    "cost": "2,813,540cr",
+    "category": "bulkhead",
+    "slot": "fixed",
+    "military": false,
+    "size": 0,
+    "grade": "",
+    "power": null,
+    "strength": null,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 100,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+100% Hull"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Super Traders Supplement/Bulkheads/Military Grade Composites"
+    }
+  },
+  "sort": 6900,
+  "effects": [],
+  "folder": "d448672cbb62a224",
+  "ownership": {
+    "default": 0
+  }
+}

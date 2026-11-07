@@ -1,0 +1,56 @@
+{
+  "_id": "30d5d4a5394f2c0a",
+  "_key": "!items!30d5d4a5394f2c0a",
+  "name": "Sensors 8A",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "27,249,390cr",
+    "category": "sensors",
+    "slot": "fixed",
+    "military": false,
+    "size": 8,
+    "grade": "A",
+    "power": 2.07,
+    "strength": 85,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 2,
+      "dogfighting": 2,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 5,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+5 General Scan, +2 Initiative, +2 Dogfighting"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Sensors"
+    }
+  },
+  "sort": 29400,
+  "effects": [],
+  "folder": "fb477e0e7f91c87a",
+  "ownership": {
+    "default": 0
+  }
+}

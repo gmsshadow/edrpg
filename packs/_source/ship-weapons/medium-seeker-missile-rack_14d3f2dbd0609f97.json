@@ -1,0 +1,50 @@
+{
+  "_id": "14d3f2dbd0609f97",
+  "_key": "!items!14d3f2dbd0609f97",
+  "name": "Medium Seeker Missile Rack",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.2MW.</p><p>Ammunition: 12,000cr per reload (1,000cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "512,400cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 4,
+    "damage": 35,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": 15,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 12,
+      "max": 12
+    },
+    "special": "",
+    "power": 1.2,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4600,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

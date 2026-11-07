@@ -1,0 +1,50 @@
+{
+  "_id": "7b12e055e6fae496",
+  "_key": "!items!7b12e055e6fae496",
+  "name": "Small Mine Launcher",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.4MW.</p><p>Ammunition: 5,220cr per reload (870cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "24,260cr",
+    "mount": {
+      "size": "small",
+      "kind": "fixed"
+    },
+    "accuracy": 0,
+    "damage": 10,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "special": "Mines: difficulty 15 to avoid",
+    "power": 0.4,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 1900,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

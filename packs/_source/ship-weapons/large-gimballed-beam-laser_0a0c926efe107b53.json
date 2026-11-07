@@ -1,0 +1,50 @@
+{
+  "_id": "0a0c926efe107b53",
+  "_key": "!items!0a0c926efe107b53",
+  "name": "Large Gimballed Beam Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 1.78MW.</p><p><em>Core Rules</em></p>",
+    "cost": "2,396,160cr",
+    "mount": {
+      "size": "large",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 25,
+    "burst": {
+      "perPoint": 5,
+      "max": 20
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 1.78,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 5700,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

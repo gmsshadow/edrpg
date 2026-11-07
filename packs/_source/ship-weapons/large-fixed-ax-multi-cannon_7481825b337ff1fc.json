@@ -1,0 +1,50 @@
+{
+  "_id": "7481825b337ff1fc",
+  "_key": "!items!7481825b337ff1fc",
+  "name": "Large Fixed AX Multi-Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "ax": true,
+    "flak": false,
+    "power": null,
+    "hardpoint": -1,
+    "description": "<p><em>Exploration Supplement</em></p>",
+    "cost": "1,151,963cr",
+    "mount": {
+      "size": "large",
+      "kind": "fixed"
+    },
+    "accuracy": 2,
+    "damage": 25,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "AX munitions: harms Thargoid hulls.",
+    "destabilise": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Aegis Weapons"
+    }
+  },
+  "sort": 8400,
+  "effects": [],
+  "folder": "309455654aeb57e3",
+  "ownership": {
+    "default": 0
+  }
+}

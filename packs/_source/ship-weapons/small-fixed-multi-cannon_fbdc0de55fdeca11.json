@@ -1,0 +1,50 @@
+{
+  "_id": "fbdc0de55fdeca11",
+  "_key": "!items!fbdc0de55fdeca11",
+  "name": "Small Fixed Multi-Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.28MW.</p><p>Ammunition: 2,100cr per reload (70cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "9,500cr",
+    "mount": {
+      "size": "small",
+      "kind": "fixed"
+    },
+    "accuracy": 2,
+    "damage": 5,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "",
+    "power": 0.28,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 1300,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

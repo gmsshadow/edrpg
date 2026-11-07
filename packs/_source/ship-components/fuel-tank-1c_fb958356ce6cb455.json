@@ -1,0 +1,56 @@
+{
+  "_id": "fb958356ce6cb455",
+  "_key": "!items!fb958356ce6cb455",
+  "name": "Fuel Tank 1C",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>An extra fuel tank in an internal slot. One ton of fuel gives ten light years of range.</p><p><em>Core Rules</em></p>",
+    "cost": "1,000cr",
+    "category": "fuelTank",
+    "slot": "internal",
+    "military": false,
+    "size": 1,
+    "grade": "C",
+    "power": null,
+    "strength": null,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 2,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "2T (20LY)"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Fuel Tanks"
+    }
+  },
+  "sort": 29500,
+  "effects": [],
+  "folder": "c88da3e834eaa5cf",
+  "ownership": {
+    "default": 0
+  }
+}

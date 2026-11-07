@@ -1,0 +1,56 @@
+{
+  "_id": "5e4700379138a124",
+  "_key": "!items!5e4700379138a124",
+  "name": "Sensors 4D",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "28,370cr",
+    "category": "sensors",
+    "slot": "fixed",
+    "military": false,
+    "size": 4,
+    "grade": "D",
+    "power": 0.31,
+    "strength": 35,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 2,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+2 General Scan, +1 Initiative"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Sensors"
+    }
+  },
+  "sort": 27100,
+  "effects": [],
+  "folder": "fb477e0e7f91c87a",
+  "ownership": {
+    "default": 0
+  }
+}

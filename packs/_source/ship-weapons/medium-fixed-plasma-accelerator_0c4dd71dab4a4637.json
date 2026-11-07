@@ -1,0 +1,50 @@
+{
+  "_id": "0c4dd71dab4a4637",
+  "_key": "!items!0c4dd71dab4a4637",
+  "name": "Medium Fixed Plasma Accelerator",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.43MW.</p><p>Ammunition: 20,000cr per reload (400cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "834,200cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": -1,
+    "damage": 50,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 50,
+      "max": 50
+    },
+    "special": "",
+    "power": 1.43,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4300,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

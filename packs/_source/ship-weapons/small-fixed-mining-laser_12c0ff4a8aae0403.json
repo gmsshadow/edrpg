@@ -1,0 +1,50 @@
+{
+  "_id": "12c0ff4a8aae0403",
+  "_key": "!items!12c0ff4a8aae0403",
+  "name": "Small Fixed Mining Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.5MW.</p><p><em>Core Rules</em></p>",
+    "cost": "6,800cr",
+    "mount": {
+      "size": "small",
+      "kind": "fixed"
+    },
+    "accuracy": 1,
+    "damage": 1,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "Mining bonus 1",
+    "power": 0.5,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 2000,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

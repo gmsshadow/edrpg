@@ -1,0 +1,50 @@
+{
+  "_id": "fa3ee98f446a399f",
+  "_key": "!items!fa3ee98f446a399f",
+  "name": "Small Turreted Pulse Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 0.38MW.</p><p><em>Core Rules</em></p>",
+    "cost": "26,000cr",
+    "mount": {
+      "size": "small",
+      "kind": "turret"
+    },
+    "accuracy": 2,
+    "damage": 10,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 0.38,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 300,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

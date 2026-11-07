@@ -1,0 +1,50 @@
+{
+  "_id": "5f0cce8e2c5e58dc",
+  "_key": "!items!5f0cce8e2c5e58dc",
+  "name": "Huge Fixed Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.92MW.</p><p>Ammunition: 4,000cr per reload (70cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "2,700,800cr",
+    "mount": {
+      "size": "huge",
+      "kind": "fixed"
+    },
+    "accuracy": 2,
+    "damage": 40,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 50,
+      "max": 50
+    },
+    "special": "",
+    "power": 0.92,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Huge Weapons"
+    }
+  },
+  "sort": 7400,
+  "effects": [],
+  "folder": "5561d23ddb2a54ce",
+  "ownership": {
+    "default": 0
+  }
+}

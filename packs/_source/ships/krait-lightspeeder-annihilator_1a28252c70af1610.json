@@ -56,7 +56,12 @@
           "max": 30
         },
         "notes": "9.6MW output",
-        "item": ""
+        "item": "91960886a7e9f13d",
+        "slot": "fixed.powerPlant",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Thrusters 2B",
@@ -66,7 +71,12 @@
           "max": 25
         },
         "notes": "+2 Speed, +1 Agility",
-        "item": ""
+        "item": "d92e81901f6d018d",
+        "slot": "fixed.thrusters",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Frame Shift Drive 2B",
@@ -76,7 +86,12 @@
           "max": 20
         },
         "notes": "Range 11LY",
-        "item": ""
+        "item": "69cc4f8a2e4844ab",
+        "slot": "fixed.fsd",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Life Support 1D",
@@ -86,7 +101,12 @@
           "max": 15
         },
         "notes": "Emergency Life Support 7.5 minutes",
-        "item": ""
+        "item": "7f67ccee13b0db45",
+        "slot": "fixed.lifeSupport",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Power Distributor 2B",
@@ -96,7 +116,12 @@
           "max": 25
         },
         "notes": "+1 to hit, +1 Agility, +5 Shield Recharge",
-        "item": ""
+        "item": "930f5eddc4a433f4",
+        "slot": "fixed.powerDistributor",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "Sensors 1B",
@@ -106,7 +131,12 @@
           "max": 10
         },
         "notes": "+2 Initiative, +1 Dogfighting",
-        "item": ""
+        "item": "d4e703dc0b890e06",
+        "slot": "fixed.sensors",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "0D Kill Warrant Scanner",
@@ -116,7 +146,12 @@
           "max": 10
         },
         "notes": "+20% Bounty",
-        "item": ""
+        "item": "4dd856c371da2e34",
+        "slot": "utility.0",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "2A Shield Generator",
@@ -126,7 +161,12 @@
           "max": 20
         },
         "notes": "Shield Power 55",
-        "item": ""
+        "item": "b877646d4af96bff",
+        "slot": "internal.0",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "2D Shield Cell Bank",
@@ -136,7 +176,12 @@
           "max": 20
         },
         "notes": "Str20, Recharge 10/2",
-        "item": ""
+        "item": "26c73f185b2a921a",
+        "slot": "internal.1",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "2E Cargo Rack",
@@ -146,7 +191,12 @@
           "max": 20
         },
         "notes": "Capacity 4",
-        "item": ""
+        "item": "158ce9672e79a47f",
+        "slot": "internal.2",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       {
         "name": "1E Cargo Rack",
@@ -156,7 +206,12 @@
           "max": 10
         },
         "notes": "Capacity 2",
-        "item": ""
+        "item": "fddb555e59e12abc",
+        "slot": "internal.3",
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       }
     ],
     "equipment": {
@@ -174,6 +229,10 @@
         "value": 0,
         "max": 0
       },
+      "heatSinks": {
+        "value": 0,
+        "max": 0
+      },
       "ecm": false,
       "floating": 0,
       "cellBanks": [
@@ -187,7 +246,44 @@
     },
     "zone": "atDistance",
     "pilot": "",
-    "description": ""
+    "description": "",
+    "outfit": {
+      "enabled": true,
+      "hull": "Krait Lightspeeder",
+      "baseHull": 60,
+      "explorer": false,
+      "hardpoints": [
+        "medium",
+        "medium"
+      ],
+      "utility": 1,
+      "fixed": {
+        "powerPlant": 2,
+        "thrusters": 2,
+        "fsd": 2,
+        "lifeSupport": 1,
+        "powerDistributor": 2,
+        "sensors": 1
+      },
+      "internal": [
+        {
+          "size": 2,
+          "military": false
+        },
+        {
+          "size": 2,
+          "military": false
+        },
+        {
+          "size": 2,
+          "military": false
+        },
+        {
+          "size": 1,
+          "military": false
+        }
+      ]
+    }
   },
   "prototypeToken": {
     "name": "Krait Lightspeeder – Annihilator",
@@ -215,7 +311,7 @@
       "img": "icons/svg/target.svg",
       "system": {
         "description": "",
-        "cost": "",
+        "cost": "299,520cr",
         "mount": {
           "size": "medium",
           "kind": "fixed"
@@ -234,7 +330,13 @@
           "max": null
         },
         "special": "",
-        "gunner": ""
+        "gunner": "",
+        "power": 1.12,
+        "hardpoint": 0,
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       "effects": [],
       "folder": null,
@@ -252,7 +354,7 @@
       "img": "icons/svg/target.svg",
       "system": {
         "description": "",
-        "cost": "",
+        "cost": "299,520cr",
         "mount": {
           "size": "medium",
           "kind": "fixed"
@@ -271,11 +373,653 @@
           "max": null
         },
         "special": "",
-        "gunner": ""
+        "gunner": "",
+        "power": 1.12,
+        "hardpoint": 1,
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       "effects": [],
       "folder": null,
       "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "91960886a7e9f13d",
+      "_key": "!actors.items!1a28252c70af1610.91960886a7e9f13d",
+      "name": "Power Plant 2A",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "160,220cr",
+        "category": "powerPlant",
+        "slot": "fixed",
+        "military": false,
+        "size": 2,
+        "grade": "A",
+        "power": null,
+        "strength": 30,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 9.6,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "9.6MW output",
+        "fitted": "fixed.powerPlant"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d92e81901f6d018d",
+      "_key": "!actors.items!1a28252c70af1610.d92e81901f6d018d",
+      "name": "Thrusters 2B",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "53,410cr",
+        "category": "thrusters",
+        "slot": "fixed",
+        "military": false,
+        "size": 2,
+        "grade": "B",
+        "power": 2.75,
+        "strength": 25,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 2,
+          "agility": 1,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "+2 Speed, +1 Agility",
+        "fitted": "fixed.thrusters"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "69cc4f8a2e4844ab",
+      "_key": "!actors.items!1a28252c70af1610.69cc4f8a2e4844ab",
+      "name": "Frame Shift Drive 2B",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "53,410cr",
+        "category": "fsd",
+        "slot": "fixed",
+        "military": false,
+        "size": 2,
+        "grade": "B",
+        "power": 0.25,
+        "strength": 20,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 11,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Range 11LY",
+        "fitted": "fixed.fsd"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "7f67ccee13b0db45",
+      "_key": "!actors.items!1a28252c70af1610.7f67ccee13b0db45",
+      "name": "Life Support 1D",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
+        "cost": "1,290cr",
+        "category": "lifeSupport",
+        "slot": "fixed",
+        "military": false,
+        "size": 1,
+        "grade": "D",
+        "power": 0.36,
+        "strength": 15,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Emergency Life Support 7 minutes 30 seconds",
+        "fitted": "fixed.lifeSupport"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "930f5eddc4a433f4",
+      "_key": "!actors.items!1a28252c70af1610.930f5eddc4a433f4",
+      "name": "Power Distributor 2B",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "22,620cr",
+        "category": "powerDistributor",
+        "slot": "fixed",
+        "military": false,
+        "size": 2,
+        "grade": "B",
+        "power": 0.5,
+        "strength": 25,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 1,
+          "toHit": 1,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 5,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "+1 Agility, +1 To Hit, +5 shields",
+        "fitted": "fixed.powerDistributor"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 500,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "d4e703dc0b890e06",
+      "_key": "!actors.items!1a28252c70af1610.d4e703dc0b890e06",
+      "name": "Sensors 1B",
+      "type": "shipComponent",
+      "img": "icons/svg/anvil.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "8,080cr",
+        "category": "sensors",
+        "slot": "fixed",
+        "military": false,
+        "size": 1,
+        "grade": "B",
+        "power": 0.33,
+        "strength": 10,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 2,
+          "dogfighting": 1,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "+2 Initiative, +1 Dogfighting",
+        "fitted": "fixed.sensors"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 600,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "4dd856c371da2e34",
+      "_key": "!actors.items!1a28252c70af1610.4dd856c371da2e34",
+      "name": "Kill Warrant Scanner – D grade",
+      "type": "shipComponent",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "40,633cr",
+        "category": "utility",
+        "slot": "utility",
+        "military": false,
+        "size": 0,
+        "grade": "D",
+        "power": 0.4,
+        "strength": 10,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "+40% bounty reward",
+        "fitted": "utility.0"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 700,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b877646d4af96bff",
+      "_key": "!actors.items!1a28252c70af1610.b877646d4af96bff",
+      "name": "2A Shield Generator",
+      "type": "shipComponent",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "160,220cr",
+        "category": "shieldGenerator",
+        "slot": "internal",
+        "military": false,
+        "size": 2,
+        "grade": "A",
+        "power": 2.1,
+        "strength": 20,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 55,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Shield Power 55",
+        "fitted": "internal.0"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 800,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "26c73f185b2a921a",
+      "_key": "!actors.items!1a28252c70af1610.26c73f185b2a921a",
+      "name": "2D Shield Cell Bank",
+      "type": "shipComponent",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "<p>Three uses before new cells are needed (200cr per use to refill).</p><p><em>Core Rules</em></p>",
+        "cost": "3,620cr",
+        "category": "shieldCellBank",
+        "slot": "internal",
+        "military": true,
+        "size": 2,
+        "grade": "D",
+        "power": 0.67,
+        "strength": 20,
+        "ammo": {
+          "value": 3,
+          "max": 3
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 10,
+          "duration": 2
+        },
+        "special": "+10 shield recharge for 2 rounds",
+        "fitted": "internal.1"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 900,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "158ce9672e79a47f",
+      "_key": "!actors.items!1a28252c70af1610.158ce9672e79a47f",
+      "name": "2E Cargo Rack",
+      "type": "shipComponent",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "3,250cr",
+        "category": "cargoRack",
+        "slot": "internal",
+        "military": false,
+        "size": 2,
+        "grade": "E",
+        "power": 0,
+        "strength": 20,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 4,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Capacity 4",
+        "fitted": "internal.2"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "fddb555e59e12abc",
+      "_key": "!actors.items!1a28252c70af1610.fddb555e59e12abc",
+      "name": "1E Cargo Rack",
+      "type": "shipComponent",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "1,000cr",
+        "category": "cargoRack",
+        "slot": "internal",
+        "military": false,
+        "size": 1,
+        "grade": "E",
+        "power": 0,
+        "strength": 10,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 2,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 0,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "Capacity 2",
+        "fitted": "internal.3"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1100,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {}
+    },
+    {
+      "_id": "b11b4151a36d8072",
+      "_key": "!actors.items!1a28252c70af1610.b11b4151a36d8072",
+      "name": "Reinforced Alloys (Krait Lightspeeder)",
+      "type": "shipComponent",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "<p><em>Core Rules</em></p>",
+        "cost": "31,820cr",
+        "category": "bulkhead",
+        "slot": "fixed",
+        "military": false,
+        "size": 0,
+        "grade": "",
+        "power": null,
+        "strength": null,
+        "ammo": {
+          "value": 0,
+          "max": null
+        },
+        "stats": {
+          "output": 0,
+          "range": 0,
+          "capacity": 0,
+          "shields": 0,
+          "hull": 0,
+          "hullBonus": 50,
+          "shieldBoost": 0,
+          "strengthBonus": 0,
+          "speed": 0,
+          "agility": 0,
+          "toHit": 0,
+          "initiative": 0,
+          "dogfighting": 0,
+          "shieldRecharge": 0,
+          "floating": 0,
+          "generalScan": 0,
+          "systems": 0,
+          "mining": 0,
+          "recharge": 0,
+          "duration": 0
+        },
+        "special": "+50% Hull",
+        "fitted": "bulkhead"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 50,
       "ownership": {
         "default": 0
       },

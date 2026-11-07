@@ -18,7 +18,8 @@
          "cybernetic": "Cybernetic",
          "clothing": "Clothing",
          "gear": "Equipment",
-         "craftWeapon": "Vehicle/Ship Weapon"
+         "craftWeapon": "Vehicle/Ship Weapon",
+         "shipComponent": "Ship Component"
       }
    },
    "EDRPG": {
@@ -330,6 +331,10 @@
          "vehicleTurnPanel": {
             "name": "Spaceship and vehicle turn panel",
             "hint": "When a ship or vehicle's turn starts, the GM and its owners get a panel that steps through the turn in the book's order (Adjust Speed, Equipment, Recharge Shields, Check for Obstacles, Combat Action), then ends the turn. Shields recharge at their own step, after Equipment. Off: shields recharge at the start of the turn and everything is done from the sheet."
+         },
+         "silentRunningRounds": {
+            "name": "Silent Running: rounds per minute",
+            "hint": "A ship can run silent for a minute before it overheats (Core Rules p.268), but the book never says how long a combat round lasts. Its overheating damage comes every ten seconds, so by default a round is ten seconds: six rounds to a minute. Each Heat Sink fired adds another minute."
          }
       },
       "test": {
@@ -2744,6 +2749,257 @@
          "alarm": "Raised the Alert",
          "done": "Beaten",
          "freed": "The hostages are free."
+      },
+      "outfit": {
+         "cat": {
+            "bulkhead": "Bulkhead",
+            "fuelTank": "Fuel Tank",
+            "cargoHatch": "Cargo Hatch",
+            "cargoRack": "Cargo Rack",
+            "afmu": "Auto Field Maintenance Unit",
+            "collector": "Collector Limpet Controller",
+            "dockingComputer": "Docking Computer",
+            "fsdInterdictor": "FSD Interdictor",
+            "fuelScoop": "Fuel Scoop",
+            "hatchBreaker": "Hatch Breaker Limpet Controller",
+            "hullReinforcement": "Hull Reinforcement Package",
+            "moduleReinforcement": "Module Reinforcement Package",
+            "prospector": "Prospector Limpet Controller",
+            "planetaryScanner": "Planetary Scanner",
+            "refinery": "Refinery",
+            "vehicleHangar": "Planetary Vehicle Hangar",
+            "shieldCellBank": "Shield Cell Bank",
+            "fighterHangar": "Fighter Hangar",
+            "spaceshipHangar": "Spaceship Hangar"
+         },
+         "slot": {
+            "fixed": "Fixed",
+            "internal": "Internal",
+            "utility": "Utility mount"
+         },
+         "stat": {
+            "output": "Power output (MW)",
+            "range": "Jump range (LY)",
+            "capacity": "Capacity (t / bays)",
+            "shields": "Shield power",
+            "hull": "Extra Hull",
+            "hullBonus": "Hull bonus (%)",
+            "shieldBoost": "Shield boost (%)",
+            "strengthBonus": "Extra component Strength",
+            "speed": "Speed",
+            "agility": "Agility",
+            "toHit": "To Hit",
+            "initiative": "Initiative",
+            "dogfighting": "Dogfighting",
+            "shieldRecharge": "Shield recharge",
+            "floating": "Floating bonuses",
+            "generalScan": "General Scan",
+            "systems": "Systems bonus",
+            "mining": "Mining bonus",
+            "recharge": "Recharge per round",
+            "duration": "Duration (rounds)"
+         },
+         "category": "Category",
+         "slotLabel": "Slot",
+         "military": "Military slot",
+         "militaryHint": "Can be fitted in a military slot (Core Rules p.193).",
+         "size": "Size",
+         "grade": "Grade",
+         "power": "Power",
+         "strength": "Strength",
+         "strengthHint": "Blank: not subject to critical hits.",
+         "stats": "Adds to the ship",
+         "special": "Roster note",
+         "hint": "Drop a component on a spaceship to fit it. On ships with an Outfitting tab it goes in a slot, the ship's ratings change by what it adds, and power is checked; on other ships it just goes on the component roster.",
+         "fitted": "{component} fitted to {ship}{replaced}. Adjust the ship's ratings by hand if it changes them.",
+         "replaced": " (replacing {old})",
+         "notRoster": "{component} isn't subject to critical hits, so it doesn't go on the component roster. Adjust the ship's ratings by hand (Hull, Strength or fuel).",
+         "shipsOnly": "Ship components can only be fitted to spaceships.",
+         "tab": "Outfitting",
+         "explorer": "Explorer (+50% range)",
+         "none": "None",
+         "tabHint": "Drop a Ship Component or Ship Weapon from the compendia on this sheet to fit it (Core Rules pp.192–193). Fixed components must be the hull's class; internal components can't be larger than their slot; military slots take only reinforcement packages and shield cell banks; weapons can't be larger than their hardpoint; and everything together can't draw more power than the power plant makes. The ship's ratings change by what each swap adds or takes away. Old parts sell for 70%.",
+         "fixedTitle": "Bulkhead and fixed components",
+         "hardpointsTitle": "Hardpoints",
+         "utilityTitle": "Utility mounts",
+         "internalTitle": "Internal components",
+         "unmounted": "Not on a hardpoint:",
+         "empty": "Empty",
+         "fixedSlot": "{kind} (class {size})",
+         "utilitySlot": "Utility mount {n}",
+         "hardpointSlot": "{size} hardpoint {n}",
+         "internalSlot": "Size {size}",
+         "militarySlot": "Size {size} (military)",
+         "fitTitle": "Fit to ship",
+         "fitWhere": "Where should {name} go?",
+         "replaces": "replaces {name}",
+         "payFrom": "Pay {cost} from {name}'s credits (and sell what it replaces for 70%)",
+         "removeTitle": "Remove and sell",
+         "removeAsk": "Remove {name}?",
+         "sellTo": "Sell it to the shipyard for {refund} ({name}'s credits)",
+         "fittedIn": "{name} fitted to {ship} ({slot})",
+         "replacing": "replacing {name}.",
+         "removed": "{name} removed from {ship} ({slot})",
+         "powerLine": "Power {draw} / {output} MW",
+         "paid": "Paid {cost}.",
+         "sold": "Sold {name} for {refund}.",
+         "cargoLine": "Cargo {cargo}T",
+         "rangeLine": "Range {range}LY",
+         "strengthLine": "Component Strength {n}",
+         "mrpOneGroup": "A D-grade Module Reinforcement Package protects one module group: add its Strength to that group's components by hand.",
+         "ammo": {
+            "chaff": "Chaff",
+            "pointDefence": "Point Defence",
+            "heatSinks": "Heat sinks"
+         },
+         "err": {
+            "cargoHatch": "Every ship already has its cargo hatch.",
+            "bulkheadHull": "Those bulkheads are made for the {hull}, not the {ship}.",
+            "fixedClass": "This ship's {kind} must be class {size}.",
+            "noUtility": "This ship has no utility mounts.",
+            "onePerShip": "Only one of these per ship, and the {name} already fitted is in a slot this one doesn't fit.",
+            "noSlot": "No internal slot of size {size} or more takes this component.",
+            "noHardpoint": "No hardpoint takes a {size} weapon.",
+            "cantRemove": "Fixed components and the bulkhead can be replaced, not removed.",
+            "power": "That would draw {draw} MW, more than the power plant's {output} MW.",
+            "credits": "{name} hasn't got the {cost} it costs.",
+            "fighterHangar": "The {ship} isn't designed to carry fighters.",
+            "spaceshipHangar": "Only Huge ships can install a Spaceship Hangar."
+         },
+         "powerMW": "Power (MW)"
+      },
+      "silent": {
+         "start": "Silent Running",
+         "stop": "Stop Silent Running",
+         "heatSink": "Heat Sink",
+         "scan": "Scan",
+         "scanFor": "Scan for",
+         "hint": "Close the heat vents and drop the shields (Core Rules p.268). Hidden from sensors until a scan finds you; then gimballed weapons and automated turrets are at -4 against you, and seekers and torpedoes can't be fired at you. Safe for a minute; then each round the crew take 1D10 Damage and three components 1D10 each. Stopping lets the shields recharge as normal.",
+         "sinkHint": "Fire a Heat Sink (Equipment Action): another minute of silent running, and +2 Systems against scans this turn (p.198).",
+         "scanHint": "Actively scan for a silent ship: your Systems + your sensors' General Scan, against its Systems + 4 (small) or + 2 (medium). Win, and your ship can see it.",
+         "seenBy": "Seen by: {names}",
+         "seenHint": "Ships whose scans have found this one: they can target it.",
+         "chip": "round {rounds} of {safe} safe",
+         "started": "{name} goes silent running: shields down, hidden from sensors. Safe for {rounds} rounds.",
+         "stopped": "{name} stops silent running. Its shields recharge as normal from next turn.",
+         "sinkUsed": "{name} fires a Heat Sink: another minute of silent running, and +2 Systems against scans this turn ({left}/{max} left).",
+         "sinkWasted": "{name} fires a Heat Sink ({left}/{max} left). It isn't silent running, so it only cools the ship.",
+         "sinkActive": "{name} has already fired a Heat Sink this turn.",
+         "noShields": "{name} is silent running: its shields are off.",
+         "noRecharge": "Silent running: the shields stay off.",
+         "roundNote": "{name} is silent running ({left} safe rounds left).",
+         "overheating": "{name} has been silent running too long and overheats!",
+         "overheatTitle": "{name} overheats",
+         "crewBurn": "{name} takes {n} Damage (Endurance {after}).",
+         "crewBurnNpc": "{name} takes {n} Damage.",
+         "componentHit": "{name} takes {n} Damage ({after}/{max}).",
+         "componentOut": "{name} takes {n} Damage and is knocked out ({after}/{max}).",
+         "hidden": "{target} is silent running and hidden from your sensors: scan for it first.",
+         "noGuided": "{weapon} can't lock on to {target}: it's silent running.",
+         "attackNote": "Silent running: +4 Defence against gimballed weapons and automated turrets.",
+         "scanTitle": "{scanner} scans for {hider}",
+         "found": "{scanner} finds {hider}: it can be targeted.",
+         "notFound": "{hider} stays hidden from {scanner}.",
+         "partSystems": "Systems {n}",
+         "partScan": "General Scan {n}",
+         "partSize": "size {n}",
+         "partSink": "heat sink 2",
+         "notSilent": "{name} isn't silent running.",
+         "alreadySeen": "{by} can already see {name}.",
+         "noneHidden": "No ship here is hidden from you."
+      },
+      "rp": {
+         "button": "Rank Points",
+         "title": "Award Rank Points",
+         "for": "Awarded for",
+         "points": "Points",
+         "pointsHint": "Used for a very tough mission (12 to 20) or a custom award; the others give their own points.",
+         "reason": "Note",
+         "reasonHint": "e.g. disarmed the bomb, defeated the Pirate Lord",
+         "who": "Who earns them",
+         "enemyHint": "Defeating an enemy (killed, routed or forced to surrender) earns a Rank Point only if it was a real challenge: Tier {tier} (the party's) or higher (Core Rules p.326).",
+         "kind": {
+            "missionShort": "Mission: quick and simple",
+            "missionMedium": "Mission: a couple of sessions",
+            "missionLong": "Mission: very tough, many sessions",
+            "challenge": "Overcoming a challenge",
+            "enemy": "Defeating an enemy",
+            "custom": "Other"
+         },
+         "cardTitle": "Rank Points {points}: {why}",
+         "line": "{name}: {before} → {after} ({rank})",
+         "lineUp": "{name}: {before} → {after}, up to {rank}! Apply the rank from their Data Sheet.",
+         "gmOnly": "Only the GM awards Rank Points.",
+         "noParty": "No characters with a player owner.",
+         "noneChosen": "Pick at least one character."
+      },
+      "rules": {
+         "menu": {
+            "name": "Optional Rules",
+            "label": "Optional Rules",
+            "hint": "Switch the books' optional rules on or off for this world, one by one."
+         },
+         "intro": "Each optional rule can be switched on by itself. Everything is off by default, which plays the rules as written.",
+         "master": "Use this group's rules",
+         "save": "Save",
+         "saved": "Optional rules saved.",
+         "group": {
+            "coreVariants": "Core Rules: Rule Variants"
+         },
+         "interruptLimit": {
+            "name": "One interrupting action per round",
+            "hint": "A player or NPC can only take a single Interrupting Action between their turns. In personal combat: one Counter-attack or free attack (point blank, or at someone running away). In space and vehicle combat: if someone Dogfights you (Tails a vehicle) after you've already rolled a Dogfight outside your turn, they win automatically."
+         },
+         "playingDecimals": {
+            "name": "Playing the Decimals",
+            "hint": "Everyone gets this Karma Capability free (1 Karma): after a Skill check or Attack roll, roll another die and add the unit digit of the Skill score (3 for a Repair of 23). On 10 or more, +1 to the roll. A button appears on skill check and attack cards."
+         },
+         "defenceTokens": {
+            "name": "Defence Tokens",
+            "hint": "Each time a ship or vehicle is attacked, it gains a Defence token once the attacker has fired all their weapons: +2 Defence per token against everyone else. They're discarded at the start of its turn."
+         },
+         "groupFire": {
+            "name": "Group Fire",
+            "hint": "A ship or vehicle's identical weapons all fire together: one Attack roll, identical Damage from each. A critical hit only damages the component once. Use with caution with starting players."
+         },
+         "avoidableExplosives": {
+            "name": "Avoidable Explosives",
+            "hint": "When a grenade or missile lands, everyone in its blast can react before it goes off: throw a grenade back (within 2m: a D10 of 8 or more), jump on it (within 4m: double its fatal Damage to you, its injury Damage to those in the fatal radius, nothing beyond), or run for cover (a Dodge check: that many metres, +2 per Quick Runner). Missiles and grenade launchers only allow running for cover."
+         },
+         "interrupt": {
+            "dogfightAuto": "One interrupting action per round: {target} has already rolled a Dogfight this round, so {name} wins automatically.",
+            "used": "{name} has already taken an interrupting action since their last turn.",
+            "spent": "Interrupting action used"
+         },
+         "tokens": {
+            "note": "Defence tokens: {n} (+{bonus} Defence)"
+         }
+      },
+      "decimals": {
+         "button": "Playing the Decimals",
+         "hint": "1 Karma: roll a D10 and add your Skill score's unit digit. On 10 or more, +1 to this roll (Core Rules p.263).",
+         "title": "Playing the Decimals: {skill}",
+         "ok": "Playing the Decimals: D10 {die} + {digit} = {sum}, +1 to the roll.",
+         "no": "Playing the Decimals: D10 {die} + {digit} = {sum}, no change.",
+         "newTotal": "New total {total} against {dn}"
+      },
+      "reaction": {
+         "run": "{name}: run for cover",
+         "runHint": "A Dodge check: you move that many metres (+2 per Quick Runner) before it goes off. A natural 1 and you don't get away.",
+         "throw": "{name}: throw it back",
+         "throwHint": "Within 2m of a grenade: roll a D10. On 8 or more you throw it back; otherwise it goes off at once.",
+         "jump": "{name}: jump on it",
+         "jumpHint": "Within 4m of a grenade: you take double its fatal Damage and are knocked over; those in the fatal radius take its injury Damage, and those beyond nothing.",
+         "jumpConfirm": "Throw yourself on the grenade? You take double its fatal Damage to protect everyone else.",
+         "ranLine": "{name} runs for cover: Dodge {die} → {total}{quick}, <b>{metres}m</b>.",
+         "ranNot": "{name} tries to run for cover but rolls a natural {die} and doesn't get away.",
+         "quick": " (+{n} Quick Runner)",
+         "thrownLine": "{name} throws it back (D10 {die}): it explodes where they throw it instead.",
+         "fumbledLine": "{name} grabs for it (D10 {die}): it goes off at once.",
+         "jumpedLine": "{name} throws themselves on it.",
+         "jumperDamage": "{name}, on the grenade (×2 fatal)",
+         "jumpedNote": "{name} is lying on it: the fatal radius takes the injury Damage, and the injury radius nothing.",
+         "thrownNote": "Thrown back: it explodes where it was thrown, not where it first landed."
       }
    }
 }

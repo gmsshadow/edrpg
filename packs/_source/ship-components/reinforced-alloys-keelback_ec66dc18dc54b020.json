@@ -1,0 +1,56 @@
+{
+  "_id": "ec66dc18dc54b020",
+  "_key": "!items!ec66dc18dc54b020",
+  "name": "Reinforced Alloys (Keelback)",
+  "type": "shipComponent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><em>Super Traders Supplement</em></p>",
+    "cost": "1,250,460cr",
+    "category": "bulkhead",
+    "slot": "fixed",
+    "military": false,
+    "size": 0,
+    "grade": "",
+    "power": null,
+    "strength": null,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 50,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+50% Hull"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Super Traders Supplement/Bulkheads/Reinforced Alloys"
+    }
+  },
+  "sort": 6600,
+  "effects": [],
+  "folder": "57365d5166a0a96b",
+  "ownership": {
+    "default": 0
+  }
+}

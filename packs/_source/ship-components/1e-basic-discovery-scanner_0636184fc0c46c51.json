@@ -1,0 +1,56 @@
+{
+  "_id": "0636184fc0c46c51",
+  "_key": "!items!0636184fc0c46c51",
+  "name": "1E Basic Discovery Scanner",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>One Discovery Scanner (Basic, Intermediate or Advanced) and one Detailed Surface Scanner per ship.</p><p><em>Core Rules</em></p>",
+    "cost": "1,000cr",
+    "category": "planetaryScanner",
+    "slot": "internal",
+    "military": false,
+    "size": 1,
+    "grade": "E",
+    "power": null,
+    "strength": 10,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Detects all planetary bodies within 500 LS"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Planetary Scanners"
+    }
+  },
+  "sort": 59200,
+  "effects": [],
+  "folder": "1abb2e26ff105fd2",
+  "ownership": {
+    "default": 0
+  }
+}

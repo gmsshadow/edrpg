@@ -1,0 +1,56 @@
+{
+  "_id": "0d7b13602bea784b",
+  "_key": "!items!0d7b13602bea784b",
+  "name": "5D Collector Limpet Controller",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "97,200cr",
+    "category": "collector",
+    "slot": "internal",
+    "military": false,
+    "size": 5,
+    "grade": "D",
+    "power": 0.4,
+    "strength": 50,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 40,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Mining bonus 40; 3 canisters per round"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Limpet Controllers/Collector"
+    }
+  },
+  "sort": 48200,
+  "effects": [],
+  "folder": "194817f905eb1826",
+  "ownership": {
+    "default": 0
+  }
+}

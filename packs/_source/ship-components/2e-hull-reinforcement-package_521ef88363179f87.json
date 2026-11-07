@@ -1,0 +1,56 @@
+{
+  "_id": "521ef88363179f87",
+  "_key": "!items!521ef88363179f87",
+  "name": "2E Hull Reinforcement Package",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Not multiplied by bulkheads.</p><p><em>Core Rules</em></p>",
+    "cost": "12,000cr",
+    "category": "hullReinforcement",
+    "slot": "internal",
+    "military": true,
+    "size": 2,
+    "grade": "E",
+    "power": null,
+    "strength": null,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 35,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+35 Hull"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Hull Reinforcement Packages"
+    }
+  },
+  "sort": 40500,
+  "effects": [],
+  "folder": "39b4161658bd427a",
+  "ownership": {
+    "default": 0
+  }
+}

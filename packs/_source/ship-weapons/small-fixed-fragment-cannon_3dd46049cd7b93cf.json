@@ -1,0 +1,50 @@
+{
+  "_id": "3dd46049cd7b93cf",
+  "_key": "!items!3dd46049cd7b93cf",
+  "name": "Small Fixed Fragment Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.45MW.</p><p>Ammunition: 1,600cr per reload (80cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "36,000cr",
+    "mount": {
+      "size": "small",
+      "kind": "fixed"
+    },
+    "accuracy": 4,
+    "damage": 5,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 20,
+      "max": 20
+    },
+    "special": "Damage 5/10/15 against small/medium/large ships. Up-close only",
+    "power": 0.45,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 1600,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

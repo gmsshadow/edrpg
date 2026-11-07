@@ -1,0 +1,50 @@
+{
+  "_id": "0d3319a264cb0366",
+  "_key": "!items!0d3319a264cb0366",
+  "name": "Large Fixed Multi-Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.64MW.</p><p>Ammunition: 2,700cr per reload (90cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "140,400cr",
+    "mount": {
+      "size": "large",
+      "kind": "fixed"
+    },
+    "accuracy": 2,
+    "damage": 25,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "",
+    "power": 0.64,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 6500,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

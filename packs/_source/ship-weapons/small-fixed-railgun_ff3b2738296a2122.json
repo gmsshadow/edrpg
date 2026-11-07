@@ -1,0 +1,50 @@
+{
+  "_id": "ff3b2738296a2122",
+  "_key": "!items!ff3b2738296a2122",
+  "name": "Small Fixed Railgun",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.15MW.</p><p>Ammunition: 6,000cr per reload (600cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "51,600cr",
+    "mount": {
+      "size": "small",
+      "kind": "fixed"
+    },
+    "accuracy": 0,
+    "damage": 25,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "special": "",
+    "power": 1.15,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 2400,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

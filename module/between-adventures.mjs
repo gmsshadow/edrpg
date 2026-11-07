@@ -447,7 +447,7 @@ export function rareItem(rank, tierRoll, itemRoll) {
 /** Find an item in the system's compendiums by name (ignoring the bracketed type). */
 export async function findItem(name) {
    const base = name.replace(/\s*\(.*\)\s*$/, "").replace(/[‘’]/g, "'").toLowerCase();
-   for (const id of ["weapons", "armour", "cybernetics", "clothing", "gear"]) {
+   for (const id of ["weapons", "armour", "cybernetics", "clothing", "gear", "ship-weapons", "ship-components"]) {
       const pack = game.packs.get(`edrpg.${id}`);
       const hit = (await pack?.getIndex())?.find((e) => e.name.replace(/[‘’]/g, "'").toLowerCase() === base);
       if (hit) return `Compendium.edrpg.${id}.Item.${hit._id}`;

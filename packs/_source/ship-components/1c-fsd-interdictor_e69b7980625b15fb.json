@@ -1,0 +1,56 @@
+{
+  "_id": "e69b7980625b15fb",
+  "_key": "!items!e69b7980625b15fb",
+  "name": "1C FSD Interdictor",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "108,000cr",
+    "category": "fsdInterdictor",
+    "slot": "internal",
+    "military": false,
+    "size": 1,
+    "grade": "C",
+    "power": 0.23,
+    "strength": 15,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+0 Spaceship Piloting to interdict; up to Small ships (larger: -5)"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/FSD Interdictors"
+    }
+  },
+  "sort": 53400,
+  "effects": [],
+  "folder": "456e6983fa780a3c",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "d6e75629a3938200",
+  "_key": "!items!d6e75629a3938200",
+  "name": "Large Fixed Fragment Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.02MW.</p><p>Ammunition: 2,000cr per reload (100cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "1,167,360cr",
+    "mount": {
+      "size": "large",
+      "kind": "fixed"
+    },
+    "accuracy": 4,
+    "damage": 25,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 20,
+      "max": 20
+    },
+    "special": "Damage 25/30/35 against small/medium/large ships. Up-close only",
+    "power": 1.02,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 6200,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "5688af6386d60abb",
+  "_key": "!items!5688af6386d60abb",
+  "name": "Large Gimballed Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.75MW.</p><p>Ammunition: 3,000cr per reload (60cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "1,350,400cr",
+    "mount": {
+      "size": "large",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 30,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 50,
+      "max": 50
+    },
+    "special": "",
+    "power": 0.75,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 6000,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

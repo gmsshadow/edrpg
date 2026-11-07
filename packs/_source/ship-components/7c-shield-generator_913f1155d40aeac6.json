@@ -1,0 +1,56 @@
+{
+  "_id": "913f1155d40aeac6",
+  "_key": "!items!913f1155d40aeac6",
+  "name": "7C Shield Generator",
+  "type": "shipComponent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "5,698,790cr",
+    "category": "shieldGenerator",
+    "slot": "internal",
+    "military": false,
+    "size": 7,
+    "grade": "C",
+    "power": 3.5,
+    "strength": 65,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 295,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Shield Power 295"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Shield Generators"
+    }
+  },
+  "sort": 35500,
+  "effects": [],
+  "folder": "cb3b19bc6886eeba",
+  "ownership": {
+    "default": 0
+  }
+}

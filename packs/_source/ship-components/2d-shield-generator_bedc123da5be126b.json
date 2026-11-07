@@ -1,0 +1,56 @@
+{
+  "_id": "bedc123da5be126b",
+  "_key": "!items!bedc123da5be126b",
+  "name": "2D Shield Generator",
+  "type": "shipComponent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "5,930cr",
+    "category": "shieldGenerator",
+    "slot": "internal",
+    "military": false,
+    "size": 2,
+    "grade": "D",
+    "power": 1.2,
+    "strength": 10,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 40,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Shield Power 40"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Shield Generators"
+    }
+  },
+  "sort": 32900,
+  "effects": [],
+  "folder": "cb3b19bc6886eeba",
+  "ownership": {
+    "default": 0
+  }
+}

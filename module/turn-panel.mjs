@@ -8,6 +8,7 @@
  * Progress is kept on the craft (flags.edrpg.turn), so everyone's panel shows the same step. The sheet's buttons still
  * work alongside it. The world setting "vehicleTurnPanel" turns it off.
  */
+import { safeRounds } from "./silent-running.mjs";
 import {
    panelEnabled,
    turnSteps,
@@ -194,6 +195,10 @@ export class VehicleTurnPanel extends HandlebarsApplicationMixin(ApplicationV2) 
                const uses = eq.cellBanks.reduce((n, b) => n + b.uses, 0);
                opts.push({ which: "cellBank", icon: "fa-solid fa-battery-full", label: L("EDRPG.equip.cellBank"), info: running ? L("EDRPG.turn.bankRunning", { rounds: c.cellBank.rounds }) : L("EDRPG.turn.uses", { uses }), active: running, disabled: running || uses < 1 });
             }
+            const silent = c.silent ?? {};
+            opts.push({ which: "silent", icon: "fa-solid fa-eye-slash", label: L(silent.active ? "EDRPG.silent.stop" : "EDRPG.silent.start"), info: silent.active ? L("EDRPG.silent.chip", { rounds: silent.rounds ?? 0, safe: safeRounds(sys) }) : "", active: !!silent.active, disabled: false });
+            if (eq.heatSinks?.max > 0) opts.push({ which: "heatSink", icon: "fa-solid fa-temperature-low", label: L("EDRPG.silent.heatSink"), info: `${eq.heatSinks.value}/${eq.heatSinks.max}`, active: c.heatSink, disabled: c.heatSink || eq.heatSinks.value < 1 });
+            opts.push({ which: "scan", icon: "fa-solid fa-satellite-dish", label: L("EDRPG.silent.scan"), info: "", active: false, disabled: false });
             if (eq.floating) {
                const list = ["engines", "weapons", "shields"].filter((k) => c.floating?.[k]).map((k) => L(`EDRPG.equip.floating.${k}`)).join(", ");
                opts.push({ which: "floating", icon: "fa-solid fa-sliders", label: L("EDRPG.equip.floatingTitle"), info: list || L("EDRPG.equip.none"), active: !!list, disabled: false });

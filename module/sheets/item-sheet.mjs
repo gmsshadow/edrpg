@@ -14,7 +14,7 @@ import {
    bonusKinds,
    gearCategories,
 } from "../config.mjs";
-import { mountSizes, mountKinds } from "../data/vehicle.mjs";
+import { mountSizes, mountKinds, componentCategories, componentSlots, componentStats } from "../data/vehicle.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -75,6 +75,10 @@ export default class EDItemSheet extends HandlebarsApplicationMixin(ItemSheetV2)
          isEquipment: ["weapon", "armour", "cybernetic", "clothing", "gear"].includes(item.type),
          isCybernetic: item.type === "cybernetic",
          isCraftWeapon: item.type === "craftWeapon",
+         isShipComponent: item.type === "shipComponent",
+         componentCategories,
+         componentSlots,
+         componentStatRows: item.type === "shipComponent" ? componentStats.map((key) => ({ key, label: `EDRPG.outfit.stat.${key}`, value: item.system._source.stats[key] })) : [],
          mountSizes,
          mountKinds,
          isClothing: item.type === "clothing",

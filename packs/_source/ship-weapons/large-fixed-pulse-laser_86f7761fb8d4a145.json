@@ -1,0 +1,50 @@
+{
+  "_id": "86f7761fb8d4a145",
+  "_key": "!items!86f7761fb8d4a145",
+  "name": "Large Fixed Pulse Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 0.9MW.</p><p><em>Core Rules</em></p>",
+    "cost": "70,400cr",
+    "mount": {
+      "size": "large",
+      "kind": "fixed"
+    },
+    "accuracy": 2,
+    "damage": 30,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 0.9,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 5000,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

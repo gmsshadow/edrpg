@@ -1,0 +1,50 @@
+{
+  "_id": "8937aa170344a8ef",
+  "_key": "!items!8937aa170344a8ef",
+  "name": "Large Turreted Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.64MW.</p><p>Ammunition: 3,000cr per reload (60cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "16,204,800cr",
+    "mount": {
+      "size": "large",
+      "kind": "turret"
+    },
+    "accuracy": 2,
+    "damage": 30,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 50,
+      "max": 50
+    },
+    "special": "",
+    "power": 0.64,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 6100,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

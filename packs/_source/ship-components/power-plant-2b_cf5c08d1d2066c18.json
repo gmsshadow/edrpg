@@ -1,0 +1,56 @@
+{
+  "_id": "cf5c08d1d2066c18",
+  "_key": "!items!cf5c08d1d2066c18",
+  "name": "Power Plant 2B",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "53,410cr",
+    "category": "powerPlant",
+    "slot": "fixed",
+    "military": false,
+    "size": 2,
+    "grade": "B",
+    "power": null,
+    "strength": 25,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 8.8,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "8.8MW output"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Power Plants"
+    }
+  },
+  "sort": 7300,
+  "effects": [],
+  "folder": "b0de87d272d8c849",
+  "ownership": {
+    "default": 0
+  }
+}

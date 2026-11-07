@@ -1,0 +1,50 @@
+{
+  "_id": "f2eb4a8b9e79d89c",
+  "_key": "!items!f2eb4a8b9e79d89c",
+  "name": "Small Gimballed Multi-Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.37MW.</p><p>Ammunition: 2,100cr per reload (70cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "14,250cr",
+    "mount": {
+      "size": "small",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 5,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "",
+    "power": 0.37,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 1400,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

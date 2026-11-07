@@ -1,0 +1,50 @@
+{
+  "_id": "8500c3329305459f",
+  "_key": "!items!8500c3329305459f",
+  "name": "Large Fixed Plasma Accelerator",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.97MW.</p><p>Ammunition: 25,000cr per reload (500cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "3,051,200cr",
+    "mount": {
+      "size": "large",
+      "kind": "fixed"
+    },
+    "accuracy": -1,
+    "damage": 60,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 50,
+      "max": 50
+    },
+    "special": "",
+    "power": 1.97,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 6700,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

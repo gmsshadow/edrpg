@@ -7,6 +7,8 @@ import { rollGrabCheck, performGrab, beats } from "./grab.mjs";
 import { karmaPayer } from "../partner.mjs";
 import { judge, karmaRerollable } from "./resolve.mjs";
 import { scaleOf, individualBlocked, bandFor, ASSUMED_RANGE, factorLabel } from "../combined.mjs";
+import { rule } from "../rules.mjs";
+import { scoreDigit, canPlayDecimals, playDecimals } from "../decimals.mjs";
 
 const CARD_TEMPLATE = "systems/edrpg/templates/chat/attack.hbs";
 const SOCKET = "system.edrpg";
@@ -166,6 +168,11 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       opts = { ...opts, ...result };
    }
    if (!s.isMelee) opts.defence = "dodge"; // Ranged attacks can only be dodged.
+   // Rule Variant (Core Rules p.263): one interrupting action (a counter-attack or a free attack) between turns.
+   if ((counter || opts.free) && interruptUsed(actor)) {
+      ui.notifications.warn(game.i18n.format("EDRPG.rules.interrupt.used", { name: actor.name }));
+      return null;
+   }
 
    // Ammunition: one point per ranged attack (Core Rules p.100).
    if (s.usesAmmo && weapon.id !== "fighting") {
@@ -276,6 +283,14 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       boosts: [],
       rerolls: 0,
       ammo,
+      // Playing the Decimals: the Skill score's unit digit (null for opponents), and the roll once made.
+      digit: actor.type === "opponent" ? null : scoreDigit(actor, s.skill, s.attackBonus),
+      decimals: null,
+      // Avoidable Explosives (rule variant): reactions before the blast.
+      reactions: [],
+      reactionsClosed: false,
+      jumped: null,
+      thrownBack: false,
    });
 
    const messageData = {
@@ -287,7 +302,19 @@ export async function rollAttack(actor, weapon, { prompt = true, target: forcedT
       flags: { edrpg: { attack: state } },
    };
    ChatMessage.applyMode(messageData, opts.mode || undefined);
+   if (counter || opts.free) await markInterrupt(actor);
    return ChatMessage.create(messageData);
+}
+
+/** Interrupting-action limit: has this character already interrupted since their last turn? */
+export function interruptUsed(actor) {
+   return rule("interruptLimit") && !!actor?.getFlag?.("edrpg", "interrupted");
+}
+
+/** Interrupting-action limit: note the interruption (cleared at the start of the character's turn). */
+async function markInterrupt(actor) {
+   if (!rule("interruptLimit") || !actor?.isOwner) return;
+   await actor.setFlag("edrpg", "interrupted", true);
 }
 
 /**
@@ -472,6 +499,18 @@ async function promptAttack(actor, weapon, target, defaults) {
  *
  * @returns {Promise<string>}
  */
+/** One reaction to an explosive, as a line of text. */
+function reactionLine(r) {
+   const name = foundry.utils.escapeHTML(r.name);
+   if (r.kind === "run") {
+      return r.metres
+         ? game.i18n.format("EDRPG.reaction.ranLine", { name, die: r.die, total: r.total, metres: r.metres, quick: r.quick ? game.i18n.format("EDRPG.reaction.quick", { n: 2 * r.quick }) : "" })
+         : game.i18n.format("EDRPG.reaction.ranNot", { name, die: r.die });
+   }
+   if (r.kind === "throw") return game.i18n.format(r.ok ? "EDRPG.reaction.thrownLine" : "EDRPG.reaction.fumbledLine", { name, die: r.die });
+   return game.i18n.format("EDRPG.reaction.jumpedLine", { name });
+}
+
 export async function renderAttackCard(state) {
    const burstNote = (() => {
       if (!state.hit || state.burst.kind === "none" || !state.margin) return "";
@@ -482,6 +521,7 @@ export async function renderAttackCard(state) {
       skillName: skillLabel(state.skill),
       parts: state.parts.map((p) => ({ ...p, value: p.value })),
       mods: state.roll.mods.map((m) => ({ ...m, signed: signed(m.value) })),
+      reactionLines: (state.reactions ?? []).map(reactionLine),
       attackBoosts: state.boosts.filter((b) => b.side === "attack"),
       defenceBoosts: state.boosts.filter((b) => b.side === "defence"),
       burstNote,
@@ -515,9 +555,28 @@ async function applyAttackChange(message, change) {
       state.scatter = change.scatter;
    } else if (change.type === "caught") {
       state.caught = change.caught;
+   } else if (change.type === "reaction") {
+      if (state.reactionsClosed || state.damageMessageId) return;
+      const r = change.reaction;
+      state.reactions = [...(state.reactions ?? []), r];
+      // A grenade thrown back (or one that goes off in someone's hand), or someone lying on it, ends the reactions.
+      if (r.kind === "throw") {
+         state.reactionsClosed = true;
+         if (r.ok) state.thrownBack = true;
+      } else if (r.kind === "jump") {
+         state.reactionsClosed = true;
+         state.jumped = { uuid: r.actorUuid, name: r.name };
+      }
+   } else if (change.type === "decimals") {
+      if (state.decimals) return;
+      state.decimals = change.decimals;
+      if (change.decimals.ok) state.boosts.push({ side: "attack", itemId: "decimals", name: game.i18n.localize("EDRPG.decimals.button"), value: 1 });
    } else if (change.type === "reroll") {
       state.roll = { ...state.roll, ...change.roll };
       state.rerolls += 1;
+      // Playing the Decimals belongs to the roll it was played on.
+      state.decimals = null;
+      state.boosts = state.boosts.filter((b) => b.itemId !== "decimals");
    }
    evaluate(state);
    await message.update({ content: await renderAttackCard(state), "flags.edrpg.attack": state });
@@ -640,7 +699,7 @@ export function onRenderAttack(message, html) {
       );
    }
    // Defender who Parried a Melee or Fighting attack that missed: an immediate counter-attack (p.56).
-   if (target?.isOwner && state.isMelee && !state.hit && state.defence === "parry" && !state.countered && attacker) {
+   if (target?.isOwner && state.isMelee && !state.hit && state.defence === "parry" && !state.countered && attacker && !interruptUsed(target)) {
       if (!state.counter) {
          add(`<i class="fa-solid fa-shield-halved"></i> ${game.i18n.format("EDRPG.attack.counter", { name: target.name })}`, game.i18n.localize("EDRPG.attack.counterHint"), () =>
             counterAttack(message, target, attacker),
@@ -659,6 +718,21 @@ export function onRenderAttack(message, html) {
    }
    // Attacker (or GM): roll the damage for a hit, or for a missed explosive wherever it landed.
    const explodes = (state.hit && !state.grab) || (state.isExplosive && state.scatter && !state.scatter.harmless);
+   // Avoidable Explosives (rule variant, Core Rules p.265): anyone in the blast reacts before it goes off.
+   if (rule("avoidableExplosives") && state.isExplosive && explodes && !state.damageMessageId && !state.reactionsClosed) {
+      const who = reactor(attacker);
+      if (who) {
+         const grenade = state.explosiveKind === "grenade";
+         const done = new Set((state.reactions ?? []).map((r) => r.actorUuid));
+         if (!done.has(who.uuid)) {
+            add(`<i class="fa-solid fa-person-running"></i> ${game.i18n.format("EDRPG.reaction.run", { name: who.name })}`, game.i18n.localize("EDRPG.reaction.runHint"), () => react(message, who, "run"), "reaction");
+            if (grenade) {
+               add(`<i class="fa-solid fa-baseball"></i> ${game.i18n.format("EDRPG.reaction.throw", { name: who.name })}`, game.i18n.localize("EDRPG.reaction.throwHint"), () => react(message, who, "throw"), "reaction");
+               add(`<i class="fa-solid fa-person-falling-burst"></i> ${game.i18n.format("EDRPG.reaction.jump", { name: who.name })}`, game.i18n.localize("EDRPG.reaction.jumpHint"), () => react(message, who, "jump"), "reaction");
+            }
+         }
+      }
+   }
    if (canAct && explodes && !state.damageMessageId) {
       add(
          `<i class="fa-solid fa-burst"></i> ${game.i18n.localize(state.isExplosive ? "EDRPG.damage.explosion" : "EDRPG.damage.roll")}`,
@@ -683,6 +757,15 @@ export function onRenderAttack(message, html) {
             rerollAttack(message, attacker),
          );
       }
+   }
+   // Attacker: Playing the Decimals (rule variant, Core Rules p.263), once per roll.
+   if (attacker && !state.decimals && canPlayDecimals(attacker, state.digit)) {
+      add(`<i class="fa-solid fa-yin-yang"></i> ${game.i18n.localize("EDRPG.decimals.button")}`, game.i18n.localize("EDRPG.decimals.hint"), async () => {
+         const r = await playDecimals(attacker, state.digit);
+         if (!r) return;
+         await showDice(r.roll);
+         return submitAttackChange(message, { type: "decimals", decimals: { die: r.die, digit: r.digit, sum: r.total, ok: r.ok } });
+      }, "karma");
    }
    // Attacker: "+2 to the attack you just made" — offered while the attack misses.
    if (attacker?.isOwner && !state.hit) {
@@ -828,6 +911,61 @@ async function rollCaught(message) {
  *
  * @param {Actor} attacker
  */
+/**
+ * Avoidable Explosives: who this user would react as — a token they control (not the attacker), or their character.
+ *
+ * @param {Actor|null} attacker
+ *
+ * @returns {Actor|null}
+ */
+function reactor(attacker) {
+   const controlled = (canvas?.tokens?.controlled ?? []).map((t) => t.actor).find((a) => a?.isOwner && a !== attacker && a.type !== "vehicle" && a.type !== "ship");
+   if (controlled) return controlled;
+   const pc = game.user.character;
+   return pc && pc !== attacker && pc.isOwner ? pc : null;
+}
+
+/**
+ * Work out a reaction to an explosive.
+ *
+ * @param {Actor} actor
+ *
+ * @param {"run"|"throw"|"jump"} kind
+ *
+ * @returns {Promise<object>}
+ */
+export async function reactionResult(actor, kind) {
+   const base = { actorUuid: actor.uuid, name: actor.name, kind };
+   if (kind === "run") {
+      // A Dodge check: that many metres, +2 per Quick Runner; a natural 1 and you don't get away.
+      const r = await rollSkillDice(actor, "dodge", { socialFactor: false });
+      await showDice(r.roll);
+      const quick = actor.system.enhancements?.quickRunner ?? 0;
+      const metres = r.natural === 1 ? 0 : Math.max(0, r.total + 2 * quick);
+      return { ...base, die: r.natural, total: r.total, quick, metres };
+   }
+   if (kind === "throw") {
+      // A D10: 8 or more throws it back, otherwise it goes off at once.
+      const roll = await new Roll("1d10").evaluate();
+      await showDice(roll);
+      return { ...base, die: roll.total, ok: roll.total >= 8 };
+   }
+   return base;
+}
+
+async function react(message, actor, kind) {
+   if (kind === "jump") {
+      const ok = await foundry.applications.api.DialogV2.confirm({
+         window: { title: game.i18n.format("EDRPG.reaction.jump", { name: actor.name }) },
+         content: `<p>${game.i18n.localize("EDRPG.reaction.jumpConfirm")}</p>`,
+         rejectClose: false,
+      });
+      if (!ok) return;
+   }
+   const reaction = await reactionResult(actor, kind);
+   return submitAttackChange(message, { type: "reaction", reaction });
+}
+
 async function counterAttack(message, defender, attacker) {
    const melee = defender.itemTypes.weapon.filter((w) => w.system.isMelee && w.system.skill !== "fighting" && (defender.type === "opponent" || w.system.equipped));
    let weapon = fightingWeapon();

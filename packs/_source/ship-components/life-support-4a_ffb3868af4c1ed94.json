@@ -1,0 +1,56 @@
+{
+  "_id": "ffb3868af4c1ed94",
+  "_key": "!items!ffb3868af4c1ed94",
+  "name": "Life Support 4A",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
+    "cost": "443,330cr",
+    "category": "lifeSupport",
+    "slot": "fixed",
+    "military": false,
+    "size": 4,
+    "grade": "A",
+    "power": 0.74,
+    "strength": 55,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Emergency Life Support 25 minutes"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Life Support"
+    }
+  },
+  "sort": 19400,
+  "effects": [],
+  "folder": "a06f3e922026d90d",
+  "ownership": {
+    "default": 0
+  }
+}

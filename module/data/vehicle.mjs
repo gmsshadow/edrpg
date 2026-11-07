@@ -114,6 +114,20 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
             // Ships' equipment actions, active until the start of the next turn.
             chaff: new fields.BooleanField({ initial: false }),
             mines: new fields.BooleanField({ initial: false }),
+            // Rule Variants (Core Rules pp.263–264): who has attacked it since its last turn (Defence Tokens), and
+            // whether it has already rolled a Dogfight outside its turn (one Interrupting Action).
+            attackedBy: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+            interrupted: new fields.BooleanField({ initial: false }),
+            // A Heat Sink fired this turn (+2 Systems while silent running, Core Rules p.198).
+            heatSink: new fields.BooleanField({ initial: false }),
+            // Silent Running (Core Rules p.268): rounds hidden so far, heat sinks fired (each buys another minute), and
+            // the ships whose sensor scans have found it.
+            silent: new fields.SchemaField({
+               active: new fields.BooleanField({ initial: false }),
+               rounds: int(0, { min: 0 }),
+               sinks: int(0, { min: 0 }),
+               seenBy: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+            }),
             // Shield Cell Bank running: index into equipment.cellBanks and rounds of boost left.
             cellBank: new fields.SchemaField({ index: int(-1), rounds: int(0, { min: 0 }) }),
             // Floating bonuses assigned (one per area at most).
@@ -328,6 +342,9 @@ export class CraftWeaponData extends foundry.abstract.TypeDataModel {
             max: new fields.NumberField({ required: true, nullable: true, integer: true, min: 0, initial: null }),
          }),
          special: new fields.StringField({ initial: "" }),
+         // Power draw in MW (Core Rules pp.195–196; null = not listed) and the ship hardpoint it's fitted to (-1 = none).
+         power: new fields.NumberField({ required: true, nullable: true, min: 0, initial: null }),
+         hardpoint: int(-1, { min: -1 }),
          // Engineering (Espionage Supplement): its positive effects and faults.
          engineered: new fields.SchemaField({
             effects: new fields.ArrayField(new fields.StringField(), { initial: [] }),
@@ -368,6 +385,9 @@ export class CraftWeaponData extends foundry.abstract.TypeDataModel {
          .join(". ");
    }
 }
+
+/** The fixed components every ship must have, each of the hull's class (Core Rules p.192). */
+export const FIXED_KINDS = ["powerPlant", "thrusters", "fsd", "lifeSupport", "powerDistributor", "sensors"];
 
 /** Ship component kinds: the fixed components and the ones a critical hit can name (Core Rules pp.69, 197–206). */
 export const componentKinds = {
@@ -420,6 +440,7 @@ export class ShipData extends VehicleData {
             chaff: new fields.SchemaField({ value: int(0, { min: 0 }), max: int(0, { min: 0 }) }),
             mines: new fields.SchemaField({ value: int(0, { min: 0 }), max: int(0, { min: 0 }), dn: int(15), damage: int(10, { min: 0 }) }),
             pointDefence: new fields.SchemaField({ value: int(0, { min: 0 }), max: int(0, { min: 0 }) }),
+            heatSinks: new fields.SchemaField({ value: int(0, { min: 0 }), max: int(0, { min: 0 }) }),
             ecm: new fields.BooleanField({ initial: false }),
             floating: int(0, { min: 0 }),
             cellBanks: new fields.ArrayField(
@@ -452,6 +473,18 @@ export class ShipData extends VehicleData {
          impervious: new fields.BooleanField({ initial: false }),
          swarm: new fields.BooleanField({ initial: false }),
          remote: new fields.BooleanField({ initial: true }),
+         // Outfitting (Core Rules pp.192–193): the hull's slots from its Basic Specifications, its starting Hull (for
+         // bulkhead bonuses) and the Explorer trait (+50% jump range). Disabled = ratings and roster are kept by hand.
+         outfit: new fields.SchemaField({
+            enabled: new fields.BooleanField({ initial: false }),
+            hull: new fields.StringField({ initial: "" }),
+            baseHull: int(0, { min: 0 }),
+            explorer: new fields.BooleanField({ initial: false }),
+            hardpoints: new fields.ArrayField(new fields.StringField({ required: true, choices: mountSizes, initial: "small" }), { initial: [] }),
+            utility: int(0, { min: 0 }),
+            fixed: new fields.SchemaField(Object.fromEntries(FIXED_KINDS.map((k) => [k, int(0, { min: 0, max: 8 })]))),
+            internal: new fields.ArrayField(new fields.SchemaField({ size: int(1, { min: 1, max: 8 }), military: new fields.BooleanField({ initial: false }) }), { initial: [] }),
+         }),
          // The ship roster's components, in roster order (critical hits count along this list).
          components: new fields.ArrayField(
             new fields.SchemaField({
@@ -459,8 +492,10 @@ export class ShipData extends VehicleData {
                kind: new fields.StringField({ required: true, choices: componentKinds, initial: "internal" }),
                strength: new fields.SchemaField({ value: int(10), max: int(10, { min: 0 }) }),
                notes: new fields.StringField({ initial: "" }),
-               // For weapon components: the Craft Weapon item they stand for.
+               // The Ship Component (or Craft Weapon) item it stands for.
                item: new fields.StringField({ initial: "" }),
+               // Outfitting: the slot it occupies ("fixed.thrusters", "internal.3", "utility.0"; "" = not tracked).
+               slot: new fields.StringField({ initial: "" }),
                // Engineering (Espionage Supplement): its positive effects and faults.
                engineered: new fields.SchemaField({
                effects: new fields.ArrayField(new fields.StringField(), { initial: [] }),
@@ -592,5 +627,86 @@ export class ShipData extends VehicleData {
    get pilotActor() {
       if (this.npc?.enabled) return null;
       return super.pilotActor;
+   }
+}
+
+/** Ship component categories (Core Rules pp.197–216). */
+export const componentCategories = {
+   bulkhead: "EDRPG.outfit.cat.bulkhead",
+   powerPlant: "EDRPG.ship.component.powerPlant",
+   thrusters: "EDRPG.ship.component.thrusters",
+   fsd: "EDRPG.ship.component.fsd",
+   lifeSupport: "EDRPG.ship.component.lifeSupport",
+   powerDistributor: "EDRPG.ship.component.powerDistributor",
+   sensors: "EDRPG.ship.component.sensors",
+   fuelTank: "EDRPG.outfit.cat.fuelTank",
+   cargoHatch: "EDRPG.outfit.cat.cargoHatch",
+   utility: "EDRPG.ship.component.utility",
+   shieldGenerator: "EDRPG.ship.component.shieldGenerator",
+   cargoRack: "EDRPG.outfit.cat.cargoRack",
+   afmu: "EDRPG.outfit.cat.afmu",
+   collector: "EDRPG.outfit.cat.collector",
+   dockingComputer: "EDRPG.outfit.cat.dockingComputer",
+   fsdInterdictor: "EDRPG.outfit.cat.fsdInterdictor",
+   fuelScoop: "EDRPG.outfit.cat.fuelScoop",
+   hatchBreaker: "EDRPG.outfit.cat.hatchBreaker",
+   hullReinforcement: "EDRPG.outfit.cat.hullReinforcement",
+   moduleReinforcement: "EDRPG.outfit.cat.moduleReinforcement",
+   prospector: "EDRPG.outfit.cat.prospector",
+   planetaryScanner: "EDRPG.outfit.cat.planetaryScanner",
+   refinery: "EDRPG.outfit.cat.refinery",
+   vehicleHangar: "EDRPG.outfit.cat.vehicleHangar",
+   shieldCellBank: "EDRPG.outfit.cat.shieldCellBank",
+   fighterHangar: "EDRPG.outfit.cat.fighterHangar",
+   spaceshipHangar: "EDRPG.outfit.cat.spaceshipHangar",
+};
+
+/** Where a component is fitted (Core Rules pp.192–193). */
+export const componentSlots = {
+   fixed: "EDRPG.outfit.slot.fixed",
+   internal: "EDRPG.outfit.slot.internal",
+   utility: "EDRPG.outfit.slot.utility",
+};
+
+/** The numbers a component can add to a ship; 0 = none. */
+export const componentStats = [
+   "output", "range", "capacity", "shields", "hull", "hullBonus", "shieldBoost", "strengthBonus", "speed", "agility", "toHit",
+   "initiative", "dogfighting", "shieldRecharge", "floating", "generalScan", "systems", "mining", "recharge", "duration",
+];
+
+/**
+ * A spaceship component or utility mount (Core Rules pp.192–216): its slot, size and grade, power draw, Strength and cost,
+ * and the numbers it adds to the ship. `special` is the short note shown on the ship's component roster.
+ */
+export class ShipComponentData extends foundry.abstract.TypeDataModel {
+   static defineSchema() {
+      const stats = Object.fromEntries(componentStats.map((key) => [key, new fields.NumberField({ required: true, nullable: false, initial: 0 })]));
+      return {
+         description: new fields.HTMLField({ initial: "" }),
+         cost: new fields.StringField({ initial: "" }),
+         category: new fields.StringField({ required: true, choices: componentCategories, initial: "cargoRack" }),
+         slot: new fields.StringField({ required: true, choices: componentSlots, initial: "internal" }),
+         // Military slots take only Hull and Module Reinforcement Packages and Shield Cell Banks (Core Rules p.193).
+         military: new fields.BooleanField({ initial: false }),
+         size: int(1, { min: 0, max: 8 }),
+         grade: new fields.StringField({ required: true, blank: true, initial: "E" }),
+         // Power draw in MW (null = none listed).
+         power: new fields.NumberField({ required: true, nullable: true, min: 0, initial: null }),
+         // Component Strength (null = not subject to critical hits).
+         strength: new fields.NumberField({ required: true, nullable: true, integer: true, min: 0, initial: null }),
+         ammo: new fields.SchemaField({
+            value: int(0, { min: 0 }),
+            max: new fields.NumberField({ required: true, nullable: true, integer: true, min: 0, initial: null }),
+         }),
+         stats: new fields.SchemaField(stats),
+         special: new fields.StringField({ initial: "" }),
+         // On a ship: the slot it's fitted to ("bulkhead", "fixed.thrusters", "internal.3", "utility.0").
+         fitted: new fields.StringField({ initial: "" }),
+      };
+   }
+
+   /** "4A", or "0A" for a utility mount. */
+   get code() {
+      return `${this.size}${this.grade}`;
    }
 }

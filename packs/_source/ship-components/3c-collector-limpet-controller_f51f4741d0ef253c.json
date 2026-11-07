@@ -1,0 +1,56 @@
+{
+  "_id": "f51f4741d0ef253c",
+  "_key": "!items!f51f4741d0ef253c",
+  "name": "3C Collector Limpet Controller",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "21,600cr",
+    "category": "collector",
+    "slot": "internal",
+    "military": false,
+    "size": 3,
+    "grade": "C",
+    "power": 0.34,
+    "strength": 35,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 14,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Mining bonus 14; 2 canisters per round"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Limpet Controllers/Collector"
+    }
+  },
+  "sort": 47800,
+  "effects": [],
+  "folder": "194817f905eb1826",
+  "ownership": {
+    "default": 0
+  }
+}

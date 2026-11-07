@@ -1,0 +1,50 @@
+{
+  "_id": "326cd97f5c9be15b",
+  "_key": "!items!326cd97f5c9be15b",
+  "name": "Large Turreted Pulse Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 0.89MW.</p><p><em>Core Rules</em></p>",
+    "cost": "400,400cr",
+    "mount": {
+      "size": "large",
+      "kind": "turret"
+    },
+    "accuracy": 2,
+    "damage": 30,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 0.89,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 5200,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

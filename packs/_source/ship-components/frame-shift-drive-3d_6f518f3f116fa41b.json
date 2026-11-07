@@ -1,0 +1,56 @@
+{
+  "_id": "6f518f3f116fa41b",
+  "_key": "!items!6f518f3f116fa41b",
+  "name": "Frame Shift Drive 3D",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "18,810cr",
+    "category": "fsd",
+    "slot": "fixed",
+    "military": false,
+    "size": 3,
+    "grade": "D",
+    "power": 0.27,
+    "strength": 25,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 10,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Range 10LY"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Frame Shift Drives"
+    }
+  },
+  "sort": 14600,
+  "effects": [],
+  "folder": "e8426b7fcf5b96e8",
+  "ownership": {
+    "default": 0
+  }
+}

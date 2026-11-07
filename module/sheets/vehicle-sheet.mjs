@@ -5,6 +5,8 @@ import { equipmentAction } from "../vehicle-combat.mjs";
 import { engineerDialog, labels as engLabels } from "../engineering.mjs";
 import { hangarEntries, dock, undock, recover } from "../hangar.mjs";
 import { openTurnPanel } from "../turn-panel.mjs";
+import { fitItem, emptySlot, outfitView } from "../ship-outfitting.mjs";
+import { safeRounds } from "../silent-running.mjs";
 import { actionsFor, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
 
 /** A signed number. */
@@ -59,6 +61,8 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          engineer: EDVehicleSheet.#onEngineer,
          undock: EDVehicleSheet.#onUndock,
          recover: EDVehicleSheet.#onRecover,
+         outfitOpen: EDVehicleSheet.#onOutfitOpen,
+         outfitEmpty: EDVehicleSheet.#onOutfitEmpty,
       },
    };
 
@@ -68,6 +72,7 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
       tabs: { template: "systems/edrpg/templates/actor/tabs.hbs" },
       sheet: { template: "systems/edrpg/templates/vehicle/sheet.hbs", scrollable: [""] },
       details: { template: "systems/edrpg/templates/vehicle/details.hbs", scrollable: [""] },
+      outfit: { template: "systems/edrpg/templates/vehicle/outfit.hbs", scrollable: [""] },
    };
 
    /** @override */
@@ -76,6 +81,7 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          tabs: [
             { id: "sheet", label: "EDRPG.vehicle.tab.sheet" },
             { id: "details", label: "EDRPG.vehicle.tab.details" },
+            { id: "outfit", label: "EDRPG.outfit.tab" },
          ],
          initial: "sheet",
       },
@@ -171,7 +177,17 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
             recharge: system.rechargeNow,
          };
          context.equip.launch = context.hangar.entries.some((e) => !e.launched && e.actor);
-         context.hasEquip = !!(context.equip.launch || context.equip.chaff || context.equip.mines || context.equip.pd || context.equip.ecm || context.equip.floating || context.equip.banks);
+         // Silent Running, heat sinks and scanning for hidden ships (Core Rules p.268).
+         const silent = c.silent ?? {};
+         context.equip.silent = {
+            active: !!silent.active,
+            label: silent.active ? "EDRPG.silent.stop" : "EDRPG.silent.start",
+            info: silent.active ? game.i18n.format("EDRPG.silent.chip", { rounds: silent.rounds ?? 0, safe: safeRounds(system) }) : "",
+            seenBy: (silent.seenBy ?? []).map((u) => fromUuidSync(u)?.name).filter(Boolean).join(", "),
+         };
+         context.equip.heatSinks = eq.heatSinks?.max > 0 ? { ...eq.heatSinks, active: c.heatSink } : null;
+         context.equip.scan = true;
+         context.hasEquip = true;
       }
       context.vactions = actionsFor(actor, zone).filter((key) => key !== "rescue" || strandedNearby).map((key) => ({
          key,
@@ -220,7 +236,21 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          relativeTo: actor,
       });
       context.descriptionField = system.schema.getField("description");
+      // Outfitting: ships with a hull layout (not GM stat blocks).
+      context.outfit = actor.type === "ship" && system.outfit?.enabled && !system.npc?.enabled ? outfitView(actor) : null;
+      if (!context.outfit && context.tabs) delete context.tabs.outfit;
       return context;
+   }
+
+   /** Open a fitted component or weapon. */
+   static #onOutfitOpen(event, target) {
+      this.document.items.get(target.dataset.itemId)?.sheet.render(true);
+   }
+
+   /** Empty a slot (selling what was in it). */
+   static async #onOutfitEmpty(event, target) {
+      if (!this.isEditable) return;
+      await emptySlot(this.document, target.dataset.slot);
    }
 
    /** @override */
@@ -275,6 +305,20 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
       if (actor?.type === "ship" && this.document.system.isShip) return dock(this.document, actor);
       if (!CREW_TYPES.includes(actor?.type)) return;
       await this.document.update({ "system.pilot": actor.uuid });
+   }
+
+   /**
+    * A Ship Component (or, on an outfitted ship, a weapon) dropped on a spaceship is fitted to one of its slots.
+    *
+    * @override
+    */
+   async _onDropItem(event, item) {
+      const ship = this.document;
+      const fromHere = item?.parent?.uuid === ship.uuid;
+      const outfitWeapon = item?.type === "craftWeapon" && ship.system.outfit?.enabled && !fromHere;
+      if (fromHere || (item?.type !== "shipComponent" && !outfitWeapon)) return super._onDropItem(event, item);
+      if (!this.isEditable) return false;
+      return fitItem(ship, item);
    }
 
    /**

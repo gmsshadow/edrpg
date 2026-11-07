@@ -1,0 +1,56 @@
+{
+  "_id": "52463fa285ca7ae0",
+  "_key": "!items!52463fa285ca7ae0",
+  "name": "4D Shield Cell Bank",
+  "type": "shipComponent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Three uses before new cells are needed (400cr per use to refill).</p><p><em>Core Rules</em></p>",
+    "cost": "28,370cr",
+    "category": "shieldCellBank",
+    "slot": "internal",
+    "military": true,
+    "size": 4,
+    "grade": "D",
+    "power": 0.98,
+    "strength": 40,
+    "ammo": {
+      "value": 3,
+      "max": 3
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 20,
+      "duration": 2
+    },
+    "special": "+20 shield recharge for 2 rounds"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Shield Cell Banks"
+    }
+  },
+  "sort": 37900,
+  "effects": [],
+  "folder": "737917eae678aa22",
+  "ownership": {
+    "default": 0
+  }
+}

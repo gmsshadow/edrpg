@@ -1,0 +1,50 @@
+{
+  "_id": "849c82c09b42dbd8",
+  "_key": "!items!849c82c09b42dbd8",
+  "name": "Small Turreted Multi-Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.26MW.</p><p>Ammunition: 2,100cr per reload (70cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "81,600cr",
+    "mount": {
+      "size": "small",
+      "kind": "turret"
+    },
+    "accuracy": 2,
+    "damage": 5,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "",
+    "power": 0.26,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 1500,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

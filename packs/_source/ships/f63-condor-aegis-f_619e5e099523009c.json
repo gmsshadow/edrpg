@@ -63,13 +63,20 @@
         "value": 10,
         "max": 10
       },
+      "heatSinks": {
+        "value": 0,
+        "max": 0
+      },
       "ecm": false,
       "floating": 0,
       "cellBanks": []
     },
     "zone": "atDistance",
     "pilot": "",
-    "description": "<p><em>Super Traders Supplement</em></p>"
+    "description": "<p><em>Super Traders Supplement</em></p>",
+    "outfit": {
+      "enabled": false
+    }
   },
   "prototypeToken": {
     "name": "F63 Condor – Aegis F",
@@ -116,7 +123,13 @@
           "max": null
         },
         "special": "",
-        "gunner": ""
+        "gunner": "",
+        "power": null,
+        "hardpoint": -1,
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       "effects": [],
       "folder": null,
@@ -153,7 +166,13 @@
           "max": null
         },
         "special": "",
-        "gunner": ""
+        "gunner": "",
+        "power": null,
+        "hardpoint": -1,
+        "engineered": {
+          "effects": [],
+          "faults": []
+        }
       },
       "effects": [],
       "folder": null,

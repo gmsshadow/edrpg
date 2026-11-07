@@ -1,3 +1,5 @@
+import { safeRounds, overheat, chooseAndScan, hiddenFrom } from "./silent-running.mjs";
+import { rule } from "./rules.mjs";
 import { rollCraftAttack, applyCraftDamage } from "./dice/craft-attack.mjs";
 import { judge } from "./dice/resolve.mjs";
 import { rollCrashDamage } from "./dice/damage.mjs";
@@ -304,7 +306,8 @@ export async function rechargeShields(actor, { post = true } = {}) {
    const data = {};
    const notes = [];
    const rate = sys.isShip ? sys.rechargeNow : sh.recharge;
-   if (sys.isShip && (sys.damaged?.powerDistributor || sys.damaged?.shieldGenerator) && sh.max > 0) notes.push(L("EDRPG.ship.noRecharge"));
+   if (sys.combat?.silent?.active && sh.max > 0) notes.push(L("EDRPG.silent.noRecharge"));
+   else if (sys.isShip && (sys.damaged?.powerDistributor || sys.damaged?.shieldGenerator) && sh.max > 0) notes.push(L("EDRPG.ship.noRecharge"));
    else if (sh.max > 0) {
       const value = Math.min(sh.max, sh.value + rate);
       if (sh.down) {
@@ -389,7 +392,7 @@ function startSpeed(sys) {
 
 /** @returns {object} A clean combat-turn state. */
 function freshState() {
-   return { turnSpeed: null, action: "", sniping: false, fleeing: false, disengaging: false, rammed: false, lostAction: false, pass: 0, escaped: false };
+   return { turnSpeed: null, action: "", sniping: false, fleeing: false, disengaging: false, rammed: false, lostAction: false, pass: 0, escaped: false, attackedBy: [], interrupted: false };
 }
 
 /**
@@ -514,8 +517,19 @@ export async function startVehicleTurn(actor, combat = null) {
       "system.combat.hovering": false,
       "system.combat.chaff": false,
       "system.combat.mines": false,
+      "system.combat.heatSink": false,
+      // Rule Variants: Defence tokens are discarded, and a new Interrupting Action is allowed.
+      "system.combat.attackedBy": [],
+      "system.combat.interrupted": false,
       "system.combat.outOfControl": Math.max(0, (c.outOfControl ?? 0) - 1),
    };
+   // Silent Running: another round hidden; past its safe time the ship overheats (after this turn's update).
+   let overheating = false;
+   if (sys.isShip && c.silent?.active) {
+      const rounds = (c.silent.rounds ?? 0) + 1;
+      data["system.combat.silent.rounds"] = rounds;
+      overheating = rounds > safeRounds(sys);
+   }
    if (sys.isShip) data["system.combat.turnSpeed"] = null;
    const notes = [];
    if (c.escaped || sys.destroyed) return actor.update(data);
@@ -536,7 +550,7 @@ export async function startVehicleTurn(actor, combat = null) {
    // Shields: +recharge while up; while down they charge up and come back at half (p.65). With the turn panel this
    // waits for its own step, after Equipment, as the book orders it.
    const panel = panelEnabled() && !!combat;
-   const sh = panel ? { max: 0 } : sys.shields;
+   const sh = panel || c.silent?.active ? { max: 0 } : sys.shields;
    // A destroyed Power Distributor (or Shield Generator) stops shield recharge (p.69).
    const rate = sys.isShip ? sys.rechargeNow : sh.recharge;
    if (sys.isShip && (sys.damaged?.powerDistributor || sys.damaged?.shieldGenerator) && sh.max > 0) notes.push(L("EDRPG.ship.noRecharge"));
@@ -576,7 +590,12 @@ export async function startVehicleTurn(actor, combat = null) {
          action: false,
       };
    }
+   if (sys.isShip && c.silent?.active) {
+      const left = safeRounds(sys) - data["system.combat.silent.rounds"];
+      notes.push(overheating ? L("EDRPG.silent.overheating", { name: esc(actor.name) }) : L("EDRPG.silent.roundNote", { name: esc(actor.name), left: Math.max(0, left) }));
+   }
    await actor.update(data);
+   if (overheating) await overheat(actor);
    if (zone !== zoneOf(actor)) await moveToZone(actor, zone);
    if (data["system.combat.escaped"]) {
       return postEvent(actor, { kind: "turn", title: L("EDRPG.vcombat.turnStart", { name: actor.name }), notes, outcome: L("EDRPG.vcombat.escapedShort"), outcomeClass: "success" });
@@ -808,7 +827,9 @@ export function targetCandidates(actor, { wrecks = false } = {}) {
    const craft = (globalThis.canvas?.scene?.tokens ?? [])
       .map((t) => t.actor)
       .filter((a) => isCraft(a) && a !== actor && a.uuid !== actor.uuid && !seen.has(a.uuid) && seen.add(a.uuid))
-      .filter((a) => (wrecks ? a.system.destroyed : !a.system.combat.escaped && !a.system.destroyed));
+      .filter((a) => (wrecks ? a.system.destroyed : !a.system.combat.escaped && !a.system.destroyed))
+      // Silent ships nobody aboard has scanned for are invisible (Core Rules p.268).
+      .filter((a) => wrecks || !hiddenFrom(a, actor));
    // Combined Scale Combat: people on the scene can be targeted too (p.255).
    return wrecks ? craft : [...craft, ...individualsOnScene(actor)];
 }
@@ -936,7 +957,7 @@ async function pickTarget(actor, { zone = null, filter = () => true, title, wrec
  *
  * @returns {Promise<{fired: number, missed: boolean, left: Item[]}>}
  */
-async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifier = 0, note = null, action = null, forward = false, cover = undefined } = {}) {
+export async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifier = 0, note = null, action = null, forward = false, cover = undefined } = {}) {
    weapons ??= sortedWeapons(actor);
    // Combined Scale Combat: a vehicle's fixed and gimballed weapons can't reach a spaceship (p.255).
    const unable = weapons.filter((w) => craftWeaponBlocked(actor, w, target));
@@ -949,10 +970,14 @@ async function fireWeapons(actor, target, { weapons, stopOnMiss = false, modifie
    if (cover === null) return { fired: 0, missed: false, left: weapons };
    let fired = 0;
    let missed = false;
+   // Group Fire: weapons already fired with an identical one are skipped.
+   const grouped = new Set();
    for (const [i, weapon] of weapons.entries()) {
+      if (grouped.has(weapon.id)) continue;
       const message = await rollCraftAttack(actor, weapon, { prompt: false, target, modifier, note, action, forward, cover: cover || null });
       if (!message) continue;
       fired++;
+      for (const id of message.getFlag("edrpg", "craftAttack")?.groupIds ?? []) grouped.add(id);
       if (!message.getFlag("edrpg", "craftAttack")?.hit && stopOnMiss) {
          missed = true;
          return { fired, missed, left: weapons.slice(i + 1) };
@@ -1438,6 +1463,26 @@ async function runDown(actor, target, kind) {
 }
 
 /**
+ * A Dogfight won without a roll (one Interrupting Action, Core Rules p.263): the attacker swings behind the target and
+ * fires all its weapons; the target may still fire back with one turret.
+ */
+async function dogfightWon(winner, loser, key, names) {
+   const returnFire = turrets(loser).length ? [{ vehicleUuid: loser.uuid, targetUuid: winner.uuid, name: loser.name, target: winner.name, used: false }] : [];
+   const firesHere = winner.isOwner;
+   await postEvent(winner, {
+      kind: "tail",
+      fullFire: firesHere ? null : { vehicleUuid: winner.uuid, targetUuid: loser.uuid, name: winner.name, target: loser.name, used: false },
+      title: L(`EDRPG.vcombat.action.${key}`),
+      subtitle: L("EDRPG.vcombat.versus", { name: winner.name, target: loser.name }),
+      outcome: L("EDRPG.vcombat.tailWin", { name: esc(winner.name), target: esc(loser.name) }),
+      outcomeClass: "success",
+      notes: [L("EDRPG.rules.interrupt.dogfightAuto", names), L("EDRPG.vcombat.tailReturn", { name: esc(loser.name) })],
+      returnFire,
+   });
+   if (firesHere) await fireWeapons(winner, loser, { action: `EDRPG.vcombat.action.${key}`, forward: true });
+}
+
+/**
  * Tailing contest: D10 + Defence each (+bonus to the initiator after a Chicken). The winner fires all weapons; the
  * loser may fire back with one turret. A draw: both may fire one turret.
  *
@@ -1450,12 +1495,16 @@ async function runDown(actor, target, kind) {
 async function dogfight(actor, target, bonus = 0) {
    const key = tailKey(actor);
    const scoreLabel = (v) => L(v.system.npc?.enabled ? "EDRPG.ship.dogfighting" : "EDRPG.vehicle.defence");
+   const names = { name: esc(actor.name), target: esc(target.name) };
+   // Rule Variant (Core Rules p.263): a craft that has already rolled a Dogfight outside its turn can't defend again;
+   // the attacker wins automatically.
+   if (rule("interruptLimit") && target.system.combat?.interrupted) return dogfightWon(actor, target, key, names);
    const a = await rollWith(actor.name, [
       { label: scoreLabel(actor), value: actor.system.dogfight, always: true },
       { label: L("EDRPG.vcombat.chickenBonus"), value: bonus },
    ]);
    const b = await rollWith(target.name, [{ label: scoreLabel(target), value: target.system.dogfight, always: true }]);
-   const names = { name: esc(actor.name), target: esc(target.name) };
+   if (rule("interruptLimit")) await update(target, { "system.combat.interrupted": true });
    let [winner, loser] = a.total > b.total ? [actor, target] : b.total > a.total ? [target, actor] : [null, null];
    // Dodging mines: facing a ship that is laying mines, your roll must beat the launcher's Difficulty or you lose and
    // hit a mine (p.66). Point Defence can shoot the mine down.
@@ -1637,6 +1686,27 @@ export async function equipmentAction(actor, which) {
       if (result.notes.length) await postEvent(actor, { kind: "equipment", title: L("EDRPG.equip.title"), subtitle: actor.name, notes: result.notes });
       return result.broken;
    };
+   // Silent Running (Core Rules p.268): shields off, hidden from sensors until scanned for; or stop and let them recharge.
+   if (which === "silent") {
+      if (c.silent?.active) {
+         await actor.update({ "system.combat.silent.active": false, "system.combat.silent.seenBy": [] });
+         return say("EDRPG.silent.stopped");
+      }
+      await actor.update({ "system.combat.silent": { active: true, rounds: 0, sinks: 0, seenBy: [] }, "system.shields.value": 0, "system.combat.cellBank": { index: -1, rounds: 0 } });
+      return say("EDRPG.silent.started", { rounds: safeRounds({ combat: { silent: { sinks: 0 } } }) });
+   }
+   // A Heat Sink: another minute of silent running, and +2 Systems against scans this turn (p.198).
+   if (which === "heatSink") {
+      if (c.heatSink) return void ui.notifications.info(L("EDRPG.silent.sinkActive", { name: actor.name }));
+      if (eq.heatSinks.value < 1) return void ui.notifications.warn(L("EDRPG.equip.noAmmo", { name: actor.name, what: L("EDRPG.silent.heatSink") }));
+      if (await faultCheck(/heat sink/i)) return;
+      const data = { "system.equipment.heatSinks.value": eq.heatSinks.value - 1, "system.combat.heatSink": true };
+      if (c.silent?.active) data["system.combat.silent.sinks"] = (c.silent.sinks ?? 0) + 1;
+      await actor.update(data);
+      return say(c.silent?.active ? "EDRPG.silent.sinkUsed" : "EDRPG.silent.sinkWasted", { left: eq.heatSinks.value - 1, max: eq.heatSinks.max });
+   }
+   // Scan for a silent ship (the result goes to the hidden ship through the GM).
+   if (which === "scan") return chooseAndScan(actor, { relay: update });
    if (which === "chaff" || which === "mines") {
       const store = eq[which];
       if (c[which]) return void ui.notifications.info(L(`EDRPG.equip.${which}Active`, { name: actor.name }));
@@ -1646,6 +1716,7 @@ export async function equipmentAction(actor, which) {
       return say(`EDRPG.equip.${which}Used`, { left: store.value - 1, max: store.max, dn: eq.mines.dn });
    }
    if (which === "cellBank") {
+      if (c.silent?.active) return void ui.notifications.warn(L("EDRPG.silent.noShields", { name: actor.name }));
       if (c.cellBank.index >= 0 && c.cellBank.rounds > 0) return void ui.notifications.warn(L("EDRPG.equip.bankBusy", { name: actor.name }));
       const banks = eq.cellBanks.map((b, i) => ({ ...b, i })).filter((b) => b.uses > 0 && !sys.components.some((x) => x.name === b.name && x.strength.value <= 0));
       if (!banks.length) return void ui.notifications.warn(L("EDRPG.equip.noBank", { name: actor.name }));

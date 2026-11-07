@@ -1,0 +1,50 @@
+{
+  "_id": "8c213873a4ab22e2",
+  "_key": "!items!8c213873a4ab22e2",
+  "name": "Large Gimballed Fragment Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.55MW.</p><p>Ammunition: 2,000cr per reload (100cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "1,751,040cr",
+    "mount": {
+      "size": "large",
+      "kind": "gimballed"
+    },
+    "accuracy": 5,
+    "damage": 25,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 20,
+      "max": 20
+    },
+    "special": "Damage 25/30/35 against small/medium/large ships. Up-close only",
+    "power": 1.55,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 6300,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

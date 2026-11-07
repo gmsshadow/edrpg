@@ -165,12 +165,23 @@ export async function rollDamage(attack, attacker) {
       const b = attack.blast ?? {};
       state.knock = true;
       state.blast = b;
-      if (b.fatal !== null && b.fatal !== undefined) {
-         state.amounts.push({ key: "fatal", value: b.fatal, label: game.i18n.format("EDRPG.damage.fatal", { radius: b.fatalRadius ?? "?" }) });
+      if (attack.jumped && b.fatal !== null && b.fatal !== undefined) {
+         // Avoidable Explosives: someone lay on it. They take double the fatal Damage; the fatal radius takes the
+         // injury Damage and the injury radius nothing (Core Rules p.265).
+         state.jumped = attack.jumped;
+         state.amounts.push({ key: "jumper", value: 2 * b.fatal, label: game.i18n.format("EDRPG.reaction.jumperDamage", { name: attack.jumped.name }) });
+         if (b.injury !== null && b.injury !== undefined) {
+            state.amounts.push({ key: "fatal", value: b.injury, label: game.i18n.format("EDRPG.damage.fatal", { radius: b.fatalRadius ?? "?" }) });
+         }
+      } else {
+         if (b.fatal !== null && b.fatal !== undefined) {
+            state.amounts.push({ key: "fatal", value: b.fatal, label: game.i18n.format("EDRPG.damage.fatal", { radius: b.fatalRadius ?? "?" }) });
+         }
+         if (b.injury !== null && b.injury !== undefined) {
+            state.amounts.push({ key: "injury", value: b.injury, label: game.i18n.format("EDRPG.damage.injury", { radius: b.injuryRadius ?? "?" }) });
+         }
       }
-      if (b.injury !== null && b.injury !== undefined) {
-         state.amounts.push({ key: "injury", value: b.injury, label: game.i18n.format("EDRPG.damage.injury", { radius: b.injuryRadius ?? "?" }) });
-      }
+      if (attack.thrownBack) state.thrownBack = true;
    } else {
       const formula = String(attack.damage || "0");
       const roll = await new Roll(formula).evaluate();
@@ -637,9 +648,18 @@ export async function promptTreatWounds(patient) {
  *
  * @param {object} result  { actor, outcome, natural, total, followUp }
  */
-async function onSkillCheckResult(message, { actor, outcome, natural, total, followUp }) {
+async function onSkillCheckResult(message, { actor, outcome, natural, total, followUp, decimals = false, previous = null }) {
    if (!followUp?.targetUuid) return;
    const success = outcome === "success" || outcome === "critSuccess";
+   // Playing the Decimals added 1: stabilise if that turned it into a success; treatment heals the extra point.
+   if (decimals) {
+      const was = previous === "success" || previous === "critSuccess";
+      if (followUp.kind === "stabilise" && success && !was) await perform({ type: "stabilise", actorUuid: followUp.targetUuid });
+      else if (followUp.kind === "treat" && outcome !== "critFailure") {
+         await perform({ type: "heal", actorUuid: followUp.targetUuid, amount: 1, source: game.i18n.format("EDRPG.damage.treatedBy", { name: actor.name }) });
+      }
+      return;
+   }
    if (followUp.kind === "stabilise" && success) {
       await perform({ type: "stabilise", actorUuid: followUp.targetUuid });
    } else if (followUp.kind === "treat" && outcome !== "critFailure") {

@@ -1,0 +1,50 @@
+{
+  "_id": "d3dd65a3b865e4ba",
+  "_key": "!items!d3dd65a3b865e4ba",
+  "name": "Small Gimballed Fragment Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.59MW.</p><p>Ammunition: 1,600cr per reload (80cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "54,720cr",
+    "mount": {
+      "size": "small",
+      "kind": "gimballed"
+    },
+    "accuracy": 5,
+    "damage": 5,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 20,
+      "max": 20
+    },
+    "special": "Damage 5/10/15 against small/medium/large ships. Up-close only",
+    "power": 0.59,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 1700,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

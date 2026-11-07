@@ -1,0 +1,56 @@
+{
+  "_id": "74060237024ed8d0",
+  "_key": "!items!74060237024ed8d0",
+  "name": "5D Fighter Hangar",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Only these ships can install one: Anaconda, Beluga Liner, Boa Mk III, Federal Corvette, Federal Gunship, Imperial Cutter, Imperial Explorer, Keelback, Type-9 Heavy, Type-10 Transport. Fighters are bought separately.</p><p><em>Super Traders Supplement</em></p>",
+    "cost": "575,660cr",
+    "category": "fighterHangar",
+    "slot": "internal",
+    "military": false,
+    "size": 5,
+    "grade": "D",
+    "power": 0.25,
+    "strength": 45,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 1,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Fighter Bays 1"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Super Traders Supplement/Fighter Hangars"
+    }
+  },
+  "sort": 61900,
+  "effects": [],
+  "folder": "e30bb01c9a8bacea",
+  "ownership": {
+    "default": 0
+  }
+}

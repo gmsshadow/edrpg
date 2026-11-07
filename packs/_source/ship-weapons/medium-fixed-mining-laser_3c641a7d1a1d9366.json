@@ -1,0 +1,50 @@
+{
+  "_id": "3c641a7d1a1d9366",
+  "_key": "!items!3c641a7d1a1d9366",
+  "name": "Medium Fixed Mining Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.75MW.</p><p><em>Core Rules</em></p>",
+    "cost": "22,580cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 1,
+    "damage": 1,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "Mining bonus 2",
+    "power": 0.75,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4500,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

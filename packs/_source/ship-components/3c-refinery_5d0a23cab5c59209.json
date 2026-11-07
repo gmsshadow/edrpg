@@ -1,0 +1,56 @@
+{
+  "_id": "5d0a23cab5c59209",
+  "_key": "!items!5d0a23cab5c59209",
+  "name": "3C Refinery",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "238,140cr",
+    "category": "refinery",
+    "slot": "internal",
+    "military": false,
+    "size": 3,
+    "grade": "C",
+    "power": 0.34,
+    "strength": 35,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 28,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Mining bonus 28"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Refineries"
+    }
+  },
+  "sort": 60800,
+  "effects": [],
+  "folder": "99c1df26486380a3",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "524b24693cec26b0",
+  "_key": "!items!524b24693cec26b0",
+  "name": "Small Gimballed Beam Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 0.68MW.</p><p><em>Core Rules</em></p>",
+    "cost": "74,650cr",
+    "mount": {
+      "size": "small",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 5,
+    "burst": {
+      "perPoint": 5,
+      "max": 20
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 0.68,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 800,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

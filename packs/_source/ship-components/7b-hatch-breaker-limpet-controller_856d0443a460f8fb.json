@@ -1,0 +1,56 @@
+{
+  "_id": "856d0443a460f8fb",
+  "_key": "!items!856d0443a460f8fb",
+  "name": "7B Hatch Breaker Limpet Controller",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "3,499,200cr",
+    "category": "hatchBreaker",
+    "slot": "internal",
+    "military": false,
+    "size": 7,
+    "grade": "B",
+    "power": 0.84,
+    "strength": 75,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Accuracy +11; Override 3 (4D10 canisters)"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Limpet Controllers/Hatch Breaker"
+    }
+  },
+  "sort": 52900,
+  "effects": [],
+  "folder": "beafefdbbdfa22c9",
+  "ownership": {
+    "default": 0
+  }
+}

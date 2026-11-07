@@ -1,0 +1,50 @@
+{
+  "_id": "651df57cfbab0ed3",
+  "_key": "!items!651df57cfbab0ed3",
+  "name": "Medium Turreted Burst Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 0.98MW.</p><p><em>Core Rules</em></p>",
+    "cost": "162,800cr",
+    "mount": {
+      "size": "medium",
+      "kind": "turret"
+    },
+    "accuracy": 2,
+    "damage": 15,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 0.98,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 3000,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

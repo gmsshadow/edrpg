@@ -126,7 +126,7 @@ export async function rollAlienItem() {
 
 /** An item or actor in the system's compendiums by name. */
 export async function findByName(name) {
-   for (const id of ["weapons", "gear", "armour", "cybernetics", "clothing", "ships", "opponents"]) {
+   for (const id of ["weapons", "gear", "armour", "cybernetics", "clothing", "ship-weapons", "ship-components", "ships", "opponents"]) {
       const pack = game.packs.get(`edrpg.${id}`);
       const hit = (await pack?.getIndex())?.find((e) => e.name === name);
       if (hit) return `Compendium.edrpg.${id}.${pack.documentName}.${hit._id}`;

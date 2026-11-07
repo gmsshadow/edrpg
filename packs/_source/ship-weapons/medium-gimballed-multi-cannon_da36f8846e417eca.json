@@ -1,0 +1,50 @@
+{
+  "_id": "da36f8846e417eca",
+  "_key": "!items!da36f8846e417eca",
+  "name": "Medium Gimballed Multi-Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.64MW.</p><p>Ammunition: 2,400cr per reload (80cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "57,000cr",
+    "mount": {
+      "size": "medium",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 15,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "",
+    "power": 0.64,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 3800,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

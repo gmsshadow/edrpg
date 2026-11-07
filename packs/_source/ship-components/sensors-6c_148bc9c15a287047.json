@@ -1,0 +1,56 @@
+{
+  "_id": "148bc9c15a287047",
+  "_key": "!items!148bc9c15a287047",
+  "name": "Sensors 6C",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "556,110cr",
+    "category": "sensors",
+    "slot": "fixed",
+    "military": false,
+    "size": 6,
+    "grade": "C",
+    "power": 0.5,
+    "strength": 60,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 3,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+3 General Scan, +1 Initiative, +1 Dogfighting"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Sensors"
+    }
+  },
+  "sort": 28200,
+  "effects": [],
+  "folder": "fb477e0e7f91c87a",
+  "ownership": {
+    "default": 0
+  }
+}

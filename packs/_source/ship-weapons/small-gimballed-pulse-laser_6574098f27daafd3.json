@@ -1,0 +1,50 @@
+{
+  "_id": "6574098f27daafd3",
+  "_key": "!items!6574098f27daafd3",
+  "name": "Small Gimballed Pulse Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 0.39MW.</p><p><em>Core Rules</em></p>",
+    "cost": "6,600cr",
+    "mount": {
+      "size": "small",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 10,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 0.39,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 200,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

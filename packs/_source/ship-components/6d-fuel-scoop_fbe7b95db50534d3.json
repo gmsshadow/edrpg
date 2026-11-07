@@ -1,0 +1,56 @@
+{
+  "_id": "fbe7b95db50534d3",
+  "_key": "!items!fbe7b95db50534d3",
+  "name": "6D Fuel Scoop",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "449,430cr",
+    "category": "fuelScoop",
+    "slot": "internal",
+    "military": false,
+    "size": 6,
+    "grade": "D",
+    "power": 0.47,
+    "strength": 60,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Safe scoop Auto; Emergency scoop 9"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Fuel Scoops"
+    }
+  },
+  "sort": 57800,
+  "effects": [],
+  "folder": "7ccd5bb8eff50148",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "ae55699d17a6a697",
+  "_key": "!items!ae55699d17a6a697",
+  "name": "Small Seeker Missile Rack",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.6MW.</p><p>Ammunition: 6,000cr per reload (500cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "72,600cr",
+    "mount": {
+      "size": "small",
+      "kind": "fixed"
+    },
+    "accuracy": 4,
+    "damage": 20,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": 10,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 12,
+      "max": 12
+    },
+    "special": "",
+    "power": 0.6,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 2100,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

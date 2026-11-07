@@ -1,0 +1,56 @@
+{
+  "_id": "34d0022c46f19760",
+  "_key": "!items!34d0022c46f19760",
+  "name": "Power Distributor 8B",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "10,899,760cr",
+    "category": "powerDistributor",
+    "slot": "fixed",
+    "military": false,
+    "size": 8,
+    "grade": "B",
+    "power": 0.88,
+    "strength": 85,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 1,
+      "toHit": 1,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 5,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+1 Agility, +1 To Hit, +5 shields"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Power Distributors"
+    }
+  },
+  "sort": 25300,
+  "effects": [],
+  "folder": "ea803319b64bc968",
+  "ownership": {
+    "default": 0
+  }
+}

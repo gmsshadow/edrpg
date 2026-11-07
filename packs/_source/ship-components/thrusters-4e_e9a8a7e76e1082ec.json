@@ -1,0 +1,56 @@
+{
+  "_id": "e9a8a7e76e1082ec",
+  "_key": "!items!e9a8a7e76e1082ec",
+  "name": "Thrusters 4E",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "19,880cr",
+    "category": "thrusters",
+    "slot": "fixed",
+    "military": false,
+    "size": 4,
+    "grade": "E",
+    "power": 3.82,
+    "strength": 40,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "No bonuses"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Thrusters"
+    }
+  },
+  "sort": 11500,
+  "effects": [],
+  "folder": "e11795154b74b1aa",
+  "ownership": {
+    "default": 0
+  }
+}

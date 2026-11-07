@@ -1,0 +1,50 @@
+{
+  "_id": "bf7afc40648fc176",
+  "_key": "!items!bf7afc40648fc176",
+  "name": "Large AX Missile Rack",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "ax": true,
+    "flak": false,
+    "power": null,
+    "hardpoint": -1,
+    "description": "<p><em>Exploration Supplement</em></p>",
+    "cost": "1,318,444cr",
+    "mount": {
+      "size": "large",
+      "kind": "fixed"
+    },
+    "accuracy": 1,
+    "damage": 60,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": 30,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 64,
+      "max": 64
+    },
+    "special": "AX munitions: harms Thargoid hulls.",
+    "destabilise": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Exploration Supplement/Aegis Weapons"
+    }
+  },
+  "sort": 8100,
+  "effects": [],
+  "folder": "309455654aeb57e3",
+  "ownership": {
+    "default": 0
+  }
+}

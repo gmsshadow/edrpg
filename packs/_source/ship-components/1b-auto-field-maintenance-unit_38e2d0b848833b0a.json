@@ -1,0 +1,56 @@
+{
+  "_id": "38e2d0b848833b0a",
+  "_key": "!items!38e2d0b848833b0a",
+  "name": "1B Auto Field Maintenance Unit",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "270,000cr",
+    "category": "afmu",
+    "slot": "internal",
+    "military": false,
+    "size": 1,
+    "grade": "B",
+    "power": 1.04,
+    "strength": 15,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Repairs components up to Strength 15; Supply 80"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Auto Field Maintenance Units"
+    }
+  },
+  "sort": 43400,
+  "effects": [],
+  "folder": "6fede685b7bdedad",
+  "ownership": {
+    "default": 0
+  }
+}

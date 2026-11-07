@@ -159,9 +159,15 @@ export function registerKarmaHooks() {
       // Opponents' capabilities are once per battle, so only characters get them back each turn.
       const actor = combat.combatant?.actor;
       if (actor && actor.type !== "opponent") resetCapabilities(actor);
+      // Interrupting-action limit (Core Rules p.263): a new turn frees it again.
+      if (actor?.getFlag?.("edrpg", "interrupted")) actor.unsetFlag("edrpg", "interrupted");
    });
    Hooks.on("deleteCombat", (combat) => {
       if (!game.user.isActiveGM) return;
-      for (const combatant of combat.combatants) if (combatant.actor) resetCapabilities(combatant.actor);
+      for (const combatant of combat.combatants) {
+         if (!combatant.actor) continue;
+         resetCapabilities(combatant.actor);
+         if (combatant.actor.getFlag?.("edrpg", "interrupted")) combatant.actor.unsetFlag("edrpg", "interrupted");
+      }
    });
 }

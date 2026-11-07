@@ -1,0 +1,39 @@
+<div class="tab vehicle-outfit {{tab.cssClass}}" data-group="primary" data-tab="outfit">
+   {{#if outfit}}
+   <div class="ed-outfit-head">
+      <div class="ed-outfit-power {{#if outfit.budget.over}}over{{/if}}">
+         <span class="label">{{localize "EDRPG.outfit.power"}}</span>
+         <span class="bar"><span style="width: {{outfit.budget.pct}}%"></span></span>
+         <span class="value">{{outfit.budget.drawLabel}} / {{outfit.budget.outputLabel}} MW</span>
+      </div>
+      <p class="ed-outfit-summary">{{outfit.summary.hull}}{{#if outfit.summary.explorer}} · {{localize "EDRPG.outfit.explorer"}}{{/if}} · {{localize "EDRPG.vehicle.cargo"}} {{outfit.summary.cargo}} · {{localize "EDRPG.ship.range"}} {{outfit.summary.range}}</p>
+      <p class="hint">{{localize "EDRPG.outfit.tabHint"}}</p>
+   </div>
+
+   {{#*inline "slotRows"}}
+   <ol class="ed-outfit-slots">
+      {{#each rows as |r|}}
+      <li class="{{#if r.empty}}empty{{/if}} {{#if r.unlinked}}unlinked{{/if}}">
+         <span class="slot">{{r.label}}</span>
+         <span class="name">{{#if r.empty}}<em>{{localize "EDRPG.outfit.empty"}}</em>{{else}}{{#if r.itemId}}<a data-action="outfitOpen" data-item-id="{{r.itemId}}">{{r.name}}</a>{{else}}{{r.name}}{{/if}}{{#if r.note}} <span class="note">{{r.note}}</span>{{/if}}{{/if}}</span>
+         <span class="num" data-tooltip="EDRPG.outfit.power">{{#if r.output}}+{{r.output}}{{else}}{{r.power}}{{/if}}</span>
+         <span class="num" data-tooltip="EDRPG.outfit.strength">{{r.strength}}</span>
+         <span class="ctl">{{#if (and @root.editable r.removable)}}<a data-action="outfitEmpty" data-slot="{{r.key}}" data-tooltip="EDRPG.outfit.removeTitle"><i class="fa-solid fa-right-from-bracket"></i></a>{{/if}}</span>
+      </li>
+      {{/each}}
+   </ol>
+   {{/inline}}
+
+   <h3 class="ed-vsub">{{localize "EDRPG.outfit.fixedTitle"}}</h3>
+   {{> slotRows rows=outfit.fixed}}
+   <h3 class="ed-vsub">{{localize "EDRPG.outfit.hardpointsTitle"}}</h3>
+   {{> slotRows rows=outfit.hardpoints}}
+   {{#if outfit.unmounted.length}}
+   <p class="hint">{{localize "EDRPG.outfit.unmounted"}} {{#each outfit.unmounted as |w|}}<a data-action="outfitOpen" data-item-id="{{w.itemId}}">{{w.name}}</a>{{#unless @last}}, {{/unless}}{{/each}}</p>
+   {{/if}}
+   <h3 class="ed-vsub">{{localize "EDRPG.outfit.utilityTitle"}}</h3>
+   {{> slotRows rows=outfit.utility}}
+   <h3 class="ed-vsub">{{localize "EDRPG.outfit.internalTitle"}}</h3>
+   {{> slotRows rows=outfit.internal}}
+   {{/if}}
+</div>

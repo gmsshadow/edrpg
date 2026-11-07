@@ -1,7 +1,11 @@
+import { registerRules } from "./rules.mjs";
+
 /**
  * Register world settings for the EDRPG system.
  */
 export default function registerSettings() {
+   // Optional rules (the books' rule variants): one hidden setting each, behind the Optional Rules window.
+   registerRules();
    const settings = {
       systemMaxBackgrounds: { default: 4, type: Number },
       defaultDifficultyNumber: { default: 9, type: Number },
@@ -30,6 +34,16 @@ export default function registerSettings() {
       config: true,
       default: true,
       type: Boolean,
+   });
+   // Silent Running (Core Rules p.268): a minute is safe, but the book never says how long a round lasts. Its crew
+   // damage ticks "every ten seconds", so by default a round is ten seconds and a minute six rounds.
+   game.settings.register("edrpg", "silentRunningRounds", {
+      name: "EDRPG.settings.silentRunningRounds.name",
+      hint: "EDRPG.settings.silentRunningRounds.hint",
+      scope: "world",
+      config: true,
+      default: 6,
+      type: Number,
    });
    // Remembered choices for the GM's vehicle obstacle checks (Core Rules pp.73–74).
    game.settings.register("edrpg", "vehicleObstacleTable", { scope: "world", config: false, type: String, default: "light" });

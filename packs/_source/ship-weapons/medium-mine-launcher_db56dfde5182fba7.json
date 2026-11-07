@@ -1,0 +1,50 @@
+{
+  "_id": "db56dfde5182fba7",
+  "_key": "!items!db56dfde5182fba7",
+  "name": "Medium Mine Launcher",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.4MW.</p><p>Ammunition: 6,000cr per reload (1,000cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "294,080cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 0,
+    "damage": 20,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 6,
+      "max": 6
+    },
+    "special": "Mines: difficulty 17 to avoid",
+    "power": 0.4,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4400,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

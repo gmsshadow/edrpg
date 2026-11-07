@@ -1,0 +1,56 @@
+{
+  "_id": "8b21d5471a368d77",
+  "_key": "!items!8b21d5471a368d77",
+  "name": "Frame Shift Wake Scanner – D grade",
+  "type": "shipComponent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "40,633cr",
+    "category": "utility",
+    "slot": "utility",
+    "military": false,
+    "size": 0,
+    "grade": "D",
+    "power": 0.4,
+    "strength": 10,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 1,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Find the hyperspace destination of a ship that has just jumped (+1 Systems)"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Utility Mounts"
+    }
+  },
+  "sort": 32400,
+  "effects": [],
+  "folder": "a3f94be48d02ba29",
+  "ownership": {
+    "default": 0
+  }
+}

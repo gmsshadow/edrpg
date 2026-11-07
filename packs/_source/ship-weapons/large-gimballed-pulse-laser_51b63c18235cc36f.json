@@ -1,0 +1,50 @@
+{
+  "_id": "51b63c18235cc36f",
+  "_key": "!items!51b63c18235cc36f",
+  "name": "Large Gimballed Pulse Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 0.92MW.</p><p><em>Core Rules</em></p>",
+    "cost": "140,600cr",
+    "mount": {
+      "size": "large",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 30,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 0.92,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Large Weapons"
+    }
+  },
+  "sort": 5100,
+  "effects": [],
+  "folder": "5199583ed51f99cd",
+  "ownership": {
+    "default": 0
+  }
+}

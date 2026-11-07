@@ -1,0 +1,50 @@
+{
+  "_id": "fd30d4b5bbd6be5b",
+  "_key": "!items!fd30d4b5bbd6be5b",
+  "name": "Medium Dumbfire Missile Rack",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.2MW.</p><p>Ammunition: 12,000cr per reload (750cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "240,400cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 1,
+    "damage": 40,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": 20,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 16,
+      "max": 16
+    },
+    "special": "",
+    "power": 1.2,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4700,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

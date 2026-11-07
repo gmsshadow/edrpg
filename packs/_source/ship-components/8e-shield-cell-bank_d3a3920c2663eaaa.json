@@ -1,0 +1,56 @@
+{
+  "_id": "d3a3920c2663eaaa",
+  "_key": "!items!d3a3920c2663eaaa",
+  "name": "8E Shield Cell Bank",
+  "type": "shipComponent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>Three uses before new cells are needed (800cr per use to refill).</p><p><em>Core Rules</em></p>",
+    "cost": "697,580cr",
+    "category": "shieldCellBank",
+    "slot": "internal",
+    "military": true,
+    "size": 8,
+    "grade": "E",
+    "power": 1.44,
+    "strength": 80,
+    "ammo": {
+      "value": 3,
+      "max": 3
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 40,
+      "duration": 1
+    },
+    "special": "+40 shield recharge for 1 round"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Shield Cell Banks"
+    }
+  },
+  "sort": 39800,
+  "effects": [],
+  "folder": "737917eae678aa22",
+  "ownership": {
+    "default": 0
+  }
+}

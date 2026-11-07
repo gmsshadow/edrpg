@@ -1,6 +1,7 @@
 import { skillCategory, socialFactorSkills, contestPairs, DEFAULT_CONTEST_TIES } from "../config.mjs";
 import { startContest } from "./contest.mjs";
 import { judge, karmaRerollable } from "./resolve.mjs";
+import { scoreDigit, canPlayDecimals, playDecimals } from "../decimals.mjs";
 
 const CHAT_TEMPLATE = "systems/edrpg/templates/chat/skill-check.hbs";
 
@@ -204,6 +205,10 @@ export async function rollSkillCheck(actor, skill, options = {}) {
                itemBonusKeys,
                outcome,
                total: roll.total,
+               natural,
+               // Playing the Decimals: the Skill score's unit digit (null without Skill scores).
+               digit: scoreDigit(actor, skill),
+               decimals: null,
             },
          },
       },
@@ -393,28 +398,81 @@ export async function karmaReroll(message) {
 }
 
 /**
- * Wire up the Karma reroll button on skill-check chat cards.
+ * Playing the Decimals (Core Rules p.263): 1 Karma, a D10 + the Skill score's unit digit; 10 or more gives +1.
+ *
+ * @param {ChatMessage} message
+ */
+export async function decimalsSkillCheck(message) {
+   const data = message.getFlag("edrpg", "skillCheck");
+   if (!data || data.decimals) return;
+   const actor = await fromUuid(data.actorUuid);
+   if (!actor?.isOwner) return;
+   const result = await playDecimals(actor, data.digit);
+   if (!result) return;
+   const total = data.total + (result.ok ? 1 : 0);
+   const outcome = judge({ natural: data.natural ?? 5, total, dn: data.difficulty }).outcome;
+   const decimals = { die: result.die, digit: result.digit, sum: result.total, ok: result.ok, total, outcome };
+   if (message.isOwner) await message.setFlag("edrpg", "skillCheck.decimals", decimals);
+   const outcomeLabel = {
+      critFailure: "EDRPG.chat.TestCritFailure",
+      critSuccess: "EDRPG.chat.TestCritSuccess",
+      success: "EDRPG.chat.TestSuccess",
+      failure: "EDRPG.chat.TestFailure",
+   }[outcome];
+   const line = game.i18n.format(result.ok ? "EDRPG.decimals.ok" : "EDRPG.decimals.no", { die: result.die, digit: result.digit, sum: result.total });
+   const after = result.ok ? `<div class="outcome ${outcome.toLowerCase().includes("success") ? "success" : "failure"}">${game.i18n.format("EDRPG.decimals.newTotal", { total, dn: data.difficulty })} — ${game.i18n.localize(outcomeLabel)}</div>` : "";
+   await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      flavor: game.i18n.format("EDRPG.decimals.title", { skill: skillLabel(data.skill) }),
+      content: `<div class="edrpg edrpg-chat edrpg-decimals"><p><i class="fa-solid fa-yin-yang"></i> ${line}</p>${after}</div>`,
+      rolls: [result.roll],
+      sound: CONFIG.sounds.dice,
+   });
+   if (result.ok) {
+      Hooks.callAll("edrpg.skillCheck", message, {
+         actor, skill: data.skill, outcome, natural: data.natural, total, followUp: data.followUp, decimals: true, previous: data.outcome,
+      });
+   }
+}
+
+/**
+ * Wire up the Karma reroll and Playing the Decimals buttons on skill-check chat cards.
  *
  * @param {ChatMessage} message
  *
  * @param {HTMLElement} html
  */
 export function onRenderSkillCheck(message, html) {
-   const button = html.querySelector("[data-edrpg-action=karmaReroll]");
-   if (!button) return;
    const data = message.getFlag("edrpg", "skillCheck");
-   const actor = data ? fromUuidSync(data.actorUuid) : null;
-   if (!actor?.isOwner || data.rerolled) {
-      button.remove();
-      return;
+   if (!data) return;
+   const actor = fromUuidSync(data.actorUuid);
+   const wire = (button, fn) =>
+      button.addEventListener("click", async (event) => {
+         event.preventDefault();
+         button.disabled = true;
+         try {
+            await fn(message);
+         } finally {
+            button.disabled = false;
+         }
+      });
+   const button = html.querySelector("[data-edrpg-action=karmaReroll]");
+   if (button) {
+      if (!actor?.isOwner || data.rerolled) button.remove();
+      else wire(button, karmaReroll);
    }
-   button.addEventListener("click", async (event) => {
-      event.preventDefault();
-      button.disabled = true;
-      try {
-         await karmaReroll(message);
-      } finally {
-         button.disabled = false;
-      }
-   });
+   if (data.decimals) {
+      const note = document.createElement("div");
+      note.className = "attack-note karma";
+      note.innerHTML = `<i class="fa-solid fa-yin-yang"></i> ${game.i18n.format(data.decimals.ok ? "EDRPG.decimals.ok" : "EDRPG.decimals.no", { die: data.decimals.die, digit: data.decimals.digit, sum: data.decimals.sum })}`;
+      html.querySelector(".skill-check")?.append(note);
+   } else if (!data.rerolled && canPlayDecimals(actor, data.digit)) {
+      const play = document.createElement("button");
+      play.type = "button";
+      play.dataset.edrpgAction = "decimals";
+      play.dataset.tooltip = game.i18n.localize("EDRPG.decimals.hint");
+      play.innerHTML = `<i class="fa-solid fa-yin-yang"></i> ${game.i18n.localize("EDRPG.decimals.button")}`;
+      wire(play, decimalsSkillCheck);
+      html.querySelector(".skill-check")?.append(play);
+   }
 }

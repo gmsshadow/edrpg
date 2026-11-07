@@ -1,3 +1,5 @@
+import { openRankPoints, giveRankPoints } from "./rank-points.mjs";
+import { scanForSilent } from "./silent-running.mjs";
 import { openMarket } from "./trading.mjs";
 import { StarSystemData } from "./data/starsystem.mjs";
 import EDStarSystemSheet, { createStarSystem } from "./sheets/starsystem-sheet.mjs";
@@ -32,7 +34,7 @@ import { EDActor, EDItem } from "./documents.mjs";
 import EDActorSheet from "./sheets/actor-sheet.mjs";
 import EDOpponentSheet from "./sheets/opponent-sheet.mjs";
 import EDVehicleSheet from "./sheets/vehicle-sheet.mjs";
-import { VehicleData, ShipData, CraftWeaponData } from "./data/vehicle.mjs";
+import { VehicleData, ShipData, CraftWeaponData, ShipComponentData } from "./data/vehicle.mjs";
 import EDItemSheet from "./sheets/item-sheet.mjs";
 import { rollSkillCheck, onRenderSkillCheck } from "./dice/skill-check.mjs";
 import { onRenderContest, registerContestSocket } from "./dice/contest.mjs";
@@ -50,7 +52,7 @@ Hooks.once("init", () => {
    console.log("EDRPG | Initialising Elite: Dangerous RPG system");
 
    CONFIG.EDRPG = EDRPG;
-   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, betweenAdventures, openRareItems, openHireCrew, promptStartingShip, openEncounterGenerator, openInfiltration, openBaseGenerator, openBase, trackCombat, runTool, explorePlanet, rollSpaceLane, openInterdiction, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
+   game.edrpg = { config: EDRPG, openMarket, generateStarSystem: createStarSystem, generateMission: openMissionGenerator, rollMission, betweenAdventures, openRareItems, openHireCrew, promptStartingShip, openEncounterGenerator, openInfiltration, openBaseGenerator, openBase, trackCombat, runTool, explorePlanet, rollSpaceLane, openInterdiction, openRankPoints, giveRankPoints, scanForSilent, openTurnPanel, rollSkillCheck, endAdventure, useKarmaCapability, restKarma, bleedOut, heal, rollCraftAttack, vehicleAction, checkObstacles, startVehicleTurn };
    registerKarmaHooks();
    registerTools();
 
@@ -79,6 +81,7 @@ Hooks.once("init", () => {
       clothing: ClothingData,
       gear: GearData,
       craftWeapon: CraftWeaponData,
+      shipComponent: ShipComponentData,
    });
 
    // Token bars: max values are derived, so declare them explicitly.
@@ -117,7 +120,7 @@ Hooks.once("init", () => {
       label: "EDRPG.sheet.labels.starSystem",
    });
    DocumentSheetConfig.registerSheet(foundry.documents.Item, "edrpg", EDItemSheet, {
-      types: ["background", "enhancement", "karma", "weapon", "armour", "cybernetic", "clothing", "gear", "craftWeapon"],
+      types: ["background", "enhancement", "karma", "weapon", "armour", "cybernetic", "clothing", "gear", "craftWeapon", "shipComponent"],
       makeDefault: true,
       label: "EDRPG.sheet.labels.item",
    });
@@ -196,6 +199,13 @@ Hooks.on("renderActorDirectory", (app, html) => {
    crew.innerHTML = `<i class="fa-solid fa-user-plus"></i> ${game.i18n.localize("EDRPG.crew.button")}`;
    crew.addEventListener("click", () => openHireCrew());
    actions.append(crew);
+   // Awarding Rank Points (Core Rules p.326).
+   const rp = document.createElement("button");
+   rp.type = "button";
+   rp.className = "edrpg-rp-button";
+   rp.innerHTML = `<i class="fa-solid fa-medal"></i> ${game.i18n.localize("EDRPG.rp.button")}`;
+   rp.addEventListener("click", () => openRankPoints());
+   actions.append(rp);
    // The supplements' Random Generation Systems: encounters, Infiltration, bases and travel tables.
    const tools = document.createElement("button");
    tools.type = "button";

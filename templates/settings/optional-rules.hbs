@@ -1,0 +1,18 @@
+<div class="ed-rules">
+   <p class="hint">{{localize "EDRPG.rules.intro"}}</p>
+   {{#each groups as |g|}}
+   <fieldset class="ed-rules-group">
+      <legend>{{g.label}}</legend>
+      {{#if g.master}}
+      <label class="ed-rules-master"><input type="checkbox" name="{{g.master.name}}" {{checked g.master.on}}> <b>{{localize "EDRPG.rules.master"}}</b></label>
+      {{/if}}
+      {{#each g.rules as |r|}}
+      <div class="ed-rule">
+         <label><input type="checkbox" name="{{r.name}}" {{checked r.on}}> <b>{{r.label}}</b> <span class="muted">({{g.book}} p.{{r.page}})</span></label>
+         <p class="hint">{{r.hint}}</p>
+      </div>
+      {{/each}}
+   </fieldset>
+   {{/each}}
+   <footer class="form-footer"><button type="submit"><i class="fa-solid fa-floppy-disk"></i> {{localize "EDRPG.rules.save"}}</button></footer>
+</div>

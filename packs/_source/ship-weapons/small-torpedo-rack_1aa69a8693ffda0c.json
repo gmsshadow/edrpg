@@ -1,0 +1,50 @@
+{
+  "_id": "1aa69a8693ffda0c",
+  "_key": "!items!1aa69a8693ffda0c",
+  "name": "Small Torpedo Rack",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.4MW.</p><p>Ammunition: 15,000cr per reload (7,500cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "11,200cr",
+    "mount": {
+      "size": "small",
+      "kind": "fixed"
+    },
+    "accuracy": -1,
+    "damage": 35,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": 15,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 2,
+      "max": 2
+    },
+    "special": "",
+    "power": 0.4,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Small Weapons"
+    }
+  },
+  "sort": 2300,
+  "effects": [],
+  "folder": "2a86e248abd66b1a",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "_id": "5a4bd667149d41b2",
+  "_key": "!items!5a4bd667149d41b2",
+  "name": "Power Distributor 4C",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "70,930cr",
+    "category": "powerDistributor",
+    "slot": "fixed",
+    "military": false,
+    "size": 4,
+    "grade": "C",
+    "power": 0.56,
+    "strength": 45,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 2,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "2 Floating bonuses"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Power Distributors"
+    }
+  },
+  "sort": 23200,
+  "effects": [],
+  "folder": "ea803319b64bc968",
+  "ownership": {
+    "default": 0
+  }
+}

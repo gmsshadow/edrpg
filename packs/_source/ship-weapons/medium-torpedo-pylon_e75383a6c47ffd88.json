@@ -1,0 +1,50 @@
+{
+  "_id": "e75383a6c47ffd88",
+  "_key": "!items!e75383a6c47ffd88",
+  "name": "Medium Torpedo Pylon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.4MW.</p><p>Ammunition: 30,000cr per reload (15,000cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "44,800cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": -1,
+    "damage": 50,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": 25,
+    "bonusVsHull": 0,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 2,
+      "max": 2
+    },
+    "special": "",
+    "power": 0.4,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4800,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "77cea6baa3e53357",
+  "_key": "!items!77cea6baa3e53357",
+  "name": "Medium Gimballed Burst Laser",
+  "type": "craftWeapon",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Power 1.04MW.</p><p><em>Core Rules</em></p>",
+    "cost": "48,500cr",
+    "mount": {
+      "size": "medium",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 15,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 0,
+    "bonusVsShields": 5,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "special": "",
+    "power": 1.04,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 2900,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

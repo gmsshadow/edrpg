@@ -1,0 +1,50 @@
+{
+  "_id": "18fe1f4c1ebcc667",
+  "_key": "!items!18fe1f4c1ebcc667",
+  "name": "Medium Fixed Fragment Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 0.74MW.</p><p>Ammunition: 1,800cr per reload (90cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "291,840cr",
+    "mount": {
+      "size": "medium",
+      "kind": "fixed"
+    },
+    "accuracy": 4,
+    "damage": 15,
+    "burst": {
+      "perPoint": 5,
+      "max": 0
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 20,
+      "max": 20
+    },
+    "special": "Damage 15/20/25 against small/medium/large ships. Up-close only",
+    "power": 0.74,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Medium Weapons"
+    }
+  },
+  "sort": 4000,
+  "effects": [],
+  "folder": "e115ac46489ca7ad",
+  "ownership": {
+    "default": 0
+  }
+}

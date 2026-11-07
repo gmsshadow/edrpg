@@ -1,0 +1,56 @@
+{
+  "_id": "37682fa2f971c15d",
+  "_key": "!items!37682fa2f971c15d",
+  "name": "Power Plant 5D",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "189,040cr",
+    "category": "powerPlant",
+    "slot": "fixed",
+    "military": false,
+    "size": 5,
+    "grade": "D",
+    "power": null,
+    "strength": 50,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 15.3,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "15.3MW output"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Power Plants"
+    }
+  },
+  "sort": 8600,
+  "effects": [],
+  "folder": "b0de87d272d8c849",
+  "ownership": {
+    "default": 0
+  }
+}

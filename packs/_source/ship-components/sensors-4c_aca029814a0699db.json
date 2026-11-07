@@ -1,0 +1,56 @@
+{
+  "_id": "aca029814a0699db",
+  "_key": "!items!aca029814a0699db",
+  "name": "Sensors 4C",
+  "type": "shipComponent",
+  "img": "icons/svg/anvil.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "70,930cr",
+    "category": "sensors",
+    "slot": "fixed",
+    "military": false,
+    "size": 4,
+    "grade": "C",
+    "power": 0.34,
+    "strength": 40,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 1,
+      "dogfighting": 1,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 2,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+2 General Scan, +1 Initiative, +1 Dogfighting"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Fixed Components/Sensors"
+    }
+  },
+  "sort": 27200,
+  "effects": [],
+  "folder": "fb477e0e7f91c87a",
+  "ownership": {
+    "default": 0
+  }
+}

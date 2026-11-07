@@ -1,0 +1,56 @@
+{
+  "_id": "699bb648b32de22f",
+  "_key": "!items!699bb648b32de22f",
+  "name": "3D Hull Reinforcement Package",
+  "type": "shipComponent",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Not multiplied by bulkheads.</p><p><em>Core Rules</em></p>",
+    "cost": "84,000cr",
+    "category": "hullReinforcement",
+    "slot": "internal",
+    "military": true,
+    "size": 3,
+    "grade": "D",
+    "power": null,
+    "strength": null,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 0,
+      "hull": 65,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "+65 Hull"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Hull Reinforcement Packages"
+    }
+  },
+  "sort": 40800,
+  "effects": [],
+  "folder": "39b4161658bd427a",
+  "ownership": {
+    "default": 0
+  }
+}

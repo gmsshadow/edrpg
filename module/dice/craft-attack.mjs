@@ -7,6 +7,8 @@ import { hangarCritical } from "../hangar.mjs";
 import { scaleOf, scaleDefence, craftWeaponBlocked, scaleCraftDamage, craftDamageType, factorLabel, INDIVIDUAL_COVER, VEHICLE_COVER } from "../combined.mjs";
 import { defenceOf } from "./attack.mjs";
 import { applyDamage } from "./damage.mjs";
+import { hiddenFrom, guided } from "../silent-running.mjs";
+import { rule } from "../rules.mjs";
 
 /** Missiles, torpedoes (and mines) can be shot down by Point Defence; seekers are jammed by ECM. */
 const isMissile = (weapon) => /missile|torpedo/i.test(weapon.name);
@@ -61,6 +63,17 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       ui.notifications.warn(game.i18n.format(blocked, { weapon: weapon.name, target: target.name }));
       return null;
    }
+   // Silent Running (Core Rules p.268): invisible to sensors until this ship's scan finds it; then no seekers or torpedoes.
+   if (target?.system?.combat?.silent?.active) {
+      if (hiddenFrom(target, vehicle)) {
+         ui.notifications.warn(game.i18n.format("EDRPG.silent.hidden", { target: target.name }));
+         return null;
+      }
+      if (guided(weapon)) {
+         ui.notifications.warn(game.i18n.format("EDRPG.silent.noGuided", { weapon: weapon.name, target: target.name }));
+         return null;
+      }
+   }
    // Fixed-mount vehicle weapons can't target a flying vehicle (skimmers, Core Rules p.318).
    if (target?.system.flying && s.mount?.kind === "fixed") {
       ui.notifications.warn(game.i18n.format("EDRPG.drone.fixedVsFlying", { weapon: weapon.name, target: target.name }));
@@ -96,6 +109,17 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
    if (ts?.combat?.chaff && (s.mount?.kind === "gimballed" || gun.auto)) {
       defenceMods += aStar(target, /chaff/i) ? 6 : 4;
       defenceNotes.push("EDRPG.equip.chaffNote");
+   }
+   // Rule Variant, Defence Tokens (Core Rules p.264): +2 Defence for each other attacker since its last turn.
+   const tokens = rule("defenceTokens") && ts ? (ts.combat?.attackedBy ?? []).filter((u) => u !== vehicle.uuid).length : 0;
+   if (tokens) {
+      defenceMods += 2 * tokens;
+      defenceNotes.push(game.i18n.format("EDRPG.rules.tokens.note", { n: tokens, bonus: 2 * tokens }));
+   }
+   // A detected silent ship: gimballed weapons and automated turrets -4 To Hit (p.268).
+   if (ts?.combat?.silent?.active && (s.mount?.kind === "gimballed" || gun.auto)) {
+      defenceMods += 4;
+      defenceNotes.push("EDRPG.silent.attackNote");
    }
    if (ts?.equipment?.ecm && isSeeker(weapon)) {
       defenceMods += aStar(target, /\becm\b/i) ? 6 : 4;
@@ -194,6 +218,10 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       ammo = { left: s.ammo.value - 1, max: s.ammo.max };
       await weapon.update({ "system.ammo.value": ammo.left });
    }
+   // Rule Variant, Group Fire (Core Rules p.264): its identical weapons fire with it, sharing the roll; each spends
+   // its ammunition and does the same Damage.
+   const group = rule("groupFire") ? groupOf(vehicle, weapon) : [];
+   for (const w of group) if (w.system.usesAmmo) await w.update({ "system.ammo.value": w.system.ammo.value - 1 });
 
    const rawDamage = hit
       ? {
@@ -233,8 +261,13 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       critical: j.critical,
       destabilise: !!s.destabilise,
       ammo,
+      // Group Fire: how many weapons the hit stands for (1 = just this one).
+      count: 1 + group.length,
+      groupIds: group.map((w) => w.id),
       applied: [],
    };
+   // Defence Tokens: the target remembers this attacker until its next turn.
+   if (rule("defenceTokens") && ts && !(ts.combat?.attackedBy ?? []).includes(vehicle.uuid)) await recordAttacker(target, vehicle);
    return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: vehicle }),
       flavor: game.i18n.format("EDRPG.attack.title", { weapon: weapon.name }),
@@ -359,21 +392,43 @@ async function execute({ messageId, targetUuid }) {
    if (state.rawDamage) state.damage = scaleCraftDamage(state.rawDamage, state.fromScale ?? to, to);
    if (to === "individual") {
       // Knocked over by any vehicle or ship weapon that damages them (p.257).
-      const record = await applyDamage(target, { amount: state.damage.total, damageType: state.damageType ?? "kinetic", knock: true });
-      state.applied.push({ ...record, individual: true, conditionLabels: record.conditions.map((c) => `EDRPG.status.${c}`) });
+      // Group Fire: each weapon's hit lands separately.
+      for (let i = 0; i < Math.max(1, state.count ?? 1); i++) {
+         const record = await applyDamage(target, { amount: state.damage.total, damageType: state.damageType ?? "kinetic", knock: true });
+         state.applied.push({ ...record, individual: true, conditionLabels: record.conditions.map((c) => `EDRPG.status.${c}`) });
+      }
       await message.update({ content: await renderCraftAttack(state), "flags.edrpg.craftAttack": state });
       return;
    }
    // An aimed shot puts all its Damage on the component (p.70).
    if (state.aim && target.system.isShip) {
-      const comp = await damageComponent(target, state.aim, state.damage.total);
-      state.applied.push({ uuid: target.uuid, name: target.name, component: comp });
+      for (let i = 0; i < Math.max(1, state.count ?? 1); i++) {
+         const comp = await damageComponent(target, state.aim, state.damage.total);
+         state.applied.push({ uuid: target.uuid, name: target.name, component: comp });
+      }
    } else if (state.destabilise) {
       state.applied.push(await destabilise(target, state.damage.total, state.critical));
    } else {
       const sh = target.system.shields;
       const shieldsUp = sh.max > 0 && !sh.down && sh.value > 0;
-      const record = await applyCraftDamage(target, state.damage);
+      // Group Fire: each weapon's identical Damage lands in turn; a critical hit damages the component only once.
+      const count = Math.max(1, state.count ?? 1);
+      let record = null;
+      for (let i = 0; i < count && !record?.destroyed; i++) {
+         const r = await applyCraftDamage(target, state.damage);
+         if (record) {
+            Object.assign(r, {
+               shieldsBefore: record.shieldsBefore,
+               hullBefore: record.hullBefore,
+               toShields: (record.toShields ?? 0) + (r.toShields ?? 0),
+               toHull: (record.toHull ?? 0) + (r.toHull ?? 0),
+               collapsed: record.collapsed || r.collapsed,
+               flashpoint: [record.flashpoint, r.flashpoint].filter(Boolean).join(", "),
+            });
+         }
+         record = r;
+      }
+      if (count > 1) record.count = count;
       // Critical hit: a natural 10 against a ship whose shields were down (p.68).
       // Ship-launched fighters can't suffer critical hits (Super Traders Supplement p.27).
       if (state.critical && target.system.isShip && !target.system.isFighter && !target.system.impervious && !target.system.swarm && !shieldsUp && !record.destroyed) {
@@ -425,6 +480,29 @@ async function destabilise(target, amount, critical) {
  *
  * @param {Actor} target
  */
+/**
+ * The other weapons that fire with this one under Group Fire: the same weapon, ready to fire.
+ *
+ * @param {Actor} vehicle
+ *
+ * @param {Item} weapon
+ *
+ * @returns {Item[]}
+ */
+export function groupOf(vehicle, weapon) {
+   const sys = vehicle.system;
+   return (vehicle.itemTypes?.craftWeapon ?? []).filter(
+      (w) => w.id !== weapon.id && w.name === weapon.name && w.system.mount?.kind === weapon.system.mount?.kind && !sys.weaponDestroyed?.(w) && (!w.system.usesAmmo || w.system.ammo.value > 0),
+   );
+}
+
+/** Defence Tokens: note an attacker on the target (through the GM if this user can't update it). */
+async function recordAttacker(target, attacker) {
+   const list = [...(target.system.combat?.attackedBy ?? []), attacker.uuid];
+   if (target.isOwner) return target.update({ "system.combat.attackedBy": list });
+   game.socket.emit(SOCKET, { action: "craftToken", payload: { uuid: target.uuid, attacker: attacker.uuid } });
+}
+
 export async function spendPointDefence(target) {
    if (target.isOwner) return target.update({ "system.equipment.pointDefence.value": Math.max(0, target.system.equipment.pointDefence.value - 1) });
    game.socket.emit(SOCKET, { action: "craftPD", payload: { uuid: target.uuid } });
@@ -435,6 +513,11 @@ export function registerCraftSocket() {
    game.socket.on(SOCKET, async (data) => {
       if (!game.user.isActiveGM) return;
       if (data?.action === "craftDamage") await execute(data.payload);
+      if (data?.action === "craftToken") {
+         const t = await fromUuid(data.payload.uuid);
+         const list = t?.system.combat?.attackedBy ?? [];
+         if (t && !list.includes(data.payload.attacker)) await t.update({ "system.combat.attackedBy": [...list, data.payload.attacker] });
+      }
       if (data?.action === "craftPD") {
          const t = await fromUuid(data.payload.uuid);
          if (t) await t.update({ "system.equipment.pointDefence.value": Math.max(0, t.system.equipment.pointDefence.value - 1) });

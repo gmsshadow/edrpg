@@ -1,0 +1,50 @@
+{
+  "_id": "3b579e761708c07e",
+  "_key": "!items!3b579e761708c07e",
+  "name": "Huge Gimballed Multi-Cannon",
+  "type": "craftWeapon",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": "<p>Power 1.22MW.</p><p>Ammunition: 3,000cr per reload (100cr per unit).</p><p><em>Core Rules</em></p>",
+    "cost": "6,377,600cr",
+    "mount": {
+      "size": "huge",
+      "kind": "gimballed"
+    },
+    "accuracy": 3,
+    "damage": 35,
+    "burst": {
+      "perPoint": 5,
+      "max": 10
+    },
+    "damageVsShields": null,
+    "bonusVsHull": 5,
+    "bonusVsShields": 0,
+    "ammo": {
+      "value": 30,
+      "max": 30
+    },
+    "special": "",
+    "power": 1.22,
+    "hardpoint": -1,
+    "engineered": {
+      "effects": [],
+      "faults": []
+    },
+    "destabilise": false,
+    "ax": false,
+    "flak": false,
+    "gunner": ""
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Huge Weapons"
+    }
+  },
+  "sort": 7700,
+  "effects": [],
+  "folder": "5561d23ddb2a54ce",
+  "ownership": {
+    "default": 0
+  }
+}

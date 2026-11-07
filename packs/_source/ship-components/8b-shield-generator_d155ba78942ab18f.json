@@ -1,0 +1,56 @@
+{
+  "_id": "d155ba78942ab18f",
+  "_key": "!items!d155ba78942ab18f",
+  "name": "8B Shield Generator",
+  "type": "shipComponent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p><em>Core Rules</em></p>",
+    "cost": "54,195,500cr",
+    "category": "shieldGenerator",
+    "slot": "internal",
+    "military": false,
+    "size": 8,
+    "grade": "B",
+    "power": 4.8,
+    "strength": 75,
+    "ammo": {
+      "value": 0,
+      "max": null
+    },
+    "stats": {
+      "output": 0,
+      "range": 0,
+      "capacity": 0,
+      "shields": 395,
+      "hull": 0,
+      "hullBonus": 0,
+      "shieldBoost": 0,
+      "strengthBonus": 0,
+      "speed": 0,
+      "agility": 0,
+      "toHit": 0,
+      "initiative": 0,
+      "dogfighting": 0,
+      "shieldRecharge": 0,
+      "floating": 0,
+      "generalScan": 0,
+      "systems": 0,
+      "mining": 0,
+      "recharge": 0,
+      "duration": 0
+    },
+    "special": "Shield Power 395"
+  },
+  "flags": {
+    "edrpg": {
+      "group": "Internal Components/Shield Generators"
+    }
+  },
+  "sort": 36100,
+  "effects": [],
+  "folder": "cb3b19bc6886eeba",
+  "ownership": {
+    "default": 0
+  }
+}

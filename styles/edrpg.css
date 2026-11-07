@@ -47,15 +47,38 @@
    gap: 0;
 }
 
-.edrpg-sheet.actor .window-content {
+/* Every sheet: the header and tab bar stay put, and the open tab (or a sheet's single body) scrolls when its contents
+   run past the bottom of the window. */
+.edrpg-sheet .window-content {
+   display: flex;
+   flex-direction: column;
    overflow: hidden;
+   min-height: 0;
 }
 
-.edrpg-sheet.actor .window-content > .tab {
-   flex: 1;
+.edrpg-sheet .window-content > * {
+   flex-shrink: 0;
+}
+
+.edrpg-sheet .window-content > .tab,
+.edrpg-sheet .window-content > .ed-opponent,
+.edrpg-sheet .window-content > .ed-starsystem {
+   flex: 1 1 auto;
    min-height: 0;
    overflow-y: auto;
+   overflow-x: hidden;
    padding: 0 0.3rem 0.5rem 0;
+   scrollbar-gutter: stable;
+}
+
+/* Dialogs and tool windows scroll too if they outgrow the screen. */
+.edrpg-dialog .window-content {
+   overflow-y: auto;
+}
+
+/* Inactive tabs stay hidden (the rule above would otherwise show them as flex children). */
+.edrpg-sheet .window-content > .tab:not(.active) {
+   display: none;
 }
 
 .edrpg-sheet input[type="text"],
@@ -3552,6 +3575,7 @@ table.ed-ss-installations input {
    Spaceship / vehicle turn panel
    ============================================================ */
 .edrpg-turn-panel .window-content {
+   overflow-y: auto;
    padding: 0;
    background: var(--ed-white);
    color: var(--ed-black);

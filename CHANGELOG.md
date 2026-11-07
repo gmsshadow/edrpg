@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.64
+
+- **Scrolling:** every sheet's open tab now scrolls when its contents run past the bottom of the window, with the
+  header and tab bar staying put. This fixes the ship sheet's Outfitting, Details and Sheet tabs (the Outfitting tab
+  couldn't reach the utility mounts and internal components), and applies the same layout to the character, opponent,
+  star system and item sheets. The turn panel and the system's dialogs scroll too if they outgrow the screen.
+
 ## 0.1.63
 
 - **Flying without crew** (Core Rules p.262), a world setting that's on by default ("Flying without crew"). Ships and

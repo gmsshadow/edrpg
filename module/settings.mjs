@@ -37,6 +37,15 @@ export default function registerSettings() {
    });
    // Silent Running (Core Rules p.268): a minute is safe, but the book never says how long a round lasts. Its crew
    // damage ticks "every ten seconds", so by default a round is ten seconds and a minute six rounds.
+   // Flying without crew (Core Rules p.262): penalties for short-handed ships, and vehicle weapons needing a full crew.
+   game.settings.register("edrpg", "flyingWithoutCrew", {
+      name: "EDRPG.settings.flyingWithoutCrew.name",
+      hint: "EDRPG.settings.flyingWithoutCrew.hint",
+      scope: "world",
+      config: true,
+      default: true,
+      type: Boolean,
+   });
    game.settings.register("edrpg", "silentRunningRounds", {
       name: "EDRPG.settings.silentRunningRounds.name",
       hint: "EDRPG.settings.silentRunningRounds.hint",

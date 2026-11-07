@@ -2901,6 +2901,65 @@ li:hover > .ed-row-delete {
    color: var(--ed-white);
 }
 
+/* Crew: who's aboard, ship stations, short-handed penalties (Core Rules p.262) */
+.edrpg .ed-vcrew {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 0.3rem 0.6rem;
+   padding: 0.3rem 0.5rem;
+   border: 1px solid var(--ed-highlight-border);
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-vcrew.short {
+   border-color: var(--ed-orange, #e8701a);
+}
+
+.edrpg .ed-vcrew .ed-vstation {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.25rem;
+   white-space: nowrap;
+}
+
+.edrpg .ed-vcrew .ed-vstation select {
+   width: auto;
+   max-width: 9rem;
+   height: 1.5rem;
+   font-size: var(--font-size-12, 12px);
+}
+
+.edrpg .ed-vcrew .ed-vstation input[type="number"] {
+   width: 2.6rem;
+   height: 1.5rem;
+}
+
+.edrpg .ed-vcrew-penalties {
+   flex: 1 1 100%;
+   margin: 0;
+   padding-left: 1.1rem;
+   color: var(--ed-red, #b3261e);
+}
+
+.edrpg .ed-vcrew-tools {
+   flex: 1 1 100%;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 0.3rem;
+}
+
+.edrpg .ed-vcrew-tools button {
+   width: auto;
+   height: auto;
+   padding: 0.15rem 0.45rem;
+   font-size: var(--font-size-12, 12px);
+   border: 1px solid var(--ed-navy);
+   background: var(--ed-white);
+   color: var(--ed-navy);
+}
+
 .edrpg .ed-vcomponents {
    display: flex;
    flex-wrap: wrap;

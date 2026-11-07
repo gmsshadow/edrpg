@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.63
+
+- **Flying without crew** (Core Rules p.262), a world setting that's on by default ("Flying without crew"). Ships and
+  vehicles have a **Crew** panel on their sheet: who's aboard against the Crew rating (the pilot, turret gunners, the
+  ship's stations, hired crew signed on for the craft, and a count of others aboard), with the ship's three stations,
+  **Sensors**, **Power distributor** and **Repairs**, each assigned to someone or nobody. A medium or larger ship with
+  fewer aboard than its Crew rating is short-handed, and for each job nobody is doing:
+  - Sensors: no sensor bonuses to Dogfighting and Initiative, and scanning means the pilot leaving the controls (the
+    Scan button warns, and the ship gives up its combat action that turn).
+  - Power distributor: no Floating Bonuses.
+  - Repairs: Emergency Repairs take twice as long in a medium ship, four times in a large one.
+  - Turrets fire on automatic even if the pilot is named as their gunner.
+  - Between Adventures: no earning money. The dialog offers **Service the ship** instead, or **Leave the ship
+    unserviced**, which marks it Unserviced: a **Take off** button rolls the 10% chance of failing to start, and
+    **Service** spends 10% of its value from its owner's credits.
+  With the full crew none of this applies, and small ships never suffer it. A vehicle can always be driven, but its
+  weapons can't be used without its full crew aboard (p.220).
+- **Emergency Repairs** (Core Rules p.193): an Emergency Repair button on the Crew panel. Pick a disabled component
+  (not a weapon or the hull) and who aboard does the work: size 1–2 take one turn, 3–4 two, 5–6 three, 7–8 four, then
+  a Repair check against its grade (E 8 to A 12); success brings it back to 1 Strength. In combat the turns count down
+  at the start of the ship's turn, and a pilot doing the work can't fly meanwhile; outside combat it's done at once.
+  Each component gets one attempt between spaceport visits (marked on its chip); **Spaceport visit** resets them.
+
 ## 0.1.62
 
 - **Optional Rules window** (Game Settings → Configure Settings → Optional Rules, GM only): every optional rule has its

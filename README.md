@@ -76,6 +76,10 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
   book, all off by default. The Core Rules' Rule Variants (pp.263–265) are in: one interrupting action per round,
   Playing the Decimals, Defence Tokens, Group Fire and Avoidable Explosives. Later optional packages (such as
   Evolution) add their own group here.
+- **Crew** (Core Rules pp.193, 220, 262): each craft's sheet shows who's aboard against its Crew rating and assigns the
+  ship's Sensors, Power distributor and Repairs stations. Short-handed medium and larger ships lose what nobody is
+  doing (sensor bonuses, Floating Bonuses, quick repairs) and must be serviced instead of earning Between Adventures;
+  vehicles need their full crew to use their weapons. Emergency Repairs fix disabled components mid-fight.
 - **Turn panel** for spaceship and vehicle combat: the GM and the craft's owners step through Adjust Speed,
   Equipment, Recharge Shields, Check for Obstacles and the Combat Action, then End Turn.
 - **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until

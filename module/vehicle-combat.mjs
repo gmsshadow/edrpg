@@ -1,5 +1,6 @@
 import { safeRounds, overheat, chooseAndScan, hiddenFrom } from "./silent-running.mjs";
 import { rule } from "./rules.mjs";
+import { continueEmergencyRepair } from "./emergency-repair.mjs";
 import { rollCraftAttack, applyCraftDamage } from "./dice/craft-attack.mjs";
 import { judge } from "./dice/resolve.mjs";
 import { rollCrashDamage } from "./dice/damage.mjs";
@@ -596,6 +597,8 @@ export async function startVehicleTurn(actor, combat = null) {
    }
    await actor.update(data);
    if (overheating) await overheat(actor);
+   // An Emergency Repair under way: another turn of work (Core Rules p.193).
+   if (sys.isShip && (actor.system.combat?.repair?.index ?? -1) >= 0) await continueEmergencyRepair(actor);
    if (zone !== zoneOf(actor)) await moveToZone(actor, zone);
    if (data["system.combat.escaped"]) {
       return postEvent(actor, { kind: "turn", title: L("EDRPG.vcombat.turnStart", { name: actor.name }), notes, outcome: L("EDRPG.vcombat.escapedShort"), outcomeClass: "success" });
@@ -1706,7 +1709,19 @@ export async function equipmentAction(actor, which) {
       return say(c.silent?.active ? "EDRPG.silent.sinkUsed" : "EDRPG.silent.sinkWasted", { left: eq.heatSinks.value - 1, max: eq.heatSinks.max });
    }
    // Scan for a silent ship (the result goes to the hidden ship through the GM).
-   if (which === "scan") return chooseAndScan(actor, { relay: update });
+   if (which === "scan") {
+      // Short-handed with nobody on the sensors: the pilot leaves the controls to scan (Core Rules p.262).
+      if (sys.crew?.sensors) {
+         const ok = await foundry.applications.api.DialogV2.confirm({
+            window: { title: L("EDRPG.silent.scan") },
+            content: `<p>${L("EDRPG.crew.scanConfirm", { name: esc(actor.name) })}</p>`,
+            rejectClose: false,
+         });
+         if (!ok) return;
+         await update(actor, { "system.combat.lostAction": true });
+      }
+      return chooseAndScan(actor, { relay: update });
+   }
    if (which === "chaff" || which === "mines") {
       const store = eq[which];
       if (c[which]) return void ui.notifications.info(L(`EDRPG.equip.${which}Active`, { name: actor.name }));
@@ -1749,6 +1764,8 @@ export async function equipmentAction(actor, which) {
       return say("EDRPG.equip.bankUsed", { bank: esc(bank.name), boost: bank.boost, rounds: bank.duration, before: sh.value, after: value, uses: bank.uses - 1 });
    }
    if (which === "floating") {
+      // Short-handed with nobody on the power distributor: no Floating Bonuses (Core Rules p.262).
+      if (sys.crew?.power) return void ui.notifications.warn(L("EDRPG.crew.noFloating", { name: actor.name }));
       const n = eq.floating;
       if (!n) return void ui.notifications.warn(L("EDRPG.equip.noFloating", { name: actor.name }));
       const box = (k) => `<label class="checkbox"><input type="checkbox" name="${k}" ${c.floating[k] ? "checked" : ""}> ${L(`EDRPG.equip.floating.${k}`)}</label>`;

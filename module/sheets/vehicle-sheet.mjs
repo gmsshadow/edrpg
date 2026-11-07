@@ -7,6 +7,8 @@ import { hangarEntries, dock, undock, recover } from "../hangar.mjs";
 import { openTurnPanel } from "../turn-panel.mjs";
 import { fitItem, emptySlot, outfitView } from "../ship-outfitting.mjs";
 import { safeRounds } from "../silent-running.mjs";
+import { openEmergencyRepair, abandonEmergencyRepair, spaceportVisit, repairable } from "../emergency-repair.mjs";
+import { takeOff, serviceShip, serviceCost } from "../ship-upkeep.mjs";
 import { actionsFor, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
 
 /** A signed number. */
@@ -63,6 +65,11 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          recover: EDVehicleSheet.#onRecover,
          outfitOpen: EDVehicleSheet.#onOutfitOpen,
          outfitEmpty: EDVehicleSheet.#onOutfitEmpty,
+         emergencyRepair: EDVehicleSheet.#onEmergencyRepair,
+         abandonRepair: EDVehicleSheet.#onAbandonRepair,
+         spaceportVisit: EDVehicleSheet.#onSpaceportVisit,
+         takeOff: EDVehicleSheet.#onTakeOff,
+         serviceShip: EDVehicleSheet.#onServiceShip,
       },
    };
 
@@ -189,6 +196,8 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          context.equip.scan = true;
          context.hasEquip = true;
       }
+      // Flying without crew (Core Rules p.262) and vehicle crews (p.220).
+      context.crewPanel = this.#crewPanel();
       context.vactions = actionsFor(actor, zone).filter((key) => key !== "rescue" || strandedNearby).map((key) => ({
          key,
          icon: ACTION_ICONS[key],
@@ -383,6 +392,69 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
    /** @this {EDVehicleSheet} */
    static async #onEngineer(event, target) {
       if (this.isEditable) return engineerDialog(this.document, target.dataset.key);
+   }
+
+   /**
+    * The Crew panel: who's aboard against the Crew rating, the ship's stations, and what being short-handed costs.
+    *
+    * @returns {object|null}
+    */
+   #crewPanel() {
+      const system = this.document.system;
+      if (system.drone?.enabled || system.npc?.enabled) return null;
+      const crew = system.crew;
+      const L = (k, d) => (d ? game.i18n.format(k, d) : game.i18n.localize(k));
+      const penalties = [];
+      if (crew.short && crew.ship) {
+         if (crew.sensors) penalties.push(L("EDRPG.crew.penalty.sensors", { dogfighting: system.bonuses?.dogfighting ?? 0, initiative: system.bonuses?.initiative ?? 0 }));
+         if (crew.power) penalties.push(L("EDRPG.crew.penalty.power"));
+         if (crew.repairs) penalties.push(L("EDRPG.crew.penalty.repairs", { factor: crew.repairFactor }));
+         if ((this.document.itemTypes?.craftWeapon ?? []).some((w) => w.system.mount?.kind === "turret" && w.system.gunner && w.system.gunner === system.pilot)) penalties.push(L("EDRPG.crew.penalty.turrets"));
+         penalties.push(L("EDRPG.crew.penalty.between"));
+      }
+      if (crew.weaponsLocked) penalties.push(L("EDRPG.crew.penalty.vehicleWeapons"));
+      const repair = system.combat?.repair;
+      return {
+         ship: crew.ship,
+         aboard: crew.aboard,
+         needed: crew.needed,
+         full: crew.full,
+         short: crew.short,
+         shortOk: !crew.full && !crew.short,
+         penalties,
+         stations: crew.ship ? ["sensors", "power", "repairs"].map((k) => ({ key: k, name: `system.crewing.${k}`, value: system.crewing?.[k] ?? "", label: `EDRPG.crew.station.${k}` })) : [],
+         others: system._source.crewing?.others ?? 0,
+         repairing: crew.ship && repair?.index >= 0 ? L("EDRPG.repair.underWay", { component: system.components[repair.index]?.name ?? "?", name: fromUuidSync(repair.by)?.name ?? "?", turns: repair.turns + 1 }) : "",
+         canRepair: crew.ship && repairable(this.document).length > 0,
+         usedRepairs: crew.ship && (system.components ?? []).some((c) => c.emergencyRepaired),
+         unserviced: crew.ship && system.unserviced,
+         serviceCost: serviceCost(this.document).toLocaleString("en-GB"),
+      };
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onEmergencyRepair(event, target) {
+      if (this.isEditable) return openEmergencyRepair(this.document);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onAbandonRepair(event, target) {
+      if (this.isEditable) return abandonEmergencyRepair(this.document);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onSpaceportVisit(event, target) {
+      if (this.isEditable) return spaceportVisit(this.document);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onTakeOff(event, target) {
+      if (this.isEditable) return takeOff(this.document);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onServiceShip(event, target) {
+      if (this.isEditable) return serviceShip(this.document);
    }
 
    /** @this {EDVehicleSheet} */

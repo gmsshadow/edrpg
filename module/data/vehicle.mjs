@@ -1,4 +1,5 @@
 import { skillCategory } from "../config.mjs";
+import { crewStatus, pilotOnTurret } from "../crew-stations.mjs";
 
 const fields = foundry.data.fields;
 const int = (initial = 0, options = {}) => new fields.NumberField({ required: true, nullable: false, integer: true, initial, ...options });
@@ -118,6 +119,12 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
             // whether it has already rolled a Dogfight outside its turn (one Interrupting Action).
             attackedBy: new fields.ArrayField(new fields.StringField(), { initial: [] }),
             interrupted: new fields.BooleanField({ initial: false }),
+            // An Emergency Repair under way (Core Rules p.193): the component (index), who, and turns of work left.
+            repair: new fields.SchemaField({
+               index: int(-1),
+               by: new fields.StringField({ required: true, blank: true, initial: "" }),
+               turns: int(0, { min: 0 }),
+            }),
             // A Heat Sink fired this turn (+2 Systems while silent running, Core Rules p.198).
             heatSink: new fields.BooleanField({ initial: false }),
             // Silent Running (Core Rules p.268): rounds hidden so far, heat sinks fired (each buys another minute), and
@@ -156,6 +163,14 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
          forwardRam: new fields.BooleanField({ initial: false }),
          // Crew: the pilot's UUID (any individual actor or opponent).
          pilot: new fields.StringField({ required: true, blank: true, initial: "" }),
+         // Flying without crew (Core Rules p.262): who mans a ship's stations (UUIDs), and how many others are aboard
+         // doing jobs nobody tracks (they count towards the crew).
+         crewing: new fields.SchemaField({
+            sensors: new fields.StringField({ required: true, blank: true, initial: "" }),
+            power: new fields.StringField({ required: true, blank: true, initial: "" }),
+            repairs: new fields.StringField({ required: true, blank: true, initial: "" }),
+            others: int(0, { min: 0 }),
+         }),
          // Whose craft it is (a character's UUID): their Fleet, and the ships they use Between Adventures.
          owner: new fields.StringField({ required: true, blank: true, initial: "" }),
          // The model it was made from (e.g. "Sidewinder – FD-4"), kept when the craft is renamed.
@@ -199,9 +214,15 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
       return this.hull.value <= 0;
    }
 
-   /** Everyone aboard who can be caught in its destruction: the pilot and turret gunners. */
+   /** Flying without crew (Core Rules p.262): who's aboard, and which penalties apply. */
+   get crew() {
+      return crewStatus(this);
+   }
+
+   /** Everyone aboard who can be caught in its destruction: the pilot, turret gunners and the crew at its stations. */
    get crewActors() {
-      const uuids = new Set([this.pilot, ...(this.parent?.itemTypes?.craftWeapon ?? []).map((w) => w.system.gunner)].filter(Boolean));
+      const st = this.crewing ?? {};
+      const uuids = new Set([this.pilot, ...(this.parent?.itemTypes?.craftWeapon ?? []).map((w) => w.system.gunner), st.sensors, st.power, st.repairs].filter(Boolean));
       if (this.drone?.enabled) return [];
       return [...uuids].map((u) => fromUuidSync(u)).filter(Boolean);
    }
@@ -289,7 +310,8 @@ export class VehicleData extends foundry.abstract.TypeDataModel {
       // Small ships can fix their turrets forwards when Jousting, Sniping, Strafing or winning a Dogfight (p.65).
       const fixedForward = forward && this.isShip && ["tiny", "small"].includes(this.category);
       if (weapon.system.mount?.kind === "turret" && !fixedForward) {
-         const gunner = weapon.system.gunner ? (fromUuidSync(weapon.system.gunner) ?? null) : null;
+         // Short-handed (Core Rules p.262): the pilot can't man a turret too, so it fires on automatic.
+         const gunner = weapon.system.gunner && !pilotOnTurret(this, weapon.system.gunner) ? (fromUuidSync(weapon.system.gunner) ?? null) : null;
          if (!gunner) return { bonus: AUTO_TURRET_BONUS, gunner: null, auto: true };
          return { bonus: VehicleData.crewBonus(gunner, skill), gunner, auto: false };
       }
@@ -421,6 +443,9 @@ export class ShipData extends VehicleData {
       return {
          ...schema,
          landingPad: new fields.StringField({ initial: "" }),
+         // Flying without crew (Core Rules p.262): a short-handed ship that wasn't serviced Between Adventures has a 10%
+         // chance of failing to start each take-off, until 10% of its value is spent servicing it.
+         unserviced: new fields.BooleanField({ initial: false }),
          // Bonuses from fitted components (ship roster "Bonuses"); Agility and Speed are already in their ratings.
          bonuses: new fields.SchemaField({ toHit: int(0), initiative: int(0), dogfighting: int(0) }),
          range: new fields.StringField({ initial: "" }),
@@ -496,6 +521,8 @@ export class ShipData extends VehicleData {
                item: new fields.StringField({ initial: "" }),
                // Outfitting: the slot it occupies ("fixed.thrusters", "internal.3", "utility.0"; "" = not tracked).
                slot: new fields.StringField({ initial: "" }),
+               // Given its one Emergency Repair since the last spaceport visit (Core Rules p.193).
+               emergencyRepaired: new fields.BooleanField({ initial: false }),
                // Engineering (Espionage Supplement): its positive effects and faults.
                engineered: new fields.SchemaField({
                effects: new fields.ArrayField(new fields.StringField(), { initial: [] }),
@@ -602,7 +629,8 @@ export class ShipData extends VehicleData {
    /** @override */
    get dogfight() {
       if (this.npc.enabled) return Math.max(0, this.npc.dogfighting - (this.agilityPenalty ?? 0));
-      return this.defence + (this.bonuses?.dogfighting ?? 0);
+      // Short-handed with nobody on the sensors: no sensor bonuses (Core Rules p.262).
+      return this.defence + (this.crew.sensors ? 0 : (this.bonuses?.dogfighting ?? 0));
    }
 
    /** @override */
@@ -614,7 +642,7 @@ export class ShipData extends VehicleData {
    /** @override */
    get initiative() {
       if (this.npc.enabled) return this.npc.initiative;
-      return VehicleData.crewBonus(this.pilotActor, "tactics") + (this.bonuses?.initiative ?? 0);
+      return VehicleData.crewBonus(this.pilotActor, "tactics") + (this.crew.sensors ? 0 : (this.bonuses?.initiative ?? 0));
    }
 
    /** @override */

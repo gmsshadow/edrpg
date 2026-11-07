@@ -335,6 +335,10 @@
          "silentRunningRounds": {
             "name": "Silent Running: rounds per minute",
             "hint": "A ship can run silent for a minute before it overheats (Core Rules p.268), but the book never says how long a combat round lasts. Its overheating damage comes every ten seconds, so by default a round is ten seconds: six rounds to a minute. Each Heat Sink fired adds another minute."
+         },
+         "flyingWithoutCrew": {
+            "name": "Flying without crew",
+            "hint": "Core Rules p.262: medium and larger ships with fewer people aboard than their Crew rating lose sensor bonuses, Floating Bonuses and quick repairs for each job nobody is doing, and can't earn money Between Adventures. Vehicles can't use their weapons without their full crew (p.220). Untick to ignore crew numbers."
          }
       },
       "test": {
@@ -2136,13 +2140,15 @@
          "employeeHint": "A crew member does the work instead. They may not come back with the ship.",
          "pay": "Pay out to cash",
          "payWages": "Crew wages: {wages} for {count} crew, paid first.",
-         "crewNote": "This ship needs a crew of {crew}; {aboard} hired crew signed on for it.",
+         "crewNote": "This ship needs a crew of {crew}; {aboard} aboard (set on the ship's sheet).",
          "roll": "Roll",
          "activityName": {
             "trading": "Safe Trading",
             "mining": "Asteroid Mining",
             "exploration": "Exploring",
-            "bounty": "Bounty Hunting"
+            "bounty": "Bounty Hunting",
+            "service": "Service the ship",
+            "skipService": "Leave the ship unserviced"
          },
          "risk": {
             "low": "Low risk",
@@ -2261,7 +2267,30 @@
             "alliance": "Alliance"
          },
          "ship": "For ship",
-         "shipHint": "Optional: sign them on for one of your ships. An NPC-flown ship must be fully crewed to earn Between Adventures income."
+         "shipHint": "Optional: sign them on for one of your ships. An NPC-flown ship must be fully crewed to earn Between Adventures income.",
+         "aboard": "{aboard} / {needed} aboard",
+         "aboardHint": "Everyone aboard: the pilot, turret gunners, the crew at the stations, hired crew signed on for this craft, and the others below. Fewer than the Crew rating and a medium or larger ship is short-handed (Core Rules p.262).",
+         "smallShip": "Short of the Crew rating, but small craft don't suffer for it.",
+         "station": {
+            "sensors": "Sensors",
+            "power": "Power distributor",
+            "repairs": "Repairs"
+         },
+         "nobody": "Nobody",
+         "others": "Others aboard",
+         "othersHint": "Anyone else aboard doing a job not listed here (they count towards the crew).",
+         "penalty": {
+            "sensors": "Nobody on the sensors: no sensor bonuses (Dogfighting +{dogfighting}, Initiative +{initiative}), and scanning means the pilot leaving the controls.",
+            "power": "Nobody on the power distributor: no Floating Bonuses.",
+            "repairs": "Nobody on repairs: Emergency Repairs take {factor} times as long.",
+            "turrets": "The pilot can't man a turret as well: turrets fire on automatic (bonus 3).",
+            "between": "Between Adventures: no earning money; service the ship instead.",
+            "vehicleWeapons": "Not enough crew aboard: the vehicle can be driven but its weapons can't be used."
+         },
+         "weaponsLocked": "{name} has {aboard} of its {needed} crew aboard: its weapons can't be used without the full crew.",
+         "noFloating": "Nobody is on {name}'s power distributor: no Floating Bonuses while short-handed.",
+         "scanConfirm": "Nobody is on <strong>{name}</strong>'s sensors: the pilot has to leave the controls to scan, giving up this turn's combat action. Scan anyway?",
+         "panelTitle": "Crew"
       },
       "addiction": {
          "title": "Addiction: {name}",
@@ -3000,6 +3029,61 @@
          "jumperDamage": "{name}, on the grenade (×2 fatal)",
          "jumpedNote": "{name} is lying on it: the fatal radius takes the injury Damage, and the injury radius nothing.",
          "thrownNote": "Thrown back: it explodes where it was thrown, not where it first landed."
+      },
+      "repair": {
+         "title": "Emergency Repair",
+         "button": "Emergency Repair",
+         "buttonHint": "Fix a disabled component in the middle of a fight (Core Rules p.193): an Action per turn of work, then a Repair check against its grade. Once per component between spaceport visits.",
+         "component": "Component",
+         "who": "Who works on it",
+         "option": "{code}: {turns} turn(s), Difficulty {dn}",
+         "bonus": "Repair +{bonus}",
+         "hint": "Size 1–2 take one turn, 3–4 two, 5–6 three, 7–8 four. A pilot doing the work can't fly the ship meanwhile. Success brings it back to 1 Strength.",
+         "none": "No such component.",
+         "noWeapons": "Weapons and the hull can't have Emergency Repairs.",
+         "notDisabled": "{component} is still working: Emergency Repairs are only for disabled components.",
+         "used": "{component} has had its Emergency Repair since the last spaceport visit.",
+         "busy": "{name} already has a repair under way.",
+         "nothing": "{name} has no disabled component that can have an Emergency Repair.",
+         "noCrew": "Nobody aboard {name} to do the work.",
+         "started": "{name} starts work on {component}: {turns} turn(s).",
+         "shortHanded": "Short-handed with nobody on repairs: {factor} times as long.",
+         "pilotNote": "{name} is the pilot: the ship takes no combat action while they work.",
+         "working": "{name} keeps working on {component}: {turns} turn(s) to go, including this one.",
+         "check": "{name} repairs {component} (grade {grade}): D10 {natural} + {bonus} = {total} against {dn}.",
+         "fixed": "{component} is working again (1 Strength).",
+         "failed": "{component} can't be fixed quickly: try a Field Repair later.",
+         "underWay": "Repairing {component} ({name}, {turns} turn(s) left)",
+         "abandon": "Stop the repair",
+         "port": "Spaceport visit",
+         "portHint": "Docked at a spaceport: every component can have an Emergency Repair again.",
+         "portReset": "{name}: Emergency Repairs available again.",
+         "usedChip": "Emergency Repair used since the last spaceport visit"
+      },
+      "upkeep": {
+         "title": "Ship upkeep",
+         "chip": "Unserviced",
+         "chipHint": "Not serviced Between Adventures while short-handed: a 10% chance of failing to start at each take-off, until 10% of its value is spent servicing it (Core Rules p.262).",
+         "takeOff": "Take off",
+         "takeOffHint": "Roll D100: 1–10 and the ship won't start.",
+         "service": "Service ({cost}cr)",
+         "serviceHint": "Spend 10% of the ship's value servicing it, from its owner's credits.",
+         "startsFine": "{name} starts up.",
+         "starts": "D100 {roll}: {name} starts up.",
+         "wontStart": "D100 {roll}: {name} fails to start. Even slamming the dashboard won't help.",
+         "cantAfford": "{name} has {cash}cr: servicing costs {cost}cr.",
+         "serviced": "{name} is serviced and spaceworthy again.",
+         "servicedPaid": "{owner} pays {cost}cr: {name} is serviced and spaceworthy again.",
+         "notNeeded": "This ship has its full crew: there's nothing to skip.",
+         "shortBlocked": "Short-handed ({aboard} of {crew} crew aboard): no earning money Between Adventures. Service the ship instead, or leave it unserviced (Core Rules p.262).",
+         "sum": {
+            "service": "The time goes on servicing the ship and many small repairs. No earnings.",
+            "skipService": "No earnings, and the ship goes unserviced: a 10% chance of failing to start at each take-off, until {cost} is spent servicing it."
+         },
+         "line": {
+            "service": "The crew spend the time servicing {ship} and making many small repairs.",
+            "skip": "{ship} goes unserviced: a 10% chance of failing to start at each take-off, until {cost} is spent servicing it."
+         }
       }
    }
 }

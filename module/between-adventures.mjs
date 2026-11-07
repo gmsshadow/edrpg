@@ -17,6 +17,7 @@
  * don't record it. Mining lasers don't count as weapons for Bounty Hunting. An Exploration Value under 1 earns the
  * lowest yield.
  */
+import { serviceCost } from "./ship-upkeep.mjs";
 import { ranks } from "./config.mjs";
 import { judge } from "./dice/resolve.mjs";
 import { addictionPhase } from "./addiction.mjs";
@@ -100,6 +101,10 @@ export function shipProfile(ship) {
       killWarrant: kws,
       size: sys.category,
       crewSize: sys.crewSize ?? 0,
+      // Flying without crew (Core Rules p.262): short-handed ships can't earn money.
+      short: !!sys.crew?.short,
+      aboard: sys.crew?.aboard ?? 1,
+      unserviced: !!sys.unserviced,
    };
 }
 
@@ -113,6 +118,10 @@ export function shipProfile(ship) {
  * @returns {string|null}
  */
 export function activityBlocked(p, activity) {
+   // Short-handed: the time goes on servicing the ship instead (Core Rules p.262).
+   if (activity === "service") return null;
+   if (activity === "skipService") return p.short ? null : L("EDRPG.upkeep.notNeeded");
+   if (p.short) return L("EDRPG.upkeep.shortBlocked", { crew: p.crewSize, aboard: p.aboard });
    if (activity === "trading" && !p.cargoRack) return L("EDRPG.between.needs.trading");
    if (activity === "mining" && !(p.miningLaser && p.refinery && p.cargoRack)) return L("EDRPG.between.needs.mining");
    if (activity === "exploration" && !p.scanner) return L("EDRPG.between.needs.exploration");
@@ -253,7 +262,8 @@ export async function betweenAdventures(actor) {
    const crew = crewOf(actor);
    const wages = crew.reduce((n, c) => n + (c.getFlag("edrpg", "crew")?.salary ?? 0), 0);
 
-   const activities = ["trading", "mining", "exploration", "bounty"];
+   // Short-handed ships service the ship instead of earning (Core Rules p.262).
+   const activities = ["trading", "mining", "exploration", "bounty", "service", "skipService"];
    const shipOptions = ships.map((s) => `<option value="${s.id}">${esc(s.name)}${s.system.model && s.system.model !== s.name ? ` (${esc(s.system.model)})` : ""}</option>`).join("");
    const row = (label, field, hint = "", cls = "") => `<div class="form-group ${cls}"><label>${label}</label><div class="form-fields">${field}</div>${hint ? `<p class="hint">${hint}</p>` : ""}</div>`;
    const riskOptions = Object.entries(BOUNTY).map(([k, r]) => `<option value="${k}">${L(`EDRPG.between.risk.${k}`)} (${L("EDRPG.between.riskInfo", { points: r.points, risk: r.risk })})</option>`).join("");
@@ -264,7 +274,7 @@ export async function betweenAdventures(actor) {
       <div class="ed-between-info"></div>
       ${row(L("EDRPG.between.riskLabel"), `<select name="risk">${riskOptions}</select>`, L("EDRPG.between.riskHint"), "bounty-only")}
       ${row(L("EDRPG.between.srv"), `<input type="checkbox" name="srv" checked>`, L("EDRPG.between.srvHint"), "exploration-only")}
-      ${row(L("EDRPG.between.employee"), `<input type="checkbox" name="employee">`, L("EDRPG.between.employeeHint"), "not-bounty")}
+      ${row(L("EDRPG.between.employee"), `<input type="checkbox" name="employee">`, L("EDRPG.between.employeeHint"), "not-bounty not-service")}
       ${row(L("EDRPG.between.pay"), `<input type="checkbox" name="pay" checked>`, wages ? L("EDRPG.between.payWages", { wages: cr(wages), count: crew.length }) : "")}
    `;
    const input = await foundry.applications.api.DialogV2.input({
@@ -285,10 +295,11 @@ export async function betweenAdventures(actor) {
             for (const el of root.querySelectorAll(".exploration-only")) el.hidden = activity !== "exploration" || !p.srvHangar;
             for (const el of root.querySelectorAll(".not-bounty")) el.hidden = activity === "bounty";
             for (const opt of root.querySelectorAll("[name=risk] option")) opt.disabled = BOUNTY[opt.value].points > p.weaponPoints;
-            const shortCrew = ["medium", "large", "huge"].includes(p.size) && p.crewSize > 1;
-            // Crew signed on for this ship (the employer flies it, so one fewer is needed).
-            const aboard = crewOf(actor, ship).length;
-            info.innerHTML = `<p class="${blocked ? "ed-between-warn" : "hint"}">${blocked ?? summary(p, activity, bonus)}</p>${shortCrew ? `<p class="hint">${L("EDRPG.between.crewNote", { crew: p.crewSize, aboard })}</p>` : ""}`;
+            const service = activity === "service" || activity === "skipService";
+            for (const el of root.querySelectorAll(".not-service")) el.hidden = service;
+            const text = blocked ?? (service ? L(`EDRPG.upkeep.sum.${activity}`, { cost: cr(serviceCost(ship)) }) : summary(p, activity, bonus));
+            const crewLine = p.crewSize > 1 && ["medium", "large", "huge"].includes(p.size) ? `<p class="hint">${L("EDRPG.between.crewNote", { crew: p.crewSize, aboard: p.aboard })}</p>` : "";
+            info.innerHTML = `<p class="${blocked ? "ed-between-warn" : "hint"}">${text}</p>${crewLine}`;
             root.querySelector("button[data-action=ok]")?.toggleAttribute("disabled", !!blocked);
             dialog.setPosition?.({ height: "auto" });
          };
@@ -303,6 +314,7 @@ export async function betweenAdventures(actor) {
    const p = shipProfile(ship);
    const activity = input.activity;
    if (activityBlocked(p, activity)) return null;
+   if (activity === "service" || activity === "skipService") return upkeepBetween(actor, ship, activity, input.pay ? wages : 0, crew.length);
    const risk = activity === "bounty" ? (BOUNTY[input.risk].points <= p.weaponPoints ? input.risk : "low") : null;
    const employee = !!input.employee && activity !== "bounty";
 
@@ -360,6 +372,27 @@ export async function betweenAdventures(actor) {
       ${input.pay ? `<p class="hint">${L("EDRPG.between.paid", { name: esc(actor.name), total: (total >= 0 ? "+" : "−") + cr(Math.abs(total)) })}</p>` : ""}
    </div>`;
    return ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: content2, rolls, sound: game.dice3d ? null : CONFIG.sounds.dice });
+}
+
+/**
+ * Between Adventures in a short-handed ship (Core Rules p.262): service it (no earnings), or leave it unserviced (10%
+ * chance it fails to start at each take-off, until 10% of its value is spent on it).
+ */
+async function upkeepBetween(actor, ship, activity, wages, count) {
+   const service = activity === "service";
+   await ship.update({ "system.unserviced": !service });
+   const lines = [L(service ? "EDRPG.upkeep.line.service" : "EDRPG.upkeep.line.skip", { ship: esc(ship.name), cost: cr(serviceCost(ship)) })];
+   if (wages) {
+      const before = actor.system.cash?.cr ?? 0;
+      await actor.update({ "system.cash.cr": Math.max(0, before - wages) });
+      lines.push(L("EDRPG.between.wagesLine", { wages: cr(wages), count }));
+   }
+   const content = `<div class="edrpg edrpg-chat edrpg-between-card">
+      <h3><i class="fa-solid fa-oil-can"></i> ${L(`EDRPG.between.activityName.${activity}`)}</h3>
+      <p class="muted">${esc(actor.name)} · ${esc(ship.name)}</p>
+      ${lines.map((l) => `<p>${l}</p>`).join("")}
+   </div>`;
+   return ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content });
 }
 
 /** The dialog's line about what the ship would bring to an activity. */

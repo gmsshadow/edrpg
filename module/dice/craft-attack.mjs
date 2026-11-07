@@ -54,6 +54,11 @@ export async function rollCraftAttack(vehicle, weapon, { prompt = true, target: 
       ui.notifications.warn(game.i18n.format("EDRPG.attack.noAmmo", { weapon: weapon.name }));
       return null;
    }
+   // A vehicle's weapons need its full crew aboard (Core Rules p.220).
+   if (sys.crew?.weaponsLocked) {
+      ui.notifications.warn(game.i18n.format("EDRPG.crew.weaponsLocked", { name: vehicle.name, aboard: sys.crew.aboard, needed: sys.crew.needed }));
+      return null;
+   }
    const target = forced ?? [...game.user.targets].map((t) => t.actor).find((a) => a && a !== vehicle && scaleOf(a)) ?? null;
    // Combined Scale Combat (Core Rules pp.254–259).
    const myScale = scaleOf(vehicle);

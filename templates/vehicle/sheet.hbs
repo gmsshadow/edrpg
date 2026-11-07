@@ -97,9 +97,36 @@
    </div>
    {{/if}}
 
+   {{#if crewPanel}}
+   <div class="ed-vcrew {{#if crewPanel.short}}short{{/if}}">
+      <span class="ed-vturn-title"><i class="fa-solid fa-people-group"></i> {{localize "EDRPG.crew.panelTitle"}}</span>
+      <span class="ed-chip ed-vstate {{#if crewPanel.short}}rammed{{/if}}" data-tooltip="EDRPG.crew.aboardHint">{{localize "EDRPG.crew.aboard" aboard=crewPanel.aboard needed=crewPanel.needed}}</span>
+      {{#if crewPanel.shortOk}}<span class="muted">{{localize "EDRPG.crew.smallShip"}}</span>{{/if}}
+      {{#each crewPanel.stations as |st|}}
+      <label class="ed-vstation">{{localize st.label}}
+         <select name="{{st.name}}" {{#unless @root.editable}}disabled{{/unless}}><option value="">{{localize "EDRPG.crew.nobody"}}</option>{{selectOptions @root.pilotChoices selected=st.value sort=true}}</select>
+      </label>
+      {{/each}}
+      <label class="ed-vstation" data-tooltip="EDRPG.crew.othersHint">{{localize "EDRPG.crew.others"}} <input type="number" name="system.crewing.others" value="{{crewPanel.others}}" min="0" step="1"></label>
+      {{#if crewPanel.penalties.length}}<ul class="ed-vcrew-penalties">{{#each crewPanel.penalties as |p|}}<li>{{p}}</li>{{/each}}</ul>{{/if}}
+      {{#if crewPanel.ship}}
+      <div class="ed-vcrew-tools">
+         {{#if crewPanel.repairing}}<span class="ed-chip ed-vstate">{{crewPanel.repairing}}</span> {{#if editable}}<a data-action="abandonRepair" data-tooltip="EDRPG.repair.abandon"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+         {{else if (and editable crewPanel.canRepair)}}<button type="button" data-action="emergencyRepair" data-tooltip="EDRPG.repair.buttonHint"><i class="fa-solid fa-screwdriver-wrench"></i> {{localize "EDRPG.repair.button"}}</button>{{/if}}
+         {{#if (and editable crewPanel.usedRepairs)}}<button type="button" data-action="spaceportVisit" data-tooltip="EDRPG.repair.portHint"><i class="fa-solid fa-warehouse"></i> {{localize "EDRPG.repair.port"}}</button>{{/if}}
+         {{#if crewPanel.unserviced}}
+         <span class="ed-chip ed-vstate destroyed" data-tooltip="EDRPG.upkeep.chipHint">{{localize "EDRPG.upkeep.chip"}}</span>
+         {{#if editable}}<button type="button" data-action="takeOff" data-tooltip="EDRPG.upkeep.takeOffHint"><i class="fa-solid fa-plane-departure"></i> {{localize "EDRPG.upkeep.takeOff"}}</button>
+         <button type="button" data-action="serviceShip" data-tooltip="EDRPG.upkeep.serviceHint"><i class="fa-solid fa-oil-can"></i> {{localize "EDRPG.upkeep.service" cost=crewPanel.serviceCost}}</button>{{/if}}
+         {{/if}}
+      </div>
+      {{/if}}
+   </div>
+   {{/if}}
+
    {{#if components.length}}
    <div class="ed-vcomponents">
-      {{#each components as |c|}}<span class="ed-vcomp {{#if c.broken}}broken{{/if}}" data-tooltip="{{c.kindLabel}}{{#if c.notes}}: {{c.notes}}{{/if}}">{{#if c.name}}{{c.name}}{{else}}{{c.kindLabel}}{{/if}} <b>{{c.strength.value}}/{{c.strength.max}}</b></span>{{/each}}
+      {{#each components as |c|}}<span class="ed-vcomp {{#if c.broken}}broken{{/if}}" data-tooltip="{{c.kindLabel}}{{#if c.notes}}: {{c.notes}}{{/if}}">{{#if c.name}}{{c.name}}{{else}}{{c.kindLabel}}{{/if}} <b>{{c.strength.value}}/{{c.strength.max}}</b>{{#if c.emergencyRepaired}} <i class="fa-solid fa-screwdriver-wrench" data-tooltip="EDRPG.repair.usedChip"></i>{{/if}}</span>{{/each}}
    </div>
    {{/if}}
 

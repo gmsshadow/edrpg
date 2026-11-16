@@ -199,6 +199,7 @@ export class VehicleTurnPanel extends HandlebarsApplicationMixin(ApplicationV2) 
             opts.push({ which: "silent", icon: "fa-solid fa-eye-slash", label: L(silent.active ? "EDRPG.silent.stop" : "EDRPG.silent.start"), info: silent.active ? L("EDRPG.silent.chip", { rounds: silent.rounds ?? 0, safe: safeRounds(sys) }) : "", active: !!silent.active, disabled: false });
             if (eq.heatSinks?.max > 0) opts.push({ which: "heatSink", icon: "fa-solid fa-temperature-low", label: L("EDRPG.silent.heatSink"), info: `${eq.heatSinks.value}/${eq.heatSinks.max}`, active: c.heatSink, disabled: c.heatSink || eq.heatSinks.value < 1 });
             opts.push({ which: "scan", icon: "fa-solid fa-satellite-dish", label: L("EDRPG.silent.scan"), info: "", active: false, disabled: false });
+            opts.push({ which: "scoop", icon: "fa-solid fa-box-open", label: L("EDRPG.scoop.button"), info: "", active: false, disabled: false });
             if (eq.floating) {
                const list = ["engines", "weapons", "shields"].filter((k) => c.floating?.[k]).map((k) => L(`EDRPG.equip.floating.${k}`)).join(", ");
                opts.push({ which: "floating", icon: "fa-solid fa-sliders", label: L("EDRPG.equip.floatingTitle"), info: list || L("EDRPG.equip.none"), active: !!list, disabled: false });

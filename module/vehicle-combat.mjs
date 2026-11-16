@@ -1,6 +1,7 @@
 import { safeRounds, overheat, chooseAndScan, hiddenFrom } from "./silent-running.mjs";
 import { rule } from "./rules.mjs";
-import { continueEmergencyRepair } from "./emergency-repair.mjs";
+import { continueEmergencyRepair } from "./ship-repairs.mjs";
+import { isPod, confirmAbandon, performAbandon, chooseScoop, rollScoop, applyScoop } from "./escape-pods.mjs";
 import { rollCraftAttack, applyCraftDamage } from "./dice/craft-attack.mjs";
 import { judge } from "./dice/resolve.mjs";
 import { rollCrashDamage } from "./dice/damage.mjs";
@@ -36,8 +37,8 @@ export const VEHICLE_ACTIONS = {
 
 /** Spaceship combat actions by zone (Core Rules p.66). */
 export const SHIP_ACTIONS = {
-   atDistance: ["joust", "snipe", "strafe", "chicken", "flee", "pass"],
-   upClose: ["dogfight", "broadsides", "faOff", "ram", "disengage", "pass"],
+   atDistance: ["joust", "snipe", "strafe", "chicken", "flee", "pass", "abandon"],
+   upClose: ["dogfight", "broadsides", "faOff", "ram", "disengage", "pass", "abandon"],
 };
 
 /**
@@ -58,6 +59,9 @@ export function actionsFor(actor, zone) {
    if (actor.system.isShip && zone === "upClose" && others.some((sc) => sc === "individual" || sc === "vehicle")) insert("hover");
    if (!actor.system.isShip && zone === "upClose" && others.includes("individual")) insert("crawl");
    if (!actor.system.isShip && zone === "atDistance" && others.includes("ship")) insert("broadsides");
+   // Escape pods can't abandon ship (Core Rules p.70); an abandoned ship has nobody left to act.
+   if (actor.system.abandoned) return [];
+   if (isPod(actor)) return list.filter((k) => k !== "abandon");
    return list;
 }
 
@@ -84,6 +88,7 @@ export const ACTION_ICONS = {
    faOff: "fa-solid fa-arrows-spin",
    hover: "fa-solid fa-helicopter",
    crawl: "fa-solid fa-truck-ramp-box",
+   abandon: "fa-solid fa-person-through-window",
 };
 
 /** Obstacle tables: [highest roll, result] (Core Rules p.73). */
@@ -175,6 +180,19 @@ const OPS = {
       const notes = await performLaunch({ shipUuid, index });
       if (ship && notes.length) await postEvent(ship, { kind: "equipment", title: L("EDRPG.equip.title"), subtitle: ship.name, notes });
    },
+   /** Abandon Ship: create the pods (GM: it makes actors and tokens). */
+   async abandon({ uuid }) {
+      const ship = await fromUuid(uuid);
+      if (!ship) return;
+      const notes = await performAbandon(ship);
+      await postEvent(ship, { kind: "action", title: L("EDRPG.vcombat.action.abandon"), subtitle: ship.name, notes });
+   },
+   /** Scooping something up: the result (damage to both on a failure; a pod comes aboard). */
+   async scoop(payload) {
+      const ship = await fromUuid(payload.shipUuid);
+      const notes = await applyScoop(payload);
+      await postEvent(ship, { kind: "equipment", title: L("EDRPG.scoop.title"), subtitle: ship.name, notes: [...(payload.lines ?? []), ...notes] }, payload.roll ? [Roll.fromData(payload.roll)] : []);
+   },
    /** Change a chat card's state. */
    async event({ messageId, patch }) {
       await editEvent(game.messages.get(messageId), (s) => foundry.utils.mergeObject(s, patch));
@@ -202,6 +220,7 @@ function canRunLocally(name, payload) {
    if (name === "damage") return owns(payload.uuid) && ownsMessage(payload.messageId);
    if (name === "event") return ownsMessage(payload.messageId);
    if (name === "bomb") return owns(payload.uuid) && owns(payload.bomberUuid) && ownsMessage(payload.messageId);
+   if (name === "scoop") return owns(payload.shipUuid) && owns(payload.podUuid) && !payload.podUuid;
    return false;
 }
 
@@ -1081,6 +1100,7 @@ export async function vehicleAction(actor, action, { target = null } = {}) {
    const zone = zoneOf(actor);
    if (sys.combat.escaped) return void ui.notifications.warn(L("EDRPG.vcombat.hasEscaped", { name: actor.name }));
    if (sys.destroyed) return void ui.notifications.warn(L("EDRPG.vdestroy.isDestroyed", { name: actor.name }));
+   if (sys.abandoned) return void ui.notifications.warn(L("EDRPG.pod.isAbandoned", { name: actor.name }));
    // Immobilised ships can't take combat actions (they may still fire one turret, from the sheet).
    if (sys.isShip && sys.immobilised) return void ui.notifications.warn(L("EDRPG.ship.immobilised", { name: actor.name }));
    if (!actionsFor(actor, zone).includes(action)) {
@@ -1170,6 +1190,12 @@ const ACTIONS = {
    },
 
    /** Pass: one re-roll available until the end of the next turn. */
+   /** Abandon Ship (p.70): the crew take to the escape pods instead of acting. */
+   async abandon(actor) {
+      if (!(await confirmAbandon(actor))) return false;
+      await op("abandon", { uuid: actor.uuid });
+   },
+
    async pass(actor) {
       await update(actor, { "system.combat.pass": 2 });
       await announce(actor, "pass");
@@ -1709,6 +1735,15 @@ export async function equipmentAction(actor, which) {
       return say(c.silent?.active ? "EDRPG.silent.sinkUsed" : "EDRPG.silent.sinkWasted", { left: eq.heatSinks.value - 1, max: eq.heatSinks.max });
    }
    // Scan for a silent ship (the result goes to the hidden ship through the GM).
+   // Scooping up cargo canisters or escape pods (Core Rules p.267).
+   if (which === "scoop") {
+      if (sys.components.some((x) => /cargo hatch/i.test(x.name) && x.strength.value <= 0)) return void ui.notifications.warn(L("EDRPG.scoop.hatchBroken", { name: actor.name }));
+      const choice = await chooseScoop(actor);
+      if (!choice) return;
+      const r = await rollScoop(actor, choice);
+      const lines = r.roll ? [L("EDRPG.scoop.check", { name: esc(actor.name), natural: r.natural, bonus: r.bonus, total: r.total, dn: 8 })] : [L("EDRPG.scoop.noPressure")];
+      return op("scoop", { shipUuid: actor.uuid, podUuid: choice.podUuid, label: choice.label, success: r.success, lines, roll: r.roll?.toJSON?.() ?? null });
+   }
    if (which === "scan") {
       // Short-handed with nobody on the sensors: the pilot leaves the controls to scan (Core Rules p.262).
       if (sys.crew?.sensors) {
@@ -1857,6 +1892,19 @@ const CARGO_SCATTER = { small: "1d10", medium: "2d10", large: "3d10", huge: "4d1
  * @param {Actor[]} crew
  */
 async function shipDestroyed(actor, crew) {
+   // An escape pod: whoever is inside goes with it, and there's no cargo.
+   if (isPod(actor)) {
+      const person = actor.getFlag("edrpg", "escapePod")?.person;
+      const who = person ? fromUuidSync(person) : null;
+      return postEvent(actor, {
+         kind: "destroyed",
+         title: L("EDRPG.vdestroy.title", { name: actor.name }),
+         outcome: L("EDRPG.vdestroy.outcome"),
+         outcomeClass: "failure",
+         notes: [L(who ? "EDRPG.pod.destroyedWho" : "EDRPG.pod.destroyed", { name: esc(who?.name ?? "") })],
+         vehicleUuid: actor.uuid,
+      });
+   }
    const roll = await new Roll(CARGO_SCATTER[actor.system.category] ?? "1d10").evaluate();
    const pilot = actor.system.pilotActor;
    const notes = [

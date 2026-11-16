@@ -7,7 +7,7 @@ import { hangarEntries, dock, undock, recover } from "../hangar.mjs";
 import { openTurnPanel } from "../turn-panel.mjs";
 import { fitItem, emptySlot, outfitView } from "../ship-outfitting.mjs";
 import { safeRounds } from "../silent-running.mjs";
-import { openEmergencyRepair, abandonEmergencyRepair, spaceportVisit, repairable } from "../emergency-repair.mjs";
+import { openEmergencyRepair, abandonEmergencyRepair, openSpaceport, openFieldRepair, fieldRepairable, repairable } from "../ship-repairs.mjs";
 import { takeOff, serviceShip, serviceCost } from "../ship-upkeep.mjs";
 import { actionsFor, ACTION_ICONS, vehicleAction, setVehicleSpeed, checkObstacles, startVehicleTurn, inCombat } from "../vehicle-combat.mjs";
 
@@ -67,7 +67,8 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          outfitEmpty: EDVehicleSheet.#onOutfitEmpty,
          emergencyRepair: EDVehicleSheet.#onEmergencyRepair,
          abandonRepair: EDVehicleSheet.#onAbandonRepair,
-         spaceportVisit: EDVehicleSheet.#onSpaceportVisit,
+         spaceport: EDVehicleSheet.#onSpaceport,
+         fieldRepair: EDVehicleSheet.#onFieldRepair,
          takeOff: EDVehicleSheet.#onTakeOff,
          serviceShip: EDVehicleSheet.#onServiceShip,
       },
@@ -426,7 +427,7 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
          others: system._source.crewing?.others ?? 0,
          repairing: crew.ship && repair?.index >= 0 ? L("EDRPG.repair.underWay", { component: system.components[repair.index]?.name ?? "?", name: fromUuidSync(repair.by)?.name ?? "?", turns: repair.turns + 1 }) : "",
          canRepair: crew.ship && repairable(this.document).length > 0,
-         usedRepairs: crew.ship && (system.components ?? []).some((c) => c.emergencyRepaired),
+         canField: crew.ship && fieldRepairable(this.document).length > 0,
          unserviced: crew.ship && system.unserviced,
          serviceCost: serviceCost(this.document).toLocaleString("en-GB"),
       };
@@ -443,8 +444,13 @@ export default class EDVehicleSheet extends HandlebarsApplicationMixin(ActorShee
    }
 
    /** @this {EDVehicleSheet} */
-   static async #onSpaceportVisit(event, target) {
-      if (this.isEditable) return spaceportVisit(this.document);
+   static async #onSpaceport(event, target) {
+      if (this.isEditable) return openSpaceport(this.document);
+   }
+
+   /** @this {EDVehicleSheet} */
+   static async #onFieldRepair(event, target) {
+      if (this.isEditable) return openFieldRepair(this.document);
    }
 
    /** @this {EDVehicleSheet} */

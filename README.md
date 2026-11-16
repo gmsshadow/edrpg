@@ -79,7 +79,8 @@ See [CHANGELOG.md](CHANGELOG.md). The `version` in `system.json` is bumped (patc
 - **Crew** (Core Rules pp.193, 220, 262): each craft's sheet shows who's aboard against its Crew rating and assigns the
   ship's Sensors, Power distributor and Repairs stations. Short-handed medium and larger ships lose what nobody is
   doing (sensor bonuses, Floating Bonuses, quick repairs) and must be serviced instead of earning Between Adventures;
-  vehicles need their full crew to use their weapons. Emergency Repairs fix disabled components mid-fight.
+  vehicles need their full crew to use their weapons. Emergency, Field and Spaceport Repairs (with repair kits);
+  Abandon Ship into escape pods; scooping up cargo and pods.
 - **Turn panel** for spaceship and vehicle combat: the GM and the craft's owners step through Adjust Speed,
   Equipment, Recharge Shields, Check for Obstacles and the Combat Action, then End Turn.
 - **Vehicle destruction**: wrecks stop and are marked defeated, crew take 4D10 Endurance Damage and are stranded until

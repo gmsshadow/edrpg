@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.65
+
+- **Field Repairs** (Core Rules p.193): a Field Repair button on a ship's Crew panel, outside combat. It needs a
+  Spaceship Repair Kit carried by someone aboard (or the ship's owner). Pick a damaged component, weapon or the hull and
+  who does the work: a Repair check (plus the kit's bonus) restores that many points, nothing on a natural 1. Each can
+  have one between spaceport visits (marked on its chip).
+- **Spaceport Repairs** (p.193): the Spaceport button lists what needs fixing and what it costs: 1% of a component's
+  or weapon's price, 10% if it was ever knocked to 0 Strength (even if it works now; the system now remembers this),
+  and 100cr per Hull point. Tick what to fix; the owner pays. Any visit makes Emergency and Field Repairs available
+  again. Prices come from the linked compendium items; anything without one is listed for the GM to charge by hand.
+- **Repair kits:** the Advanced (+2) and Professional (+4) Spaceship Repair Kits now add to Emergency Repairs as well
+  as Field Repairs; the best kit aboard counts.
+- **Abandon Ship** (p.70): a new ship combat action in both zones. Instead of acting, the crew take to the escape pods
+  while the ship has at least 1 Hull. There are pods only for the listed crew (pilot first, then the station crew,
+  gunners and hired crew); anyone beyond is left behind. Each pod becomes a tiny GM-run craft (Escape Pods folder):
+  Defence and Pursuit 8, 1 Hull, with a token beside the ship and a place in the combat. The empty ship is marked
+  Abandoned, its crew cleared and its combatant defeated. A pod that's destroyed takes its occupant with it.
+- **Scooping up** (p.267): a Scoop button among a ship's equipment (sheet and turn panel) for cargo canisters, escape
+  pods on the scene or anything else. Automatic without time pressure; under pressure (ticked by default in combat) a
+  Difficulty 8 Spaceship Piloting check, and on a failure the ship and the item each take 5 Damage (a pod is
+  destroyed). A pod scooped up comes aboard and leaves the scene.
+
 ## 0.1.64
 
 - **Scrolling:** every sheet's open tab now scrolls when its contents run past the bottom of the window, with the

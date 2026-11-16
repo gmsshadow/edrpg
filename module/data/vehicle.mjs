@@ -446,6 +446,10 @@ export class ShipData extends VehicleData {
          // Flying without crew (Core Rules p.262): a short-handed ship that wasn't serviced Between Adventures has a 10%
          // chance of failing to start each take-off, until 10% of its value is spent servicing it.
          unserviced: new fields.BooleanField({ initial: false }),
+         // The hull's one Field Repair since the last spaceport visit (Core Rules p.193).
+         hullFieldRepaired: new fields.BooleanField({ initial: false }),
+         // Abandoned (Core Rules p.70): the crew have taken to the escape pods.
+         abandoned: new fields.BooleanField({ initial: false }),
          // Bonuses from fitted components (ship roster "Bonuses"); Agility and Speed are already in their ratings.
          bonuses: new fields.SchemaField({ toHit: int(0), initiative: int(0), dogfighting: int(0) }),
          range: new fields.StringField({ initial: "" }),
@@ -521,8 +525,11 @@ export class ShipData extends VehicleData {
                item: new fields.StringField({ initial: "" }),
                // Outfitting: the slot it occupies ("fixed.thrusters", "internal.3", "utility.0"; "" = not tracked).
                slot: new fields.StringField({ initial: "" }),
-               // Given its one Emergency Repair since the last spaceport visit (Core Rules p.193).
+               // Given its one Emergency Repair / Field Repair since the last spaceport visit (Core Rules p.193).
                emergencyRepaired: new fields.BooleanField({ initial: false }),
+               fieldRepaired: new fields.BooleanField({ initial: false }),
+               // Knocked to 0 Strength at some point since its last full Spaceport Repair (it then costs 10%, not 1%).
+               crippled: new fields.BooleanField({ initial: false }),
                // Engineering (Espionage Supplement): its positive effects and faults.
                engineered: new fields.SchemaField({
                effects: new fields.ArrayField(new fields.StringField(), { initial: [] }),

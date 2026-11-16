@@ -1,0 +1,1902 @@
+{
+ "hulls": {
+  "Adder": {
+   "agility": 8,
+   "speed": 6,
+   "hull": 75,
+   "explorer": true,
+   "hardpoints": [
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 3,
+    "thrusters": 3,
+    "fsd": 3,
+    "lifeSupport": 1,
+    "powerDistributor": 2,
+    "sensors": 3
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    }
+   ],
+   "source": "spec/core-140.txt"
+  },
+  "Anaconda": {
+   "agility": 2,
+   "speed": 2,
+   "hull": 950,
+   "explorer": true,
+   "hardpoints": [
+    "huge",
+    "large",
+    "large",
+    "large",
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 8,
+   "fixed": {
+    "powerPlant": 8,
+    "thrusters": 7,
+    "fsd": 6,
+    "lifeSupport": 5,
+    "powerDistributor": 8,
+    "sensors": 8
+   },
+   "internal": [
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": true
+    }
+   ],
+   "source": "spec/core-143.txt"
+  },
+  "Asp Explorer": {
+   "agility": 6,
+   "speed": 7,
+   "hull": 285,
+   "explorer": true,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small",
+    "small",
+    "small"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 5,
+    "thrusters": 5,
+    "fsd": 5,
+    "lifeSupport": 4,
+    "powerDistributor": 4,
+    "sensors": 5
+   },
+   "internal": [
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/core-147.txt"
+  },
+  "Cobra Mk III": {
+   "agility": 7,
+   "speed": 10,
+   "hull": 100,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 3,
+    "powerDistributor": 3,
+    "sensors": 3
+   },
+   "internal": [
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/core-150.txt"
+  },
+  "Diamondback Scout": {
+   "agility": 8,
+   "speed": 9,
+   "hull": 100,
+   "explorer": true,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 2,
+    "powerDistributor": 3,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/core-155.txt"
+  },
+  "Eagle Mk II": {
+   "agility": 10,
+   "speed": 7,
+   "hull": 35,
+   "explorer": false,
+   "hardpoints": [
+    "small",
+    "small",
+    "small"
+   ],
+   "utility": 1,
+   "fixed": {
+    "powerPlant": 2,
+    "thrusters": 3,
+    "fsd": 3,
+    "lifeSupport": 1,
+    "powerDistributor": 2,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": true
+    }
+   ],
+   "source": "spec/core-158.txt"
+  },
+  "Fer-De-Lance": {
+   "agility": 6,
+   "speed": 8,
+   "hull": 300,
+   "explorer": false,
+   "hardpoints": [
+    "huge",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "utility": 6,
+   "fixed": {
+    "powerPlant": 6,
+    "thrusters": 5,
+    "fsd": 4,
+    "lifeSupport": 4,
+    "powerDistributor": 6,
+    "sensors": 4
+   },
+   "internal": [
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    }
+   ],
+   "source": "spec/core-161.txt"
+  },
+  "Hauler": {
+   "agility": 6,
+   "speed": 5,
+   "hull": 45,
+   "explorer": true,
+   "hardpoints": [
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 2,
+    "thrusters": 2,
+    "fsd": 2,
+    "lifeSupport": 1,
+    "powerDistributor": 1,
+    "sensors": 1
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    }
+   ],
+   "source": "spec/core-164.txt"
+  },
+  "Krait Lightspeeder": {
+   "agility": 6,
+   "speed": 5,
+   "hull": 60,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium"
+   ],
+   "utility": 1,
+   "fixed": {
+    "powerPlant": 2,
+    "thrusters": 2,
+    "fsd": 2,
+    "lifeSupport": 1,
+    "powerDistributor": 2,
+    "sensors": 1
+   },
+   "internal": [
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    }
+   ],
+   "source": "spec/core-167.txt"
+  },
+  "Python": {
+   "agility": 4,
+   "speed": 5,
+   "hull": 460,
+   "explorer": false,
+   "hardpoints": [
+    "large",
+    "large",
+    "large",
+    "medium",
+    "medium"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 7,
+    "thrusters": 6,
+    "fsd": 5,
+    "lifeSupport": 4,
+    "powerDistributor": 7,
+    "sensors": 6
+   },
+   "internal": [
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/core-170.txt"
+  },
+  "Sidewinder": {
+   "agility": 8,
+   "speed": 6,
+   "hull": 50,
+   "explorer": false,
+   "hardpoints": [
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 2,
+    "thrusters": 2,
+    "fsd": 2,
+    "lifeSupport": 1,
+    "powerDistributor": 1,
+    "sensors": 1
+   },
+   "internal": [
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    }
+   ],
+   "source": "spec/core-173.txt"
+  },
+  "Type-6 Transporter": {
+   "agility": 3,
+   "speed": 7,
+   "hull": 100,
+   "explorer": true,
+   "hardpoints": [
+    "small",
+    "small"
+   ],
+   "utility": 3,
+   "fixed": {
+    "powerPlant": 3,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 2,
+    "powerDistributor": 3,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/core-178.txt"
+  },
+  "Type-7 Transporter": {
+   "agility": 2,
+   "speed": 5,
+   "hull": 200,
+   "explorer": false,
+   "hardpoints": [
+    "small",
+    "small",
+    "small",
+    "small"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 5,
+    "fsd": 5,
+    "lifeSupport": 4,
+    "powerDistributor": 3,
+    "sensors": 3
+   },
+   "internal": [
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/core-181.txt"
+  },
+  "Type-9 Heavy": {
+   "agility": 0,
+   "speed": 0,
+   "hull": 430,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 6,
+    "thrusters": 7,
+    "fsd": 6,
+    "lifeSupport": 5,
+    "powerDistributor": 6,
+    "sensors": 4
+   },
+   "internal": [
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/core-184.txt"
+  },
+  "Viper Mk III": {
+   "agility": 6,
+   "speed": 9,
+   "hull": 60,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 3,
+    "thrusters": 3,
+    "fsd": 3,
+    "lifeSupport": 2,
+    "powerDistributor": 3,
+    "sensors": 3
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": true
+    }
+   ],
+   "source": "spec/core-187.txt"
+  },
+  "Vulture": {
+   "agility": 9,
+   "speed": 7,
+   "hull": 140,
+   "explorer": false,
+   "hardpoints": [
+    "large",
+    "large"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 5,
+    "fsd": 4,
+    "lifeSupport": 3,
+    "powerDistributor": 5,
+    "sensors": 4
+   },
+   "internal": [
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": true
+    }
+   ],
+   "source": "spec/core-190.txt"
+  },
+  "Mamba Mk Ii": {
+   "agility": 8,
+   "speed": 11,
+   "hull": 60,
+   "explorer": false,
+   "hardpoints": [
+    "small",
+    "small",
+    "small",
+    "small"
+   ],
+   "utility": 1,
+   "fixed": {
+    "powerPlant": 3,
+    "thrusters": 3,
+    "fsd": 2,
+    "lifeSupport": 1,
+    "powerDistributor": 3,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    }
+   ],
+   "source": "spec/espionage-14.txt"
+  },
+  "Merlin": {
+   "agility": 7,
+   "speed": 9,
+   "hull": 50,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 3,
+    "thrusters": 3,
+    "fsd": 3,
+    "lifeSupport": 1,
+    "powerDistributor": 2,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/espionage-17.txt"
+  },
+  "Mongoose": {
+   "agility": 7,
+   "speed": 5,
+   "hull": 270,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 5,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 3,
+    "powerDistributor": 5,
+    "sensors": 4
+   },
+   "internal": [
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": true
+    },
+    {
+     "size": 4,
+     "military": true
+    }
+   ],
+   "source": "spec/espionage-20.txt"
+  },
+  "Viper Mk Iv": {
+   "agility": 5,
+   "speed": 6,
+   "hull": 135,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 2,
+    "powerDistributor": 3,
+    "sensors": 3
+   },
+   "internal": [
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": true
+    }
+   ],
+   "source": "spec/espionage-23.txt"
+  },
+  "Diamondback Explorer": {
+   "agility": 6,
+   "speed": 6,
+   "hull": 120,
+   "explorer": true,
+   "hardpoints": [
+    "large",
+    "medium",
+    "medium"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 4,
+    "fsd": 5,
+    "lifeSupport": 3,
+    "powerDistributor": 4,
+    "sensors": 3
+   },
+   "internal": [
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/exploration-10.txt"
+  },
+  "Imperial Explorer": {
+   "agility": 0,
+   "speed": 3,
+   "hull": 2200,
+   "explorer": true,
+   "hardpoints": [
+    "huge",
+    "large",
+    "large",
+    "large",
+    "large",
+    "large",
+    "medium",
+    "medium"
+   ],
+   "utility": 8,
+   "fixed": {
+    "powerPlant": 8,
+    "thrusters": 8,
+    "fsd": 8,
+    "lifeSupport": 8,
+    "powerDistributor": 8,
+    "sensors": 8
+   },
+   "internal": [
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": true
+    }
+   ],
+   "source": "spec/exploration-13.txt"
+  },
+  "Asp Scout": {
+   "agility": 8,
+   "speed": 5,
+   "hull": 250,
+   "explorer": true,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 3,
+    "powerDistributor": 4,
+    "sensors": 4
+   },
+   "internal": [
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/exploration-7.txt"
+  },
+  "Federal Assault Ship": {
+   "agility": 6,
+   "speed": 7,
+   "hull": 360,
+   "explorer": false,
+   "hardpoints": [
+    "large",
+    "large",
+    "medium",
+    "medium"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 6,
+    "thrusters": 6,
+    "fsd": 5,
+    "lifeSupport": 5,
+    "powerDistributor": 6,
+    "sensors": 4
+   },
+   "internal": [
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": true
+    },
+    {
+     "size": 4,
+     "military": true
+    }
+   ],
+   "source": "spec/military-15.txt"
+  },
+  "Federal Corvette": {
+   "agility": 2,
+   "speed": 5,
+   "hull": 660,
+   "explorer": false,
+   "hardpoints": [
+    "huge",
+    "huge",
+    "large",
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 8,
+   "fixed": {
+    "powerPlant": 8,
+    "thrusters": 7,
+    "fsd": 6,
+    "lifeSupport": 5,
+    "powerDistributor": 8,
+    "sensors": 8
+   },
+   "internal": [
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": true
+    },
+    {
+     "size": 5,
+     "military": true
+    }
+   ],
+   "source": "spec/military-18.txt"
+  },
+  "Federal Dropship": {
+   "agility": 2,
+   "speed": 5,
+   "hull": 360,
+   "explorer": false,
+   "hardpoints": [
+    "large",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 6,
+    "thrusters": 6,
+    "fsd": 5,
+    "lifeSupport": 5,
+    "powerDistributor": 6,
+    "sensors": 4
+   },
+   "internal": [
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": true
+    },
+    {
+     "size": 4,
+     "military": true
+    }
+   ],
+   "source": "spec/military-21.txt"
+  },
+  "Federal Gunship": {
+   "agility": 2,
+   "speed": 4,
+   "hull": 420,
+   "explorer": false,
+   "hardpoints": [
+    "large",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 6,
+    "thrusters": 6,
+    "fsd": 5,
+    "lifeSupport": 5,
+    "powerDistributor": 7,
+    "sensors": 5
+   },
+   "internal": [
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": true
+    },
+    {
+     "size": 4,
+     "military": true
+    },
+    {
+     "size": 4,
+     "military": true
+    }
+   ],
+   "source": "spec/military-24.txt"
+  },
+  "Imperial Clipper": {
+   "agility": 5,
+   "speed": 9,
+   "hull": 490,
+   "explorer": false,
+   "hardpoints": [
+    "large",
+    "large",
+    "medium",
+    "medium"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 6,
+    "thrusters": 6,
+    "fsd": 5,
+    "lifeSupport": 5,
+    "powerDistributor": 6,
+    "sensors": 5
+   },
+   "internal": [
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/military-27.txt"
+  },
+  "Imperial Courier": {
+   "agility": 6,
+   "speed": 9,
+   "hull": 70,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "utility": 4,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 3,
+    "fsd": 3,
+    "lifeSupport": 1,
+    "powerDistributor": 3,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    }
+   ],
+   "source": "spec/military-30.txt"
+  },
+  "Imperial Cutter": {
+   "agility": 0,
+   "speed": 6,
+   "hull": 720,
+   "explorer": false,
+   "hardpoints": [
+    "huge",
+    "large",
+    "large",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "utility": 8,
+   "fixed": {
+    "powerPlant": 8,
+    "thrusters": 8,
+    "fsd": 7,
+    "lifeSupport": 7,
+    "powerDistributor": 7,
+    "sensors": 7
+   },
+   "internal": [
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": true
+    },
+    {
+     "size": 5,
+     "military": true
+    }
+   ],
+   "source": "spec/military-33.txt"
+  },
+  "Imperial Eagle": {
+   "agility": 8,
+   "speed": 9,
+   "hull": 55,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 1,
+   "fixed": {
+    "powerPlant": 3,
+    "thrusters": 3,
+    "fsd": 3,
+    "lifeSupport": 1,
+    "powerDistributor": 2,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 1,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": true
+    }
+   ],
+   "source": "spec/military-36.txt"
+  },
+  "Boa Mk Iii": {
+   "agility": 1,
+   "speed": 1,
+   "hull": 2000,
+   "explorer": false,
+   "hardpoints": [
+    "huge",
+    "huge",
+    "large",
+    "large",
+    "large",
+    "large",
+    "medium",
+    "medium"
+   ],
+   "utility": 8,
+   "fixed": {
+    "powerPlant": 8,
+    "thrusters": 8,
+    "fsd": 8,
+    "lifeSupport": 8,
+    "powerDistributor": 8,
+    "sensors": 8
+   },
+   "internal": [
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 8,
+     "military": false
+    },
+    {
+     "size": 7,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 6,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/super-16.txt"
+  },
+  "Cobra Mk Iv": {
+   "agility": 3,
+   "speed": 4,
+   "hull": 100,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small",
+    "small"
+   ],
+   "utility": 2,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 3,
+    "powerDistributor": 3,
+    "sensors": 3
+   },
+   "internal": [
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/super-20.txt"
+  },
+  "Keelback": {
+   "agility": 2,
+   "speed": 5,
+   "hull": 350,
+   "explorer": false,
+   "hardpoints": [
+    "medium",
+    "medium",
+    "small",
+    "small"
+   ],
+   "utility": 3,
+   "fixed": {
+    "powerPlant": 4,
+    "thrusters": 4,
+    "fsd": 4,
+    "lifeSupport": 1,
+    "powerDistributor": 3,
+    "sensors": 2
+   },
+   "internal": [
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 5,
+     "military": false
+    },
+    {
+     "size": 4,
+     "military": false
+    },
+    {
+     "size": 3,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    },
+    {
+     "size": 2,
+     "military": false
+    }
+   ],
+   "source": "spec/super-23.txt"
+  }
+ },
+ "bulkheads": {
+  "ADDER - ‘ASPIRE’ COUPE": "lightweight",
+  "ADDER - CORNUCOPIA": "lightweight",
+  "ADDER - SHIFTERMAX": "lightweight",
+  "ADDER - RAIDER": "lightweight",
+  "ANACONDA – VAR B3 STARTER FRAME": "lightweight",
+  "ANACONDA – CLASS 4 TRADE CRUISER": "lightweight",
+  "ANACONDA – PIRATE BATTLESHIP": "reinforced",
+  "ASP EXPLORER – PROTEUS E": "lightweight",
+  "ASP EXPLORER – DESTINY": "lightweight",
+  "ASP EXPLORER – STALWART": "lightweight",
+  "ASP EXPLORER – CUTTHROAT": "military",
+  "COBRA MK III - MERIT": "lightweight",
+  "COBRA MK III - INCA": "lightweight",
+  "COBRA MK III - ESCORT": "lightweight",
+  "COBRA MK III - DRILLERMAX": "lightweight",
+  "COBRA MK III - GTI": "reinforced",
+  "COBRA MK III –DISCRETION": "lightweight",
+  "COBRA MK III –EXCELSIOR": "military",
+  "DIAMONDBACK SCOUT – SHETLAND": "lightweight",
+  "DIAMONDBACK SCOUT – OUTREACH 2": "lightweight",
+  "DIAMONDBACK SCOUT – INTERCEPTOR": "reinforced",
+  "DIAMONDBACK SCOUT – WAR TOTEM": "military",
+  "EAGLE MK II - SENTINEL": "lightweight",
+  "EAGLE MK II - INTERCEPTOR MR 1": "lightweight",
+  "EAGLE MK II - DEFENDER 3400": "lightweight",
+  "EAGLE MK II - EGX RANGER": "lightweight",
+  "FER-DE-LANCE – E FRAME": "lightweight",
+  "FER-DE-LANCE – PREDATOR S-TYPE": "lightweight",
+  "FER-DE-LANCE – A9 EXCALIBUR": "military",
+  "HAULER – BLACKBIRD RELIANT": "lightweight",
+  "HAULER – HATCHBACK ZETA": "lightweight",
+  "HAULER – VANTAGE DRIGGER": "lightweight",
+  "HAULER – SILENCE": "lightweight",
+  "KRAIT LIGHTSPEEDER – T21 BASE EDITION": "lightweight",
+  "KRAIT LIGHTSPEEDER – PRIVATEER": "lightweight",
+  "KRAIT LIGHTSPEEDER – ANNIHILATOR": "reinforced",
+  "PYTHON – X4 MIN LEGAL FRAME": "lightweight",
+  "PYTHON – STOBART 9": "lightweight",
+  "PYTHON – JOLLY ROGER": "reinforced",
+  "PYTHON – ALLIANCE PICKET SHIP": "military",
+  "SIDEWINDER – VIVA!": "lightweight",
+  "SIDEWINDER – FD-4": "lightweight",
+  "SIDEWINDER – WARDEN DCC": "lightweight",
+  "SIDEWINDER – DISCOVERY ALPHA": "lightweight",
+  "SIDEWINDER – POLARIS": "reinforced",
+  "SIDEWINDER – RAIDER": "lightweight",
+  "SIDEWINDER – SKYFIRE": "military",
+  "TYPE-6 TRANSPORT – PRODUCTION VERSION": "lightweight",
+  "TYPE-6 TRANSPORT – HAULAGE PRO": "lightweight",
+  "TYPE-6 TRANSPORT – DEEP BORE 191": "lightweight",
+  "TYPE-7 TRANSPORT – QUICK-ORDER": "lightweight",
+  "TYPE-7 TRANSPORT – CAPACITY MAX": "lightweight",
+  "TYPE-7 TRANSPORT – Q SHIP": "military",
+  "TYPE-9 HEAVY – ENTRY LEVEL": "lightweight",
+  "TYPE-9 HEAVY – CLASS 3 PROTECTED CARRIER": "lightweight",
+  "TYPE-9 HEAVY – HAZ ENVIRONMENT TRANSPORT": "military",
+  "VIPER MK III - CONSORT": "lightweight",
+  "VIPER MK III – POLICE ISSUE": "lightweight",
+  "VIPER MK III – WARHAMMER": "military",
+  "VIPER MK III – DAMASK ROSE": "reinforced",
+  "VULTURE – CX ZERO MOD": "lightweight",
+  "VULTURE – VANGUARD": "lightweight",
+  "VULTURE – 59 ALPHA": "reinforced",
+  "MAMBA MK II - THUNDERBOLT": "lightweight",
+  "MAMBA MK II – CARGO THIEF": "lightweight",
+  "MAMBA MK II – STUNT FIGHTER": "military",
+  "MERLIN – TRI-FIRE": "lightweight",
+  "MERLIN - STARPOINT": "lightweight",
+  "MERLIN - HUNTER": "reinforced",
+  "MONGOOSE – P31 CIVILIAN": "lightweight",
+  "MONGOOSE – ATTACK FIGHTER": "lightweight",
+  "MONGOOSE – ASSAULT FIGHTER": "reinforced",
+  "VIPER MK IV – BASIC FRAME": "lightweight",
+  "VIPER MK IV – HEAVY POLICE FIGHTER": "lightweight",
+  "VIPER MK IV – PROMETHEUS": "reinforced",
+  "DIAMONDBACK EXPLORER – OPERA": "lightweight",
+  "DIAMONDBACK EXPLORER – PROBE": "lightweight",
+  "DIAMONDBACK EXPLORER – GALAXY": "reinforced",
+  "IMPERIAL EXPLORER – ASSEMBLY LINE VARIANT": "lightweight",
+  "IMPERIAL EXPLORER – REGIONAL BATTLESHIP": "military",
+  "ASP SCOUT – MP VARIANT": "lightweight",
+  "ASP SCOUT – VOYAGER": "lightweight",
+  "ASP SCOUT – WARRIOR": "military",
+  "FEDERAL ASSAULT SHIP – PATRIOT EDITION": "lightweight",
+  "FEDERAL ASSAULT SHIP – SKIRMISHER": "lightweight",
+  "FEDERAL ASSAULT SHIP – BATTLEMAN": "military",
+  "FEDERAL CORVETTE – PRIVATE SALE VARIANT": "lightweight",
+  "FEDERAL CORVETTE – FREELANCER": "reinforced",
+  "FEDERAL CORVETTE – LINE CRUISER": "military",
+  "FEDERAL DROPSHIP – CIVILIAN PRODUCTION": "lightweight",
+  "FEDERAL DROPSHIP – STANDARD DEPLOYMENT": "lightweight",
+  "FEDERAL DROPSHIP – ARMOURED TRANSPORTER": "reinforced",
+  "FEDERAL GUNSHIP – CIV MOD 0.5": "lightweight",
+  "FEDERAL GUNSHIP – PIRATE MOD": "lightweight",
+  "FEDERAL GUNSHIP – SUPPORT CRAFT": "reinforced",
+  "IMPERIAL CLIPPER – CIVILIAN RELEASE": "lightweight",
+  "IMPERIAL CLIPPER – PALANQUIN": "lightweight",
+  "IMPERIAL CLIPPER – WARHAWK": "military",
+  "IMPERIAL COURIER – DISPLAY MODEL": "lightweight",
+  "IMPERIAL COURIER – CONDOR": "lightweight",
+  "IMPERIAL COURIER – FIRESTARTER": "military",
+  "IMPERIAL CUTTER – OPEN FRAME": "lightweight",
+  "IMPERIAL CUTTER – KESTRAL": "lightweight",
+  "IMPERIAL CUTTER – FARPOINT": "military",
+  "IMPERIAL EAGLE – PRODUCTION LINE VARIANT": "lightweight",
+  "IMPERIAL EAGLE – OUTREACH OMEGA": "lightweight",
+  "IMPERIAL EAGLE – EMPIRE INTERDICTOR": "reinforced",
+  "IMPERIAL EAGLE - SAGITTARIUS": "military",
+  "BOA MK III – PRODUCTION LINE": "lightweight",
+  "BOA MK III – SUPER TRADER": "lightweight",
+  "BOA MK III – SUPPORT CRUISER": "military",
+  "COBRA MK IV - ADVENTURE": "lightweight",
+  "COBRA MK IV - HOLDFAST": "lightweight",
+  "COBRA MK IV - GOLDFEVER": "lightweight",
+  "COBRA MK IV - DRAGON": "military",
+  "KEELBACK – DRYDOCK": "lightweight",
+  "KEELBACK – TUNNEL SNAKE": "lightweight",
+  "KEELBACK - ESCORT CARRIER": "reinforced",
+  "IMPERIAL EXPLORER –DISTANT WORLDS": "lightweight"
+ }
+}

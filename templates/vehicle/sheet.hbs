@@ -56,6 +56,7 @@
          {{#if speedRange}}<span class="ed-vturn-range" data-tooltip="EDRPG.vcombat.speedRangeHint">{{localize "EDRPG.vcombat.adjustSpeed" min=speedRange.min max=speedRange.max}}</span>
          {{else if speedLocked}}<span class="ed-vturn-range locked" data-tooltip="EDRPG.vcombat.speedLockedHint"><i class="fa-solid fa-lock"></i> {{localize "EDRPG.vcombat.speedLockedShort"}}</span>{{/if}}
          {{#if destroyed}}<span class="ed-chip ed-vstate destroyed" data-tooltip="EDRPG.vdestroy.chipHint">{{localize "EDRPG.vehicle.destroyed"}}</span>{{/if}}
+         {{#if system.abandoned}}<span class="ed-chip ed-vstate destroyed" data-tooltip="EDRPG.pod.abandonedHint">{{localize "EDRPG.pod.abandonedChip"}}</span>{{/if}}
          {{#if strandedNames}}<span class="ed-chip ed-vstate stranded" data-tooltip="EDRPG.vdestroy.strandedHint">{{localize "EDRPG.vdestroy.strandedChip" names=strandedNames}}</span>{{/if}}
          {{#if npcShip}}<span class="ed-chip ed-vstate" data-tooltip="EDRPG.ship.dogfightingHint">{{localize "EDRPG.ship.dogfighting"}} {{stats.dogfight}}</span>{{/if}}
          {{#if system.immobilised}}<span class="ed-chip ed-vstate destroyed">{{localize "EDRPG.ship.immobilisedChip"}}</span>{{/if}}
@@ -90,6 +91,7 @@
       <button type="button" data-action="equip" data-equip="silent" class="{{#if equip.silent.active}}taken{{/if}}" data-tooltip="EDRPG.silent.hint"><i class="fa-solid fa-eye-slash"></i> {{localize equip.silent.label}}{{#if equip.silent.info}}: {{equip.silent.info}}{{/if}}</button>
       {{#if equip.heatSinks}}<button type="button" data-action="equip" data-equip="heatSink" class="{{#if equip.heatSinks.active}}taken{{/if}}" data-tooltip="EDRPG.silent.sinkHint"><i class="fa-solid fa-temperature-low"></i> {{localize "EDRPG.silent.heatSink"}} {{equip.heatSinks.value}}/{{equip.heatSinks.max}}</button>{{/if}}
       <button type="button" data-action="equip" data-equip="scan" data-tooltip="EDRPG.silent.scanHint"><i class="fa-solid fa-satellite-dish"></i> {{localize "EDRPG.silent.scan"}}</button>
+      <button type="button" data-action="equip" data-equip="scoop" data-tooltip="EDRPG.scoop.hint"><i class="fa-solid fa-box-open"></i> {{localize "EDRPG.scoop.button"}}</button>
       {{#if equip.silent.seenBy}}<span class="ed-chip ed-vstate" data-tooltip="EDRPG.silent.seenHint">{{localize "EDRPG.silent.seenBy" names=equip.silent.seenBy}}</span>{{/if}}
       {{#if equip.pd}}<span class="ed-chip ed-vstate" data-tooltip="EDRPG.equip.pdHint">{{localize "EDRPG.equip.pd"}} {{equip.pd.value}}/{{equip.pd.max}}</span>{{/if}}
       {{#if equip.ecm}}<span class="ed-chip ed-vstate" data-tooltip="EDRPG.equip.ecmHint">{{localize "EDRPG.equip.ecm"}}</span>{{/if}}
@@ -113,7 +115,8 @@
       <div class="ed-vcrew-tools">
          {{#if crewPanel.repairing}}<span class="ed-chip ed-vstate">{{crewPanel.repairing}}</span> {{#if editable}}<a data-action="abandonRepair" data-tooltip="EDRPG.repair.abandon"><i class="fa-solid fa-xmark"></i></a>{{/if}}
          {{else if (and editable crewPanel.canRepair)}}<button type="button" data-action="emergencyRepair" data-tooltip="EDRPG.repair.buttonHint"><i class="fa-solid fa-screwdriver-wrench"></i> {{localize "EDRPG.repair.button"}}</button>{{/if}}
-         {{#if (and editable crewPanel.usedRepairs)}}<button type="button" data-action="spaceportVisit" data-tooltip="EDRPG.repair.portHint"><i class="fa-solid fa-warehouse"></i> {{localize "EDRPG.repair.port"}}</button>{{/if}}
+         {{#if (and editable crewPanel.canField)}}<button type="button" data-action="fieldRepair" data-tooltip="EDRPG.repair.fieldButtonHint"><i class="fa-solid fa-toolbox"></i> {{localize "EDRPG.repair.fieldButton"}}</button>{{/if}}
+         {{#if editable}}<button type="button" data-action="spaceport" data-tooltip="EDRPG.repair.portHint"><i class="fa-solid fa-warehouse"></i> {{localize "EDRPG.repair.port"}}</button>{{/if}}
          {{#if crewPanel.unserviced}}
          <span class="ed-chip ed-vstate destroyed" data-tooltip="EDRPG.upkeep.chipHint">{{localize "EDRPG.upkeep.chip"}}</span>
          {{#if editable}}<button type="button" data-action="takeOff" data-tooltip="EDRPG.upkeep.takeOffHint"><i class="fa-solid fa-plane-departure"></i> {{localize "EDRPG.upkeep.takeOff"}}</button>
@@ -126,7 +129,7 @@
 
    {{#if components.length}}
    <div class="ed-vcomponents">
-      {{#each components as |c|}}<span class="ed-vcomp {{#if c.broken}}broken{{/if}}" data-tooltip="{{c.kindLabel}}{{#if c.notes}}: {{c.notes}}{{/if}}">{{#if c.name}}{{c.name}}{{else}}{{c.kindLabel}}{{/if}} <b>{{c.strength.value}}/{{c.strength.max}}</b>{{#if c.emergencyRepaired}} <i class="fa-solid fa-screwdriver-wrench" data-tooltip="EDRPG.repair.usedChip"></i>{{/if}}</span>{{/each}}
+      {{#each components as |c|}}<span class="ed-vcomp {{#if c.broken}}broken{{/if}}" data-tooltip="{{c.kindLabel}}{{#if c.notes}}: {{c.notes}}{{/if}}">{{#if c.name}}{{c.name}}{{else}}{{c.kindLabel}}{{/if}} <b>{{c.strength.value}}/{{c.strength.max}}</b>{{#if c.emergencyRepaired}} <i class="fa-solid fa-screwdriver-wrench" data-tooltip="EDRPG.repair.usedChip"></i>{{/if}}{{#if c.fieldRepaired}} <i class="fa-solid fa-toolbox" data-tooltip="EDRPG.repair.fieldUsedChip"></i>{{/if}}</span>{{/each}}
    </div>
    {{/if}}
 

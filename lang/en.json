@@ -1380,7 +1380,8 @@
             "dogfight": "Dogfight",
             "faOff": "Flight Assist Off",
             "hover": "Hover",
-            "crawl": "Crawl"
+            "crawl": "Crawl",
+            "abandon": "Abandon Ship"
          },
          "actionHint": {
             "joust": "Fire all weapons at a target in either zone, then move up-close (a Sniping target comes too). Jousting a Fleeing vehicle starts a Pursuit.",
@@ -1397,7 +1398,8 @@
             "dogfight": "D10 + Defence against the target's: whoever gets behind fires everything, the other one turret. Dogfighting a Disengaging ship starts a Pursuit.",
             "faOff": "Fire at an up-close target, weapon after weapon, until one misses. No Agility in your Defence until your next turn.",
             "hover": "Combined combat: come to a halt over vehicles and people. Fixed and gimballed weapons fire at one target; each turret can pick its own. Your Defence is 0 until your next action.",
-            "crawl": "Combined combat: at Speed 0, stay up-close and fire all weapons at one person."
+            "crawl": "Combined combat: at Speed 0, stay up-close and fire all weapons at one person.",
+            "abandon": "Instead of acting, the crew take to the escape pods (Core Rules p.70): safe while the ship has at least 1 Hull. Pods only for the listed crew; anyone else is left behind."
          },
          "actionText": {
             "joust": "<strong>{name}</strong> jousts <strong>{target}</strong>, weapons blazing.",
@@ -1414,7 +1416,8 @@
             "dogfight": "<strong>{name}</strong> tries to get behind <strong>{target}</strong>.",
             "faOff": "<strong>{name}</strong> switches Flight Assist off to line up on <strong>{target}</strong>. No Agility in its Defence until its next turn.",
             "hover": "<strong>{name}</strong> hovers over the battlefield, guns trained on <strong>{target}</strong>. Its Defence is 0 until its next action.",
-            "crawl": "<strong>{name}</strong> slows to a crawl and turns every weapon on <strong>{target}</strong>."
+            "crawl": "<strong>{name}</strong> slows to a crawl and turns every weapon on <strong>{target}</strong>.",
+            "abandon": "{name}'s crew abandon ship."
          },
          "broadsidesLeft": "Missed. The remaining turrets ({weapons}) must pick a different up-close target; fire them from the sheet.",
          "pursuitTitle": "Pursuit",
@@ -3055,10 +3058,37 @@
          "failed": "{component} can't be fixed quickly: try a Field Repair later.",
          "underWay": "Repairing {component} ({name}, {turns} turn(s) left)",
          "abandon": "Stop the repair",
-         "port": "Spaceport visit",
-         "portHint": "Docked at a spaceport: every component can have an Emergency Repair again.",
-         "portReset": "{name}: Emergency Repairs available again.",
-         "usedChip": "Emergency Repair used since the last spaceport visit"
+         "port": "Spaceport",
+         "portHint": "Docked at a spaceport: pay for repairs (1% of a component's price, 10% if it was ever knocked to 0; 100cr per Hull point). Any visit makes Emergency and Field Repairs available again.",
+         "portReset": "{name}: Emergency and Field Repairs available again.",
+         "usedChip": "Emergency Repair used since the last spaceport visit",
+         "kitNote": "(includes {kit} +{bonus})",
+         "portTitle": "Spaceport: {name}",
+         "portIntro": "Choose what to have fixed. The cost comes out of the ship owner's credits. Docking also makes Emergency and Field Repairs available again.",
+         "portFix": "Repairs",
+         "portNothing": "Nothing needs fixing.",
+         "portLine": "{name}: {cost} ({why})",
+         "portHull": "{points} Hull at 100cr",
+         "portCrippled": "10%: it was knocked to 0",
+         "portDamaged": "1% of its price",
+         "portPaid": "{owner} pays {total}cr.",
+         "portTotal": "Total {total}cr.",
+         "portUnknownNote": "Some prices aren't known (no linked compendium item): charge those by hand.",
+         "priceUnknown": "price unknown",
+         "crippledShort": "knocked to 0",
+         "fieldButton": "Field Repair",
+         "fieldButtonHint": "Six hours with a Spaceship Repair Kit (Core Rules p.193): a Repair check restores that many Strength (or Hull) points to one component, weapon or the hull. Once each between spaceport visits.",
+         "fieldTitle": "Field Repair",
+         "fieldWhat": "Repair",
+         "fieldHint": "Using {kit} (+{bonus}). Six hours' work: the check's total in points back, nothing on a natural 1.",
+         "needKit": "Nobody aboard {name} has a Spaceship Repair Kit: Field Repairs need one.",
+         "fieldInCombat": "Field Repairs take six hours: not in the middle of a fight.",
+         "fieldUsed": "That has already had its Field Repair since the last spaceport visit.",
+         "fieldNothingToDo": "{name} has nothing left to field-repair until its next spaceport visit.",
+         "fieldCheck": "{name} works on {target}: D10 {natural} + {bonus} = {total}.",
+         "fieldRestored": "{target}: +{points} ({before} → {after}/{max}).",
+         "fieldNothing": "A natural 1: {target} gets nothing back.",
+         "fieldUsedChip": "Field Repair used since the last spaceport visit"
       },
       "upkeep": {
          "title": "Ship upkeep",
@@ -3084,6 +3114,44 @@
             "service": "The crew spend the time servicing {ship} and making many small repairs.",
             "skip": "{ship} goes unserviced: a 10% chance of failing to start at each take-off, until {cost} is spent servicing it."
          }
+      },
+      "pod": {
+         "name": "Escape pod ({name})",
+         "nameN": "Escape pod ({ship} {n})",
+         "folder": "Escape Pods",
+         "others": "{n} others",
+         "description": "An escape pod: no Frame Shift Drive, Defence and Pursuit 8, 1 Hull (Core Rules p.70). It heads for the nearest spaceport or habitable planet, or parks near the star and sends a distress beacon. Rations for about two weeks, water for four. It can be scooped into a cargo hold.",
+         "confirm": "Abandon <strong>{name}</strong>? {pods} escape pod(s) eject: {who}.",
+         "leftBehind": "Only enough pods for the listed crew: {n} left behind.",
+         "tooLate": "{name} has no Hull left: too late to abandon ship.",
+         "ejected": "{name} is abandoned: {n} escape pod(s) eject. The empty ship drifts on.",
+         "stats": "Escape pods: Defence {defence}, Pursuit {pursuit}, Hull {hull}. They don't dodge, and even personal weapons can breach one.",
+         "isAbandoned": "{name} has been abandoned: there's nobody aboard to act.",
+         "abandonedChip": "Abandoned",
+         "abandonedHint": "The crew took to the escape pods (Core Rules p.70).",
+         "destroyed": "The escape pod is destroyed.",
+         "destroyedWho": "The escape pod is destroyed, and {name} with it."
+      },
+      "scoop": {
+         "button": "Scoop",
+         "hint": "Scoop up a cargo canister, an escape pod or another small item through the cargo hatch (Core Rules p.267). Automatic unless under time pressure: then Spaceship Piloting against 8, and on a failure the ship and the item take 5 Damage.",
+         "title": "Scooping up",
+         "what": "What",
+         "cargo": "A cargo canister or mineral fragment",
+         "cargoShort": "the cargo canister",
+         "other": "Something else",
+         "otherShort": "the item",
+         "pressure": "Under time pressure",
+         "pressureHint": "In combat, or someone's life is at stake: Spaceship Piloting against {dn}; a failure means {damage} Damage to the ship and to the item.",
+         "noPressure": "No time pressure: scooped up without a check.",
+         "check": "{name}: Spaceship Piloting D10 {natural} + {bonus} = {total} against {dn}.",
+         "got": "{ship} scoops up {what}.",
+         "podAboard": "{what} is aboard: its engines shut down as it's collected.",
+         "failed": "{ship} clips {what} at speed: {damage} Damage to the ship ({shields} to shields, {hull} to hull).",
+         "podDestroyed": "{what} is destroyed.",
+         "podHit": "{what} takes 5 Damage.",
+         "itemHit": "{what} takes {damage} Damage: often enough to destroy it.",
+         "hatchBroken": "{name}'s cargo hatch is disabled: nothing can be scooped up."
       }
    }
 }

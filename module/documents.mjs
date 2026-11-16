@@ -37,6 +37,12 @@ export class EDActor extends foundry.documents.Actor {
       if (this.system.advancement && !this.system.advancement.rank && Number.isFinite(newPoints) && newPoints > this.system.rankPoints) {
          foundry.utils.setProperty(changes, "system.advancement.rank", this.system.rank.key);
       }
+      // A ship component knocked to 0 Strength or less is marked: Spaceport Repairs then cost 10% of its price, not 1%,
+      // even once it's working again (Core Rules p.193).
+      const comps = foundry.utils.getProperty(changes, "system.components");
+      if (this.type === "ship" && comps && typeof comps === "object") {
+         for (const c of Object.values(comps)) if (c && Number.isFinite(c.strength?.value) && c.strength.value <= 0) c.crippled = true;
+      }
       // A vehicle's Hull dropping to 0 or less: destroyed (Core Rules p.75). Handled after the update.
       const newHull = foundry.utils.getProperty(changes, "system.hull.value");
       if (["vehicle", "ship"].includes(this.type) && Number.isFinite(newHull) && newHull <= 0 && this.system.hull.value > 0) {

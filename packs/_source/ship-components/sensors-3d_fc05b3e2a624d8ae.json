@@ -3,7 +3,7 @@
   "_key": "!items!fc05b3e2a624d8ae",
   "name": "Sensors 3D",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "10,130cr",

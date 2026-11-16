@@ -3,7 +3,7 @@
   "_key": "!items!45c94f12d8b20510",
   "name": "Combat Stim: Brutal Plus",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>As Combat Stim; you gain Strong and Quick Runner while in effect.</p>",
     "cost": "10,000cr",

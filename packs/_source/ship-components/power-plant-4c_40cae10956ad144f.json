@@ -3,7 +3,7 @@
   "_key": "!items!40cae10956ad144f",
   "name": "Power Plant 4C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "178,900cr",

@@ -3,7 +3,7 @@
   "_key": "!items!c360fe9dfb874aac",
   "name": "Class 1 Cyberclaws",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Cyberclaw Melee attack: Finesse 6, 2D10.</p>",
     "cost": "20,000cr",

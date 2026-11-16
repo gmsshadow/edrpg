@@ -620,7 +620,7 @@
       "_key": "!actors.items!90f39f01940bac07.b92fc33040bbedcb",
       "name": "Power Plant 6A",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "16,179,530cr",
@@ -673,7 +673,7 @@
       "_key": "!actors.items!90f39f01940bac07.9c18a308e7d30df8",
       "name": "Thrusters 5B",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,701,320cr",
@@ -726,7 +726,7 @@
       "_key": "!actors.items!90f39f01940bac07.ad5b649d3b1b9698",
       "name": "Frame Shift Drive 4A",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,610,080cr",
@@ -779,7 +779,7 @@
       "_key": "!actors.items!90f39f01940bac07.a00ec6e816a8ef4d",
       "name": "Life Support 4D",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
         "cost": "28,370cr",
@@ -832,7 +832,7 @@
       "_key": "!actors.items!90f39f01940bac07.8a087db49f5fa863",
       "name": "Power Distributor 6A",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "3,475,690cr",
@@ -885,7 +885,7 @@
       "_key": "!actors.items!90f39f01940bac07.eb95c0f985af8554",
       "name": "Sensors 4A",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "443,330cr",

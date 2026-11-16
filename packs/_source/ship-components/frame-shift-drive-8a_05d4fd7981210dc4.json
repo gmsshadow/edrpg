@@ -3,7 +3,7 @@
   "_key": "!items!05d4fd7981210dc4",
   "name": "Frame Shift Drive 8A",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "162,586,500cr",

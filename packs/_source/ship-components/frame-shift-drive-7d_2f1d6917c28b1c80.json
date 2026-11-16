@@ -3,7 +3,7 @@
   "_key": "!items!2f1d6917c28b1c80",
   "name": "Frame Shift Drive 7D",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "1,899,600cr",

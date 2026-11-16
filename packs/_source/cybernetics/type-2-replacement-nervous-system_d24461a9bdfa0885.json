@@ -3,7 +3,7 @@
   "_key": "!items!d24461a9bdfa0885",
   "name": "Type 2 Replacement Nervous System",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces spinal cord and primary nerve endings.</p>",
     "cost": "690,000cr",

@@ -2293,7 +2293,16 @@
          "weaponsLocked": "{name} has {aboard} of its {needed} crew aboard: its weapons can't be used without the full crew.",
          "noFloating": "Nobody is on {name}'s power distributor: no Floating Bonuses while short-handed.",
          "scanConfirm": "Nobody is on <strong>{name}</strong>'s sensors: the pilot has to leave the controls to scan, giving up this turn's combat action. Scan anyway?",
-         "panelTitle": "Crew"
+         "panelTitle": "Crew",
+         "employer": "Employer",
+         "noEmployer": "Nobody (the GM's own crew)",
+         "employerHint": "The character who pays them: they show on that character's sheet under Fleet, and their wages come out at Between Adventures.",
+         "noneHired": "Nobody was ticked, so nobody was hired.",
+         "hiredNotice": "Hired {count} crew: they're in the {folder} folder in the Actors tab.",
+         "whereEmployed": "Working for {name}: listed on their sheet under Fleet.",
+         "whereGM": "Nobody employs them: they're the GM's crew, in the Crew folder of the Actors tab.",
+         "hiredTitle": "Hired crew",
+         "salary": "Salary"
       },
       "addiction": {
          "title": "Addiction: {name}",
@@ -2962,7 +2971,7 @@
          "line": "{name}: {before} → {after} ({rank})",
          "lineUp": "{name}: {before} → {after}, up to {rank}! Apply the rank from their Data Sheet.",
          "gmOnly": "Only the GM awards Rank Points.",
-         "noParty": "No characters with a player owner.",
+         "noParty": "There are no characters in this world.",
          "noneChosen": "Pick at least one character."
       },
       "rules": {

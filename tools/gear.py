@@ -95,7 +95,7 @@ CYBERNETICS += [
 def cyber_doc(c, sort):
     html = (f"<p>{c['notes']}</p>" if c["notes"] else "") + (f"<p><em>{c['source']}</em></p>" if c.get("source") else "")
     return {
-        "name": c["name"], "type": "cybernetic", "img": "icons/svg/circle.svg",
+        "name": c["name"], "type": "cybernetic", "img": "systems/edrpg/assets/icons/cybernetic.svg",
         "system": {
             "description": html, "cost": c["cost"], "rarity": c["rarity"],
             "location": "carried", "karmaCost": c["karma"], "discreet": c["discreet"], "maxInstalled": c["max"],
@@ -301,9 +301,9 @@ SUPPLEMENT_GEAR += [
       notes="Spaceship utility mount (0.2MW). Prevents the automatic shutdown when encountering Thargoid vessels."),
 ]
 
-ICON = {"general": "icons/svg/item-bag.svg", "medical": "icons/svg/heal.svg", "repair": "icons/svg/anvil.svg",
-        "com": "icons/svg/sound.svg", "cosmetic": "icons/svg/mystery-man.svg", "stim": "icons/svg/pill.svg",
-        "injector": "icons/svg/pill.svg", "ammo": "icons/svg/fire.svg", "hack": "icons/svg/padlock.svg",
+ICON = {"general": "icons/svg/item-bag.svg", "medical": "icons/svg/heal.svg", "repair": "systems/edrpg/assets/icons/repair-kit.svg",
+        "com": "icons/svg/sound.svg", "cosmetic": "icons/svg/mystery-man.svg", "stim": "systems/edrpg/assets/icons/stim.svg",
+        "injector": "systems/edrpg/assets/icons/stim.svg", "ammo": "icons/svg/fire.svg", "hack": "icons/svg/padlock.svg",
         "shield": "icons/svg/shield.svg", "alien": "icons/svg/mystery-man.svg"}
 GROUP = {"general": "General", "medical": "Medpacks", "repair": "Repair Kits", "com": "Coms", "cosmetic": "Cosmetics",
          "stim": "Combat Stims", "injector": "Combat Stims", "ammo": "Ammunition", "hack": "Hacks", "shield": "Personal Shields",

@@ -3,7 +3,7 @@
   "_key": "!items!239c5566d718e8df",
   "name": "Mercenary Stim Injector",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>Automatic: roll percentile at 0 Endurance or below; 100 overloads your heart.</p>",
     "cost": "9,000cr",

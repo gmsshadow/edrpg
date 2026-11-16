@@ -3,7 +3,7 @@
   "_key": "!items!b44d68685bb6c1ee",
   "name": "Thrusters 6E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "199,750cr",

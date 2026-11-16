@@ -3,7 +3,7 @@
   "_key": "!items!9cce36faec884810",
   "name": "Life Support 1A",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
     "cost": "20,200cr",

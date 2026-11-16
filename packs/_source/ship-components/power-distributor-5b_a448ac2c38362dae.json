@@ -3,7 +3,7 @@
   "_key": "!items!a448ac2c38362dae",
   "name": "Power Distributor 5B",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "496,530cr",

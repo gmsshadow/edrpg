@@ -3,7 +3,7 @@
   "_key": "!items!5c155c1bc479c600",
   "name": "Type 5 Replacement Internals",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces ribcage and essential torso organs with armoured components.</p>",
     "cost": "18,500,000cr",

@@ -135,7 +135,7 @@
          {{#each fleet as |c|}}
          <tr data-craft="{{c.uuid}}" class="{{#if c.destroyed}}destroyed{{/if}}">
             <td class="toggle">{{#if c.isShip}}<a data-action="activeShip" data-tooltip="EDRPG.fleet.activeHint">{{#if c.active}}<i class="fa-solid fa-star"></i>{{else}}<i class="fa-regular fa-star"></i>{{/if}}</a>{{/if}}</td>
-            <th class="name"><a data-action="openCraft"><img src="{{c.img}}" alt=""> {{c.name}}</a>{{#if c.model}} <span class="muted">{{c.model}}</span>{{/if}}</th>
+            <th class="name"><a data-action="openCraft"><img src="{{c.img}}" alt=""><span class="ed-fleet-names"><span class="ed-fleet-name">{{c.name}}</span>{{#if c.model}}<span class="ed-fleet-model">{{c.model}}</span>{{/if}}</span></a></th>
             <td>{{c.kind}}</td>
             <td>{{c.hull}}</td>
             <td>{{c.pilot}}</td>
@@ -144,6 +144,20 @@
          {{else}}<tr class="empty"><td colspan="6">{{localize "EDRPG.fleet.empty"}}</td></tr>{{/each}}
       </tbody>
    </table>
+   {{#if hiredCrew.length}}
+   <table class="ed-table ed-fleet ed-hired-crew">
+      <thead><tr><th class="name">{{localize "EDRPG.crew.hiredTitle"}}</th><th>{{localize "EDRPG.crew.ship"}}</th><th>{{localize "EDRPG.crew.salary"}}</th></tr></thead>
+      <tbody>
+         {{#each hiredCrew as |c|}}
+         <tr data-crew="{{c.uuid}}">
+            <th class="name"><a data-action="openCrew"><img src="{{c.img}}" alt=""><span class="ed-fleet-names"><span class="ed-fleet-name">{{c.name}}</span></span></a></th>
+            <td>{{#if c.ship}}{{c.ship}}{{else}}—{{/if}}</td>
+            <td>{{c.salary}}</td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+   {{/if}}
    {{/edrpgSection}}
    {{/if}}
 </div>

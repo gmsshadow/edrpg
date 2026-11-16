@@ -3,7 +3,7 @@
   "_key": "!items!f588cdd0f5d4b10a",
   "name": "Type 3 Leg Upgrade",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces both legs.</p>",
     "cost": "903,000cr",

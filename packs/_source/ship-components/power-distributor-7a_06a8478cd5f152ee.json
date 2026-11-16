@@ -3,7 +3,7 @@
   "_key": "!items!06a8478cd5f152ee",
   "name": "Power Distributor 7A",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "9,731,930cr",

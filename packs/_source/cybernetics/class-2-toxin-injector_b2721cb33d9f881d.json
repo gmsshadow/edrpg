@@ -3,7 +3,7 @@
   "_key": "!items!b2721cb33d9f881d",
   "name": "Class 2 Toxin Injector",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>When Fighting, inflict an extra 2D10 Toxic damage. Twice per day.</p>",
     "cost": "189,000cr",

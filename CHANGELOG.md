@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.66
+
+Fixes from the first GM smoke test in Foundry.
+
+- **Missing icons:** repair kits, fixed ship components (and ships carrying them), Combat Stims and injectors, and
+  cybernetics pointed at core icons Foundry doesn't have (`anvil.svg`, `pill.svg`, `circle.svg`), giving 404 errors.
+  They now use the system's own icons in `assets/icons/`.
+- **Fleet list:** the craft's name and model no longer overlap; the model sits under the name in smaller text.
+- **Hiring crew:** from the GM's Crew button you can now pick an employer (a character) or nobody. Picking one of a
+  character's ships also picks that character. A notice says where the new crew went (the Crew folder of the Actors
+  tab), and an interview where nobody was ticked says so. A character's hired crew are listed on their sheet under
+  Fleet, with their ship and salary; click one to open their stat block.
+- **Solo play:** with no player-owned characters (the GM playing alone), the party is every character in the world.
+  This fixes the Rank Points button, and the party rank used by the Mission, Rare Items, encounter and planet tools.
+
 ## 0.1.65
 
 - **Field Repairs** (Core Rules p.193): a Field Repair button on a ship's Crew panel, outside combat. It needs a

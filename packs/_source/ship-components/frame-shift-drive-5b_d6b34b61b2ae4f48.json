@@ -3,7 +3,7 @@
   "_key": "!items!d6b34b61b2ae4f48",
   "name": "Frame Shift Drive 5B",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "1,701,320cr",

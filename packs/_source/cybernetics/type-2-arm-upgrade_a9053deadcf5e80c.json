@@ -3,7 +3,7 @@
   "_key": "!items!a9053deadcf5e80c",
   "name": "Type 2 Arm Upgrade",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces your existing arm. Carrying capacity +40kg.</p>",
     "cost": "312,000cr",

@@ -3,7 +3,7 @@
   "_key": "!items!c3640300c0f9ff1d",
   "name": "Life Support 7C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
     "cost": "1,557,110cr",

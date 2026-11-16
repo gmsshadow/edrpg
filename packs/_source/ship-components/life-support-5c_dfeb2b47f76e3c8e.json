@@ -3,7 +3,7 @@
   "_key": "!items!dfeb2b47f76e3c8e",
   "name": "Life Support 5C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
     "cost": "198,610cr",

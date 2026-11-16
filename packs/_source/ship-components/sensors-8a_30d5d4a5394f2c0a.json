@@ -3,7 +3,7 @@
   "_key": "!items!30d5d4a5394f2c0a",
   "name": "Sensors 8A",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "27,249,390cr",

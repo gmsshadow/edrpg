@@ -3,7 +3,7 @@
   "_key": "!items!7fdb4c310ab6dfd6",
   "name": "Power Distributor 6C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "556,110cr",

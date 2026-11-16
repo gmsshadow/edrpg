@@ -788,7 +788,7 @@
       "_key": "!actors.items!f311183cb2a2a754.0b5eb57ebbbda1a8",
       "name": "Power Plant 8E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "2,007,240cr",
@@ -841,7 +841,7 @@
       "_key": "!actors.items!f311183cb2a2a754.b53a2f5ee57420e7",
       "name": "Thrusters 7D",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,899,600cr",
@@ -894,7 +894,7 @@
       "_key": "!actors.items!f311183cb2a2a754.fc90cb66f005d69d",
       "name": "Frame Shift Drive 6C",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,797,730cr",
@@ -947,7 +947,7 @@
       "_key": "!actors.items!f311183cb2a2a754.56732a1177c1e570",
       "name": "Life Support 5C",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
         "cost": "198,610cr",
@@ -1000,7 +1000,7 @@
       "_key": "!actors.items!f311183cb2a2a754.e11b53bdc706a264",
       "name": "Power Distributor 8D",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,743,960cr",
@@ -1053,7 +1053,7 @@
       "_key": "!actors.items!f311183cb2a2a754.a9ee6e07e0719c9f",
       "name": "Sensors 8D",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,743,960cr",

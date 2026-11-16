@@ -3,7 +3,7 @@
   "_key": "!items!50327e4af4be35b1",
   "name": "Power Plant 3B",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "169,300cr",

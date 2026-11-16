@@ -3,7 +3,7 @@
   "_key": "!items!a51a986b3a4d775a",
   "name": "Combat Stim",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>One dose for a Stim injector. For about an hour you can't fall unconscious at 0 Endurance or below (you still die at minus half your Endurance) and they don't stabilise you.</p>",
     "cost": "500cr",

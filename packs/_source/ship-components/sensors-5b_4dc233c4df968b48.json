@@ -3,7 +3,7 @@
   "_key": "!items!4dc233c4df968b48",
   "name": "Sensors 5B",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "496,530cr",

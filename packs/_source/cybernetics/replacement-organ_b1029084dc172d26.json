@@ -3,7 +3,7 @@
   "_key": "!items!b1029084dc172d26",
   "name": "Replacement Organ",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces a damaged or missing heart, lungs, eyes, kidneys, etc.</p>",
     "cost": "3,000cr",

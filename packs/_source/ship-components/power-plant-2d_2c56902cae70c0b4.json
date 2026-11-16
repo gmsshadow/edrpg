@@ -3,7 +3,7 @@
   "_key": "!items!2c56902cae70c0b4",
   "name": "Power Plant 2D",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "5,930cr",

@@ -3,7 +3,7 @@
   "_key": "!items!f78e52f9e603b508",
   "name": "Type 2 Cybernetic Eyes",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces eyes.</p>",
     "cost": "120,500cr",

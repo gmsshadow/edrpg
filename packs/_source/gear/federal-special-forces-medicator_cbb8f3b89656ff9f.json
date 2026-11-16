@@ -3,7 +3,7 @@
   "_key": "!items!cbb8f3b89656ff9f",
   "name": "Federal Special Forces Medicator",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>Automatic: roll percentile at 0 Endurance or below; 100 overloads your heart.</p>",
     "cost": "56,000cr",

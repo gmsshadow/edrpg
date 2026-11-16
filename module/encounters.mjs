@@ -13,6 +13,7 @@
  * The card lists the group with links, and the GM can place their tokens on the scene and track reinforcements and
  * the alert in the current combat.
  */
+import { partyCharacters } from "./party.mjs";
 import { OPPONENT_TABLES } from "./generation-data.mjs";
 import { NUMBER_OF_OPPONENTS, TIER_OF_RANK, BEHAVIOURS, ASSASSINS, NOT_HUMAN } from "./supplement-data.mjs";
 import { ranks } from "./config.mjs";
@@ -30,7 +31,7 @@ export const DIFFICULTIES = ["easy", "medium", "hard"];
  * @returns {{players: number, rank: string, tier: number}}
  */
 export function partyInfo() {
-   const pcs = (game.actors ?? []).filter((a) => a.type === "character" && a.hasPlayerOwner);
+   const pcs = partyCharacters();
    const order = ranks.map((r) => r.key);
    const rank = pcs.map((a) => a.system.rank?.key).filter(Boolean).sort((a, b) => order.indexOf(b) - order.indexOf(a))[0] ?? "harmless";
    return { players: pcs.length || 3, rank, tier: TIER_OF_RANK[rank] ?? 1 };

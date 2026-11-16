@@ -3,7 +3,7 @@
   "_key": "!items!559cfbf8e7cadc45",
   "name": "Frame Shift Drive 3E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "6,270cr",

@@ -3,7 +3,7 @@
   "_key": "!items!38e65e7ec6a58433",
   "name": "Type 1 Armoured Carapace",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Can no longer wear clothes or other armour.</p>",
     "cost": "40,000cr",

@@ -3,7 +3,7 @@
   "_key": "!items!9b5c401545212f52",
   "name": "Thrusters 5A",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "5,103,950cr",

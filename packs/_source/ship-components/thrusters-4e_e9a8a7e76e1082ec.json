@@ -3,7 +3,7 @@
   "_key": "!items!e9a8a7e76e1082ec",
   "name": "Thrusters 4E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "19,880cr",

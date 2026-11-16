@@ -3,7 +3,7 @@
   "_key": "!items!71e88aaa9b31cf15",
   "name": "Power Plant 7D",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "1,899,600cr",

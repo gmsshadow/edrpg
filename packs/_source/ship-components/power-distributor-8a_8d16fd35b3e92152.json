@@ -3,7 +3,7 @@
   "_key": "!items!8d16fd35b3e92152",
   "name": "Power Distributor 8A",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "27,249,390cr",

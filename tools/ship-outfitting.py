@@ -88,7 +88,7 @@ def write_weapons():
 
 
 # ---- Ship components --------------------------------------------------------------------------------------------------
-ICON = {"fixed": "icons/svg/anvil.svg", "internal": "icons/svg/item-bag.svg", "utility": "icons/svg/upgrade.svg"}
+ICON = {"fixed": "systems/edrpg/assets/icons/component.svg", "internal": "icons/svg/item-bag.svg", "utility": "icons/svg/upgrade.svg"}
 STATS = ["output", "range", "capacity", "shields", "hull", "hullBonus", "shieldBoost", "strengthBonus", "speed", "agility", "toHit",
          "initiative", "dogfighting", "shieldRecharge", "floating", "generalScan", "systems", "mining", "recharge", "duration"]
 

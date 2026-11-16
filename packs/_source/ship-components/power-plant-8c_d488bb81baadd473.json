@@ -3,7 +3,7 @@
   "_key": "!items!d488bb81baadd473",
   "name": "Power Plant 8C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "18,065,170cr",

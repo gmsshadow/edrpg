@@ -3,7 +3,7 @@
   "_key": "!items!02c974750fecb720",
   "name": "Sensors 4E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "11,350cr",

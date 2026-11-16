@@ -3,7 +3,7 @@
   "_key": "!items!9b996853d958e93b",
   "name": "Sensors 5E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "31,780cr",

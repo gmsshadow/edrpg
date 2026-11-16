@@ -15,7 +15,7 @@ import { useKarmaCapability, restKarma, builtInEscapeDeath } from "../karma.mjs"
 import { honoraryRanks } from "../config.mjs";
 import { endAdventure } from "../advancement.mjs";
 import { betweenAdventures } from "../between-adventures.mjs";
-import { openHireCrew } from "../crew.mjs";
+import { openHireCrew, crewView } from "../crew.mjs";
 import { promptStartingShip, fleetView, assignCraft, setActiveShip } from "../fleet.mjs";
 import { isCraft } from "../data/vehicle.mjs";
 import { fightingWeapon } from "../dice/attack.mjs";
@@ -78,6 +78,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          creationFinish: EDActorSheet.#onCreationFinish,
          creationShip: EDActorSheet.#onCreationShip,
          openCraft: EDActorSheet.#onOpenCraft,
+         openCrew: EDActorSheet.#onOpenCrew,
          activeShip: EDActorSheet.#onActiveShip,
          releaseCraft: EDActorSheet.#onReleaseCraft,
          rankUp: EDActorSheet.#onRankUp,
@@ -142,6 +143,7 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
          tabs: this._prepareTabs("primary"),
          isCharacter,
          fleet: isCharacter ? fleetView(actor) : null,
+         hiredCrew: isCharacter ? crewView(actor) : [],
          isPartner,
          partnerInfo: isPartner ? this.#partnerInfo() : null,
          partners: partnersOf(actor).map((p) => ({ uuid: p.uuid, name: p.name })),
@@ -639,6 +641,11 @@ export default class EDActorSheet extends HandlebarsApplicationMixin(ActorSheetV
    /** @this {EDActorSheet} */
    static async #onOpenCraft(event, target) {
       (await fromUuid(target.closest("[data-craft]").dataset.craft))?.sheet.render({ force: true });
+   }
+
+   /** @this {EDActorSheet} Open a hired crew member's stat block. */
+   static async #onOpenCrew(event, target) {
+      (await fromUuid(target.closest("[data-crew]").dataset.crew))?.sheet.render({ force: true });
    }
 
    /** @this {EDActorSheet} Make this the current ship (Between Adventures uses it first). */

@@ -3,7 +3,7 @@
   "_key": "!items!3d46dab74e9aff2d",
   "name": "Type 3 Armoured Carapace",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Can no longer wear clothes or other armour. Counts as a space suit: 8 hours of air.</p>",
     "cost": "2,880,000cr",

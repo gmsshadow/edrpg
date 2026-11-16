@@ -6,6 +6,7 @@
  * - defeating an enemy (killed, routed or surrendered) of the party's Tier or higher: 1.
  * The GM picks who earns them; going up a rank then shows on each character's sheet as usual.
  */
+import { partyCharacters } from "./party.mjs";
 import { ranks, rankFor } from "./config.mjs";
 import { TIER_OF_RANK } from "./supplement-data.mjs";
 
@@ -31,7 +32,7 @@ export function awardPoints(kind, amount) {
 }
 
 /** The party: characters with a player owner. */
-const party = () => (game.actors ?? []).filter((a) => a.type === "character" && a.hasPlayerOwner);
+const party = () => partyCharacters();
 
 /**
  * Give Rank Points to characters and post the result.

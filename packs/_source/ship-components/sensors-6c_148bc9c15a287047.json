@@ -3,7 +3,7 @@
   "_key": "!items!148bc9c15a287047",
   "name": "Sensors 6C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "556,110cr",

@@ -8,6 +8,7 @@
  *   damage, the groups to fight, and step-by-step play for the Alien Ruins traps and the Relic AI Base. Alien Items,
  *   Rare items, the crashed ship and its cargo are rolled and linked to the compendiums.
  */
+import { partyCharacters } from "./party.mjs";
 import { EVENT_TABLES, OPPONENT_TABLES } from "./generation-data.mjs";
 import { MISSION_REWARDS } from "./mission-data.mjs";
 import { BODY_TYPES } from "./starsystem.mjs";
@@ -97,7 +98,7 @@ export const RELIC_EVENTS = [
 
 /** The party's characters (for random players and team damage). */
 export function partyActors() {
-   return (game.actors ?? []).filter((a) => a.type === "character" && a.hasPlayerOwner);
+   return partyCharacters();
 }
 
 /** One row of an event table by roll. */

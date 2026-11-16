@@ -3,7 +3,7 @@
   "_key": "!items!d8ab25476aea20c9",
   "name": "Class 1 Leg Jets",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Fly 20 metres instead of moving. Once per hour.</p>",
     "cost": "20,000cr",

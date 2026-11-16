@@ -3,7 +3,7 @@
   "_key": "!items!31a1a48cc893839d",
   "name": "Spaceship Repair Kit, Professional",
   "type": "gear",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/repair-kit.svg",
   "system": {
     "description": "<p>+4 to Repair for emergency and field repairs on your ship.</p>",
     "cost": "3,000,000cr",

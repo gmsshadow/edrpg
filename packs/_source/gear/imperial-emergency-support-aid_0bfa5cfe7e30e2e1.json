@@ -3,7 +3,7 @@
   "_key": "!items!0bfa5cfe7e30e2e1",
   "name": "Imperial Emergency Support Aid",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>Automatic: roll percentile at 0 Endurance or below; 100 overloads your heart.</p>",
     "cost": "700,000cr",

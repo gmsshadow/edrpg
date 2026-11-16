@@ -362,7 +362,7 @@
       "_key": "!actors.items!cf8bdb7132b7cd6d.c92da942cc8ad5b7",
       "name": "Power Plant 2E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,980cr",
@@ -415,7 +415,7 @@
       "_key": "!actors.items!cf8bdb7132b7cd6d.9d848911fa7a50ce",
       "name": "Thrusters 3E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "6,270cr",
@@ -468,7 +468,7 @@
       "_key": "!actors.items!cf8bdb7132b7cd6d.20d2a1004aae337e",
       "name": "Frame Shift Drive 3E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "6,270cr",
@@ -521,7 +521,7 @@
       "_key": "!actors.items!cf8bdb7132b7cd6d.842284b5e1e9580a",
       "name": "Life Support 1E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
         "cost": "520cr",
@@ -574,7 +574,7 @@
       "_key": "!actors.items!cf8bdb7132b7cd6d.f31fe3b80196dc6d",
       "name": "Power Distributor 2E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,450cr",
@@ -627,7 +627,7 @@
       "_key": "!actors.items!cf8bdb7132b7cd6d.cc89f09f5084aead",
       "name": "Sensors 2E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,450cr",

@@ -3,7 +3,7 @@
   "_key": "!items!27af676e16fd75ed",
   "name": "Class 4 Leg Jets",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Fly 30 metres instead of moving. Unlimited use.</p>",
     "cost": "5,000,000cr",

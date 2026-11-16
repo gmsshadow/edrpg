@@ -3,7 +3,7 @@
   "_key": "!items!6329bc937b7d69d9",
   "name": "Replacement Cybernetic Leg",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces your existing leg.</p>",
     "cost": "7,000cr",

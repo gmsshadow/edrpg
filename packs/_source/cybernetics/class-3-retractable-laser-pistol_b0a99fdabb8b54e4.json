@@ -3,7 +3,7 @@
   "_key": "!items!b0a99fdabb8b54e4",
   "name": "Class 3 Retractable Laser Pistol",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Hidden Magnetising Hotshot Laserpistol in the arm.</p>",
     "cost": "4,000,000cr",

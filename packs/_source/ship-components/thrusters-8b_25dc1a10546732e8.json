@@ -3,7 +3,7 @@
   "_key": "!items!25dc1a10546732e8",
   "name": "Thrusters 8B",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "54,195,500cr",

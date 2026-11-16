@@ -3,7 +3,7 @@
   "_key": "!items!ee2d8a84d0c1b847",
   "name": "Vehicle Repair Kit, Basic",
   "type": "gear",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/repair-kit.svg",
   "system": {
     "description": "<p>Allows emergency and field repairs on vehicles.</p>",
     "cost": "50cr",

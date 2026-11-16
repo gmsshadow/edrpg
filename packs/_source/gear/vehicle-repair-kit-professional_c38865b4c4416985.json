@@ -3,7 +3,7 @@
   "_key": "!items!c38865b4c4416985",
   "name": "Vehicle Repair Kit, Professional",
   "type": "gear",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/repair-kit.svg",
   "system": {
     "description": "<p>+4 to Repair for emergency and field repairs on your vehicle.</p>",
     "cost": "1,000,000cr",

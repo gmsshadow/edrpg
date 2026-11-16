@@ -3,7 +3,7 @@
   "_key": "!items!b06920d6d099bd7f",
   "name": "Sensors 2C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "9,050cr",

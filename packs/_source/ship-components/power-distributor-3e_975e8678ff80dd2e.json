@@ -3,7 +3,7 @@
   "_key": "!items!975e8678ff80dd2e",
   "name": "Power Distributor 3E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "4,050cr",

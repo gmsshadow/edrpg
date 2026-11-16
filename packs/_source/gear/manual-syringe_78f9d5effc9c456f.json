@@ -3,7 +3,7 @@
   "_key": "!items!78f9d5effc9c456f",
   "name": "Manual Syringe",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>Takes an action to apply.</p>",
     "cost": "2mcr",

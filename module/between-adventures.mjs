@@ -18,6 +18,7 @@
  * lowest yield.
  */
 import { serviceCost } from "./ship-upkeep.mjs";
+import { partyCharacters } from "./party.mjs";
 import { ranks } from "./config.mjs";
 import { judge } from "./dice/resolve.mjs";
 import { addictionPhase } from "./addiction.mjs";
@@ -514,8 +515,7 @@ export async function rollRareItem(rank) {
 export async function openRareItems() {
    const counts = {};
    let players = 0;
-   for (const a of game.actors ?? []) {
-      if (a.type !== "character" || !a.hasPlayerOwner) continue;
+   for (const a of partyCharacters()) {
       players += 1;
       counts[a.system.rank?.key] = (counts[a.system.rank?.key] ?? 0) + 1;
    }

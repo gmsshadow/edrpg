@@ -328,7 +328,7 @@
       "_key": "!actors.items!162df715b5b861af.de25c58944d75c36",
       "name": "Power Plant 2E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,980cr",
@@ -381,7 +381,7 @@
       "_key": "!actors.items!162df715b5b861af.e538b9b8d9a36a9f",
       "name": "Thrusters 2E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "1,980cr",
@@ -434,7 +434,7 @@
       "_key": "!actors.items!162df715b5b861af.81e0f18e6f9f6206",
       "name": "Frame Shift Drive 2D",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "5,930cr",
@@ -487,7 +487,7 @@
       "_key": "!actors.items!162df715b5b861af.f47e78fb45c595e9",
       "name": "Life Support 1E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
         "cost": "520cr",
@@ -540,7 +540,7 @@
       "_key": "!actors.items!162df715b5b861af.44c7aafcf826a181",
       "name": "Power Distributor 1E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "520cr",
@@ -593,7 +593,7 @@
       "_key": "!actors.items!162df715b5b861af.3f8da78dbf7895a9",
       "name": "Sensors 1E",
       "type": "shipComponent",
-      "img": "icons/svg/anvil.svg",
+      "img": "systems/edrpg/assets/icons/component.svg",
       "system": {
         "description": "<p><em>Core Rules</em></p>",
         "cost": "520cr",

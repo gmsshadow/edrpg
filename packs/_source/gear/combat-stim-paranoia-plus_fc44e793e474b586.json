@@ -3,7 +3,7 @@
   "_key": "!items!fc44e793e474b586",
   "name": "Combat Stim: Paranoia Plus",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>As Combat Stim; +10 to Dodge Skill score while in effect.</p>",
     "cost": "5,000cr",

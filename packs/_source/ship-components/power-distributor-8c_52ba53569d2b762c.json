@@ -3,7 +3,7 @@
   "_key": "!items!52ba53569d2b762c",
   "name": "Power Distributor 8C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "4,359,900cr",

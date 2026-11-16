@@ -3,7 +3,7 @@
   "_key": "!items!eb43d45bbe4a8c7c",
   "name": "Life Support 6E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
     "cost": "88,980cr",

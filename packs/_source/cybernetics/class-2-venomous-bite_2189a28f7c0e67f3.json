@@ -3,7 +3,7 @@
   "_key": "!items!2189a28f7c0e67f3",
   "name": "Class 2 Venomous Bite",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>After a successful Fighting attack, bite for an extra 2D10 Toxic damage. Twice per day. Combines with Toxin Injectors.</p><p><em>Espionage Supplement</em></p>",
     "cost": "350,000cr",

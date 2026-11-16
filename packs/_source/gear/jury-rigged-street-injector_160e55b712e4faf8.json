@@ -3,7 +3,7 @@
   "_key": "!items!160e55b712e4faf8",
   "name": "Jury Rigged 'Street Injector'",
   "type": "gear",
-  "img": "icons/svg/pill.svg",
+  "img": "systems/edrpg/assets/icons/stim.svg",
   "system": {
     "description": "<p>Automatic: roll percentile at 0 Endurance or below; 100 overloads your heart.</p>",
     "cost": "90cr",

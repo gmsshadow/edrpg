@@ -3,7 +3,7 @@
   "_key": "!items!9d01da5c55e96321",
   "name": "Sensors 6E",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "88,980cr",

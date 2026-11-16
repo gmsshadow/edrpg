@@ -3,7 +3,7 @@
   "_key": "!items!4d1530e04990f441",
   "name": "Frame Shift Drive 6A",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "16,179,530cr",

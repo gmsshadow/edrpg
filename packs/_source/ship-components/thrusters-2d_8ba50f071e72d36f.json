@@ -3,7 +3,7 @@
   "_key": "!items!8ba50f071e72d36f",
   "name": "Thrusters 2D",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "5,930cr",

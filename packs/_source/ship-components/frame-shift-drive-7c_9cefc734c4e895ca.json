@@ -3,7 +3,7 @@
   "_key": "!items!9cefc734c4e895ca",
   "name": "Frame Shift Drive 7C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "5,698,800cr",

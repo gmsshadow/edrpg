@@ -3,7 +3,7 @@
   "_key": "!items!9f490a3287f3b2ef",
   "name": "Replacement Cybernetic Arm",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Replaces your existing arm.</p>",
     "cost": "6,000cr",

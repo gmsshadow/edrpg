@@ -14,6 +14,7 @@
  * Crew are created as opponent (stat block) actors in a "Crew" folder, so they can be put in a ship's pilot or gunner
  * seat, and remember who employs them (flags.edrpg.crew).
  */
+import { partyCharacters } from "./party.mjs";
 import { die } from "./starsystem.mjs";
 import { fleetOf } from "./fleet.mjs";
 
@@ -97,6 +98,14 @@ export function crewOf(actor, ship = null) {
    return game.actors?.filter((a) => a.getFlag?.("edrpg", "crew")?.employer === actor.uuid && (!ship || a.getFlag("edrpg", "crew")?.ship === ship.uuid)) ?? [];
 }
 
+/** A character's hired crew, for their sheet: name, ship, salary. */
+export function crewView(actor) {
+   return crewOf(actor).map((a) => {
+      const f = a.getFlag("edrpg", "crew") ?? {};
+      return { uuid: a.uuid, name: a.name, img: a.img, ship: f.ship ? (fromUuidSync(f.ship)?.name ?? "") : "", salary: cr(f.salary ?? 0) };
+   });
+}
+
 /** A compendium item copied by name, if the system has it. */
 async function itemNamed(packId, re) {
    const pack = game.packs.get(`edrpg.${packId}`);
@@ -173,8 +182,10 @@ export async function createCrewActor(c, employer = null, ship = null) {
  */
 export async function openHireCrew(employer = null) {
    const row = (label, field, hint = "") => `<div class="form-group"><label>${label}</label><div class="form-fields">${field}</div>${hint ? `<p class="hint">${hint}</p>` : ""}</div>`;
-   // The employer's ships: crew can be signed on for one of them (Between Adventures needs NPC ships fully crewed).
-   const ships = employer ? fleetOf(employer).filter((a) => a.type === "ship") : [];
+   // From the GM's sidebar button: pick who employs them (or nobody: the GM's own NPC crew).
+   const employers = employer ? [employer] : partyCharacters();
+   // The employers' ships: crew can be signed on for one of them (Between Adventures needs NPC ships fully crewed).
+   const ships = employers.flatMap((e) => fleetOf(e).filter((a) => a.type === "ship").map((s) => ({ ship: s, employer: e })));
    const first = await foundry.applications.api.DialogV2.input({
       window: { title: employer ? L("EDRPG.crew.titleFor", { name: employer.name }) : L("EDRPG.crew.title"), icon: "fa-solid fa-user-astronaut" },
       classes: ["edrpg", "edrpg-dialog"],
@@ -182,7 +193,8 @@ export async function openHireCrew(employer = null) {
          `<p class="hint">${L("EDRPG.crew.intro")}</p>` +
          row(L("EDRPG.crew.how"), `<select name="how"><option value="hurry">${L("EDRPG.crew.hurry")}</option><option value="interview">${L("EDRPG.crew.interview")}</option></select>`, L("EDRPG.crew.howHint")) +
          row(L("EDRPG.crew.count"), `<input type="number" name="count" value="1" min="1" max="6" step="1">`) +
-         (ships.length ? row(L("EDRPG.crew.ship"), `<select name="ship"><option value="">—</option>${ships.map((a) => `<option value="${a.uuid}">${esc(a.name)}</option>`).join("")}</select>`, L("EDRPG.crew.shipHint")) : ""),
+         (employer ? "" : row(L("EDRPG.crew.employer"), `<select name="employer"><option value="">${L("EDRPG.crew.noEmployer")}</option>${employers.map((a) => `<option value="${a.uuid}">${esc(a.name)}</option>`).join("")}</select>`, L("EDRPG.crew.employerHint"))) +
+         (ships.length ? row(L("EDRPG.crew.ship"), `<select name="ship"><option value="">—</option>${ships.map(({ ship: a, employer: e }) => `<option value="${a.uuid}">${esc(a.name)}${employer ? "" : ` (${esc(e.name)})`}</option>`).join("")}</select>`, L("EDRPG.crew.shipHint")) : ""),
       ok: { label: "EDRPG.crew.rollButton", icon: "fa-solid fa-dice-d10" },
       rejectClose: false,
    });
@@ -206,15 +218,20 @@ export async function openHireCrew(employer = null) {
       hired = candidates.filter((_, i) => pick[`c${i}`]);
    }
    const actors = [];
-   const ship = first.ship ? (ships.find((a) => a.uuid === first.ship) ?? null) : null;
+   const chosen = first.ship ? (ships.find((x) => x.ship.uuid === first.ship) ?? null) : null;
+   // A ship belongs to its owner: picking one also picks its employer.
+   employer ??= chosen?.employer ?? employers.find((a) => a.uuid === first.employer) ?? null;
+   const ship = chosen && chosen.employer === employer ? chosen.ship : null;
    for (const c of hired) actors.push(await createCrewActor(c, employer, ship));
+   if (!actors.length && first.how === "interview") ui.notifications.info(L("EDRPG.crew.noneHired"));
    if (actors.length) {
       await ChatMessage.create({
          speaker: employer ? ChatMessage.getSpeaker({ actor: employer }) : ChatMessage.getSpeaker(),
          content: `<div class="edrpg edrpg-chat edrpg-crew-card"><h3><i class="fa-solid fa-user-astronaut"></i> ${L("EDRPG.crew.hired", { count: actors.length })}</h3><ul>${hired
             .map((c, i) => `<li>@UUID[${actors[i].uuid}]{${esc(c.name)}} — ${L("EDRPG.crew.statLine", { pilot: c.shipPiloting, weapons: c.shipWeapons, systems: c.systems, repair: c.repair, combat: c.combat })}, ${L(`EDRPG.crew.morality.${c.morality}`)}, ${cr(c.salary)}</li>`)
-            .join("")}</ul><p class="hint">${L("EDRPG.crew.wagesNote")}</p></div>`,
+            .join("")}</ul><p class="hint">${L(employer ? "EDRPG.crew.whereEmployed" : "EDRPG.crew.whereGM", { name: esc(employer?.name ?? ""), ship: esc(ship?.name ?? "") })}</p><p class="hint">${L("EDRPG.crew.wagesNote")}</p></div>`,
       });
+      ui.notifications.info(L("EDRPG.crew.hiredNotice", { count: actors.length, folder: L("EDRPG.crew.folder") }));
    }
    return actors;
 }

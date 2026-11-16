@@ -3,7 +3,7 @@
   "_key": "!items!39468c090eb64dff",
   "name": "Power Distributor 2D",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "3,620cr",

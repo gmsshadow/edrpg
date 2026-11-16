@@ -49,7 +49,7 @@ export function registerStatusEffects() {
       { id: STATUS.aiming, name: "EDRPG.status.aiming", img: "icons/svg/target.svg" },
       { id: STATUS.grabbed, name: "EDRPG.status.grabbed", img: "icons/svg/net.svg" },
       { id: STATUS.grabbing, name: "EDRPG.status.grabbing", img: "icons/svg/combat.svg" },
-      { id: STATUS.stimmed, name: "EDRPG.status.stimmed", img: "icons/svg/pill.svg" },
+      { id: STATUS.stimmed, name: "EDRPG.status.stimmed", img: "systems/edrpg/assets/icons/stim.svg" },
    ];
    const rest = CONFIG.statusEffects.filter((e) => !ours.some((o) => o.id === e.id));
    CONFIG.statusEffects = [...ours.map((o) => ({ ...CONFIG.statusEffects.find((e) => e.id === o.id), ...o })), ...rest];

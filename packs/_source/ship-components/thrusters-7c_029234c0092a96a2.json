@@ -3,7 +3,7 @@
   "_key": "!items!029234c0092a96a2",
   "name": "Thrusters 7C",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p><em>Core Rules</em></p>",
     "cost": "5,698,790cr",

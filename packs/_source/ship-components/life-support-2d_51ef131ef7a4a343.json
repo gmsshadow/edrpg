@@ -3,7 +3,7 @@
   "_key": "!items!51ef131ef7a4a343",
   "name": "Life Support 2D",
   "type": "shipComponent",
-  "img": "icons/svg/anvil.svg",
+  "img": "systems/edrpg/assets/icons/component.svg",
   "system": {
     "description": "<p>Strength is the canopy's.</p><p><em>Core Rules</em></p>",
     "cost": "3,620cr",

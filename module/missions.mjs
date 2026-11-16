@@ -10,6 +10,7 @@
  *   Special Spectral star).
  * The result is posted to chat and can be saved as a journal entry. The summaries are short; the book has the scenes.
  */
+import { partyCharacters } from "./party.mjs";
 import { MISSIONS, MISSION_REWARDS } from "./mission-data.mjs";
 import { ranks } from "./config.mjs";
 import { die } from "./starsystem.mjs";
@@ -108,7 +109,7 @@ export async function openMissionGenerator() {
    const themes = [`<option value="">${L("EDRPG.mission.randomTheme")}</option>`, ...THEMES.map((t) => `<option value="${t}">${L(`EDRPG.mission.theme.${t}`)}</option>`)].join("");
    // Default to the most common rank among the players' characters.
    const counts = {};
-   for (const a of game.actors ?? []) if (a.type === "character" && a.hasPlayerOwner) counts[a.system.rank?.key] = (counts[a.system.rank?.key] ?? 0) + 1;
+   for (const a of partyCharacters()) counts[a.system.rank?.key] = (counts[a.system.rank?.key] ?? 0) + 1;
    const partyRank = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] ?? "harmless";
    const rankOptions = ranks.map((r) => `<option value="${r.key}"${r.key === partyRank ? " selected" : ""}>${L(r.name)}</option>`).join("");
    const input = await foundry.applications.api.DialogV2.input({

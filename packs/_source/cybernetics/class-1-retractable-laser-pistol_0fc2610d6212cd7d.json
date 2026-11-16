@@ -3,7 +3,7 @@
   "_key": "!items!0fc2610d6212cd7d",
   "name": "Class 1 Retractable Laser Pistol",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>Hidden Laser Pistol in the arm.</p>",
     "cost": "20,000cr",

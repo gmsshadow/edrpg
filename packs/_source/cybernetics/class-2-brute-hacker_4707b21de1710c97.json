@@ -3,7 +3,7 @@
   "_key": "!items!4707b21de1710c97",
   "name": "Class 2 Brute Hacker",
   "type": "cybernetic",
-  "img": "icons/svg/circle.svg",
+  "img": "systems/edrpg/assets/icons/cybernetic.svg",
   "system": {
     "description": "<p>+2 to Security and Computer checks; on a success the lock or computer is destroyed (doors stay open, data is lost). Installed into an existing cybernetic. After a successful Fighting attack on a drone or robot, roll D10 + Cyber bonus against D10 + the drone controller's Cyber bonus (or the robot's To Hit): higher deactivates it. Illegal.</p><p><em>Espionage Supplement</em></p>",
     "cost": "150,000cr",
